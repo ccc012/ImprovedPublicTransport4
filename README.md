@@ -1,187 +1,201 @@
 # Improved Public Transport 4 (IPT4)
 
-IPT4 é uma continuação prática do legado do IPT/IPT2/IPT3 para **Cities: Skylines**, focada em dar mais controle sobre o transporte público sem obrigar o jogador a lidar com dezenas de mods separados. A ideia é simples: facilitar o ajuste das linhas, reduzir comportamento ruim da frota, melhorar paradas e veículos, e deixar o sistema mais previsível para cidades pequenas e grandes.
+Improved Public Transport 4 is a practical continuation of the IPT/IPT2/IPT3 mod line for **Cities: Skylines**. It is aimed first at regular players who want better control over public transport without juggling a pile of separate mods.
 
-## O que o IPT4 melhora
+In short, IPT4 helps you run lines more clearly, reduce bad vehicle spacing, get better information about stops and vehicles, and tune transport behavior with simpler in-game controls.
 
-Para jogadores comuns, o IPT4 melhora principalmente estes pontos:
+## What IPT4 improves
 
-- controle mais claro da quantidade de veículos por linha
-- possibilidade de escolher quais veículos podem operar em cada linha
-- ferramentas para reduzir comboios de ônibus, bondes e outros veículos andando grudados
-- mais informações úteis sobre paradas, linhas e veículos
-- ajustes de preço de passagem, quando esse recurso estiver ativado
-- melhorias de qualidade de vida vindas de integrações consolidadas no próprio projeto
+For most players, IPT4 mainly improves these areas:
 
-## Requisitos
+- clearer control over how many vehicles each line uses
+- the ability to restrict which vehicle models may run on a line
+- tools to reduce buses, trams, and other vehicles bunching together
+- better stop, line, and vehicle information in the game UI
+- fare customization features when enabled
+- quality-of-life features consolidated from earlier related mods
 
-- **Cities: Skylines 1**
-- versão do jogo compatível com a base atual do projeto
-- dependências do ecossistema usadas pelo mod, quando exigidas pela instalação do jogador
-- DLCs são opcionais, mas alguns recursos e tipos de transporte só aparecem se o conteúdo correspondente existir no jogo
+## Requirements
 
-## Instalação
+- **Cities: Skylines (the original game)**
+- **Harmony** is required for the patching-based features used by the mod
+- **After Dark** is required for features tied to that DLC, such as taxi-related behavior and cycling-related adjustments where applicable
+- other DLCs are optional, but transport types and features tied to those DLCs only appear if you own them
 
-### Instalação manual
+## Installation
 
-1. Feche o jogo.
-2. Baixe ou copie a versão publicada do IPT4.
-3. Coloque a pasta do mod dentro de:
-   - `C:\Users\<seu-usuario>\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\`
-4. Abra o jogo e ative o mod no gerenciador de conteúdo, se necessário.
+### Manual installation
 
-### Atualizando uma instalação existente
+1. Close the game.
+2. Download the release package for IPT4.
+3. Extract the included `ImprovedPublicTransport4` folder into:
+   - `C:\Users\<your-user>\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\`
+4. Start the game and enable the mod in Content Manager if needed.
 
-1. Feche o jogo.
-2. Substitua a pasta antiga do IPT4 pela nova.
-3. Abra o jogo novamente.
-4. Revise as opções do mod antes de continuar um save importante.
+### Updating an existing installation
 
-## Como usar as configurações simples
+1. Close the game.
+2. Replace the old `ImprovedPublicTransport4` folder with the new one.
+3. Start the game again.
+4. Review the mod options before continuing an important save.
 
-Se você quer apenas jogar com menos complicação, este é o caminho recomendado:
+## Simple setup for regular players
 
-### 1. Ajuste o básico das linhas
+If you just want a better public transport experience with less micromanagement, this is the recommended path.
 
-Abra uma linha de transporte e use o painel do IPT4 para:
+### 1. Start with line-level controls
 
-- aumentar ou reduzir a frota manualmente
-- ver quantos veículos estão ativos ou em fila
-- trocar a garagem quando isso estiver disponível
+Open a transport line and use the IPT4 panel to:
 
-### 2. Ative o controle de orçamento, se quiser algo mais automático
+- add or remove vehicles manually
+- see active vehicles and queued vehicles
+- change the depot when that option is available
 
-O modo de orçamento deixa o jogo controlar a frota com base no sistema de orçamento da linha. É útil para quem não quer administrar linha por linha o tempo todo.
+### 2. Use budget control if you want less manual work
 
-### 3. Use a distribuição de veículos para reduzir comboios
+Budget mode lets the game manage vehicle counts through line budget behavior. It is useful if you do not want to tune every line by hand all the time.
 
-Se vários veículos da mesma linha ficam chegando juntos, aumente a configuração de distribuição de veículos. Em geral, isso já melhora bastante o espaçamento sem exigir mudanças profundas na cidade.
+### 3. Turn on vehicle unbunching if lines are clumping
 
-### 4. Verifique paradas problemáticas
+If multiple vehicles from the same line keep arriving together, raise the unbunching setting. In many cities, that already improves service spacing a lot.
 
-Ao clicar numa parada, o IPT4 mostra informações que ajudam a identificar gargalos:
+### 4. Check problematic stops
 
-- passageiros esperando
-- embarques e desembarques
-- tempo até desistência
-- navegação para parada anterior e próxima
+Clicking a stop gives you information that helps you find bottlenecks:
 
-### 5. Ajuste tipos de veículos apenas quando fizer sentido
+- waiting passengers
+- boarding and alighting activity
+- time until passengers give up waiting
+- navigation to the previous and next stop
 
-Se uma linha estiver usando modelos inadequados, abra a seleção de veículos e limite a operação aos modelos que você realmente quer naquela linha.
+### 5. Only restrict vehicle types when you need to
 
-## Configuração recomendada para começar
+If a line is using poor vehicle choices, open the vehicle selection UI and limit the line to the models you actually want there.
 
-Para a maioria dos jogadores, vale começar assim:
+## Recommended starting configuration
 
-- controle por orçamento: ativado, se você prefere menos microgerenciamento
-- distribuição de veículos: ativada
-- editor de veículos: deixar no padrão até entender o impacto
-- preços de passagem: manter no padrão no primeiro teste
-- limites de parada/estação: só mexer se houver superlotação ou comportamento estranho
+For most players, a safe starting point is:
 
-## Recursos principais
+- budget control: enabled if you prefer less micromanagement
+- unbunching: enabled
+- vehicle editor: leave at default until you understand the impact
+- ticket prices: leave at default for your first test
+- stop and station passenger limits: only adjust if you are seeing overcrowding or odd behavior
 
-### Controle de linhas
+## Main features
 
-Permite administrar quantidade de veículos, fila de spawn, tipos permitidos e comportamento de espaçamento por linha.
+### Line control
 
-### Informações de paradas
+Manage vehicle counts, spawn queues, allowed vehicle types, and line-level spacing behavior.
 
-Ajuda a descobrir onde a rede está falhando, com foco em leitura rápida durante o jogo.
+### Stop information
 
-### Editor de veículos
+Get a faster read on where your network is failing and which stops are under pressure.
 
-Permite ajustar capacidade, custo e velocidade em casos específicos. Para a maioria dos jogadores, isso é opcional.
+### Vehicle editor
 
-### Ajustes de passagem
+Adjust capacity, cost, and speed for specific use cases. Most players can ignore this at first.
 
-Quando o recurso estiver ativo, você pode alterar o preço por tipo de transporte para mudar demanda e receita.
+### Ticket price tools
 
-## Compatibilidade para jogadores
+When enabled, these let you adjust pricing by transport type to influence demand and revenue.
 
-- O IPT4 busca consolidar funções que antes exigiam mods separados.
-- Isso reduz conflito, mas não elimina incompatibilidades com outros mods que mexem exatamente nas mesmas telas, sistemas de linha ou patches Harmony.
-- Se você já usa mods antigos com funções parecidas, o ideal é não manter duplicidade.
+## Compatibility for players
 
-## Solução rápida de problemas
+- IPT4 tries to consolidate features that used to require separate mods.
+- That reduces overlap, but it does not eliminate conflicts with other mods that patch the same transport systems, panels, or Harmony targets.
+- If you already use older mods that do the same jobs, avoid keeping duplicate functionality enabled.
 
-### O mod aparece, mas algo não mudou no jogo
+## Quick troubleshooting
 
-- confirme se o mod está ativado
-- feche e abra o jogo após atualizar a pasta
-- teste em um save separado antes de concluir que a função não funciona
+### The mod is enabled, but something does not seem to change
 
-### Veículos continuam andando em comboio
+- make sure the mod is actually enabled in Content Manager
+- restart the game after replacing the mod folder
+- test in a separate save before assuming a feature is broken
 
-- aumente a agressividade da distribuição de veículos
-- confirme se a linha específica está com a opção ativa
-- verifique se a cidade não tem gargalos extremos que forçam todos os veículos a parar no mesmo ponto
+### Vehicles are still bunching together
 
-### A linha usa veículos errados
+- increase the unbunching aggression setting
+- confirm the specific line has the relevant option enabled
+- check whether your city has extreme bottlenecks forcing every vehicle to stop at the same point
 
-- abra a seleção de tipos de veículo
-- remova os modelos que não deveriam operar naquela linha
-- confira se a garagem da linha oferece veículos compatíveis
+### The wrong vehicles are being used on a line
 
-### O jogo apresentou conflito com outro mod
+- open vehicle type selection
+- remove models that should not operate there
+- confirm the chosen depot provides compatible vehicles
 
-- desative mods que alterem as mesmas funções de transporte
-- teste o IPT4 sozinho ou com uma combinação mínima
-- reative os outros mods um a um, se precisar localizar o conflito
+### Another mod appears to conflict with IPT4
 
-## Para usuários avançados
+- disable mods that alter the same transport features
+- test IPT4 alone or with a minimal mod set
+- re-enable other mods one by one if you need to isolate the conflict
 
-Esta seção é menor de propósito. O foco do projeto continua sendo o uso prático no jogo.
+## For advanced users
 
-### Configurações detalhadas
+This section is intentionally smaller. IPT4 is still meant to be practical first.
 
-Usuários avançados podem explorar:
+### Detailed configuration
 
-- comportamento detalhado da distribuição de veículos
-- limites de passageiros por tipo de parada e estação
-- personalização de preços por modal
-- editor de veículos para capacidade, custo e velocidade
-- integrações de recursos específicos herdados de versões anteriores
+Advanced users can explore:
 
-### Compatibilidade
+- deeper unbunching behavior tuning
+- passenger limits by stop and station type
+- fare customization by transport mode
+- vehicle editor changes for capacity, cost, and speed
+- integrated feature sets carried over from earlier IPT generations
 
-O principal cuidado é evitar sobreposição com outros mods que:
+### Compatibility notes
 
-- alterem quantidade de veículos por linha
-- mudem lógica de embarque/desembarque
-- modifiquem precificação de transporte
-- instalem patches Harmony nas mesmas rotinas do jogo
+Take extra care with mods that:
 
-### Solução de problemas avançada
+- change line vehicle counts
+- alter boarding or unloading logic
+- modify transport pricing
+- apply Harmony patches to the same game routines
 
-Se algo fugir do esperado:
+### Advanced troubleshooting
 
-- teste com menos mods ativos
-- revise logs e mensagens de conflito
-- compare o comportamento em um save novo e em um save antigo
-- confirme se DLCs e dependências realmente existem no ambiente usado
+If behavior still looks wrong:
 
-## Créditos
+- test with fewer active mods
+- review logs and conflict messages
+- compare behavior in a fresh save versus an older save
+- confirm that required DLCs and Harmony are actually present in the environment you are using
 
-O IPT4 existe graças ao trabalho acumulado da comunidade de modding de Cities: Skylines. Este projeto preserva o crédito histórico das versões anteriores e das integrações que deram origem à base atual.
+## Credits
 
-Autores e mantenedores históricos citados pelo projeto incluem, entre outros:
+IPT4 builds on years of community modding work for Cities: Skylines. This repository preserves historical credit to earlier maintainers and to the source integrations that shaped the current codebase.
 
-- Dontcryjustdie
-- BloodyPenguin
-- Nyoko
-- egi
-- llunak
-- Vectorial1024
-- macsergey
-- dymanoid
-- TaradinoC
+Historical authors, projects, and source code bases referenced by this repository include:
 
-## Licença
+- [DontCryJustDie](https://steamcommunity.com/id/DontCryJustDie)
+- [BloodyPenguin](https://github.com/BloodyPenguin)
+- [Improved Public Transport 2](https://github.com/BloodyPenguin/ImprovedPublicTransport2)
+- [Algernon](https://github.com/algernon-A)
+- [AlgernonCommons](https://github.com/algernon-A/AlgernonCommons)
+- [AutoLineBudget 21](https://github.com/jakeluba/AutoLineBudget21)
+- [Phil Scott / Auto Line Color Redux](https://github.com/phillipscott)
+- [Nyoko](https://github.com/NyokoDev)
+- [egi](https://github.com/eg2dl)
+- [llunak](https://github.com/llunak)
+- [Vectorial1024](https://github.com/Vectorial1024)
+- [macsergey](https://github.com/macsergey)
+- [dymanoid](https://github.com/dymanoid)
+- [TaradinoC](https://github.com/Taradino)
 
-Os créditos e as licenças dos componentes originais devem ser preservados. Licenças específicas de integrações e partes incorporadas permanecem nos respectivos diretórios do projeto, especialmente dentro de `Integration/` quando aplicável.
+## License
 
-## Documentação técnica
+This repository is distributed under the **GNU General Public License v3.0**, which matches the copyleft obligations already present in GPL-licensed source integrated into the project.
 
-Este README não é documentação para desenvolvedores. Se a parte técnica do IPT4 precisar crescer, a documentação de arquitetura, build, compatibilidade interna e decisões de projeto poderá ficar em uma área separada do repositório no futuro.
+Important details:
+
+- component-specific notices remain in their original directories
+- MIT-licensed parts such as [AlgernonCommons](https://github.com/algernon-A/AlgernonCommons) and several integrated modules retain their own copyright and permission notices
+- GPL-licensed integrated modules also keep their original license texts in place
+- this top-level `LICENSE` file does **not** remove or replace any more specific notice already present in the repository
+
+## Technical documentation
+
+This README is not developer documentation. If technical material grows, architecture notes, build instructions, and deeper implementation documentation can live in a separate area of the repository in the future.
