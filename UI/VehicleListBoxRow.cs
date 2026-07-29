@@ -9,7 +9,6 @@ using System.Text;
 using ColossalFramework;
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Data;
 using UnityEngine;
 using Utils = ImprovedPublicTransport.Util.Utils;

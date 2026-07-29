@@ -1,0 +1,286 @@
+MOD_DESCRIPTION تحكم محسّن في وسائل النقل العام.
+CURRENT_WEEK الأسبوع الحالي
+LAST_WEEK الأسبوع الماضي
+AVERAGE المتوسط
+AVERAGE_TOOLTIP متوسط آخر {0} أسابيع.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS محطات التوقف
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES مركبات المستودع
+CITYSERVICE_ACCEPTINTERCITYBUSES السماح بالحافلات بين المدن
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP السماح للحافلات بين المدن باستخدام هذه المحطة. عطّل هذا الخيار لجعلها للحافلات المحلية فقط.
+
+EXPLANATION_BUDGET_CONTROL التحكم بالميزانية: يتم التحكم في عدد المركبات بواسطة الميزانية.
+EXPLANATION_UNBUNCHING تفريق المركبات: تحاول اللعبة إنشاء فجوة بين المركبات.
+LINE_PANEL_STOPS المحطات: {0}
+LINE_PANEL_SPAWNTIMER المركبة التالية خلال {0} ثانية.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>لا توجد مركبات متبقية في المستودع المحدد.</color>
+LINE_PANEL_BUDGET_CONTROL التحكم بالميزانية
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP يفعّل أو يعطّل التحكم بالميزانية لهذا الخط.
+LINE_PANEL_UNBUNCHING_TOOLTIP يفعّل أو يعطّل تفريق المركبات لهذا الخط.\nيتم تعطيل التفريق إذا كانت شدة التفريق مضبوطة على 0.
+LINE_PANEL_DEPOT المستودع:
+LINE_PANEL_NO_DEPOT_FOUND لم يتم العثور على مستودع.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP انتقل إلى المستودع المحدد.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+LINE_PANEL_SELECT_TYPES اختيار الأنواع
+LINE_PANEL_SELECT_TYPES_TOOLTIP يبدّل لوحة "اختيار الأنواع".\nإذا كان هذا الزر معطلاً، يجب عليك اختيار مستودع أولاً.
+LINE_PANEL_LINE_STOPS محطات الخط
+LINE_PANEL_LINE_VEHICLES المركبات على هذا الخط
+LINE_PANEL_ENQUEUED المركبات في الانتظار
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} راكبًا ينتظرون على هذا الخط.
+LINE_PANEL_ADD_VEHICLE إضافة مركبة
+LINE_PANEL_ADD_VEHICLE_TOOLTIP يضيف مركبة جديدة إلى الخط.\nإذا كان هذا الزر معطلاً، فلا توجد مركبات متبقية في المستودع المحدد.
+LINE_PANEL_REMOVE_VEHICLE إزالة مركبة
+
+STOP_LIST_BOX_ROW_STOP المحطة رقم {0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nالركاب المنتظرون: {1}\n\nانقر بزر الفأرة الأيمن للانتقال إلى هذه المحطة.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP قائمة بأسماء المحطات المقترحة.
+STOP_PANEL_REUSE_NAME_TOOLTIP تعيين هذا الاسم لجميع المحطات الأخرى في هذه المحطة الرئيسية / الموقع.
+STOP_PANEL_WAITING_PEOPLE الركاب المنتظرون: {0}
+STOP_PANEL_BORED_TIMER الوقت المتبقي حتى الملل: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP سيغادر الركاب هذه المحطة عندما يصل هذا العد التنازلي إلى الصفر.
+STOP_PANEL_PASSENGERS_IN الركاب الصاعدون:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP الركاب الذين يدخلون مركبة النقل هنا.
+STOP_PANEL_PASSENGERS_OUT الركاب النازلون:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP الركاب الذين يغادرون مركبة النقل هنا.
+STOP_PANEL_PASSENGERS_TOTAL الإجمالي:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP إجمالي الركاب الذين تمت خدمتهم هنا.
+STOP_PANEL_UNBUNCHING_TOOLTIP يفعّل أو يعطّل تفريق المركبات عند هذه المحطة.\nيتم تعطيل التفريق إذا كانت شدة التفريق مضبوطة على 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS تحديث المحطات القريبة
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP تعيين حالة التفريق لجميع المحطات الأخرى في هذه المحطة الرئيسية / الموقع.
+STOP_PANEL_PREVIOUS المحطة السابقة
+STOP_PANEL_PREVIOUS_TOOLTIP انتقل إلى المحطة السابقة.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+STOP_PANEL_DELETE_STOP حذف المحطة
+STOP_PANEL_DELETE_STOP_TOOLTIP يتم تفعيل هذا الزر أثناء الضغط مع الاستمرار على مفتاح Alt.\nاستخدمه على مسؤوليتك الخاصة!!!
+STOP_PANEL_NEXT المحطة التالية
+STOP_PANEL_NEXT_TOOLTIP انتقل إلى المحطة التالية.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+STOP_BUTTON_TOOLTIP {0}\n\nانقر للانتقال إلى هذه المحطة.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.\nاضغط مع الاستمرار على مفتاح Alt أثناء النقر لمنع فتح لوحة معلومات المحطة.
+
+SETTINGS_DELETE حذف
+SETTINGS_RESET إعادة تعيين
+
+SETTINGS_TAB_GENERAL عام
+SETTINGS_TAB_AUTOLINE الخط التلقائي
+SETTINGS_TAB_STOPS المحطات والمحطات الرئيسية
+SETTINGS_TAB_UNBUNCHING تفريق المركبات
+SETTINGS_TAB_DELETE حذف الخطوط
+
+SETTINGS الإعدادات
+SETTINGS_SPEED إظهار السرعة بوحدة:
+SETTINGS_SPEED_TOOLTIP اختر الوحدة المستخدمة لعرض السرعة في الواجهة.
+SETTINGS_SPEED_KPH كم/س
+SETTINGS_SPEED_MPH ميل/س
+SETTINGS_WALKING_SPEED سرعة المشي/ركوب الدراجة:
+SETTINGS_WALKING_SPEED_TOOLTIP قياسي: سرعات اللعبة الأساسية.\nواقعي: يقلل سرعة المشي إلى قيم واقعية حسب العمر.\nكما يقلل الوضع الواقعي سرعة ركوب الدراجات مع حزمة After Dark.
+SETTINGS_WALKING_SPEED_MODE_VANILLA قياسي
+SETTINGS_WALKING_SPEED_MODE_REALISTIC واقعي
+SETTINGS_BBSP موضع محطة الحافلة المحسّن:
+SETTINGS_BBSP_TOOLTIP معطل: لا يوجد تعديل في الموضع.\nمفعّل: تتوقف الحافلات في مقدمة محطة الحافلة بدلاً من المنتصف.
+SETTINGS_BBSP_MODE_DISABLED معطل
+SETTINGS_BBSP_MODE_ORIGINAL مفعّل
+SETTINGS_BBSP_MODE_UPDATED استخدام المنطق التجريبي
+
+SETTINGS_BUDGET الميزانية
+SETTINGS_ENABLE_BUDGET_CONTROL التحكم بميزانية الخط:
+SETTINGS_BUDGET_CONTROL_DISABLED معطل
+SETTINGS_BUDGET_CONTROL_ENABLED مفعّل
+SETTINGS_BUDGET_CONTROL_TOOLTIP عند التفعيل، يتم التحكم في عدد مركبات خطوط النقل بواسطة الميزانية؛ يحدّث جميع الخطوط الحالية ويمسح المركبات المنتظرة في الطابور.
+SETTINGS_BUDGET_TICKET_PRICES محرر أسعار التذاكر:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED معطل
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED مفعّل
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP عند التفعيل، يضيف علامة تبويب جديدة إلى لوحة الاقتصاد مع أشرطة تمرير لضبط أسعار التذاكر لكل نوع من أنواع النقل.
+SETTINGS_AUTO_LINE_BUDGET تحديد حجم الأسطول تلقائيًا:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED معطل
+SETTINGS_AUTO_LINE_BUDGET_ENABLED مفعّل
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP عند التفعيل، تقوم الخطوط في وضع الميزانية بضبط عدد مركباتها تلقائيًا بناءً على الطلب الفعلي للركاب، بدلاً من شريط تمرير الميزانية الأصلي. لا يتم التأثير على الخطوط المضبوطة على الوضع اليدوي.
+
+SETTINGS_AUTO_LINE الخط التلقائي
+SETTINGS_AUTOSHOW_LINE_INFO فتح لوحة معلومات الخط تلقائيًا
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP إظهار لوحة معلومات الخط تلقائيًا بعد إنشاء خط جديد.
+
+AUTOLINECOLOR_STRATEGY_DISABLED معطل
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE درجة لون عشوائية
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR لون عشوائي
+AUTOLINECOLOR_STRATEGY_CATEGORISED مصنّف
+AUTOLINECOLOR_STRATEGY_NAMED ألوان مسمّاة
+AUTOLINECOLOR_NAMING_DISABLED معطل
+AUTOLINECOLOR_NAMING_DISTRICTS الأحياء
+AUTOLINECOLOR_NAMING_LONDON لندن
+AUTOLINECOLOR_NAMING_ROADS الطرق
+AUTOLINECOLOR_NAMING_COLORS ألوان مسمّاة
+AUTOLINECOLOR_COLOR_STRATEGY استراتيجية الألوان:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP كيفية تعيين الألوان للخطوط الجديدة:\n'درجة لون عشوائية' = نفس التشبع/السطوع، درجات ألوان مختلفة؛\n'لون عشوائي' = لون RGB عشوائي بالكامل؛\n'مصنّف' = ألوان حسب نوع المركبة؛\n'ألوان مسمّاة' = لوحة ألوان محددة مسبقًا.
+AUTOLINECOLOR_NAMING_STRATEGY استراتيجية التسمية:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP كيفية تعيين الأسماء للخطوط الجديدة:\n'بلا' = بدون تسمية تلقائية؛\n'الأحياء' = بناءً على الأحياء المخدومة؛\n'لندن' = طرق مرقّمة (بأسلوب حافلات لندن)؛\n'الطرق' = بناءً على أسماء الشوارع؛\n'ألوان مسمّاة' = بناءً على أسماء الألوان.
+AUTOLINECOLOR_MIN_COLOR_DIFF الحد الأدنى لاختلاف اللون (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP النسبة المئوية الدنيا لاختلاف اللون عند اختيار ألوان عشوائية.
+AUTOLINECOLOR_MAX_COLOR_PICK الحد الأقصى للمحاولات:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP الحد الأقصى لعدد المحاولات لاختيار لون مميز.
+
+SETTINGS_UI إعدادات الواجهة
+SETTINGS_VEHICLE_EDITOR_POSITION موضع محرر المركبات:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP اختر ما إذا كانت لوحة محرر المركبات تظهر أسفل الشاشة أو على الجانب الأيمن منها.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM أسفل
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT يمين
+SETTINGS_VEHICLE_EDITOR_HIDE إخفاء محرر المركبات
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP إخفاء محرر المركبات من لوحات المركبات.
+
+SETTINGS_STOPS محطات النقل العام
+SETTINGS_ENABLE_STOPS_AND_STATIONS تفعيل المحطات والمحطات الرئيسية
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP اضبط الحد الأقصى لعدد المواطنين الذين يمكنهم انتظار وسائل النقل العام في مختلف المحطات والمحطات الرئيسية. قم بالتهيئة في علامة تبويب المحطات.
+SETTINGS_STOPSANDSTATIONS_ENABLE تفعيل المحطات والمحطات الرئيسية
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP تفعيل أو تعطيل فرض حد الركاب عند المحطات.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER الحد الأقصى للركاب المنتظرين عند محطة خط النقل:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS حافلة الخط
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة حافلة الخط
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS الترولي باص
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة الترولي باص
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS حافلة الإخلاء
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة حافلة الإخلاء
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS حافلة سياحية
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة الحافلة السياحية
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM الترام
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة الترام
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO المترو
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة المترو
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN القطار
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة القطار
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL القطار المعلّق
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة القطار المعلّق
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP السفينة
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP الحد الأقصى للركاب المنتظرين عند مرفأ سفن الشحن
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY العبّارة
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة العبّارة
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE الطائرة
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP الحد الأقصى للركاب المنتظرين عند صالة الطائرة
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR التلفريك
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة التلفريك
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON منطاد الهواء الساخن
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة منطاد الهواء الساخن
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER المروحية
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة المروحية
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP المنطاد
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP الحد الأقصى للركاب المنتظرين عند محطة المنطاد
+
+SETTINGS_UNBUNCHING تفريق المركبات
+SETTINGS_UNBUNCHING_AGGRESSION شدة تفريق المركبات:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP ما مدى قوة تأثير تفريق المركبات؟\nالقيم الممكنة: 0–52. القيمة 0 تعطّل التفريق.\nالقيم الأعلى ستؤثر بشدة على حركة المرور وقد تتسبب في اختفاء المركبات.
+SETTINGS_VEHICLE_COUNT المركبات في الخطوط الجديدة:
+SETTINGS_VEHICLE_COUNT_TOOLTIP عدد المركبات التي ستُضاف تلقائيًا إلى الخطوط الجديدة عندما يكون التحكم بميزانية الخط معطلاً.
+SETTINGS_SPAWN_TIME_INTERVAL الفاصل الزمني للظهور:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP الوقت بالثواني بين ظهور المركبات.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP إعادة ضبط جميع أشرطة التمرير إلى القيم الافتراضية.
+UNBUNCHING_ENABLED تفريق المركبات
+UNBUNCHING_DISABLED تفريق المركبات معطل.
+UNBUNCHING_TARGET_GAP الفجوة المستهدفة: {0}
+
+SETTINGS_EBS_GROUP_BUS خدمات الحافلات السريعة
+SETTINGS_EBS_GROUP_TRAM خدمات الترام السريعة
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE الحافلة السريعة:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'معطل' = تستخدم الحافلات إعدادات التفريق أعلاه.\n'حذر' = تتوقف لفترة وجيزة، تتحقق من الركاب، وقد تغادر إذا كانت فارغة.\n'عدواني' = تتخطى المحطات تمامًا إذا لم يكن هناك ركاب ينتظرون.
+SETTINGS_EBS_ENABLE_SELFBAL تفعيل الموازنة الذاتية للخدمة
+SETTINGS_EBS_TOOLTIP_SELFBAL يحلّل أجزاء الخط وقد يعيد نشر المركبات إلى الأجزاء الأكثر ازدحامًا أو محطات النهاية لتوزيع الخدمة بالتساوي وتقليل أوقات الانتظار.\nالقرارات احتمالية وتعتمد على أعداد الركاب واحتمالات إعادة النشر.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID تفعيل الموازنة الذاتية لمحطات منتصف الخط
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID السماح للموازن الذاتي بإعادة نشر المركبات إلى محطة مزدحمة في منتصف الخط (بدلاً من محطة النهاية).\nيُنظر فيه فقط عندما يكون لدى المحطة الأكثر ازدحامًا أكثر من 30 راكبًا منتظرًا، ثم يُختار باحتمال ~50% ويخضع لاحتمالات إعادة النشر الإجمالية.
+SETTINGS_EBS_ENABLE_MINIBUS تفعيل وضع الحافلة الصغيرة
+SETTINGS_EBS_TOOLTIP_MINIBUS يمكن للحافلات ذات السعة ≤20 المغادرة مبكرًا من محطة عندما يكون عدد الركاب الصاعدين والنازلين في تلك المحطة ≤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE الترام السريع:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'معطل' = تستخدم الترامات إعدادات التفريق أعلاه.\n'السكة الخفيفة' = تتوقف عند كل محطة، وتنتظر دائمًا المؤقت بالكامل (انضباط صارم).\n'الترام الحقيقي' = تتوقف فقط عند صعود أو نزول الركاب.
+SETTINGS_EBS_MODE_NONE معطل
+SETTINGS_EBS_MODE_AGGRESSIVE عدواني
+SETTINGS_EBS_MODE_PRUDENTIAL حذر
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL وضع السكة الخفيفة
+SETTINGS_EBS_TRAM_MODE_NONE معطل
+SETTINGS_EBS_TRAM_MODE_TRAM وضع الترام الحقيقي
+
+
+SETTINGS_PTU_GROUP أداة إلغاء تعليق النقل العام
+SETTINGS_PTU_ENABLE إخفاء الركاب العالقين
+SETTINGS_PTU_TOOLTIP يقوم تلقائيًا بإخفاء الركاب الذين يعلقون أثناء محاولة صعود مركبات النقل، مما يسمح للمركبة بالمغادرة بشكل طبيعي ويمنع توقف المغادرات.
+
+
+SETTINGS_LINE_DELETION_TOOL أداة حذف الخطوط
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP يحذف جميع الخطوط من الأنواع المحددة. يعمل فقط أثناء تحميل المدينة.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE تأكيد حذف الخط
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG أنت على وشك حذف جميع الخطوط.\nهل ترغب في المتابعة؟
+SETTINGS_DELETE_BUS_TOOLTIP يحذف جميع خطوط الحافلات العادية.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL الحافلات السياحية
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP يحذف جميع خطوط الحافلات السياحية.
+SETTINGS_DELETE_TRAM_TOOLTIP يحذف جميع خطوط الترام.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP يحذف جميع خطوط الترولي باص.
+SETTINGS_DELETE_TRAIN_TOOLTIP يحذف جميع خطوط القطار.
+SETTINGS_DELETE_METRO_TOOLTIP يحذف جميع خطوط المترو تحت الأرض.
+SETTINGS_DELETE_MONORAIL_TOOLTIP يحذف جميع خطوط القطار المعلّق.
+SETTINGS_DELETE_FERRY_LABEL العبّارات
+SETTINGS_DELETE_SHIP_TOOLTIP يحذف جميع خطوط العبّارات.
+SETTINGS_DELETE_HELICOPTER_LABEL المروحيات
+SETTINGS_DELETE_HELICOPTER_TOOLTIP يحذف جميع خطوط المروحيات.
+SETTINGS_DELETE_BLIMP_LABEL المناطيد
+SETTINGS_DELETE_BLIMP_TOOLTIP يحذف جميع خطوط المناطيد.
+
+
+VEHICLE_EDITOR_TITLE محرر المركبات
+VEHICLE_EDITOR_SUB_TITLE {0} مركبة
+VEHICLE_EDITOR_CAPACITY سعة الركاب
+VEHICLE_EDITOR_CAPACITY_TAXI سعة الرحلات
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP عدد الركاب لكل نوبة عمل.
+VEHICLE_EDITOR_MAINTENANCE تكلفة الصيانة
+VEHICLE_EDITOR_MAX_SPEED السرعة القصوى
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS محرك القطار على كلا الطرفين
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP يفعّل أو يعطّل محركات القطار على كلا طرفي القطار.
+VEHICLE_EDITOR_APPLY تطبيق
+VEHICLE_EDITOR_DEFAULT افتراضي
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 انقر بزر الفأرة الأيمن لمتابعة هذه المركبة.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + نقر لوضع هذه المركبة في قائمة الانتظار.
+VEHICLE_PANEL_EDIT_TYPE تعديل نوع المركبة
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP تعديل نوع هذه المركبة باستخدام محرر المركبات.
+VEHICLE_PANEL_STATUS_NEXT_STOP المحطة التالية:
+VEHICLE_PANEL_STATUS_UNBUNCHING جارٍ تفريق المركبات
+VEHICLE_PANEL_LAST_STOP_EXCHANGE تبادل الركاب في المحطة الأخيرة: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS الركاب:
+VEHICLE_PANEL_EARNINGS الأرباح:
+VEHICLE_PANEL_EARNINGS_TOOLTIP نتيجة مبيعات التذاكر مطروحًا منها تكلفة صيانة المركبة.
+VEHICLE_PANEL_PREVIOUS المركبة السابقة
+VEHICLE_PANEL_PREVIOUS_TOOLTIP انتقل إلى المركبة السابقة.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+VEHICLE_PANEL_REMOVE_VEHICLE إزالة المركبة
+VEHICLE_PANEL_NEXT المركبة التالية
+VEHICLE_PANEL_NEXT_TOOLTIP انتقل إلى المركبة التالية.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.
+VEHICLE_SELECTION_CAPACITY السعة
+VEHICLE_SELECTION_ADD_VEHICLE إضافة هذه المركبة إلى قائمة المركبات المسموح بها
+VEHICLE_SELECTION_ADD_ALL إضافة جميع المركبات المؤهلة إلى قائمة المركبات المسموح بها
+VEHICLE_SELECTION_REMOVE_VEHICLE إزالة هذه المركبة من قائمة المركبات المسموح بها
+VEHICLE_SELECTION_REMOVE_ALL إزالة جميع المركبات من قائمة المركبات المسموح بها
+VEHICLE_SELECTION_AVAILABLE_VEHICLES المركبات المتاحة
+VEHICLE_SELECTION_SELECTED_VEHICLES المركبات المحددة
+VEHICLE_SELECTION_ANY_VEHICLE أي مركبة
+VEHICLE_BUTTON_TOOLTIP {0}\n\nانقر للانتقال إلى هذه المركبة.\nاضغط مع الاستمرار على مفتاح Shift أثناء النقر للتكبير أيضًا.\nاضغط مع الاستمرار على مفتاح Alt أثناء النقر لمنع فتح لوحة معلومات المركبة.
+TRANSPORT_LINE_VEHICLECOUNT عدد المركبات: {0}
+
+FLIGHT_TRACKER_NAME متتبع الرحلات الجوية
+FLIGHT_STATUS_NONE لا شيء
+FLIGHT_STATUS_INCOMING قادمة
+FLIGHT_STATUS_LANDED هبطت
+FLIGHT_STATUS_AT_GATE عند البوابة
+FLIGHT_STATUS_DEPARTED غادرت
+
+TICKET_PRICE_TAXI_KILOMETER سعر التاكسي لكل كيلومتر:
+TICKET_PRICE_TAXI_MILE سعر التاكسي لكل ميل:
+TICKET_PRICE_BUS سعر تذكرة الحافلة:
+TICKET_PRICE_INTERCITY_BUS سعر تذكرة الحافلة بين المدن:
+TICKET_PRICE_METRO سعر تذكرة المترو:
+TICKET_PRICE_TRAIN سعر تذكرة القطار:
+TICKET_PRICE_TRAM سعر تذكرة الترام:
+TICKET_PRICE_MONORAIL سعر تذكرة القطار المعلّق:
+TICKET_PRICE_SHIP سعر تذكرة السفينة:
+TICKET_PRICE_FERRY سعر تذكرة العبّارة:
+TICKET_PRICE_PLANE سعر تذكرة الطائرة:
+TICKET_PRICE_CABLECAR سعر تذكرة التلفريك:
+TICKET_PRICE_SIGHTSEEING_BUS سعر تذكرة الحافلة السياحية:
+TICKET_PRICE_TROLLEYBUS سعر تذكرة الترولي باص:
+TICKET_PRICE_BLIMP سعر تذكرة المنطاد:
+TICKET_PRICE_HELICOPTER سعر تذكرة المروحية:
+ECONOMY_TAB_TICKET_PRICES أسعار التذاكر
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT إجمالي عدد الركاب الحالي لهذا النوع من وسائل النقل.
+
+
+WHATSNEW_3_0_0_1 تحديث ليوم السباق؛ متوافق الآن مع More Vehicles Renewed.
+WHATSNEW_3_0_0_2 تم دمج الإضافات التالية في IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 تم دمج أداة إلغاء تعليق النقل العام (Public Transport Unstucker) الآن في IPT3.\nراجع الإصدار 3.0 لجميع الإضافات المدمجة الأخرى. ألغِ الاشتراك في الإضافات الأصلية لتجنب التعارضات.

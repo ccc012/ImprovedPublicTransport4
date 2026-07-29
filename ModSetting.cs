@@ -1,0 +1,125 @@
+using CSLModsCommon.Common;
+using CSLModsCommon.Manager;
+using CSLModsCommon.Setting;
+
+namespace ImprovedPublicTransport
+{
+    // Canonical settings store for IPT4, replacing the old OptionsFramework-attribute
+    // based Settings/Settings.cs. Every property here mirrors one from the old class
+    // (same name/type/default) so migrating call sites is a straight rename:
+    //   OptionsWrapper<Settings.Settings>.Options.X  ->  ModSetting.Instance.X
+    [FileLocation(nameof(ImprovedPublicTransport) + nameof(ModSetting))]
+    public class ModSetting : ModSettingBase
+    {
+        public static ModSetting Instance => Domain.DefaultDomain.GetOrCreateManager<SettingManager>().GetSetting<ModSetting>();
+
+        public enum VehicleSpeedUnits { KPH = 0, MPH = 1 }
+        public enum BbspLogicModes { Disabled = 0, OriginalLogic = 1 }
+        public enum WalkingSpeedModes { Vanilla = 0, Realistic = 1 }
+        public enum BudgetControlModes { Disabled = 0, Enabled = 1 }
+        public enum TicketPriceCustomizerModes { Disabled = 0, Enabled = 1 }
+        public enum AutoLineBudgetModes { Disabled = 0, Enabled = 1 }
+        public enum ExpressBusServicesModes { None = 0, Prudential = 1, Aggressive = 2 }
+        public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
+        public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
+        public enum AutoLineColorNamingStrategy { Disabled = 0, Districts = 1, London = 2, Roads = 3, NamedColors = 4 }
+        public enum VehicleEditorPositions { Bottom = 0, Right = 1 }
+
+        public VehicleSpeedUnits SpeedUnit { get; set; } = VehicleSpeedUnits.MPH;
+        public string SpeedString => SpeedUnit == VehicleSpeedUnits.KPH ? Localization.Get("SETTINGS_SPEED_KPH") : Localization.Get("SETTINGS_SPEED_MPH");
+        public BbspLogicModes BbspLogic { get; set; } = BbspLogicModes.OriginalLogic;
+        public WalkingSpeedModes WalkingSpeedMode { get; set; } = WalkingSpeedModes.Realistic;
+        public bool ShowLineInfo { get; set; } = true;
+
+        public BudgetControlModes BudgetControl { get; set; } = BudgetControlModes.Enabled;
+        public TicketPriceCustomizerModes TicketPriceCustomizerMode { get; set; } = TicketPriceCustomizerModes.Enabled;
+        public AutoLineBudgetModes AutoLineBudgetMode { get; set; } = AutoLineBudgetModes.Disabled;
+
+        public VehicleEditorPositions VehicleEditorPosition { get; set; } = VehicleEditorPositions.Bottom;
+        public bool HideVehicleEditor { get; set; }
+
+        public byte IntervalAggressionFactor { get; set; } = 52;
+        public int DefaultVehicleCount { get; set; } = 0;
+        public int SpawnTimeInterval { get; set; } = 10;
+
+        public ExpressBusServicesModes ExpressBusUnbunchingMode { get; set; } = ExpressBusServicesModes.None;
+        public bool ExpressBusEnableSelfBalancing { get; set; } = true;
+        public bool ExpressBusAllowMiddleStopBalancing { get; set; } = true;
+        public bool ExpressBusEnableMinibusMode { get; set; } = true;
+        public ExpressTramServicesModes ExpressTramUnbunchingMode { get; set; } = ExpressTramServicesModes.Disabled;
+
+        public bool EnablePublicTransportUnstucker { get; set; } = true;
+
+        public bool Unbunching { get; set; } = true; // hidden
+        public int StatisticWeeks { get; set; } = 10; // hidden
+
+        public bool DeleteBusLines { get; set; }
+        public bool DeleteSightseeingBusLines { get; set; }
+        public bool DeleteTramLines { get; set; }
+        public bool DeleteTrolleybusLines { get; set; }
+        public bool DeleteTrainLines { get; set; }
+        public bool DeleteMetroLines { get; set; }
+        public bool DeleteMonorailLines { get; set; }
+        public bool DeleteShipLines { get; set; }
+        public bool DeleteHelicopterLines { get; set; }
+        public bool DeleteBlimpLines { get; set; }
+
+        public string WhatsNewLastSeenVersion { get; set; } = "0.0.0";
+
+        public TicketPriceCustomizerSettings TicketPriceCustomizer { get; set; } = new();
+
+        public class TicketPriceCustomizerSettings
+        {
+            public float TaxiMultiplier { get; set; } = 1.0f;
+            public float BusMultiplier { get; set; } = 1.0f;
+            public float IntercityBusMultiplier { get; set; } = 1.0f;
+            public float MetroMultiplier { get; set; } = 1.0f;
+            public float TrainMultiplier { get; set; } = 1.0f;
+            public float TramMultiplier { get; set; } = 1.0f;
+            public float MonorailMultiplier { get; set; } = 1.0f;
+            public float ShipMultiplier { get; set; } = 1.0f;
+            public float FerryMultiplier { get; set; } = 1.0f;
+            public float PlaneMultiplier { get; set; } = 1.0f;
+            public float CableCarMultiplier { get; set; } = 1.0f;
+            public float SightseeingBusMultiplier { get; set; } = 1.0f;
+            public float TrolleybusMultiplier { get; set; } = 1.0f;
+            public float BlimpMultiplier { get; set; } = 1.0f;
+            public float HelicopterMultiplier { get; set; } = 1.0f;
+
+            public float TaxiNightMultiplier { get; set; } = 1.0f;
+            public float BusNightMultiplier { get; set; } = 1.0f;
+            public float IntercityBusNightMultiplier { get; set; } = 1.0f;
+            public float MetroNightMultiplier { get; set; } = 1.0f;
+            public float TrainNightMultiplier { get; set; } = 1.0f;
+            public float TramNightMultiplier { get; set; } = 1.0f;
+            public float MonorailNightMultiplier { get; set; } = 1.0f;
+            public float ShipNightMultiplier { get; set; } = 1.0f;
+            public float FerryNightMultiplier { get; set; } = 1.0f;
+            public float PlaneNightMultiplier { get; set; } = 1.0f;
+            public float CableCarNightMultiplier { get; set; } = 1.0f;
+            public float SightseeingBusNightMultiplier { get; set; } = 1.0f;
+            public float TrolleybusNightMultiplier { get; set; } = 1.0f;
+            public float BlimpNightMultiplier { get; set; } = 1.0f;
+            public float HelicopterNightMultiplier { get; set; } = 1.0f;
+        }
+
+        public AutoLineColorStrategy AutoLineColorColorStrategy { get; set; } = AutoLineColorStrategy.Disabled;
+        public AutoLineColorNamingStrategy AutoLineColorNamingStrategyMode { get; set; } = AutoLineColorNamingStrategy.Disabled;
+        public int AutoLineColorMinColorDiffPercentage { get; set; } = 5;
+        public int AutoLineColorMaxDiffColorPickAttempt { get; set; } = 10;
+
+        public int MaxWaitingPassengersBus { get; set; } = 50;
+        public int MaxWaitingPassengersTrolleybus { get; set; } = 50;
+        public int MaxWaitingPassengersEvacuationBus { get; set; } = 100;
+        public int MaxWaitingPassengersTouristBus { get; set; } = 50;
+        public int MaxWaitingPassengersTram { get; set; } = 80;
+        public int MaxWaitingPassengersMetro { get; set; } = 250;
+        public int MaxWaitingPassengersTrain { get; set; } = 250;
+        public int MaxWaitingPassengersMonorail { get; set; } = 250;
+        public int MaxWaitingPassengersShip { get; set; } = 150;
+        public int MaxWaitingPassengersAirplane { get; set; } = 250;
+        public int MaxWaitingPassengersCableCar { get; set; } = 40;
+        public int MaxWaitingPassengersHotAirBalloon { get; set; } = 40;
+        public int MaxWaitingPassengersHelicopter { get; set; } = 40;
+    }
+}

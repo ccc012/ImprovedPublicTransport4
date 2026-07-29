@@ -86,6 +86,10 @@ SETTINGS_BUDGET_TICKET_PRICES Ticket Price Customizer:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Disabled
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Enabled
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP When enabled, adds a new tab to Economy panel with sliders to adjust ticket prices for each transport type.
+SETTINGS_AUTO_LINE_BUDGET Automatic Fleet Sizing:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Disabled
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Enabled
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP When enabled, lines in Budget mode automatically adjust their vehicle count based on real passenger demand, instead of the vanilla budget slider. Lines set to Manual are never touched.
 
 SETTINGS_AUTO_LINE Auto Line
 SETTINGS_AUTOSHOW_LINE_INFO Automatically open Line Info Panel

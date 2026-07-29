@@ -4,7 +4,6 @@ using System.Text;
 using System.Xml.Serialization;
 using ColossalFramework;
 using ColossalFramework.Globalization;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.UI.AlgernonCommons;
 using UnityEngine;
 using static System.Int32;
@@ -742,7 +741,7 @@ namespace ImprovedPublicTransport.Data
       string str1 = num.ToString(Locale.Get("MONEY_FORMAT"), LocaleManager.cultureInfo);
       if (MaintenanceCost > 0)
         stringBuilder.AppendLine(Localization.Get("VEHICLE_EDITOR_MAINTENANCE") + ": " + MaintenanceCost + " (" + str1 + ")");
-      stringBuilder.AppendLine(Localization.Get("VEHICLE_EDITOR_MAX_SPEED") + ": " + MaxSpeed + " (" + MaxSpeed * 5 + " " + OptionsWrapper<Settings.Settings>.Options.SpeedString + ")");
+      stringBuilder.AppendLine(Localization.Get("VEHICLE_EDITOR_MAX_SPEED") + ": " + MaxSpeed + " (" + MaxSpeed * 5 + " " + ModSetting.Instance.SpeedString + ")");
       return stringBuilder.ToString();
     }
 

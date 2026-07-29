@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using ColossalFramework;
 using ColossalFramework.UI;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Query;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.UI.DontCryJustDieCommons;
@@ -264,7 +263,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 _stopCountLabel.text = string.Format(Localization.Get("LINE_PANEL_STOPS"), num1);
                 _budgetControl.isChecked = CachedTransportLineData.GetBudgetControlState(lineId);
 
-                if (OptionsWrapper<Settings.Settings>.Options.IntervalAggressionFactor == 0)
+                if (ModSetting.Instance.IntervalAggressionFactor == 0)
                 {
                     _unbunching.Disable();
                     _unbunching.isChecked = false;

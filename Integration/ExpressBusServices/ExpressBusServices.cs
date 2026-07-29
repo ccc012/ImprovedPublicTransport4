@@ -1,7 +1,7 @@
 ﻿using CitiesHarmony.API;
 using ICities;
-using ImprovedPublicTransport.OptionsFramework;
 using UnityEngine;
+using ImprovedPublicTransport;
 
 namespace ExpressBusServices
 {
@@ -27,7 +27,7 @@ namespace ExpressBusServices
             }
 
             // Sync stored settings into runtime config before patches run
-            var settings = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options;
+            var settings = ModSetting.Instance;
             EBSModConfig.CurrentExpressBusMode = (EBSModConfig.ExpressMode)settings.ExpressBusUnbunchingMode;
             EBSModConfig.UseServiceSelfBalancing = settings.ExpressBusEnableSelfBalancing;
             EBSModConfig.ServiceSelfBalancingCanDoMiddleStop = settings.ExpressBusAllowMiddleStopBalancing;

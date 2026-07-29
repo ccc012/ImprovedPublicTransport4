@@ -87,6 +87,10 @@ SETTINGS_BUDGET_TICKET_PRICES_DISABLED Отключено
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Включено
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP При включении добавляет новую вкладку в панель Экономики с ползунками для настройки цен билетов для каждого типа транспорта.
 
+SETTINGS_AUTO_LINE_BUDGET Автоподбор парка по спросу:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Отключено
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Включено
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP При включении линии в режиме бюджета автоматически подстраивают количество транспорта под реальный пассажирский спрос вместо стандартного ползунка бюджета. Линии в ручном режиме никогда не изменяются.
 SETTINGS_AUTO_LINE Автолиния
 SETTINGS_AUTOSHOW_LINE_INFO Автоматически открывать информацию о линии
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Автоматически показывать окно информации о линии после создания новой линии.

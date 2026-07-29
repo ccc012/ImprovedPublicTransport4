@@ -1,8 +1,8 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 using ColossalFramework;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Util;
+using ImprovedPublicTransport;
 
 namespace BetterBusStopPosition
 {
@@ -15,8 +15,8 @@ public static class BusAI_Patch
     public static void CalculateSegmentPosition_Postfix(BusAI __instance, ushort vehicleID, ref Vehicle vehicleData, PathUnit.Position position, uint laneID, byte offset, ref Vector3 pos, ref Vector3 dir)
     {
         // Only apply BBSP if enabled (not Disabled mode)
-        var mode = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.BbspLogic;
-        if(mode == (int)ImprovedPublicTransport.Settings.Settings.BbspLogicModes.Disabled)
+        var mode = ModSetting.Instance.BbspLogic;
+        if(mode == ModSetting.BbspLogicModes.Disabled)
             return;
 
         // Only process if we're arriving/leaving (same condition as original method)
@@ -58,16 +58,16 @@ public static class BusAI_Patch
         ref Vehicle vehicleData, NetInfo.Lane laneInfo, NetSegment.Flags flags,
         float stopOffset, out Vector3 pos, out Vector3 dir )
     {
-        var mode = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.BbspLogic;
+        var mode = ModSetting.Instance.BbspLogic;
 
-        if( mode == (int)ImprovedPublicTransport.Settings.Settings.BbspLogicModes.Disabled )
+        if( mode == ModSetting.BbspLogicModes.Disabled )
         {
             // Vanilla behavior: use original offset as-is
             lane.CalculateStopPositionAndDirection( laneOffset, stopOffset, out pos, out dir );
             return;
         }
 
-        if( mode == (int)ImprovedPublicTransport.Settings.Settings.BbspLogicModes.OriginalLogic )
+        if( mode == ModSetting.BbspLogicModes.OriginalLogic )
         {
             // Original BBSP logic: Calculate modified offset based on vehicle length and lane geometry,
             // then pass to vanilla CalculateStopPositionAndDirection (which applies SmootherStep tapering).
@@ -146,8 +146,8 @@ public static class TrolleybusAI_Patch
     public static void CalculateSegmentPosition_Postfix(TrolleybusAI __instance, ushort vehicleID, ref Vehicle vehicleData, PathUnit.Position position, uint laneID, byte offset, ref Vector3 pos, ref Vector3 dir)
     {
         // Same logic as BusAI - reuse the implementation
-        var mode = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.BbspLogic;
-        if(mode == (int)ImprovedPublicTransport.Settings.Settings.BbspLogicModes.Disabled)
+        var mode = ModSetting.Instance.BbspLogic;
+        if(mode == ModSetting.BbspLogicModes.Disabled)
             return;
 
         if ((vehicleData.m_flags & (Vehicle.Flags.Leaving | Vehicle.Flags.Arriving)) == 0)

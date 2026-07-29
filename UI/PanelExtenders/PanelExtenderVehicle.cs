@@ -10,7 +10,6 @@ using ColossalFramework;
 using ColossalFramework.Globalization;
 using ColossalFramework.UI;
 using ImprovedPublicTransport.HarmonyPatches.TransportLinePatches;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Query;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.Util;
@@ -103,7 +102,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       else
       {
         this._publicTransportVehicleWorldInfoPanel.component.height = 377f;
-        this._editType.isVisible = !OptionsWrapper<Settings.Settings>.Options.HideVehicleEditor;
+        this._editType.isVisible = !ModSetting.Instance.HideVehicleEditor;
           var lineInfo = Singleton<TransportManager>.instance.m_lines.m_buffer[(int) lineId].Info;
           if (lineInfo == null) return;
           ItemClass itemClass = lineInfo.m_class;
@@ -175,7 +174,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           }
           else
           {
-            var maxUnbunchingTime = Mathf.Max(1f, (float) Mathf.Min(OptionsWrapper<Settings.Settings>.Options.IntervalAggressionFactor, CanLeaveStopPatch.MaxUnbunchingTime));
+            var maxUnbunchingTime = Mathf.Max(1f, (float) Mathf.Min(ModSetting.Instance.IntervalAggressionFactor, CanLeaveStopPatch.MaxUnbunchingTime));
             progress = timeSinceBoardingFinished / maxUnbunchingTime;
             progress = Mathf.Clamp01(progress);
           }
@@ -279,7 +278,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       button1.tooltip = string.Format(Localization.Get("VEHICLE_PANEL_EDIT_TYPE_TOOLTIP"));
       button1.textScale = 0.75f;
       button1.eventClick += new MouseEventHandler(this.OnEditTypeClick);
-      button1.isVisible = !OptionsWrapper<Settings.Settings>.Options.HideVehicleEditor;
+      button1.isVisible = !ModSetting.Instance.HideVehicleEditor;
       this._editType = button1;
       UILabel uiLabel2 = Utils.GetPrivate<UILabel>((object) this._publicTransportVehicleWorldInfoPanel, "m_Passengers");
       UIPanel uiPanel1 = this._publicTransportVehicleWorldInfoPanel.component.Find<UIPanel>("Panel");
@@ -316,7 +315,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       label2.text = Localization.Get("CURRENT_WEEK");
       label3.text = Localization.Get("LAST_WEEK");
       label4.text = Localization.Get("AVERAGE");
-      label4.tooltip = string.Format(Localization.Get("AVERAGE_TOOLTIP"), (object) OptionsWrapper<Settings.Settings>.Options.StatisticWeeks);
+      label4.tooltip = string.Format(Localization.Get("AVERAGE_TOOLTIP"), (object) ModSetting.Instance.StatisticWeeks);
       PublicTransportStopWorldInfoPanel.CreateStatisticRow((UIComponent) uiPanel3, out label1, out this._passengersCurrentWeek, out this._passengersLastWeek, out this._passengersAverage, false);
       label1.text = Localization.Get("VEHICLE_PANEL_PASSENGERS");
       PublicTransportStopWorldInfoPanel.CreateStatisticRow((UIComponent) uiPanel3, out label1, out this._earningsCurrentWeek, out this._earningsLastWeek, out this._earningsAverage, false);

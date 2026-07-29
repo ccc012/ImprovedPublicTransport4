@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using ColossalFramework;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
 using Utils = ImprovedPublicTransport.Util.Utils;
@@ -33,11 +32,11 @@ namespace ImprovedPublicTransport.Data
                     }
                     else
                         _lineData[index].TargetVehicleCount =
-                            OptionsWrapper<Settings.Settings>.Options.DefaultVehicleCount;
-                    _lineData[index].BudgetControl = OptionsWrapper<Settings.Settings>.Options.BudgetControl == (int)Settings.Settings.BudgetControlModes.Enabled;
+                            ModSetting.Instance.DefaultVehicleCount;
+                    _lineData[index].BudgetControl = ModSetting.Instance.BudgetControl == ModSetting.BudgetControlModes.Enabled;
                     _lineData[index].Depot = DepotUtil.GetClosestDepot(index,
                         instance1.m_nodes.m_buffer[instance2.m_lines.m_buffer[index].GetStop(0)].m_position);
-                    _lineData[index].Unbunching = OptionsWrapper<Settings.Settings>.Options.Unbunching;
+                    _lineData[index].Unbunching = ModSetting.Instance.Unbunching;
                 }
             }
             SerializableDataExtension.instance.EventSaveData += OnSaveData;
@@ -81,7 +80,7 @@ namespace ImprovedPublicTransport.Data
                     }
                     index1 += 4;
                     var num = Mathf.Min(BitConverter.ToSingle(data1, index1),
-                        OptionsWrapper<Settings.Settings>.Options.SpawnTimeInterval);
+                        ModSetting.Instance.SpawnTimeInterval);
                     if (num > 0.0)
                         data[lineID].NextSpawnTime = SimHelper.SimulationTime + num;
                     index1 += 4;
@@ -142,7 +141,7 @@ namespace ImprovedPublicTransport.Data
                     if (str == "v003")
                         ++index1;
                     data[lineID].Unbunching = str != "v004"
-                        ? OptionsWrapper<Settings.Settings>.Options.Unbunching
+                        ? ModSetting.Instance.Unbunching
                         : SerializableDataExtension.ReadBool(data1, ref index1);
                     ++lineID;
                 }
@@ -211,9 +210,9 @@ namespace ImprovedPublicTransport.Data
         {
             _lineData[lineID] = new LineData
             {
-                TargetVehicleCount = OptionsWrapper<Settings.Settings>.Options.DefaultVehicleCount,
-                BudgetControl = OptionsWrapper<Settings.Settings>.Options.BudgetControl == (int)Settings.Settings.BudgetControlModes.Enabled,
-                Unbunching = OptionsWrapper<Settings.Settings>.Options.Unbunching
+                TargetVehicleCount = ModSetting.Instance.DefaultVehicleCount,
+                BudgetControl = ModSetting.Instance.BudgetControl == ModSetting.BudgetControlModes.Enabled,
+                Unbunching = ModSetting.Instance.Unbunching
             };
         }
 

@@ -1,0 +1,286 @@
+MOD_DESCRIPTION Kontrol transportasi umum yang lebih baik.
+CURRENT_WEEK Minggu ini
+LAST_WEEK Minggu lalu
+AVERAGE Rata-rata
+AVERAGE_TOOLTIP Rata-rata dari {0} minggu terakhir.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS Pemberhentian stasiun
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Kendaraan depo
+CITYSERVICE_ACCEPTINTERCITYBUSES Izinkan Bus Antarkota
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Izinkan bus antarkota menggunakan stasiun ini. Nonaktifkan untuk bus lokal saja.
+
+EXPLANATION_BUDGET_CONTROL Kontrol anggaran: Jumlah kendaraan dikendalikan oleh anggaran.
+EXPLANATION_UNBUNCHING Pemisahan kendaraan: Permainan mencoba membuat jarak antar kendaraan.
+LINE_PANEL_STOPS Pemberhentian: {0}
+LINE_PANEL_SPAWNTIMER Kendaraan berikutnya dalam {0} detik.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Depo yang dipilih tidak memiliki kendaraan tersisa.</color>
+LINE_PANEL_BUDGET_CONTROL Kontrol Anggaran
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Mengaktifkan atau menonaktifkan kontrol anggaran untuk jalur ini.
+LINE_PANEL_UNBUNCHING_TOOLTIP Mengaktifkan atau menonaktifkan pemisahan kendaraan untuk jalur ini.\nPemisahan dinonaktifkan jika agresivitas pemisahan diatur ke 0.
+LINE_PANEL_DEPOT Depo:
+LINE_PANEL_NO_DEPOT_FOUND Tidak ada depo ditemukan.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Lompat ke depo yang dipilih.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+LINE_PANEL_SELECT_TYPES Pilih Jenis
+LINE_PANEL_SELECT_TYPES_TOOLTIP Mengaktifkan panel 'Pilih Jenis'.\nJika tombol ini nonaktif, Anda harus memilih depo terlebih dahulu.
+LINE_PANEL_LINE_STOPS Pemberhentian jalur
+LINE_PANEL_LINE_VEHICLES Kendaraan di jalur ini
+LINE_PANEL_ENQUEUED Kendaraan dalam antrean
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} penumpang menunggu di jalur ini.
+LINE_PANEL_ADD_VEHICLE Tambah Kendaraan
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Menambahkan kendaraan baru ke jalur.\nJika tombol ini nonaktif, depo yang dipilih tidak memiliki kendaraan tersisa.
+LINE_PANEL_REMOVE_VEHICLE Hapus Kendaraan
+
+STOP_LIST_BOX_ROW_STOP Pemberhentian #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nPenumpang menunggu: {1}\n\nKlik kanan untuk lompat ke pemberhentian ini.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Daftar nama pemberhentian yang disarankan.
+STOP_PANEL_REUSE_NAME_TOOLTIP Terapkan nama ini ke semua pemberhentian lain di stasiun/posisi ini.
+STOP_PANEL_WAITING_PEOPLE Penumpang menunggu: {0}
+STOP_PANEL_BORED_TIMER Waktu hingga bosan: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Penumpang akan meninggalkan pemberhentian ini saat hitungan mundur ini mencapai nol.
+STOP_PANEL_PASSENGERS_IN Penumpang masuk:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Penumpang yang naik ke kendaraan transportasi di sini.
+STOP_PANEL_PASSENGERS_OUT Penumpang keluar:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Penumpang yang turun dari kendaraan transportasi di sini.
+STOP_PANEL_PASSENGERS_TOTAL Total:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Total penumpang yang dilayani di sini.
+STOP_PANEL_UNBUNCHING_TOOLTIP Mengaktifkan atau menonaktifkan pemisahan kendaraan di pemberhentian ini.\nPemisahan dinonaktifkan jika agresivitas pemisahan diatur ke 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS Perbarui pemberhentian terdekat
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Terapkan status pemisahan ke semua pemberhentian lain di stasiun/posisi ini.
+STOP_PANEL_PREVIOUS Pemberhentian Sebelumnya
+STOP_PANEL_PREVIOUS_TOOLTIP Lompat ke pemberhentian sebelumnya.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+STOP_PANEL_DELETE_STOP Hapus Pemberhentian
+STOP_PANEL_DELETE_STOP_TOOLTIP Tombol ini aktif saat menahan tombol Alt.\nGunakan dengan risiko Anda sendiri!!!
+STOP_PANEL_NEXT Pemberhentian Berikutnya
+STOP_PANEL_NEXT_TOOLTIP Lompat ke pemberhentian berikutnya.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+STOP_BUTTON_TOOLTIP {0}\n\nKlik untuk lompat ke pemberhentian ini.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.\nMenahan tombol alt saat klik akan mencegah pembukaan panel info pemberhentian.
+
+SETTINGS_DELETE Hapus
+SETTINGS_RESET Atur Ulang
+
+SETTINGS_TAB_GENERAL Umum
+SETTINGS_TAB_AUTOLINE Jalur Otomatis
+SETTINGS_TAB_STOPS Pemberhentian dan Stasiun
+SETTINGS_TAB_UNBUNCHING Pemisahan
+SETTINGS_TAB_DELETE Hapus Jalur
+
+SETTINGS Pengaturan
+SETTINGS_SPEED Tampilkan kecepatan dalam:
+SETTINGS_SPEED_TOOLTIP Pilih satuan yang digunakan untuk tampilan kecepatan di UI.
+SETTINGS_SPEED_KPH kph
+SETTINGS_SPEED_MPH mph
+SETTINGS_WALKING_SPEED Kecepatan Jalan/Bersepeda:
+SETTINGS_WALKING_SPEED_TOOLTIP Standar: kecepatan permainan dasar.\nRealistis: mengurangi kecepatan jalan ke nilai realistis berbasis usia.\nRealistis juga mengurangi kecepatan bersepeda dengan DLC After Dark.
+SETTINGS_WALKING_SPEED_MODE_VANILLA Standar
+SETTINGS_WALKING_SPEED_MODE_REALISTIC Realistis
+SETTINGS_BBSP Posisi Halte Bus Lebih Baik:
+SETTINGS_BBSP_TOOLTIP Nonaktif: tanpa penyesuaian posisi.\nAktif: bus berhenti di depan halte, bukan di tengah.
+SETTINGS_BBSP_MODE_DISABLED Nonaktif
+SETTINGS_BBSP_MODE_ORIGINAL Aktif
+SETTINGS_BBSP_MODE_UPDATED Gunakan logika eksperimental
+
+SETTINGS_BUDGET Anggaran
+SETTINGS_ENABLE_BUDGET_CONTROL Kontrol Anggaran Jalur:
+SETTINGS_BUDGET_CONTROL_DISABLED Nonaktif
+SETTINGS_BUDGET_CONTROL_ENABLED Aktif
+SETTINGS_BUDGET_CONTROL_TOOLTIP Jika aktif, jumlah kendaraan untuk jalur transportasi dikendalikan oleh anggaran; memperbarui semua jalur yang ada dan menghapus antrean kendaraan.
+SETTINGS_BUDGET_TICKET_PRICES Penyesuai Harga Tiket:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED Nonaktif
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED Aktif
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Jika aktif, menambahkan tab baru ke panel Ekonomi dengan penggeser untuk menyesuaikan harga tiket setiap jenis transportasi.
+SETTINGS_AUTO_LINE_BUDGET Ukuran Armada Otomatis:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Nonaktif
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Aktif
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Jika aktif, jalur dalam mode Anggaran secara otomatis menyesuaikan jumlah kendaraan berdasarkan permintaan penumpang nyata, bukan penggeser anggaran bawaan. Jalur yang diatur ke Manual tidak akan pernah disentuh.
+
+SETTINGS_AUTO_LINE Jalur Otomatis
+SETTINGS_AUTOSHOW_LINE_INFO Buka Panel Info Jalur Secara Otomatis
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Tampilkan Panel Info Jalur secara otomatis setelah jalur baru dibuat.
+
+AUTOLINECOLOR_STRATEGY_DISABLED Nonaktif
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Rona Acak
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Warna Acak
+AUTOLINECOLOR_STRATEGY_CATEGORISED Berdasarkan Kategori
+AUTOLINECOLOR_STRATEGY_NAMED Warna Bernama
+AUTOLINECOLOR_NAMING_DISABLED Nonaktif
+AUTOLINECOLOR_NAMING_DISTRICTS Distrik
+AUTOLINECOLOR_NAMING_LONDON London
+AUTOLINECOLOR_NAMING_ROADS Jalan
+AUTOLINECOLOR_NAMING_COLORS Warna Bernama
+AUTOLINECOLOR_COLOR_STRATEGY Strategi Warna:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Bagaimana warna diberikan ke jalur baru:\n'Rona Acak' = saturasi/kecerahan sama, rona berbeda;\n'Warna Acak' = RGB sepenuhnya acak;\n'Berdasarkan Kategori' = warna berdasarkan jenis kendaraan;\n'Warna Bernama' = palet warna yang telah ditentukan.
+AUTOLINECOLOR_NAMING_STRATEGY Strategi Penamaan:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Bagaimana nama diberikan ke jalur baru:\n'Tidak ada' = tanpa penamaan otomatis;\n'Distrik' = berdasarkan distrik yang dilayani;\n'London' = rute bernomor (gaya London Buses);\n'Jalan' = berdasarkan nama jalan;\n'Warna Bernama' = berdasarkan nama warna.
+AUTOLINECOLOR_MIN_COLOR_DIFF Perbedaan Warna Minimum (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Persentase perbedaan warna minimum saat memilih warna acak.
+AUTOLINECOLOR_MAX_COLOR_PICK Percobaan Maksimum:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Jumlah percobaan maksimum untuk memilih warna yang bisa dibedakan.
+
+SETTINGS_UI Pengaturan UI
+SETTINGS_VEHICLE_EDITOR_POSITION Posisi Editor Kendaraan:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Pilih apakah panel editor kendaraan muncul di bawah atau di sisi kanan layar.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Bawah
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Kanan
+SETTINGS_VEHICLE_EDITOR_HIDE Sembunyikan Editor Kendaraan
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Sembunyikan Editor Kendaraan dari panel kendaraan.
+
+SETTINGS_STOPS Pemberhentian Transportasi Umum
+SETTINGS_ENABLE_STOPS_AND_STATIONS Aktifkan Pemberhentian dan Stasiun
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Sesuaikan jumlah maksimum warga yang dapat menunggu transportasi umum di berbagai pemberhentian dan stasiun. Konfigurasi di tab Pemberhentian.
+SETTINGS_STOPSANDSTATIONS_ENABLE Aktifkan Pemberhentian dan Stasiun
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Aktifkan atau nonaktifkan batas penumpang di pemberhentian.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Jumlah maksimum penumpang menunggu di pemberhentian jalur transportasi:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Bus Jalur
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Jumlah maksimum penumpang menunggu di halte bus jalur
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Bus Listrik
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Jumlah maksimum penumpang menunggu di halte bus listrik
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Bus Evakuasi
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Jumlah maksimum penumpang menunggu di halte bus evakuasi
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Bus Wisata
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Jumlah maksimum penumpang menunggu di halte bus wisata
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Trem
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Jumlah maksimum penumpang menunggu di halte trem
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Jumlah maksimum penumpang menunggu di stasiun metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Kereta
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Jumlah maksimum penumpang menunggu di stasiun kereta
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorel
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Jumlah maksimum penumpang menunggu di halte monorel
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Kapal
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Jumlah maksimum penumpang menunggu di pelabuhan kapal kargo
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Feri
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Jumlah maksimum penumpang menunggu di dermaga feri
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Pesawat
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Jumlah maksimum penumpang menunggu di terminal pesawat
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Kereta Gantung
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Jumlah maksimum penumpang menunggu di halte kereta gantung
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Balon Udara
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Jumlah maksimum penumpang menunggu di halte balon udara
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Jumlah maksimum penumpang menunggu di helipad
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Zeppelin
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Jumlah maksimum penumpang menunggu di halte zeppelin
+
+SETTINGS_UNBUNCHING Pemisahan
+SETTINGS_UNBUNCHING_AGGRESSION Agresivitas pemisahan:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Seberapa kuat pemisahan kendaraan bertindak?\nNilai yang mungkin: 0–52. Nilai 0 menonaktifkan pemisahan.\nNilai lebih tinggi akan sangat memengaruhi lalu lintas dan dapat menyebabkan kendaraan hilang.
+SETTINGS_VEHICLE_COUNT Kendaraan di jalur baru:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Jumlah kendaraan yang akan otomatis ditambahkan ke jalur baru saat Kontrol Anggaran Jalur nonaktif.
+SETTINGS_SPAWN_TIME_INTERVAL Interval waktu kemunculan:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Waktu dalam detik antara kemunculan kendaraan.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Mengatur ulang semua penggeser ke nilai bawaan.
+UNBUNCHING_ENABLED Pemisahan kendaraan
+UNBUNCHING_DISABLED Pemisahan nonaktif.
+UNBUNCHING_TARGET_GAP Jarak target: {0}
+
+SETTINGS_EBS_GROUP_BUS Layanan Bus Ekspres
+SETTINGS_EBS_GROUP_TRAM Layanan Trem Ekspres
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Bus Ekspres:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Nonaktif' = Bus menggunakan pengaturan pemisahan di atas.\n'Hati-hati' = Berhenti sebentar, memeriksa penumpang, dapat berangkat jika kosong.\n'Agresif' = Melewati pemberhentian sepenuhnya jika tidak ada penumpang menunggu.
+SETTINGS_EBS_ENABLE_SELFBAL Aktifkan Penyeimbangan Layanan Otomatis
+SETTINGS_EBS_TOOLTIP_SELFBAL Menganalisis segmen jalur dan dapat menempatkan ulang kendaraan ke segmen yang lebih sibuk atau pemberhentian akhir untuk meratakan layanan dan mengurangi waktu tunggu.\nKeputusan bersifat probabilistik dan bergantung pada jumlah penumpang dan peluang penempatan ulang.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Aktifkan Penyeimbangan di Pemberhentian Tengah Jalur
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Izinkan penyeimbang otomatis menempatkan ulang kendaraan ke pemberhentian tengah jalur yang sibuk (bukan pemberhentian akhir).\nHanya dipertimbangkan saat pemberhentian tersibuk memiliki lebih dari 30 penumpang menunggu, lalu dipilih dengan probabilitas ~50% dan tunduk pada peluang penempatan ulang keseluruhan.
+SETTINGS_EBS_ENABLE_MINIBUS Aktifkan Mode Minibus
+SETTINGS_EBS_TOOLTIP_MINIBUS Bus dengan kapasitas ≤20 dapat berangkat lebih awal dari pemberhentian saat penumpang naik + turun di pemberhentian tersebut ≤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Trem Ekspres:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Nonaktif' = Trem menggunakan pengaturan pemisahan di atas.\n'Kereta Ringan' = Berhenti di setiap pemberhentian, selalu menunggu penuh waktu (disiplin ketat).\n'Trem Sejati' = Berhenti hanya saat penumpang naik/turun.
+SETTINGS_EBS_MODE_NONE Nonaktif
+SETTINGS_EBS_MODE_AGGRESSIVE Agresif
+SETTINGS_EBS_MODE_PRUDENTIAL Hati-hati
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Mode Kereta Ringan
+SETTINGS_EBS_TRAM_MODE_NONE Nonaktif
+SETTINGS_EBS_TRAM_MODE_TRAM Mode Trem Sejati
+
+
+SETTINGS_PTU_GROUP Pelepas Kemacetan Transportasi Umum
+SETTINGS_PTU_ENABLE Hapus penumpang yang macet
+SETTINGS_PTU_TOOLTIP Otomatis menghapus penumpang yang macet saat mencoba naik ke kendaraan transportasi, memungkinkan kendaraan berangkat normal dan mencegah keberangkatan yang membeku.
+
+
+SETTINGS_LINE_DELETION_TOOL Alat Penghapus Jalur
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Menghapus semua jalur dari jenis yang dipilih. Hanya berfungsi saat kota dimuat.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE KONFIRMASI PENGHAPUSAN JALUR
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Anda akan menghapus semua jalur.\nApakah Anda ingin melanjutkan?
+SETTINGS_DELETE_BUS_TOOLTIP Menghapus semua jalur bus reguler.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Bus Wisata
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Menghapus semua jalur bus wisata.
+SETTINGS_DELETE_TRAM_TOOLTIP Menghapus semua jalur trem.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Menghapus semua jalur bus listrik.
+SETTINGS_DELETE_TRAIN_TOOLTIP Menghapus semua jalur kereta.
+SETTINGS_DELETE_METRO_TOOLTIP Menghapus semua jalur metro bawah tanah.
+SETTINGS_DELETE_MONORAIL_TOOLTIP Menghapus semua jalur monorel.
+SETTINGS_DELETE_FERRY_LABEL Feri
+SETTINGS_DELETE_SHIP_TOOLTIP Menghapus semua jalur feri.
+SETTINGS_DELETE_HELICOPTER_LABEL Helikopter
+SETTINGS_DELETE_HELICOPTER_TOOLTIP Menghapus semua jalur helikopter.
+SETTINGS_DELETE_BLIMP_LABEL Zeppelin
+SETTINGS_DELETE_BLIMP_TOOLTIP Menghapus semua jalur zeppelin.
+
+
+VEHICLE_EDITOR_TITLE Editor Kendaraan
+VEHICLE_EDITOR_SUB_TITLE {0} kendaraan
+VEHICLE_EDITOR_CAPACITY Kapasitas penumpang
+VEHICLE_EDITOR_CAPACITY_TAXI Kapasitas perjalanan
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Jumlah penumpang per shift kerja.
+VEHICLE_EDITOR_MAINTENANCE Biaya perawatan
+VEHICLE_EDITOR_MAX_SPEED Kecepatan maksimum
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Mesin kereta di kedua ujung
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Mengaktifkan atau menonaktifkan mesin kereta di kedua ujung kereta.
+VEHICLE_EDITOR_APPLY Terapkan
+VEHICLE_EDITOR_DEFAULT Bawaan
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Klik kanan untuk mengikuti kendaraan ini.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + klik untuk mengantrekan kendaraan ini.
+VEHICLE_PANEL_EDIT_TYPE Edit Jenis Kendaraan
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Edit jenis kendaraan ini dengan Editor Kendaraan.
+VEHICLE_PANEL_STATUS_NEXT_STOP Pemberhentian berikutnya:
+VEHICLE_PANEL_STATUS_UNBUNCHING Pemisahan sedang berlangsung
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Pertukaran penumpang pemberhentian terakhir: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS Penumpang:
+VEHICLE_PANEL_EARNINGS Pendapatan:
+VEHICLE_PANEL_EARNINGS_TOOLTIP Hasil penjualan tiket dikurangi biaya perawatan kendaraan.
+VEHICLE_PANEL_PREVIOUS Kendaraan Sebelumnya
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Lompat ke kendaraan sebelumnya.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+VEHICLE_PANEL_REMOVE_VEHICLE Hapus Kendaraan
+VEHICLE_PANEL_NEXT Kendaraan Berikutnya
+VEHICLE_PANEL_NEXT_TOOLTIP Lompat ke kendaraan berikutnya.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.
+VEHICLE_SELECTION_CAPACITY Kapasitas
+VEHICLE_SELECTION_ADD_VEHICLE Tambahkan kendaraan ini ke daftar kendaraan yang diizinkan
+VEHICLE_SELECTION_ADD_ALL Tambahkan semua kendaraan yang memenuhi syarat ke daftar kendaraan yang diizinkan
+VEHICLE_SELECTION_REMOVE_VEHICLE Hapus kendaraan ini dari daftar kendaraan yang diizinkan
+VEHICLE_SELECTION_REMOVE_ALL Hapus semua kendaraan dari daftar kendaraan yang diizinkan
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Kendaraan tersedia
+VEHICLE_SELECTION_SELECTED_VEHICLES Kendaraan terpilih
+VEHICLE_SELECTION_ANY_VEHICLE Kendaraan apa pun
+VEHICLE_BUTTON_TOOLTIP {0}\n\nKlik untuk lompat ke kendaraan ini.\nMenahan tombol shift saat klik juga akan memperbesar tampilan.\nMenahan tombol alt saat klik akan mencegah pembukaan panel info kendaraan.
+TRANSPORT_LINE_VEHICLECOUNT Jumlah kendaraan: {0}
+
+FLIGHT_TRACKER_NAME Pelacak Penerbangan
+FLIGHT_STATUS_NONE Tidak ada
+FLIGHT_STATUS_INCOMING Datang
+FLIGHT_STATUS_LANDED Mendarat
+FLIGHT_STATUS_AT_GATE Di gerbang
+FLIGHT_STATUS_DEPARTED Berangkat
+
+TICKET_PRICE_TAXI_KILOMETER Harga taksi per kilometer:
+TICKET_PRICE_TAXI_MILE Harga taksi per mil:
+TICKET_PRICE_BUS Harga tiket bus:
+TICKET_PRICE_INTERCITY_BUS Harga tiket bus antarkota:
+TICKET_PRICE_METRO Harga tiket metro:
+TICKET_PRICE_TRAIN Harga tiket kereta:
+TICKET_PRICE_TRAM Harga tiket trem:
+TICKET_PRICE_MONORAIL Harga tiket monorel:
+TICKET_PRICE_SHIP Harga tiket kapal:
+TICKET_PRICE_FERRY Harga tiket feri:
+TICKET_PRICE_PLANE Harga tiket pesawat:
+TICKET_PRICE_CABLECAR Harga tiket kereta gantung:
+TICKET_PRICE_SIGHTSEEING_BUS Harga tiket bus wisata:
+TICKET_PRICE_TROLLEYBUS Harga tiket bus listrik:
+TICKET_PRICE_BLIMP Harga tiket zeppelin:
+TICKET_PRICE_HELICOPTER Harga tiket helikopter:
+ECONOMY_TAB_TICKET_PRICES Harga Tiket
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Jumlah penumpang saat ini untuk jenis transportasi ini.
+
+
+WHATSNEW_3_0_0_1 Diperbarui untuk Race Day; kini kompatibel dengan More Vehicles Renewed.
+WHATSNEW_3_0_0_2 Mod berikut telah diintegrasikan ke dalam IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Public Transport Unstucker kini terintegrasi ke dalam IPT3.\nLihat versi 3.0 untuk semua mod terintegrasi lainnya. Berhenti berlangganan dari yang asli untuk menghindari konflik.

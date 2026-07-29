@@ -87,6 +87,10 @@ SETTINGS_BUDGET_TICKET_PRICES_DISABLED Desactivado
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Activado
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Cuando está activado, añade una nueva pestaña al panel Economía con deslizadores para ajustar los precios de los billetes por tipo de transporte.
 
+SETTINGS_AUTO_LINE_BUDGET Tamaño automático de flota:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Desactivado
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Activado
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Cuando está activado, las líneas en modo Presupuesto ajustan automáticamente su número de vehículos según la demanda real de pasajeros, en lugar de usar el control deslizante de presupuesto original. Las líneas en modo Manual nunca se modifican.
 SETTINGS_AUTO_LINE Línea automática
 SETTINGS_AUTOSHOW_LINE_INFO Abrir panel de información de la línea automáticamente
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Mostrar automáticamente el panel de información de la línea después de crear una nueva línea.

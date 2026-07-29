@@ -1,5 +1,4 @@
-using ColossalFramework;
-using ImprovedPublicTransport.OptionsFramework;
+﻿using ColossalFramework;
 using UnityEngine;
 
 namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
@@ -23,7 +22,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             if (isNight == _lastIsNight) return;
 
             _lastIsNight = isNight;
-            var settings = OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizer;
+            var settings = ModSetting.Instance.TicketPriceCustomizer;
             if (settings != null)
                 PriceCustomization.ApplyForCurrentTime(settings);
         }

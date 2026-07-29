@@ -2,7 +2,6 @@
 using System.Text;
 using ColossalFramework;
 using ColossalFramework.Globalization;
-using ImprovedPublicTransport.OptionsFramework;
 
 namespace ImprovedPublicTransport.Util
 {

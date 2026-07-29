@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ColossalFramework;
 using ColossalFramework.UI;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Query;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.UI.DontCryJustDieCommons;
@@ -252,7 +251,7 @@ namespace ImprovedPublicTransport.UI
             uiLabel5.text = Localization.Get("LAST_WEEK");
             uiLabel6.text = Localization.Get("AVERAGE");
             uiLabel6.tooltip = string.Format(Localization.Get("AVERAGE_TOOLTIP"),
-                (object) OptionsWrapper<Settings.Settings>.Options.StatisticWeeks);
+                (object) ModSetting.Instance.StatisticWeeks);
 
             int num20 = 0;
             PublicTransportStopWorldInfoPanel.CreateStatisticRow((UIComponent) uiPanel5, out uiLabel3,
@@ -308,7 +307,7 @@ namespace ImprovedPublicTransport.UI
             uiCheckBox.label.textColor = new Color32((byte) 185, (byte) 221, (byte) 254, byte.MaxValue);
             uiCheckBox.label.disabledTextColor = (Color32) Color.black;
             uiCheckBox.label.textScale = 13f / 16f;
-            uiCheckBox.label.text = (int) OptionsWrapper<Settings.Settings>.Options.IntervalAggressionFactor == 0
+            uiCheckBox.label.text = (int) ModSetting.Instance.IntervalAggressionFactor == 0
                 ? Localization.Get("UNBUNCHING_DISABLED")
                 : Localization.Get("UNBUNCHING_ENABLED");
             uiCheckBox.label.relativePosition = new Vector3(22f, 2f);
@@ -711,7 +710,7 @@ namespace ImprovedPublicTransport.UI
                 .LastWeekPassengersTotal.ToString();
             this.m_passengersTotalAverage.text = CachedNodeData.m_cachedNodeData[(int) netNode]
                 .AveragePassengersTotal.ToString();
-            if ((int) OptionsWrapper<Settings.Settings>.Options.IntervalAggressionFactor == 0)
+            if ((int) ModSetting.Instance.IntervalAggressionFactor == 0)
             {
                 this.m_unbunching.Disable();
                 this.m_unbunching.isChecked = false;

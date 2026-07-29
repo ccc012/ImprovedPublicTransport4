@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Reflection;
 using AlgernonCommons;
 using AlgernonCommons.Notifications;
-using ImprovedPublicTransport.OptionsFramework;
 
 namespace ImprovedPublicTransport.UI.AlgernonCommons
 {
@@ -45,7 +44,7 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
 
         public override void LoadSettings()
         {
-            string savedVersion = OptionsWrapper<Settings.Settings>.Options.WhatsNewLastSeenVersion ?? "0.0.0";
+            string savedVersion = ModSetting.Instance.WhatsNewLastSeenVersion ?? "0.0.0";
             UnityEngine.Debug.Log($"[IPT3] LoadSettings: saved version = {savedVersion}");
             
             // Normalize version format to always have at least 3 parts (Major.Minor.Build)
@@ -90,7 +89,7 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
                 string versionString = currentVersion != null 
                     ? $"{currentVersion.Major}.{currentVersion.Minor}.{currentVersion.Build}"
                     : "0.0.0";
-                OptionsWrapper<Settings.Settings>.Options.WhatsNewLastSeenVersion = versionString;
+                ModSetting.Instance.WhatsNewLastSeenVersion = versionString;
                 UnityEngine.Debug.Log($"[IPT3 WhatsNewIntegration.SaveSettings] Saved version: {versionString}");
             }
             catch (Exception ex)
@@ -99,10 +98,10 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
                 // Fallback: use whats new message version
                 if (WhatsNewMessages != null && WhatsNewMessages.Length > 0)
                 {
-                    OptionsWrapper<Settings.Settings>.Options.WhatsNewLastSeenVersion = WhatsNewMessages[0].Version.ToString();
+                    ModSetting.Instance.WhatsNewLastSeenVersion = WhatsNewMessages[0].Version.ToString();
                 }
             }
-            OptionsWrapper<Settings.Settings>.SaveOptions();
+            CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
         }
     }
 }

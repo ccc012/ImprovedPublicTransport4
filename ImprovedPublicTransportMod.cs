@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using CitiesHarmony.API;
 using ColossalFramework;
 using ColossalFramework.UI;
@@ -12,8 +12,6 @@ using ImprovedPublicTransport.HarmonyPatches.TransportManagerPatches;
 using ImprovedPublicTransport.HarmonyPatches.VehicleManagerPatches;
 using ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches;
 using ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches;
-using ImprovedPublicTransport.OptionsFramework.Extensions;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.RedirectionFramework;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.HarmonyPatches.PublicTransportVehicleButtonPatches;
@@ -33,23 +31,34 @@ using AlgernonCommons.Patching;
 
 namespace ImprovedPublicTransport
 {
-    public class ImprovedPublicTransportMod : LoadingExtensionBase, IUserMod
+    // IUserMod (Name/Description/OnEnabled/OnSettingsUI) lives on Mod/IptModManager now
+    // (CSLModsCommon's options UI). This class keeps only the LoadingExtensionBase half -
+    // the game discovers both independently, they don't need to be the same class.
+    public class ImprovedPublicTransportMod : LoadingExtensionBase
     {
-        public const string BaseModName = "Improved Public Transport";
+        public const string BaseModName = "Improved Public Transport 4 (local fork)";
         public const string ShortModName = "IPT";
 
         public static bool InGame;
         public static GameObject IptGameObject;
         private GameObject _worldInfoPanel;
-        private const string Version = "3.0.1";
+        private const string Version = "4.0.0-dev";
 
-        public string Name => $"{BaseModName} {Version}";
-
-        public string Description => Localization.Get("MOD_DESCRIPTION");
-
-        public void OnSettingsUI(UIHelperBase helper)
+        public override void OnCreated(ICities.ILoading loading)
         {
-            new UI.ModOptions(helper, $"{BaseModName} {Version}");
+            base.OnCreated(loading);
+            HarmonyHelper.EnsureHarmonyInstalled();
+            // Ensure a sensible default HarmonyID for AlgernonCommons PatcherManager<TPatcher>
+            // Some integrations (or other mods) may call PatcherManager<T>.Instance before
+            // they set a specific HarmonyID; provide a safe default to avoid null-HarmonyID errors.
+            try
+            {
+                AlgernonCommons.Patching.PatcherManager<AlgernonCommons.Patching.PatcherBase>.HarmonyID = "com.IPT";
+            }
+            catch { }
+
+            // Initialise WhatsNew integration - sets ModBase.Instance for the AlgernonCommons notification system.
+            new UI.AlgernonCommons.WhatsNewIntegration();
         }
 
         public override void OnLevelLoaded(LoadMode mode)
@@ -77,7 +86,7 @@ namespace ImprovedPublicTransport
                     IptGameObject.transform.parent = objectOfType.transform;
                     IptGameObject.AddComponent<SimHelper>();
                     IptGameObject.AddComponent<LineWatcher>();
-                    if (OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizerMode == (int)Settings.Settings.TicketPriceCustomizerModes.Enabled)
+                    if (ModSetting.Instance.TicketPriceCustomizerMode == ModSetting.TicketPriceCustomizerModes.Enabled)
                     {
                         IptGameObject.AddComponent<Integration.TicketPriceCustomizer.DayNightPriceWatcher>();
                     }
@@ -85,6 +94,25 @@ namespace ImprovedPublicTransport
                     {
                         if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TicketPriceCustomizer: disabled by settings, skipping DayNightPriceWatcher.");
                     }
+
+                    // AutoLineBudget: automatic fleet sizing by passenger demand for lines in Budget mode
+                    try
+                    {
+                        if (ModSetting.Instance.AutoLineBudgetMode == ModSetting.AutoLineBudgetModes.Enabled)
+                        {
+                            IptGameObject.AddComponent<Integration.AutoLineBudget.AutoLineBudgetIntegration>();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("AutoLineBudget: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("AutoLineBudget: disabled by settings, skipping integration.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"AutoLineBudget: failed to apply integration: {ex.Message}");
+                    }
+
                     _worldInfoPanel = new GameObject("PublicTransportStopWorldInfoPanel");
                     _worldInfoPanel.transform.parent = objectOfType.transform;
                     _worldInfoPanel.AddComponent<PublicTransportStopWorldInfoPanel>();
@@ -216,7 +244,7 @@ namespace ImprovedPublicTransport
                     }
 
                     // RealisticWalkingSpeed integration
-                    if (OptionsWrapper<Settings.Settings>.Options.WalkingSpeedMode != (int)Settings.Settings.WalkingSpeedModes.Vanilla)
+                    if (ModSetting.Instance.WalkingSpeedMode != ModSetting.WalkingSpeedModes.Vanilla)
                     {
                         try
                         {
@@ -237,7 +265,7 @@ namespace ImprovedPublicTransport
                     // PublicTransportUnstucker integration
                     try
                     {
-                        if (OptionsWrapper<Settings.Settings>.Options.EnablePublicTransportUnstucker)
+                        if (ModSetting.Instance.EnablePublicTransportUnstucker)
                         {
                             PublicTransportUnstucker.PublicTransportUnstuckerIntegration.Activate();
                             if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("PublicTransportUnstucker: integration applied.");
@@ -255,9 +283,9 @@ namespace ImprovedPublicTransport
                     // TicketPriceCustomizer: apply configured ticket multipliers on load (only if enabled)
                     try
                     {
-                        if (OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizerMode == (int)Settings.Settings.TicketPriceCustomizerModes.Enabled)
+                        if (ModSetting.Instance.TicketPriceCustomizerMode == ModSetting.TicketPriceCustomizerModes.Enabled)
                         {
-                            ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizer);
+                            ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(ModSetting.Instance.TicketPriceCustomizer);
                             if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TicketPriceCustomizer: Prices applied on load.");
 
                             // Ensure Ticket Prices tab exists (cover cases where EconomyPanel patching order/detection missed initial panel creation).
@@ -345,9 +373,9 @@ namespace ImprovedPublicTransport
             // Reset ticket prices to defaults on unload (only if feature enabled)
             try
             {
-                if (OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizerMode == (int)Settings.Settings.TicketPriceCustomizerModes.Enabled)
+                if (ModSetting.Instance.TicketPriceCustomizerMode == ModSetting.TicketPriceCustomizerModes.Enabled)
                 {
-                    ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(new Settings.Settings.TicketPriceCustomizerSettings());
+                    ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(new ModSetting.TicketPriceCustomizerSettings());
                     if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TicketPriceCustomizer: Prices reset on unload.");
                 }
                 else
@@ -555,7 +583,7 @@ namespace ImprovedPublicTransport
             }
 
             // RealisticWalkingSpeed cleanup
-            if (OptionsWrapper<Settings.Settings>.Options.WalkingSpeedMode != (int)Settings.Settings.WalkingSpeedModes.Vanilla)
+            if (ModSetting.Instance.WalkingSpeedMode != ModSetting.WalkingSpeedModes.Vanilla)
             {
                 try
                 {
@@ -596,20 +624,5 @@ namespace ImprovedPublicTransport
 
         }
 
-        public void OnEnabled()
-        {
-            HarmonyHelper.EnsureHarmonyInstalled();
-            // Ensure a sensible default HarmonyID for AlgernonCommons PatcherManager<TPatcher>
-            // Some integrations (or other mods) may call PatcherManager<T>.Instance before
-            // they set a specific HarmonyID; provide a safe default to avoid null-HarmonyID errors.
-            try
-            {
-                AlgernonCommons.Patching.PatcherManager<AlgernonCommons.Patching.PatcherBase>.HarmonyID = "com.IPT";
-            }
-            catch { }
-
-            // Initialise WhatsNew integration - sets ModBase.Instance for the AlgernonCommons notification system.
-            new UI.AlgernonCommons.WhatsNewIntegration();
-        }
     }
 }

@@ -1,7 +1,6 @@
-﻿using System.Linq;
+using System.Linq;
 using UnityEngine;
-using ImprovedPublicTransport.OptionsFramework;
-using Settings = ImprovedPublicTransport.Settings.Settings;
+using ImprovedPublicTransport;
 
 namespace AutoLineColor.Coloring
 {
@@ -15,9 +14,9 @@ namespace AutoLineColor.Coloring
             public Color32 SelectColor(in TransportLine transportLine, IColorSet colorSet, IUsedColors usedColors, IColorDistanceMetric metric)
             {
                 var colors = colorSet.GetColors();
-                var threshold = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.AutoLineColorMinColorDiffPercentage / 100f;
+                var threshold = ModSetting.Instance.AutoLineColorMinColorDiffPercentage / 100f;
 
-                for (var i = 0; i < OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.AutoLineColorMaxDiffColorPickAttempt; i++)
+                for (var i = 0; i < ModSetting.Instance.AutoLineColorMaxDiffColorPickAttempt; i++)
                 {
                     var candidate = colors[Random.Range(0, colors.Count - 1)];
 

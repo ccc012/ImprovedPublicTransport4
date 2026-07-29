@@ -1,306 +1,187 @@
-# ImprovedPublicTransport 3
+# Improved Public Transport 4 (IPT4)
 
-**Version 3.0.1** | Last Updated: March 2026
+IPT4 é uma continuação prática do legado do IPT/IPT2/IPT3 para **Cities: Skylines**, focada em dar mais controle sobre o transporte público sem obrigar o jogador a lidar com dezenas de mods separados. A ideia é simples: facilitar o ajuste das linhas, reduzir comportamento ruim da frota, melhorar paradas e veículos, e deixar o sistema mais previsível para cidades pequenas e grandes.
 
-## Overview
+## O que o IPT4 melhora
 
-ImprovedPublicTransport 3 (IPT3) is the continuation of the classic IPT and IPT2 mods, rebuilt for the Race Day update and fully compatible with More Vehicles Renewed. It gives you granular control over every aspect of public transportation — vehicle counts, vehicle types, stop behavior, boarding, ticket prices, unbunching, and more — across all transport modes in Cities: Skylines.
+Para jogadores comuns, o IPT4 melhora principalmente estes pontos:
 
-IPT3 also encompasses a suite of formerly standalone mods that have been integrated directly, eliminating the need to manage them separately.
+- controle mais claro da quantidade de veículos por linha
+- possibilidade de escolher quais veículos podem operar em cada linha
+- ferramentas para reduzir comboios de ônibus, bondes e outros veículos andando grudados
+- mais informações úteis sobre paradas, linhas e veículos
+- ajustes de preço de passagem, quando esse recurso estiver ativado
+- melhorias de qualidade de vida vindas de integrações consolidadas no próprio projeto
 
----
+## Requisitos
 
-## Core Features
+- **Cities: Skylines 1**
+- versão do jogo compatível com a base atual do projeto
+- dependências do ecossistema usadas pelo mod, quando exigidas pela instalação do jogador
+- DLCs são opcionais, mas alguns recursos e tipos de transporte só aparecem se o conteúdo correspondente existir no jogo
 
-### 🚌 Transport Line Panel
+## Instalação
 
-The public transport line info panel is extended with a new IPT control section:
+### Instalação manual
 
-- **Vehicle Count** — Manually add and remove vehicles on any line using the (+) or (-) buttons. The current vehicle count, as well as vehicles in the spawn queue, are displayed in real time.
-- **Budget Control Mode** — Toggle between *Manual* (you control vehicle count directly) and *Budget* (vehicle count is governed by the line's budget slider, same as vanilla). Switching to Budget mode clears the spawn queue and applies the budget to existing lines immediately.
-- **Unbunching per Line** — Enable or disable vehicle unbunching on individual lines independently of the global setting.
-- **Vehicle Queue** — See how many vehicles are queued to spawn and clear them if needed.
-- **Depot Selector** — Choose which depot serves a line from a drop-down; IPT automatically finds available depots for each transport type.
-- **Line Length** — The total route length is displayed in the line panel.
-- **Spawn Timer** — Shows the current vehicle spawn countdown for the line.
-- **Hex Color Input** — Enter an exact hex color code for a line color, in addition to using the standard color picker.
-- **Select Vehicle Types** — Opens the vehicle type selector for the line (see below).
-- **Auto Show Line Info** — Optionally auto-opens the line info panel whenever a new line is created.
+1. Feche o jogo.
+2. Baixe ou copie a versão publicada do IPT4.
+3. Coloque a pasta do mod dentro de:
+   - `C:\Users\<seu-usuario>\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\`
+4. Abra o jogo e ative o mod no gerenciador de conteúdo, se necessário.
 
----
+### Atualizando uma instalação existente
 
-### 🎛️ Vehicle Type Selector
+1. Feche o jogo.
+2. Substitua a pasta antiga do IPT4 pela nova.
+3. Abra o jogo novamente.
+4. Revise as opções do mod antes de continuar um save importante.
 
-Control exactly which vehicle assets are allowed to run on each transit line:
+## Como usar as configurações simples
 
-- Browse all **available vehicles** for the line's transport type and DLC level.
-- Move vehicles to the **selected list** to restrict the line to only those models.
-- **Add All** / **Remove All** buttons for bulk changes.
-- **Any Vehicle** mode restores vanilla behavior (any compatible vehicle may be used).
-- Works with all transport types and custom vehicle assets from the workshop.
+Se você quer apenas jogar com menos complicação, este é o caminho recomendado:
 
----
+### 1. Ajuste o básico das linhas
 
-### 🔧 Vehicle Editor
+Abra uma linha de transporte e use o painel do IPT4 para:
 
-Modify the stats of any public transport vehicle type directly in-game:
+- aumentar ou reduzir a frota manualmente
+- ver quantos veículos estão ativos ou em fila
+- trocar a garagem quando isso estiver disponível
 
-- **Passenger Capacity** — Increase or decrease the number of passengers the vehicle can carry.
-- **Maintenance Cost** — Adjust the per-vehicle running cost.
-- **Max Speed** — Change the top speed of the vehicle.
-- **Engine on Both Ends** (trains) — Enable or disable bidirectional train engines to avoid needing to turn trains around at terminus stops.
-- **Preview** — A rendered preview of the selected vehicle is shown while editing.
-- The editor panel can be positioned at the **bottom** or **right** of the screen, or hidden entirely, from the Options panel.
+### 2. Ative o controle de orçamento, se quiser algo mais automático
 
----
+O modo de orçamento deixa o jogo controlar a frota com base no sistema de orçamento da linha. É útil para quem não quer administrar linha por linha o tempo todo.
 
-### 🛑 Stop Info Panel
+### 3. Use a distribuição de veículos para reduzir comboios
 
-Clicking a stop node opens the IPT Stop Info Panel, which extends the vanilla stop window:
+Se vários veículos da mesma linha ficam chegando juntos, aumente a configuração de distribuição de veículos. Em geral, isso já melhora bastante o espaçamento sem exigir mudanças profundas na cidade.
 
-- **Stop Name** — Rename any stop; suggested names sourced from nearby streets and districts.
-- **Passenger Statistics** — Current, last, and average boarding/alighting counts per stop visit.
-- **Waiting Passengers** — Live count of citizens waiting at the stop.
-- **Unbunching Toggle** — Enable or disable unbunching for this specific stop independently.
-- **Sync Unbunching to Nearby Stops** — Apply the same unbunching state to all stops at the same station or interchange in one click.
-- **Navigate Stops** — Previous / Next buttons jump the camera to adjacent stops along the line.
-- **Delete Stop** — Remove a stop (hold Alt to enable; use with caution).
+### 4. Verifique paradas problemáticas
 
----
+Ao clicar numa parada, o IPT4 mostra informações que ajudam a identificar gargalos:
 
-### 🔀 Unbunching Control
+- passageiros esperando
+- embarques e desembarques
+- tempo até desistência
+- navegação para parada anterior e próxima
 
-Fine-tune how aggressively the game tries to space out vehicles on a line:
+### 5. Ajuste tipos de veículos apenas quando fizer sentido
 
-- **Aggression Slider** (0–52) — 52 matches vanilla aggression; lower values reduce the effect; 0 disables it.
-- **Per-Line Toggle** — Enable or disable unbunching on individual lines from the line panel or stop panel.
-- **Spawn Interval** — Control the minimum time between vehicle spawns on a line.
+Se uma linha estiver usando modelos inadequados, abra a seleção de veículos e limite a operação aos modelos que você realmente quer naquela linha.
 
----
+## Configuração recomendada para começar
 
-### 🗑️ Lines Deletion Tool
+Para a maioria dos jogadores, vale começar assim:
 
-Bulk-delete all lines of a given transport type from the Options panel:
+- controle por orçamento: ativado, se você prefere menos microgerenciamento
+- distribuição de veículos: ativada
+- editor de veículos: deixar no padrão até entender o impacto
+- preços de passagem: manter no padrão no primeiro teste
+- limites de parada/estação: só mexer se houver superlotação ou comportamento estranho
 
-- Select one or more transport categories (bus, trolleybus, tram, train, metro, monorail, ferry, helicopter, blimp, sightseeing bus).
-- Confirm with a dialog before deletion to avoid accidents.
-- Only available while a city is loaded.
+## Recursos principais
 
----
+### Controle de linhas
 
-## What's New in Version 3.0
+Permite administrar quantidade de veículos, fila de spawn, tipos permitidos e comportamento de espaçamento por linha.
 
-### ✨ What's New Dialog System
-The mod now displays helpful notifications when major features are added or changed. The dialog appears once per version and can be dismissed. If you click "Don't Show Again," the reminder won't appear again until a new version is released.
+### Informações de paradas
 
-## Mod Integrations
+Ajuda a descobrir onde a rede está falhando, com foco em leitura rápida durante o jogo.
 
-The following mods have been built directly into IPT3. You do not need — and should not use — the separate standalone versions alongside IPT3.
+### Editor de veículos
 
----
+Permite ajustar capacidade, custo e velocidade em casos específicos. Para a maioria dos jogadores, isso é opcional.
 
-#### Advanced Stop Selection
-Smarter tools for managing where vehicles can stop and pick up passengers at stations.
-
-### 🎨 **Auto Line Color Redux
-Automatically assigns colors and names to new transit lines based on route characteristics, keeping your transit map organized and visually appealing.
-
-### 🎯 **Better Bus Stop Position (BBSP)
-Controls how buses position themselves at stops, moving them forward instead of centered thus allowing a second bus to pull in behind.
-
-#### Better Train Boarding
-- Passengers are assigned to the nearest available carriage/vehicle segment and boarding is buffered to avoid strange 'stuck passenger' behavior
-- Improves consistency across transport modes and avoids passenger shuffling at busy stops
-- Applied to:
-  - BusAI (buses + sightseeing/intercity bus)
-  - TrolleybusAI
-  - TramAI
-  - PassengerTrainAI (metro/trains/monorail)
-  - PassengerHelicopterAI
-  - PassengerBlimpAI
-  - PassengerFerryAI
-
-#### Elevated Stops Enabler
-Build transit stops on elevated roads, opening up new urban layouts.
-
-#### Express Bus Services
-Buses and trams can depart early if there are very few passengers, keeping schedules tight
-- **Minibus Mode**: Small-capacity buses can skip if load is very light, reducing unnecessary wait times
-- **Self-Balancing**: The system automatically redeploys vehicles to busy stops and helps keep service balanced across the route
-- **Middle-Stop Deployment**: Allows self-balancing to redeploy buses to busy intermediate stops along a route, not just terminus stops — useful for catching congestion mid-route
-- **Express Tram Services**: Trams get smarter stopping decisions to reduce wait times
-
-#### Flight Tracker
-Track planes with a dedicated panel attached to the plane stand building info window. Shows flight status and schedules at a glance.
-- **Fix**: Panel is now correctly attached to the plane stand window instead of simply spawning there.
-- **Fix**: Escape key now properly closes the Flight Tracker panel along with building info window.
-
-#### Intercity Bus Control
-Fine-tune intercity bus behavior with a toggle on regular bus stations to allow Intercity Buses at them. (Sunset Harbor DLC).
-
-- **Supported Hubs**: Adds intercity bus support to all multi-modal bus hubs:
-  - Ferry-Bus Hub / Ferry and Bus Exchange Stop
-  - Harbor-Bus-Monorail Hub / Harbor-Bus Hub
-  - Monorail-Bus Hub
-- **Note**: The Bus-Train-Tram Hub uses its native intercity trains toggle and is left unchanged to avoid transport mode conflicts (only one intercity toggle per building is supported by the game UI).
-
-#### Mileage Taxi Service
-Taxis now charge per mile/kilometer traveled (based on IPT 'Show speed in' setting) instead of straight line distance from start to finish points, making them a realistic urban transportation option (After Dark DLC).
-
-#### Realistic Walking Speed
-Enables realistic pedestrian and cycling speeds in your city, controllable from the Options Panel:
-
-**Available Modes:**
-- **Standard**: Standard game walking and cycling speeds (default Cities: Skylines behavior)
-- **Realistic**: Applies realistic slowed down walking speeds based on citizen age and gender, and reduces cycling speeds uniformly.
-
-**What Changes with Realistic Mode:**
-- **Walking Speed**: Citizens walk at realistic speeds (0.54–0.82 m/s) that vary by age and gender, replacing uniform vanilla speeds
-- **Cycling Speed** (After Dark DLC only): All cyclists are slowed uniformly; cycling travel times become more significant regardless of cyclist profile
-- **Animation Sync**: Walking and cycling animations adjust to match the new movement speeds for realism
-
-**Gameplay Impact:**
-- Realistic mode makes pedestrian and cycling connections between transit stops more time-consuming, emphasizing good transit coverage
-- Cycling becomes a realistic alternative to transit for shorter distances, but longer trips favor public transport
-- Citizens move more realistically overall, affecting passenger boarding times and transfer experiences
-
-#### Stops and Stations
-Adds a waiting passenger limiter to all transit stops in Options Panel:
-- Controls maximum passenger overflow at busy stops
-- Prevents unrealistic passenger accumulation that can cause performance issues
-- Applies universally to each transport type
-
-### 🎫 **Ticket Price Customizer** — Control How Much Transit Costs
-Integrated directly into the Economy Panel with its own tab alongside Budget, Taxes, Loans, and Investments.
-
-Set ticket prices **independently for each transport type**:
-- **Buses**
-- **Intercity Buses**
-- **Sightseeing Buses**
-- **Trolleybuses**
-- **Trams**
-- **Trains**
-- **Metros**
-- **Monorail**
-- **Taxis** (charged per actual distance traveled via Mileage Taxi Services)
-- **Cable Cars**
-- **Ships**
-- **Ferries**
-- **Airplanes**
-- **Blimps**
-- **Helicopters**
-
-**Key Features:**
-- **Price Control**: Adjust individual transport fares from 0% (free) to 250% of base cost
-- **Day/Night Support** : Set different prices for night hours — great for simulating night-shift premium fares
-- **Smart Policy Integration**:
-  - When **Free Public Transport policy** is active in a district, all transport becomes free regardless of your slider settings
-  - When **High Ticket Prices policy** is active, fares automatically increase by 25% on top of your slider settings
-  - **Note**: Taxis don't respond to policies — they always charge per distance traveled
-- **Demand Balancing**: Higher prices naturally reduce passenger demand & lower prices induce demand, simulating realistic transit economics
-
-**Free services (never charge):**
-- Walking tours
-- Hot Air Balloons
-- Service vehicles (post vans, garbage trucks, etc.)
-
----
+### Ajustes de passagem
 
-## How Prices Affect Your City
+Quando o recurso estiver ativo, você pode alterar o preço por tipo de transporte para mudar demanda e receita.
 
-### Demand Impact
-When you raise ticket prices, fewer people will use that route. This is realistic but can hurt revenue if prices get too high.
+## Compatibilidade para jogadores
 
-**Example:**
-- Bus price at 100% (default): Good passenger count, steady revenue
-- Bus price at 150%: Moderate passenger decrease, increased revenue per trip
-- Bus price at 250% (maximum slider): Significant ridership drop; only works for premium routes
+- O IPT4 busca consolidar funções que antes exigiam mods separados.
+- Isso reduz conflito, mas não elimina incompatibilidades com outros mods que mexem exatamente nas mesmas telas, sistemas de linha ou patches Harmony.
+- Se você já usa mods antigos com funções parecidas, o ideal é não manter duplicidade.
 
-**Tip:** The slider maxes out at 250%. There's a sweet spot around 100%–150% for most routes. Premium routes (intercity, airports) can sustain 180%–250%.
+## Solução rápida de problemas
 
-### How Policies Work
+### O mod aparece, mas algo não mudou no jogo
 
-**Free Public Transport** (available in the Policies menu):
-- Overrides all your ticket price settings
-- Makes all transport FREE in the affected district (except taxis)
-- Great for promoting transit usage in struggling areas
-- Revenue stops, but ridership skyrockets
+- confirme se o mod está ativado
+- feche e abra o jogo após atualizar a pasta
+- teste em um save separado antes de concluir que a função não funciona
 
-**High Ticket Prices** (available in the Policies menu):
-- Increases all fares by 25% on top of your slider settings (except taxis)
-- Example: Your slider set to 150% + Policy active = 187.5% effective price
-- Can exceed over the cap: Bus price at 250% slider + policy = 312.5% effective (250% × 1.25): Severely reduced ridership, high per-trip revenue
+### Veículos continuam andando em comboio
 
-**Taxi Exception:** Taxis always charge per kilometer/mile and ignore both policies completely.
+- aumente a agressividade da distribuição de veículos
+- confirme se a linha específica está com a opção ativa
+- verifique se a cidade não tem gargalos extremos que forçam todos os veículos a parar no mesmo ponto
 
----
+### A linha usa veículos errados
 
-### Day/Night Prices
+- abra a seleção de tipos de veículo
+- remova os modelos que não deveriam operar naquela linha
+- confira se a garagem da linha oferece veículos compatíveis
 
-Different fares for day hours vs. night hours:
-- **Day Mode**: Standard prices
-- **Night Mode**: Can be cheaper or more expensive
+### O jogo apresentou conflito com outro mod
 
-This aligns with the game’s built-in day/night cycle and is used to automatically switch pricing when the time transition occurs.
-**RealTime Mod Compatibility:** This feature works seamlessly with RealTime mods. Ticket prices will automatically transition at whatever times RealTime sets for day/night, including dynamic seasonal sunrise/sunset adjustments (if enabled). No additional configuration needed — they work together automatically.
----
+- desative mods que alterem as mesmas funções de transporte
+- teste o IPT4 sozinho ou com uma combinação mínima
+- reative os outros mods um a um, se precisar localizar o conflito
 
-## DLC Compatibility
+## Para usuários avançados
 
-Most features work with just the base game. Features that require DLC will be unavailable if you do not own it.
+Esta seção é menor de propósito. O foco do projeto continua sendo o uso prático no jogo.
 
----
+### Configurações detalhadas
 
-## Troubleshooting
+Usuários avançados podem explorar:
 
-### "Prices don't seem to be working"
-- Check if a **Free Public Transport policy** is active — it overrides all prices
-- Make sure you're adjusting the right transport type slider
-- Save your game and reload to confirm changes are persisted
+- comportamento detalhado da distribuição de veículos
+- limites de passageiros por tipo de parada e estação
+- personalização de preços por modal
+- editor de veículos para capacidade, custo e velocidade
+- integrações de recursos específicos herdados de versões anteriores
 
-### "My buses/trams are still bunching up"
-- Increase the **Unbunching Aggression** slider
-- Make sure unbunching is enabled for the specific line (check line details panel)
-- Try the **Express Bus Services** mode for buses or **Express Trams Services** for trams instead.
+### Compatibilidade
 
-### "I can't see a particular transport type slider"
-- You might not own the required DLC
-- Some DLCs add new transport types with their own sliders
+O principal cuidado é evitar sobreposição com outros mods que:
 
----
+- alterem quantidade de veículos por linha
+- mudem lógica de embarque/desembarque
+- modifiquem precificação de transporte
+- instalem patches Harmony nas mesmas rotinas do jogo
 
-## Version History
+### Solução de problemas avançada
 
-### 3.0.0 (March 2026) — Current
-Complete rebuild of IPT2 for the Race Day update, with many standalone transport mods absorbed.
-- ✨ What's New notification system
-- ✅ Core transport line panel, vehicle type selector, vehicle editor, and stop info panel carried forward from IPT/IPT2
-- ✅ All mod integrations verified against Cities: Skylines API source code
-- ✅ All integrated settings properly save to XML and persist to save games
-- ✅ Compatibility with More Vehicles Renewed for Race Day
-- 🚍 Added Intercity Buses to the Vehicle Editor
-- 🛠 Fixed Deinit early-return bug that left Harmony patches active across game sessions
-- 🛠 Fixed Flight Tracker window positioning and Escape key handling
-- 🛠 Switched from unsafe IL transpiler override to safe postfix mode with config toggle for BBSP
-- 🛠 Fixed Intercity Bus Control to work on all applicable bus transport hubs except Bus-Train-Tram Hub; the game only supports one intercity setting per hub and train hubs have 'Allow Intercity Trains' by default.
+Se algo fugir do esperado:
 
-### IPT2 (BloodyPenguin, 2017–2023)
-Fixed and continued the original IPT after it was abandoned. Added Harmony, improved Vehicle Selection UI, and maintained compatibility through game updates up to 1.16.1-f2.
+- teste com menos mods ativos
+- revise logs e mensagens de conflito
+- compare o comportamento em um save novo e em um save antigo
+- confirme se DLCs e dependências realmente existem no ambiente usado
 
-### IPT (DontCryJustDie, 2015–2016)
-The original mod. Introduced vehicle count control, vehicle type selection, the Vehicle Editor, the Stop Info Panel, per-line unbunching configuration, and depot management to Cities: Skylines.
+## Créditos
 
----
+O IPT4 existe graças ao trabalho acumulado da comunidade de modding de Cities: Skylines. Este projeto preserva o crédito histórico das versões anteriores e das integrações que deram origem à base atual.
 
-## Credits & License
-Special thanks to all the authors who made code available under MIT or GNU license: Dontcryjustdie, BloodyPenguin, Nyoko, egi, llunak, Vectorial1024, macsergey, dymanoid, TaradinoC. 
+Autores e mantenedores históricos citados pelo projeto incluem, entre outros:
 
-Individual mod integratons include original LICENSE in their respective folders in Integration folder.
+- Dontcryjustdie
+- BloodyPenguin
+- Nyoko
+- egi
+- llunak
+- Vectorial1024
+- macsergey
+- dymanoid
+- TaradinoC
 
----
+## Licença
 
-## Support
-For issues, feedback, or feature requests, please visit the mod's community page on the Steam Workshop.
+Os créditos e as licenças dos componentes originais devem ser preservados. Licenças específicas de integrações e partes incorporadas permanecem nos respectivos diretórios do projeto, especialmente dentro de `Integration/` quando aplicável.
 
+## Documentação técnica
 
-
+Este README não é documentação para desenvolvedores. Se a parte técnica do IPT4 precisar crescer, a documentação de arquitetura, build, compatibilidade interna e decisões de projeto poderá ficar em uma área separada do repositório no futuro.

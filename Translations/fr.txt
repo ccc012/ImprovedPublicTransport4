@@ -87,6 +87,10 @@ SETTINGS_BUDGET_TICKET_PRICES_DISABLED Désactivé
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Activé
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Lorsqu'il est activé, ajoute un onglet au panneau Économie avec des curseurs pour ajuster les prix des billets par type de transport.
 
+SETTINGS_AUTO_LINE_BUDGET Taille automatique de la flotte:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Désactivé
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Activé
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Lorsqu'il est activé, les lignes en mode Budget ajustent automatiquement leur nombre de véhicules selon la demande réelle des passagers, au lieu d'utiliser le curseur de budget du jeu de base. Les lignes en mode Manuel ne sont jamais modifiées.
 SETTINGS_AUTO_LINE Ligne automatique
 SETTINGS_AUTOSHOW_LINE_INFO Ouvrir automatiquement le panneau d'informations de la ligne
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Afficher automatiquement le panneau d'informations de la ligne après la création d'une nouvelle ligne.

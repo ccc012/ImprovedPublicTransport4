@@ -1,5 +1,4 @@
-using ImprovedPublicTransport.OptionsFramework;
-using ImprovedPublicTransport.Data;
+﻿using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
 using static ImprovedPublicTransport.ImprovedPublicTransportMod;
@@ -70,7 +69,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                     return false;
                 }
 
-                CachedTransportLineData.SetNextSpawnTime(lineID, SimHelper.SimulationTime + OptionsWrapper<Settings.Settings>.Options.SpawnTimeInterval);
+                CachedTransportLineData.SetNextSpawnTime(lineID, SimHelper.SimulationTime + ModSetting.Instance.SpawnTimeInterval);
             }
             else
             {

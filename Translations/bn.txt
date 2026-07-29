@@ -1,0 +1,286 @@
+MOD_DESCRIPTION গণপরিবহনের উন্নত নিয়ন্ত্রণ।
+CURRENT_WEEK চলতি সপ্তাহ
+LAST_WEEK গত সপ্তাহ
+AVERAGE গড়
+AVERAGE_TOOLTIP গত {0} সপ্তাহের গড়।
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS স্টেশন স্টপ
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES ডিপো যানবাহন
+CITYSERVICE_ACCEPTINTERCITYBUSES আন্তঃশহর বাসের অনুমতি দিন
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP এই স্টেশনে আন্তঃশহর বাস ব্যবহারের অনুমতি দিন। শুধুমাত্র স্থানীয় বাসের জন্য এটি নিষ্ক্রিয় করুন।
+
+EXPLANATION_BUDGET_CONTROL বাজেট নিয়ন্ত্রণ: যানবাহনের সংখ্যা বাজেট দ্বারা নিয়ন্ত্রিত হয়।
+EXPLANATION_UNBUNCHING যানবাহন আনবাঞ্চিং: গেমটি যানবাহনের মধ্যে একটি ফাঁক তৈরি করার চেষ্টা করে।
+LINE_PANEL_STOPS স্টপ: {0}
+LINE_PANEL_SPAWNTIMER পরবর্তী যানবাহন {0} সেকেন্ডে।
+LINE_PANEL_DEPOT_WARNING <color #FF0000>নির্বাচিত ডিপোতে আর কোনো যানবাহন অবশিষ্ট নেই।</color>
+LINE_PANEL_BUDGET_CONTROL বাজেট নিয়ন্ত্রণ
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP এই লাইনের জন্য বাজেট নিয়ন্ত্রণ সক্ষম বা নিষ্ক্রিয় করে।
+LINE_PANEL_UNBUNCHING_TOOLTIP এই লাইনের জন্য যানবাহন আনবাঞ্চিং সক্ষম বা নিষ্ক্রিয় করে।\nআনবাঞ্চিং আগ্রাসন ০ তে সেট করা থাকলে আনবাঞ্চিং নিষ্ক্রিয় থাকে।
+LINE_PANEL_DEPOT ডিপো:
+LINE_PANEL_NO_DEPOT_FOUND কোনো ডিপো পাওয়া যায়নি।
+LINE_PANEL_DEPOT_MARKER_TOOLTIP নির্বাচিত ডিপোর দিকে যান।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+LINE_PANEL_SELECT_TYPES প্রকার নির্বাচন করুন
+LINE_PANEL_SELECT_TYPES_TOOLTIP 'প্রকার নির্বাচন করুন' প্যানেল টগল করে।\nএই বোতামটি নিষ্ক্রিয় থাকলে আপনাকে প্রথমে একটি ডিপো নির্বাচন করতে হবে।
+LINE_PANEL_LINE_STOPS লাইন স্টপ
+LINE_PANEL_LINE_VEHICLES এই লাইনের যানবাহন
+LINE_PANEL_ENQUEUED সারিবদ্ধ যানবাহন
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP এই লাইনে {0} জন যাত্রী অপেক্ষা করছেন।
+LINE_PANEL_ADD_VEHICLE যানবাহন যোগ করুন
+LINE_PANEL_ADD_VEHICLE_TOOLTIP লাইনে একটি নতুন যানবাহন যোগ করে।\nএই বোতামটি নিষ্ক্রিয় থাকলে, নির্বাচিত ডিপোতে আর কোনো যানবাহন অবশিষ্ট নেই।
+LINE_PANEL_REMOVE_VEHICLE যানবাহন সরান
+
+STOP_LIST_BOX_ROW_STOP স্টপ #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nঅপেক্ষারত যাত্রী: {1}\n\nএই স্টপে যেতে ডান-ক্লিক করুন।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP প্রস্তাবিত স্টপ নামের তালিকা।
+STOP_PANEL_REUSE_NAME_TOOLTIP এই স্টেশন/অবস্থানের অন্য সব স্টপে এই নামটি সেট করুন।
+STOP_PANEL_WAITING_PEOPLE অপেক্ষারত যাত্রী: {0}
+STOP_PANEL_BORED_TIMER বিরক্ত হওয়ার সময়: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP এই কাউন্টডাউন শূন্যে পৌঁছালে যাত্রীরা এই স্টপ ছেড়ে চলে যাবে।
+STOP_PANEL_PASSENGERS_IN আগত যাত্রী:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP যে যাত্রীরা এখানে পরিবহন যানবাহনে প্রবেশ করেন।
+STOP_PANEL_PASSENGERS_OUT নির্গত যাত্রী:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP যে যাত্রীরা এখানে পরিবহন যানবাহন থেকে নেমে যান।
+STOP_PANEL_PASSENGERS_TOTAL মোট:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP এখানে মোট পরিসেবা প্রাপ্ত যাত্রী।
+STOP_PANEL_UNBUNCHING_TOOLTIP এই স্টপে যানবাহন আনবাঞ্চিং সক্ষম বা নিষ্ক্রিয় করে।\nআনবাঞ্চিং আগ্রাসন ০ তে সেট করা থাকলে আনবাঞ্চিং নিষ্ক্রিয় থাকে।
+STOP_PANEL_UPDATE_CLOSE_STOPS কাছের স্টপ হালনাগাদ করুন
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP এই স্টেশন/অবস্থানের অন্য সব স্টপে আনবাঞ্চিং অবস্থা সেট করুন।
+STOP_PANEL_PREVIOUS পূর্ববর্তী স্টপ
+STOP_PANEL_PREVIOUS_TOOLTIP পূর্ববর্তী স্টপে যান।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+STOP_PANEL_DELETE_STOP স্টপ মুছুন
+STOP_PANEL_DELETE_STOP_TOOLTIP Alt কী চেপে ধরে রাখলে এই বোতামটি সক্রিয় হয়।\nনিজ দায়িত্বে ব্যবহার করুন!!!
+STOP_PANEL_NEXT পরবর্তী স্টপ
+STOP_PANEL_NEXT_TOOLTIP পরবর্তী স্টপে যান।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+STOP_BUTTON_TOOLTIP {0}\n\nএই স্টপে যেতে ক্লিক করুন।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।\nক্লিক করার সময় Alt কী চেপে রাখলে স্টপ তথ্য প্যানেল খোলা প্রতিরোধ হবে।
+
+SETTINGS_DELETE মুছুন
+SETTINGS_RESET রিসেট করুন
+
+SETTINGS_TAB_GENERAL সাধারণ
+SETTINGS_TAB_AUTOLINE অটো লাইন
+SETTINGS_TAB_STOPS স্টপ ও স্টেশন
+SETTINGS_TAB_UNBUNCHING আনবাঞ্চিং
+SETTINGS_TAB_DELETE লাইন মুছুন
+
+SETTINGS সেটিংস
+SETTINGS_SPEED গতি প্রদর্শন করুন:
+SETTINGS_SPEED_TOOLTIP UI-তে গতি প্রদর্শনের জন্য ব্যবহৃত একক নির্বাচন করুন।
+SETTINGS_SPEED_KPH কিমি/ঘণ্টা
+SETTINGS_SPEED_MPH মাইল/ঘণ্টা
+SETTINGS_WALKING_SPEED হাঁটা/সাইকেল চালানোর গতি:
+SETTINGS_WALKING_SPEED_TOOLTIP স্ট্যান্ডার্ড: মূল গেমের গতি।\nবাস্তবসম্মত: হাঁটার গতি বাস্তবসম্মত, বয়স-ভিত্তিক মানে কমিয়ে দেয়।\nAfter Dark DLC থাকলে বাস্তবসম্মত মোড সাইকেল চালানোর গতিও কমায়।
+SETTINGS_WALKING_SPEED_MODE_VANILLA স্ট্যান্ডার্ড
+SETTINGS_WALKING_SPEED_MODE_REALISTIC বাস্তবসম্মত
+SETTINGS_BBSP উন্নত বাস স্টপ অবস্থান:
+SETTINGS_BBSP_TOOLTIP নিষ্ক্রিয়: কোনো অবস্থান সমন্বয় নেই।\nসক্রিয়: বাস কেন্দ্রের পরিবর্তে বাস স্টপের সামনের দিকে থামে।
+SETTINGS_BBSP_MODE_DISABLED নিষ্ক্রিয়
+SETTINGS_BBSP_MODE_ORIGINAL সক্রিয়
+SETTINGS_BBSP_MODE_UPDATED পরীক্ষামূলক লজিক ব্যবহার করুন
+
+SETTINGS_BUDGET বাজেট
+SETTINGS_ENABLE_BUDGET_CONTROL লাইন বাজেট নিয়ন্ত্রণ:
+SETTINGS_BUDGET_CONTROL_DISABLED নিষ্ক্রিয়
+SETTINGS_BUDGET_CONTROL_ENABLED সক্রিয়
+SETTINGS_BUDGET_CONTROL_TOOLTIP সক্রিয় থাকলে, পরিবহন লাইনের যানবাহন সংখ্যা বাজেট দ্বারা নিয়ন্ত্রিত হয়; এটি সমস্ত বিদ্যমান লাইন হালনাগাদ করে এবং সারিবদ্ধ যানবাহন মুছে ফেলে।
+SETTINGS_BUDGET_TICKET_PRICES টিকিট মূল্য কাস্টমাইজার:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED নিষ্ক্রিয়
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED সক্রিয়
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP সক্রিয় থাকলে, প্রতিটি পরিবহন প্রকারের টিকিট মূল্য সমন্বয়ের জন্য স্লাইডার সহ ইকোনমি প্যানেলে একটি নতুন ট্যাব যোগ করে।
+SETTINGS_AUTO_LINE_BUDGET স্বয়ংক্রিয় বহর আকার নির্ধারণ:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED নিষ্ক্রিয়
+SETTINGS_AUTO_LINE_BUDGET_ENABLED সক্রিয়
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP সক্রিয় থাকলে, বাজেট মোডে থাকা লাইনগুলো মূল গেমের বাজেট স্লাইডারের পরিবর্তে প্রকৃত যাত্রী চাহিদার ভিত্তিতে স্বয়ংক্রিয়ভাবে তাদের যানবাহন সংখ্যা সমন্বয় করে। ম্যানুয়ালে সেট করা লাইনগুলো কখনো স্পর্শ করা হয় না।
+
+SETTINGS_AUTO_LINE অটো লাইন
+SETTINGS_AUTOSHOW_LINE_INFO স্বয়ংক্রিয়ভাবে লাইন তথ্য প্যানেল খুলুন
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP একটি নতুন লাইন তৈরি হওয়ার পর স্বয়ংক্রিয়ভাবে লাইন তথ্য প্যানেল প্রদর্শন করুন।
+
+AUTOLINECOLOR_STRATEGY_DISABLED নিষ্ক্রিয়
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE এলোমেলো হিউ
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR এলোমেলো রঙ
+AUTOLINECOLOR_STRATEGY_CATEGORISED শ্রেণীবদ্ধ
+AUTOLINECOLOR_STRATEGY_NAMED নামযুক্ত রঙ
+AUTOLINECOLOR_NAMING_DISABLED নিষ্ক্রিয়
+AUTOLINECOLOR_NAMING_DISTRICTS জেলা
+AUTOLINECOLOR_NAMING_LONDON লন্ডন
+AUTOLINECOLOR_NAMING_ROADS রাস্তা
+AUTOLINECOLOR_NAMING_COLORS নামযুক্ত রঙ
+AUTOLINECOLOR_COLOR_STRATEGY রঙ কৌশল:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP নতুন লাইনগুলোতে রঙ কীভাবে বরাদ্দ করা হয়:\n'এলোমেলো হিউ' = একই স্যাচুরেশন/উজ্জ্বলতা, ভিন্ন হিউ;\n'এলোমেলো রঙ' = সম্পূর্ণ এলোমেলো RGB;\n'শ্রেণীবদ্ধ' = যানবাহন প্রকার অনুযায়ী রঙ;\n'নামযুক্ত রঙ' = পূর্বনির্ধারিত রঙ প্যালেট।
+AUTOLINECOLOR_NAMING_STRATEGY নামকরণ কৌশল:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP নতুন লাইনগুলোতে নাম কীভাবে বরাদ্দ করা হয়:\n'কোনোটিই না' = কোনো স্বয়ংক্রিয়-নামকরণ নেই;\n'জেলা' = পরিসেবিত জেলার ভিত্তিতে;\n'লন্ডন' = ক্রমিক সংখ্যাযুক্ত রুট (লন্ডন বাস স্টাইল);\n'রাস্তা' = রাস্তার নামের ভিত্তিতে;\n'নামযুক্ত রঙ' = রঙের নামের ভিত্তিতে।
+AUTOLINECOLOR_MIN_COLOR_DIFF ন্যূনতম রঙ পার্থক্য (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP এলোমেলো রঙ নির্বাচনের সময় ন্যূনতম রঙ পার্থক্যের শতাংশ।
+AUTOLINECOLOR_MAX_COLOR_PICK সর্বোচ্চ প্রচেষ্টা:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP একটি সহজে পার্থক্যযোগ্য রঙ নির্বাচনের সর্বোচ্চ প্রচেষ্টা।
+
+SETTINGS_UI UI সেটিংস
+SETTINGS_VEHICLE_EDITOR_POSITION যানবাহন সম্পাদক অবস্থান:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP যানবাহন সম্পাদক প্যানেলটি স্ক্রিনের নিচে নাকি ডান পাশে প্রদর্শিত হবে তা নির্বাচন করুন।
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM নিচে
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT ডানে
+SETTINGS_VEHICLE_EDITOR_HIDE যানবাহন সম্পাদক লুকান
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP যানবাহন প্যানেল থেকে যানবাহন সম্পাদক লুকান।
+
+SETTINGS_STOPS গণপরিবহন স্টপ
+SETTINGS_ENABLE_STOPS_AND_STATIONS স্টপ ও স্টেশন সক্ষম করুন
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP বিভিন্ন স্টপ ও স্টেশনে গণপরিবহনের জন্য অপেক্ষারত সর্বোচ্চ নাগরিক সংখ্যা সমন্বয় করুন। স্টপ ট্যাবে কনফিগার করুন।
+SETTINGS_STOPSANDSTATIONS_ENABLE স্টপ ও স্টেশন সক্ষম করুন
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP স্টপে যাত্রী সীমা প্রয়োগ সক্ষম বা নিষ্ক্রিয় করুন।
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER একটি পরিবহন লাইন স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS লাইন বাস
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP একটি লাইন বাস স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS ট্রলিবাস
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP একটি ট্রলিবাস স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS উদ্ধারকারী বাস
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP একটি উদ্ধারকারী বাস স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS ভ্রমণ বাস
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP একটি ভ্রমণ বাস স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM ট্রাম
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP একটি ট্রাম স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO মেট্রো
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP একটি মেট্রো স্টেশনে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN ট্রেন
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP একটি ট্রেন স্টেশনে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL মনোরেল
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP একটি মনোরেল স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP জাহাজ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP একটি কার্গো জাহাজ বন্দরে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY ফেরি
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP একটি ফেরি স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE বিমান
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP একটি বিমান টার্মিনালে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR কেবল কার
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP একটি কেবল কার স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON হট এয়ার বেলুন
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP একটি হট এয়ার বেলুন স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER হেলিকপ্টার
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP একটি হেলিকপ্টার স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP ব্লিম্প
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP একটি ব্লিম্প স্টপে অপেক্ষারত সর্বোচ্চ যাত্রী
+
+SETTINGS_UNBUNCHING আনবাঞ্চিং
+SETTINGS_UNBUNCHING_AGGRESSION আনবাঞ্চিং আগ্রাসন:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP যানবাহন আনবাঞ্চিং কতটা শক্তিশালীভাবে কাজ করবে?\nসম্ভাব্য মান: ০–৫২। ০ মান আনবাঞ্চিং নিষ্ক্রিয় করে।\nউচ্চতর মান ট্রাফিকের উপর তীব্র প্রভাব ফেলবে এবং যানবাহন অদৃশ্য হয়ে যেতে পারে।
+SETTINGS_VEHICLE_COUNT নতুন লাইনে যানবাহন:
+SETTINGS_VEHICLE_COUNT_TOOLTIP লাইন বাজেট নিয়ন্ত্রণ বন্ধ থাকলে নতুন লাইনে স্বয়ংক্রিয়ভাবে যোগ হওয়া যানবাহনের সংখ্যা।
+SETTINGS_SPAWN_TIME_INTERVAL স্পন সময়ের ব্যবধান:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP যানবাহন স্পনের মধ্যবর্তী সময় (সেকেন্ডে)।
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP সব স্লাইডার পূর্বনির্ধারিত মানে ফিরিয়ে দেয়।
+UNBUNCHING_ENABLED যানবাহন আনবাঞ্চিং
+UNBUNCHING_DISABLED আনবাঞ্চিং নিষ্ক্রিয় করা আছে।
+UNBUNCHING_TARGET_GAP লক্ষ্য ফাঁক: {0}
+
+SETTINGS_EBS_GROUP_BUS এক্সপ্রেস বাস পরিসেবা
+SETTINGS_EBS_GROUP_TRAM এক্সপ্রেস ট্রাম পরিসেবা
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE এক্সপ্রেস বাস:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'নিষ্ক্রিয়' = বাসগুলো উপরের আনবাঞ্চিং সেটিংস ব্যবহার করে।\n'প্রুডেনশিয়াল' = সংক্ষিপ্ত সময়ের জন্য থামে, যাত্রী পরীক্ষা করে, খালি থাকলে রওনা দিতে পারে।\n'আগ্রাসী' = অপেক্ষারত যাত্রী না থাকলে স্টপ সম্পূর্ণভাবে এড়িয়ে যায়।
+SETTINGS_EBS_ENABLE_SELFBAL পরিসেবা স্ব-ভারসাম্যকরণ সক্ষম করুন
+SETTINGS_EBS_TOOLTIP_SELFBAL লাইন অংশ বিশ্লেষণ করে এবং পরিসেবা সমান করতে ও অপেক্ষার সময় কমাতে ব্যস্ত অংশ বা টার্মিনাস স্টপে যানবাহন পুনর্বিন্যাস করতে পারে।\nসিদ্ধান্তগুলো সম্ভাব্যতাভিত্তিক এবং যাত্রী সংখ্যা ও পুনর্বিন্যাসের সম্ভাবনার উপর নির্ভরশীল।
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID লাইনের মাঝের স্টপে স্ব-ভারসাম্যকরণ সক্ষম করুন
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID স্ব-ভারসাম্যকারীকে (টার্মিনাসের পরিবর্তে) লাইনের মাঝের একটি ব্যস্ত স্টপে যানবাহন পুনর্বিন্যাস করার অনুমতি দিন।\nএটি তখনই বিবেচনা করা হয় যখন সবচেয়ে ব্যস্ত স্টপে ৩০ জনের বেশি যাত্রী অপেক্ষা করে, তারপর প্রায় ৫০% সম্ভাবনায় নির্বাচিত হয় এবং সামগ্রিক পুনর্বিন্যাস সম্ভাবনার সাপেক্ষে।
+SETTINGS_EBS_ENABLE_MINIBUS মিনিবাস মোড সক্ষম করুন
+SETTINGS_EBS_TOOLTIP_MINIBUS ≤২০ ধারণক্ষমতার বাসগুলো একটি স্টপে ওঠা + নামা যাত্রীর সংখ্যা ≤৫ হলে আগে রওনা দিতে পারে।
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE এক্সপ্রেস ট্রাম:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'নিষ্ক্রিয়' = ট্রামগুলো উপরের আনবাঞ্চিং সেটিংস ব্যবহার করে।\n'লাইট রেল' = প্রতিটি স্টপে থামে, সবসময় সম্পূর্ণ টাইমার অপেক্ষা করে (কঠোর নিয়ম মেনে চলে)।\n'ট্রু ট্রাম' = শুধুমাত্র যাত্রী ওঠা/নামার সময় থামে।
+SETTINGS_EBS_MODE_NONE নিষ্ক্রিয়
+SETTINGS_EBS_MODE_AGGRESSIVE আগ্রাসী
+SETTINGS_EBS_MODE_PRUDENTIAL প্রুডেনশিয়াল
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL লাইট রেল মোড
+SETTINGS_EBS_TRAM_MODE_NONE নিষ্ক্রিয়
+SETTINGS_EBS_TRAM_MODE_TRAM ট্রু ট্রাম মোড
+
+
+SETTINGS_PTU_GROUP গণপরিবহন আনস্টাকার
+SETTINGS_PTU_ENABLE আটকে থাকা যাত্রীদের অদৃশ্য করুন
+SETTINGS_PTU_TOOLTIP পরিবহন যানবাহনে ওঠার চেষ্টা করার সময় আটকে যাওয়া যাত্রীদের স্বয়ংক্রিয়ভাবে অদৃশ্য করে, যা যানবাহনকে স্বাভাবিকভাবে রওনা হতে দেয় এবং স্থবির রওনা প্রতিরোধ করে।
+
+
+SETTINGS_LINE_DELETION_TOOL লাইন মুছে ফেলার টুল
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP নির্বাচিত প্রকারের সব লাইন মুছে ফেলে। শুধুমাত্র শহর লোড থাকা অবস্থায় কাজ করে।
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE লাইন মুছে ফেলা নিশ্চিত করুন
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG আপনি সব লাইন মুছে ফেলতে চলেছেন।\nআপনি কি এগিয়ে যেতে চান?
+SETTINGS_DELETE_BUS_TOOLTIP সব নিয়মিত বাস লাইন মুছে ফেলে।
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL ভ্রমণ বাস
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP সব ভ্রমণ বাস লাইন মুছে ফেলে।
+SETTINGS_DELETE_TRAM_TOOLTIP সব ট্রাম লাইন মুছে ফেলে।
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP সব ট্রলিবাস লাইন মুছে ফেলে।
+SETTINGS_DELETE_TRAIN_TOOLTIP সব ট্রেন লাইন মুছে ফেলে।
+SETTINGS_DELETE_METRO_TOOLTIP সব ভূগর্ভস্থ মেট্রো লাইন মুছে ফেলে।
+SETTINGS_DELETE_MONORAIL_TOOLTIP সব মনোরেল লাইন মুছে ফেলে।
+SETTINGS_DELETE_FERRY_LABEL ফেরি
+SETTINGS_DELETE_SHIP_TOOLTIP সব ফেরি লাইন মুছে ফেলে।
+SETTINGS_DELETE_HELICOPTER_LABEL হেলিকপ্টার
+SETTINGS_DELETE_HELICOPTER_TOOLTIP সব হেলিকপ্টার লাইন মুছে ফেলে।
+SETTINGS_DELETE_BLIMP_LABEL ব্লিম্প
+SETTINGS_DELETE_BLIMP_TOOLTIP সব ব্লিম্প লাইন মুছে ফেলে।
+
+
+VEHICLE_EDITOR_TITLE যানবাহন সম্পাদক
+VEHICLE_EDITOR_SUB_TITLE {0} টি যানবাহন
+VEHICLE_EDITOR_CAPACITY যাত্রী ধারণক্ষমতা
+VEHICLE_EDITOR_CAPACITY_TAXI ভ্রমণ ধারণক্ষমতা
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP প্রতি কর্মশিফটে যাত্রীর সংখ্যা।
+VEHICLE_EDITOR_MAINTENANCE রক্ষণাবেক্ষণ খরচ
+VEHICLE_EDITOR_MAX_SPEED সর্বোচ্চ গতি
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS উভয় প্রান্তে ট্রেন ইঞ্জিন
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP ট্রেনের উভয় প্রান্তে ইঞ্জিন সক্ষম বা নিষ্ক্রিয় করে।
+VEHICLE_EDITOR_APPLY প্রয়োগ করুন
+VEHICLE_EDITOR_DEFAULT পূর্বনির্ধারিত
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 এই যানবাহন অনুসরণ করতে ডান-ক্লিক করুন।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 এই যানবাহনকে সারিবদ্ধ করতে শিফট + ক্লিক করুন।
+VEHICLE_PANEL_EDIT_TYPE যানবাহন প্রকার সম্পাদনা করুন
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP যানবাহন সম্পাদক দিয়ে এই যানবাহন প্রকার সম্পাদনা করুন।
+VEHICLE_PANEL_STATUS_NEXT_STOP পরবর্তী স্টপ:
+VEHICLE_PANEL_STATUS_UNBUNCHING আনবাঞ্চিং চলছে
+VEHICLE_PANEL_LAST_STOP_EXCHANGE শেষ স্টপে যাত্রী আদান-প্রদান: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS যাত্রী:
+VEHICLE_PANEL_EARNINGS আয়:
+VEHICLE_PANEL_EARNINGS_TOOLTIP টিকিট বিক্রয় বিয়োগ যানবাহন রক্ষণাবেক্ষণ খরচের ফলাফল।
+VEHICLE_PANEL_PREVIOUS পূর্ববর্তী যানবাহন
+VEHICLE_PANEL_PREVIOUS_TOOLTIP পূর্ববর্তী যানবাহনে যান।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+VEHICLE_PANEL_REMOVE_VEHICLE যানবাহন সরান
+VEHICLE_PANEL_NEXT পরবর্তী যানবাহন
+VEHICLE_PANEL_NEXT_TOOLTIP পরবর্তী যানবাহনে যান।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।
+VEHICLE_SELECTION_CAPACITY ধারণক্ষমতা
+VEHICLE_SELECTION_ADD_VEHICLE এই যানবাহনটি অনুমোদিত যানবাহনের তালিকায় যোগ করুন
+VEHICLE_SELECTION_ADD_ALL সব যোগ্য যানবাহন অনুমোদিত যানবাহনের তালিকায় যোগ করুন
+VEHICLE_SELECTION_REMOVE_VEHICLE এই যানবাহনটি অনুমোদিত যানবাহনের তালিকা থেকে সরান
+VEHICLE_SELECTION_REMOVE_ALL সব যানবাহন অনুমোদিত যানবাহনের তালিকা থেকে সরান
+VEHICLE_SELECTION_AVAILABLE_VEHICLES উপলব্ধ যানবাহন
+VEHICLE_SELECTION_SELECTED_VEHICLES নির্বাচিত যানবাহন
+VEHICLE_SELECTION_ANY_VEHICLE যেকোনো যানবাহন
+VEHICLE_BUTTON_TOOLTIP {0}\n\nএই যানবাহনে যেতে ক্লিক করুন।\nক্লিক করার সময় শিফট কী চেপে রাখলে জুমও হবে।\nক্লিক করার সময় Alt কী চেপে রাখলে যানবাহন তথ্য প্যানেল খোলা প্রতিরোধ হবে।
+TRANSPORT_LINE_VEHICLECOUNT যানবাহন সংখ্যা: {0}
+
+FLIGHT_TRACKER_NAME ফ্লাইট ট্র্যাকার
+FLIGHT_STATUS_NONE কোনোটিই না
+FLIGHT_STATUS_INCOMING আসছে
+FLIGHT_STATUS_LANDED অবতরণ করেছে
+FLIGHT_STATUS_AT_GATE গেটে আছে
+FLIGHT_STATUS_DEPARTED রওনা হয়েছে
+
+TICKET_PRICE_TAXI_KILOMETER ট্যাক্সি মূল্য প্রতি কিলোমিটার:
+TICKET_PRICE_TAXI_MILE ট্যাক্সি মূল্য প্রতি মাইল:
+TICKET_PRICE_BUS বাস টিকিট মূল্য:
+TICKET_PRICE_INTERCITY_BUS আন্তঃশহর বাস টিকিট মূল্য:
+TICKET_PRICE_METRO মেট্রো টিকিট মূল্য:
+TICKET_PRICE_TRAIN ট্রেন টিকিট মূল্য:
+TICKET_PRICE_TRAM ট্রাম টিকিট মূল্য:
+TICKET_PRICE_MONORAIL মনোরেল টিকিট মূল্য:
+TICKET_PRICE_SHIP জাহাজ টিকিট মূল্য:
+TICKET_PRICE_FERRY ফেরি টিকিট মূল্য:
+TICKET_PRICE_PLANE বিমান টিকিট মূল্য:
+TICKET_PRICE_CABLECAR কেবল কার টিকিট মূল্য:
+TICKET_PRICE_SIGHTSEEING_BUS ভ্রমণ বাস টিকিট মূল্য:
+TICKET_PRICE_TROLLEYBUS ট্রলিবাস টিকিট মূল্য:
+TICKET_PRICE_BLIMP ব্লিম্প টিকিট মূল্য:
+TICKET_PRICE_HELICOPTER হেলিকপ্টার টিকিট মূল্য:
+ECONOMY_TAB_TICKET_PRICES টিকিট মূল্য
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT এই পরিবহন প্রকারের বর্তমান মোট যাত্রী সংখ্যা।
+
+
+WHATSNEW_3_0_0_1 Race Day-এর জন্য হালনাগাদ করা হয়েছে; এখন More Vehicles Renewed-এর সাথে সামঞ্জস্যপূর্ণ।
+WHATSNEW_3_0_0_2 নিম্নলিখিত মডগুলো IPT3-এ একীভূত করা হয়েছে:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Public Transport Unstucker এখন IPT3-এ একীভূত করা হয়েছে।\nঅন্যান্য সব একীভূত মডের জন্য সংস্করণ 3.0 দেখুন। দ্বন্দ্ব এড়াতে মূল মডগুলো থেকে আনসাবস্ক্রাইব করুন।

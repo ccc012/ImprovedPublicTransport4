@@ -1,7 +1,6 @@
-using System;
+﻿using System;
 using UnityEngine;
 using ColossalFramework.UI;
-using ImprovedPublicTransport.OptionsFramework;
 
 namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 {

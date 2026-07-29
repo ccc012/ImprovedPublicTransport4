@@ -87,6 +87,10 @@ SETTINGS_BUDGET_TICKET_PRICES_DISABLED 비활성화
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED 활성화
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP 활성화하면 경제 패널에 각 교통수단의 요금(티켓 가격)을 조정하는 슬라이더가 있는 새 탭을 추가합니다.
 
+SETTINGS_AUTO_LINE_BUDGET 수요 기반 자동 차량 수:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED 비활성화
+SETTINGS_AUTO_LINE_BUDGET_ENABLED 활성화
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP 활성화하면 예산 모드의 노선은 기본 게임 예산 슬라이더 대신 실제 승객 수요에 따라 차량 수를 자동으로 조정합니다. 수동 모드의 노선은 변경되지 않습니다.
 SETTINGS_AUTO_LINE 자동 노선
 SETTINGS_AUTOSHOW_LINE_INFO 노선 정보 창 자동 열기
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP 새 노선이 생성된 후 노선 정보 창을 자동으로 표시해 줍니다.

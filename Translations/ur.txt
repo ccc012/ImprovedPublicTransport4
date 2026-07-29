@@ -1,0 +1,286 @@
+MOD_DESCRIPTION عوامی نقل و حمل کا بہتر کنٹرول۔
+CURRENT_WEEK موجودہ ہفتہ
+LAST_WEEK پچھلا ہفتہ
+AVERAGE اوسط
+AVERAGE_TOOLTIP گزشتہ {0} ہفتوں کی اوسط۔
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS اسٹیشن اسٹاپس
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES ڈپو گاڑیاں
+CITYSERVICE_ACCEPTINTERCITYBUSES بین شہری بسوں کی اجازت دیں
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP اس اسٹیشن کو استعمال کرنے کے لیے بین شہری بسوں کی اجازت دیں۔ صرف مقامی بسوں کے لیے اسے غیر فعال کریں۔
+
+EXPLANATION_BUDGET_CONTROL بجٹ کنٹرول: گاڑیوں کی تعداد بجٹ کے ذریعے کنٹرول کی جاتی ہے۔
+EXPLANATION_UNBUNCHING گاڑیوں کی غیر ہجومیت: گیم گاڑیوں کے درمیان فاصلہ پیدا کرنے کی کوشش کرتا ہے۔
+LINE_PANEL_STOPS اسٹاپس: {0}
+LINE_PANEL_SPAWNTIMER اگلی گاڑی {0} سیکنڈ میں۔
+LINE_PANEL_DEPOT_WARNING <color #FF0000>منتخب کردہ ڈپو میں کوئی گاڑی باقی نہیں ہے۔</color>
+LINE_PANEL_BUDGET_CONTROL بجٹ کنٹرول
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP اس لائن کے لیے بجٹ کنٹرول کو فعال یا غیر فعال کرتا ہے۔
+LINE_PANEL_UNBUNCHING_TOOLTIP اس لائن کے لیے گاڑیوں کی غیر ہجومیت کو فعال یا غیر فعال کرتا ہے۔\nاگر غیر ہجومیت کی جارحیت 0 پر مقرر ہو تو یہ غیر فعال ہوتی ہے۔
+LINE_PANEL_DEPOT ڈپو:
+LINE_PANEL_NO_DEPOT_FOUND کوئی ڈپو نہیں ملا۔
+LINE_PANEL_DEPOT_MARKER_TOOLTIP منتخب کردہ ڈپو کی طرف جائیں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+LINE_PANEL_SELECT_TYPES اقسام منتخب کریں
+LINE_PANEL_SELECT_TYPES_TOOLTIP 'اقسام منتخب کریں' پینل کو آن یا آف کرتا ہے۔\nاگر یہ بٹن غیر فعال ہے تو پہلے ایک ڈپو منتخب کرنا ہوگا۔
+LINE_PANEL_LINE_STOPS لائن اسٹاپس
+LINE_PANEL_LINE_VEHICLES اس لائن پر گاڑیاں
+LINE_PANEL_ENQUEUED قطار میں گاڑیاں
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP اس لائن پر {0} مسافر انتظار کر رہے ہیں۔
+LINE_PANEL_ADD_VEHICLE گاڑی شامل کریں
+LINE_PANEL_ADD_VEHICLE_TOOLTIP لائن میں ایک نئی گاڑی شامل کرتا ہے۔\nاگر یہ بٹن غیر فعال ہے تو منتخب کردہ ڈپو میں کوئی گاڑی باقی نہیں ہے۔
+LINE_PANEL_REMOVE_VEHICLE گاڑی ہٹائیں
+
+STOP_LIST_BOX_ROW_STOP اسٹاپ #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nانتظار کرنے والے مسافر: {1}\n\nاس اسٹاپ پر جانے کے لیے دائیں کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP تجویز کردہ اسٹاپ ناموں کی فہرست۔
+STOP_PANEL_REUSE_NAME_TOOLTIP اس نام کو اس اسٹیشن / مقام کے دیگر تمام اسٹاپس پر لاگو کریں۔
+STOP_PANEL_WAITING_PEOPLE انتظار کرنے والے مسافر: {0}
+STOP_PANEL_BORED_TIMER اکتاہٹ تک وقت: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP جب یہ کاؤنٹ ڈاؤن صفر پر پہنچے گا تو مسافر اس اسٹاپ کو چھوڑ دیں گے۔
+STOP_PANEL_PASSENGERS_IN داخل ہونے والے مسافر:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP وہ مسافر جو یہاں نقل و حمل کی گاڑی میں سوار ہوتے ہیں۔
+STOP_PANEL_PASSENGERS_OUT اترنے والے مسافر:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP وہ مسافر جو یہاں نقل و حمل کی گاڑی سے اترتے ہیں۔
+STOP_PANEL_PASSENGERS_TOTAL کل:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP یہاں خدمت حاصل کرنے والے کل مسافر۔
+STOP_PANEL_UNBUNCHING_TOOLTIP اس اسٹاپ پر گاڑیوں کی غیر ہجومیت کو فعال یا غیر فعال کرتا ہے۔\nاگر غیر ہجومیت کی جارحیت 0 پر مقرر ہو تو یہ غیر فعال ہوتی ہے۔
+STOP_PANEL_UPDATE_CLOSE_STOPS قریبی اسٹاپس کو اپ ڈیٹ کریں
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP اس اسٹیشن / مقام کے دیگر تمام اسٹاپس پر غیر ہجومیت کی حالت مقرر کریں۔
+STOP_PANEL_PREVIOUS پچھلا اسٹاپ
+STOP_PANEL_PREVIOUS_TOOLTIP پچھلے اسٹاپ پر جائیں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+STOP_PANEL_DELETE_STOP اسٹاپ حذف کریں
+STOP_PANEL_DELETE_STOP_TOOLTIP یہ بٹن Alt کی دبائے رکھنے کے دوران فعال ہوتا ہے۔\nاسے اپنی ذمہ داری پر استعمال کریں!!!
+STOP_PANEL_NEXT اگلا اسٹاپ
+STOP_PANEL_NEXT_TOOLTIP اگلے اسٹاپ پر جائیں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+STOP_BUTTON_TOOLTIP {0}\n\nاس اسٹاپ پر جانے کے لیے کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔\nکلک کرتے وقت Alt کی دبائے رکھنے سے اسٹاپ کی معلومات کا پینل کھلنے سے رک جائے گا۔
+
+SETTINGS_DELETE حذف کریں
+SETTINGS_RESET ری سیٹ
+
+SETTINGS_TAB_GENERAL عمومی
+SETTINGS_TAB_AUTOLINE خودکار لائن
+SETTINGS_TAB_STOPS اسٹاپس اور اسٹیشنز
+SETTINGS_TAB_UNBUNCHING غیر ہجومیت
+SETTINGS_TAB_DELETE لائنیں حذف کریں
+
+SETTINGS ترتیبات
+SETTINGS_SPEED رفتار دکھائیں:
+SETTINGS_SPEED_TOOLTIP UI میں رفتار دکھانے کے لیے استعمال ہونے والی اکائی منتخب کریں۔
+SETTINGS_SPEED_KPH کلومیٹر فی گھنٹہ
+SETTINGS_SPEED_MPH میل فی گھنٹہ
+SETTINGS_WALKING_SPEED پیدل چلنے/سائیکل چلانے کی رفتار:
+SETTINGS_WALKING_SPEED_TOOLTIP معیاری: بنیادی گیم کی رفتار۔\nحقیقی: پیدل چلنے کی رفتار کو حقیقی، عمر پر مبنی اقدار تک کم کرتا ہے۔\nAfter Dark DLC کے ساتھ حقیقی موڈ سائیکل چلانے کی رفتار بھی کم کرتا ہے۔
+SETTINGS_WALKING_SPEED_MODE_VANILLA معیاری
+SETTINGS_WALKING_SPEED_MODE_REALISTIC حقیقی
+SETTINGS_BBSP بہتر بس اسٹاپ پوزیشن:
+SETTINGS_BBSP_TOOLTIP غیر فعال: کوئی پوزیشن ایڈجسٹمنٹ نہیں۔\nفعال: بسیں مرکز کے بجائے بس اسٹاپ کے اگلے حصے میں رکتی ہیں۔
+SETTINGS_BBSP_MODE_DISABLED غیر فعال
+SETTINGS_BBSP_MODE_ORIGINAL فعال
+SETTINGS_BBSP_MODE_UPDATED تجرباتی منطق استعمال کریں
+
+SETTINGS_BUDGET بجٹ
+SETTINGS_ENABLE_BUDGET_CONTROL لائن بجٹ کنٹرول:
+SETTINGS_BUDGET_CONTROL_DISABLED غیر فعال
+SETTINGS_BUDGET_CONTROL_ENABLED فعال
+SETTINGS_BUDGET_CONTROL_TOOLTIP فعال ہونے پر، نقل و حمل کی لائنوں کی گاڑیوں کی تعداد بجٹ کے ذریعے کنٹرول کی جاتی ہے؛ یہ تمام موجودہ لائنوں کو اپ ڈیٹ کرتا ہے اور قطار میں موجود گاڑیوں کو صاف کرتا ہے۔
+SETTINGS_BUDGET_TICKET_PRICES ٹکٹ قیمت کسٹمائزر:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED غیر فعال
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED فعال
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP فعال ہونے پر، ہر نقل و حمل کی قسم کے لیے ٹکٹ کی قیمتیں ایڈجسٹ کرنے کے لیے سلائیڈرز کے ساتھ اکانومی پینل میں ایک نیا ٹیب شامل کرتا ہے۔
+SETTINGS_AUTO_LINE_BUDGET خودکار بیڑے کا سائز:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED غیر فعال
+SETTINGS_AUTO_LINE_BUDGET_ENABLED فعال
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP فعال ہونے پر، بجٹ موڈ میں لائنیں معیاری بجٹ سلائیڈر کے بجائے حقیقی مسافروں کی طلب کی بنیاد پر اپنی گاڑیوں کی تعداد خود بخود ایڈجسٹ کرتی ہیں۔ دستی پر مقرر لائنوں کو کبھی نہیں چھیڑا جاتا۔
+
+SETTINGS_AUTO_LINE خودکار لائن
+SETTINGS_AUTOSHOW_LINE_INFO لائن معلومات کا پینل خود بخود کھولیں
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP نئی لائن بننے کے بعد لائن معلومات کا پینل خود بخود دکھائیں۔
+
+AUTOLINECOLOR_STRATEGY_DISABLED غیر فعال
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE بے ترتیب رنگت
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR بے ترتیب رنگ
+AUTOLINECOLOR_STRATEGY_CATEGORISED زمرہ بندی شدہ
+AUTOLINECOLOR_STRATEGY_NAMED نامزد رنگ
+AUTOLINECOLOR_NAMING_DISABLED غیر فعال
+AUTOLINECOLOR_NAMING_DISTRICTS اضلاع
+AUTOLINECOLOR_NAMING_LONDON لندن
+AUTOLINECOLOR_NAMING_ROADS سڑکیں
+AUTOLINECOLOR_NAMING_COLORS نامزد رنگ
+AUTOLINECOLOR_COLOR_STRATEGY رنگ کی حکمت عملی:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP نئی لائنوں کو رنگ کیسے تفویض کیے جاتے ہیں:\n'بے ترتیب رنگت' = یکساں سنترپتی/چمک، مختلف رنگتیں؛\n 'بے ترتیب رنگ' = مکمل طور پر بے ترتیب RGB؛\n 'زمرہ بندی شدہ' = گاڑی کی قسم کے مطابق رنگ؛\n 'نامزد رنگ' = پہلے سے طے شدہ رنگ پیلیٹ۔
+AUTOLINECOLOR_NAMING_STRATEGY نام دینے کی حکمت عملی:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP نئی لائنوں کو نام کیسے تفویض کیے جاتے ہیں:\n 'کوئی نہیں' = کوئی خودکار نام دہی نہیں؛\n 'اضلاع' = خدمت کیے گئے اضلاع کی بنیاد پر؛\n 'لندن' = نمبر والے روٹس (London Buses انداز)؛\n 'سڑکیں' = گلی کے ناموں کی بنیاد پر؛\n 'نامزد رنگ' = رنگ کے ناموں کی بنیاد پر۔
+AUTOLINECOLOR_MIN_COLOR_DIFF کم از کم رنگ کا فرق (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP بے ترتیب رنگ منتخب کرتے وقت کم از کم رنگ کے فرق کی فیصد۔
+AUTOLINECOLOR_MAX_COLOR_PICK زیادہ سے زیادہ کوششیں:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP الگ پہچانے جانے والا رنگ منتخب کرنے کی زیادہ سے زیادہ کوششیں۔
+
+SETTINGS_UI UI ترتیبات
+SETTINGS_VEHICLE_EDITOR_POSITION گاڑی ایڈیٹر کی پوزیشن:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP منتخب کریں کہ گاڑی ایڈیٹر پینل اسکرین کے نیچے ظاہر ہو یا دائیں جانب۔
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM نیچے
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT دائیں
+SETTINGS_VEHICLE_EDITOR_HIDE گاڑی ایڈیٹر چھپائیں
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP گاڑی ایڈیٹر کو گاڑی کے پینلز سے چھپائیں۔
+
+SETTINGS_STOPS عوامی نقل و حمل کے اسٹاپس
+SETTINGS_ENABLE_STOPS_AND_STATIONS اسٹاپس اور اسٹیشنز فعال کریں
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP مختلف اسٹاپس اور اسٹیشنز پر عوامی نقل و حمل کا انتظار کرنے والے زیادہ سے زیادہ شہریوں کی تعداد ایڈجسٹ کریں۔ اسٹاپس ٹیب میں ترتیب دیں۔
+SETTINGS_STOPSANDSTATIONS_ENABLE اسٹاپس اور اسٹیشنز فعال کریں
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP اسٹاپس پر مسافروں کی حد کے نفاذ کو فعال یا غیر فعال کریں۔
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER نقل و حمل کی لائن کے اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS لائن بس
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP لائن بس اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS ٹرالی بس
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP ٹرالی بس اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS انخلاء بس
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP انخلاء بس اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS سیر و سیاحت بس
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP سیر و سیاحت بس اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM ٹرام
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP ٹرام اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO میٹرو
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP میٹرو اسٹیشن پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN ٹرین
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP ٹرین اسٹیشن پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL مونوریل
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP مونوریل اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP بحری جہاز
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP کارگو بحری جہاز کی بندرگاہ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY فیری
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP فیری اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE ہوائی جہاز
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP ہوائی جہاز کے ٹرمینل پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR کیبل کار
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP کیبل کار اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON گرم ہوا کا غبارہ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP گرم ہوا کے غبارے کے اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER ہیلی کاپٹر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP ہیلی کاپٹر اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP بلمپ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP بلمپ اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
+
+SETTINGS_UNBUNCHING غیر ہجومیت
+SETTINGS_UNBUNCHING_AGGRESSION غیر ہجومیت کی جارحیت:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP گاڑیوں کی غیر ہجومیت کتنی شدت سے کام کرے؟\nممکنہ قدریں: 0–52۔ قدر 0 غیر ہجومیت کو غیر فعال کر دیتی ہے۔\nزیادہ قدریں ٹریفک کو شدید متاثر کریں گی اور گاڑیوں کے غائب ہونے کا سبب بن سکتی ہیں۔
+SETTINGS_VEHICLE_COUNT نئی لائنوں پر گاڑیاں:
+SETTINGS_VEHICLE_COUNT_TOOLTIP جب لائن بجٹ کنٹرول بند ہو تو نئی لائنوں میں خود بخود شامل ہونے والی گاڑیوں کی تعداد۔
+SETTINGS_SPAWN_TIME_INTERVAL پیدائش کے وقت کا وقفہ:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP گاڑیوں کی پیدائش کے درمیان سیکنڈوں میں وقت۔
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP تمام سلائیڈرز کو ڈیفالٹ پر واپس ری سیٹ کرتا ہے۔
+UNBUNCHING_ENABLED گاڑیوں کی غیر ہجومیت
+UNBUNCHING_DISABLED غیر ہجومیت غیر فعال ہے۔
+UNBUNCHING_TARGET_GAP ہدف فاصلہ: {0}
+
+SETTINGS_EBS_GROUP_BUS ایکسپریس بس خدمات
+SETTINGS_EBS_GROUP_TRAM ایکسپریس ٹرام خدمات
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE ایکسپریس بس:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'غیر فعال' = بسیں اوپر دی گئی غیر ہجومیت کی ترتیبات استعمال کرتی ہیں۔\n'احتیاطی' = مختصر طور پر رکتی ہے، مسافروں کی جانچ کرتی ہے، اگر خالی ہو تو روانہ ہو سکتی ہے۔\n'جارحانہ' = اگر کوئی مسافر انتظار میں نہ ہو تو اسٹاپس مکمل طور پر چھوڑ دیتی ہے۔
+SETTINGS_EBS_ENABLE_SELFBAL سروس خود توازن فعال کریں
+SETTINGS_EBS_TOOLTIP_SELFBAL لائن کے حصوں کا تجزیہ کرتا ہے اور خدمت کو یکساں بنانے اور انتظار کا وقت کم کرنے کے لیے گاڑیوں کو زیادہ مصروف حصوں یا آخری اسٹاپس پر دوبارہ تعینات کر سکتا ہے۔\nفیصلے احتمالی ہوتے ہیں اور مسافروں کی تعداد اور دوبارہ تعیناتی کے امکانات پر منحصر ہوتے ہیں۔
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID لائن کے درمیانی اسٹاپس کے لیے خود توازن فعال کریں
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID خود توازن کو گاڑیاں (آخری اسٹاپ کے بجائے) لائن کے مصروف درمیانی اسٹاپ پر دوبارہ تعینات کرنے کی اجازت دیں۔\nصرف اس وقت غور کیا جاتا ہے جب سب سے مصروف اسٹاپ پر 30 سے زیادہ مسافر انتظار میں ہوں، پھر تقریباً 50% امکان سے منتخب کیا جاتا ہے اور مجموعی دوبارہ تعیناتی کے امکانات سے مشروط ہوتا ہے۔
+SETTINGS_EBS_ENABLE_MINIBUS منی بس موڈ فعال کریں
+SETTINGS_EBS_TOOLTIP_MINIBUS ≤20 گنجائش والی بسیں کسی اسٹاپ سے جلدی روانہ ہو سکتی ہیں اگر اس اسٹاپ پر سوار ہونے + اترنے والے مسافر ≤5 ہوں۔
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE ایکسپریس ٹرام:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'غیر فعال' = ٹرامیں اوپر دی گئی غیر ہجومیت کی ترتیبات استعمال کرتی ہیں۔\n'لائٹ ریل' = ہر اسٹاپ پر رکتی ہے، ہمیشہ مکمل ٹائمر کا انتظار کرتی ہے (سخت نظم و ضبط)۔\n'حقیقی ٹرام' = صرف اس وقت رکتی ہے جب مسافر سوار یا اتر رہے ہوں۔
+SETTINGS_EBS_MODE_NONE غیر فعال
+SETTINGS_EBS_MODE_AGGRESSIVE جارحانہ
+SETTINGS_EBS_MODE_PRUDENTIAL احتیاطی
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL لائٹ ریل موڈ
+SETTINGS_EBS_TRAM_MODE_NONE غیر فعال
+SETTINGS_EBS_TRAM_MODE_TRAM حقیقی ٹرام موڈ
+
+
+SETTINGS_PTU_GROUP عوامی نقل و حمل ان اسٹکر
+SETTINGS_PTU_ENABLE پھنسے ہوئے مسافروں کو ہٹا دیں
+SETTINGS_PTU_TOOLTIP خود بخود ان مسافروں کو ہٹا دیتا ہے جو نقل و حمل کی گاڑیوں میں سوار ہوتے وقت پھنس جاتے ہیں، جس سے گاڑی معمول کے مطابق روانہ ہو سکے اور روانگی کے رک جانے سے بچا جا سکے۔
+
+
+SETTINGS_LINE_DELETION_TOOL لائنیں حذف کرنے کا آلہ
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP منتخب کردہ اقسام کی تمام لائنیں حذف کرتا ہے۔ صرف اس وقت کام کرتا ہے جب شہر لوڈ ہو۔
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE لائن حذف کرنے کی تصدیق کریں
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG آپ تمام لائنیں حذف کرنے والے ہیں۔\nکیا آپ آگے بڑھنا چاہتے ہیں؟
+SETTINGS_DELETE_BUS_TOOLTIP تمام باقاعدہ بس لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL سیر و سیاحت بسیں
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP تمام سیر و سیاحت بس لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_TRAM_TOOLTIP تمام ٹرام لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP تمام ٹرالی بس لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_TRAIN_TOOLTIP تمام ٹرین لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_METRO_TOOLTIP تمام زیر زمین میٹرو لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_MONORAIL_TOOLTIP تمام مونوریل لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_FERRY_LABEL فیریاں
+SETTINGS_DELETE_SHIP_TOOLTIP تمام فیری لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_HELICOPTER_LABEL ہیلی کاپٹر
+SETTINGS_DELETE_HELICOPTER_TOOLTIP تمام ہیلی کاپٹر لائنیں حذف کرتا ہے۔
+SETTINGS_DELETE_BLIMP_LABEL بلمپس
+SETTINGS_DELETE_BLIMP_TOOLTIP تمام بلمپ لائنیں حذف کرتا ہے۔
+
+
+VEHICLE_EDITOR_TITLE گاڑی ایڈیٹر
+VEHICLE_EDITOR_SUB_TITLE {0} گاڑیاں
+VEHICLE_EDITOR_CAPACITY مسافروں کی گنجائش
+VEHICLE_EDITOR_CAPACITY_TAXI سفر کی گنجائش
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP ہر کام کی شفٹ میں مسافروں کی تعداد۔
+VEHICLE_EDITOR_MAINTENANCE دیکھ بھال کی لاگت
+VEHICLE_EDITOR_MAX_SPEED زیادہ سے زیادہ رفتار
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS ٹرین کا انجن دونوں سروں پر
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP ٹرین کے دونوں سروں پر انجن کو فعال یا غیر فعال کرتا ہے۔
+VEHICLE_EDITOR_APPLY لاگو کریں
+VEHICLE_EDITOR_DEFAULT ڈیفالٹ
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 اس گاڑی کی پیروی کرنے کے لیے دائیں کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 اس گاڑی کو قطار میں شامل کرنے کے لیے Shift + کلک کریں۔
+VEHICLE_PANEL_EDIT_TYPE گاڑی کی قسم میں ترمیم کریں
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP گاڑی ایڈیٹر کے ساتھ اس گاڑی کی قسم میں ترمیم کریں۔
+VEHICLE_PANEL_STATUS_NEXT_STOP اگلا اسٹاپ:
+VEHICLE_PANEL_STATUS_UNBUNCHING غیر ہجومیت جاری ہے
+VEHICLE_PANEL_LAST_STOP_EXCHANGE آخری اسٹاپ مسافر تبادلہ: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS مسافر:
+VEHICLE_PANEL_EARNINGS آمدنی:
+VEHICLE_PANEL_EARNINGS_TOOLTIP ٹکٹ فروخت کا نتیجہ منفی گاڑی کی دیکھ بھال کی لاگت۔
+VEHICLE_PANEL_PREVIOUS پچھلی گاڑی
+VEHICLE_PANEL_PREVIOUS_TOOLTIP پچھلی گاڑی پر جائیں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+VEHICLE_PANEL_REMOVE_VEHICLE گاڑی ہٹائیں
+VEHICLE_PANEL_NEXT اگلی گاڑی
+VEHICLE_PANEL_NEXT_TOOLTIP اگلی گاڑی پر جائیں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
+VEHICLE_SELECTION_CAPACITY گنجائش
+VEHICLE_SELECTION_ADD_VEHICLE اس گاڑی کو اجازت یافتہ گاڑیوں کی فہرست میں شامل کریں
+VEHICLE_SELECTION_ADD_ALL تمام اہل گاڑیوں کو اجازت یافتہ گاڑیوں کی فہرست میں شامل کریں
+VEHICLE_SELECTION_REMOVE_VEHICLE اس گاڑی کو اجازت یافتہ گاڑیوں کی فہرست سے ہٹا دیں
+VEHICLE_SELECTION_REMOVE_ALL تمام گاڑیوں کو فہرست سے ہٹا دیں
+VEHICLE_SELECTION_AVAILABLE_VEHICLES دستیاب گاڑیاں
+VEHICLE_SELECTION_SELECTED_VEHICLES منتخب کردہ گاڑیاں
+VEHICLE_SELECTION_ANY_VEHICLE کوئی بھی گاڑی
+VEHICLE_BUTTON_TOOLTIP {0}\n\nاس گاڑی پر جانے کے لیے کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔\nکلک کرتے وقت Alt کی دبائے رکھنے سے گاڑی کی معلومات کا پینل کھلنے سے رک جائے گا۔
+TRANSPORT_LINE_VEHICLECOUNT گاڑیوں کی تعداد: {0}
+
+FLIGHT_TRACKER_NAME فلائٹ ٹریکر
+FLIGHT_STATUS_NONE کوئی نہیں
+FLIGHT_STATUS_INCOMING آنے والی
+FLIGHT_STATUS_LANDED اتر چکی ہے
+FLIGHT_STATUS_AT_GATE گیٹ پر
+FLIGHT_STATUS_DEPARTED روانہ ہو چکی ہے
+
+TICKET_PRICE_TAXI_KILOMETER ٹیکسی کی قیمت فی کلومیٹر:
+TICKET_PRICE_TAXI_MILE ٹیکسی کی قیمت فی میل:
+TICKET_PRICE_BUS بس ٹکٹ کی قیمت:
+TICKET_PRICE_INTERCITY_BUS بین شہری بس ٹکٹ کی قیمت:
+TICKET_PRICE_METRO میٹرو ٹکٹ کی قیمت:
+TICKET_PRICE_TRAIN ٹرین ٹکٹ کی قیمت:
+TICKET_PRICE_TRAM ٹرام ٹکٹ کی قیمت:
+TICKET_PRICE_MONORAIL مونوریل ٹکٹ کی قیمت:
+TICKET_PRICE_SHIP بحری جہاز ٹکٹ کی قیمت:
+TICKET_PRICE_FERRY فیری ٹکٹ کی قیمت:
+TICKET_PRICE_PLANE ہوائی جہاز ٹکٹ کی قیمت:
+TICKET_PRICE_CABLECAR کیبل کار ٹکٹ کی قیمت:
+TICKET_PRICE_SIGHTSEEING_BUS سیر و سیاحت بس ٹکٹ کی قیمت:
+TICKET_PRICE_TROLLEYBUS ٹرالی بس ٹکٹ کی قیمت:
+TICKET_PRICE_BLIMP بلمپ ٹکٹ کی قیمت:
+TICKET_PRICE_HELICOPTER ہیلی کاپٹر ٹکٹ کی قیمت:
+ECONOMY_TAB_TICKET_PRICES ٹکٹ کی قیمتیں
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT اس نقل و حمل کی قسم کے لیے موجودہ کل مسافروں کی تعداد۔
+
+
+WHATSNEW_3_0_0_1 Race Day کے لیے اپ ڈیٹ کیا گیا؛ اب More Vehicles Renewed کے ساتھ ہم آہنگ ہے۔
+WHATSNEW_3_0_0_2 درج ذیل موڈز کو IPT3 میں ضم کر دیا گیا ہے:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Public Transport Unstucker اب IPT3 میں ضم کر دیا گیا ہے۔\nدیگر تمام ضم شدہ موڈز کے لیے ورژن 3.0 دیکھیں۔ تنازعات سے بچنے کے لیے اصل موڈز سے سبسکرپشن ختم کریں۔

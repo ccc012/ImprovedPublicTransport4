@@ -1,6 +1,5 @@
-using ColossalFramework;
+﻿using ColossalFramework;
 using HarmonyLib;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
 
@@ -53,7 +52,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             }
 
             //begin mod(*): compare with interval aggression setup instead of default 64
-            var targetWaitTime = BoardingTime + Mathf.Min(OptionsWrapper<Settings.Settings>.Options.IntervalAggressionFactor, MaxUnbunchingTime);
+            var targetWaitTime = BoardingTime + Mathf.Min(ModSetting.Instance.IntervalAggressionFactor, MaxUnbunchingTime);
             __result = waitTime >= targetWaitTime; //4 * 16 = 64 is max waiting time in vanilla, 12 is min waiting time
             ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop={nextStop} waitTime={waitTime} avgInterval={__instance.m_averageInterval} targetWaitTime={targetWaitTime} result={__result}");
             //end mod

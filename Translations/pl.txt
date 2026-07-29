@@ -87,6 +87,10 @@ SETTINGS_BUDGET_TICKET_PRICES_DISABLED Wyłączone
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Włączone
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Po włączeniu dodaje nową kartę do panelu gospodarki z suwakami do regulacji cen biletów dla każdego rodzaju transportu.
 
+SETTINGS_AUTO_LINE_BUDGET Automatyczny rozmiar floty:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Wyłączone
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Włączone
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Po włączeniu linie w trybie Budżet automatycznie dostosowują liczbę pojazdów do rzeczywistego popytu pasażerów, zamiast używać domyślnego suwaka budżetu. Linie w trybie Ręcznym nigdy nie są zmieniane.
 SETTINGS_AUTO_LINE Automatyczna linia
 SETTINGS_AUTOSHOW_LINE_INFO Automatycznie otwórz panel informacji o linii
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Automatycznie pokaż panel informacji o linii po utworzeniu nowej linii.

@@ -1,4 +1,5 @@
 // <copyright file="PassengerCountLimiter.cs" company="dymanoid">
+using ImprovedPublicTransport;
 // Copyright (c) dymanoid. All rights reserved.
 // </copyright>
 
@@ -6,9 +7,7 @@ namespace StopsAndStations
 {
     using System;
     using ICities;
-    using ImprovedPublicTransport.OptionsFramework;
     using ImprovedPublicTransport.Util;
-    using Settings = ImprovedPublicTransport.Settings.Settings;
 
     /// <summary>
     /// A service that observes the stops in the city and calculates their current passenger count.
@@ -53,9 +52,9 @@ namespace StopsAndStations
         }
 
         /// <summary>
-        /// Gets the Settings instance to read passenger limit configuration from (lazy-loaded from OptionsWrapper).
+        /// Gets the Settings instance to read passenger limit configuration from.
         /// </summary>
-        private Settings Settings => OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options;
+        private ModSetting Settings => ModSetting.Instance;
 
         /// <summary>
         /// A method that is called by the game after this instance is created.

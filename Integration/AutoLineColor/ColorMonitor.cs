@@ -7,8 +7,8 @@ using ICities;
 using UnityEngine;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Integration.TicketPriceCustomizer;
+using ImprovedPublicTransport;
 
 namespace AutoLineColor
 {
@@ -36,7 +36,7 @@ namespace AutoLineColor
             GenericNames.Initialize();
 
             Logger.Message("Loading current config from IPT3 Settings");
-            var settings = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options;
+            var settings = ModSetting.Instance;
             _colorStrategy = SetColorStrategy((int)settings.AutoLineColorColorStrategy);
             _namingStrategy = SetNamingStrategy((int)settings.AutoLineColorNamingStrategyMode);
             _usedColors = new NullUsedColors();
@@ -44,8 +44,8 @@ namespace AutoLineColor
             Logger.Message("Found color strategy of " + settings.AutoLineColorColorStrategy);
             Logger.Message("Found naming strategy of " + settings.AutoLineColorNamingStrategyMode);
 
-            _lastColorStrategy = settings.AutoLineColorColorStrategy;
-            _lastNamingStrategy = settings.AutoLineColorNamingStrategyMode;
+            _lastColorStrategy = (int)settings.AutoLineColorColorStrategy;
+            _lastNamingStrategy = (int)settings.AutoLineColorNamingStrategyMode;
 
             _initialized = true;
             Instance = this;
@@ -64,19 +64,19 @@ namespace AutoLineColor
 
         private static INamingStrategy SetNamingStrategy(int namingStrategyValue)
         {
-            var namingStrategy = (ImprovedPublicTransport.Settings.Settings.AutoLineColorNamingStrategy)namingStrategyValue;
+            var namingStrategy = (ModSetting.AutoLineColorNamingStrategy)namingStrategyValue;
             Logger.Message($"Naming Strategy: {namingStrategy}");
             switch (namingStrategy)
             {
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorNamingStrategy.Disabled:
+                case ModSetting.AutoLineColorNamingStrategy.Disabled:
                     return new NoNamingStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorNamingStrategy.Districts:
+                case ModSetting.AutoLineColorNamingStrategy.Districts:
                     return new DistrictNamingStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorNamingStrategy.London:
+                case ModSetting.AutoLineColorNamingStrategy.London:
                     return new LondonNamingStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorNamingStrategy.Roads:
+                case ModSetting.AutoLineColorNamingStrategy.Roads:
                     return new RoadNamingStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorNamingStrategy.NamedColors:
+                case ModSetting.AutoLineColorNamingStrategy.NamedColors:
                     return new NamedColorStrategy();
                 default:
                     Logger.Error("unknown naming strategy");
@@ -86,19 +86,19 @@ namespace AutoLineColor
 
         private static IColorStrategy SetColorStrategy(int colorStrategyValue)
         {
-            var colorStrategy = (ImprovedPublicTransport.Settings.Settings.AutoLineColorStrategy)colorStrategyValue;
+            var colorStrategy = (ModSetting.AutoLineColorStrategy)colorStrategyValue;
             Logger.Message($"Color Strategy: {colorStrategy}");
             switch (colorStrategy)
             {
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorStrategy.Disabled:
+                case ModSetting.AutoLineColorStrategy.Disabled:
                     return null;
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorStrategy.RandomHue:
+                case ModSetting.AutoLineColorStrategy.RandomHue:
                     return new RandomHueStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorStrategy.RandomColor:
+                case ModSetting.AutoLineColorStrategy.RandomColor:
                     return new RandomColorStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorStrategy.CategorisedColor:
+                case ModSetting.AutoLineColorStrategy.CategorisedColor:
                     return new CategorisedColorStrategy();
-                case ImprovedPublicTransport.Settings.Settings.AutoLineColorStrategy.NamedColors:
+                case ModSetting.AutoLineColorStrategy.NamedColors:
                     return new NamedColorStrategy();
                 default:
                     Logger.Error("unknown color strategy");
@@ -119,15 +119,15 @@ namespace AutoLineColor
             try
             {
                 //Check for settings changes
-                var settings = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options;
-                if (_lastColorStrategy != settings.AutoLineColorColorStrategy || 
-                    _lastNamingStrategy != settings.AutoLineColorNamingStrategyMode)
+                var settings = ModSetting.Instance;
+                if (_lastColorStrategy != (int)settings.AutoLineColorColorStrategy ||
+                    _lastNamingStrategy != (int)settings.AutoLineColorNamingStrategyMode)
                 {
                     Logger.Message("Applying settings changes");
-                    _colorStrategy = SetColorStrategy(settings.AutoLineColorColorStrategy);
-                    _namingStrategy = SetNamingStrategy(settings.AutoLineColorNamingStrategyMode);
-                    _lastColorStrategy = settings.AutoLineColorColorStrategy;
-                    _lastNamingStrategy = settings.AutoLineColorNamingStrategyMode;
+                    _colorStrategy = SetColorStrategy((int)settings.AutoLineColorColorStrategy);
+                    _namingStrategy = SetNamingStrategy((int)settings.AutoLineColorNamingStrategyMode);
+                    _lastColorStrategy = (int)settings.AutoLineColorColorStrategy;
+                    _lastNamingStrategy = (int)settings.AutoLineColorNamingStrategyMode;
                 }
 
                 if (_initialized == false)

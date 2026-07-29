@@ -3,7 +3,6 @@ using System.Linq;
 using ColossalFramework;
 using ColossalFramework.UI;
 using UnityEngine;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Data;
 using RealisticWalkingSpeed;
 using Utils = ImprovedPublicTransport.Util.Utils;
@@ -17,7 +16,7 @@ namespace ImprovedPublicTransport.Settings
 
         public static void OnBudgetModeChanged(int mode)
         {
-            var isBudgetOn = (mode == (int)ImprovedPublicTransport.Settings.Settings.BudgetControlModes.Enabled);
+            var isBudgetOn = (mode == (int)ModSetting.BudgetControlModes.Enabled);
             
             // Update slider state immediately
             if (VehicleCountSlider != null)
@@ -66,7 +65,7 @@ namespace ImprovedPublicTransport.Settings
 
         public static void OnTicketPriceCustomizerChanged(int mode)
         {
-            bool enabled = mode == (int)ImprovedPublicTransport.Settings.Settings.TicketPriceCustomizerModes.Enabled;
+            bool enabled = mode == (int)ModSetting.TicketPriceCustomizerModes.Enabled;
 
             // Update UI tab immediately on main thread (the dropdown callback runs on UI thread)
             ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPricesTab.UpdateTabState();
@@ -103,7 +102,7 @@ namespace ImprovedPublicTransport.Settings
                 {
                     if (enabled)
                     {
-                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.TicketPriceCustomizer);
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(ModSetting.Instance.TicketPriceCustomizer);
                         Utils.Log("SettingsActions: TicketPriceCustomizer enabled.");
                     }
                     else
@@ -157,7 +156,7 @@ namespace ImprovedPublicTransport.Settings
             {
                 try
                 {
-                    if (walkingSpeedMode == (int)ImprovedPublicTransport.Settings.Settings.WalkingSpeedModes.Realistic)
+                    if (walkingSpeedMode == (int)ModSetting.WalkingSpeedModes.Realistic)
                     {
                         Utils.Log("SettingsActions: Enabling Realistic Walking Speed");
                         RealisticWalkingSpeedMod.EnableRealisticWalkingSpeedMod();
@@ -203,11 +202,11 @@ namespace ImprovedPublicTransport.Settings
             SimulationManager.instance.AddAction(() =>
             {
                 // Reset options to their defaults
-                var options = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options;
+                var options = ModSetting.Instance;
                 options.IntervalAggressionFactor = 52;
                 options.DefaultVehicleCount = 0;
                 options.SpawnTimeInterval = 10;
-                OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.SaveOptions();
+                CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
 
                 // Apply immediate effects to existing lines
                 int length = Singleton<TransportManager>.instance.m_lines.m_buffer.Length;
@@ -228,16 +227,16 @@ namespace ImprovedPublicTransport.Settings
             {
                 return;
             }
-            if (!OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBusLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteSightseeingBusLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTramLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTrolleybusLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTrainLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteMetroLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteMonorailLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteShipLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteHelicopterLines &&
-                !OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBlimpLines)
+            if (!ModSetting.Instance.DeleteBusLines &&
+                !ModSetting.Instance.DeleteSightseeingBusLines &&
+                !ModSetting.Instance.DeleteTramLines &&
+                !ModSetting.Instance.DeleteTrolleybusLines &&
+                !ModSetting.Instance.DeleteTrainLines &&
+                !ModSetting.Instance.DeleteMetroLines &&
+                !ModSetting.Instance.DeleteMonorailLines &&
+                !ModSetting.Instance.DeleteShipLines &&
+                !ModSetting.Instance.DeleteHelicopterLines &&
+                !ModSetting.Instance.DeleteBlimpLines)
             {
                 return;
             }
@@ -276,31 +275,31 @@ namespace ImprovedPublicTransport.Settings
                         switch (subService)
                         {
                             case ItemClass.SubService.PublicTransportBus:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBusLines;
+                                flag = ModSetting.Instance.DeleteBusLines;
                                 break;
                             case ItemClass.SubService.PublicTransportMetro:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteMetroLines;
+                                flag = ModSetting.Instance.DeleteMetroLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTrain:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTrainLines;
+                                flag = ModSetting.Instance.DeleteTrainLines;
                                 break;
                             case ItemClass.SubService.PublicTransportShip:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteShipLines;
+                                flag = ModSetting.Instance.DeleteShipLines;
                                 break;
                             case ItemClass.SubService.PublicTransportPlane:
                                 if (info.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
-                                    flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteHelicopterLines;
+                                    flag = ModSetting.Instance.DeleteHelicopterLines;
                                 else if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
-                                    flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBlimpLines;
+                                    flag = ModSetting.Instance.DeleteBlimpLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTram:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTramLines;
+                                flag = ModSetting.Instance.DeleteTramLines;
                                 break;
                             case ItemClass.SubService.PublicTransportMonorail:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteMonorailLines;
+                                flag = ModSetting.Instance.DeleteMonorailLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTrolleybus:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTrolleybusLines;
+                                flag = ModSetting.Instance.DeleteTrolleybusLines;
                                 break;
                         }
                     }
@@ -309,19 +308,19 @@ namespace ImprovedPublicTransport.Settings
                         switch (subService)
                         {
                             case ItemClass.SubService.PublicTransportBus:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBusLines;
+                                flag = ModSetting.Instance.DeleteBusLines;
                                 break;
                             case ItemClass.SubService.PublicTransportShip:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteShipLines;
+                                flag = ModSetting.Instance.DeleteShipLines;
                                 break;
                             case ItemClass.SubService.PublicTransportPlane:
                                 if (info.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
-                                    flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteHelicopterLines;
+                                    flag = ModSetting.Instance.DeleteHelicopterLines;
                                 else if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
-                                    flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBlimpLines;
+                                    flag = ModSetting.Instance.DeleteBlimpLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTrain:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteTrainLines;
+                                flag = ModSetting.Instance.DeleteTrainLines;
                                 break;
                         }
                     }
@@ -330,13 +329,13 @@ namespace ImprovedPublicTransport.Settings
                         switch (subService)
                         {
                             case ItemClass.SubService.PublicTransportTours:
-                                flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteSightseeingBusLines;
+                                flag = ModSetting.Instance.DeleteSightseeingBusLines;
                                 break;
                             case ItemClass.SubService.PublicTransportPlane:
                                 if (info.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
-                                    flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteHelicopterLines;
+                                    flag = ModSetting.Instance.DeleteHelicopterLines;
                                 else if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
-                                    flag = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.DeleteBlimpLines;
+                                    flag = ModSetting.Instance.DeleteBlimpLines;
                                 break;
                         }
                     }

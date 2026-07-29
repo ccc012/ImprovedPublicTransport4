@@ -87,6 +87,10 @@ SETTINGS_BUDGET_TICKET_PRICES_DISABLED Deaktiviert
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Aktiviert
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Wenn aktiviert, fügt es dem Wirtschaftsfenster einen neuen Reiter mit Schiebereglern hinzu, um die Ticketpreise für jeden Verkehrstyp anzupassen.
 
+SETTINGS_AUTO_LINE_BUDGET Automatische Flottengröße:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Deaktiviert
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Aktiviert
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Wenn aktiviert, passen Linien im Budgetmodus ihre Fahrzeuganzahl automatisch an die tatsächliche Fahrgastnachfrage an, anstatt den Vanilla-Budgetregler zu verwenden. Linien im manuellen Modus werden nie verändert.
 SETTINGS_AUTO_LINE Automatische Linie
 SETTINGS_AUTOSHOW_LINE_INFO Linieninfo automatisch öffnen
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Zeigt das Linieninfo-Fenster automatisch an, nachdem eine neue Linie erstellt wurde.

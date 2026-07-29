@@ -6,7 +6,6 @@
 
 using ColossalFramework;
 using System.Collections.Generic;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
@@ -53,7 +52,7 @@ namespace ImprovedPublicTransport
           {
             CachedTransportLineData.SetLineDefaults(lineID);
             DepotUtil.AutoAssignLineDepot( lineID, out var position);
-            if (OptionsWrapper<Settings.Settings>.Options.ShowLineInfo &&
+            if (ModSetting.Instance.ShowLineInfo &&
                 lines.m_buffer[(int) lineID].Info?.m_class?.m_service != ItemClass.Service.Disaster)
               WorldInfoPanel.Show<PublicTransportWorldInfoPanel>(position, new InstanceID()
               {

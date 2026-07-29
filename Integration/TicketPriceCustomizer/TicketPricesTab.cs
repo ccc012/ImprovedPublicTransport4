@@ -1,11 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using ColossalFramework;
 using ColossalFramework.UI;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.UI.AlgernonCommons;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
@@ -56,8 +55,8 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             try
             {
                 // Honor user setting: don't inject the Ticket Prices UI if disabled
-                var currentSettings = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options;
-                if (currentSettings.TicketPriceCustomizerMode != (int)ImprovedPublicTransport.Settings.Settings.TicketPriceCustomizerModes.Enabled)
+                var currentSettings = ModSetting.Instance;
+                if (currentSettings.TicketPriceCustomizerMode != ModSetting.TicketPriceCustomizerModes.Enabled)
                 {
                     Utils.Log("TicketPricesTab: disabled by settings; skipping injection");
                     Cleanup();
@@ -298,7 +297,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 return;
             }
 
-            var enabled = OptionsWrapper<ImprovedPublicTransport.Settings.Settings>.Options.TicketPriceCustomizerMode == (int)ImprovedPublicTransport.Settings.Settings.TicketPriceCustomizerModes.Enabled;
+            var enabled = ModSetting.Instance.TicketPriceCustomizerMode == ModSetting.TicketPriceCustomizerModes.Enabled;
             if (enabled)
             {
                 if (!s_initialized)
@@ -448,9 +447,9 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             }
 
             // Load current settings
-            var settings = OptionsWrapper<Settings.Settings>.Options;
+            var settings = ModSetting.Instance;
             if (settings.TicketPriceCustomizer == null)
-                settings.TicketPriceCustomizer = new Settings.Settings.TicketPriceCustomizerSettings();
+                settings.TicketPriceCustomizer = new ModSetting.TicketPriceCustomizerSettings();
 
             // Create main container with padding matching budget panel
             const float SIDE_PAD = 45f;        // Outer left/right padding
@@ -957,7 +956,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 ApplyPriceForType(row.TransportType.Name, isNight ? nightMultiplier : dayMultiplier);
 
                 // Save settings
-                OptionsWrapper<Settings.Settings>.SaveOptions();
+                CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
             }
             catch (Exception ex)
             {
@@ -1144,13 +1143,13 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         {
             try
             {
-                var defaults = new Settings.Settings.TicketPriceCustomizerSettings();
-                var current = OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizer;
+                var defaults = new ModSetting.TicketPriceCustomizerSettings();
+                var current = ModSetting.Instance.TicketPriceCustomizer;
                 if (current == null)
-                    current = OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizer = new Settings.Settings.TicketPriceCustomizerSettings();
+                    current = ModSetting.Instance.TicketPriceCustomizer = new ModSetting.TicketPriceCustomizerSettings();
 
                 // Reset all properties to defaults
-                foreach (var prop in typeof(Settings.Settings.TicketPriceCustomizerSettings).GetProperties())
+                foreach (var prop in typeof(ModSetting.TicketPriceCustomizerSettings).GetProperties())
                 {
                     if (prop.CanWrite && prop.PropertyType == typeof(float))
                     {
@@ -1158,7 +1157,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     }
                 }
 
-                OptionsWrapper<Settings.Settings>.SaveOptions();
+                CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
                 PriceCustomization.SetPrices(current);
 
                 // Update all slider positions
@@ -1191,7 +1190,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
         private static float GetMultiplier(string transportName, bool isNight)
         {
-            var settings = OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizer;
+            var settings = ModSetting.Instance.TicketPriceCustomizer;
             if (settings == null) return 1.0f;
             if (isNight)
             {
@@ -1241,7 +1240,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
         private static void SetMultiplier(string transportName, bool isNight, float value)
         {
-            var settings = OptionsWrapper<Settings.Settings>.Options.TicketPriceCustomizer;
+            var settings = ModSetting.Instance.TicketPriceCustomizer;
             if (settings == null) return;
             if (isNight)
             {
@@ -1352,7 +1351,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     case "Helicopter": return Localization.Get("TICKET_PRICE_HELICOPTER");
                     case "Taxi":
                     {
-                        bool isMph = OptionsWrapper<Settings.Settings>.Options.SpeedUnit == (int)Settings.Settings.VehicleSpeedUnits.MPH;
+                        bool isMph = ModSetting.Instance.SpeedUnit == ModSetting.VehicleSpeedUnits.MPH;
                         return Localization.Get(isMph ? "TICKET_PRICE_TAXI_MILE" : "TICKET_PRICE_TAXI_KILOMETER");
                     }
                     case "SightseeingBus": return Localization.Get("TICKET_PRICE_SIGHTSEEING_BUS");
@@ -1386,7 +1385,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     case "Helicopter": return Localization.Get("TICKET_PRICE_HELICOPTER");
                     case "Taxi":
                     {
-                        bool isMph = OptionsWrapper<Settings.Settings>.Options.SpeedUnit == (int)Settings.Settings.VehicleSpeedUnits.MPH;
+                        bool isMph = ModSetting.Instance.SpeedUnit == ModSetting.VehicleSpeedUnits.MPH;
                         return Localization.Get(isMph ? "TICKET_PRICE_TAXI_MILE" : "TICKET_PRICE_TAXI_KILOMETER");
                     }
                     case "SightseeingBus": return Localization.Get("TICKET_PRICE_SIGHTSEEING_BUS");

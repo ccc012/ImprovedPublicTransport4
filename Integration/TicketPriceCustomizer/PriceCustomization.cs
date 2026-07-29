@@ -2,7 +2,6 @@
 using ColossalFramework;
 using ColossalFramework.IO;
 using UnityEngine;
-using ImprovedPublicTransport.OptionsFramework;
 using ImprovedPublicTransport.Util;
 using IPTUtils = ImprovedPublicTransport.Util.Utils;
 
@@ -13,7 +12,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         /// <summary>
         /// Overload that accepts nested Settings.TicketPriceCustomizerSettings for consolidated configuration.
         /// </summary>
-        public static void SetPrices(ImprovedPublicTransport.Settings.Settings.TicketPriceCustomizerSettings settings)
+        public static void SetPrices(ImprovedPublicTransport.ModSetting.TicketPriceCustomizerSettings settings)
         {
             // Always apply ticket customizer when requested. IPT manages whether this integration is active.
             if (settings == null) return;
@@ -45,7 +44,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         /// Applies the day or night multipliers based on the current simulation time.
         /// Called by DayNightPriceWatcher whenever day/night transitions occur.
         /// </summary>
-        public static void ApplyForCurrentTime(ImprovedPublicTransport.Settings.Settings.TicketPriceCustomizerSettings settings)
+        public static void ApplyForCurrentTime(ImprovedPublicTransport.ModSetting.TicketPriceCustomizerSettings settings)
         {
             if (settings == null) return;
             bool isNight = Singleton<SimulationManager>.instance.m_isNightTime;
