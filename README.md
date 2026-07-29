@@ -49,7 +49,7 @@ could overflow an `int` and drain the budget in a single simulation step.
 |---|---|---|
 | [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2040656402) | **Yes** | Every patch depends on it. `CitiesHarmony.API` bootstraps from this mod's install; we deliberately do not bundle `CitiesHarmony.Harmony`. |
 | `Newtonsoft.Json.dll` | Bundled | Ships in the mod folder. Do **not** remove it — see [Dependency notes](#dependency-notes). |
-| Ability to Read (`1174585364`) | No | Community in-joke listed as "required" by some mods. Nothing here uses it. |
+| Ability to Read (`1145223801`) | No | Community in-joke listed as "required" by some mods. Nothing here uses it. |
 
 **Unsubscribe the standalone versions** of anything under
 [Absorbed mods](#absorbed-mods). Their code is compiled into this assembly;
