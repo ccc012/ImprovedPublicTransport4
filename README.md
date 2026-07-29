@@ -1,12 +1,211 @@
-# ImprovedPublicTransport 3
+# Improved Public Transport 4
 
-**Version 3.0.1** | Last Updated: March 2026
+**Version 4.3.5** (BETA channel) · Cities: Skylines 1 · targets 1.21.1-f9
 
-## Overview
+IPT4 is a fork of [Improved Public Transport 3](https://github.com/TheMadisonian/ImprovedPublicTransport3)
+that absorbs other public-transport mods into a **single assembly**. The goal is not
+just convenience: mods that each manage the same per-line state end up fighting over
+it, and that class of conflict is what motivated this fork (see
+[Why this fork exists](#why-this-fork-exists)).
 
-ImprovedPublicTransport 3 (IPT3) is the continuation of the classic IPT and IPT2 mods, rebuilt for the Race Day update and fully compatible with More Vehicles Renewed. It gives you granular control over every aspect of public transportation — vehicle counts, vehicle types, stop behavior, boarding, ticket prices, unbunching, and more — across all transport modes in Cities: Skylines.
+- **Workshop page:** https://steamcommunity.com/sharedfiles/filedetails/?id=3773802930
+- **Player-facing release notes:** the Workshop changelog
+- **Developer release notes:** [`CHANGELOG.md`](CHANGELOG.md) — root cause, affected class, why it was not obvious
 
-IPT3 also encompasses a suite of formerly standalone mods that have been integrated directly, eliminating the need to manage them separately.
+> This is a personal fork maintained for one player's setup. It is public so the
+> work is inspectable and reusable, not because it is a supported product.
+
+---
+
+## Why this fork exists
+
+The original bug: public transport maintenance costs ran away to billions
+(≈ -42,000,000,000 in one save). Root cause was **AutoLineBudget 21** writing
+`TransportLine.m_budget` directly while IPT3 independently read and recalculated the
+same field to decide how many vehicles to keep active. Two systems, one piece of
+shared state, no coordination — the fleet and its upkeep inflated without bound.
+
+IPT4 resolves that class of problem structurally. Absorbed integrations must go
+through `Data/CachedTransportLineData`:
+
+```csharp
+CachedTransportLineData.SetTargetVehicleCount(lineID, target);
+CachedTransportLineData.SetBudgetControlState(lineID, false);
+```
+
+Never `TransportLine.m_budget` directly. `Integration/AutoLineBudget/` is the
+reference implementation — it also keeps a `HashSet<ushort>` of lines it took over,
+so a line the player set to Manual is never hijacked (both cases otherwise look
+identical, since both have `BudgetControl == false`).
+
+The same failure family showed up again in 4.2.0, in absorbed taxi-fare code that
+could overflow an `int` and drain the budget in a single simulation step.
+
+---
+
+## Requirements
+
+| Requirement | Required? | Notes |
+|---|---|---|
+| [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2040656402) | **Yes** | Every patch depends on it. `CitiesHarmony.API` bootstraps from this mod's install; we deliberately do not bundle `CitiesHarmony.Harmony`. |
+| `Newtonsoft.Json.dll` | Bundled | Ships in the mod folder. Do **not** remove it — see [Dependency notes](#dependency-notes). |
+| Ability to Read (`1174585364`) | No | Community in-joke listed as "required" by some mods. Nothing here uses it. |
+
+**Unsubscribe the standalone versions** of anything under
+[Absorbed mods](#absorbed-mods). Their code is compiled into this assembly;
+running both patches the same methods twice. IPT3, Transport Lines Manager and
+standalone AutoLineBudget are declared incompatible and will raise an in-game
+warning.
+
+---
+
+## Building
+
+```bash
+dotnet build ImprovedPublicTransport4.csproj -c Debug
+```
+
+- **Target framework:** `net35` (Unity/Mono). Consequence: no `Enum.HasFlag`,
+  no `Array.Empty<T>()`, no `System.ValueTuple` — several were hit in practice and
+  are noted in `CHANGELOG.md`.
+- Game assemblies resolve from the Steam install via `$(GamePath)`.
+- `AlgernonCommons` is a git submodule; `CSLModsCommonShared*` are vendored
+  source (`.projitems`) with local patches — see below.
+- The build **auto-deploys** to
+  `%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\Mods\ImprovedPublicTransport4\`
+  via the `DeployToModDirectory` target, so a build is an install.
+
+```bash
+git clone --recurse-submodules https://github.com/ccc012/ImprovedPublicTransport4
+# or, in an existing clone:
+git submodule update --init --recursive
+```
+
+### Dependency notes
+
+Any `PackageReference` that produces its own DLL needs a matching `<Copy>` in
+`DeployToModDirectory`. Otherwise it only works *by accident*, on machines where
+another subscribed mod already loaded that assembly — exactly how the
+`Newtonsoft.Json` bug in 4.3.2 stayed hidden.
+
+Cities: Skylines loads every mod into one `AppDomain` with **no isolation**, so
+assembly identity is first-come-first-served. `Real Time` ships a strong-named
+Newtonsoft.Json 13.0.0.0 while CSLModsCommon needs the unsigned 9.0.0.0.
+`JsonNetBootstrap` therefore installs an `AssemblyResolve` hook that always prefers
+the copy next to our own DLL rather than whatever loaded first.
+
+**Regression test worth repeating:** disable every other mod except Harmony and
+confirm IPT4 still loads. That is what surfaced the bug.
+
+---
+
+## Architecture
+
+```
+ImprovedPublicTransport4/
+├── Mod.cs                     # ICities.IUserMod  (CSLModsCommon entry point)
+├── IptModManager.cs           # ModManagerBase: name, channel, changelog, incompatibilities
+├── ImprovedPublicTransportMod.cs  # LoadingExtensionBase: patch apply/undo + integration wiring
+├── ModSetting.cs              # single settings store (79 properties)
+├── JsonNetBootstrap.cs        # deterministic Newtonsoft.Json binding
+├── Data/CachedTransportLineData.cs   # per-line coordination point (see above)
+├── Integration/<ModName>/     # one folder per absorbed mod
+├── HarmonyPatches/            # patches owned by IPT itself
+├── Translations/*.txt         # mod strings (19 files)
+└── CSLModsCommonShared/       # vendored UI framework + its own locales
+```
+
+Two classes the game discovers **independently**:
+
+- `Mod : ModEntry<IptModManager>` — the `IUserMod`; owns the Options UI.
+- `ImprovedPublicTransportMod : LoadingExtensionBase` — owns per-level patch
+  lifecycle and integration wiring.
+
+They do not need to be the same class. `ModManagerBase` (not
+`PatchModManagerBase`) is used deliberately so CSLModsCommon never touches Harmony
+lifecycle — that keeps the existing per-`OnLevelLoaded` apply/undo untouched, and
+avoids re-creating the "two systems, one piece of state" pattern this fork exists to
+fix.
+
+> **Do not locate the mod folder by looking for a specific `IUserMod` type.** That
+> coupling broke three separate features across releases as the entry class moved.
+> Use `PluginManager.FindPluginInfo(Assembly.GetExecutingAssembly())`.
+
+### Adding an integration
+
+1. Check the licence (`Projeto/IPT4/03_LICENCIAMENTO_MODS_FONTE.md`) — GPL-3.0
+   sources may be adapted, some licences only permit clean-room reimplementation.
+2. Create `Integration/<Name>/`, keeping the upstream `LICENSE` in that folder.
+3. Route per-line vehicle/budget changes through `CachedTransportLineData`.
+4. Wire it in `ImprovedPublicTransportMod.OnLevelLoaded` / `Deinit`, each in its own
+   `try/catch` so one failure cannot abort the rest.
+5. Add a toggle in `ModSetting` + `UI/CSLModsCommonOptionsPanel.cs`.
+6. Add translation keys to **all** `Translations/*.txt`.
+
+`Integration/*` compiles via a wildcard, so no `.csproj` edit is needed. Integrations
+using their own `ThreadingExtensionBase` / `LoadingExtensionBase` (AutoLineColor,
+ExpressBusServices) are discovered by the game directly — that is intentional, not
+missing wiring.
+
+---
+
+## Absorbed mods
+
+Compiled in; unsubscribe the standalone versions.
+
+| Integration | Upstream |
+|---|---|
+| `AdvancedStopSelection` | Advanced Stop Selection Revisited |
+| `AutoLineBudget` | AutoLineBudget 21 (GPL-3.0) |
+| `AutoLineColor` | Auto Line Color Redux |
+| `BetterBoarding` | Better Train Boarding |
+| `BetterBusStopPosition` | Better Bus Stop Position |
+| `ElevatedStopsEnabler` | Elevated Stops Enabler Revisited |
+| `ExpressBusServices` | Express Bus Services |
+| `FlightTracker` | Flight Tracker |
+| `IntercityBusControl` | Intercity Bus Control |
+| `MileageTaxiServices` | Mileage Taxi Services |
+| `PublicTransportUnstucker` | Public Transport Unstucker |
+| `RealisticWalkingSpeed` | Realistic Walking Speed |
+| `StopsAndStations` | Stops and Stations |
+| `TicketPriceCustomizer` | Ticket Price Customizer |
+| `TrainDisplayUpdated` | Train Display - Updated (GPL-3.0) |
+| `HarmonyPatches/…/NormalizeFullwidthLineNamesPatch` | Rescue Fullwidth Digits |
+
+---
+
+## Localization
+
+19 mod translation files (`Translations/*.txt`, ~310 keys each) plus 23 framework
+locale files (`CSLModsCommonShared/Localization/Common/*.json`).
+
+Two separate systems, which is easy to trip over:
+
+- **Mod strings** — `Translations/<lang>.txt`, read by
+  `TranslationFramework.LocalizationManager`.
+- **Framework strings** (Version, Changelog, BETA, the language selector itself) —
+  `Localization/Common/<locale>.json`, read by CSLModsCommon.
+
+The **selector is populated from the framework's** locale list. A language with a
+mod translation but no framework file is unreachable — that is why Bengali, Hindi,
+Indonesian and Urdu were invisible until 4.3.3 despite being fully translated.
+
+`FindLanguage` maps long ids to short filenames (`de-DE` → `de.txt`,
+`zh-TW` → `zh-tw.txt`). **18 of 23** selector entries have a full mod translation;
+`cs`, `nl`, `sk`, `th`, `tr` fall back to English.
+
+When adding a key, add it to **every** file. Use a literal `\n` for line breaks —
+a real newline splits the entry and corrupts the parse, since the deserializer reads
+one key per line.
+
+---
+
+## Repository layout note
+
+Project documentation (phase plans, mod triage, dependency audit, current state) is
+maintained in Portuguese under `Projeto/IPT4/` in the author's notes, outside this
+repository. `06_ESTADO_ATUAL.md` is the living status document;
+`07_AUDITORIA_DEPENDENCIAS.md` covers runtime dependencies.
 
 ---
 
@@ -88,27 +287,20 @@ Bulk-delete all lines of a given transport type from the Options panel:
 
 ---
 
-## What's New in Version 3.0
+## Integration details
 
-### ✨ What's New Dialog System
-The mod now displays helpful notifications when major features are added or changed. The dialog appears once per version and can be dismissed. If you click "Don't Show Again," the reminder won't appear again until a new version is released.
+Feature-level documentation for the absorbed mods, carried over from the IPT3 README.
 
-## Mod Integrations
-
-The following mods have been built directly into IPT3. You do not need — and should not use — the separate standalone versions alongside IPT3.
-
----
-
-#### Advanced Stop Selection
+### Advanced Stop Selection
 Smarter tools for managing where vehicles can stop and pick up passengers at stations.
 
-### 🎨 **Auto Line Color Redux
+### Auto Line Color Redux
 Automatically assigns colors and names to new transit lines based on route characteristics, keeping your transit map organized and visually appealing.
 
-### 🎯 **Better Bus Stop Position (BBSP)
+### Better Bus Stop Position (BBSP)
 Controls how buses position themselves at stops, moving them forward instead of centered thus allowing a second bus to pull in behind.
 
-#### Better Train Boarding
+### Better Train Boarding
 - Passengers are assigned to the nearest available carriage/vehicle segment and boarding is buffered to avoid strange 'stuck passenger' behavior
 - Improves consistency across transport modes and avoids passenger shuffling at busy stops
 - Applied to:
@@ -120,22 +312,22 @@ Controls how buses position themselves at stops, moving them forward instead of 
   - PassengerBlimpAI
   - PassengerFerryAI
 
-#### Elevated Stops Enabler
+### Elevated Stops Enabler
 Build transit stops on elevated roads, opening up new urban layouts.
 
-#### Express Bus Services
+### Express Bus Services
 Buses and trams can depart early if there are very few passengers, keeping schedules tight
 - **Minibus Mode**: Small-capacity buses can skip if load is very light, reducing unnecessary wait times
 - **Self-Balancing**: The system automatically redeploys vehicles to busy stops and helps keep service balanced across the route
 - **Middle-Stop Deployment**: Allows self-balancing to redeploy buses to busy intermediate stops along a route, not just terminus stops — useful for catching congestion mid-route
 - **Express Tram Services**: Trams get smarter stopping decisions to reduce wait times
 
-#### Flight Tracker
+### Flight Tracker
 Track planes with a dedicated panel attached to the plane stand building info window. Shows flight status and schedules at a glance.
 - **Fix**: Panel is now correctly attached to the plane stand window instead of simply spawning there.
 - **Fix**: Escape key now properly closes the Flight Tracker panel along with building info window.
 
-#### Intercity Bus Control
+### Intercity Bus Control
 Fine-tune intercity bus behavior with a toggle on regular bus stations to allow Intercity Buses at them. (Sunset Harbor DLC).
 
 - **Supported Hubs**: Adds intercity bus support to all multi-modal bus hubs:
@@ -144,10 +336,10 @@ Fine-tune intercity bus behavior with a toggle on regular bus stations to allow 
   - Monorail-Bus Hub
 - **Note**: The Bus-Train-Tram Hub uses its native intercity trains toggle and is left unchanged to avoid transport mode conflicts (only one intercity toggle per building is supported by the game UI).
 
-#### Mileage Taxi Service
+### Mileage Taxi Service
 Taxis now charge per mile/kilometer traveled (based on IPT 'Show speed in' setting) instead of straight line distance from start to finish points, making them a realistic urban transportation option (After Dark DLC).
 
-#### Realistic Walking Speed
+### Realistic Walking Speed
 Enables realistic pedestrian and cycling speeds in your city, controllable from the Options Panel:
 
 **Available Modes:**
@@ -164,13 +356,13 @@ Enables realistic pedestrian and cycling speeds in your city, controllable from 
 - Cycling becomes a realistic alternative to transit for shorter distances, but longer trips favor public transport
 - Citizens move more realistically overall, affecting passenger boarding times and transfer experiences
 
-#### Stops and Stations
+### Stops and Stations
 Adds a waiting passenger limiter to all transit stops in Options Panel:
 - Controls maximum passenger overflow at busy stops
 - Prevents unrealistic passenger accumulation that can cause performance issues
 - Applies universally to each transport type
 
-### 🎫 **Ticket Price Customizer** — Control How Much Transit Costs
+### Ticket Price Customizer
 Integrated directly into the Economy Panel with its own tab alongside Budget, Taxes, Loans, and Investments.
 
 Set ticket prices **independently for each transport type**:
@@ -269,38 +461,19 @@ Most features work with just the base game. Features that require DLC will be un
 
 ---
 
-## Version History
+## Credits & licence
 
-### 3.0.0 (March 2026) — Current
-Complete rebuild of IPT2 for the Race Day update, with many standalone transport mods absorbed.
-- ✨ What's New notification system
-- ✅ Core transport line panel, vehicle type selector, vehicle editor, and stop info panel carried forward from IPT/IPT2
-- ✅ All mod integrations verified against Cities: Skylines API source code
-- ✅ All integrated settings properly save to XML and persist to save games
-- ✅ Compatibility with More Vehicles Renewed for Race Day
-- 🚍 Added Intercity Buses to the Vehicle Editor
-- 🛠 Fixed Deinit early-return bug that left Harmony patches active across game sessions
-- 🛠 Fixed Flight Tracker window positioning and Escape key handling
-- 🛠 Switched from unsafe IL transpiler override to safe postfix mode with config toggle for BBSP
-- 🛠 Fixed Intercity Bus Control to work on all applicable bus transport hubs except Bus-Train-Tram Hub; the game only supports one intercity setting per hub and train hubs have 'Allow Intercity Trains' by default.
+IPT4 is licensed under **GPL-3.0** ([`LICENSE`](LICENSE)); it absorbs GPL-3.0 code and
+so must remain GPL-3.0.
 
-### IPT2 (BloodyPenguin, 2017–2023)
-Fixed and continued the original IPT after it was abandoned. Added Harmony, improved Vehicle Selection UI, and maintained compatibility through game updates up to 1.16.1-f2.
+Lineage: **IPT** (DontCryJustDie, 2015-2016) -> **IPT2** (BloodyPenguin, 2017-2023)
+-> **IPT3** (TheMadisonian) -> **IPT4** (this fork).
 
-### IPT (DontCryJustDie, 2015–2016)
-The original mod. Introduced vehicle count control, vehicle type selection, the Vehicle Editor, the Stop Info Panel, per-line unbunching configuration, and depot management to Cities: Skylines.
+Thanks to the authors whose work is absorbed here, released under MIT or GNU
+licences: Dontcryjustdie, BloodyPenguin, Nyoko, egi, llunak, Vectorial1024,
+macsergey, dymanoid, TaradinoC, algernon, Mbyron26.
 
----
-
-## Credits & License
-Special thanks to all the authors who made code available under MIT or GNU license: Dontcryjustdie, BloodyPenguin, Nyoko, egi, llunak, Vectorial1024, macsergey, dymanoid, TaradinoC. 
-
-Individual mod integratons include original LICENSE in their respective folders in Integration folder.
-
----
-
-## Support
-For issues, feedback, or feature requests, please visit the mod's community page on the Steam Workshop.
-
-
-
+Each integration keeps its upstream `LICENSE` in its own folder under
+`Integration/`. Vendored frameworks: [AlgernonCommons](https://github.com/algernon-A/AlgernonCommons)
+(submodule) and [CSLModsCommon](https://github.com/Mbyron26/CSLModsCommon) (MIT,
+vendored source with local patches).
