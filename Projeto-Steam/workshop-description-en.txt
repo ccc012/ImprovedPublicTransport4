@@ -59,27 +59,29 @@ The [b]Ticket Prices[/b] tab in the Economy panel lets you price each transport 
 
 [hr][/hr]
 
-[h1]Mods absorbed into IPT4[/h1]
+[h1]Mods absorbed into IPT4 — and who made them[/h1]
 
 [b]Unsubscribe the standalone versions of these.[/b] Their features are built in — running both means the same game code gets patched twice, which causes exactly the sort of conflict this mod exists to prevent.
 
+Every one of these is somebody else's work. The links go to the original items — if you like what a feature does here, go say so on the author's page.
+
 [list]
-[*]Advanced Stop Selection Revisited
-[*]AutoLineBudget 21
-[*]Auto Line Color Redux
-[*]Better Train Boarding
-[*]Better Bus Stop Position (BBSP)
-[*]Elevated Stops Enabler Revisited
-[*]Express Bus Services
-[*]Flight Tracker
-[*]Intercity Bus Control
-[*]Mileage Taxi Services
-[*]Public Transport Unstucker
-[*]Realistic Walking Speed
-[*]Stops and Stations
-[*]Ticket Price Customizer
-[*]Train Display - Updated
-[*]Rescue Fullwidth Digits
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] — by [b]macsergey[/b], continuing BloodyPenguin's original
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] — by [b]snowie[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] — by [b]TaradinoC[/b], from Phil Scott's original AutoLineColor
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] — by [b]Vectorial1024[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] — by [b]llunak[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] — by [b]macsergey[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] — by [b]Vectorial1024[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] — by [b]Nyoko[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] — by [b]BloodyPenguin[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] — by [b]Vectorial1024[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] — by [b]Vectorial1024[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] — by [b]egi[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] — by [b]dymanoid[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] — by [b]BloodyPenguin[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] — by [b]Will[/b], continuing [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape's Train Display Mod[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] — by [b]Gansaku[/b]
 [/list]
 
 Most of these have their own switch or mode selector in the mod options, so you can disable or tune anything you do not want. A handful that only repair broken vanilla behaviour — elevated stop placement, boarding decisions, advanced stop selection, fullwidth digit names — are simply always on. Taxi mileage income requires the [b]After Dark[/b] DLC and is skipped automatically without it.
@@ -143,4 +145,12 @@ If something goes wrong, the most useful thing you can do is say [i]what you wer
 Source code, technical changelog and issue tracker:
 [url=https://github.com/ccc012/ImprovedPublicTransport4]github.com/ccc012/ImprovedPublicTransport4[/url]
 
-IPT4 is licensed under [b]GPL-3.0[/b] and stands on a long line of work: [b]IPT[/b] by DontCryJustDie, [b]IPT2[/b] by BloodyPenguin, [b]IPT3[/b] by TheMadisonian, and the authors of every absorbed mod — Nyoko, egi, llunak, Vectorial1024, macsergey, dymanoid, TaradinoC, algernon and Mbyron26. Thank you, all of you. This mod is mostly your work, rearranged so the pieces stop stepping on each other.
+IPT4 is licensed under [b]GPL-3.0[/b] and stands on a long line of other people's work.
+
+[b]The IPT line:[/b] [b]DontCryJustDie[/b] made the original Improved Public Transport (2015), [b]BloodyPenguin[/b] made [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url] and maintained it for six years, and [b]Madisonian[/b] made [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], which this is forked from.
+
+[b]The absorbed mods:[/b] every author is named with a link to their item in the list further up this page. Collectively: Asmape, BloodyPenguin, dymanoid, egi, Gansaku, llunak, macsergey, Nyoko, Phil Scott, snowie, TaradinoC, Vectorial1024 and Will.
+
+[b]The frameworks that make the UI work:[/b] [b]algernon[/b] (AlgernonCommons) and [b]Mbyron26[/b] (CSLModsCommon).
+
+Thank you, all of you. This mod is mostly your work, rearranged so the pieces stop stepping on each other.

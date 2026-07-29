@@ -153,24 +153,39 @@ missing wiring.
 
 Compiled in; unsubscribe the standalone versions.
 
-| Integration | Upstream |
-|---|---|
-| `AdvancedStopSelection` | Advanced Stop Selection Revisited |
-| `AutoLineBudget` | AutoLineBudget 21 (GPL-3.0) |
-| `AutoLineColor` | Auto Line Color Redux |
-| `BetterBoarding` | Better Train Boarding |
-| `BetterBusStopPosition` | Better Bus Stop Position |
-| `ElevatedStopsEnabler` | Elevated Stops Enabler Revisited |
-| `ExpressBusServices` | Express Bus Services |
-| `FlightTracker` | Flight Tracker |
-| `IntercityBusControl` | Intercity Bus Control |
-| `MileageTaxiServices` | Mileage Taxi Services |
-| `PublicTransportUnstucker` | Public Transport Unstucker |
-| `RealisticWalkingSpeed` | Realistic Walking Speed |
-| `StopsAndStations` | Stops and Stations |
-| `TicketPriceCustomizer` | Ticket Price Customizer |
-| `TrainDisplayUpdated` | Train Display - Updated (GPL-3.0) |
-| `HarmonyPatches/…/NormalizeFullwidthLineNamesPatch` | Rescue Fullwidth Digits |
+Every author below is credited from the source itself — the Workshop item's
+"Created by" field, or the copyright header in the licence file that shipped
+with the code. Where a mod is a continuation of someone else's work, both are
+named.
+
+| Integration | Upstream mod | Author | Licence |
+|---|---|---|---|
+| `AdvancedStopSelection` | [Advanced Stop Selection Revisited](https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068) | **macsergey**, continuing BloodyPenguin's original | GPL |
+| `AutoLineBudget` | [Auto Line Budget 21](https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408) · [source](https://github.com/jakeluba/AutoLineBudget21) | **snowie** | GPL-3.0 |
+| `AutoLineColor` | [AutoLineColor Redux](https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282) | **TaradinoC**, from Phil Scott's original AutoLineColor | MIT |
+| `BetterBoarding` | [Better Train Boarding](https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744) | **Vectorial1024** | MIT |
+| `BetterBusStopPosition` | [Better Bus Stop Position](https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535) | **llunak** | GPL |
+| `ElevatedStopsEnabler` | [Elevated Stops Enabler Revisited](https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091) | **macsergey** | GPL |
+| `ExpressBusServices` | [Express Bus Services](https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175) | **Vectorial1024** (Vincent Wong) | MIT |
+| `FlightTracker` | [Flight Tracker](https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468) | **Nyoko** | MIT |
+| `IntercityBusControl` | [Intercity Bus Control](https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767) · [source](https://github.com/bloodypenguin/Skylines-IntercityBusController) | **BloodyPenguin** | GPL |
+| `MileageTaxiServices` | [Mileage Taxi Services](https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582) | **Vectorial1024** | MIT |
+| `PublicTransportUnstucker` | [Public Transport Unstucker](https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140) | **Vectorial1024** | MIT |
+| `RealisticWalkingSpeed` | [Realistic Walking Speed](https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620) | **egi** (DaEgi01) | MIT |
+| `StopsAndStations` | [Stops & Stations](https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533) | **dymanoid** | MIT |
+| `TicketPriceCustomizer` | [Ticket Price Customizer](https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309) | **BloodyPenguin** | GPL |
+| `TrainDisplayUpdated` | [Train Display - Updated](https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958) | **Will**, continuing [Asmape's Train Display Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816) | GPL-3.0 |
+| `HarmonyPatches/…/NormalizeFullwidthLineNamesPatch` | [Rescue Fullwidth Digits](https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364) | **Gansaku** | — |
+
+The licence column is the licence of the code **as absorbed**; the authoritative
+copy lives in each `Integration/<Name>/LICENSE`. Two GPL-3.0 entries
+(`AutoLineBudget`, `TrainDisplayUpdated`) are why IPT4 as a whole is GPL-3.0.
+
+> **Attribution check, worth repeating if you absorb another mod:** several of
+> these folders contain a copyright header for *AlgernonCommons*, the vendored
+> UI framework — not for the mod's author. Flight Tracker's files carry
+> algernon's copyright for that reason, while the mod is Nyoko's. Read the
+> Workshop item's "Created by" field, not just the licence headers.
 
 ---
 
@@ -473,17 +488,39 @@ Most features work with just the base game. Features that require DLC will be un
 
 ## Credits & licence
 
-IPT4 is licensed under **GPL-3.0** ([`LICENSE`](LICENSE)); it absorbs GPL-3.0 code and
-so must remain GPL-3.0.
+IPT4 is licensed under **GPL-3.0** ([`LICENSE`](LICENSE)). Two of the absorbed
+mods are GPL-3.0 (`AutoLineBudget`, `TrainDisplayUpdated`), so the combined work
+must be GPL-3.0 too - this is an obligation, not a preference.
 
-Lineage: **IPT** (DontCryJustDie, 2015-2016) -> **IPT2** (BloodyPenguin, 2017-2023)
--> **IPT3** (TheMadisonian) -> **IPT4** (this fork).
+### Lineage of this mod
 
-Thanks to the authors whose work is absorbed here, released under MIT or GNU
-licences: Dontcryjustdie, BloodyPenguin, Nyoko, egi, llunak, Vectorial1024,
-macsergey, dymanoid, TaradinoC, algernon, Mbyron26.
+| | Author |
+|---|---|
+| Improved Public Transport (2015-2016) | **DontCryJustDie** - Workshop item no longer listed |
+| [Improved Public Transport 2](https://steamcommunity.com/sharedfiles/filedetails/?id=928128676) (2017-2023) | **BloodyPenguin** |
+| [Improved Public Transport 3](https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052) | **Madisonian** ([source](https://github.com/TheMadisonian/ImprovedPublicTransport3)) |
+| IPT4 | this fork |
+
+### Absorbed work
+
+Per-mod credit, Workshop link and licence are in the
+[Absorbed mods](#absorbed-mods) table above - that is the authoritative list.
+The people whose work is compiled into this assembly:
+
+**Asmape · BloodyPenguin · DaEgi01 (egi) · dymanoid · Gansaku · llunak ·
+macsergey · Nyoko · Phil Scott · snowie · TaradinoC · Vectorial1024 · Will**
 
 Each integration keeps its upstream `LICENSE` in its own folder under
-`Integration/`. Vendored frameworks: [AlgernonCommons](https://github.com/algernon-A/AlgernonCommons)
-(submodule) and [CSLModsCommon](https://github.com/Mbyron26/CSLModsCommon) (MIT,
-vendored source with local patches).
+`Integration/`. If you absorb another mod, keep doing that - the licence file is
+the record of permission, and deleting it breaks the chain.
+
+### Vendored frameworks
+
+| Framework | Author | Licence | How it is included |
+|---|---|---|---|
+| [AlgernonCommons](https://github.com/algernon-A/AlgernonCommons) | **algernon** (K. Algernon A. Sheppard) | MIT | git submodule |
+| [CSLModsCommon](https://github.com/Mbyron26/CSLModsCommon) | **Mbyron26** | MIT | vendored source, with local patches |
+| [Json.NET for Unity](https://github.com/SaladLab/Json.Net.Unity3D) | Newtonsoft / SaladLab | MIT | NuGet, shipped in the mod folder |
+
+Thank you to all of the above. IPT4 is mostly their work, rearranged so the
+pieces stop stepping on each other.
