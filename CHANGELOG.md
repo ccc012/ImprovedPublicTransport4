@@ -14,6 +14,64 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.3.7] All 23 languages complete; translation-progress indicator
+
+### Translation - `cs`, `nl`, `sk`, `th`, `tr`
+
+Five languages were listed in the mod's language selector but had no
+`Translations/*.txt` file. `LocalizationManager.FindLanguage` found nothing and
+they fell back to English with no indication anything was missing - the selector
+is populated from the **framework's** locale list
+(`CSLModsCommonShared/Localization/Common/*.json`), not from the presence of a mod
+translation, so a language can be reachable in the UI and untranslated in fact.
+
+Each now has a full file: 366 keys, same key set as `en.txt`, same order.
+
+Verified programmatically across all 23 files rather than by inspection:
+
+- key set identical to `en.txt`, no extra keys, no empty values
+- `{0}`-style placeholder sets matching per key
+- literal `
+` counts matching per key
+- no line failing `^[A-Z0-9_]+ \S`
+
+That last check is the one that matters most. A real newline inside a value
+splits the entry across lines and corrupts the parse, because the reader takes one
+key per line. It has bitten this project before.
+
+**On key order:** the 18 pre-existing files have differed from `en.txt`'s order
+since before this release (185 positions in `ar.txt` alone). Order is irrelevant
+to the parser - entries go into a dictionary - so they were left as they are
+rather than reordered, which would produce a large diff with no functional
+effect. The new files follow `en.txt`.
+
+### Translation - `CHANGELOG_4_3_6_1` / `_2`
+
+The 4.3.6 entries existed only in `en.txt` and `pt.txt`. The other 21 languages
+would have rendered the raw key in the changelog panel. Added everywhere,
+inserted at `en.txt`'s position.
+
+### Fixed - progress indicator reported 76% for complete languages
+
+`Localization/Common/TranslationStatus.json` is a **static** file, read by
+`EmbeddedLocalizationLoader` and consumed by
+`LocaleEntry.RecalculateTranslationProgress`, which feeds the percentage shown
+under the language dropdown in Options. It had never been regenerated: it claimed
+112 total strings and 97 translated (76%) for sixteen locales, and had no `en-US`
+entry at all.
+
+All 23 framework locale files in fact contain all 116 keys with no empty values.
+Regenerated from the real contents of both localization systems - framework json
+(116 keys) and mod txt (366 keys), resolved through the same
+long-id-to-short-filename mapping `FindLanguage` uses. All 23 now report 100% and
+`en-US` is present.
+
+Worth knowing before adding keys: this number is not computed at runtime. Add
+strings without regenerating that file and the panel reports a stale figure while
+the translations themselves are fine.
+
+---
+
 ## [4.3.6] Public transport maintenance overflow
 
 ### Fixed - negative `-21.4 million` maintenance
