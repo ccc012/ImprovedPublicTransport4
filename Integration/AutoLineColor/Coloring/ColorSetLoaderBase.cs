@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using ImprovedPublicTransport.Util;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -12,8 +13,6 @@ namespace AutoLineColor.Coloring
 {
     internal abstract class ColorSetLoaderBase : IColorSetLoader
     {
-        // ReSharper disable once MemberCanBePrivate.Global
-        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         [NotNull]
         public string Name { get; }
 
@@ -31,8 +30,7 @@ namespace AutoLineColor.Coloring
         {
             var logger = Console.Instance;
 
-            // we need to load the color list
-            var modConfigPath = Path.Combine(ColossalFramework.IO.DataLocation.localApplicationData, Path.Combine("ModsSettings", "IPT"));
+            var modConfigPath = Path.Combine(Path.Combine(Utils.AssemblyPath, "Resources"), "AutoLineColor");
             var fullPath = Path.Combine(modConfigPath, _filename);
             logger.Message($"Loading color set from {fullPath}");
             var unparsedColors = _defaultContent;
@@ -73,17 +71,16 @@ namespace AutoLineColor.Coloring
         {
             try
             {
-                hex = hex.Replace("0x", ""); //in case the string is formatted 0xFFFFFF
-                hex = hex.Replace("#", ""); //in case the string is formatted #FFFFFF
+                hex = hex.Replace("0x", "");
+                hex = hex.Replace("#", "");
                 hex = hex.Trim();
 
-                byte alpha = 255; //assume fully visible unless specified in hex
+                byte alpha = 255;
 
                 var red = byte.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
                 var green = byte.Parse(hex.Substring(2, 2), NumberStyles.HexNumber);
                 var blue = byte.Parse(hex.Substring(4, 2), NumberStyles.HexNumber);
 
-                //Only use alpha if the string has enough characters
                 if (hex.Length == 8)
                 {
                     alpha = byte.Parse(hex.Substring(6, 2), NumberStyles.HexNumber);

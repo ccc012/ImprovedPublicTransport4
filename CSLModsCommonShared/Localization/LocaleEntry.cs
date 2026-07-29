@@ -63,18 +63,56 @@ public class LocaleEntry : CSLModsCommon.Collections.IReadOnlyDictionary<string,
         _source[key] = value;
     }
 
-    public string this[string key] => _source.TryGetValue(key, out var val) ? val : key;
+    public string this[string key] => TryGetValue(key, out var val) ? val : key;
 
     public IEnumerable<string> Keys => _source.Keys;
     public IEnumerable<string> Values => _source.Values;
 
-    public bool ContainsKey(string key) => _source.ContainsKey(key);
+    public bool ContainsKey(string key) => TryGetNormalizedKey(key, out _);
 
-    public bool TryGetValue(string key, out string value) => _source.TryGetValue(key, out value);
+    public bool TryGetValue(string key, out string value) {
+        if (TryGetNormalizedKey(key, out var resolvedKey)) {
+            value = _source[resolvedKey];
+            return true;
+        }
+
+        value = null;
+        return false;
+    }
 
     public IEnumerator<KeyValuePair<string, string>> GetEnumerator() => _source.GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+    private bool TryGetNormalizedKey(string key, out string resolvedKey) {
+        resolvedKey = null;
+        if (string.IsNullOrEmpty(key)) {
+            return false;
+        }
+
+        if (_source.ContainsKey(key)) {
+            resolvedKey = key;
+            return true;
+        }
+
+        if (key.IndexOf('_') >= 0) {
+            var hyphenKey = key.Replace('_', '-');
+            if (_source.ContainsKey(hyphenKey)) {
+                resolvedKey = hyphenKey;
+                return true;
+            }
+        }
+
+        if (key.IndexOf('-') >= 0) {
+            var underscoreKey = key.Replace('-', '_');
+            if (_source.ContainsKey(underscoreKey)) {
+                resolvedKey = underscoreKey;
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     private void RecalculateTranslationProgress() {
         if (IsDefault) {

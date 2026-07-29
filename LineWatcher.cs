@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: ImprovedPublicTransport.LineWatcher
 // Assembly: ImprovedPublicTransport, Version=1.0.6177.17409, Culture=neutral, PublicKeyToken=null
 // MVID: 76F370C5-F40B-41AE-AA9D-1E3F87E934D3
@@ -89,6 +89,11 @@ namespace ImprovedPublicTransport
       }
       this._initialized = true;
     }
+    public void MarkKnown(ushort lineID)
+    {
+      if (lineID != 0)
+        this._knownLines.Add(lineID);
+    }
 
     private static bool IsValid(ref TransportLine line)
     {
@@ -98,3 +103,5 @@ namespace ImprovedPublicTransport
     }
   }
 }
+
+

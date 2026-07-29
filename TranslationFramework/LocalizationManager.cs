@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ColossalFramework.Globalization;
 
 namespace ImprovedPublicTransport.TranslationFramework
@@ -18,7 +19,7 @@ namespace ImprovedPublicTransport.TranslationFramework
         private ILanguageDeserializer languageDeserializer;
         private Type modType;
 
-        public LocalizationManager(Type modType, ILanguageDeserializer languageDeserializer = null, bool loadLanguageAutomatically = true, 
+        public LocalizationManager(Type modType, ILanguageDeserializer languageDeserializer = null, bool loadLanguageAutomatically = true,
             string fallbackLanguage = "en")
         {
             this.languageDeserializer = languageDeserializer ?? new DefaultLanguageDeserializer();
@@ -26,18 +27,79 @@ namespace ImprovedPublicTransport.TranslationFramework
             this.fallbackLanguage = fallbackLanguage;
             this.modType = modType;
             LocaleManager.eventLocaleChanged += SetCurrentLanguage;
+            // The Options panel has its own language selector (CSLModsCommon), separate from the
+            // game's language. Without this, picking a language there only re-translated the
+            // framework's own strings (Version/Changelog/...) while every string of ours stayed
+            // in the game's language - which reads as "half the panel didn't translate".
+            CSLModsCommon.Manager.LocalizationManager.ModActiveLocaleChanged += OnModActiveLocaleChanged;
         }
+
+        private void OnModActiveLocaleChanged(string localeId, CSLModsCommon.Manager.LocalizationManager manager) => SetCurrentLanguage();
 
         private void SetCurrentLanguage()
         {
-            if (_languages == null || _languages.Count ==0 || !LocaleManager.exists)
+            if (_languages == null || _languages.Count == 0)
             {
                 return;
             }
-            _currentLanguage = _languages.Find(l => l.LocaleName() == LocaleManager.instance.language) ??
-                               _languages.Find(l => l.LocaleName() == fallbackLanguage);
+
+            // Mod's own language selection wins; fall back to the game's language, then to English.
+            _currentLanguage = FindLanguage(GetModSelectedLocale())
+                               ?? FindLanguage(LocaleManager.exists ? LocaleManager.instance.language : null)
+                               ?? FindLanguage(fallbackLanguage);
         }
 
+        /// <summary>
+        /// Gets the locale the user picked in this mod's Options panel, or null when set to
+        /// "use game language" (or when the framework isn't ready yet).
+        /// </summary>
+        private static string GetModSelectedLocale()
+        {
+            try
+            {
+                var settingLocaleId = ModSetting.Instance?.LocaleId;
+                if (string.IsNullOrEmpty(settingLocaleId) ||
+                    settingLocaleId == CSLModsCommon.Manager.LocalizationManager.UseGameLanguage)
+                {
+                    return null;
+                }
+
+                return settingLocaleId;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Resolves a locale id to a loaded language file. Handles the two naming schemes in play:
+        /// CSLModsCommon uses long ids ("de-DE", "zh-TW"), our translation files use either the
+        /// short form ("de.txt") or the lowercased long form ("zh-tw.txt").
+        /// </summary>
+        private ILanguage FindLanguage(string localeId)
+        {
+            if (string.IsNullOrEmpty(localeId) || _languages == null)
+            {
+                return null;
+            }
+
+            var lower = localeId.ToLowerInvariant();
+            var match = _languages.Find(l => string.Equals(l.LocaleName(), lower, StringComparison.OrdinalIgnoreCase));
+            if (match != null)
+            {
+                return match;
+            }
+
+            int dash = lower.IndexOf('-');
+            if (dash > 0)
+            {
+                var shortId = lower.Substring(0, dash);
+                return _languages.Find(l => string.Equals(l.LocaleName(), shortId, StringComparison.OrdinalIgnoreCase));
+            }
+
+            return null;
+        }
 
         /// <summary>
         /// Loads all languages up if not already loaded.
@@ -86,7 +148,10 @@ namespace ImprovedPublicTransport.TranslationFramework
 
                 if (Directory.Exists(languagePath))
                 {
-                    string[] languageFiles = Directory.GetFiles(languagePath, "*.txt", SearchOption.AllDirectories);
+                    string[] languageFiles = Directory.GetFiles(languagePath, "*.txt", SearchOption.AllDirectories)
+                        .OrderBy(path => path, StringComparer.OrdinalIgnoreCase)
+                        .ToArray();
+                    var loadedLocales = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                     if (verboseLogging)
                     {
                         try
@@ -115,6 +180,12 @@ namespace ImprovedPublicTransport.TranslationFramework
                         }
                         if (loadedLanguage != null)
                         {
+                            if (!loadedLocales.Add(loadedLanguage.LocaleName()))
+                            {
+                                UnityEngine.Debug.LogWarning("Skipping duplicate localisation file for locale \"" + loadedLanguage.LocaleName() + "\": " + languageFile);
+                                continue;
+                            }
+
                             _languages.Add(loadedLanguage);
                         }
                     }
@@ -155,7 +226,7 @@ namespace ImprovedPublicTransport.TranslationFramework
                 _currentLanguage = _languages.Find(l => l.LocaleName() == fallbackLanguage) ?? _languages[0];
             }
         }
-        
+
         /// <summary>
         /// Returns whether you can translate into a specific translation ID
         /// </summary>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ColossalFramework;
 using ColossalFramework.IO;
 using UnityEngine;
@@ -153,6 +153,28 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         // Cache of resolved transport Info objects for safer simulation-thread operations.
         private static readonly System.Collections.Generic.Dictionary<string, TransportInfo> s_cachedTransportInfos = new System.Collections.Generic.Dictionary<string, TransportInfo>();
 
+        /// <summary>
+        /// Gets the ticket price currently in effect for a transport type, as the game charges it.
+        /// Used by the Ticket Prices tab so the actual resulting fare is visible, not just the
+        /// multiplier percentage.
+        /// </summary>
+        /// <returns><c>false</c> when the type has no resolvable TransportInfo - e.g. its DLC is not
+        /// installed, or no prefab of that type has loaded yet.</returns>
+        public static bool TryGetCurrentPrice(string transportType, out int currentPrice, out int basePrice)
+        {
+            currentPrice = 0;
+            basePrice = 0;
+
+            if (!TryGetTransportInfo(transportType, out var info) || info == null)
+            {
+                return false;
+            }
+
+            currentPrice = (int)info.m_ticketPrice;
+            basePrice = s_basePrices.TryGetValue(transportType, out var recorded) ? recorded : currentPrice;
+            return true;
+        }
+
         public static void ResetToVanilla()
         {
             foreach (var kvp in s_basePrices)
@@ -225,10 +247,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                         modifiedLines++;
                     }
                 }
-
-                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) IPTUtils.Log($"TicketPriceCustomizer: Multiplier {multiplier:F1}x applied for '{type}': checkedLines={checkedLines}, modifiedLines={modifiedLines}");
-                // Additional target logging for debugging ticket price/bus cost interactions
-                IPTUtils.Log($"TicketPriceCustomizer: Applied ticket price for '{type}' (multiplier {multiplier:F1}) - checkedLines={checkedLines}, modifiedLines={modifiedLines}");
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                {
+                    IPTUtils.Log($"TicketPriceCustomizer: Applied ticket price for '{type}' (multiplier {multiplier:F1}) - checkedLines={checkedLines}, modifiedLines={modifiedLines}");
+                }
             }
             catch (Exception e)
             {

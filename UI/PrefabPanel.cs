@@ -1,4 +1,4 @@
-﻿// <copyright file="BuildingPanel.cs" company="algernon (K. Algernon A. Sheppard)">
+// <copyright file="BuildingPanel.cs" company="algernon (K. Algernon A. Sheppard)">
 // Copyright (c) algernon (K. Algernon A. Sheppard). All rights reserved.
 // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
 // </copyright>
@@ -56,13 +56,10 @@ namespace ImprovedPublicTransport.UI
         // Current selections.
         private ushort _currentLineID;
         private TransportLine _thisLine;
-        private byte _currentDistrict = 0;
-        private byte _currentPark = 0;
 
         // Event handling.
-        // Copy/paste process flags are optional and not currently required.
-        // private bool _copyProcessing = false;
-        // private bool _pasteProcessing = false;
+        private bool _copyProcessing = false;
+        private bool _pasteProcessing = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PrefabPanel"/> class.
@@ -116,14 +113,16 @@ namespace ImprovedPublicTransport.UI
                 // Copy/paste buttons.
                 _copyButton = UIButtons.AddIconButton(this, CopyButtonX, IconButtonY, IconButtonSize,
                     UITextures.LoadQuadSpriteAtlas("IPT-Copy"), Localization.Get("COPY_TIP"));
-                _copyButton.Hide(); //TODO: restore
-                _copyButton.eventClicked += (c, p) => CopyPaste.Instance.Copy(_currentLineID);
+                _copyButton.eventClicked += (c, p) =>
+                {
+                    CopyPaste.Instance.Copy(_currentLineID);
+                    _pasteButton.isEnabled = CopyPaste.Instance.IsValidTarget(CurrentLineID);
+                };
                 _pasteButton = UIButtons.AddIconButton(this, PasteButtonX, IconButtonY, IconButtonSize,
                     UITextures.LoadQuadSpriteAtlas("IPT-Paste"), Localization.Get("PASTE_TIP"));
-                _pasteButton.Hide(); //TODO: restore
                 _pasteButton.eventClicked += (c, p) => Paste();
 
-                // Copy to buttons.
+                // Batch copy buttons adapted to the current line-based UI.
                 _copyBuildingButton = UIButtons.AddIconButton(
                     this,
                     CopyBuildingButtonX,
@@ -131,8 +130,7 @@ namespace ImprovedPublicTransport.UI
                     IconButtonSize,
                     UITextures.LoadQuadSpriteAtlas("IPT-CopyBuilding"),
                     Localization.Get("COPY_BUILDING_TIP"));
-                _copyBuildingButton.eventClicked += (c, p) => CopyPaste.Instance.CopyToBuildings(_currentLineID, 0, 0);
-                _copyBuildingButton.Hide(); //TODO: restore
+                _copyBuildingButton.eventClicked += (c, p) => CopyPaste.Instance.CopyToServedBuildings(_currentLineID);
                 _copyDistrictButton = UIButtons.AddIconButton(
                     this,
                     CopyDistrictButtonX,
@@ -140,9 +138,7 @@ namespace ImprovedPublicTransport.UI
                     IconButtonSize,
                     UITextures.LoadQuadSpriteAtlas("IPT-CopyDistrict"),
                     Localization.Get("COPY_DISTRICT_TIP"));
-                _copyDistrictButton.eventClicked += (c, p) =>
-                    CopyPaste.Instance.CopyToBuildings(_currentLineID, _currentDistrict, _currentPark);
-                _copyDistrictButton.Hide(); //TODO: restore
+                _copyDistrictButton.eventClicked += (c, p) => CopyPaste.Instance.CopyToServedDistricts(_currentLineID);
 
                 _vehicleSelection = AddUIComponent<VehicleSelection>();
                 _vehicleSelection.ParentPanel = this;
@@ -184,39 +180,36 @@ namespace ImprovedPublicTransport.UI
                 return;
             }
 
-            //TODO: restore
-            // Copy key processing - use event flag to avoid repeated triggering.
-            // if (ModSettings.KeyCopy.IsPressed())
-            // {
-            //     if (!_copyProcessing)
-            //     {
-            //         CopyPaste.Instance.Copy(CurrentLineID);
-            //         _copyProcessing = true;
-            //
-            //         // Update paste button state.
-            //         _pasteButton.isEnabled = CopyPaste.Instance.IsValidTarget(CurrentLineID);
-            //     }
-            // }
-            // else
-            // {
-            //     // Key no longer down - resume processing of events.
-            //     _copyProcessing = false;
-            // }
+            bool controlDown = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+            bool copyPressed = controlDown && Input.GetKey(KeyCode.C);
+            bool pastePressed = controlDown && Input.GetKey(KeyCode.V);
 
-            // Paste key processing - use event flag to avoid repeated triggering.
-            // if (ModSettings.KeyPaste.IsPressed())
-            // {
-            //     if (!_pasteProcessing)
-            //     {
-            //         Paste();
-            //         _pasteProcessing = true;
-            //     }
-            // }
-            // else
-            // {
-            //     // Key no longer down - resume processing of events.
-            //     _pasteProcessing = false;
-            // }
+            if (copyPressed)
+            {
+                if (!_copyProcessing && CurrentLineID != 0)
+                {
+                    CopyPaste.Instance.Copy(CurrentLineID);
+                    _copyProcessing = true;
+                    _pasteButton.isEnabled = CopyPaste.Instance.IsValidTarget(CurrentLineID);
+                }
+            }
+            else
+            {
+                _copyProcessing = false;
+            }
+
+            if (pastePressed)
+            {
+                if (!_pasteProcessing)
+                {
+                    Paste();
+                    _pasteProcessing = true;
+                }
+            }
+            else
+            {
+                _pasteProcessing = false;
+            }
 
             base.Update();
         }
@@ -253,6 +246,7 @@ namespace ImprovedPublicTransport.UI
 
             return newButton;
         }
+
 
         /// <summary>
         /// Zooms to the specified building.
@@ -320,7 +314,8 @@ namespace ImprovedPublicTransport.UI
 
             // Update button states.
             _pasteButton.isEnabled = CopyPaste.Instance.IsValidTarget(CurrentLineID);
-            _copyDistrictButton.isEnabled = _currentDistrict != 0 | _currentPark != 0;
+            _copyBuildingButton.isEnabled = CopyPaste.Instance.HasServedBuildings(CurrentLineID);
+            _copyDistrictButton.isEnabled = CopyPaste.Instance.HasServedAreas(CurrentLineID);
 
             // Make sure we're visible if we're not already.
             Show();
@@ -331,15 +326,18 @@ namespace ImprovedPublicTransport.UI
         /// </summary>
         private void Paste()
         {
-            //TODO: restore
-            // // Paste data.
-            // CopyPaste.Instance.Paste(CurrentLineID);
-            //
-            // // Update lists.
-            // foreach (VehicleSelection vehicleSelection in _vehicleSelection)
-            // {
-            //     vehicleSelection.Refresh();
-            // }
+            if (!CopyPaste.Instance.Paste(CurrentLineID))
+            {
+                return;
+            }
+
+            Singleton<SimulationManager>.instance.AddAction(
+                Singleton<TransportManager>.instance.SetLineColor(CurrentLineID, CopyPaste.Instance.CopiedColor));
+            Singleton<TransportManager>.instance.m_lines.m_buffer[CurrentLineID].m_ticketPrice =
+                CopyPaste.Instance.CopiedTicketPrice;
+            _vehicleSelection.SetTarget(CurrentLineID, Localization.Get("LINE_PANEL_SELECT_TYPES"));
+            _pasteButton.isEnabled = CopyPaste.Instance.IsValidTarget(CurrentLineID);
         }
     }
 }
+

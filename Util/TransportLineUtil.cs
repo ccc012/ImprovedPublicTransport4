@@ -122,15 +122,23 @@ namespace ImprovedPublicTransport.Util
         }
 
         //based off code in TransportLine.SimulationStep
+        //based off code in TransportLine.SimulationStep
         public static void RemoveActiveVehicle(ushort lineID, bool descreaseTargetVehicleCount, int activeVehiclesCount)
         {
-            ushort activeVehicle = TransportLineReverseDetour.GetActiveVehicle(
-                ref Singleton<TransportManager>.instance.m_lines.m_buffer[(int) lineID],
-                Singleton<SimulationManager>.instance.m_randomizer.Int32((uint) activeVehiclesCount));
-            if ((int) activeVehicle != 0)
+            if (activeVehiclesCount <= 0)
             {
-                TransportLineUtil.RemoveVehicle(lineID, activeVehicle, descreaseTargetVehicleCount);
+                return;
             }
+
+            var activeVehicles = new List<ushort>(Math.Max(1, activeVehiclesCount));
+            CountLineActiveVehicles(lineID, out _, vehicleID => activeVehicles.Add((ushort)vehicleID));
+            if (activeVehicles.Count == 0)
+            {
+                return;
+            }
+
+            int selectedIndex = (int)Singleton<SimulationManager>.instance.m_randomizer.Int32((uint)activeVehicles.Count);
+            TransportLineUtil.RemoveVehicle(lineID, activeVehicles[selectedIndex], descreaseTargetVehicleCount);
         }
 
         //based off code in TransportLine.SimulationStep
@@ -160,3 +168,4 @@ namespace ImprovedPublicTransport.Util
         }
     }
 }
+

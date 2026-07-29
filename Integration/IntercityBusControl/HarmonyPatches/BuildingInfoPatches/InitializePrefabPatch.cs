@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
-using UnityEngine;
 using ImprovedPublicTransport.Util;
 
 namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
@@ -32,14 +31,20 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                 {
                     foreach (var pair in _patchedPrimary)
                     {
-                        var ai = pair.Value.GetAI() as TransportStationAI;
-                        ai.m_transportInfo = _transportInfo;
+                        var ai = pair.Value?.GetAI() as TransportStationAI;
+                        if (ai != null)
+                        {
+                            ai.m_transportInfo = _transportInfo;
+                        }
                     }
 
                     foreach (var pair in _patchedSecondary)
                     {
-                        var ai = pair.Value.GetAI() as TransportStationAI;
-                        ai.m_secondaryTransportInfo = _transportInfo;
+                        var ai = pair.Value?.GetAI() as TransportStationAI;
+                        if (ai != null)
+                        {
+                            ai.m_secondaryTransportInfo = _transportInfo;
+                        }
                     }
                     _patchedPrimary.Clear();
                     _patchedSecondary.Clear();
@@ -47,41 +52,27 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
 
                 var transportLineInfo1 = transportStationAi.GetTransportLineInfo();
                 var transportLineInfo2 = transportStationAi.GetSecondaryTransportLineInfo();
-                var intercityTrains =
-                    transportLineInfo1 != null && transportLineInfo1.m_class.m_subService ==
-                    ItemClass.SubService.PublicTransportTrain || transportLineInfo2 != null &&
-                    transportLineInfo2.m_class.m_subService == ItemClass.SubService.PublicTransportTrain;
-                var ships =
-                    transportLineInfo1 != null && transportLineInfo1.m_class.m_subService ==
-                    ItemClass.SubService.PublicTransportShip || transportLineInfo2 != null &&
-                    transportLineInfo2.m_class.m_subService == ItemClass.SubService.PublicTransportShip;
                 var intercityBus1 = transportLineInfo1 != null &&
-                                    transportLineInfo1.m_class.m_subService ==
-                                    ItemClass.SubService.PublicTransportBus;
+                                    transportLineInfo1.m_class != null &&
+                                    transportLineInfo1.m_class.m_subService == ItemClass.SubService.PublicTransportBus;
                 var intercityBus2 = transportLineInfo2 != null &&
-                                    transportLineInfo2.m_class.m_subService ==
-                                    ItemClass.SubService.PublicTransportBus;
-                // Allow patching when m_transportLineInfo is either unset or already points to the
-                // intercity bus line. Ships/trains are intentionally NOT excluded here — mixed hubs
-                // (ferry+bus, train+bus, etc.) should also get intercity bus support.
+                                    transportLineInfo2.m_class != null &&
+                                    transportLineInfo2.m_class.m_subService == ItemClass.SubService.PublicTransportBus;
                 var shouldPatch = (intercityBus1 ^ intercityBus2) &&
                                   (transportStationAi.m_transportLineInfo == null ||
                                    transportStationAi.m_transportLineInfo.name == Mod.IntercityBusLine);
-                Utils.Log($"Intercity Bus Control - {__instance.name} - trains: {intercityTrains}, bus1: {intercityBus1}, bus2: {intercityBus2}");
                 if (!shouldPatch)
                 {
-                    Utils.Log($"Intercity Bus Control - {__instance.name} does not require patching");
                     return;
                 }
-                Utils.Log($"Intercity Bus Control - patching {__instance.name}...");
-                var itemClasses = ((Dictionary<string, ItemClass>)typeof(ItemClassCollection).GetField("m_classDict", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null));
-                if (!itemClasses.ContainsKey("Intercity Bus"))
+
+                var classField = typeof(ItemClassCollection).GetField("m_classDict", BindingFlags.Static | BindingFlags.NonPublic);
+                var itemClasses = classField?.GetValue(null) as Dictionary<string, ItemClass>;
+                if (itemClasses == null || !itemClasses.ContainsKey("Intercity Bus"))
                 {
                     throw new Exception("Intercity Bus Control - Sunset Harbor 'Intercity Bus' item class is not found! Is Sunset Harbor DLC installed & enabled?");
                 }
 
-                // Set m_transportLineInfo only when it isn't already configured (avoids overwriting
-                // stations that were already set up by NetInfoPatches or the asset definition).
                 if (transportStationAi.m_transportLineInfo == null)
                 {
                     var lineInfo = PrefabCollection<NetInfo>.FindLoaded(Mod.IntercityBusLine);
@@ -98,30 +89,40 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                     __instance.m_class = itemClasses["Intercity Bus"];
                     if (_transportInfo == null)
                     {
-                        _patchedPrimary.Add(__instance.name, __instance);
+                        _patchedPrimary[__instance.name] = __instance;
                     }
                     else
                     {
                         transportStationAi.m_transportInfo = _transportInfo;
                     }
                     transportStationAi.m_maxVehicleCount = 100000;
-                    Utils.Log($"Intercity Bus Control - patched {__instance.name} primary transport with intercity bus support");
-                } 
+                    if (Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log($"Intercity Bus Control - patched {__instance.name} primary transport with intercity bus support");
+                    }
+                }
                 else if (intercityBus2)
                 {
                     if (_transportInfo == null)
                     {
-                        _patchedSecondary.Add(__instance.name, __instance);
+                        _patchedSecondary[__instance.name] = __instance;
                     }
                     else
                     {
                         transportStationAi.m_secondaryTransportInfo = _transportInfo;
                     }
                     transportStationAi.m_maxVehicleCount2 = 100000;
-                    Utils.Log($"Intercity Bus Control - patched {__instance.name} secondary transport with intercity bus support");
+                    if (Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log($"Intercity Bus Control - patched {__instance.name} secondary transport with intercity bus support");
+                    }
                 }
+
                 StationPatcher.PatchedBuildingNames.Add(__instance.name);
-                Utils.Log($"Intercity Bus Control - {__instance.name} was successfully patched");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"Intercity Bus Control - {__instance.name} was successfully patched");
+                }
             }
             catch (Exception e)
             {

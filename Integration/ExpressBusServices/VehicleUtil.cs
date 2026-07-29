@@ -1,4 +1,4 @@
-﻿using ColossalFramework;
+using ColossalFramework;
 using ExpressBusServices.PerformanceBoost;
 using IPTUtils = ImprovedPublicTransport.Util.Utils;
 
@@ -83,36 +83,9 @@ namespace ExpressBusServices
 
         public static bool IsEveryoneAboardTheTrain(ushort vehicleID, ref Vehicle data)
         {
-            // VehicleAI has CanLeave: true when all pax are inside the vehicle.
-            // we just call this for all vehicles of the train
-            // assume first vehicle ID
-
-            if (!ReversePatch_VehicleAI_CanLeave.BaseVehicleAI_CanLeave(null, vehicleID, ref data))
-            {
-                return false;
-            }
-
-            VehicleManager instance = Singleton<VehicleManager>.instance;
-            ushort currentVehicleID = data.m_trailingVehicle;
-            int loopGuard = 0;
-            while (currentVehicleID != 0)
-            {
-                if (++loopGuard > 64)
-                {
-                    IPTUtils.LogError("ExpressBusServices: Invalid trailing vehicle list detected!");
-                    break;
-                }
-                ref Vehicle currentData = ref instance.m_vehicles.m_buffer[currentVehicleID];
-                if (!ReversePatch_VehicleAI_CanLeave.BaseVehicleAI_CanLeave(null, currentVehicleID, ref currentData))
-                {
-                    return false;
-                }
-                // check next
-                currentVehicleID = currentData.m_trailingVehicle;
-            }
-
-            // all vehicles in train has pax
-            return true;
+            return DataTypes.VehiclePaxDeltaInfo.VehicleSetIsReadyToDepart(vehicleID, ref data);
         }
     }
 }
+
+

@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace RealisticWalkingSpeed.Patches
@@ -27,7 +28,10 @@ namespace RealisticWalkingSpeed.Patches
                     citizenPrefab.m_walkSpeed = newSpeed;
                     modifiedCount++;
                 }
-                Utils.Log($"CitizenWalkingSpeedInGamePatch: Applied realistic walking speeds to {modifiedCount} citizen prefabs");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"CitizenWalkingSpeedInGamePatch: Applied realistic walking speeds to {modifiedCount} citizen prefabs");
+                }
             }
             catch (System.Exception ex)
             {

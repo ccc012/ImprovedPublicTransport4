@@ -30,7 +30,10 @@ namespace ImprovedPublicTransport.Util
 
             try
             {
-                Debug.Log($"{ShortModName}: Patching method {original.Type.FullName}.{original.MethodName}");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Debug.Log($"{ShortModName}: Patching method {original.Type.FullName}.{original.MethodName}");
+                }
                 var methodInfo = GetOriginal(original);
                 LogExistingPatches(methodInfo);
                 HarmonyInstance.Patch(methodInfo,
@@ -94,7 +97,10 @@ namespace ImprovedPublicTransport.Util
 
         public static void Unpatch(MethodDefinition original)
         {
-            Debug.Log($"{ShortModName}: Unpatching method {original.Type.FullName}.{original.MethodName}");
+            if (Diagnostics.VerboseTranspileLogs)
+            {
+                Debug.Log($"{ShortModName}: Unpatching method {original.Type.FullName}.{original.MethodName}");
+            }
             HarmonyInstance.Unpatch(GetOriginal(original), HarmonyPatchType.All, HarmonyId.Value);
         }
 

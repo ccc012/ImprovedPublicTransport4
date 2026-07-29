@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: ImprovedPublicTransport.Utils
 // Assembly: ImprovedPublicTransport, Version=1.0.6177.17409, Culture=neutral, PublicKeyToken=null
 // MVID: 76F370C5-F40B-41AE-AA9D-1E3F87E934D3
@@ -19,36 +19,72 @@ namespace ImprovedPublicTransport.Util
 {
   public static class Utils
   {
-    private static readonly string _fileName = "ImprovedPublicTransport.log";
-    private static readonly string _logPrefix = "ImprovedPublicTransport: ";
+    private static readonly string _fileName = "ImprovedPublicTransport4.log";
+    private static readonly string _logPrefix = "ImprovedPublicTransport4: ";
+
+    private static string LogFilePath
+    {
+      get
+      {
+        try
+        {
+          string logsDir = Path.Combine(Application.dataPath, "Logs");
+          if (!Directory.Exists(logsDir))
+          {
+            Directory.CreateDirectory(logsDir);
+          }
+
+          return Path.Combine(logsDir, _fileName);
+        }
+        catch
+        {
+          return _fileName;
+        }
+      }
+    }
 
       public static string AssemblyPath => PluginInfo.modPath;
 
+      /// <summary>
+      /// Locates this mod's plugin entry. Resolved from our own assembly rather than by looking for
+      /// one specific IUserMod class: since the CSLModsCommon migration the IUserMod is
+      /// <see cref="Mod"/>, not ImprovedPublicTransportMod, so hardcoding the latter threw during
+      /// startup (AutoLineColor's GenericNames.Initialize is the first caller, from OnCreated).
+      /// </summary>
       private static PluginManager.PluginInfo PluginInfo
       {
           get
           {
-              var pluginManager = PluginManager.instance;
-              var plugins = pluginManager.GetPluginsInfo();
+              try
+              {
+                  var byAssembly = PluginManager.instance.FindPluginInfo(Assembly.GetExecutingAssembly());
+                  if (byAssembly != null)
+                  {
+                      return byAssembly;
+                  }
+              }
+              catch
+              {
+                  // Fall through to the IUserMod scan below.
+              }
 
-              foreach (var item in plugins)
+              foreach (var item in PluginManager.instance.GetPluginsInfo())
               {
                   try
                   {
-                      var instances = item.GetInstances<IUserMod>();
-                      if (!(instances.FirstOrDefault() is ImprovedPublicTransportMod))
+                      var userMod = item.GetInstances<IUserMod>().FirstOrDefault();
+                      if (userMod is Mod || userMod is ImprovedPublicTransportMod)
                       {
-                          continue;
+                          return item;
                       }
-                      return item;
                   }
                   catch
                   {
-
+                      // A single misbehaving plugin shouldn't abort the search.
                   }
               }
-              throw new Exception("Failed to find ImprovedPublicTransportMod assembly!");
 
+              throw new Exception("Failed to locate the ImprovedPublicTransport4 plugin folder.");
           }
       }
 
@@ -56,11 +92,11 @@ namespace ImprovedPublicTransport.Util
     {
       try
       {
-        File.WriteAllText(Utils._fileName, string.Empty);
+        File.WriteAllText(Utils.LogFilePath, string.Empty);
       }
       catch
       {
-        Debug.LogWarning((object) ("Error while clearing log file: " + Utils._fileName));
+        Debug.LogWarning((object) ("Error while clearing log file: " + Utils.LogFilePath));
       }
     }
 
@@ -68,11 +104,11 @@ namespace ImprovedPublicTransport.Util
     {
       try
       {
-        File.AppendAllText(Utils._fileName, DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy ") + o + Environment.NewLine);
+        File.AppendAllText(Utils.LogFilePath, DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy ") + o + Environment.NewLine);
       }
       catch
       {
-        Debug.LogWarning((object) ("Error while writing to log file: " + Utils._fileName));
+        Debug.LogWarning((object) ("Error while writing to log file: " + Utils.LogFilePath));
       }
     }
 
@@ -144,7 +180,7 @@ namespace ImprovedPublicTransport.Util
       return result;
     }
 
-    public static bool Truncate(UILabel label, string text, string suffix = "…")
+    public static bool Truncate(UILabel label, string text, string suffix = "�")
     {
       bool flag = false;
       try

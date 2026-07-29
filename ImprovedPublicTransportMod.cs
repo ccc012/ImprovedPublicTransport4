@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CitiesHarmony.API;
 using ColossalFramework;
 using ColossalFramework.UI;
@@ -36,6 +36,10 @@ namespace ImprovedPublicTransport
     // the game discovers both independently, they don't need to be the same class.
     public class ImprovedPublicTransportMod : LoadingExtensionBase
     {
+        static ImprovedPublicTransportMod()
+        {
+            JsonNetBootstrap.EnsureLoaded();
+        }
         public const string BaseModName = "Improved Public Transport 4 (local fork)";
         public const string ShortModName = "IPT";
 
@@ -46,6 +50,7 @@ namespace ImprovedPublicTransport
 
         public override void OnCreated(ICities.ILoading loading)
         {
+            JsonNetBootstrap.EnsureLoaded();
             base.OnCreated(loading);
             HarmonyHelper.EnsureHarmonyInstalled();
             // Ensure a sensible default HarmonyID for AlgernonCommons PatcherManager<TPatcher>
@@ -95,6 +100,17 @@ namespace ImprovedPublicTransport
                         if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TicketPriceCustomizer: disabled by settings, skipping DayNightPriceWatcher.");
                     }
 
+                    // Train Display - Updated: lightweight overlay for followed transport vehicles.
+                    try
+                    {
+                        IptGameObject.AddComponent<Integration.TrainDisplayUpdated.TrainDisplayWatcher>();
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TrainDisplayUpdated: watcher attached.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"TrainDisplayUpdated: failed to attach watcher: {ex.Message}");
+                    }
+
                     // AutoLineBudget: automatic fleet sizing by passenger demand for lines in Budget mode
                     try
                     {
@@ -131,6 +147,8 @@ namespace ImprovedPublicTransport
                     CheckTransportLineVehiclesPatch.Apply();
                     ClassMatchesPatch.Apply();
                     CanLeavePatch.Apply();
+                    // Rescue corrupt saves that contain fullwidth digits in transport line custom names.
+                    NormalizeFullwidthLineNamesPatch.Apply();
 
                     // BetterBusStopPosition integration
                     try
@@ -181,7 +199,7 @@ namespace ImprovedPublicTransport
                     IptGameObject.AddComponent<PanelExtenderLine>();
                     IptGameObject.AddComponent<PanelExtenderVehicle>();
                     IptGameObject.AddComponent<PanelExtenderCityService>();
-                    
+
                     // Stops and Stations: initialise integration and wire configuration into the threaded limiter
                     try
                     {
@@ -307,13 +325,16 @@ namespace ImprovedPublicTransport
                     // IntercityBusControl integration (patches)
                     try
                     {
-                        if (!IntercityBusControl.Mod.IsSunsetHarborInstalled())
+                        if (!ModSetting.Instance.EnableIntercityBusControl)
                         {
-                            Utils.Log("IntercityBusControl: Sunset Harbor DLC not detected, skipping patches.");
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("IntercityBusControl: integration disabled (toggle is off).");
+                        }
+                        else if (!IntercityBusControl.Mod.IsSunsetHarborInstalled())
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("IntercityBusControl: Sunset Harbor DLC not detected, skipping patches.");
                         }
                         else
                         {
-                            // Reset any prefab patch state before applying
                             IntercityBusControl.HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch.Reset();
                             IntercityBusControl.Patcher.PatchAll();
                             // Prefabs are already loaded by the time OnLevelLoaded fires, so the
@@ -331,8 +352,15 @@ namespace ImprovedPublicTransport
                     // FlightTracker integration (patches)
                     try
                     {
-                        FlightTracker.Patcher.PatchAll();
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("FlightTracker: integration applied.");
+                        if (ModSetting.Instance.EnableFlightTracker)
+                        {
+                            FlightTracker.Patcher.PatchAll();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("FlightTracker: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("FlightTracker: integration disabled (toggle is off).");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -426,7 +454,7 @@ namespace ImprovedPublicTransport
                 {
                     // Get the actual capacity of the vehicle array buffer in the game
                     int actualArraySize = VehicleManager.instance.m_vehicles.m_buffer.Length;
-                    
+
                     // Standard CS:L vehicle limit is 16384
                     // If the array is larger, it means a mod has expanded the vehicle limit
                     if (actualArraySize > VehicleManager.MAX_VEHICLE_COUNT)
@@ -500,6 +528,7 @@ namespace ImprovedPublicTransport
             GetVehicleInfoPatch.Undo();
             ClassMatchesPatch.Undo();
             CheckTransportLineVehiclesPatch.Undo();
+            NormalizeFullwidthLineNamesPatch.Undo();
             GetDepotLevelsPatch.Undo();
             CanLeavePatch.Undo();
             EconomyPanelAwakePatch.Undo();

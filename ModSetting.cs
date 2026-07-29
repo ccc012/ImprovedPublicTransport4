@@ -1,3 +1,4 @@
+using System;
 using CSLModsCommon.Common;
 using CSLModsCommon.Manager;
 using CSLModsCommon.Setting;
@@ -19,6 +20,11 @@ namespace ImprovedPublicTransport
         public enum BudgetControlModes { Disabled = 0, Enabled = 1 }
         public enum TicketPriceCustomizerModes { Disabled = 0, Enabled = 1 }
         public enum AutoLineBudgetModes { Disabled = 0, Enabled = 1 }
+        public enum TrainDisplayModes { Disabled = 0, Enabled = 1 }
+        public enum TrainDisplayOverlayPositions { TopLeft = 0, TopRight = 1, BottomLeft = 2, BottomRight = 3 }
+        [Flags]
+        public enum TrainDisplayFields { None = 0, Line = 1, Destination = 2, State = 4 }
+        public enum TrainDisplayColorThemes { Simple = 0, Dark = 1, Light = 2 }
         public enum ExpressBusServicesModes { None = 0, Prudential = 1, Aggressive = 2 }
         public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
         public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
@@ -34,6 +40,17 @@ namespace ImprovedPublicTransport
         public BudgetControlModes BudgetControl { get; set; } = BudgetControlModes.Enabled;
         public TicketPriceCustomizerModes TicketPriceCustomizerMode { get; set; } = TicketPriceCustomizerModes.Enabled;
         public AutoLineBudgetModes AutoLineBudgetMode { get; set; } = AutoLineBudgetModes.Disabled;
+        public TrainDisplayModes TrainDisplayMode { get; set; } = TrainDisplayModes.Enabled;
+        public TrainDisplayOverlayPositions TrainDisplayOverlayPosition { get; set; } = TrainDisplayOverlayPositions.TopLeft;
+        public float TrainDisplayOverlayScale { get; set; } = 1.0f;
+        public float TrainDisplayOverlayOpacity { get; set; } = 0.85f;
+        public float TrainDisplayUpdateInterval { get; set; } = 0.2f;
+        public TrainDisplayFields TrainDisplayVisibleFields { get; set; } = TrainDisplayFields.Line | TrainDisplayFields.Destination | TrainDisplayFields.State;
+        public TrainDisplayColorThemes TrainDisplayColorTheme { get; set; } = TrainDisplayColorThemes.Simple;
+        // Off by default: the original Train Display mod showed its overlay whenever you were
+        // following a vehicle, with or without a first-person camera mod. Defaulting this to true
+        // made the overlay look broken out of the box, since plain follow mode is not "first person".
+        public bool TrainDisplayFirstPersonOnly { get; set; } = false;
 
         public VehicleEditorPositions VehicleEditorPosition { get; set; } = VehicleEditorPositions.Bottom;
         public bool HideVehicleEditor { get; set; }
@@ -49,20 +66,11 @@ namespace ImprovedPublicTransport
         public ExpressTramServicesModes ExpressTramUnbunchingMode { get; set; } = ExpressTramServicesModes.Disabled;
 
         public bool EnablePublicTransportUnstucker { get; set; } = true;
+        public bool EnableIntercityBusControl { get; set; } = true;
+        public bool EnableFlightTracker { get; set; } = true;
 
         public bool Unbunching { get; set; } = true; // hidden
         public int StatisticWeeks { get; set; } = 10; // hidden
-
-        public bool DeleteBusLines { get; set; }
-        public bool DeleteSightseeingBusLines { get; set; }
-        public bool DeleteTramLines { get; set; }
-        public bool DeleteTrolleybusLines { get; set; }
-        public bool DeleteTrainLines { get; set; }
-        public bool DeleteMetroLines { get; set; }
-        public bool DeleteMonorailLines { get; set; }
-        public bool DeleteShipLines { get; set; }
-        public bool DeleteHelicopterLines { get; set; }
-        public bool DeleteBlimpLines { get; set; }
 
         public string WhatsNewLastSeenVersion { get; set; } = "0.0.0";
 
@@ -123,3 +131,5 @@ namespace ImprovedPublicTransport
         public int MaxWaitingPassengersHelicopter { get; set; } = 40;
     }
 }
+
+

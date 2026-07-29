@@ -28,6 +28,8 @@ namespace ExpressBusServices.DataTypes
 
         public bool HasPaxDelta => PaxAlighted > 0 || PaxActualBoarded > 0;
 
+        public bool IsBoardingComplete { get; set; }
+
         private static Dictionary<ushort, VehiclePaxDeltaInfo> paxDeltaTable;
 
         public static void EnsureTableExists()
@@ -48,7 +50,10 @@ namespace ExpressBusServices.DataTypes
         /// <param name="vehicleID">The ID of the vehicle in question.</param>
         public static void TouchAndResetEntry(ushort vehicleID)
         {
-            paxDeltaTable[vehicleID] = new VehiclePaxDeltaInfo();
+            paxDeltaTable[vehicleID] = new VehiclePaxDeltaInfo
+            {
+                IsBoardingComplete = false
+            };
         }
 
         /// <summary>
@@ -93,12 +98,57 @@ namespace ExpressBusServices.DataTypes
 
         public static void Notify_VehicleStartsLoadingPax(ushort vehicleID, ref Vehicle data)
         {
-            GetSafely(vehicleID).PaxBeforeBoarding = data.m_transferSize;
+            var info = GetSafely(vehicleID);
+            info.PaxBeforeBoarding = data.m_transferSize;
+            info.IsBoardingComplete = false;
         }
 
         public static void Notify_VehicleFinishedLoadingPax(ushort vehicleID, ref Vehicle data)
         {
-            GetSafely(vehicleID).PaxAfterBoarding = data.m_transferSize;
+            var info = GetSafely(vehicleID);
+            info.PaxAfterBoarding = data.m_transferSize;
+            info.IsBoardingComplete = true;
+        }
+
+        public static bool VehicleSetIsReadyToDepart(ushort vehicleID, ref Vehicle data)
+        {
+            TransportVehicleUtil.FindFirstVehicleOfVehicleSet(vehicleID, ref data, out ushort currentID, out Vehicle currentData);
+
+            VehicleManager managerInstance = Singleton<VehicleManager>.instance;
+            int loopGuard = 0;
+            while (true)
+            {
+                if (++loopGuard > 64)
+                {
+                    IPTUtils.LogError("ExpressBusServices: Invalid trailing vehicle list detected!");
+                    return true;
+                }
+
+                if (!IsVehicleReadyToDepart(currentID, ref currentData))
+                {
+                    return false;
+                }
+
+                currentID = currentData.m_trailingVehicle;
+                if (currentID == 0)
+                {
+                    break;
+                }
+                currentData = managerInstance.m_vehicles.m_buffer[currentID];
+            }
+
+            return true;
+        }
+
+        private static bool IsVehicleReadyToDepart(ushort vehicleID, ref Vehicle data)
+        {
+            if (!Has(vehicleID))
+            {
+                // Save-load fallback: once the vanilla boarding wait has elapsed, do not keep the vehicle blocked.
+                return data.m_waitCounter >= 12;
+            }
+
+            return GetSafely(vehicleID).IsBoardingComplete;
         }
 
         /// <summary>
@@ -112,19 +162,13 @@ namespace ExpressBusServices.DataTypes
         /// <returns>If true, then the vehicle set has a pax-delta among its constituent vehicles.</returns>
         public static bool VehicleSetHasPaxDelta(ushort vehicleID, ref Vehicle data)
         {
-            // optimization: short circuit if this one has pax delta
-            // single-vehicle buses and busy trams will benefit from this optimization
             if (GetSafely(vehicleID).HasPaxDelta)
             {
                 return true;
             }
 
-            // this vehicle does NOT have delta, but other vehicles in the set may have
-            // standard procedure
-            // find the first vehicle
             TransportVehicleUtil.FindFirstVehicleOfVehicleSet(vehicleID, ref data, out ushort currentID, out Vehicle currentData);
 
-            // next, iterate till the end
             VehicleManager managerInstance = Singleton<VehicleManager>.instance;
             int loopGuard = 0;
             while (true)
@@ -145,7 +189,7 @@ namespace ExpressBusServices.DataTypes
                 }
                 currentData = managerInstance.m_vehicles.m_buffer[currentID];
             }
-            // reached end without pax delta
+
             return false;
         }
     }

@@ -19,28 +19,13 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
 
         public override string BaseName => ImprovedPublicTransportMod.BaseModName;
 
-        public override WhatsNewMessage[] WhatsNewMessages => new[]
-        {
-            new WhatsNewMessage
-            {
-                Version = new Version("3.0.0"),
-                MessagesAreKeys = false,
-                Messages = new[]
-                {
-                    Localization.Get("WHATSNEW_3_0_0_1"),
-                    Localization.Get("WHATSNEW_3_0_0_2"),
-                }
-            },
-            new WhatsNewMessage
-            {
-                Version = new Version("3.0.1"),
-                MessagesAreKeys = false,
-                Messages = new[]
-                {
-                    Localization.Get("WHATSNEW_3_0_1"),
-                }
-            }
-        };
+        // Left empty on purpose: these were leftover entries from the original IPT3 fork
+        // (versions 3.0.0/3.0.1, "Race Day", the pre-IPT4 mod-integration list) that never got
+        // updated for a single IPT4 release, so this popup kept showing stale/wrong info no
+        // matter the current version. IptModManager.GenerateChangelogs() (CSLModsCommon's own
+        // Changelog dialog, in Options > Advanced) is the actively maintained changelog now -
+        // keeping two parallel changelog sources in sync is exactly what let this go stale.
+        public override WhatsNewMessage[] WhatsNewMessages => new WhatsNewMessage[0];
 
         public override void LoadSettings()
         {

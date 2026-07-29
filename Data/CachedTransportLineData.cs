@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ColossalFramework;
@@ -336,22 +336,38 @@ namespace ImprovedPublicTransport.Data
 
         public static void DequeueVehicles(ushort lineID, int[] indexes, bool decreaseVehicleCount = true)
         {
-            if (_lineData[lineID].QueuedVehicles is not { Count: not 0 })
+            if (_lineData[lineID].QueuedVehicles is not { Count: not 0 } || indexes == null || indexes.Length == 0)
             {
                 return;
             }
             lock (_lineData[lineID].QueuedVehicles)
             {
-                var stringList = new List<string>(
-                    _lineData[lineID].QueuedVehicles);
-                for (var index = indexes.Length - 1; index >= 0; --index)
+                var stringList = new List<string>(_lineData[lineID].QueuedVehicles);
+                var validIndexes = new List<int>(indexes.Length);
+                foreach (int selectedIndex in indexes)
                 {
-                    stringList.RemoveAt(indexes[index]);
-                    if (decreaseVehicleCount)
-                        DecreaseTargetVehicleCount(lineID);
+                    if (selectedIndex >= 0 && selectedIndex < stringList.Count && !validIndexes.Contains(selectedIndex))
+                    {
+                        validIndexes.Add(selectedIndex);
+                    }
                 }
-                _lineData[lineID].QueuedVehicles =
-                    new Queue<string>(stringList);
+
+                if (validIndexes.Count == 0)
+                {
+                    return;
+                }
+
+                validIndexes.Sort();
+                for (int index = validIndexes.Count - 1; index >= 0; --index)
+                {
+                    stringList.RemoveAt(validIndexes[index]);
+                    if (decreaseVehicleCount)
+                    {
+                        DecreaseTargetVehicleCount(lineID);
+                    }
+                }
+
+                _lineData[lineID].QueuedVehicles = new Queue<string>(stringList);
             }
         }
 
@@ -378,3 +394,4 @@ namespace ImprovedPublicTransport.Data
 
     }
 }
+

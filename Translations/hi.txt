@@ -284,3 +284,102 @@ WHATSNEW_3_0_0_1 रेस डे के लिए अपडेट किया 
 WHATSNEW_3_0_0_2 निम्नलिखित मॉड्स को IPT3 में एकीकृत कर दिया गया है:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
 
 WHATSNEW_3_0_1 Public Transport Unstucker अब IPT3 में एकीकृत है।\nसभी अन्य एकीकृत मॉड्स के लिए संस्करण 3.0 देखें। संघर्षों से बचने के लिए मूल मॉड्स से सदस्यता समाप्त करें।
+SETTINGS_EBS_DESC_MINIBUS जब केवल कुछ ही यात्री चढ़ या उतर रहे हों तो कम क्षमता वाली बसों को जल्दी रवाना करता है।
+SETTINGS_EBS_DESC_SELFBAL एक्सप्रेस बस सेवा को लाइन भर में वाहनों का पुनर्वितरण करने देता है ताकि व्यस्त खंडों को प्राथमिकता मिले और प्रतीक्षा समय घटे।
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID वाहनों को पुनः तैनात करते समय स्वतः-संतुलन को केवल टर्मिनल के बजाय लाइन के बीच का व्यस्त स्टॉप चुनने देता है।
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION नीचे परिवहन प्रकार चुनें, फिर वर्तमान शहर से उन प्रकारों की सभी लाइनें हटाने के लिए हटाएँ दबाएँ। यह चयन अस्थायी है - यह हमेशा अचयनित शुरू होता है और हटाने के बाद स्वयं साफ़ हो जाता है, इसे सेटिंग के रूप में सहेजा नहीं जाता।
+SETTINGS_TAB_TRAINDISPLAY ट्रेन डिस्प्ले
+SETTINGS_TRAINDISPLAY_ENABLE ट्रेन डिस्प्ले सक्षम करें
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP एकीकृत ट्रेन डिस्प्ले ओवरले चालू या बंद करें।
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY केवल प्रथम-पुरुष कैमरे में
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP ओवरले केवल तभी दिखाएँ जब प्रथम-पुरुष कैमरा मॉड (जैसे First Person Camera - Continued) उपयोग में हो। बंद होने पर, किसी भी कैमरा मोड में समर्थित वाहन का अनुसरण करते समय यह दिखता है।
+SETTINGS_TRAINDISPLAY_GROUP ट्रेन डिस्प्ले ओवरले
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION समर्थित परिवहन वाहनों का अनुसरण करते समय दिखने वाले एकीकृत ओवरले को कॉन्फ़िगर करें।
+SETTINGS_TRAINDISPLAY_MODE_DISABLED अक्षम
+SETTINGS_TRAINDISPLAY_MODE_ENABLED सक्षम
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING केवल अनुसरण करते समय
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP जब तक कैमरा वास्तव में किसी समर्थित वाहन का अनुसरण न कर रहा हो, ओवरले छिपाएँ।
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY ओवरले अपारदर्शिता:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP ओवरले कितना पारदर्शी है, समायोजित करें।
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION ओवरले स्थिति:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP चुनें कि ओवरले स्क्रीन पर कहाँ दिखे।
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE ओवरले आकार:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP ओवरले का आकार समायोजित करें।
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT नीचे बाएँ
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT नीचे दाएँ
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT ऊपर बाएँ
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT ऊपर दाएँ
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION गंतव्य दिखाएँ
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP ओवरले में गंतव्य शामिल करें।
+SETTINGS_TRAINDISPLAY_SHOW_LINE लाइन का नाम दिखाएँ
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP ओवरले में लाइन का नाम शामिल करें।
+SETTINGS_TRAINDISPLAY_SHOW_STATE स्थिति दिखाएँ
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP ओवरले में वाहन की स्थिति शामिल करें।
+SETTINGS_TRAINDISPLAY_THEME रंग थीम:
+SETTINGS_TRAINDISPLAY_THEME_DARK गहरा
+SETTINGS_TRAINDISPLAY_THEME_LIGHT हल्का
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE सरल
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP ओवरले की पृष्ठभूमि/पाठ के रंग चुनें।
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL अद्यतन अंतराल:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP वाहन का अनुसरण करते समय ओवरले कितनी बार ताज़ा होता है।
+COPY_TIP इस लाइन की सेटिंग्स कॉपी करें।
+PASTE_TIP कॉपी की गई लाइन सेटिंग्स पेस्ट करें।
+COPY_BUILDING_TIP ये सेटिंग्स इस इमारत की सेवा करने वाली सभी लाइनों पर कॉपी करें।
+COPY_DISTRICT_TIP ये सेटिंग्स इस जिले की सभी लाइनों पर कॉपी करें।
+CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
+CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
+CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
+CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
+SETTINGS_INTEGRATIONS_GROUP एकीकृत ऐड-ऑन
+SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control सक्षम करें
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP एकीकृत Intercity Bus Control संगतता परत और स्टेशन पैचिंग सक्षम करता है।
+SETTINGS_FLIGHTTRACKER_ENABLE Flight Tracker सक्षम करें
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP एकीकृत Flight Tracker पैच और इंटरफ़ेस समर्थन सक्षम करता है।
+CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
+CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
+CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
+CHANGELOG_4_3_1_2 Filled in 38 translation keys that existed only in English and Portuguese - every other language (Arabic, Bengali, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Russian, Urdu and all Chinese variants) was silently falling back to English for the whole Train Display section, the Delete Lines description and the three Express Bus descriptions.
+CHANGELOG_4_3_1_3 Added 4 copy/paste tooltip keys that were missing from every language file including English, so they would have rendered as raw keys ("COPY_TIP") once those buttons are re-enabled.
+CHANGELOG_4_3_0_1 Added Train Display Updated: a small on-screen overlay showing line/destination/state while following a supported vehicle. Configurable in Options: screen position, size, opacity, which fields show, update frequency, whether it's restricted to first-person camera mods, and a Simple/Dark/Light color theme.
+CHANGELOG_4_3_0_2 Fixed several build errors in the new Train Display integration: an ambiguous Utils reference, two APIs that don't exist on this game version (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), and Enum.HasFlag usage - which doesn't exist on .NET Framework 3.5, this mod's target framework, and had to be replaced with manual bitwise checks.
+CHANGELOG_4_2_4_1 Fixed the mod always showing "Compatibility with Game Version: 0.0.0" - we never declared a supported game version range. Now set to 1.21.1-f9 and up.
+CHANGELOG_4_2_4_2 Fixed the AutoLineColor color-strategy dropdown showing raw enum names (e.g. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") instead of translated text: the code generated a key with no underscore while the translation file used one. Also reordered the section so the two dependent sliders sit right under the color-strategy dropdown they belong to, instead of after the unrelated naming dropdown.
+CHANGELOG_4_2_4_3 Renamed the tram unbunching modes to match the bus ones (Disabled/Prudent/Realistic) instead of "Light Rail"/"Real Tram", and translated the last bits of English text left in the Portuguese description.
+CHANGELOG_4_2_4_4 Fixed checkbox descriptions never rendering anywhere in the panel whenever no header text was set (which is every checkbox in this mod) - the layout code only positioned the description label if a header label existed too, even though the description was already being created and populated with text.
+CHANGELOG_4_2_4_5 Fixed Options tab captions getting cut off (especially in Portuguese, which runs longer than English) - tabs now wrap to a second line instead of clipping.
+CHANGELOG_4_2_4_6 Fixed the Reset buttons (Unbunching, Ticket Prices) changing the underlying settings immediately but not updating the sliders already on screen, so it looked like nothing happened until reopening Options.
+CHANGELOG_4_2_4_7 Fixed the Delete Lines tool's checkboxes persisting as saved settings instead of resetting after use - they were accidentally wired to ModSetting like a real preference, when this is meant to be a one-shot "pick types, click Delete" action.
+CHANGELOG_4_2_3_1 Fixed every mod translation showing up as the raw key (e.g. "SETTINGS_SPEED:0") in every language: our own translation loader still matched the plugin by the old ImprovedPublicTransportMod type instead of Mod (the class that's actually IUserMod since the CSLModsCommon migration), so it never found the mod folder and never loaded any Translations/*.txt file. Also hardened the vanilla-locale fallback so it no longer mistakes Colossal's "key:0" not-found marker for a real translation.
+CHANGELOG_4_2_3_2 Removed the always-empty "Key Bindings" tab from Options - this mod has no key bindings to configure.
+CHANGELOG_4_2_3_3 Sliders in Options now show their current value again (lost in the CSLModsCommon migration - the new slider control doesn't display it by default).
+CHANGELOG_4_2_3_4 Fixed the AutoLineColor "min color difference" and "max color pick attempts" sliders staying interactive even when the color strategy is set to Disabled or Categorised (neither of which uses those settings).
+CHANGELOG_4_2_0_1 Added Rescue Fullwidth Digits: normalizes fullwidth digits in custom transport line names back to regular ASCII digits, fixing a display/sorting quirk from some non-Latin keyboard inputs.
+CHANGELOG_4_2_0_2 Added a dedicated Ticket Prices tab to the Options panel, so day/night fare multipliers can be tuned without opening the in-game Economy panel.
+CHANGELOG_4_2_0_3 Fixed the Rescue Fullwidth Digits patch only ever being applied once at mod startup while being undone on every level unload, silently disabling it for every save after the first one loaded in a session.
+CHANGELOG_4_2_0_4 Fixed a taxi-fare integer-overflow bug (MileageTaxiServices) that could drain the public transport budget by billions in one step: a taxi with corrupted or uninitialized frame data (e.g. right after spawning) could compute an implausibly large per-frame distance, overflowing the fare's cast to int into a huge garbage value - this matches a known unresolved issue reported upstream (runaway negative taxi income). Now implausible frame distances are discarded instead of being charged.
+CHANGELOG_4_1_5_1 Fixed the real cause of the blank/black Options panel: CSLModsCommon's own UI strings (Version/Changelog/etc.) live in a physical Localization/Common folder next to the DLL that our build never deployed. Without it, the framework's LocalizationManager silently gave up, leaving CurrentLocaleSource null and crashing OptionsPanelBase.Awake() with a NullReferenceException the instant it tried to show the translation-progress label - which Unity swallows silently, aborting the panel mid-build. Now the .csproj deploys that folder, and GetTranslationProgress() no longer throws if it's ever missing again.
+CHANGELOG_4_1_4_1 Fixed the Options panel showing up blank/black: the panel was only ever built when the game toggled the settings container's visibility off and on, but it's usually already visible when the game opens this mod's page, so the panel never got created. Now it also builds immediately if the container is already visible.
+CHANGELOG_4_1_4_2 Fixed every CSLModsCommon UI texture (background, icons, toggles) failing to load and falling back to a placeholder: the project's RootNamespace was still "ImprovedPublicTransport3" from the original IPT3 fork, so embedded resources were compiled under the wrong name and never matched at runtime.
+CHANGELOG_4_1_3_1 Fixed three settings-save bugs left over from the CSLModsCommon migration (What's New dismissal, Options Reset button, per-hour ticket price editor): each wrote the new value to ModSetting correctly but then saved the old, now-dead settings object, so the change never actually persisted to disk.
+CHANGELOG_4_1_3_2 Removed dead code from the pre-CSLModsCommon era: the attribute-based OptionsFramework, the monolithic Settings.cs, and the standalone VehicleEditorPositions enum - all fully superseded by ModSetting and CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Forked from Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Ported AutoLineBudget's demand-based fleet sizing to coordinate with IPT's own vehicle-count API instead of writing the line budget directly, fixing a runaway maintenance-cost bug caused by the two mods fighting over the same state.
+CHANGELOG_4_0_0_3 Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).
+TRAINDISPLAY_LABEL_NAME नाम
+TRAINDISPLAY_LABEL_STATUS स्थिति
+TRAINDISPLAY_NO_LINE कोई लाइन नहीं
+TRAINDISPLAY_NO_DESTINATION कोई गंतव्य नहीं
+TRAINDISPLAY_HIDDEN छिपा हुआ
+TRAINDISPLAY_VEHICLE वाहन
+TRAINDISPLAY_STATE_RETURNING वापस लौट रहा
+TRAINDISPLAY_STATE_STOPPED स्टॉप पर
+TRAINDISPLAY_STATE_EN_ROUTE रास्ते में
+TRAINDISPLAY_STATE_ON_LINE लाइन पर
+TRAINDISPLAY_STATE_IDLE निष्क्रिय
+AUTOLINECOLOR_REFRESH_BUTTON नाम/रंग ताज़ा करें
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP सक्रिय AutoLineColor सेटिंग्स के अनुसार इस लाइन का नाम और रंग फिर से निर्धारित करता है।
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP इस लाइन को ताज़ा करने से पहले विकल्पों में रंग या नामकरण रणनीति सक्षम करें।
+CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
+CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
+CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
+TICKET_PRICE_LABEL_TOOLTIP वर्तमान किराया: {0}\nमूल किराया: {1}\nअभी सवार यात्री: {2}

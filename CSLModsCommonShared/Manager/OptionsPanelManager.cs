@@ -36,7 +36,12 @@ public static class OptionsPanelManager {
         }
     }
 
-    public static void OnLocaleChanged() {
+    public static void OnLocaleChanged() => Refresh();
+
+    // Rebuilds the panel from scratch so its controls pick up whatever changed in the underlying
+    // settings object - e.g. after a "Reset to defaults" button mutates ModSetting directly, controls
+    // that were already on screen have no other way to learn their bound value changed underneath them.
+    public static void Refresh() {
         if (Container is null || !Container.isVisible) return;
         Destroy();
         Create();
@@ -78,6 +83,13 @@ public static class OptionsPanelManager {
         LinqExtensions.ForEach(Container.components, component => component.isVisible = false);
         Container.autoLayout = false;
         Container.eventVisibilityChanged += OnContainerVisibilityChanged;
+
+        // Container is usually already visible by the time the game calls OnSettingsUI
+        // (it just switched to showing this mod's page) - eventVisibilityChanged only
+        // fires on a *change*, so without this the panel would never get created until
+        // something else happened to toggle the container's visibility off and on.
+        if (Container.isVisible)
+            Create();
     }
 
     private static void OnContainerVisibilityChanged(UIComponent _, bool isVisible) {

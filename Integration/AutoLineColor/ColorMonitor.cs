@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using AutoLineColor.Coloring;
 using AutoLineColor.Naming;
@@ -24,6 +24,7 @@ namespace AutoLineColor
         private IUsedColors _usedColors;
         private int _lastColorStrategy = -1;
         private int _lastNamingStrategy = -1;
+        private static bool _ticketPricesTabFailed;
 
         [CanBeNull]
         public static ColorMonitor Instance { get; private set; }
@@ -113,8 +114,21 @@ namespace AutoLineColor
             SimulationManager theSimulationManager;
             TransportLine[] lines;
 
-            // Refresh ticket prices tab passenger counts (throttled internally)
-            try { TicketPricesTab.OnUpdate(realTimeDelta); } catch { }
+            // Refresh ticket prices tab passenger counts (throttled internally).
+            // This runs every frame, so an empty catch here would hide a recurring failure forever
+            // while still paying the exception cost 60x/second. Log it once, then stop calling it.
+            if (!_ticketPricesTabFailed)
+            {
+                try
+                {
+                    TicketPricesTab.OnUpdate(realTimeDelta);
+                }
+                catch (Exception ex)
+                {
+                    _ticketPricesTabFailed = true;
+                    Logger.Error($"TicketPricesTab.OnUpdate failed - disabling its per-frame refresh: {ex}");
+                }
+            }
 
             try
             {
@@ -186,7 +200,18 @@ namespace AutoLineColor
 
         public void ForceRefreshLine(ushort lineId)
         {
+            ForceRefreshLineNow(lineId);
+        }
+
+        public static void ForceRefreshLineNow(ushort lineId)
+        {
             Logger.Message($"Force refresh for line {lineId}");
+
+            if (lineId == 0)
+            {
+                Logger.Error("Skipping force refresh because lineId is 0");
+                return;
+            }
 
             if (!Singleton<TransportManager>.exists || !Singleton<SimulationManager>.exists)
             {
@@ -199,28 +224,71 @@ namespace AutoLineColor
                 var theTransportManager = Singleton<TransportManager>.instance;
                 var theSimulationManager = Singleton<SimulationManager>.instance;
                 var lines = theTransportManager.m_lines.m_buffer;
+                var colorStrategy = Instance?._colorStrategy ?? SetColorStrategy((int)ModSetting.Instance.AutoLineColorColorStrategy);
+                var namingStrategy = Instance?._namingStrategy ?? SetNamingStrategy((int)ModSetting.Instance.AutoLineColorNamingStrategyMode);
+                var usedColors = UsedColors.FromLines(lines);
 
-                if (!Monitor.TryEnter(lines, SimulationManager.SYNCHRONIZE_TIMEOUT))
+                if (colorStrategy == null && namingStrategy is NoNamingStrategy)
                 {
-                    Logger.Error($"Skipping force refresh for line {lineId} because lines are locked");
+                    Logger.Error($"Skipping force refresh for line {lineId} because both color and naming strategies are disabled");
                     return;
                 }
 
-                try
+                theSimulationManager.AddAction(() =>
                 {
-                    ProcessLine(lineId, lines[lineId], true, theSimulationManager, theTransportManager);
-                }
-                finally
-                {
-                    Monitor.Exit(lines);
-                }
+                    try
+                    {
+                        ref var line = ref lines[lineId];
+                        if (line.m_flags == TransportLine.Flags.None || !line.IsComplete() || !line.IsActive())
+                        {
+                            return;
+                        }
+
+                        var updateColor = colorStrategy != null;
+                        var updateName = !(namingStrategy is NoNamingStrategy);
+                        if (!updateColor && !updateName)
+                        {
+                            return;
+                        }
+
+                        if (updateColor && updateName && colorStrategy is ICombinedStrategy combinedStrategy && colorStrategy.GetType() == namingStrategy.GetType())
+                        {
+                            combinedStrategy.GetColorAndName(line, usedColors, out var combinedColor, out var combinedName);
+                            theTransportManager.SetLineColor(lineId, combinedColor);
+                            if (!string.IsNullOrEmpty(combinedName))
+                            {
+                                theTransportManager.SetLineName(lineId, combinedName);
+                            }
+
+                            return;
+                        }
+
+                        if (updateColor)
+                        {
+                            var newColor = colorStrategy.GetColor(line, usedColors);
+                            theTransportManager.SetLineColor(lineId, newColor);
+                        }
+
+                        if (updateName)
+                        {
+                            var newName = namingStrategy.GetName(line, lineId);
+                            if (!string.IsNullOrEmpty(newName))
+                            {
+                                theTransportManager.SetLineName(lineId, newName);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Error(ex.ToString());
+                    }
+                });
             }
             catch (Exception ex)
             {
                 Logger.Error(ex.ToString());
             }
         }
-
         private void ProcessLine(ushort lineId, in TransportLine transportLine, bool forceUpdate, SimulationManager theSimulationManager,
             TransportManager theTransportManager)
         {
@@ -402,3 +470,7 @@ namespace AutoLineColor
         }
     }
 }
+
+
+
+

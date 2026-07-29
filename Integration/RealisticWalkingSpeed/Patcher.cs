@@ -1,6 +1,7 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using RealisticWalkingSpeed.Patches;
 using ColossalFramework;
+using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace RealisticWalkingSpeed
@@ -14,27 +15,41 @@ namespace RealisticWalkingSpeed
         {
             if (_patched)
             {
-                Utils.Log("RealisticWalkingSpeed: Patches already applied, skipping.");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Patches already applied, skipping.");
+                }
                 return;
             }
 
             try
             {
-                Utils.Log("RealisticWalkingSpeed: Applying Harmony patches...");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Applying Harmony patches...");
+                }
                 var harmony = new Harmony(_harmonyId);
 
                 new CitizenAnimationSpeedHarmonyPatch(harmony).Apply();
-                Utils.Log("RealisticWalkingSpeed: Applied CitizenAnimationSpeedHarmonyPatch");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Applied CitizenAnimationSpeedHarmonyPatch");
+                }
                 
-                // Cycling is an After Dark DLC feature
                 if (SteamHelper.IsDLCOwned(SteamHelper.DLC.AfterDarkDLC))
                 {
                     new CitizenCyclingSpeedHarmonyPatch(harmony).Apply();
-                    Utils.Log("RealisticWalkingSpeed: Applied CitizenCyclingSpeedHarmonyPatch");
+                    if (Diagnostics.VerboseTranspileLogs)
+                    {
+                        Utils.Log("RealisticWalkingSpeed: Applied CitizenCyclingSpeedHarmonyPatch");
+                    }
                 }
 
                 _patched = true;
-                Utils.Log("RealisticWalkingSpeed: Harmony patches applied successfully");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Harmony patches applied successfully");
+                }
             }
             catch (System.Exception ex)
             {
@@ -47,17 +62,26 @@ namespace RealisticWalkingSpeed
         {
             if (!_patched)
             {
-                Utils.Log("RealisticWalkingSpeed: No patches to remove, skipping.");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: No patches to remove, skipping.");
+                }
                 return;
             }
 
             try
             {
-                Utils.Log("RealisticWalkingSpeed: Removing Harmony patches...");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Removing Harmony patches...");
+                }
                 var harmony = new Harmony(_harmonyId);
                 harmony.UnpatchAll(_harmonyId);
                 _patched = false;
-                Utils.Log("RealisticWalkingSpeed: Harmony patches removed successfully");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Harmony patches removed successfully");
+                }
             }
             catch (System.Exception ex)
             {

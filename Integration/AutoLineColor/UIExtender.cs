@@ -1,4 +1,4 @@
-﻿using ColossalFramework.UI;
+using ColossalFramework.UI;
 using ICities;
 using ImprovedPublicTransport.Query;
 using ImprovedPublicTransport.Util;
@@ -44,6 +44,26 @@ namespace AutoLineColor
                 DetachUI();
         }
 
+        private sealed class RefreshButtonStateUpdater : MonoBehaviour
+        {
+            internal UIButton Button { get; set; }
+
+            private void Update()
+            {
+                if (Button == null)
+                {
+                    return;
+                }
+
+                var settings = ImprovedPublicTransport.ModSetting.Instance;
+                var enabled = settings.AutoLineColorColorStrategy != ImprovedPublicTransport.ModSetting.AutoLineColorStrategy.Disabled
+                    || settings.AutoLineColorNamingStrategyMode != ImprovedPublicTransport.ModSetting.AutoLineColorNamingStrategy.Disabled;
+
+                Button.isEnabled = enabled;
+                Button.tooltip = ImprovedPublicTransport.Localization.Get(
+                    enabled ? "AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP" : "AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP");
+            }
+        }
         private void AttachUI()
         {
             //Console.Instance.Message("Attaching UI");
@@ -94,9 +114,10 @@ namespace AutoLineColor
 
             _refreshBtn = buttonPanel.AddUIComponent<UIButton>();
             _refreshBtn.name = "RefreshNameAndColor";
+            _refreshBtn.gameObject.AddComponent<RefreshButtonStateUpdater>().Button = _refreshBtn;
 
-            _refreshBtn.text = "Refresh Name/Color";
-            _refreshBtn.tooltip = "Reassign the line name and color according to current AutoLineColor Redux settings.";
+            _refreshBtn.text = ImprovedPublicTransport.Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON");
+            _refreshBtn.tooltip = ImprovedPublicTransport.Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP");
             _refreshBtn.textScale = .75f;
             _refreshBtn.font = linesOverview.font;
             _refreshBtn.hoveredTextColor = new Color32(7, 132, 255, 255);
@@ -117,7 +138,7 @@ namespace AutoLineColor
                 ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
                 if (lineId == 0) return;
 
-                ColorMonitor.Instance?.ForceRefreshLine(lineId);
+                ColorMonitor.ForceRefreshLineNow(lineId);
             };
 
             _refreshBtn.eventClick += _refreshBtnClick;
@@ -144,3 +165,7 @@ namespace AutoLineColor
         }
     }
 }
+
+
+
+

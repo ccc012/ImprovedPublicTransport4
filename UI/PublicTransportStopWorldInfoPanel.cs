@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: ImprovedPublicTransport.PublicTransportStopWorldInfoPanel
 // Assembly: ImprovedPublicTransport, Version=1.0.6177.17409, Culture=neutral, PublicKeyToken=null
 // MVID: 76F370C5-F40B-41AE-AA9D-1E3F87E934D3
@@ -549,7 +549,7 @@ namespace ImprovedPublicTransport.UI
             if (flag)
                 return;
             // Use NetManager's spatial node grid instead of scanning all 32768 nodes.
-            // Grid: 64-unit cells, world spans [-8640..8640], offset 135 → 270×270 cells.
+            // Grid: 64-unit cells, world spans [-8640..8640], offset 135 ? 270�270 cells.
             int gridX = Mathf.Clamp((int)(position.x / 64f + 135f), 0, 269);
             int gridZ = Mathf.Clamp((int)(position.z / 64f + 135f), 0, 269);
             for (int gz = Mathf.Max(0, gridZ - 1); gz <= Mathf.Min(269, gridZ + 1); gz++)
@@ -617,8 +617,7 @@ namespace ImprovedPublicTransport.UI
             {
                 if (Input.GetMouseButtonDown(0) && !this.Raycast(this.GetCamera().ScreenPointToRay(Input.mousePosition)))
                 {
-                    //TODO(): restore
-                    //this.Hide();
+                    this.Hide();
                 }
             }
         }
@@ -769,3 +768,5 @@ namespace ImprovedPublicTransport.UI
         }
     }
 }
+
+

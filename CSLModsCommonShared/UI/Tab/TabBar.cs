@@ -22,6 +22,10 @@ public class TabBar : LiteContainer {
     public TabButton AddTab(string id, string text, Action<TabButton> onAddButton = null) {
         var btn = AddUIComponent<TabButton>();
         btn.Text = text;
+        // Some languages (and longer English captions) don't fit a single line at the tab's
+        // allotted width - wrap instead of silently truncating.
+        btn.WordWrap = true;
+        btn.TextVerticalAlignment = UIVerticalAlignment.Middle;
         btn.TextPadding.SetLeft(4).SetRight(4);
         onAddButton?.Invoke(btn);
         btn.stringUserData = id;

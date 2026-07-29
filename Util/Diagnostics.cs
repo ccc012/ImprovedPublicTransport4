@@ -11,5 +11,11 @@ namespace ImprovedPublicTransport.Util
         /// Default is false to avoid noisy logs in release builds.
         /// </summary>
         public static bool VerboseTranspileLogs => false;
+
+        /// <summary>
+        /// When true, runtime patches may emit high-frequency trace logging.
+        /// Keep disabled in normal gameplay to avoid log spam and unnecessary overhead.
+        /// </summary>
+        public static bool VerboseRuntimeLogs => false;
     }
 }

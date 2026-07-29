@@ -208,36 +208,44 @@ public abstract class SettingsCardBase<TControl> : UIStateElement, ISettingsCard
             return;
         }
 
-        var textBlockHeight = 0f;
-        if (HeaderElement is not null) {
-            HeaderElement.width = width - Control.width - LayoutPadding.Horizontal - _columnGap;
-            textBlockHeight += HeaderElement.height;
+        // Header and Description used to only get positioned as a pair (Description was silently
+        // never laid out - and thus never visible - whenever Header was null, even though it was
+        // still created and populated with text). Handling them independently here fixes that.
+        var hasHeader = HeaderElement is not null;
+        var hasDescription = DescriptionElement is not null;
+        var textWidth = width - Control.width - LayoutPadding.Horizontal - _columnGap;
 
-            if (DescriptionElement is not null) {
-                DescriptionElement.width = HeaderElement.width;
-                textBlockHeight += _textElementGap + DescriptionElement.height;
-            }
+        var textBlockHeight = 0f;
+        if (hasHeader) {
+            HeaderElement.width = textWidth;
+            textBlockHeight += HeaderElement.height;
+        }
+        if (hasDescription) {
+            DescriptionElement.width = textWidth;
+            if (hasHeader) textBlockHeight += _textElementGap;
+            textBlockHeight += DescriptionElement.height;
         }
 
         var totalHeight = Mathf.Max(textBlockHeight, Control.height);
         var baseY = LayoutPadding.Top + totalHeight / 2f;
 
-        if (HeaderElement is not null) {
+        if (hasHeader || hasDescription) {
             var currentY = baseY - textBlockHeight / 2f;
-            HeaderElement.relativePosition = new Vector3(LayoutPadding.Left, currentY);
-            currentY += HeaderElement.height;
-
-            if (DescriptionElement is not null) {
-                currentY += _textElementGap;
+            if (hasHeader) {
+                HeaderElement.relativePosition = new Vector3(LayoutPadding.Left, currentY);
+                currentY += HeaderElement.height;
+                if (hasDescription) currentY += _textElementGap;
+            }
+            if (hasDescription) {
                 DescriptionElement.relativePosition = new Vector3(LayoutPadding.Left, currentY);
             }
         }
 
         float controlX;
-        if (HeaderElement is null)
+        if (!hasHeader && !hasDescription)
             controlX = width - Control.width - LayoutPadding.Right;
         else
-            controlX = LayoutPadding.Left + HeaderElement.width + _columnGap;
+            controlX = LayoutPadding.Left + textWidth + _columnGap;
 
         Control.relativePosition = new Vector3(controlX, baseY - Control.height / 2f);
         height = totalHeight + LayoutPadding.Vertical;

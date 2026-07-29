@@ -178,7 +178,7 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
             CachedTransportLineData.SetTargetVehicleCount(lineID, newTarget);
             CachedTransportLineData.SetBudgetControlState(lineID, false);
             _managedLines.Add(lineID);
-            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
+            if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
             {
                 Utils.Log($"AutoLineBudget: line {lineID} vehCount={vehCount} avgOccupancy={avgOccupancy:F2} -> target={newTarget}");
             }

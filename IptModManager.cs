@@ -8,15 +8,44 @@ namespace ImprovedPublicTransport
 {
     public class IptModManager : ModManagerBase
     {
+        static IptModManager()
+        {
+            JsonNetBootstrap.EnsureLoaded();
+        }
+
+        public IptModManager()
+        {
+            JsonNetBootstrap.EnsureLoaded();
+        }
+
         public override string ModName => "Improved Public Transport 4 (local fork)";
         public override string RowDescription => "Unified public transport management: fleet sizing, budgets, ticket prices, stops, unbunching and more.";
         public override DateTime VersionDate { get; } = new(2026, 7, 29);
 
-        protected override void OnCreateSettings(SettingManager settingManager) => settingManager.Load<ModSetting>();
+        // Declared here rather than via a BETA compile constant so the channel is explicit in code
+        // and does not depend on how the project happens to be built. The framework's default is
+        // Alpha, which is why the Options header showed "ALPHA" until now.
+        public override BuildChannel CurrentBuildChannel => BuildChannel.Beta;
+
+        protected override void OnCreateSettings(SettingManager settingManager)
+        {
+            JsonNetBootstrap.EnsureLoaded();
+            settingManager.Load<ModSetting>();
+        }
 
         public override void OnSettingsUI(ICities.UIHelperBase helper)
         {
+            JsonNetBootstrap.EnsureLoaded();
             base.OnSettingsUI(helper);
+        }
+
+        protected override void AddVersionModRule(IVersionModRule rule)
+        {
+            base.AddVersionModRule(rule);
+            // Built/tested against 1.21.1-f9. Generous upper bound so routine game patches don't
+            // immediately flag this local fork as "not made for this version" until we've actually
+            // checked against them.
+            rule.Set(new GameVersionCompatibility(new GameVersion(1, 21, 1, 9), new GameVersion(1, 99, 9, 99)));
         }
 
         protected override void AddIncompatibleModRule(IIncompatibleModRule rule)
@@ -35,14 +64,70 @@ namespace ImprovedPublicTransport
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 3, 5), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_5_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_5_2"))
+            ,
+            new ChangelogCollection(new Version(4, 3, 4), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_4_1"))
+            ,
+            new ChangelogCollection(new Version(4, 3, 3), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_3_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_3_2"))
+                .AddEntry(ChangelogFlag.Translation, L("CHANGELOG_4_3_3_3"))
+                .AddEntry(ChangelogFlag.Optimized, L("CHANGELOG_4_3_3_4"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_3_5"))
+            ,
+            new ChangelogCollection(new Version(4, 3, 2), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_2_1"))
+            ,
+            new ChangelogCollection(new Version(4, 3, 1), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_1_1"))
+                .AddEntry(ChangelogFlag.Translation, L("CHANGELOG_4_3_1_2"))
+                .AddEntry(ChangelogFlag.Translation, L("CHANGELOG_4_3_1_3"))
+            ,
+            new ChangelogCollection(new Version(4, 3, 0), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_3_0_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_0_2"))
+            ,
+            new ChangelogCollection(new Version(4, 2, 4), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_4_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_4_2"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_2_4_3"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_4_4"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_4_5"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_4_6"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_4_7"))
+            ,
+            new ChangelogCollection(new Version(4, 2, 3), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_3_1"))
+                .AddEntry(ChangelogFlag.Removed, L("CHANGELOG_4_2_3_2"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_2_3_3"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_3_4"))
+            ,
+            new ChangelogCollection(new Version(4, 2, 0), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_2_0_1"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_2_0_2"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_0_3"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_2_0_4"))
+            ,
+            new ChangelogCollection(new Version(4, 1, 5), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_1_5_1"))
+            ,
+            new ChangelogCollection(new Version(4, 1, 4), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_1_4_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_1_4_2"))
+            ,
             new ChangelogCollection(new Version(4, 1, 3), new DateTime(2026, 7, 29), autoGenerate: false)
-                .AddEntry(ChangelogFlag.Fixed, "Fixed three settings-save bugs left over from the CSLModsCommon migration (What's New dismissal, Options Reset button, per-hour ticket price editor): each wrote the new value to ModSetting correctly but then saved the old, now-dead settings object, so the change never actually persisted to disk.")
-                .AddEntry(ChangelogFlag.Removed, "Removed dead code from the pre-CSLModsCommon era: the attribute-based OptionsFramework, the monolithic Settings.cs, and the standalone VehicleEditorPositions enum - all fully superseded by ModSetting and CSLModsCommonOptionsPanel.")
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_1_3_1"))
+                .AddEntry(ChangelogFlag.Removed, L("CHANGELOG_4_1_3_2"))
             ,
             new ChangelogCollection(new Version(4, 0, 0), new DateTime(2026, 7, 29), autoGenerate: false)
-                .AddEntry(ChangelogFlag.Added, "Forked from Improved Public Transport 3.")
-                .AddEntry(ChangelogFlag.Fixed, "Ported AutoLineBudget's demand-based fleet sizing to coordinate with IPT's own vehicle-count API instead of writing the line budget directly, fixing a runaway maintenance-cost bug caused by the two mods fighting over the same state.")
-                .AddEntry(ChangelogFlag.Added, "Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).")
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_0_0_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_0_0_2"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_0_0_3"))
         };
+
+        private static string L(string key) => Localization.Get(key);
     }
 }

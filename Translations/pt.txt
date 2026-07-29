@@ -174,21 +174,24 @@ UNBUNCHING_TARGET_GAP Intervalo: {0}
 SETTINGS_EBS_GROUP_BUS Serviços de ônibus expresso
 SETTINGS_EBS_GROUP_TRAM Serviços de bonde expresso
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Distribuição de ônibus expresso: 
-SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Desativado' = os ônibus usam as configurações de distribuição acima.\n'Prudente' = para brevemente, verifica passageiros e pode partir se estiver vazio.\n'Agressivo' = pula completamente as paradas se não houver passageiros esperando.
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Desativado' = os ônibus usam as configurações de distribuição acima.\n'Prudente' = para brevemente, verifica passageiros e pode partir se estiver vazio.\n'Realista' = pula completamente as paradas se não houver passageiros esperando.
 SETTINGS_EBS_ENABLE_SELFBAL Habilitar auto-equilíbrio de serviço
+SETTINGS_EBS_DESC_SELFBAL Permite que o Express Bus Service redistribua veiculos ao longo da linha para favorecer trechos mais movimentados e reduzir o tempo de espera.
 SETTINGS_EBS_TOOLTIP_SELFBAL Analisa segmentos de linha e pode redistribuir veículos para segmentos mais ocupados ou paradas terminais para equilibrar o serviço e reduzir tempos de espera.\n As decisões são probabilísticas e dependem da contagem de passageiros e probabilidades de redistribuição.
 SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Habilitar auto-equilíbrio de parada do meio de linha
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Permite que o auto-equilíbrio escolha uma parada movimentada no meio da linha em vez de apenas uma parada terminal ao redistribuir veiculos.
 SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Permite que o auto-equilibrador redistribua veículos para uma parada ocupada no meio da linha (em vez de uma terminal).\n Considerado apenas quando a parada mais ocupada tem mais de 30 passageiros esperando, então escolhido com ~50% de probabilidade e sujeito às probabilidades gerais de redistribuição.
 SETTINGS_EBS_ENABLE_MINIBUS Habilitar modo minibús
+SETTINGS_EBS_DESC_MINIBUS Faz com que onibus de menor capacidade saiam mais cedo quando ha poucos passageiros embarcando ou desembarcando.
 SETTINGS_EBS_TOOLTIP_MINIBUS Ônibus com capacidade ≤20 podem partir mais cedo de uma parada quando passageiros em pé + em movimento naquela parada ≤5.
 SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Distribuição de bonde expresso: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Desabilitado' = Bondes usam as configurações de distribuição acima.\n'Light Rail' = Para em cada parada, sempre espera o timer completo.\n'Real Tram' = Para apenas quando passageiros estão embarcando/desembarcando.
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Desabilitado' = bondes usam as configurações de distribuição acima.\n'Prudente' = para em cada parada, sempre espera o timer completo.\n'Realista' = para apenas quando passageiros estão embarcando/desembarcando.
 SETTINGS_EBS_MODE_NONE Desabilitado
-SETTINGS_EBS_MODE_AGGRESSIVE Agressivo
+SETTINGS_EBS_MODE_AGGRESSIVE Realista
 SETTINGS_EBS_MODE_PRUDENTIAL Prudente
-SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Modo de ferrovia leve
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Prudente
 SETTINGS_EBS_TRAM_MODE_NONE Desabilitado
-SETTINGS_EBS_TRAM_MODE_TRAM Modo bonde verdadeiro
+SETTINGS_EBS_TRAM_MODE_TRAM Realista
 
 
 SETTINGS_PTU_GROUP Desatador de transporte público
@@ -197,6 +200,7 @@ SETTINGS_PTU_TOOLTIP Remove automaticamente passageiros que ficam presos ao emba
 
 
 SETTINGS_LINE_DELETION_TOOL Ferramenta de exclusão de linhas
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Marque abaixo os tipos de transporte e clique em Excluir para remover todas as linhas desses tipos na cidade atual. Essa seleção é temporária - sempre começa desmarcada e volta a ficar assim depois de excluir; não é salva como uma configuração.
 SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Exclui todas as linhas do tipo selecionado.
 SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE CONFIRMAR REMOÇÃO DE LINHAS
 SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Você está prestes a excluir todas as linhas.\nDeseja continuar?
@@ -283,3 +287,101 @@ WHATSNEW_3_0_0_1 Atualizado para Race Day; agora compatível com More Vehicles R
 WHATSNEW_3_0_0_2 Os seguintes mods foram integrados ao IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
 
 WHATSNEW_3_0_1 Public Transport Unstucker agora integrado no IPT3.\nConsulte a versão 3.0 para os outros mods integrados. Cancele a subscrição dos mods originais para evitar conflitos.
+
+SETTINGS_TAB_TRAINDISPLAY Train Display
+SETTINGS_TRAINDISPLAY_GROUP Sobreposição do Train Display
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configure a sobreposição integrada mostrada ao seguir veículos de transporte suportados.
+SETTINGS_TRAINDISPLAY_ENABLE Ativar Train Display
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Liga ou desliga a sobreposição integrada do Train Display.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED Desativado
+SETTINGS_TRAINDISPLAY_MODE_ENABLED Ativado
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Posição da sobreposição:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Escolha onde a sobreposição aparece na tela.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Superior esquerdo
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Superior direito
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Inferior esquerdo
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Inferior direito
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Escala da sobreposição:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Ajusta o tamanho da sobreposição.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Opacidade da sobreposição:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Ajusta o quanto a sobreposição fica transparente.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Intervalo de atualização:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Com que frequência a sobreposição atualiza enquanto um veículo está sendo seguido.
+SETTINGS_TRAINDISPLAY_SHOW_LINE Mostrar nome da linha
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Inclui o nome da linha na sobreposição.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Mostrar destino
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Inclui o destino na sobreposição.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Mostrar estado
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Inclui o estado do veículo na sobreposição.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Apenas ao seguir
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Oculta a sobreposição a menos que a câmera esteja seguindo um veículo suportado.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Só na câmera em primeira pessoa
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Só mostra a sobreposição enquanto estiver usando um mod de câmera em primeira pessoa (ex: First Person Camera - Continued). Se desativado, mostra sempre que estiver seguindo um veículo suportado, em qualquer modo de câmera.
+SETTINGS_TRAINDISPLAY_THEME Tema de cores:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Escolha as cores de fundo/texto da sobreposição.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simples
+SETTINGS_TRAINDISPLAY_THEME_DARK Escuro
+SETTINGS_TRAINDISPLAY_THEME_LIGHT Claro
+
+
+COPY_TIP Copiar as configurações desta linha.
+PASTE_TIP Colar as configurações de linha copiadas.
+COPY_BUILDING_TIP Copiar estas configurações para todas as linhas que atendem este edifício.
+COPY_DISTRICT_TIP Copiar estas configurações para todas as linhas deste distrito.
+SETTINGS_INTEGRATIONS_GROUP Integracoes Adicionais
+SETTINGS_INTERCITY_BUS_ENABLE Ativar Intercity Bus Control
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Ativa a camada integrada de compatibilidade do Intercity Bus Control e o patch das estacoes.
+SETTINGS_FLIGHTTRACKER_ENABLE Ativar Flight Tracker
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Ativa os patches integrados e o suporte de UI do Flight Tracker.
+CHANGELOG_4_3_3_1 Corrigido um problema em que salvar e carregar configuracoes ainda quebrava em alguns conjuntos de mods mesmo com Newtonsoft.Json.dll empacotado: a solucao anterior so tentava Assembly.LoadFrom em um ponto de entrada e ainda dependia da ordem de carregamento. Agora o IPT4 registra um hook global de AssemblyResolve e inicializa sua copia empacotada do Newtonsoft.Json em todos os pontos de entrada do mod/UI antes de o CSLModsCommon tocar em JsonWriter, entao a nova interface de Opcoes persiste com confiabilidade em vez de ligar aleatoriamente na copia incompativel de Json.NET de outro mod.
+CHANGELOG_4_3_2_1 Corrigido o mod falhar totalmente ao carregar ("failed to load the mod's dll or one of its dependencies") quando nenhum outro mod instalado ja fornecia Newtonsoft.Json: a serializacao de configuracoes do CSLModsCommon (JsonHelper/SerializationContext) precisa dele, mas nossa build nunca estava realmente distribuindo Newtonsoft.Json.dll junto com o mod - so funcionava por coincidencia, aproveitando a copia de outro mod. Isso foi encontrado desativando todos os outros mods para um teste limpo, que e exatamente como esse tipo de coisa deve ser testado.
+CHANGELOG_4_3_1_1 Corrigido o seletor de idioma do painel de Opcoes que so retraduzia os textos do framework (Version/Changelog/...) enquanto todos os textos deste mod continuavam no idioma do jogo - nosso loader de traducao usava o idioma do jogo e ignorava totalmente a selecao do proprio mod. Agora ele segue o seletor de idioma do mod, com fallback para o idioma do jogo e depois para ingles, e reavalia tudo sempre que a selecao muda.
+CHANGELOG_4_3_1_2 Preenchidas 38 chaves de traducao que existiam apenas em ingles e portugues - todos os outros idiomas (arabe, bengali, alemao, espanhol, frances, hindi, indonesio, italiano, japones, coreano, polones, russo, urdu e todas as variantes de chines) estavam caindo silenciosamente para ingles em toda a secao Train Display, na descricao de Excluir Linhas e nas tres descricoes do Express Bus.
+CHANGELOG_4_3_1_3 Adicionadas 4 chaves de tooltip de copiar/colar que faltavam em todos os arquivos de idioma, inclusive em ingles, entao elas apareceriam como chave crua ("COPY_TIP") assim que esses botoes fossem reativados.
+CHANGELOG_4_3_0_1 Adicionado Train Display Updated: uma pequena sobreposicao na tela que mostra linha/destino/estado enquanto voce segue um veiculo suportado. Configuravel em Opcoes: posicao na tela, tamanho, opacidade, quais campos mostrar, frequencia de atualizacao, se fica restrito a mods de camera em primeira pessoa, e tema de cores Simples/Escuro/Claro.
+CHANGELOG_4_3_0_2 Corrigidos varios erros de build na nova integracao Train Display: uma referencia ambigua de Utils, duas APIs que nao existem nesta versao do jogo (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) e uso de Enum.HasFlag - que nao existe no .NET Framework 3.5, alvo deste mod, e precisou ser trocado por verificacoes bitwise manuais.
+CHANGELOG_4_2_4_1 Corrigido o mod sempre mostrar "Compatibility with Game Version: 0.0.0" - nos nunca declaravamos um intervalo de versoes suportadas do jogo. Agora esta definido para 1.21.1-f9 em diante.
+CHANGELOG_4_2_4_2 Corrigido o dropdown da estrategia de cores do AutoLineColor mostrar nomes crus de enum (por exemplo "AUTOLINECOLOR_STRATEGY_RANDOMHUE") em vez de texto traduzido: o codigo gerava uma chave sem underscore enquanto o arquivo de traducao usava uma com underscore. Tambem reorganizada a secao para que os dois sliders dependentes fiquem logo abaixo do dropdown de estrategia de cor ao qual pertencem, em vez de aparecerem depois do dropdown nao relacionado de estrategia de nomes.
+CHANGELOG_4_2_4_3 Renomeados os modos de unbunching do bonde para combinar com os do onibus (Desativado/Cauteloso/Realista) em vez de "Light Rail"/"Real Tram", e traduzidos os ultimos trechos que ainda estavam em ingles na descricao em portugues.
+CHANGELOG_4_2_4_4 Corrigido descricoes de checkbox nunca aparecerem em lugar nenhum do painel quando nao havia texto de cabecalho definido (que e o caso de todos os checkboxes deste mod) - o layout so posicionava o label de descricao se existisse tambem um label de cabecalho, mesmo a descricao ja sendo criada e preenchida com texto.
+CHANGELOG_4_2_4_5 Corrigido titulos das abas de Opcoes ficarem cortados (especialmente em portugues, que costuma ser mais longo que ingles) - agora as abas quebram para uma segunda linha em vez de cortar o texto.
+CHANGELOG_4_2_4_6 Corrigido os botoes de Reset (Unbunching, Precos de Passagens) alterarem as configuracoes por baixo imediatamente, mas nao atualizarem os sliders que ja estavam na tela, fazendo parecer que nada tinha acontecido ate reabrir Opcoes.
+CHANGELOG_4_2_4_7 Corrigido os checkboxes da ferramenta Excluir Linhas persistirem como configuracao salva em vez de resetarem apos o uso - eles tinham sido ligados por engano ao ModSetting como se fossem uma preferencia real, quando na verdade essa tela e uma acao unica de "marcar tipos, clicar Excluir".
+CHANGELOG_4_2_3_1 Corrigido todas as traducoes do mod aparecerem como chave crua (por exemplo "SETTINGS_SPEED:0") em todos os idiomas: nosso loader de traducao ainda localizava o plugin pelo antigo tipo ImprovedPublicTransportMod em vez de Mod (a classe que realmente e IUserMod desde a migracao para CSLModsCommon), entao ele nunca encontrava a pasta do mod e nunca carregava nenhum arquivo Translations/*.txt. Tambem fortalecido o fallback do locale vanilla para ele nao confundir mais o marcador de "nao encontrado" do Colossal ("key:0") com uma traducao real.
+CHANGELOG_4_2_3_2 Removida a aba sempre vazia de "Key Bindings" das Opcoes - este mod nao tem teclas para configurar.
+CHANGELOG_4_2_3_3 Os sliders nas Opcoes agora mostram seu valor atual novamente (isso tinha se perdido na migracao para CSLModsCommon - o novo controle de slider nao exibe isso por padrao).
+CHANGELOG_4_2_3_4 Corrigido os sliders de "diferenca minima de cor" e "maximo de tentativas de cor" do AutoLineColor continuarem interativos mesmo quando a estrategia de cor estava em Desativado ou Categorizado (nenhuma dessas configuracoes usa esses valores).
+CHANGELOG_4_2_0_1 Adicionado Rescue Fullwidth Digits: normaliza digitos fullwidth em nomes personalizados de linhas de transporte de volta para digitos ASCII normais, corrigindo uma estranheza de exibicao/ordenacao causada por algumas entradas de teclado nao latinas.
+CHANGELOG_4_2_0_2 Adicionada uma aba dedicada de Precos de Passagens no painel de Opcoes, para que multiplicadores de tarifa dia/noite possam ser ajustados sem abrir o painel de Economia dentro do jogo.
+CHANGELOG_4_2_0_3 Corrigido o patch Rescue Fullwidth Digits ser aplicado apenas uma vez na inicializacao do mod e depois ser desfeito em todo unload de mapa, desativando-o silenciosamente para qualquer save carregado depois do primeiro na mesma sessao.
+CHANGELOG_4_2_0_4 Corrigido um bug de overflow inteiro na tarifa de taxi (MileageTaxiServices) que podia drenar o orcamento do transporte publico em bilhoes numa unica etapa: um taxi com dados de frame corrompidos ou nao inicializados (por exemplo logo depois do spawn) podia calcular uma distancia por frame absurda, causando overflow no cast para int e gerando um valor gigante sem sentido - isso combina com um problema conhecido ainda nao resolvido no projeto original (renda negativa de taxi disparando). Agora distancias por frame implausiveis sao descartadas em vez de cobradas.
+CHANGELOG_4_1_5_1 Corrigida a causa real do painel de Opcoes em branco/preto: os textos da propria UI do CSLModsCommon (Version/Changelog/etc.) ficam numa pasta fisica Localization/Common ao lado da DLL, e nossa build nunca fazia deploy dela. Sem essa pasta, o LocalizationManager do framework desistia silenciosamente, deixava CurrentLocaleSource nulo e quebrava OptionsPanelBase.Awake() com NullReferenceException no instante em que tentava mostrar o indicador de progresso de traducao - erro que o Unity engole em silencio, abortando a construcao do painel no meio. Agora o .csproj faz deploy dessa pasta, e GetTranslationProgress() nao estoura mais mesmo se ela desaparecer de novo.
+CHANGELOG_4_1_4_1 Corrigido o painel de Opcoes aparecer em branco/preto: ele so era construido quando o jogo alternava a visibilidade do container de configuracoes de invisivel para visivel, mas normalmente esse container ja esta visivel quando o jogo abre a pagina deste mod, entao o painel nunca era criado. Agora ele tambem e construido imediatamente se o container ja estiver visivel.
+CHANGELOG_4_1_4_2 Corrigido todas as texturas da UI do CSLModsCommon (fundo, icones, toggles) falharem ao carregar e cairem em placeholder: o RootNamespace do projeto ainda era "ImprovedPublicTransport3" herdado do fork original do IPT3, entao os recursos embutidos eram compilados com o nome errado e nunca batiam em runtime.
+CHANGELOG_4_1_3_1 Corrigidos tres bugs de salvamento de configuracoes que sobraram da migracao para CSLModsCommon (dismiss do What's New, botao Reset nas Opcoes e editor de preco de passagem por horario): cada um escrevia o valor novo corretamente em ModSetting, mas depois salvava o objeto antigo de configuracoes, agora morto, entao a mudanca nunca persistia de verdade em disco.
+CHANGELOG_4_1_3_2 Removido codigo morto da era anterior ao CSLModsCommon: o OptionsFramework baseado em atributos, o Settings.cs monolitico e o enum separado VehicleEditorPositions - todos totalmente substituidos por ModSetting e CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Forkado a partir do Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Portada a logica de frota automatica por demanda do AutoLineBudget para coordenar com a propria API de contagem de veiculos do IPT em vez de escrever o budget da linha diretamente, corrigindo um bug de custo de manutencao disparando porque os dois mods brigavam pelo mesmo estado.
+CHANGELOG_4_0_0_3 Adotado CSLModsCommon para a interface de Opcoes (badge de versao, changelog, avisos de compatibilidade e progresso de traducao).
+TRAINDISPLAY_LABEL_NAME Nome
+TRAINDISPLAY_LABEL_STATUS Estado
+TRAINDISPLAY_NO_LINE Sem linha
+TRAINDISPLAY_NO_DESTINATION Sem destino
+TRAINDISPLAY_HIDDEN Oculto
+TRAINDISPLAY_VEHICLE Veiculo
+TRAINDISPLAY_STATE_RETURNING Retornando
+TRAINDISPLAY_STATE_STOPPED Na parada
+TRAINDISPLAY_STATE_EN_ROUTE Em rota
+TRAINDISPLAY_STATE_ON_LINE Em linha
+TRAINDISPLAY_STATE_IDLE Parado
+AUTOLINECOLOR_REFRESH_BUTTON Atualizar Nome/Cor
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Reatribui o nome e a cor da linha atual de acordo com as configuracoes ativas do AutoLineColor.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Ative uma estrategia de cor ou nome nas Opcoes antes de atualizar esta linha.
+CHANGELOG_4_3_3_2 Blindado o resolvedor do Newtonsoft.Json empacotado para sempre preferir a copia que vem junto deste mod, em vez de devolver a copia que outro mod tenha carregado primeiro (o Real Time traz uma v13 assinada; o CSLModsCommon precisa da v9 sem assinatura). Entregar a versao errada fazia o JsonHelper falhar em silencio e devolver objetos vazios, que era o motivo de os idiomas do proprio framework ficarem vazios e o seletor de idioma mostrar codigos crus.
+CHANGELOG_4_3_3_3 Bengali, hindi, indonesio e urdu agora aparecem no seletor de idioma do mod. Eles ja estavam totalmente traduzidos, mas o framework nao tinha arquivo de idioma para eles, entao eram inalcancaveis a menos que o proprio jogo estivesse nesse idioma.
+CHANGELOG_4_3_3_4 Otimizado o limitador de passageiros nas paradas: ele resolvia o objeto de configuracoes (duas buscas em dicionario) uma vez por cidadao dentro de um laco que roda milhares de vezes por quadro. Agora e resolvido uma vez por quadro.
+CHANGELOG_4_3_3_5 O modo de localizar a pasta do mod nao depende mais de qual classe implementa o IUserMod. Esse acoplamento ja havia quebrado silenciosamente o carregamento de traducoes uma vez e os icones da aba de precos outra vez, cada uma apos uma refatoracao sem relacao.
+CHANGELOG_4_3_4_1 Corrigida uma ModException na inicializacao ("Failed to find ImprovedPublicTransportMod assembly!") lancada pelo AutoLineColor antes mesmo de o mapa carregar. Uma segunda classe auxiliar ainda procurava o mod pelo tipo ImprovedPublicTransportMod, que deixou de ser o IUserMod na migracao para o CSLModsCommon - o mesmo acoplamento ja corrigido em outro ponto. Agora os dois helpers localizam a pasta do mod pela propria assembly, entao uma refatoracao futura nao pode quebrar isso em silencio de novo.
+CHANGELOG_4_3_5_1 Corrigido o painel do Train Display que nunca aparecia ao seguir um veiculo. Ele procurava a instancia seguida pela camera com sondagens genericas de "target"/"GetTarget", mas o jogo guarda isso num campo privado CameraController.m_targetInstance que essas sondagens nunca encontravam. Tambem desativei por padrao a opcao "Somente na camera em primeira pessoa": o modo seguir comum nao e primeira pessoa, entao deixa-la ligada fazia o painel parecer quebrado de fabrica, diferente do mod original que mostrava em qualquer modo de seguir.
+CHANGELOG_4_3_5_2 A aba Precos de Passagens agora mostra a tarifa resultante de cada tipo de transporte, em vez da contagem de passageiros. Os controles deslizantes so mostram porcentagem, entao antes nao havia como ver o valor que o multiplicador realmente produzia - e numa cidade pequena ou pausada a contagem de passageiros ficava sempre em "0". A contagem de passageiros passou para a dica do rotulo, junto com a tarifa original.
+TICKET_PRICE_LABEL_TOOLTIP Tarifa atual: {0}\nTarifa original: {1}\nPassageiros a bordo agora: {2}

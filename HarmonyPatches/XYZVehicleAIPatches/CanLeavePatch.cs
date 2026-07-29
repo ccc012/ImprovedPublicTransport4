@@ -80,7 +80,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
         public static IEnumerable<CodeInstruction> Transpile(MethodBase original,
             IEnumerable<CodeInstruction> instructions)
         {
-            Debug.Log($"{ShortModName}: CanLeavePatch - Transpiling method: {original.DeclaringType}.{original}");
+            if (Diagnostics.VerboseTranspileLogs)
+            {
+                Debug.Log($"{ShortModName}: CanLeavePatch - Transpiling method: {original.DeclaringType}.{original}");
+            }
             var replaced = false;
             foreach (var codeInstruction in instructions)
             {
@@ -95,7 +98,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
                 {
                     labels = codeInstruction.labels
                 };
-                Debug.Log($"{ShortModName}: CanLeavePatch - Replaced a call to CanLeaveStop");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Debug.Log($"{ShortModName}: CanLeavePatch - Replaced a call to CanLeaveStop");
+                }
                 replaced = true;
             }
         }

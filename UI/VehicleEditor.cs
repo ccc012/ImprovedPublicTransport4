@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: ImprovedPublicTransport.VehicleEditor
 // Assembly: ImprovedPublicTransport, Version=1.0.6177.17409, Culture=neutral, PublicKeyToken=null
 // MVID: 76F370C5-F40B-41AE-AA9D-1E3F87E934D3
@@ -688,7 +688,7 @@ namespace ImprovedPublicTransport.UI
         uiLabel1.text = Localization.Get("VEHICLE_EDITOR_CAPACITY");
         uiTextField.tooltip = "";
       }
-      (this._rightSidePanel.Find("CaptionLabel") as UILabel).text = string.Format(Localization.Get("VEHICLE_EDITOR_SUB_TITLE"), (object) ColossalFramework.Globalization.Locale.Get(VehicleEditor.GetLocaleID(transportType)));
+      (this._rightSidePanel.Find("CaptionLabel") as UILabel).text = string.Format(Localization.Get("VEHICLE_EDITOR_SUB_TITLE"), (object) GetTransportDisplayName(transportType));
       this.PopulateAssetDropDown(selectedPrefab);
     }
 
@@ -761,35 +761,34 @@ namespace ImprovedPublicTransport.UI
       }
     }
 
-    private static string GetLocaleID(TransportInfo.TransportType transportType)
+    private static string GetTransportDisplayName(TransportInfo.TransportType transportType)
     {
       switch (transportType)
       {
         case TransportInfo.TransportType.Bus:
-          return "INFO_PUBLICTRANSPORT_BUS";
+          return Localization.Get("TICKET_PRICE_BUS");
         case TransportInfo.TransportType.Metro:
-          return "INFO_PUBLICTRANSPORT_METRO";
+          return Localization.Get("TICKET_PRICE_METRO");
         case TransportInfo.TransportType.Train:
-          return "INFO_PUBLICTRANSPORT_TRAIN";
+          return Localization.Get("TICKET_PRICE_TRAIN");
         case TransportInfo.TransportType.Ship:
-          return "INFO_PUBLICTRANSPORT_SHIP";
+          return Localization.Get("TICKET_PRICE_SHIP");
         case TransportInfo.TransportType.Airplane:
-          return "INFO_PUBLICTRANSPORT_PLANE";
+          return Localization.Get("TICKET_PRICE_PLANE");
         case TransportInfo.TransportType.Taxi:
-          return "INFO_PUBLICTRANSPORT_TAXI";
+          return Localization.Get(ModSetting.Instance.SpeedUnit == ModSetting.VehicleSpeedUnits.MPH ? "TICKET_PRICE_TAXI_MILE" : "TICKET_PRICE_TAXI_KILOMETER");
         case TransportInfo.TransportType.Tram:
-          return "INFO_PUBLICTRANSPORT_TRAM";
+          return Localization.Get("TICKET_PRICE_TRAM");
         case TransportInfo.TransportType.CableCar:
-          return "INFO_PUBLICTRANSPORT_CABLECAR";
+          return Localization.Get("TICKET_PRICE_CABLECAR");
         case TransportInfo.TransportType.Monorail:
-          return "INFO_PUBLICTRANSPORT_MONORAIL";
+          return Localization.Get("TICKET_PRICE_MONORAIL");
         case TransportInfo.TransportType.Trolleybus:
-          return "INFO_PUBLICTRANSPORT_TROLLEYBUS";
+          return Localization.Get("TICKET_PRICE_TROLLEYBUS");
         default:
-          return string.Empty;
+          return transportType.ToString();
       }
     }
-
     private void UpdateBindings()
     {
       UITextField uiTextField1 = this._rightSidePanel.Find<UITextField>("Capacity");
@@ -862,3 +861,5 @@ namespace ImprovedPublicTransport.UI
     }
   }
 }
+
+

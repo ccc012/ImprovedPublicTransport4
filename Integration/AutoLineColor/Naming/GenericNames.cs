@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.IO;
+using ImprovedPublicTransport.Util;
 using Random = UnityEngine.Random;
-
 
 namespace AutoLineColor.Naming
 {
@@ -17,7 +17,7 @@ namespace AutoLineColor.Naming
         public static void Initialize()
         {
             var logger = Console.Instance;
-            var modSettingsPath = Path.Combine(ColossalFramework.IO.DataLocation.localApplicationData, Path.Combine("ModsSettings", "IPT"));
+            var modSettingsPath = Path.Combine(Path.Combine(Utils.AssemblyPath, "Resources"), "AutoLineColor");
             var fullPath = Path.Combine(modSettingsPath, "GenericLineNames.txt");
             var unparsedNames = DefaultNames;
 
@@ -39,7 +39,6 @@ namespace AutoLineColor.Naming
                 logger.Error("error reading names from disk " + ex);
             }
 
-            // split on new lines, commas and semi-colons
             _names = unparsedNames.Split(new[] { "\n", "\r", ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
         }
 
@@ -55,4 +54,3 @@ namespace AutoLineColor.Naming
         }
     }
 }
-

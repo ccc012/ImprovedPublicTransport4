@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -58,7 +58,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 var currentSettings = ModSetting.Instance;
                 if (currentSettings.TicketPriceCustomizerMode != ModSetting.TicketPriceCustomizerModes.Enabled)
                 {
-                    Utils.Log("TicketPricesTab: disabled by settings; skipping injection");
+
                     Cleanup();
                     return;
                 }
@@ -68,7 +68,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 // Load custom icon atlases
                 LoadCustomIconAtlases();
 
-                Utils.Log("TicketPricesTab: Finding EconomyTabstrip and EconomyContainer");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("TicketPricesTab: Finding EconomyTabstrip and EconomyContainer");
+                }
                 var tabStrip = economyPanel.Find<UITabstrip>("EconomyTabstrip");
                 var tabContainer = economyPanel.Find<UITabContainer>("EconomyContainer");
                 if (tabStrip == null || tabContainer == null)
@@ -77,7 +80,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     return;
                 }
 
-                Utils.Log("TicketPricesTab: Adding tab button");
+
 
                 // Preserve the currently selected page index and page reference so we can restore it after adding a new tab.
                 int existingSelectedIndex = -1;
@@ -98,7 +101,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 // Create the tab button styled like the existing ones
                 var tabButton = tabStrip.AddTab("TicketPrices");
                 tabButton.name = TabName;
-                Utils.Log("TicketPricesTab: Tab button added, setting text");
+
                 tabButton.text = Localization.Get("ECONOMY_TAB_TICKET_PRICES");
                 // Style it to match the other economy tab buttons
                 StyleTabButton(tabButton, tabStrip);
@@ -137,7 +140,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
                 tabStrip.Invalidate();
 
-                Utils.Log($"TicketPricesTab: Page found, size={page.width}x{page.height}; building content");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"TicketPricesTab: Page found, size={page.width}x{page.height}; building content");
+                }
                 page.autoLayout = false;
                 page.size = tabContainer.size;
                 page.isVisible = false; // Hidden until this tab is selected; UITabstrip shows it on click
@@ -146,7 +152,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 BuildTicketPricesContent(page);
 
                 s_initialized = true;
-                Utils.Log("TicketPricesTab: Successfully added Ticket Prices tab to Economy panel");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("TicketPricesTab: Successfully added Ticket Prices tab to Economy panel");
+                }
             }
             catch (Exception ex)
             {
@@ -346,7 +355,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             try
             {
                 // PluginManager is the correct CS1 way to get the mod's folder path
-                var modDir = TranslationFramework.Util.AssemblyPath(typeof(ImprovedPublicTransportMod));
+                var modDir = TranslationFramework.Util.AssemblyPath(typeof(Mod));
                 var iconsDir = Path.Combine(modDir, "Resources");
 
                 if (!Directory.Exists(iconsDir))
@@ -403,7 +412,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     atlas.RebuildIndexes();
 
                     s_customIconAtlases[info.SpriteName] = atlas;
-                    Utils.Log($"TicketPricesTab: Loaded icon {info.SpriteName} ({texture.width}x{texture.height})");
+                    if (Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log($"TicketPricesTab: Loaded icon {info.SpriteName} ({texture.width}x{texture.height})");
+                    }
                 }
             }
             catch (Exception ex)
@@ -435,9 +447,32 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             }
         }
 
+        private static void ApplyTransportIcon(UISprite icon, TransportTypeInfo transportType)
+        {
+            var spriteName = transportType.SpriteName;
+            var atlas = UIView.GetAView().defaultAtlas;
+
+            if (s_customIconAtlases.TryGetValue(spriteName, out var customAtlas) && customAtlas != null)
+            {
+                atlas = customAtlas;
+            }
+            else if (transportType.Name == "IntercityBus")
+            {
+                // Prefer the dedicated icon, but never leave the row blank if that sprite fails.
+                spriteName = "SubBarPublicTransportBus";
+            }
+
+            icon.atlas = atlas;
+            icon.spriteName = spriteName;
+            icon.color = Color.white;
+        }
+
         private static void BuildTicketPricesContent(UIPanel page)
         {
-            Utils.Log($"TicketPricesTab: BuildTicketPricesContent entered, page={page.width}x{page.height}");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log($"TicketPricesTab: BuildTicketPricesContent entered, page={page.width}x{page.height}");
+            }
             page.autoLayout = false;
             // Ensure page has a valid size (if not set, defer initialization)
             if (page.width <= 0 || page.height <= 0)
@@ -474,6 +509,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
             foreach (var transportType in s_transportTypes)
             {
+                if (!IsTransportEnabled(transportType)) continue;
                 if (!HasRequiredDlc(transportType)) continue;
                 if (!IsTransportLoaded(transportType)) continue;
 
@@ -513,11 +549,14 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             rightColumn.scrollWheelDirection = UIOrientation.Vertical;
             rightColumn.builtinKeyNavigation = true;
 
-            Utils.Log($"TicketPricesTab: Creating {landTransport.Count} land rows, {airWaterTransport.Count} air/water rows");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log($"TicketPricesTab: Creating {landTransport.Count} land rows, {airWaterTransport.Count} air/water rows");
+            }
             int landIndex = 0;
             foreach (var transportType in landTransport)
             {
-                Utils.Log($"TicketPricesTab: Creating land row for {transportType.Name}");
+
                 var row = CreateSliderRow(leftColumn, transportType, landIndex);
                 if (row != null)
                 {
@@ -529,7 +568,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             int airIndex = 0;
             foreach (var transportType in airWaterTransport)
             {
-                Utils.Log($"TicketPricesTab: Creating air/water row for {transportType.Name}");
+
                 var row = CreateSliderRow(rightColumn, transportType, airIndex);
                 if (row != null)
                 {
@@ -537,7 +576,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     airIndex++;
                 }
             }
-            Utils.Log("TicketPricesTab: All rows created");
+
 
             s_ticketPricesContainer = leftColumn; // Store reference to main container
 
@@ -547,6 +586,17 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             {
                 if (visible) s_refreshAccumulator = RefreshInterval;
             };
+        }
+
+        private static bool IsTransportEnabled(TransportTypeInfo info)
+        {
+            switch (info.Name)
+            {
+                case "IntercityBus":
+                    return ModSetting.Instance.EnableIntercityBusControl;
+                default:
+                    return true;
+            }
         }
 
         private static bool IsTransportLoaded(TransportTypeInfo info)
@@ -606,7 +656,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             // Falls back to a custom row if the template is unavailable.
             var row = CreateSliderRowFromTemplate(container, transportType, index);
             if (row != null) return row;
-            Utils.Log($"TicketPricesTab: Template unavailable for {transportType.Name}, using fallback");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log($"TicketPricesTab: Template unavailable for {transportType.Name}, using fallback");
+            }
             return CreateSliderRowFallback(container, transportType, index);
         }
 
@@ -616,9 +669,9 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         private static TicketPriceSliderRow CreateSliderRowFromTemplate(
             UIScrollablePanel container, TransportTypeInfo transportType, int index)
         {
-            Utils.Log($"TicketPricesTab: GetAsGameObject BudgetItem for {transportType.Name}");
+
             var templateGO   = UITemplateManager.GetAsGameObject("BudgetItem");
-            Utils.Log($"TicketPricesTab: AttachUIComponent for {transportType.Name} (templateGO null={templateGO == null})");
+
             var rowComponent = container.AttachUIComponent(templateGO);
             
             // Make rows narrower than container to prevent cutoff (leave 30px margin)
@@ -678,17 +731,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             var icon = rowComponent.Find<UISprite>("Icon");
             if (icon != null)
             {
-                // Use custom atlas if available (for Ferry/Blimp/Heli), otherwise use default atlas
-                if (s_customIconAtlases.ContainsKey(transportType.SpriteName))
-                {
-                    icon.atlas = s_customIconAtlases[transportType.SpriteName];
-                }
-                else
-                {
-                    icon.atlas = UIView.GetAView().defaultAtlas;
-                }
-                icon.spriteName = transportType.SpriteName;
-                icon.color = Color.white;
+                ApplyTransportIcon(icon, transportType);
             }
             else
             {
@@ -792,15 +835,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
             // Transport icon – centred vertically (use custom atlas if available)
             var icon = rowPanel.AddUIComponent<UISprite>();
-            if (s_customIconAtlases.ContainsKey(transportType.SpriteName))
-            {
-                icon.atlas = s_customIconAtlases[transportType.SpriteName];
-            }
-            else
-            {
-                icon.atlas = UIView.GetAView().defaultAtlas;
-            }
-            icon.spriteName = transportType.SpriteName;
+            ApplyTransportIcon(icon, transportType);
             
             icon.size             = new Vector2(ICON_W, ICON_W);
             icon.relativePosition = new Vector3(PAD, (rowH - ICON_W) / 2f);
@@ -968,17 +1003,38 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         {
             try
             {
-                int currentPassengers = CalculateCurrentPassengerLoad(transportName);
-                // Display current passenger load with thousand separators
-                string text = currentPassengers.ToString("N0");
+                // Show the resulting fare, which is the whole point of this tab - the sliders only
+                // show a percentage, so without this there was no way to see what the multiplier
+                // actually produced. (This used to show the live passenger count instead, which
+                // reads as a permanent "0" on a small or paused city and told you nothing about the
+                // price.) The passenger count moves to the tooltip, where it is still useful.
+                if (PriceCustomization.TryGetCurrentPrice(transportName, out int currentPrice, out int basePrice))
+                {
+                    totalLabel.text = currentPrice.ToString("N0");
+                    // Highlight when the fare differs from the game's original value for this type.
+                    totalLabel.textColor = currentPrice == basePrice
+                        ? new Color32(206, 248, 0, 255)
+                        : new Color32(255, 190, 60, 255);
 
-                totalLabel.text      = text;
-                totalLabel.textColor = new Color32((byte)206, (byte)248, (byte)0, (byte)255);
+                    int passengers = CalculateCurrentPassengerLoad(transportName);
+                    totalLabel.tooltip = string.Format(
+                        Localization.Get("TICKET_PRICE_LABEL_TOOLTIP"),
+                        currentPrice.ToString("N0"),
+                        basePrice.ToString("N0"),
+                        passengers.ToString("N0"));
+                }
+                else
+                {
+                    // No prefab of this type loaded (e.g. its DLC is missing) - nothing to price.
+                    totalLabel.text = "-";
+                    totalLabel.textColor = new Color32(150, 150, 150, 255);
+                    totalLabel.tooltip = string.Empty;
+                }
             }
             catch (Exception ex)
             {
                 totalLabel.text = "-";
-                Utils.LogWarning($"TicketPricesTab: Failed to update passenger load for {transportName}: {ex.Message}");
+                Utils.LogWarning($"TicketPricesTab: Failed to update price label for {transportName}: {ex.Message}");
             }
         }
 
@@ -1178,7 +1234,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     }
                 }
 
-                Utils.Log("TicketPricesTab: All ticket prices reset to defaults");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("TicketPricesTab: All ticket prices reset to defaults");
+                }
             }
             catch (Exception ex)
             {
@@ -1430,3 +1489,6 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         #endregion
     }
 }
+
+
+

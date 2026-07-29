@@ -97,7 +97,11 @@ namespace StopsAndStations
         /// </summary>
         public override void OnBeforeSimulationFrame()
         {
-            if (Settings == null || segments == null || instances == null || pathUnits == null || nodes == null || transportLines == null)
+            // Resolved once per frame instead of per citizen instance: ModSetting.Instance walks two
+            // dictionaries (manager lookup + setting lookup) on every access, and this loop runs
+            // thousands of iterations per frame.
+            var settings = Settings;
+            if (settings == null || segments == null || instances == null || pathUnits == null || nodes == null || transportLines == null)
             {
                 return;
             }
@@ -116,7 +120,7 @@ namespace StopsAndStations
                 {
                     var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
                     ushort nodeId = segments[pathPosition.m_segment].m_startNode;
-                    if (passengerCount[nodeId] > GetMaximumAllowedPassengers(nodeId))
+                    if (passengerCount[nodeId] > GetMaximumAllowedPassengers(nodeId, settings))
                     {
                         --passengerCount[nodeId];
                         instance.m_flags |= CitizenInstance.Flags.BoredOfWaiting;
@@ -126,7 +130,7 @@ namespace StopsAndStations
             }
         }
 
-        private int GetMaximumAllowedPassengers(ushort nodeId)
+        private int GetMaximumAllowedPassengers(ushort nodeId, ModSetting settings)
         {
             if (nodes == null || transportLines == null)
             {
@@ -143,47 +147,47 @@ namespace StopsAndStations
             switch (line.Info?.m_transportType)
             {
                 case TransportInfo.TransportType.EvacuationBus:
-                    return Settings.MaxWaitingPassengersEvacuationBus;
+                    return settings.MaxWaitingPassengersEvacuationBus;
 
                 case TransportInfo.TransportType.Bus:
-                    return Settings.MaxWaitingPassengersBus;
+                    return settings.MaxWaitingPassengersBus;
 
                 case TransportInfo.TransportType.Trolleybus:
-                    return Settings.MaxWaitingPassengersTrolleybus;
+                    return settings.MaxWaitingPassengersTrolleybus;
 
                 case TransportInfo.TransportType.TouristBus:
-                    return Settings.MaxWaitingPassengersTouristBus;
+                    return settings.MaxWaitingPassengersTouristBus;
 
                 case TransportInfo.TransportType.Tram:
-                    return Settings.MaxWaitingPassengersTram;
+                    return settings.MaxWaitingPassengersTram;
 
                 case TransportInfo.TransportType.Metro:
-                    return Settings.MaxWaitingPassengersMetro;
+                    return settings.MaxWaitingPassengersMetro;
 
                 case TransportInfo.TransportType.Train:
-                    return Settings.MaxWaitingPassengersTrain;
+                    return settings.MaxWaitingPassengersTrain;
 
                 case TransportInfo.TransportType.Monorail:
-                    return Settings.MaxWaitingPassengersMonorail;
+                    return settings.MaxWaitingPassengersMonorail;
 
                 case TransportInfo.TransportType.Airplane:
                     // Both blimps and commercial airplanes use TransportType.Airplane — they cannot be distinguished
                     // at the TransportType level. MaxWaitingPassengersAirplane applies to both.
-                    return Settings.MaxWaitingPassengersAirplane;
+                    return settings.MaxWaitingPassengersAirplane;
 
                 case TransportInfo.TransportType.Ship:
                     // Both ferries and cargo ships use TransportType.Ship — they cannot be distinguished
                     // at the TransportType level. MaxWaitingPassengersShip applies to both.
-                    return Settings.MaxWaitingPassengersShip;
+                    return settings.MaxWaitingPassengersShip;
 
                 case TransportInfo.TransportType.CableCar:
-                    return Settings.MaxWaitingPassengersCableCar;
+                    return settings.MaxWaitingPassengersCableCar;
 
                 case TransportInfo.TransportType.HotAirBalloon:
-                    return Settings.MaxWaitingPassengersHotAirBalloon;
+                    return settings.MaxWaitingPassengersHotAirBalloon;
 
                 case TransportInfo.TransportType.Helicopter:
-                    return Settings.MaxWaitingPassengersHelicopter;
+                    return settings.MaxWaitingPassengersHelicopter;
 
                 default:
                     return int.MaxValue;

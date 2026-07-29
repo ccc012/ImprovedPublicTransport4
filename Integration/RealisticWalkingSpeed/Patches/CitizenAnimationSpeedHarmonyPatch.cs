@@ -1,9 +1,10 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using UnityEngine;
+using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace RealisticWalkingSpeed.Patches
@@ -33,7 +34,10 @@ namespace RealisticWalkingSpeed.Patches
                 }
 
                 _harmony.Patch(setRenderParametersMethodInfo, null, null, new HarmonyMethod(setRenderParametersTranspilerMethodInfo));
-                Utils.Log("CitizenAnimationSpeedHarmonyPatch: Successfully patched SetRenderParameters");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Utils.Log("CitizenAnimationSpeedHarmonyPatch: Successfully patched SetRenderParameters");
+                }
             }
             catch (System.Exception ex)
             {
@@ -64,14 +68,15 @@ namespace RealisticWalkingSpeed.Patches
                     continue;
                 }
 
-                //float magnitude = velocity.magnitude;
-                //->
-                //float magnitude = velocity.magnitude * 2.1f;
                 codes.InsertRange(i - 6, new[] {
-                    new CodeInstruction(OpCodes.Ldc_R4, 2.1f), //TODO finetune per CitizenInfo
+                    new CodeInstruction(OpCodes.Ldc_R4, 2.1f),
                     new CodeInstruction(OpCodes.Mul)
                 });
 
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Utils.Log("CitizenAnimationSpeedHarmonyPatch: Transpiler successfully modified animation speeds");
+                }
                 break;
             }
 

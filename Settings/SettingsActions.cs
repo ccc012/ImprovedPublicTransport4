@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Linq;
+using System.Reflection;
 using ColossalFramework;
 using ColossalFramework.UI;
 using UnityEngine;
@@ -9,36 +10,47 @@ using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace ImprovedPublicTransport.Settings
 {
+    // Deliberately NOT part of ModSetting: this is a one-shot "pick types, click Delete" tool, not a
+    // persistent preference - it must never be saved to disk or survive past the delete action itself.
+    public static class DeleteLinesSelection
+    {
+        public static bool BusLines;
+        public static bool SightseeingBusLines;
+        public static bool TramLines;
+        public static bool TrolleybusLines;
+        public static bool TrainLines;
+        public static bool MetroLines;
+        public static bool MonorailLines;
+        public static bool ShipLines;
+        public static bool HelicopterLines;
+        public static bool BlimpLines;
+
+        public static bool Any() => BusLines || SightseeingBusLines || TramLines || TrolleybusLines
+            || TrainLines || MetroLines || MonorailLines || ShipLines || HelicopterLines || BlimpLines;
+
+        public static void Clear()
+        {
+            BusLines = SightseeingBusLines = TramLines = TrolleybusLines = TrainLines
+                = MetroLines = MonorailLines = ShipLines = HelicopterLines = BlimpLines = false;
+        }
+    }
+
     public static class SettingsActions
     {
-        // Reference to vehicle count slider for enabling/disabling when budget control state changes
-        public static UISlider VehicleCountSlider { get; set; }
+        // Reference to vehicle count slider for enabling/disabling when budget control state changes.
+        // Its normal/disabled colors are already configured by Slider.SetBlueStyle() (see
+        // CSLModsCommonOptionsPanel's AddSlider call) - toggling isEnabled alone re-renders it correctly.
+        public static CSLModsCommon.UI.Sliders.Slider VehicleCountSlider { get; set; }
 
         public static void OnBudgetModeChanged(int mode)
         {
             var isBudgetOn = (mode == (int)ModSetting.BudgetControlModes.Enabled);
-            
-            // Update slider state immediately
+
             if (VehicleCountSlider != null)
             {
-                var activeTrackColor = new Color32(100, 100, 100, 255);
-                var inactiveTrackColor = new Color32(50, 50, 50, 255);
-                var activeThumbColor = new Color32(255, 255, 255, 255);
-                var inactiveThumbColor = new Color32(60, 60, 60, 255);
-
-                // Set both normal and disabled colors because disabled rendering uses disabledColor.
-                VehicleCountSlider.color = isBudgetOn ? inactiveTrackColor : activeTrackColor;
-                VehicleCountSlider.disabledColor = inactiveTrackColor;
-
-                if (VehicleCountSlider.thumbObject != null)
-                {
-                    VehicleCountSlider.thumbObject.color = isBudgetOn ? inactiveThumbColor : activeThumbColor;
-                    VehicleCountSlider.thumbObject.disabledColor = inactiveThumbColor;
-                }
-
                 VehicleCountSlider.isEnabled = !isBudgetOn;
             }
-            
+
             if (!ImprovedPublicTransportMod.InGame)
             {
                 return;
@@ -103,13 +115,13 @@ namespace ImprovedPublicTransport.Settings
                     if (enabled)
                     {
                         ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(ModSetting.Instance.TicketPriceCustomizer);
-                        Utils.Log("SettingsActions: TicketPriceCustomizer enabled.");
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: TicketPriceCustomizer enabled.");
                     }
                     else
                     {
                         // Revert to vanilla prices when disabling
                         ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.ResetToVanilla();
-                        Utils.Log("SettingsActions: TicketPriceCustomizer disabled and prices reset to vanilla.");
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: TicketPriceCustomizer disabled and prices reset to vanilla.");
                     }
                 }
                 catch (Exception ex)
@@ -131,12 +143,12 @@ namespace ImprovedPublicTransport.Settings
             {
                 if (value != 0)
                 {
-                    Utils.Log("SettingsActions: Enabling PublicTransportUnstucker");
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: Enabling PublicTransportUnstucker");
                     PublicTransportUnstucker.PublicTransportUnstuckerIntegration.Activate();
                 }
                 else
                 {
-                    Utils.Log("SettingsActions: Disabling PublicTransportUnstucker");
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: Disabling PublicTransportUnstucker");
                     PublicTransportUnstucker.PublicTransportUnstuckerIntegration.Deactivate();
                 }
             });
@@ -144,11 +156,11 @@ namespace ImprovedPublicTransport.Settings
 
         public static void OnRealisticWalkingSpeedChanged(int walkingSpeedMode)
         {
-            Utils.Log($"SettingsActions: OnRealisticWalkingSpeedChanged called with mode {walkingSpeedMode}");
+            if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log($"SettingsActions: OnRealisticWalkingSpeedChanged called with mode {walkingSpeedMode}");
             
             if (!ImprovedPublicTransportMod.InGame)
             {
-                Utils.Log("SettingsActions: Not in-game, changes will be applied when game loads");
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: Not in-game, changes will be applied when game loads");
                 return;
             }
             
@@ -158,12 +170,12 @@ namespace ImprovedPublicTransport.Settings
                 {
                     if (walkingSpeedMode == (int)ModSetting.WalkingSpeedModes.Realistic)
                     {
-                        Utils.Log("SettingsActions: Enabling Realistic Walking Speed");
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: Enabling Realistic Walking Speed");
                         RealisticWalkingSpeedMod.EnableRealisticWalkingSpeedMod();
                     }
                     else
                     {
-                        Utils.Log("SettingsActions: Disabling Realistic Walking Speed");
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: Disabling Realistic Walking Speed");
                         RealisticWalkingSpeedMod.DisableRealisticWalkingSpeedMod();
                     }
                 }
@@ -216,7 +228,11 @@ namespace ImprovedPublicTransport.Settings
                     CachedTransportLineData.SetTargetVehicleCount((ushort) index, options.DefaultVehicleCount);
                 }
 
-                Localization.Get("Unbunching settings reset to defaults.");
+                // Rebuild the Options panel so its sliders show the new values immediately,
+                // instead of only picking them up the next time the panel is opened.
+                CSLModsCommon.Manager.OptionsPanelManager.Refresh();
+
+
             });
         }
 
@@ -227,16 +243,7 @@ namespace ImprovedPublicTransport.Settings
             {
                 return;
             }
-            if (!ModSetting.Instance.DeleteBusLines &&
-                !ModSetting.Instance.DeleteSightseeingBusLines &&
-                !ModSetting.Instance.DeleteTramLines &&
-                !ModSetting.Instance.DeleteTrolleybusLines &&
-                !ModSetting.Instance.DeleteTrainLines &&
-                !ModSetting.Instance.DeleteMetroLines &&
-                !ModSetting.Instance.DeleteMonorailLines &&
-                !ModSetting.Instance.DeleteShipLines &&
-                !ModSetting.Instance.DeleteHelicopterLines &&
-                !ModSetting.Instance.DeleteBlimpLines)
+            if (!DeleteLinesSelection.Any())
             {
                 return;
             }
@@ -251,6 +258,57 @@ namespace ImprovedPublicTransport.Settings
                         SimulationManager.instance.AddAction(DeleteLines);
                     });
                 });
+        }
+
+        public static void SaveSettings()
+        {
+            CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
+        }
+
+        public static void ApplyTicketPriceSettings()
+        {
+            SaveSettings();
+
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            SimulationManager.instance.AddAction(() =>
+            {
+                try
+                {
+                    ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.ApplyForCurrentTime(ModSetting.Instance.TicketPriceCustomizer);
+                }
+                catch (System.Exception ex)
+                {
+                    Utils.LogError($"SettingsActions: ApplyTicketPriceSettings failed: {ex.Message}");
+                }
+            });
+        }
+
+        public static void ResetTicketPriceSettings()
+        {
+            var defaults = new ModSetting.TicketPriceCustomizerSettings();
+            var current = ModSetting.Instance.TicketPriceCustomizer;
+            if (current == null)
+            {
+                current = ModSetting.Instance.TicketPriceCustomizer = new ModSetting.TicketPriceCustomizerSettings();
+            }
+
+            foreach (var prop in typeof(ModSetting.TicketPriceCustomizerSettings).GetProperties(BindingFlags.Instance | BindingFlags.Public))
+            {
+                if (prop.CanWrite && prop.PropertyType == typeof(float))
+                {
+                    prop.SetValue(current, prop.GetValue(defaults, null), null);
+                }
+            }
+
+            ApplyTicketPriceSettings();
+
+            // Rebuild the Options panel so its sliders show the new values immediately,
+            // instead of only picking them up the next time the panel is opened.
+            CSLModsCommon.Manager.OptionsPanelManager.Refresh();
         }
 
         private static void DeleteLines()
@@ -275,31 +333,31 @@ namespace ImprovedPublicTransport.Settings
                         switch (subService)
                         {
                             case ItemClass.SubService.PublicTransportBus:
-                                flag = ModSetting.Instance.DeleteBusLines;
+                                flag = DeleteLinesSelection.BusLines;
                                 break;
                             case ItemClass.SubService.PublicTransportMetro:
-                                flag = ModSetting.Instance.DeleteMetroLines;
+                                flag = DeleteLinesSelection.MetroLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTrain:
-                                flag = ModSetting.Instance.DeleteTrainLines;
+                                flag = DeleteLinesSelection.TrainLines;
                                 break;
                             case ItemClass.SubService.PublicTransportShip:
-                                flag = ModSetting.Instance.DeleteShipLines;
+                                flag = DeleteLinesSelection.ShipLines;
                                 break;
                             case ItemClass.SubService.PublicTransportPlane:
                                 if (info.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
-                                    flag = ModSetting.Instance.DeleteHelicopterLines;
+                                    flag = DeleteLinesSelection.HelicopterLines;
                                 else if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
-                                    flag = ModSetting.Instance.DeleteBlimpLines;
+                                    flag = DeleteLinesSelection.BlimpLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTram:
-                                flag = ModSetting.Instance.DeleteTramLines;
+                                flag = DeleteLinesSelection.TramLines;
                                 break;
                             case ItemClass.SubService.PublicTransportMonorail:
-                                flag = ModSetting.Instance.DeleteMonorailLines;
+                                flag = DeleteLinesSelection.MonorailLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTrolleybus:
-                                flag = ModSetting.Instance.DeleteTrolleybusLines;
+                                flag = DeleteLinesSelection.TrolleybusLines;
                                 break;
                         }
                     }
@@ -308,19 +366,19 @@ namespace ImprovedPublicTransport.Settings
                         switch (subService)
                         {
                             case ItemClass.SubService.PublicTransportBus:
-                                flag = ModSetting.Instance.DeleteBusLines;
+                                flag = DeleteLinesSelection.BusLines;
                                 break;
                             case ItemClass.SubService.PublicTransportShip:
-                                flag = ModSetting.Instance.DeleteShipLines;
+                                flag = DeleteLinesSelection.ShipLines;
                                 break;
                             case ItemClass.SubService.PublicTransportPlane:
                                 if (info.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
-                                    flag = ModSetting.Instance.DeleteHelicopterLines;
+                                    flag = DeleteLinesSelection.HelicopterLines;
                                 else if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
-                                    flag = ModSetting.Instance.DeleteBlimpLines;
+                                    flag = DeleteLinesSelection.BlimpLines;
                                 break;
                             case ItemClass.SubService.PublicTransportTrain:
-                                flag = ModSetting.Instance.DeleteTrainLines;
+                                flag = DeleteLinesSelection.TrainLines;
                                 break;
                         }
                     }
@@ -329,13 +387,13 @@ namespace ImprovedPublicTransport.Settings
                         switch (subService)
                         {
                             case ItemClass.SubService.PublicTransportTours:
-                                flag = ModSetting.Instance.DeleteSightseeingBusLines;
+                                flag = DeleteLinesSelection.SightseeingBusLines;
                                 break;
                             case ItemClass.SubService.PublicTransportPlane:
                                 if (info.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
-                                    flag = ModSetting.Instance.DeleteHelicopterLines;
+                                    flag = DeleteLinesSelection.HelicopterLines;
                                 else if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
-                                    flag = ModSetting.Instance.DeleteBlimpLines;
+                                    flag = DeleteLinesSelection.BlimpLines;
                                 break;
                         }
                     }
@@ -345,6 +403,12 @@ namespace ImprovedPublicTransport.Settings
                     }
                 }
             }
+
+            DeleteLinesSelection.Clear();
+            CSLModsCommon.Manager.OptionsPanelManager.Refresh();
         }
     }
 }
+
+
+

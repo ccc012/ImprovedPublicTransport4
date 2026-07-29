@@ -17,8 +17,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
     {
         public static void Apply()
         {
-            ImprovedPublicTransport.Util.Utils.Log($"{ShortModName}: +++ SimulationStepPatch: check existing patches for TransportLine.SimulationStep");
-            PatchUtil.LogExistingPatches(typeof(TransportLine).GetMethod(nameof(TransportLine.SimulationStep), System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic));
+            if (Diagnostics.VerboseTranspileLogs)
+            {
+                ImprovedPublicTransport.Util.Utils.Log($"{ShortModName}: +++ SimulationStepPatch: check existing patches for TransportLine.SimulationStep");
+                PatchUtil.LogExistingPatches(typeof(TransportLine).GetMethod(nameof(TransportLine.SimulationStep), System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic));
+            }
 
             PatchUtil.Patch(
                 new PatchUtil.MethodDefinition(typeof(TransportLine), nameof(TransportLine.SimulationStep)),
@@ -38,7 +41,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
         public static IEnumerable<CodeInstruction> Transpile(MethodBase original,
             IEnumerable<CodeInstruction> instructions)
         {
-            Debug.Log($"{ShortModName}: Transpiling method: {original.DeclaringType}.{original}");
+            if (Diagnostics.VerboseTranspileLogs)
+            {
+                Debug.Log($"{ShortModName}: Transpiling method: {original.DeclaringType}.{original}");
+            }
 
             var codes = new List<CodeInstruction>(instructions);
             var newCodes = new List<CodeInstruction>();
@@ -52,13 +58,19 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
 
                 if (codeInstruction.operand.ToString().Contains(nameof(EconomyManager.FetchResource)))
                 {
-                    Debug.Log($"{ShortModName}: Replacing call to FetchResourceStub()");
+                    if (Diagnostics.VerboseTranspileLogs)
+                    {
+                        Debug.Log($"{ShortModName}: Replacing call to FetchResourceStub()");
+                    }
                     newCodes.Add(new CodeInstruction(OpCodes.Call,
                         AccessTools.Method(typeof(SimulationStepPatch), nameof(FetchResourceStub))));
                     continue;
                 }
 
-                Debug.Log($"{ShortModName}: Replacing call to CalculateTargetVehicleCount()");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Debug.Log($"{ShortModName}: Replacing call to CalculateTargetVehicleCount()");
+                }
                 var thisInstruction = newCodes[newCodes.Count - 1];
                 newCodes.RemoveAt(newCodes.Count - 1);
 
@@ -117,8 +129,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             if (amount != 0)
             {
                 var line = TransportManager.instance.m_lines.m_buffer[__state];
-                var lineName = TransportManager.instance.GetLineName(__state);
-                ImprovedPublicTransport.Util.Utils.Log($"SimulationStepPatch: line {__state} ({lineName}) maintenance cost {amount}, activeVehicles={activeVehicles}");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    var lineName = TransportManager.instance.GetLineName(__state);
+                    ImprovedPublicTransport.Util.Utils.Log($"SimulationStepPatch: line {__state} ({lineName}) maintenance cost {amount}, activeVehicles={activeVehicles}");
+                }
 
                 Singleton<EconomyManager>.instance.FetchResource(EconomyManager.Resource.Maintenance, amount,
                     line.Info.m_class);
@@ -157,3 +172,4 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
         }
     }
 }
+

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using ColossalFramework;
 using ColossalFramework.Plugins;
 using ICities;
 
@@ -7,39 +9,74 @@ namespace ImprovedPublicTransport.TranslationFramework
 {
     public static class Util
     {
+        /// <summary>
+        /// Gets the on-disk folder this mod was loaded from.
+        /// </summary>
+        /// <param name="modType">
+        /// The mod's <see cref="IUserMod"/> type. Only used as a hint - resolution falls back to
+        /// locating the plugin by our own assembly, which keeps working even if the class that
+        /// implements <see cref="IUserMod"/> changes (that exact mismatch previously broke both
+        /// translation loading and the ticket-price icon atlases, because callers were still
+        /// passing the pre-CSLModsCommon class).
+        /// </param>
         public static string AssemblyPath(Type modType)
         {
-            return PluginInfo(modType).modPath;
+            var pluginInfo = FindPluginByAssembly() ?? FindPluginByUserModType(modType);
+            if (pluginInfo == null)
+            {
+                throw new Exception("Failed to locate this mod's plugin folder (assembly lookup and IUserMod type lookup both failed, type: " + modType + ")");
+            }
+
+            return pluginInfo.modPath;
         }
 
-        private static PluginManager.PluginInfo PluginInfo(Type modType)
+        /// <summary>
+        /// Preferred lookup: ask the game which plugin owns the assembly this code lives in.
+        /// Independent of which class happens to implement <see cref="IUserMod"/>.
+        /// </summary>
+        private static PluginManager.PluginInfo FindPluginByAssembly()
         {
-            var pluginManager = PluginManager.instance;
-            var plugins = pluginManager.GetPluginsInfo();
             try
             {
-                foreach (var item in plugins)
+                return Singleton<PluginManager>.instance.FindPluginInfo(Assembly.GetExecutingAssembly());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static PluginManager.PluginInfo FindPluginByUserModType(Type modType)
+        {
+            if (modType == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                foreach (var item in PluginManager.instance.GetPluginsInfo())
                 {
                     try
                     {
                         var instances = item.GetInstances<IUserMod>();
-                        if (modType != instances.FirstOrDefault()?.GetType())
+                        if (modType == instances.FirstOrDefault()?.GetType())
                         {
-                            continue;
+                            return item;
                         }
-                        return item;
                     }
                     catch
                     {
-                        //do nothing
+                        // A single misbehaving plugin shouldn't abort the search.
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception("Failed to find assembly of type" + modType, e);
+                return null;
             }
-            throw new Exception("Failed to find assembly of type" + modType);
+
+            return null;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using System.Reflection;
 using ColossalFramework;
@@ -16,6 +16,16 @@ namespace MileageTaxiServices
         /// Equals to 1/2000, which is half of the standard "journey displacement" fare rate
         /// </summary>
         private const double TaxiMileageFareRate = 1.0 / 2000.0;
+
+        /// <summary>
+        /// Generous upper bound (in-game units, ~meters) a taxi could plausibly travel in a single
+        /// simulation frame. Guards against corrupted/uninitialized frame data (e.g. right after a
+        /// taxi spawns, or stale frame history after loading a save) producing an implausibly large
+        /// distance - which would overflow the (int) cast below into a huge garbage value (often a
+        /// large negative number on Mono), draining the public transport budget in one step. This is
+        /// the known upstream "snowballing negative taxi income" issue.
+        /// </summary>
+        private const double MaxPlausibleFrameDistance = 200.0;
 
         [UsedImplicitly]
         public static MethodBase TargetMethod()
@@ -35,7 +45,7 @@ namespace MileageTaxiServices
         [UsedImplicitly]
         public static void HandleTaxiGenerateMileageIncome(TaxiAI __instance, ushort vehicleID, ref Vehicle vehicleData)
         {
-            if (ReversePatch_TaxiAI_GetPassengerInstance.TaxiAI_GetPassengerInstance(__instance, vehicleID, ref vehicleData) == 0)
+            if (!HasPassenger(ref vehicleData))
             {
                 // no passenger; skip
                 return;
@@ -49,9 +59,23 @@ namespace MileageTaxiServices
             // this means idling (i.e. not enough distance travelled) also generates a little bit of fare
             // this allows maximum compatibility with other fare-scaling mods
             // note to fellow programmers: if rounding up of non-negative numbers is needed, then can simply use (int)x + ((int)(x%1 - 1) + 1)
-            var standardInstantFare = __instance.m_transportInfo.m_ticketPrice * DetermineDelta(ref vehicleData) * TaxiMileageFareRate;
+            var distance = DetermineDelta(ref vehicleData);
+            if (double.IsNaN(distance) || distance < 0 || distance > MaxPlausibleFrameDistance)
+            {
+                // Corrupted/uninitialized frame data - skip this frame's fare rather than risk an int overflow.
+                return;
+            }
+
+            var standardInstantFare = __instance.m_transportInfo.m_ticketPrice * distance * TaxiMileageFareRate;
             var instantFare = (int)standardInstantFare + 1;
             Singleton<EconomyManager>.instance.AddResource(EconomyManager.Resource.PublicIncome, instantFare, __instance.m_info.m_class);
+        }
+
+        private static bool HasPassenger(ref Vehicle vehicleData)
+        {
+            // Taxi occupancy is tracked by transfer size in the base game data.
+            // Using it directly is more stable than relying on a reverse patch into TaxiAI.
+            return vehicleData.m_transferSize > 0;
         }
 
         private static double DetermineDelta(ref Vehicle vehicleData)
@@ -90,3 +114,5 @@ namespace MileageTaxiServices
         }
     }
 }
+
+

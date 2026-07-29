@@ -1,0 +1,12 @@
+﻿GPL-3.0-only
+
+This folder contains a new IPT integration layer for the Steam Workshop item
+3233229958, Train Display - Updated v1.5.4.
+
+Source origin, credits, and licensing notes:
+- The upstream mod is GPL-3.0 licensed.
+- Preserve upstream copyright notices when importing source files.
+- Keep this integration isolated from IPT UI/menu/options files.
+- The First Person Camera - Continued dependency (Workshop 3236046692) is treated as optional at runtime.
+
+This folder only contains the IPT-side integration and runtime bridge.

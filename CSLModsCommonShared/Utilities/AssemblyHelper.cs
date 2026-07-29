@@ -1,5 +1,6 @@
-﻿using ColossalFramework.Plugins;
+using ColossalFramework.Plugins;
 using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -20,7 +21,28 @@ public static class AssemblyHelper {
 
     private static Version GetCurrentAssemblyVersion() => Assembly.GetExecutingAssembly().GetName().Version;
 
-    private static string GetCurrentAssemblyDirectory() => PluginManager.instance.GetPluginsInfo()
-            .FirstOrDefault(item => item.GetAssemblies().Any(a => a.GetName().Name == CurrentAssemblyName))
-            ?.modPath;
+    private static string GetCurrentAssemblyDirectory() {
+        try {
+            var modPath = PluginManager.instance.GetPluginsInfo()
+                .FirstOrDefault(item => item.GetAssemblies().Any(a => a.GetName().Name == CurrentAssemblyName))
+                ?.modPath;
+
+            if (!string.IsNullOrEmpty(modPath)) {
+                return modPath;
+            }
+        }
+        catch {
+        }
+
+        try {
+            var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            if (!string.IsNullOrEmpty(assemblyLocation)) {
+                return Path.GetDirectoryName(assemblyLocation);
+            }
+        }
+        catch {
+        }
+
+        return AppDomain.CurrentDomain.BaseDirectory;
+    }
 }

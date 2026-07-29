@@ -1,4 +1,4 @@
-﻿using CitiesHarmony.API;
+using CitiesHarmony.API;
 using ICities;
 using RealisticWalkingSpeed.Patches;
 using System.Collections.Generic;
@@ -20,7 +20,10 @@ namespace RealisticWalkingSpeed
 
         public static void EnableRealisticWalkingSpeedMod()
         {
-            Utils.Log("RealisticWalkingSpeed: EnableRealisticWalkingSpeedMod called");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log("RealisticWalkingSpeed: EnableRealisticWalkingSpeedMod called");
+            }
             HarmonyHelper.DoOnHarmonyReady(() => 
             {
                 Patcher.PatchAll();
@@ -33,7 +36,10 @@ namespace RealisticWalkingSpeed
 
         public static void DisableRealisticWalkingSpeedMod()
         {
-            Utils.Log("RealisticWalkingSpeed: DisableRealisticWalkingSpeedMod called");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log("RealisticWalkingSpeed: DisableRealisticWalkingSpeedMod called");
+            }
             
             if (!HarmonyHelper.IsHarmonyInstalled)
             {
@@ -53,7 +59,10 @@ namespace RealisticWalkingSpeed
             if (mode != LoadMode.NewGame && mode != LoadMode.NewGameFromScenario && mode != LoadMode.LoadGame)
                 return;
 
-            Utils.Log($"RealisticWalkingSpeed: Level loaded in mode {mode}");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log($"RealisticWalkingSpeed: Level loaded in mode {mode}");
+            }
             ApplyInGamePatch();
         }
 
@@ -61,15 +70,26 @@ namespace RealisticWalkingSpeed
         {
             if (_inGamePatchApplied)
             {
-                Utils.Log("RealisticWalkingSpeed: In-game patch already applied, skipping.");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: In-game patch already applied, skipping.");
+                }
+                return;
+            }
+
+            if (PrefabCollection<CitizenInfo>.LoadedCount() == 0)
+            {
+                Utils.LogWarning("RealisticWalkingSpeed: Citizen prefabs are not loaded yet; skipping in-game speed patch for now.");
                 return;
             }
 
             try
             {
-                Utils.Log("RealisticWalkingSpeed: Applying in-game walk speed patches...");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Applying in-game walk speed patches...");
+                }
                 
-                // Store original speeds before modifying
                 _originalWalkSpeeds.Clear();
                 for (uint i = 0; i < PrefabCollection<CitizenInfo>.LoadedCount(); i++)
                 {
@@ -80,14 +100,17 @@ namespace RealisticWalkingSpeed
                     }
                 }
 
-                // Now apply the patches
                 new CitizenWalkingSpeedInGamePatch(new SpeedData()).Apply();
-                _inGamePatchApplied = true;
-                Utils.Log($"RealisticWalkingSpeed: In-game patches applied to {_originalWalkSpeeds.Count} citizen prefabs");
+                _inGamePatchApplied = _originalWalkSpeeds.Count > 0;
+                if (_inGamePatchApplied && Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"RealisticWalkingSpeed: In-game patches applied to {_originalWalkSpeeds.Count} citizen prefabs");
+                }
             }
             catch (System.Exception ex)
             {
                 Utils.LogError($"RealisticWalkingSpeed: Failed to apply in-game patches: {ex.Message}\n{ex.StackTrace}");
+                _originalWalkSpeeds.Clear();
                 _inGamePatchApplied = false;
             }
         }
@@ -96,16 +119,21 @@ namespace RealisticWalkingSpeed
         {
             if (!_inGamePatchApplied)
             {
-                Utils.Log("RealisticWalkingSpeed: No in-game patches to revert, skipping.");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: No in-game patches to revert, skipping.");
+                }
                 return;
             }
 
             try
             {
-                Utils.Log("RealisticWalkingSpeed: Reverting in-game walk speed patches...");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("RealisticWalkingSpeed: Reverting in-game walk speed patches...");
+                }
                 int revertedCount = 0;
                 
-                // Restore original speeds
                 for (uint i = 0; i < PrefabCollection<CitizenInfo>.LoadedCount(); i++)
                 {
                     var citizenPrefab = PrefabCollection<CitizenInfo>.GetLoaded(i);
@@ -118,7 +146,10 @@ namespace RealisticWalkingSpeed
 
                 _originalWalkSpeeds.Clear();
                 _inGamePatchApplied = false;
-                Utils.Log($"RealisticWalkingSpeed: In-game patches reverted on {revertedCount} citizen prefabs");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"RealisticWalkingSpeed: In-game patches reverted on {revertedCount} citizen prefabs");
+                }
             }
             catch (System.Exception ex)
             {

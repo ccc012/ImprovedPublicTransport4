@@ -13,7 +13,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches
     {
         public static void Apply()
         {
-            Utils.Log("EconomyPanelAwakePatch: Attempting to apply patch on EconomyPanel.Awake");
+            if (Diagnostics.VerboseTranspileLogs)
+            {
+                Utils.Log("EconomyPanelAwakePatch: Attempting to apply patch on EconomyPanel.Awake");
+            }
 
             // Log if someone else already patched EconomyPanel.Awake
             var economyAwakeMethod = typeof(EconomyPanel).GetMethod("Awake", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
@@ -36,7 +39,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches
                     new PatchUtil.MethodDefinition(typeof(EconomyPanel), "Awake"),
                     postfix: new PatchUtil.MethodDefinition(typeof(EconomyPanelAwakePatch), nameof(Postfix))
                 );
-                Utils.Log("EconomyPanelAwakePatch: Patch applied");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Utils.Log("EconomyPanelAwakePatch: Patch applied");
+                }
             }
             else
             {
@@ -62,7 +68,6 @@ namespace ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches
                 var uiView = UIView.GetAView();
                 if (uiView == null)
                 {
-                    Utils.Log("EconomyPanelAwakePatch: UIView not found yet");
                     return;
                 }
 
@@ -72,22 +77,27 @@ namespace ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches
                 
                 if (economyPanel == null)
                 {
-                    Utils.Log("EconomyPanelAwakePatch: EconomyPanel not found in UIView yet");
                     return;
                 }
 
-                Utils.Log("EconomyPanelAwakePatch: Found existing EconomyPanel, injecting immediately");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log("EconomyPanelAwakePatch: Found existing EconomyPanel, injecting immediately");
+                }
                 Integration.TicketPriceCustomizer.TicketPricesTab.InjectTab(economyPanel);
             }
             catch (System.Exception ex)
             {
-                Utils.Log($"EconomyPanelAwakePatch: TryInjectNow failed: {ex.Message}");
+                Utils.LogWarning($"EconomyPanelAwakePatch: TryInjectNow failed: {ex.Message}");
             }
         }
 
         private static void Postfix(EconomyPanel __instance)
         {
-            Utils.Log("EconomyPanelAwakePatch: Postfix called - injecting Ticket Prices tab");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                Utils.Log("EconomyPanelAwakePatch: Postfix called - injecting Ticket Prices tab");
+            }
             Integration.TicketPriceCustomizer.TicketPricesTab.InjectTab(__instance);
         }
     }

@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: ImprovedPublicTransport.PanelExtenderLine
 // Assembly: ImprovedPublicTransport, Version=1.0.6177.17409, Culture=neutral, PublicKeyToken=null
 // MVID: 76F370C5-F40B-41AE-AA9D-1E3F87E934D3
@@ -308,14 +308,14 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
                     if (currentlyDisabled || lineVehicleCount >= targetVehicleCount)
                     {
-                        _spawnTimer.text = string.Format(Localization.Get("LINE_PANEL_SPAWNTIMER"), "∞");
+                        _spawnTimer.text = string.Format(Localization.Get("LINE_PANEL_SPAWNTIMER"), "8");
                     }
                     else
                     {
                         var timeToNext = Mathf.Max(0,
                             Mathf.CeilToInt(CachedTransportLineData.GetNextSpawnTime(lineId) -
                                             SimHelper.SimulationTime));
-                        _spawnTimer.text = string.Format(Localization.Get("LINE_PANEL_SPAWNTIMER"), "≥" + timeToNext);
+                        _spawnTimer.text = string.Format(Localization.Get("LINE_PANEL_SPAWNTIMER"), "=" + timeToNext);
                     }
                 }
                 else
@@ -806,29 +806,33 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
                 if (lineId == 0)
                     return;
+
                 ushort depot = CachedTransportLineData.GetDepot(lineId);
                 TransportInfo info = TransportManager.instance.m_lines.m_buffer[lineId].Info;
-                if (!DepotUtil.CanAddVehicle(depot,
-                    ref Singleton<BuildingManager>.instance.m_buildings.m_buffer[depot], info))
+                if (info == null)
                     return;
+
                 CachedTransportLineData.SetBudgetControlState(lineId, false);
+
                 if (depot == 0)
                 {
                     CachedTransportLineData.IncreaseTargetVehicleCount(lineId);
+                    return;
                 }
-                else
-                {
-                    string prefabName =
-                        !(component as VehicleListBoxRow != null)
-                            ? CachedTransportLineData.GetRandomPrefab(lineId)
-                            : (component as VehicleListBoxRow).Prefab.Name;
-                    CachedTransportLineData.EnqueueVehicle(lineId, prefabName); //we need to enqueue vehicle first
-                    CachedTransportLineData.IncreaseTargetVehicleCount(lineId);
-                }
+
+                if (!DepotUtil.CanAddVehicle(depot,
+                    ref Singleton<BuildingManager>.instance.m_buildings.m_buffer[depot], info))
+                    return;
+
+                string prefabName =
+                    !(component as VehicleListBoxRow != null)
+                        ? CachedTransportLineData.GetRandomPrefab(lineId)
+                        : (component as VehicleListBoxRow).Prefab.Name;
+                CachedTransportLineData.EnqueueVehicle(lineId, prefabName);
+                CachedTransportLineData.IncreaseTargetVehicleCount(lineId);
             });
         }
 
-        //TODO(): consider corner cases
         private void OnRemoveVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
         {
             SimulationManager.instance.AddAction(() =>
@@ -836,36 +840,63 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
                 if (lineId == 0)
                     return;
+
+                TransportInfo info = Singleton<TransportManager>.instance.m_lines.m_buffer[lineId].Info;
+                if (info == null)
+                    return;
+
                 CachedTransportLineData.SetBudgetControlState(lineId, false);
-                int[] selectedIndexes = _vehiclesInQueueListBox.SelectedIndexes;
-                HashSet<ushort> selectedVehicles = _lineVehicleListBox.SelectedVehicles;
-                if (selectedIndexes.Length != 0)
+                int[] selectedIndexes = _vehiclesInQueueListBox != null ? _vehiclesInQueueListBox.SelectedIndexes : new int[0];
+                HashSet<ushort> selectedVehicles = _lineVehicleListBox?.SelectedVehicles ?? new HashSet<ushort>();
+                int targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineId);
+
+                if (selectedIndexes.Length > 0)
                 {
                     CachedTransportLineData.DequeueVehicles(lineId, selectedIndexes);
+                    return;
                 }
-                else if (selectedVehicles.Count > 0)
+
+                if (selectedVehicles.Count > 0)
                 {
+                    int removedVehicles = 0;
                     foreach (ushort vehicleID in selectedVehicles)
+                    {
+                        if (vehicleID == 0)
+                            continue;
+
+                        Vehicle vehicle = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[vehicleID];
+                        if (vehicle.Info == null || (vehicle.m_flags & Vehicle.Flags.Deleted) != 0)
+                            continue;
+
                         TransportLineUtil.RemoveVehicle(lineId, vehicleID, true);
-                }
-                else if (CachedTransportLineData.EnqueuedVehiclesCount(lineId) > 0)
-                {
-                    CachedTransportLineData.DequeueVehicle(lineId);
-                }
-                else
-                {
-                    var activeVehicles = TransportLineUtil.CountLineActiveVehicles(lineId, out int _);
-                    if (activeVehicles > 0)
-                    {
-                        TransportLineUtil.RemoveActiveVehicle(lineId, true, activeVehicles);
+                        removedVehicles++;
                     }
-                    else
+
+                    if (removedVehicles == 0 && targetVehicleCount > 0)
                     {
-                        if (CachedTransportLineData.GetTargetVehicleCount(lineId) <= 0)
-                            return;
                         CachedTransportLineData.DecreaseTargetVehicleCount(lineId);
                     }
+                    return;
                 }
+
+                if (CachedTransportLineData.EnqueuedVehiclesCount(lineId) > 0)
+                {
+                    CachedTransportLineData.DequeueVehicle(lineId);
+                    return;
+                }
+
+                int activeVehicles = TransportLineUtil.CountLineActiveVehicles(lineId, out int allVehicles);
+                if (activeVehicles > 0)
+                {
+                    TransportLineUtil.RemoveActiveVehicle(lineId, true, activeVehicles);
+                    return;
+                }
+
+                if (allVehicles > 0)
+                    return;
+
+                if (targetVehicleCount > 0)
+                    CachedTransportLineData.DecreaseTargetVehicleCount(lineId);
             });
         }
 
@@ -1068,3 +1099,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         }
     }
 }
+
+
+
+

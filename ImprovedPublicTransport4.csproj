@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net35</TargetFramework>
     <AssemblyName>ImprovedPublicTransport4</AssemblyName>
-    <RootNamespace>ImprovedPublicTransport3</RootNamespace>
+    <RootNamespace>ImprovedPublicTransport4</RootNamespace>
     <OutputType>Library</OutputType>
     <Deterministic>false</Deterministic>
     <LangVersion>latest</LangVersion>
@@ -56,12 +56,16 @@
       <HintPath>$(GamePath)/UnityEngine.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\System.Runtime.Serialization.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
     <Reference Include="CitiesHarmony.API">
-      <HintPath>$(HOME)/.nuget/packages/citiesharmony.api/2.2.0/lib/net35/CitiesHarmony.API.dll</HintPath>
+      <HintPath>$(UserProfile)\.nuget\packages\citiesharmony.api\2.2.0\lib\net35\CitiesHarmony.API.dll</HintPath>
       <Private>true</Private>
     </Reference>
     <Reference Include="CitiesHarmony.Harmony">
-      <HintPath>$(HOME)/.nuget/packages/citiesharmony.harmony/2.2.2/lib/net35/CitiesHarmony.Harmony.dll</HintPath>
+      <HintPath>$(UserProfile)\.nuget\packages\citiesharmony.harmony\2.2.2\lib\net35\CitiesHarmony.Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <PackageReference Include="Json.Net.Unity3D" Version="9.0.1" />
@@ -109,7 +113,6 @@
   <Import Project="CSLModsCommonShared/CSLModsCommonShared.projitems" Label="Shared" />
   <Import Project="CSLModsCommonShared.Patch/CSLModsCommonShared.Patch.projitems" Label="Shared" />
 
-  <!-- Include FlightTracker translations for deployment (preserve FT translations separately) -->
   <ItemGroup>
     <FTTranslationsTopLevel Include="$(ProjectDir)Integration/FlightTracker/Translations/*.csv" Condition="Exists('$(ProjectDir)Integration/FlightTracker/Translations')" />
     <FTTranslationsCore Include="$(ProjectDir)Integration/FlightTracker/Translations/Core/*.csv" Condition="Exists('$(ProjectDir)Integration/FlightTracker/Translations/Core')" />
@@ -125,17 +128,23 @@
       <ResourceFiles Include="$(ProjectDir)Resources/*" />
       <IconFiles Include="$(ProjectDir)Resources/*" />
       <LegacyIconFiles Include="$(ProjectDir)Integration/TicketPriceCustomizer/Resources/*" />
-      <CitiesHarmonyApi Include="$(TargetDir)CitiesHarmony.API.dll" />
       <FTTranslationsTopLevelFiles Include="@(FTTranslationsTopLevel)" />
       <FTTranslationsCoreFiles Include="@(FTTranslationsCore)" />
+      <CSLModsCommonLocaleFiles Include="$(ProjectDir)CSLModsCommonShared/Localization/Common/*.json" />
     </ItemGroup>
-    <!-- Remove existing mod folder and deploy only the IPT assembly and CitiesHarmony.API, plus Locale and Resources -->
-    <RemoveDir Directories="$(ModDirectory)" />
     <MakeDir Directories="$(ModDirectory)" />
+    <MakeDir Directories="$(ModDirectory)Translations\" />
+    <MakeDir Directories="$(ModDirectory)Translations\Core\" />
+    <MakeDir Directories="$(ModDirectory)Resources\" />
+    <MakeDir Directories="$(ModDirectory)Localization\" />
+    <MakeDir Directories="$(ModDirectory)Localization\Common\" />
+    <Copy SourceFiles="C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\System.Runtime.Serialization.dll" DestinationFiles="$(TargetDir)System.Runtime.Serialization.dll" Condition="Exists('C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\System.Runtime.Serialization.dll')" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModDirectory)" />
     <Copy SourceFiles="$(ProjectDir)README.md" DestinationFolder="$(ModDirectory)" Condition="Exists('$(ProjectDir)README.md')" />
     <Copy SourceFiles="$(TargetDir)CitiesHarmony.API.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)CitiesHarmony.API.dll')" />
     <Copy SourceFiles="$(TargetDir)SkyTools.Common.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)SkyTools.Common.dll')" />
+    <Copy SourceFiles="$(TargetDir)Newtonsoft.Json.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)Newtonsoft.Json.dll')" />
+    <Copy SourceFiles="$(TargetDir)System.Runtime.Serialization.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)System.Runtime.Serialization.dll')" />
     <Copy SourceFiles="@(LocaleFiles)" DestinationFolder="$(ModDirectory)Translations/Core/" />
     <Copy SourceFiles="@(TranslationFiles)" DestinationFolder="$(ModDirectory)Translations/" />
     <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(ModDirectory)Resources/" />
@@ -143,6 +152,12 @@
     <Copy SourceFiles="@(LegacyIconFiles)" DestinationFolder="$(ModDirectory)Resources/" Condition="Exists('%(LegacyIconFiles.Identity)')" />
     <Copy SourceFiles="@(FTTranslationsTopLevelFiles)" DestinationFolder="$(ModDirectory)Translations/" Condition="Exists('%(FTTranslationsTopLevelFiles.Identity)')" />
     <Copy SourceFiles="@(FTTranslationsCoreFiles)" DestinationFolder="$(ModDirectory)Translations/" Condition="Exists('%(FTTranslationsCoreFiles.Identity)')" />
+    <Copy SourceFiles="@(CSLModsCommonLocaleFiles)" DestinationFolder="$(ModDirectory)Localization/Common/" />
   </Target>
 
 </Project>
+
+
+
+
+

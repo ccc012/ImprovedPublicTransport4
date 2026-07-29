@@ -142,10 +142,10 @@ public class LocalizationManager : ManagerBase {
         list.Add(new LocaleOption(UseGameLanguage, SharedTranslations.UseGameLanguage));
 
         foreach (var localeId in LocaleSources.Keys) {
-            var prefix = Localize($"Language_{localeId}");
-            var suffix = $"({Localize(localeId, $"Language_{localeId}")})";
-            var total = prefix + suffix;
-            var display = ModActiveLocaleId == localeId ? prefix : total;
+            var key = $"Language_{localeId}";
+            var currentLocaleName = TryGetLocalizedLanguageName(CurrentLocaleSource, key, localeId);
+            var nativeLocaleName = TryGetLocalizedLanguageName(LocaleSources[localeId], key, currentLocaleName);
+            var display = ModActiveLocaleId == localeId ? currentLocaleName : $"{currentLocaleName} ({nativeLocaleName})";
             list.Add(new LocaleOption(localeId, display));
         }
 
@@ -212,7 +212,7 @@ public class LocalizationManager : ManagerBase {
 
     public bool IsLocaleSupported(string localeId) => LocaleManager.exists && LocaleManager.instance.supportedLocaleIDs.Any(v => GetLocaleId(v) == localeId);
 
-    public string GetTranslationProgress() => CurrentLocaleSource.TranslationProgress;
+    public string GetTranslationProgress() => CurrentLocaleSource?.TranslationProgress ?? string.Empty;
 
     private void OnLocaleChanged() {
         if (_processing)
@@ -232,6 +232,16 @@ public class LocalizationManager : ManagerBase {
     private void SetDefaultLocale() => CurrentLocaleSource = LocaleSources[LocaleEntry.EnLocaleID];
 
     private bool TryGetLocaleSource(string localeId, out LocaleEntry localeEntry) => LocaleSources.TryGetValue(localeId, out localeEntry);
+
+    private static string TryGetLocalizedLanguageName(LocaleEntry source, string key, string fallback)
+    {
+        if (source != null && source.TryGetValue(key, out var value) && !string.IsNullOrEmpty(value) && value != key)
+        {
+            return value;
+        }
+
+        return fallback;
+    }
 
     private string GetLocaleId(string localeId) => localeId switch {
         "de" => "de-DE",

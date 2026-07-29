@@ -5,8 +5,13 @@ namespace ImprovedPublicTransport
 {
     public static class Localization
     {
-        private static readonly LocalizationManager LocalizationManager = 
-            new LocalizationManager(typeof(ImprovedPublicTransportMod), new PlainTextLanguageDeserializer());
+        // Must match whichever class implements ICities.IUserMod - that's how TranslationFramework.Util
+        // finds this mod's plugin folder (matching PluginManager's per-plugin IUserMod instance type).
+        // Since the CSLModsCommon migration, that's Mod, not ImprovedPublicTransportMod (which is now
+        // LoadingExtensionBase-only) - passing the wrong type here means the mod folder is never found
+        // and NO translation ever loads for any language.
+        private static readonly LocalizationManager LocalizationManager =
+            new LocalizationManager(typeof(Mod), new PlainTextLanguageDeserializer());
 
         public static string Get(string translationId)
         {
@@ -20,11 +25,14 @@ namespace ImprovedPublicTransport
             }
             catch { }
 
-            // Then try Colossal's built-in locale
+            // Then try Colossal's built-in locale. Colossal's Locale.Get returns "{id}:0" (not an
+            // exception) when the identifier isn't a recognized vanilla-game key - that string is
+            // technically different from translationId, so without this check it looks like a "found"
+            // translation and gets displayed literally (e.g. "SETTINGS_SPEED:0").
             try
             {
                 var c = ColossalFramework.Globalization.Locale.Get(translationId);
-                if (c != translationId)
+                if (c != translationId && c != translationId + ":0")
                     return c;
             }
             catch { }

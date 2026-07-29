@@ -2,7 +2,6 @@ using System;
 using CitiesHarmony.API;
 using ICities;
 using IntercityBusControl.HarmonyPatches.BuildingInfoPatches;
-using UnityEngine;
 using ImprovedPublicTransport.Util;
 
 namespace IntercityBusControl
@@ -26,7 +25,10 @@ namespace IntercityBusControl
                     }
                     if (!Mod.IsSunsetHarborInstalled())
                     {
-                        Utils.Log("Intercity Bus Control - Sunset Harbor DLC not found, skipping patches.");
+                        if (Diagnostics.VerboseRuntimeLogs)
+                        {
+                            Utils.Log("Intercity Bus Control - Sunset Harbor DLC not found, skipping patches.");
+                        }
                         return;
                     }
                     Patcher.PatchAll();

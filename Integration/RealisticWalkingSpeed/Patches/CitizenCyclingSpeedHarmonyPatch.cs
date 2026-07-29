@@ -1,8 +1,9 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
+using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace RealisticWalkingSpeed.Patches
@@ -42,11 +43,12 @@ namespace RealisticWalkingSpeed.Patches
 
                 var simulationStepTranspilerMethodInfo = GetType()
                     .GetMethod(nameof(SimulationStepTranspiler), BindingFlags.Static | BindingFlags.NonPublic);
-                // Run at low priority so other transpilers on HumanAI.SimulationStep (e.g. OOC)
-                // see the original game IL first, preventing false "pattern not found" warnings.
                 var harmonyMethod = new HarmonyMethod(simulationStepTranspilerMethodInfo) { priority = Priority.Low };
                 _harmony.Patch(simulationStepMethodInfo, null, null, harmonyMethod);
-                Utils.Log("CitizenCyclingSpeedHarmonyPatch: Successfully patched HumanAI.SimulationStep");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Utils.Log("CitizenCyclingSpeedHarmonyPatch: Successfully patched HumanAI.SimulationStep");
+                }
             }
             catch (System.Exception ex)
             {
@@ -65,8 +67,6 @@ namespace RealisticWalkingSpeed.Patches
                     continue;
                 }
 
-                // Match by the surrounding constant values rather than the compiler-assigned local
-                // variable index (LocalIndex), which can shift when the game DLL is recompiled.
                 if (i + 7 >= codes.Count)
                     continue;
 
@@ -87,7 +87,10 @@ namespace RealisticWalkingSpeed.Patches
 
                 onBikeLaneFactor.operand = 3.5f;
                 notOnBikeLaneFactor.operand = 2.5f;
-                Utils.Log("CitizenCyclingSpeedHarmonyPatch: Transpiler successfully modified cycling speeds");
+                if (Diagnostics.VerboseTranspileLogs)
+                {
+                    Utils.Log("CitizenCyclingSpeedHarmonyPatch: Transpiler successfully modified cycling speeds");
+                }
 
                 break;
             }

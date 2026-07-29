@@ -1,4 +1,4 @@
-﻿using ColossalFramework;
+using ColossalFramework;
 using HarmonyLib;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
@@ -32,12 +32,15 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
         public static bool Prefix(ref TransportLine __instance, out bool __result, ushort nextStop, int waitTime)
         {
             var lineId = __instance.m_lineNumber;
-            var lineName = TransportManager.instance.GetLineName(lineId);
 
             if (nextStop == 0)
             {
                 __result = true;
-                ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop=0 => allow leave");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    var lineName = TransportManager.instance.GetLineName(lineId);
+                    ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop=0 => allow leave");
+                }
                 return false;
             }
 
@@ -47,16 +50,25 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             if (lowTrafficState)
             {
                 __result = true;
-                ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) prevSegment={prevSegment} lowTrafficState={lowTrafficState} => allow leave");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    var lineName = TransportManager.instance.GetLineName(lineId);
+                    ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) prevSegment={prevSegment} lowTrafficState={lowTrafficState} => allow leave");
+                }
                 return false;
             }
 
             //begin mod(*): compare with interval aggression setup instead of default 64
             var targetWaitTime = BoardingTime + Mathf.Min(ModSetting.Instance.IntervalAggressionFactor, MaxUnbunchingTime);
             __result = waitTime >= targetWaitTime; //4 * 16 = 64 is max waiting time in vanilla, 12 is min waiting time
-            ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop={nextStop} waitTime={waitTime} avgInterval={__instance.m_averageInterval} targetWaitTime={targetWaitTime} result={__result}");
+            if (Diagnostics.VerboseRuntimeLogs)
+            {
+                var lineName = TransportManager.instance.GetLineName(lineId);
+                ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop={nextStop} waitTime={waitTime} avgInterval={__instance.m_averageInterval} targetWaitTime={targetWaitTime} result={__result}");
+            }
             //end mod
             return false;
         }
     }
 }
+

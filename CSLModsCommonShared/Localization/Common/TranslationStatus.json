@@ -9,6 +9,15 @@
     "ApprovalProgress": 76
   },
   {
+    "LanguageId": "bn",
+    "LanguageName": "Bengali",
+    "Locale": "bn-BD",
+    "TotalStrings": 112,
+    "TranslatedStrings": 112,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
     "LanguageId": "cs",
     "LanguageName": "Czech",
     "Locale": "cs-CZ",
@@ -43,6 +52,24 @@
     "TranslatedStrings": 97,
     "TranslationProgress": 76,
     "ApprovalProgress": 76
+  },
+  {
+    "LanguageId": "hi",
+    "LanguageName": "Hindi",
+    "Locale": "hi-IN",
+    "TotalStrings": 112,
+    "TranslatedStrings": 112,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "id",
+    "LanguageName": "Indonesian",
+    "Locale": "id-ID",
+    "TotalStrings": 112,
+    "TranslatedStrings": 112,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "it",
@@ -142,6 +169,15 @@
     "TranslatedStrings": 97,
     "TranslationProgress": 76,
     "ApprovalProgress": 76
+  },
+  {
+    "LanguageId": "ur",
+    "LanguageName": "Urdu",
+    "Locale": "ur-PK",
+    "TotalStrings": 112,
+    "TranslatedStrings": 112,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "zh-CN",
