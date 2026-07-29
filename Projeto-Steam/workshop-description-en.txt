@@ -1,0 +1,146 @@
+[h1]Improved Public Transport 4[/h1]
+
+[b]One mod instead of fifteen.[/b] IPT4 gives you real control over every transit line in your city — how many vehicles run, which ones, where they stop, what a ticket costs — and it folds in a whole shelf of small public-transport mods so they stop fighting each other.
+
+[b]Version 4.3.5 · BETA[/b] · Built for game version 1.21.1-f9
+
+[hr][/hr]
+
+[h1]Why this exists[/h1]
+
+This started as a bug hunt. A city was bleeding money — public transport maintenance had run away to roughly [b]-42,000,000,000[/b]. The cause was not one broken mod. It was two working mods both deciding, independently, how big each line's fleet should be. Each one kept overwriting the other, and the fleet — and its upkeep — grew without limit.
+
+That is the kind of problem you cannot fix by disabling a mod, because both mods were doing their job correctly. So the fix was to put them in the same place, talking to one system instead of to the same hidden setting behind each other's back.
+
+That is IPT4: the line-management features you already use, plus a set of small transit mods absorbed into one assembly where they coordinate properly.
+
+[hr][/hr]
+
+[h1]What you can do with it[/h1]
+
+[h2]Take charge of any line[/h2]
+Open any bus, tram, metro, train, ship, plane, monorail, cable car, taxi or tour line and you get a full control panel:
+
+[list]
+[*][b]Set the fleet size yourself[/b] — pick exactly how many vehicles run on a line, or let the mod size it from the budget. Your manual choice is remembered and never silently overridden.
+[*][b]Choose which vehicles run[/b] — restrict a line to specific vehicle types, so your city trams stay on city routes and your intercity trains stay intercity.
+[*][b]Edit vehicles individually[/b] — rename a vehicle, send it to the depot, or jump the camera to it.
+[*][b]Depot control[/b] — decide which depot serves which line instead of letting the game guess.
+[/list]
+
+[h2]Fix bunching[/h2]
+Every player knows the sight: four buses nose to tail, then nothing for ten minutes. IPT4 gives you unbunching with three levels you can actually reason about:
+
+[list]
+[*][b]Disabled[/b] — vanilla behaviour.
+[*][b]Prudent[/b] — gentle spacing corrections. Safe on any city.
+[*][b]Realistic[/b] — holds vehicles at stops to keep true intervals, the way a real operator would.
+[/list]
+
+Available separately for buses and for trams, plus [b]Express Bus Services[/b] and [b]Express Trams Services[/b] if you would rather have vehicles skip empty stops than wait at them.
+
+[h2]Set your own fares[/h2]
+The [b]Ticket Prices[/b] tab in the Economy panel lets you price each transport type independently, and the panel shows the resulting fare so you can see what you are actually charging. Optional [b]day and night pricing[/b], and price changes feed into passenger demand — cheap transit fills up, expensive transit empties out.
+
+[h2]See what is happening[/h2]
+[list]
+[*][b]Stop info panel[/b] — waiting passengers, next vehicle, and how crowded the stop is.
+[*][b]Train Display[/b] — follow any vehicle and get a live route overlay showing the stop sequence and where you are on the line. Configurable position, size, transparency, which fields appear, update rate and colour theme.
+[*][b]Flight Tracker[/b] — arrivals and departures for your airports.
+[*][b]Automatic line colours and names[/b] — new lines get sensible names and distinct colours, so your transport map stays readable without manual work.
+[/list]
+
+[h2]Clean up your network[/h2]
+[list]
+[*][b]Bulk line deletion[/b] — remove every line of a chosen type at once, with a confirmation step. Useful when you are redesigning a district.
+[*][b]Better stop placement[/b] — stops snap to sensible positions instead of the middle of a junction, and you can place stops on elevated track.
+[*][b]Unstucker[/b] — vehicles that get permanently stuck are released instead of blocking a route forever.
+[/list]
+
+[hr][/hr]
+
+[h1]Mods absorbed into IPT4[/h1]
+
+[b]Unsubscribe the standalone versions of these.[/b] Their features are built in — running both means the same game code gets patched twice, which causes exactly the sort of conflict this mod exists to prevent.
+
+[list]
+[*]Advanced Stop Selection Revisited
+[*]AutoLineBudget 21
+[*]Auto Line Color Redux
+[*]Better Train Boarding
+[*]Better Bus Stop Position (BBSP)
+[*]Elevated Stops Enabler Revisited
+[*]Express Bus Services
+[*]Flight Tracker
+[*]Intercity Bus Control
+[*]Mileage Taxi Services
+[*]Public Transport Unstucker
+[*]Realistic Walking Speed
+[*]Stops and Stations
+[*]Ticket Price Customizer
+[*]Train Display - Updated
+[*]Rescue Fullwidth Digits
+[/list]
+
+Most of these have their own switch or mode selector in the mod options, so you can disable or tune anything you do not want. A handful that only repair broken vanilla behaviour — elevated stop placement, boarding decisions, advanced stop selection, fullwidth digit names — are simply always on. Taxi mileage income requires the [b]After Dark[/b] DLC and is skipped automatically without it.
+
+[hr][/hr]
+
+[h1]Requirements[/h1]
+
+[list]
+[*][b]Harmony[/b] (ID 2040656402) — [b]required[/b]. Subscribe to it.
+[*]Nothing else. Everything the mod needs is included in the download.
+[/list]
+
+[b]Not compatible with:[/b]
+[list]
+[*]Improved Public Transport 2 or 3 — IPT4 replaces them.
+[*]Transport Lines Manager — both manage the same line data.
+[*]Standalone AutoLineBudget.
+[*]Any standalone copy of the mods in the list above.
+[/list]
+
+The mod will warn you in-game if it detects one of these.
+
+[hr][/hr]
+
+[h1]Languages[/h1]
+
+[b]18 of the 23 selectable languages are fully translated[/b] — English, Portuguese (Brazil and Portugal), Spanish, French, German, Italian, Polish, Russian, Arabic, Japanese, Korean, Chinese (Simplified and Traditional), Bengali, Hindi, Indonesian and Urdu.
+
+Czech, Dutch, Slovak, Thai and Turkish are selectable but still fall back to English for the mod's own text.
+
+The mod follows your game language by default, or you can pick one in the options panel. Translation corrections are welcome — see the GitHub link below.
+
+[hr][/hr]
+
+[h1]Getting started[/h1]
+
+[olist]
+[*]Subscribe to [b]Harmony[/b] if you have not already.
+[*]Unsubscribe from IPT2/IPT3 and from the standalone mods listed above.
+[*]Subscribe to IPT4 and enable it in Content Manager.
+[*]Load a city. Click any transit line to open the line panel.
+[*]Options are under [b]Settings → Mod Settings → Improved Public Transport 4[/b]. Fares are in the game's [b]Economy[/b] panel.
+[/olist]
+
+Existing saves work. IPT4 reads the same save data blocks IPT2 and IPT3 wrote, so your per-line fleet sizes, depot assignments and vehicle restrictions carry over when you switch.
+
+[hr][/hr]
+
+[h1]This release is BETA[/h1]
+
+The mod is stable in normal play, but it changed a great deal recently and not every combination has been tested on every city. [b]Keep a backup save[/b] before you first load a large city with it.
+
+If something goes wrong, the most useful thing you can do is say [i]what you were doing when it happened[/i] and attach your log:
+[code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
+
+[hr][/hr]
+
+[h1]Source and credits[/h1]
+
+Source code, technical changelog and issue tracker:
+[url=https://github.com/ccc012/ImprovedPublicTransport4]github.com/ccc012/ImprovedPublicTransport4[/url]
+
+IPT4 is licensed under [b]GPL-3.0[/b] and stands on a long line of work: [b]IPT[/b] by DontCryJustDie, [b]IPT2[/b] by BloodyPenguin, [b]IPT3[/b] by TheMadisonian, and the authors of every absorbed mod — Nyoko, egi, llunak, Vectorial1024, macsergey, dymanoid, TaradinoC, algernon and Mbyron26. Thank you, all of you. This mod is mostly your work, rearranged so the pieces stop stepping on each other.

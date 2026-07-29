@@ -200,6 +200,16 @@ one key per line.
 
 ---
 
+## Steam Workshop release notes
+
+The player-facing text for the Workshop item lives in [`Projeto-Steam/`](Projeto-Steam/):
+the English description, the item metadata (title, tags, pinned discussion
+topics, upload command) and the script that generates the upload `.vdf`.
+
+English is canonical for everything player-facing on Steam. Two registers, same
+release: the Workshop changenote states the symptom and what the player should
+do about it; `CHANGELOG.md` states the root cause and the affected class.
+
 ## Repository layout note
 
 Project documentation (phase plans, mod triage, dependency audit, current state) is
