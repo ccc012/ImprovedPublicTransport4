@@ -31,8 +31,7 @@ Verified programmatically across all 23 files rather than by inspection:
 
 - key set identical to `en.txt`, no extra keys, no empty values
 - `{0}`-style placeholder sets matching per key
-- literal `
-` counts matching per key
+- literal `\n` counts matching per key
 - no line failing `^[A-Z0-9_]+ \S`
 
 That last check is the one that matters most. A real newline inside a value
