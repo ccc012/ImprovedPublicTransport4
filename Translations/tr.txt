@@ -1,0 +1,391 @@
+MOD_DESCRIPTION Geliştiş toplu taşımacılık kontrolü.
+CURRENT_WEEK Geçerli Hafta
+LAST_WEEK Geçen Hafta
+AVERAGE Ortalama
+AVERAGE_TOOLTIP Son {0} haftanın ortalaması.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS İstasyon Durağı
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Depo Araçları
+CITYSERVICE_ACCEPTINTERCITYBUSES Şehirlerarası Otobüslere İzin Ver
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Şehirlerarası otobüslerin bu istasyonu kullanmasına izin verin. Yalnızca yerel otobüsler için devre dışı bırakın.
+
+EXPLANATION_BUDGET_CONTROL Bütçe kontrolü: Araç sayısı bütçe tarafından kontrol edilir.
+EXPLANATION_UNBUNCHING Araç aralığı: Oyun araçlar arasında bir boşluk oluşturmaya çalışır.
+LINE_PANEL_STOPS Duraklar: {0}
+LINE_PANEL_SPAWNTIMER Sonraki araç {0} saniye içinde.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Seçili depo'da araç kalmadı.</color>
+LINE_PANEL_BUDGET_CONTROL Bütçe Kontrolü
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Bu hat için bütçe kontrolünü etkinleştirir veya devre dışı bırakır.
+LINE_PANEL_UNBUNCHING_TOOLTIP Bu hat için araç aralığını etkinleştirir veya devre dışı bırakır.\nAraç aralığı agresivlik 0 olarak ayarlandıysa devre dışı bırakılır.
+LINE_PANEL_DEPOT Depo:
+LINE_PANEL_NO_DEPOT_FOUND Depo bulunamadı.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Seçili depoya atla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+LINE_PANEL_SELECT_TYPES Tür Seç
+LINE_PANEL_SELECT_TYPES_TOOLTIP "Tür Seç" panelini açıp kapatır.\nBu düğme devre dışıysa önce depo seçmelisiniz.
+LINE_PANEL_LINE_STOPS Hat Durağı
+LINE_PANEL_LINE_VEHICLES Bu Hattaki Araçlar
+LINE_PANEL_ENQUEUED Sırada Araçlar
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP Bu hatta {0} yolcu bekliyor.
+LINE_PANEL_ADD_VEHICLE Araç Ekle
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Hata yeni araç ekler.\nBu düğme devre dışıysa seçilen depo'da araç kalmadı.
+LINE_PANEL_REMOVE_VEHICLE Araç Kaldır
+
+STOP_LIST_BOX_ROW_STOP #{0} Durağı
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nBeklenen yolcular: {1}\n\nBu durağa atlamak için sağ tıkla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Önerilen durak adlarının listesi.
+STOP_PANEL_REUSE_NAME_TOOLTIP Bu adı bu istasyondaki diğer tüm duraklara ayarla.
+STOP_PANEL_WAITING_PEOPLE Bekleyen Yolcular: {0}
+STOP_PANEL_BORED_TIMER Ayrılıncaya Kadar Kalan Zaman: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Yolcular geri sayım sıfıra ulaştığında bu duraktan ayrılacak.
+STOP_PANEL_PASSENGERS_IN Gelen Yolcular:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Burada taşıtlara binen yolcular.
+STOP_PANEL_PASSENGERS_OUT Çıkan Yolcular:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Burada taşıtlardan inen yolcular.
+STOP_PANEL_PASSENGERS_TOTAL Toplam:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Burada hizmet alan toplam yolcu sayısı.
+STOP_PANEL_UNBUNCHING_TOOLTIP Bu durakta araç aralığını etkinleştirir veya devre dışı bırakır.\nAraç aralığı agresivlik 0 olarak ayarlandıysa devre dışı bırakılır.
+STOP_PANEL_UPDATE_CLOSE_STOPS Yakındaki Durakları Güncelle
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Araç aralığı durumunu bu istasyondaki diğer tüm duraklara ayarla.
+STOP_PANEL_PREVIOUS Önceki Durak
+STOP_PANEL_PREVIOUS_TOOLTIP Önceki durağa atla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+STOP_PANEL_DELETE_STOP Durakı Sil
+STOP_PANEL_DELETE_STOP_TOOLTIP Bu düğme Alt tuşu basılıyken etkindir.\nKendi sorumluluğunuzda kullanın!!!
+STOP_PANEL_NEXT Sonraki Durak
+STOP_PANEL_NEXT_TOOLTIP Sonraki durağa atla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+STOP_BUTTON_TOOLTIP {0}\n\nBu durağa atlamak için tıkla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.\nTıklarken Alt tuşu basılıyken durak bilgi paneli açılmasını engelle.
+
+SETTINGS_DELETE Sil
+SETTINGS_RESET Sıfırla
+
+SETTINGS_TAB_GENERAL Genel
+SETTINGS_TAB_AUTOLINE Otomatik Hat
+SETTINGS_TAB_STOPS Duraklar ve İstasyonlar
+SETTINGS_TAB_UNBUNCHING Araç Aralığı
+SETTINGS_TAB_DELETE Hatları Sil
+
+SETTINGS Ayarlar
+SETTINGS_SPEED Hızı Göster:
+SETTINGS_SPEED_TOOLTIP UI'de hız görüntüleme için kullanılacak birimi seç.
+SETTINGS_SPEED_KPH km/s
+SETTINGS_SPEED_MPH mil/s
+SETTINGS_WALKING_SPEED Yürüme/Bisiklet Hızı:
+SETTINGS_WALKING_SPEED_TOOLTIP Standart: temel oyun hızları.\nGerçekçi: Yürüme hızını gerçekçi, yaşa bağlı değerlere indirir.\nGerçekçi ayrıca After Dark DLC ile bisiklet hızını da indirir.
+SETTINGS_WALKING_SPEED_MODE_VANILLA Standart
+SETTINGS_WALKING_SPEED_MODE_REALISTIC Gerçekçi
+SETTINGS_BBSP Daha İyi Otobüs Durağı Konumu:
+SETTINGS_BBSP_TOOLTIP Devre Dışı: Konum ayarlaması yok.\nEtkin: Otobüsler otobüs durağının orta yerine ön tarafında durur.
+SETTINGS_BBSP_MODE_DISABLED Devre Dışı
+SETTINGS_BBSP_MODE_ORIGINAL Etkin
+SETTINGS_BBSP_MODE_UPDATED Deneysel Mantık Kullan
+
+SETTINGS_BUDGET Bütçe
+SETTINGS_ENABLE_BUDGET_CONTROL Hat Bütçesi Kontrolü:
+SETTINGS_BUDGET_CONTROL_DISABLED Devre Dışı
+SETTINGS_BUDGET_CONTROL_ENABLED Etkin
+SETTINGS_BUDGET_CONTROL_TOOLTIP Etkinleştirildiğinde, toplu taşıma hatları için araç sayıları bütçe tarafından kontrol edilir; tüm mevcut hatları günceller ve sıradaki araçları temizler.
+SETTINGS_BUDGET_TICKET_PRICES Bilet Fiyatı Özelleştirici:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED Devre Dışı
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED Etkin
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Etkinleştirildiğinde, Ekonomi paneline yeni bir sekme ekler ve her taşıma türü için bilet fiyatlarını ayarlamak için kaydırıcı ekler.
+SETTINGS_AUTO_LINE_BUDGET Otomatik Filo Boyutlandırması:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Devre Dışı
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Etkin
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Etkinleştirildiğinde, Bütçe modundaki hatlar araç sayısını vanilla bütçe kaydırıcısı yerine gerçek yolcu talebine göre otomatik olarak ayarlar. El ile ayarlanan hatlar hiçbir zaman değiştirilmez.
+
+SETTINGS_AUTO_LINE Otomatik Hat
+SETTINGS_AUTOSHOW_LINE_INFO Hat Bilgi Panelini Otomatik Olarak Aç
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Yeni bir hat oluşturduktan sonra Hat Bilgi Panelini otomatik olarak göster.
+
+AUTOLINECOLOR_STRATEGY_DISABLED Devre Dışı
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Rastgele Renk Tonu
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Rastgele Renk
+AUTOLINECOLOR_STRATEGY_CATEGORISED Kategorize
+AUTOLINECOLOR_STRATEGY_NAMED Adlandırılmış Renkler
+AUTOLINECOLOR_NAMING_DISABLED Devre Dışı
+AUTOLINECOLOR_NAMING_DISTRICTS İlçeler
+AUTOLINECOLOR_NAMING_LONDON Londra
+AUTOLINECOLOR_NAMING_ROADS Yollar
+AUTOLINECOLOR_NAMING_COLORS Adlandırılmış Renkler
+AUTOLINECOLOR_COLOR_STRATEGY Renk Stratejisi:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Yeni hatlara renkler nasıl atanır:\n"Rastgele Renk Tonu" = aynı doygunluk/parlaklık, farklı tonlar;\n"Rastgele Renk" = tamamen rastgele RGB;\n"Kategorize" = araç türüne göre renkler;\n"Adlandırılmış Renkler" = önceden tanımlanmış renk paleti.
+AUTOLINECOLOR_NAMING_STRATEGY Adlandırma Stratejisi:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Yeni hatlara adlar nasıl atanır:\n"Yok" = otomatik adlandırma yok;\n"İlçeler" = hizmet verilen ilçelere göre;\n"Londra" = numaralandırılmış rotalar (Londra Otobüsü stili);\n"Yollar" = sokak adlarına göre;\n"Adlandırılmış Renkler" = renk adlarına göre.
+AUTOLINECOLOR_MIN_COLOR_DIFF Minimum Renk Farkı (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Rastgele renkler seçerken minimum renk farkı yüzdesi.
+AUTOLINECOLOR_MAX_COLOR_PICK Maksimum Denemeler:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Ayırt edilebilir bir renk seçmek için maksimum deneme sayısı.
+
+SETTINGS_UI UI Ayarları
+SETTINGS_VEHICLE_EDITOR_POSITION Araç Editörü Konumu:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Araç editörü panelinin ekranın altında mı yoksa sağında mı görüneceğini seç.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Altında
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Sağında
+SETTINGS_VEHICLE_EDITOR_HIDE Araç Editörünü Gizle
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Araç editörünü araç panellerinden gizle.
+
+SETTINGS_STOPS Toplu Taşıma Durağı
+SETTINGS_ENABLE_STOPS_AND_STATIONS Durağı ve İstasyonları Etkinleştir
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Çeşitli duraklar ve istasyonlarda toplu taşımacılık için bekleyebilecek azami vatandaş sayısını ayarla. Duraklar sekmesinde yapılandır.
+SETTINGS_STOPSANDSTATIONS_ENABLE Durağı ve İstasyonları Etkinleştir
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Duraklarda yolcu sınırı uygulamasını etkinleştir veya devre dışı bırak.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Hat durağında bekleyen maksimum yolcu sayısı:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Hat Otobüsü
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Hat otobüsü durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Troleybüs
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Troleybüs durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Tahliye Otobüsü
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Tahliye otobüsü durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Turist Otobüsü
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Turist otobüsü durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Tramvay
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Tramvay durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Metro istasyonunda bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Tren
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Tren istasyonunda bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Monorail durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Gemi
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Kargo limanında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Feribot
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Feribot durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Uçak
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Uçak terminalinde bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Teleferiği
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Teleferiği durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Sıcak Hava Balonu
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Sıcak hava balonu durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Helikopter durağında bekleyen maksimum yolcu sayısı
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Zeplin
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Zeplin durağında bekleyen maksimum yolcu sayısı
+
+SETTINGS_UNBUNCHING Araç Aralığı
+SETTINGS_UNBUNCHING_AGGRESSION Araç Aralığı Agresivliği:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Araç aralığı ne kadar güçlü olmalı?\nOlası değerler: 0–52. 0 değeri araç aralığını devre dışı bırakır.\nDaha yüksek değerler trafiği güçlü bir şekilde etkileyebilir ve araçların kaybolmasına neden olabilir.
+SETTINGS_VEHICLE_COUNT Yeni Hatlardaki Araçlar:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Hat Bütçesi Kontrolü kapatıldığında yeni hatlara otomatik olarak eklenecek araç sayısı.
+SETTINGS_SPAWN_TIME_INTERVAL Spawn Zaman Aralığı:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Araç spawnları arasındaki saniye cinsinden zaman.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Tüm kaydırıcıları varsayılan değerlere sıfırla.
+UNBUNCHING_ENABLED Araç Aralığı
+UNBUNCHING_DISABLED Araç Aralığı Devre Dışı Bırakıldı.
+UNBUNCHING_TARGET_GAP Hedef Boşluk: {0}
+
+SETTINGS_EBS_GROUP_BUS Ekspres Otobüs Hizmetleri
+SETTINGS_EBS_GROUP_TRAM Ekspres Tramvay Hizmetleri
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Ekspres Otobüs:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE "Devre Dışı" = Otobüsler yukarıdaki araç aralığı ayarlarını kullanır.\n"İhtiyatlı" = Kısa süre durur, yolcuları kontrol eder, boş ayrılabilir.\n"Saldırgan" = Hiç kimse bekliyorsa durağı tamamen atlar.
+SETTINGS_EBS_ENABLE_SELFBAL Hizmet Kendi Kendini Dengelemeyi Etkinleştir
+SETTINGS_EBS_DESC_SELFBAL Ekspres Otobüs Hizmetinin hat üzerinde araçları dengelemesine ve daha yoğun segmentleri tercih etmesine ve bekleme sürelerini azaltmasına izin ver.
+SETTINGS_EBS_TOOLTIP_SELFBAL Hat segmentlerini analiz eder ve araçları daha yoğun segmentlere veya terminal istasyonlara yeniden konuşlandırabilir ve bekleme sürelerini azaltabilir.\nKararlar olasılıksal olup yolcu sayılarına ve yeniden konuşlandırma oranlarına bağlıdır.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Hat Ortası Durağı Kendi Kendini Dengelemeyi Etkinleştir
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Kendi kendini dengelemenin araçları yeniden konuşlandırırken sadece terminal istasyonları yerine meşgul bir hat ortası durağı seçmesine izin ver.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Kendi kendini dengelemenin araçları meşgul bir hat ortası durağına (terminal istasyonu yerine) yeniden konuşlandırmasına izin ver.\nYalnızca en meşgul durakta 30'dan fazla beklenen yolcu olduğunda ve yaklaşık %50 olasılıkla seçildiğinde ve genel yeniden konuşlandırma oranlarına tabi tutulur.
+SETTINGS_EBS_ENABLE_MINIBUS Minibüs Modunu Etkinleştir
+SETTINGS_EBS_DESC_MINIBUS Sadece birkaç yolcu bindiyse veya iniyse daha küçük otobüslerin daha erken ayrılmasını sağlar.
+SETTINGS_EBS_TOOLTIP_MINIBUS Kapasitesi ≤20 olan otobüsler, binen + inen yolcular ≤5 olduğunda bir duraktan daha erken ayrılabilir.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Ekspres Tramvay:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING "Devre Dışı" = Tramvaylar yukarıdaki araç aralığı ayarlarını kullanır.\n"Hafif Ray" = Her durakta durur, her zaman tam süre bekler (zorlanan disiplin).\n"Gerçek Tramvay" = Sadece yolcular bindiyse/iniyse durur.
+SETTINGS_EBS_MODE_NONE Devre Dışı
+SETTINGS_EBS_MODE_AGGRESSIVE Saldırgan
+SETTINGS_EBS_MODE_PRUDENTIAL İhtiyatlı
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Hafif Ray Modu
+SETTINGS_EBS_TRAM_MODE_NONE Devre Dışı
+SETTINGS_EBS_TRAM_MODE_TRAM Gerçek Tramvay Modu
+
+
+SETTINGS_PTU_GROUP Toplu Taşıma Serbest Bırakıcı
+SETTINGS_PTU_ENABLE Sıkışmış Yolcuları Kaldır
+SETTINGS_PTU_TOOLTIP Taşıtlara binmeye çalışırken sıkışan yolcuları otomatik olarak kaldırır ve taşıtın normal şekilde ayrılmasını sağlar ve ayrılma donması önler.
+
+
+SETTINGS_LINE_DELETION_TOOL Hatları Silme Aracı
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Aşağıdaki taşıma türlerini kontrol edin, ardından Sil'e basarak mevcut şehirden bu türlerin tüm hatlarını kaldırın. Bu seçim geçicidir - her zaman işaretsiz olarak başlar ve sildikten sonra temizler, ayar olarak kaydedilmez.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Seçilen türlerin tüm hatlarını siler. Sadece şehir yüklendiğinde çalışır.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE HAT SİLMEYİ ONAYLA
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Tüm hatları silmek üzeresiniz.\nDevam etmek istiyor musunuz?
+SETTINGS_DELETE_BUS_TOOLTIP Tüm normal otobüs hatlarını siler.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Turist Otobüsleri
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Tüm turist otobüsü hatlarını siler.
+SETTINGS_DELETE_TRAM_TOOLTIP Tüm tramvay hatlarını siler.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Tüm troleybüs hatlarını siler.
+SETTINGS_DELETE_TRAIN_TOOLTIP Tüm tren hatlarını siler.
+SETTINGS_DELETE_METRO_TOOLTIP Tüm yeraltı metro hatlarını siler.
+SETTINGS_DELETE_MONORAIL_TOOLTIP Tüm monorail hatlarını siler.
+SETTINGS_DELETE_FERRY_LABEL Feribotlar
+SETTINGS_DELETE_SHIP_TOOLTIP Tüm feribot hatlarını siler.
+SETTINGS_DELETE_HELICOPTER_LABEL Helikopterler
+SETTINGS_DELETE_HELICOPTER_TOOLTIP Tüm helikopter hatlarını siler.
+SETTINGS_DELETE_BLIMP_LABEL Zeplinler
+SETTINGS_DELETE_BLIMP_TOOLTIP Tüm zeplin hatlarını siler.
+
+
+VEHICLE_EDITOR_TITLE Araç Editörü
+VEHICLE_EDITOR_SUB_TITLE {0} araç
+VEHICLE_EDITOR_CAPACITY Yolcu Kapasitesi
+VEHICLE_EDITOR_CAPACITY_TAXI Seyahat Kapasitesi
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Vardiya başına yolcu sayısı.
+VEHICLE_EDITOR_MAINTENANCE Bakım Maliyeti
+VEHICLE_EDITOR_MAX_SPEED Maksimum Hız
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Tren Motoru Her İki Uçta
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Tren motorlarını her iki uçta etkinleştirir veya devre dışı bırakır.
+VEHICLE_EDITOR_APPLY Uygula
+VEHICLE_EDITOR_DEFAULT Varsayılan
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Bu aracı takip etmek için sağ tıkla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Bu aracı kuyruğa almak için Shift + tıkla.
+VEHICLE_PANEL_EDIT_TYPE Araç Türünü Düzenle
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Bu araç türünü Araç Editörü ile düzenle.
+VEHICLE_PANEL_STATUS_NEXT_STOP Sonraki Durak:
+VEHICLE_PANEL_STATUS_UNBUNCHING Araç Aralığı İşlemi Devam Ediyor
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Son Durak Yolcu Değişimi: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS Yolcular:
+VEHICLE_PANEL_EARNINGS Kazançlar:
+VEHICLE_PANEL_EARNINGS_TOOLTIP Bilet satışından elde edilen kazanç eksi araç bakım maliyeti.
+VEHICLE_PANEL_PREVIOUS Önceki Araç
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Önceki araca atla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+VEHICLE_PANEL_REMOVE_VEHICLE Araç Kaldır
+VEHICLE_PANEL_NEXT Sonraki Araç
+VEHICLE_PANEL_NEXT_TOOLTIP Sonraki araca atla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.
+VEHICLE_SELECTION_CAPACITY Kapasite
+VEHICLE_SELECTION_ADD_VEHICLE Bu aracı izin verilen araçlar listesine ekle
+VEHICLE_SELECTION_ADD_ALL Tüm uygun araçları izin verilen araçlar listesine ekle
+VEHICLE_SELECTION_REMOVE_VEHICLE Bu aracı izin verilen araçlar listesinden kaldır
+VEHICLE_SELECTION_REMOVE_ALL Tüm araçları izin verilen araçlar listesinden kaldır
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Mevcut Araçlar
+VEHICLE_SELECTION_SELECTED_VEHICLES Seçili Araçlar
+VEHICLE_SELECTION_ANY_VEHICLE Herhangi Bir Araç
+VEHICLE_BUTTON_TOOLTIP {0}\n\nBu araca atlamak için tıkla.\nTıklarken Shift tuşunu basılı tutarsanız yakınlaştırma yapılır.\nTıklarken Alt tuşu basılıyken araç bilgi paneli açılmasını engelle.
+TRANSPORT_LINE_VEHICLECOUNT Araç Sayısı: {0}
+
+FLIGHT_TRACKER_NAME Uçuş İzleyici
+FLIGHT_STATUS_NONE Yok
+FLIGHT_STATUS_INCOMING Gelen
+FLIGHT_STATUS_LANDED İndi
+FLIGHT_STATUS_AT_GATE Kapıda
+FLIGHT_STATUS_DEPARTED Kalkış Yaptı
+
+TICKET_PRICE_TAXI_KILOMETER Taksi Fiyatı (km başına):
+TICKET_PRICE_TAXI_MILE Taksi Fiyatı (mil başına):
+TICKET_PRICE_BUS Otobüs Bilet Fiyatı:
+TICKET_PRICE_INTERCITY_BUS Şehirlerarası Otobüs Bilet Fiyatı:
+TICKET_PRICE_METRO Metro Bilet Fiyatı:
+TICKET_PRICE_TRAIN Tren Bilet Fiyatı:
+TICKET_PRICE_TRAM Tramvay Bilet Fiyatı:
+TICKET_PRICE_MONORAIL Monorail Bilet Fiyatı:
+TICKET_PRICE_SHIP Gemi Bilet Fiyatı:
+TICKET_PRICE_FERRY Feribot Bilet Fiyatı:
+TICKET_PRICE_PLANE Uçak Bilet Fiyatı:
+TICKET_PRICE_CABLECAR Teleferiği Bilet Fiyatı:
+TICKET_PRICE_SIGHTSEEING_BUS Turist Otobüsü Bilet Fiyatı:
+TICKET_PRICE_TROLLEYBUS Troleybüs Bilet Fiyatı:
+TICKET_PRICE_BLIMP Zeplin Bilet Fiyatı:
+TICKET_PRICE_HELICOPTER Helikopter Bilet Fiyatı:
+ECONOMY_TAB_TICKET_PRICES Bilet Fiyatları
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Bu taşıma türü için toplam mevcut yolcu sayısı.
+
+
+WHATSNEW_3_0_0_1 Race Day için güncellendi; şimdi More Vehicles Renewed ile uyumlu.
+WHATSNEW_3_0_0_2 Aşağıdaki modlar IPT3'e entegre edilmiştir:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Public Transport Unstucker şimdi IPT3'e entegre edilmiştir.\nDiger entegre modlar için sürüm 3.0'a bakın. Çatışmaları önlemek için orijinallerden çıkın.
+
+SETTINGS_TAB_TRAINDISPLAY Tren Gösterimi
+SETTINGS_TRAINDISPLAY_GROUP Tren Gösterimi Bindirmesi
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Desteklenen taşıma araçlarını takip ederken görüntülenen entegre yerleşimi yapılandırın.
+SETTINGS_TRAINDISPLAY_ENABLE Tren Gösterimini Etkinleştir
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Entegre Tren Gösterimi bindirmesini etkinleştir veya devre dışı bırak.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED Devre Dışı
+SETTINGS_TRAINDISPLAY_MODE_ENABLED Etkin
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Bindirme Konumu:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Bindirmenin ekranda nerede görüneceğini seç.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Sol Üst
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Sağ Üst
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Sol Alt
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Sağ Alt
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Bindirme Ölçeği:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Bindirme boyutunu ölçekle.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Bindirme Opaklığı:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Bindirmenin ne kadar saydamsız olduğunu ayarla.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Güncelleme Aralığı:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Bir aracı takip ederken bindirme ne sıklıkta tazelenir.
+SETTINGS_TRAINDISPLAY_SHOW_LINE Hat Adını Göster
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Bindirmede hat adını dahil et.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Hedefi Göster
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Bindirmede hedefi dahil et.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Durumu Göster
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Bindirmede araç durumunu dahil et.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Sadece Takip Sırasında
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Kamera gerçekten desteklenen bir aracı takip etmiyorsa bindirmeyi gizle.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Yalnızca Birinci Şahıs Kamerasında
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Bindirmeyi sadece bir birinci şahıs kamerası modu kullanırken göster (örn. First Person Camera - Continued). Kapalıysa, herhangi bir kamera modunda desteklenen bir aracı takip ederken gösterilir.
+SETTINGS_TRAINDISPLAY_THEME Renk Teması:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Bindirmenin arka plan/metin renklerini seç.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE Basit
+SETTINGS_TRAINDISPLAY_THEME_DARK Koyu
+SETTINGS_TRAINDISPLAY_THEME_LIGHT Açık
+
+COPY_TIP Bu hatın ayarlarını kopyala.
+PASTE_TIP Kopyalanan hat ayarlarını yapıştır.
+COPY_BUILDING_TIP Bu ayarları bu binayı hizmet veren tüm hatlara kopyala.
+COPY_DISTRICT_TIP Bu ayarları bu ilçedeki tüm hatlara kopyala.
+SETTINGS_INTEGRATIONS_GROUP Entegre Eklentiler
+SETTINGS_INTERCITY_BUS_ENABLE Şehirlerarası Otobüs Kontrolünü Etkinleştir
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Entegre şehirlerarası otobüs kontrol uyumluluğu katmanını ve istasyon yamasını etkinleştir.
+SETTINGS_FLIGHTTRACKER_ENABLE Uçuş İzleyiciyi Etkinleştir
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Entegre Uçuş İzleyici yamaları ve UI desteğini etkinleştir.
+CHANGELOG_4_3_3_1 Ayarların kaydedilmesi/yüklenmesi hala bazı mod yığınlarında bozuldu, hatta Newtonsworth.Json.dll paketlenildikten sonra: önceki geçici çözüm sadece bir giriş noktasında Assembly.LoadFrom denedi ve yine de yükleme sırasına bağlıydı. IPT4 şimdi global AssemblyResolve kancası kaydeder ve paketlenmiş Newtonsworth.Json'unu her mod/UI giriş noktasından CSLModsCommon JsonWriter'a dokunmadan önce hızlı bir şekilde başlatır, böylece Seçenekler UI paneli başka bir mod'un uyumsuz Json.NET kopyasına rastgele bağlanmak yerine güvenilir bir şekilde devam eder.
+CHANGELOG_4_3_2_1 Başka bir yüklü mod rastulameyse mod yükleme tamamen başarısız ("mod's dll veya bağımlılıklarından birini yükleyemedi") sabitlendi: CSLModsCommon ayarları serileştirme (JsonHelper/SerializationContext) buna ihtiyaç duydu, ancak oluşturma hiçbir zaman gerçekten Newtonsworth.Json.dll'yi mod'un yanına konuşlandırmadı - her zaman sadece başka bir mod'un kopyasında çalıştı. Tüm diğer modları devre dışı bırakarak temiz bir test için bulundu, bu tam da bundan sonra test edilmesi gereken yöntemdir.
+CHANGELOG_4_3_1_1 Seçenekler panelinin dil seçicisi sabitlendi, sadece çerçevenin kendi dizeleri (Sürüm/Changelog/...) yeniden çevrildi, oysa bu mod'un her dizesi oyun dilinde kaldı - çeviri yükleyicimiz oyun dilinden ayrı olarak anahtarlanmış ve mod'un kendi seçimini tamamen görmezden geldi. Şimdi mod'un dil seçimine uyar ve oyun diline geri döner, ardından İngilizce'ye döner ve seçici değiştiğinde yeniden çözer.
+CHANGELOG_4_3_1_2 Sadece İngilizce ve Portekizce'de var olan 38 çeviri anahtarı dolduruldu - diğer tüm diller (Arapça, Bengalce, Almanca, İspanyolca, Fransızca, Hintçe, Endonezya, İtalyan, Japonca, Korece, Lehçe, Rusça, Urduca ve tüm Çin varyantları) Tren Gösterimi bölümü, Satırları Sil açıklaması ve üç Ekspres Otobüs açıklaması için tüm İngilizce'ye sessiz çekildiler.
+CHANGELOG_4_3_1_3 4 kopyala/yapıştır ipucu anahtarı eklendi; İngilizce de dahil olmak üzere tüm dil dosyalarında eksikti, bu nedenle bu düğmeler yeniden etkinleştirildiğinde ham anahtarlar ("COPY_TIP") olarak işlenir.
+CHANGELOG_4_3_0_1 Tren Gösterimi Güncellendi eklendi: desteklenen bir aracı takip ederken satır/hedef/durum gösteren küçük ekran bindirmesi. Seçeneklerde yapılandırılabilir: ekran konumu, boyut, opaklık, hangi alanlar gösterilir, güncelleme sıklığı, birinci şahıs kamerası modlarıyla sınırlı olup olmadığı ve Basit/Koyu/Açık renk teması.
+CHANGELOG_4_3_0_2 Yeni Tren Gösterimi entegrasyonunda birkaç yapı hatası sabitlendi: belirsiz Utils başvurusu, bu oyun sürümünde bulunmayan iki API (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) ve Enum.HasFlag kullanımı - bu mod'un hedef çerçevesi olan .NET Framework 3.5'te bulunmayan ve manuel bit düzeyinde kontroller ile değiştirilmesi gereken.
+CHANGELOG_4_2_4_1 Mod her zaman "Oyun Sürümü ile Uyumluluğu: 0.0.0" gösterme sabitlendi - hiçbir zaman desteklenen oyun sürümü aralığı beyan etmedik. Şimdi 1.21.1-f9 ve yukarı olarak ayarlandı.
+CHANGELOG_4_2_4_2 AutoLineColor renk stratejisi açılır menüsü çevrilmiş metin yerine ham enum adlarını gösterme sabitlendi (ör. "AUTOLINECOLOR_STRATEGY_RANDOMHUE"): kod alt çizgi olmayan bir anahtar oluşturdu, çeviri dosyası ise bir tane kullandı. Ayrıca bölümü yeniden düzenledik, böylece iki bağımlı kaydırıcı ait oldukları renk stratejisi açılır menüsünün hemen altında oturuyor, ilgisiz adlandırma açılır menüsünden sonra değil.
+CHANGELOG_4_2_4_3 Tramvay araç aralığı modları "Hafif Ray"/"Gerçek Tramvay" yerine otobüslere ("Devre Dışı"/"İhtiyatlı"/"Gerçekçi") uyacak şekilde yeniden adlandırıldı ve Portekizce açıklamada kalan son İngilizce metin bitleri çevrildi.
+CHANGELOG_4_2_4_4 Onay kutusu açıklamaları hiçbir başlık metni ayarlandığında panelde hiçbir yerde oluşmama sabitlendi (bu mod'un her onay kutusunda olduğu gibi) - düzen kodu açıklamayı sadece başlık etiketi de varsa konumlandırdı, açıklama zaten oluşturulmuş ve metinle doldurulmuş olsa bile.
+CHANGELOG_4_2_4_5 Seçenekler sekme yazıları kesilme sabitlendi (özellikle İngilizce'den daha uzun çalışan Portekizce'de) - sekmeler kırpmak yerine ikinci satıra sarılır.
+CHANGELOG_4_2_4_6 Sıfırla düğmeleri (Araç Aralığı, Bilet Fiyatları) temel ayarı hemen değiştirme sabitlendi, ancak ekranda zaten kaydırıcıları güncelleme, bu yüzden Seçenekler yeniden açılıncaya kadar hiçbir şey olmamış gibi görüntü.
+CHANGELOG_4_2_4_7 Hatları Sil aracı onay kutuları sabitlendi, kullandıktan sonra sıfırlamak yerine kaydedilen ayar olarak devam etti - gerçek tercihleri ayarlamak gibi ModSetting'e kazara bağlandılar, oysa bu "türleri seçin, Sil'e tıklayın" eyleminin hedeflendiği.
+CHANGELOG_4_2_3_1 Her mod çevirisi ham anahtar olarak görünüm sabitlendi (ör. "SETTINGS_SPEED:0") her dilde: kendi çeviri yükleyicimiz hala CSLModsCommon göçünden bu yana ImprovedPublicTransportMod türü yerine Mod (aslında IUserMod olan sınıf) ile eklentiyi karşılaştırdı, bu yüzden mod klasörünü hiçbir zaman bulamadı ve hiçbir Translations/*.txt dosyası yüklemedi. Ayrıca vanilla yerele geri dönüş güçlendirildi, böylece Colossal "anahtar:0" bulunmayan işaretleyiciyi gerçek çeviri olarak kazara unutmuş olmuyor.
+CHANGELOG_4_2_3_2 Seçeneklerden her zaman boş "Anahtar Bağlamaları" sekmeleri kaldırıldı - bu mod'un yapılandırılacak anahtar bağlamaları yok.
+CHANGELOG_4_2_3_3 Seçeneklerdeki kaydırıcılar şimdi yeniden geçerli değerini göster (CSLModsCommon göçü sırasında kayıp - yeni kaydırıcı denetimi varsayılan olarak görüntülemez).
+CHANGELOG_4_2_3_4 AutoLineColor "min renk farkı" ve "max renk seçimi denemelerini" sabitlendi, renk stratejisi Devre Dışı veya Kategorize olarak ayarlandığında bile interaktif kalır (ikisi de bu ayarları kullanmaz).
+CHANGELOG_4_2_0_1 Kurtarma Tam Genişlik Basamakları eklendi: özel taşıma hattı adlarındaki tam genişlik basamaklarını normal ASCII basamakları olarak normalleştirir, bazı Latin dışı klavye girişlerinden görüntü/sıralama tuhaflığını düzeltir.
+CHANGELOG_4_2_0_2 Seçenekler paneline özel bir Bilet Fiyatları sekmeleri eklendi, böylece gün/gece ücret çarpanları oyun içi Ekonomi panelini açmadan ayarlanabilir.
+CHANGELOG_4_2_0_3 Kurtarma Tam Genişlik Basamakları yaması sabitlendi; mod başlangıcında yalnızca bir kez uygulanır ve her seviye kaldırmada geri alınır, bir oturumdaki ilk yüklendikten sonra sessizce tüm kayıtları devre dışı bırakır.
+CHANGELOG_4_2_0_4 Taksi ücreti tamsayı taşması hatası sabitlendi (MileageTaxiServices), genel taşıma bütçesini bir adımda milyarlar tarafından boşaltabilirdi: bozuk veya başlatılmamış çerçeve verilerine sahip bir taksi (örn. spawn'ın hemen ardından) implausible per-frame mesafesi hesaplayabilir, ücretin taşmasını int'ye büyük çöp değerine taşır - bu, upstream'de raporlanan bilinen çözülmemiş sorunla eşleşir (kaçak olumsuz taksi geliri). Şimdi implausible çerçeve mesafeleri ücretlendirilmek yerine atılır.
+CHANGELOG_4_1_5_1 Boş/siyah Seçenekler panelinin gerçek nedeni sabitlendi: CSLModsCommon'ın kendi UI dizeleri (Sürüm/Changelog/vb.) fiziksel Yerelleştirme/Ortak klasöründe DLL'nin yanında yaşarlar ve oluşturma hiçbir zaman konuşlandırmadı. Bunu olmadan çerçevesinin LocalizationManager sessizce vazgeçti, CurrentLocaleSource null'u boş bıraktı ve OptionsPanelBase.Awake() çeviri ilerleme etiketini göstermeyi denediğinde NullReferenceException ile çöktü - Unity bunu sessizce yuttu, inşaat ortasında paneli bozdu. Şimdi .csproj bu klasörü konuşlandırır ve GetTranslationProgress() ona eksik olmayı daha önce atmaz.
+CHANGELOG_4_1_4_1 Seçenekler panelinin boş/siyah görüntüsü sabitlendi: panel sadece oyun ayarlar konteynerinin görünürlüğünü değiştirdiğinde oluşturuldu, ancak oyun bu mod'un sayfasını açtığında genellikle zaten görünür, bu yüzden panel hiçbir zaman oluşturulmadı. Şimdi konteyner zaten görünür ise hemen de oluşturur.
+CHANGELOG_4_1_4_2 Her CSLModsCommon UI dokusu yükleme başarısız sabitlendi (arka plan, simgeler, geçişler) ve yer tutucu geri düştü: projenin RootNamespace hala özgün IPT3 çatalından "ImprovedPublicTransport3" idi, bu yüzden gömülü kaynaklar yanlış adla derlenmiş ve çalışma zamanında hiçbir zaman eşleşmedi.
+CHANGELOG_4_1_3_1 CSLModsCommon göçünden kalan üç ayar kaydetme hataları sabitlendi (Yenilikleri Kapat, Seçenekler Sıfırla düğmesi, saatlik bilet fiyatı editörü): her birir yeni değeri ModSetting'e doğru yazarken, eski, şimdi ölü ayarlar nesnesini kaydetti, bu yüzden değişiklik gerçekten diske kalıcı olmadı.
+CHANGELOG_4_1_3_2 CSLModsCommon öncesi dönemden ölü kod kaldırıldı: öznitelik tabanlı OptionsFramework, monolitik Settings.cs ve bağımsız VehicleEditorPositions enum - ModSetting ve CSLModsCommonOptionsPanel tarafından tamamen değiştirildi.
+CHANGELOG_4_0_0_1 Geliştirilmiş Toplu Taşıma 3'ten çatal.
+CHANGELOG_4_0_0_2 AutoLineBudget'ın talep bazlı filo boyutlandırması, hat bütçesini doğrudan yazmak yerine IPT'nin kendi araç sayısı API'si ile koordine etmek için taşındı, iki mod aynı duruma karşı savaştığında neden olan kaçak bakım maliyeti hatası düzeltildi.
+CHANGELOG_4_0_0_3 Seçenekler UI için CSLModsCommon kabul edildi (sürüm rozeti, değişiklik günlüğü, uyumluluk uyarıları, çeviri ilerlemesi).
+TRAINDISPLAY_LABEL_NAME Ad
+TRAINDISPLAY_LABEL_STATUS Durum
+TRAINDISPLAY_NO_LINE Hat Yok
+TRAINDISPLAY_NO_DESTINATION Hedef Yok
+TRAINDISPLAY_HIDDEN Gizli
+TRAINDISPLAY_VEHICLE Araç
+TRAINDISPLAY_STATE_RETURNING Geri Dönüş
+TRAINDISPLAY_STATE_STOPPED Durakta
+TRAINDISPLAY_STATE_EN_ROUTE Yolda
+TRAINDISPLAY_STATE_ON_LINE Hatta
+TRAINDISPLAY_STATE_IDLE Boş
+AUTOLINECOLOR_REFRESH_BUTTON Ad/Rengi Tazele
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Etkin AutoLineColor ayarlarına göre mevcut hat adı ve rengini yeniden ata.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Bu hattı tazelemeden önce Seçeneklerde renk veya adlandırma stratejisini etkinleştir.
+CHANGELOG_4_3_3_2 Paketlenmiş Newtonsworth.Json çözücüsü güçlendirildi, bu mod'un yanında gönderilen kopyayı başka bir mod'un ilk yüklediği kopya yerine tercih etmesi sağlanmıştır (Real Time güçlü adlandırılmış v13'ü gönderir; CSLModsCommon imzasız v9'a ihtiyaç duyar). Kodumuz yanlış yapıya JsonHelper'ı sessizce başarısız oldu ve boş nesneler döndürdü, bu çerçevenin kendi yerele kaynakları boş bıraktı ve dil seçicisi ham yerele id'leri gösterdi.
+CHANGELOG_4_3_3_3 Bengalce, Hintçe, Endonezya ve Urduca artık mod dil seçicisinde görünüyor. Zaten tam olarak çevrilmiş olsalar da, çerçevenin onlar için yerele dosyası yoktu, bu yüzden oyun kendisini o dilde çalıştırmadıkça erişilemezdi.
+CHANGELOG_4_3_3_4 Durak yolcu sınırlayıcı optimize edildi: ayarlar nesnesini (iki sözlük araması) saniyede binler çalışan döngü içinde yurttaş örneği başına bir kez çözdü. Şimdi karede bir kez çözülür.
+CHANGELOG_4_3_3_5 Mod klasörü araması, IUserMod uygulayan sınıftan bağımsız hale getirildi. Bu bağlantı zaten çeviri yüklemesini bir kez sessizce bozmuş ve bilet fiyatı simge atlasları ikinci kez, ilgisiz refactor sonrasında her biri.
+CHANGELOG_4_3_4_1 Harita bile yüklenmeden AutoLineColor tarafından atılan Başlangıç ModException ("ImprovedPublicTransportMod derlemesini bulamadı!") sabitlendi. İkinci yardımcı sınıf hala ImprovedPublicTransportMod türüne göre mod'u aradı, bu CSLModsCommon göçü sırasında IUserMod olmaktan çıktı - aynı bağlantı başka yerde zaten sabitlendi. Her iki yardımcı da şimdi mod klasörünü bu derlemeden kendisinden çözer, bu yüzden gelecek refactor bunu sessizce tekrar kıramaz.
+CHANGELOG_4_3_5_1 Tren Gösterimi bindirmesi bir aracı takip ederken hiçbir zaman görünmeme sabitlendi. Kameraya takip edilen örneği genel "hedef"/"GetTarget" araştırmaları yoluyla bulmuştur, ancak oyun onu özel CameraController.m_targetInstance alanında depolar ve bu araştırmalar hiçbir zaman eşleşmedi. Ayrıca "Yalnızca birinci şahıs kamerasında" varsayılan olarak kapalıdır: düz takip modu birinci şahıs değildir, bu yüzden onu açık bırakmak bindirmeyi kutudan çıkmış gibi görünecek hale getirdi, orijinal mod'a aksine, herhangi bir takip görünümünde bunu gösterdi.
+CHANGELOG_4_3_5_2 Bilet Fiyatları sekmeleri şimdi canlı yolcu sayısı yerine her bir taşıma türü için sonuç tarifesini gösterir. Kaydırıcılar sadece yüzde gösteriyor, bu yüzden bir çarpanın gerçekte ne ürettiğini görmenin öncesi bir yolu yoktu - ve küçük veya duraklatılmış bir şehirde yolcu sayısı sadece kalıcı "0" okudu. Yolcu sayısı, orijinal ücretin yanında etiket ipucuna taşındı.
+TICKET_PRICE_LABEL_TOOLTIP Mevcut ücret: {0}\nOrijinal ücret: {1}\nŞimdi yolculuk yapan yolcular: {2}
+CHANGELOG_4_3_7_1 Seçicideki 23 dilin tamamı artık tamamen çevrildi. Çekçe, Felemenkçe, Slovakça, Tayca ve Türkçe seçilebiliyordu ama çeviri dosyası yoktu, bu yüzden sessizce İngilizceye düşüyorlardı.
+CHANGELOG_4_3_7_2 Dil seçicisinin altında gösterilen çeviri ilerlemesi, yeniden oluşturulmamış statik bir durum dosyasını okuyordu; bu nedenle aslında tamamlanmış on altı dil için %76 bildiriyordu.
+CHANGELOG_4_3_6_1 Toplu taşımada yaklaşık -21,4 milyonluk giderin gerçek nedeni giderildi: IPT'nin haftalık bakım hesabı sıfır veya desteklenmeyen bir araç kapasitesine bölüyor, NaN'ı int.MinValue'ya çeviriyor ve ardından her aracı başka bir int içinde topluyordu. Geçersiz değerler artik oyunun güvenli varsayılan değerini kullanıyor, hat toplamları 64 bit aritmetik kullanıyor ve büyük geçerli tutarlar yalnızca sınırlı pozitif işlemlerle tahsil ediliyor.
+CHANGELOG_4_3_6_2 Zaten etkilenmiş kayıtlar yüklenirken onarılır: yalnızca bu taşmadan kalan negatif toplu taşıma gelir veya gider kalemleri sıfırlanır ve ilgili toplamları düzeltilir. Geçerli ekonomi geçmişi ve diğer tüm hizmetler dokunulmadan kalır.

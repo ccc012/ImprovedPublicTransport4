@@ -191,7 +191,7 @@ copy lives in each `Integration/<Name>/LICENSE`. Two GPL-3.0 entries
 
 ## Localization
 
-19 mod translation files (`Translations/*.txt`, ~310 keys each) plus 23 framework
+19 mod translation files (`Translations/*.txt`, 364 keys each) plus 23 framework
 locale files (`CSLModsCommonShared/Localization/Common/*.json`).
 
 Two separate systems, which is easy to trip over:
@@ -206,8 +206,13 @@ mod translation but no framework file is unreachable — that is why Bengali, Hi
 Indonesian and Urdu were invisible until 4.3.3 despite being fully translated.
 
 `FindLanguage` maps long ids to short filenames (`de-DE` → `de.txt`,
-`zh-TW` → `zh-tw.txt`). **18 of 23** selector entries have a full mod translation;
-`cs`, `nl`, `sk`, `th`, `tr` fall back to English.
+`zh-TW` → `zh-tw.txt`). **All 23** selector entries now have a full mod
+translation - 364 keys each, same key set, verified programmatically.
+
+`Localization/Common/TranslationStatus.json` feeds the percentage shown under the
+language dropdown. It is a static file, not computed at runtime: if you add keys
+without regenerating it, the panel will report a stale number while the
+translations themselves are fine.
 
 When adding a key, add it to **every** file. Use a literal `\n` for line breaks —
 a real newline splits the entry and corrupts the parse, since the deserializer reads

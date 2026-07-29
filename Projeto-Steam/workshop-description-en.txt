@@ -2,7 +2,7 @@
 
 [b]One mod instead of fifteen.[/b] IPT4 gives you real control over every transit line in your city — how many vehicles run, which ones, where they stop, what a ticket costs — and it folds in a whole shelf of small public-transport mods so they stop fighting each other.
 
-[b]Version 4.3.5 · BETA[/b] · Built for game version 1.21.1-f9
+[b]Version 4.3.7 · BETA[/b] · Built for game version 1.21.1-f9
 
 [hr][/hr]
 
@@ -109,9 +109,11 @@ The mod will warn you in-game if it detects one of these.
 
 [h1]Languages[/h1]
 
-[b]18 of the 23 selectable languages are fully translated[/b] — English, Portuguese (Brazil and Portugal), Spanish, French, German, Italian, Polish, Russian, Arabic, Japanese, Korean, Chinese (Simplified and Traditional), Bengali, Hindi, Indonesian and Urdu.
+[b]All 23 languages are fully translated[/b] — every string in the mod, not just the menus.
 
-Czech, Dutch, Slovak, Thai and Turkish are selectable but still fall back to English for the mod's own text.
+English, Portuguese (Brazil and Portugal), Spanish, French, German, Italian, Dutch, Polish, Czech, Slovak, Turkish, Russian, Arabic, Urdu, Hindi, Bengali, Indonesian, Thai, Japanese, Korean, Chinese (Simplified and Traditional).
+
+If something reads awkwardly in your language, that is worth reporting — the files are plain text on GitHub and a correction takes a minute.
 
 The mod follows your game language by default, or you can pick one in the options panel. Translation corrections are welcome — see the GitHub link below.
 

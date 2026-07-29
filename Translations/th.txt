@@ -1,0 +1,393 @@
+MOD_DESCRIPTION ควบคุมการขนส่งสาธารณะที่ดีขึ้น
+CURRENT_WEEK สัปดาห์ปัจจุบัน
+LAST_WEEK สัปดาห์ที่แล้ว
+AVERAGE เฉลี่ย
+AVERAGE_TOOLTIP เฉลี่ยของ {0} สัปดาห์ที่ผ่านมา
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS จุดหยุดสถานี
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES ยานพาหนะในศูนย์กระจายสินค้า
+CITYSERVICE_ACCEPTINTERCITYBUSES อนุญาตรถบัสระหว่างเมือง
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP อนุญาตให้รถบัสระหว่างเมืองใช้สถานีนี้ ปิดใช้สำหรับรถบัสท้องถิ่นเท่านั้น
+
+EXPLANATION_BUDGET_CONTROL ควบคุมงบประมาณ: จำนวนยานพาหนะถูกควบคุมโดยงบประมาณ
+EXPLANATION_UNBUNCHING การแยกยานพาหนะ: เกมพยายามสร้างช่องว่างระหว่างยานพาหนะ
+LINE_PANEL_STOPS จุดหยุด: {0}
+LINE_PANEL_SPAWNTIMER ยานพาหนะถัดไปใน {0} วินาที
+LINE_PANEL_DEPOT_WARNING <color #FF0000>ศูนย์กระจายสินค้าที่เลือกไว้ไม่มียานพาหนะเหลือ</color>
+LINE_PANEL_BUDGET_CONTROL ควบคุมงบประมาณ
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP เปิดหรือปิดการควบคุมงบประมาณสำหรับเส้นนี้
+LINE_PANEL_UNBUNCHING_TOOLTIP เปิดหรือปิดการแยกยานพาหนะสำหรับเส้นนี้\nการแยกจะปิดใช้หากตั้งค่าการแยกแบบก้าวร้าวเป็น 0
+LINE_PANEL_DEPOT ศูนย์กระจายสินค้า:
+LINE_PANEL_NO_DEPOT_FOUND ไม่พบศูนย์กระจายสินค้า
+LINE_PANEL_DEPOT_MARKER_TOOLTIP ข้ามไปยังศูนย์กระจายสินค้าที่เลือก\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+LINE_PANEL_SELECT_TYPES เลือกประเภท
+LINE_PANEL_SELECT_TYPES_TOOLTIP สลับแผง "เลือกประเภท"\nหากปุ่มนี้ปิดใช้อยู่ คุณต้องเลือกศูนย์กระจายสินค้าก่อน
+LINE_PANEL_LINE_STOPS จุดหยุดสาย
+LINE_PANEL_LINE_VEHICLES ยานพาหนะบนเส้นนี้
+LINE_PANEL_ENQUEUED ยานพาหนะในคิว
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} ผู้โดยสารรอบอยู่บนเส้นนี้
+LINE_PANEL_ADD_VEHICLE เพิ่มยานพาหนะ
+LINE_PANEL_ADD_VEHICLE_TOOLTIP เพิ่มยานพาหนะใหม่ให้กับเส้น\nหากปุ่มนี้ปิดใช้อยู่ ศูนย์กระจายสินค้าที่เลือกไว้ไม่มียานพาหนะเหลือ
+LINE_PANEL_REMOVE_VEHICLE ลบยานพาหนะ
+
+STOP_LIST_BOX_ROW_STOP จุดหยุด #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nผู้โดยสารที่รออยู่: {1}\n\nคลิกขวาเพื่อข้ามไปยังจุดหยุดนี้\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP รายการชื่อจุดหยุดที่แนะนำ
+STOP_PANEL_REUSE_NAME_TOOLTIP ตั้งชื่อนี้ให้กับจุดหยุดอื่น ๆ ทั้งหมดที่สถานีนี้
+STOP_PANEL_WAITING_PEOPLE ผู้โดยสารที่รออยู่: {0}
+STOP_PANEL_BORED_TIMER เวลาจนกว่าจะเบื่อ: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP ผู้โดยสารจะออกจากจุดหยุดนี้เมื่อนับถอยหลังถึงศูนย์
+STOP_PANEL_PASSENGERS_IN ผู้โดยสารขึ้น:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP ผู้โดยสารที่ขึ้นยานพาหนะที่นี่
+STOP_PANEL_PASSENGERS_OUT ผู้โดยสารลง:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP ผู้โดยสารที่ลงจากยานพาหนะที่นี่
+STOP_PANEL_PASSENGERS_TOTAL รวม:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP จำนวนผู้โดยสารทั้งหมดที่บริการที่นี่
+STOP_PANEL_UNBUNCHING_TOOLTIP เปิดหรือปิดการแยกยานพาหนะที่จุดหยุดนี้\nการแยกจะปิดใช้หากตั้งค่าการแยกแบบก้าวร้าวเป็น 0
+STOP_PANEL_UPDATE_CLOSE_STOPS อัปเดตจุดหยุดใกล้เคียง
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP ตั้งค่าสถานะการแยกให้กับจุดหยุดอื่น ๆ ทั้งหมดที่สถานีนี้
+STOP_PANEL_PREVIOUS จุดหยุดก่อนหน้า
+STOP_PANEL_PREVIOUS_TOOLTIP ข้ามไปยังจุดหยุดก่อนหน้า\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+STOP_PANEL_DELETE_STOP ลบจุดหยุด
+STOP_PANEL_DELETE_STOP_TOOLTIP ปุ่มนี้ใช้ได้เมื่อกดปุ่ม Alt\nใช้ตามความเสี่ยงของคุณเอง!!!
+STOP_PANEL_NEXT จุดหยุดถัดไป
+STOP_PANEL_NEXT_TOOLTIP ข้ามไปยังจุดหยุดถัดไป\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+STOP_BUTTON_TOOLTIP {0}\n\nคลิกเพื่อข้ามไปยังจุดหยุดนี้\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม\nการกดปุ่ม Alt ขณะคลิกจะป้องกันไม่ให้เปิดแผงข้อมูลจุดหยุด
+
+SETTINGS_DELETE ลบ
+SETTINGS_RESET รีเซ็ต
+
+SETTINGS_TAB_GENERAL ทั่วไป
+SETTINGS_TAB_AUTOLINE เส้นอัตโนมัติ
+SETTINGS_TAB_STOPS จุดหยุดและสถานี
+SETTINGS_TAB_UNBUNCHING การแยก
+SETTINGS_TAB_DELETE ลบเส้น
+
+SETTINGS ตั้งค่า
+SETTINGS_SPEED แสดงความเร็วใน:
+SETTINGS_SPEED_TOOLTIP เลือกหน่วยที่ใช้สำหรับแสดงความเร็วในอินเตอร์เฟส
+SETTINGS_SPEED_KPH กม./ชม.
+SETTINGS_SPEED_MPH ไมล์/ชม.
+SETTINGS_WALKING_SPEED ความเร็วเดิน/ปั่นจักรยาน:
+SETTINGS_WALKING_SPEED_TOOLTIP มาตรฐาน: ความเร็วจากเกมแบบ vanilla\nสมจริง: ลดความเร็วเดินเป็นค่าสมจริงโดยพิจารณาจากอายุ\nสมจริงยังลดความเร็วปั่นจักรยานด้วย DLC After Dark
+SETTINGS_WALKING_SPEED_MODE_VANILLA มาตรฐาน
+SETTINGS_WALKING_SPEED_MODE_REALISTIC สมจริง
+SETTINGS_BBSP ตำแหน่งจุดหยุดรถบัสที่ดีขึ้น:
+SETTINGS_BBSP_TOOLTIP ปิดใช้: ไม่มีการปรับตำแหน่ง\nเปิดใช้: รถบัสจะหยุดที่ด้านหน้าของจุดหยุดรถบัสแทนศูนย์กลาง
+SETTINGS_BBSP_MODE_DISABLED ปิดใช้
+SETTINGS_BBSP_MODE_ORIGINAL เปิดใช้
+SETTINGS_BBSP_MODE_UPDATED ใช้ตรรมชาติทดลอง
+
+SETTINGS_BUDGET งบประมาณ
+SETTINGS_ENABLE_BUDGET_CONTROL ควบคุมงบประมาณสาย:
+SETTINGS_BUDGET_CONTROL_DISABLED ปิดใช้
+SETTINGS_BUDGET_CONTROL_ENABLED เปิดใช้
+SETTINGS_BUDGET_CONTROL_TOOLTIP เมื่อเปิดใช้ จำนวนยานพาหนะสำหรับสายการขนส่งสาธารณะจะถูกควบคุมโดยงบประมาณ อัปเดตเส้นที่มีอยู่ทั้งหมดและล้างยานพาหนะในคิว
+SETTINGS_BUDGET_TICKET_PRICES ตัวปรับแต่งราคาตั๋ว:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED ปิดใช้
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED เปิดใช้
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP เมื่อเปิดใช้ จะเพิ่มแท็บใหม่ไปยังแผง Economics พร้อมตัวเลื่อนเพื่อปรับราคาตั๋วสำหรับประเภทการขนส่งแต่ละประเภท
+SETTINGS_AUTO_LINE_BUDGET การออกแบบขนาดฟลอตโรงแรมอัตโนมัติ:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED ปิดใช้
+SETTINGS_AUTO_LINE_BUDGET_ENABLED เปิดใช้
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP เมื่อเปิดใช้ เส้นในโหมดงบประมาณจะปรับจำนวนยานพาหนะโดยอัตโนมัติตามอุปสงค์จริงของผู้โดยสารแทนที่จะใช้ตัวเลื่อนงบประมาณ vanilla เส้นที่ตั้งเป็นด้วยตนเองจะไม่ถูกแตะต้อง
+
+SETTINGS_AUTO_LINE เส้นอัตโนมัติ
+SETTINGS_AUTOSHOW_LINE_INFO เปิดแผงข้อมูลเส้นอัตโนมัติ
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP แสดงแผงข้อมูลเส้นอัตโนมัติหลังจากสร้างเส้นใหม่
+
+AUTOLINECOLOR_STRATEGY_DISABLED ปิดใช้
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE เฉดสีแบบสุ่ม
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR สีแบบสุ่ม
+AUTOLINECOLOR_STRATEGY_CATEGORISED จัดหมวดหมู่
+AUTOLINECOLOR_STRATEGY_NAMED สีที่มีชื่อ
+AUTOLINECOLOR_NAMING_DISABLED ปิดใช้
+AUTOLINECOLOR_NAMING_DISTRICTS เขตการปกครอง
+AUTOLINECOLOR_NAMING_LONDON ลอนดอน
+AUTOLINECOLOR_NAMING_ROADS ถนน
+AUTOLINECOLOR_NAMING_COLORS สีที่มีชื่อ
+AUTOLINECOLOR_COLOR_STRATEGY กลยุทธ์สี:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP วิธีการกำหนดสีให้กับเส้นใหม่:\n"เฉดสีแบบสุ่ม" = ความอิ่มและความสว่างเหมือนกัน เฉดสีต่างกัน;\n"สีแบบสุ่ม" = RGB แบบสุ่มอย่างเต็มที่;\n"จัดหมวดหมู่" = สีตามประเภทยานพาหนะ;\n"สีที่มีชื่อ" = จานสีที่กำหนดไว้ล่วงหน้า
+AUTOLINECOLOR_NAMING_STRATEGY กลยุทธ์การตั้งชื่อ:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP วิธีการกำหนดชื่อให้กับเส้นใหม่:\n"ไม่มี" = ไม่มีการตั้งชื่ออัตโนมัติ;\n"เขตการปกครอง" = โดยพิจารณาจากเขตการปกครองที่บริการ;\n"ลอนดอน" = เส้นทางที่มีหมายเลข (สไตล์รถบัสลอนดอน);\n"ถนน" = โดยพิจารณาจากชื่อถนน;\n"สีที่มีชื่อ" = โดยพิจารณาจากชื่อสี
+AUTOLINECOLOR_MIN_COLOR_DIFF ความแตกต่างสีขั้นต่ำ (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP เปอร์เซ็นต์ความแตกต่างสีขั้นต่ำเมื่อเลือกสีแบบสุ่ม
+AUTOLINECOLOR_MAX_COLOR_PICK พยายามสูงสุด:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP จำนวนครั้งสูงสุดในการเลือกสีที่แตกต่าง
+
+SETTINGS_UI ตั้งค่าอินเตอร์เฟส
+SETTINGS_VEHICLE_EDITOR_POSITION ตำแหน่งตัวแก้ไขยานพาหนะ:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP เลือกว่าแผงตัวแก้ไขยานพาหนะปรากฏตรงล่างสุดหรือด้านขวาของหน้าจอ
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM ด้านล่าง
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT ขวา
+SETTINGS_VEHICLE_EDITOR_HIDE ซ่อนตัวแก้ไขยานพาหนะ
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP ซ่อนตัวแก้ไขยานพาหนะจากแผงยานพาหนะ
+
+SETTINGS_STOPS จุดหยุดการขนส่งสาธารณะ
+SETTINGS_ENABLE_STOPS_AND_STATIONS เปิดใช้จุดหยุดและสถานี
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP ปรับจำนวนผู้อยู่อาศัยสูงสุดที่สามารถรอการขนส่งสาธารณะได้ที่จุดหยุดและสถานีต่าง ๆ กำหนดค่าในแท็บจุดหยุด
+SETTINGS_STOPSANDSTATIONS_ENABLE เปิดใช้จุดหยุดและสถานี
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP เปิดหรือปิดการบังคับใช้ขีดจำกัดผู้โดยสารที่จุดหยุด
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER ผู้โดยสารสูงสุดที่รออยู่ที่จุดหยุดสายการขนส่ง:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS สายรถบัส
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถบัส
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS รถเก็บกระแส
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถเก็บกระแส
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS รถบัสอพยพ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถบัสอพยพ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS รถบัสท่องเที่ยว
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถบัสท่องเที่ยว
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM รถราง
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถราง
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO รถไฟฟ้า
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP ผู้โดยสารสูงสุดรอที่สถานีรถไฟฟ้า
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN รถไฟ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP ผู้โดยสารสูงสุดรอที่สถานีรถไฟ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL รถไฟเลี่ยว
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถไฟเลี่ยว
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP เรือ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP ผู้โดยสารสูงสุดรอที่ท่าเรือสินค้า
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY เรือเฟอร์รี่
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดเรือเฟอร์รี่
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE เครื่องบิน
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP ผู้โดยสารสูงสุดรอที่สนามบิน
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR รถเคเบิล
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดรถเคเบิล
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON บอลลูนลมร้อน
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดบอลลูนลมร้อน
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER เฮลิคอปเตอร์
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดเฮลิคอปเตอร์
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP ยานบอลลูนเบ้า
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP ผู้โดยสารสูงสุดรอที่จุดหยุดยานบอลลูนเบ้า
+
+SETTINGS_UNBUNCHING การแยก
+SETTINGS_UNBUNCHING_AGGRESSION ความก้าวร้าวในการแยก:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP ควรมีความแข็งแรงแค่ไหนในการแยกยานพาหนะ?\nค่าที่เป็นไปได้: 0–52 ค่า 0 จะปิดใช้การแยก\nค่าที่สูงกว่าจะส่งผลกระทบอย่างมากต่อการจราจรและอาจทำให้ยานพาหนะหายไป
+SETTINGS_VEHICLE_COUNT ยานพาหนะบนสายใหม่:
+SETTINGS_VEHICLE_COUNT_TOOLTIP จำนวนยานพาหนะที่จะถูกเพิ่มโดยอัตโนมัติไปยังเส้นใหม่เมื่อปิดการควบคุมงบประมาณของเส้น
+SETTINGS_SPAWN_TIME_INTERVAL ช่วงเวลาการสร้าง:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP เวลาเป็นวินาทีระหว่างการสร้างยานพาหนะ
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP รีเซ็ตตัวเลื่อนทั้งหมดเป็นค่าเริ่มต้น
+UNBUNCHING_ENABLED การแยกยานพาหนะ
+UNBUNCHING_DISABLED การแยกจะปิดใช้
+UNBUNCHING_TARGET_GAP ช่องว่างเป้าหมาย: {0}
+
+SETTINGS_EBS_GROUP_BUS บริการรถบัสด่วน
+SETTINGS_EBS_GROUP_TRAM บริการรถรางด่วน
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE รถบัสด่วน:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE "ปิดใช้" = รถบัสใช้การตั้งค่าการแยกข้างบน\n"ระมัดระวัง" = หยุดสักครู่ตรวจสอบผู้โดยสาร อาจออกเดินทางเปล่า\n"ก้าวร้าว" = ข้ามจุดหยุดไปโดยสิ้นเชิงถ้าไม่มีผู้โดยสารรออยู่
+SETTINGS_EBS_ENABLE_SELFBAL เปิดใช้การปรับสมดุลตนเองของบริการ
+SETTINGS_EBS_DESC_SELFBAL ให้บริการรถบัสด่วนปรับสมดุลยานพาหนะทั่วเส้นเพื่อสนับสนุนส่วนที่มีผู้ใช้บ่อยขึ้นและลดเวลารอ
+SETTINGS_EBS_TOOLTIP_SELFBAL วิเคราะห์ส่วนของเส้นและอาจปรับใช้ยานพาหนะไปยังส่วนที่มีผู้ใช้บ่อยขึ้นหรือสถานีปลายทาง เพื่อปรับสมดุลบริการและลดเวลารอ\nการตัดสินใจเป็นไปได้และขึ้นอยู่กับจำนวนผู้โดยสารและอัตราการปรับใช้
+
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID เปิดใช้การปรับสมดุลจุดหยุดตรงกลางเส้น
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID อนุญาตให้การปรับสมดุลตนเองเลือกจุดหยุดตรงกลางที่มีผู้ใช้บ่อยแทนสถานีปลายทางเท่านั้นเมื่อปรับใช้ยานพาหนะ
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID อนุญาตให้การปรับสมดุลตนเองปรับใช้ยานพาหนะไปยังจุดหยุดตรงกลางที่มีผู้ใช้บ่อย (แทนสถานีปลายทาง)\nพิจารณาเมื่อจุดหยุดที่บ่อยที่สุดมีผู้โดยสารรอมากกว่า 30 คน จากนั้นเลือกด้วยความน่าจะเป็นประมาณ 50% และขึ้นอยู่กับอัตราการปรับใช้โดยรวม
+
+SETTINGS_EBS_ENABLE_MINIBUS เปิดใช้โหมดรถตู้ขนาดเล็ก
+SETTINGS_EBS_DESC_MINIBUS ทำให้รถขนาดเล็กออกเดินทางก่อนหากมีผู้โดยสารเพียงไม่กี่คนเข้าหรือออก
+SETTINGS_EBS_TOOLTIP_MINIBUS รถบัสที่มีความจุ ≤20 อาจออกเดินทางก่อนจากจุดหยุดเมื่อผู้โดยสารที่เข้า + ออก ≤5
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE รถรางด่วน:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING "ปิดใช้" = รถรางใช้การตั้งค่าการแยกข้างบน\n"รถไฟเบา" = หยุดที่ทุกจุดหยุด รอจับเวลาเต็มเวลา (บังคับมีระเบียบวินัย)\n"รถรางจริง" = หยุดเฉพาะเมื่อผู้โดยสารเข้าหรือออก
+SETTINGS_EBS_MODE_NONE ปิดใช้
+SETTINGS_EBS_MODE_AGGRESSIVE ก้าวร้าว
+SETTINGS_EBS_MODE_PRUDENTIAL ระมัดระวัง
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL โหมดรถไฟเบา
+SETTINGS_EBS_TRAM_MODE_NONE ปิดใช้
+SETTINGS_EBS_TRAM_MODE_TRAM โหมดรถรางจริง
+
+
+SETTINGS_PTU_GROUP ตัวปลดโครงสร้างการขนส่งสาธารณะ
+SETTINGS_PTU_ENABLE ลบผู้โดยสารค้างอยู่
+SETTINGS_PTU_TOOLTIP ลบผู้โดยสารที่ติดอยู่ในเวลาขึ้นยานพาหนะอัตโนมัติ ช่วยให้ยานพาหนะออกเดินทางตามปกติและป้องกันการออกเดินทางแบบค้าง
+
+
+SETTINGS_LINE_DELETION_TOOL เครื่องมือลบเส้น
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION ตรวจสอบประเภทการขนส่งด้านล่าง จากนั้นกดลบเพื่อลบทุกเส้นของประเภทเหล่านี้ออกจากเมืองปัจจุบัน การเลือกนี้เป็นชั่วคราว - จะเริ่มต้นไม่ทำเครื่องหมายและล้างตัวเองหลังลบ ไม่ได้บันทึกเป็นการตั้งค่า
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP ลบทุกเส้นของประเภทที่เลือก ใช้ได้เฉพาะเมื่อมีการโหลดเมือง
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE ยืนยันการลบเส้น
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG คุณกำลังจะลบทุกเส้น\nคุณต้องการดำเนินการต่อหรือไม่?
+SETTINGS_DELETE_BUS_TOOLTIP ลบทุกสายรถบัสธรรมดา
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL รถบัสท่องเที่ยว
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP ลบทุกสายรถบัสท่องเที่ยว
+SETTINGS_DELETE_TRAM_TOOLTIP ลบทุกเส้นรถราง
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP ลบทุกเส้นรถเก็บกระแส
+SETTINGS_DELETE_TRAIN_TOOLTIP ลบทุกเส้นรถไฟ
+SETTINGS_DELETE_METRO_TOOLTIP ลบทุกเส้นรถไฟฟ้าใต้ดิน
+SETTINGS_DELETE_MONORAIL_TOOLTIP ลบทุกเส้นรถไฟเลี่ยว
+SETTINGS_DELETE_FERRY_LABEL เรือเฟอร์รี่
+SETTINGS_DELETE_SHIP_TOOLTIP ลบทุกเส้นเรือเฟอร์รี่
+SETTINGS_DELETE_HELICOPTER_LABEL เฮลิคอปเตอร์
+SETTINGS_DELETE_HELICOPTER_TOOLTIP ลบทุกเส้นเฮลิคอปเตอร์
+SETTINGS_DELETE_BLIMP_LABEL ยานบอลลูนเบ้า
+SETTINGS_DELETE_BLIMP_TOOLTIP ลบทุกเส้นยานบอลลูนเบ้า
+
+
+VEHICLE_EDITOR_TITLE ตัวแก้ไขยานพาหนะ
+VEHICLE_EDITOR_SUB_TITLE {0} ยานพาหนะ
+VEHICLE_EDITOR_CAPACITY ความจุผู้โดยสาร
+VEHICLE_EDITOR_CAPACITY_TAXI ความจุการเดินทาง
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP จำนวนผู้โดยสารต่อกะการทำงาน
+VEHICLE_EDITOR_MAINTENANCE ค่าบำรุงรักษา
+VEHICLE_EDITOR_MAX_SPEED ความเร็วสูงสุด
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS เครื่องยนต์รถไฟที่ปลายทั้งสองด้าน
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP เปิดหรือปิดใช้เครื่องยนต์รถไฟที่ปลายทั้งสองด้าน
+VEHICLE_EDITOR_APPLY นำไปใช้
+VEHICLE_EDITOR_DEFAULT ค่าเริ่มต้น
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 คลิกขวาเพื่อตามยานพาหนะนี้\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + คลิกเพื่อเพิ่มยานพาหนะนี้ไปยังคิว
+VEHICLE_PANEL_EDIT_TYPE แก้ไขประเภทยานพาหนะ
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP แก้ไขประเภทยานพาหนะนี้ด้วยตัวแก้ไขยานพาหนะ
+VEHICLE_PANEL_STATUS_NEXT_STOP จุดหยุดถัดไป:
+VEHICLE_PANEL_STATUS_UNBUNCHING การแยกยานพาหนะกำลังดำเนิน
+VEHICLE_PANEL_LAST_STOP_EXCHANGE การแลกเปลี่ยนจุดหยุดสุดท้าย: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS ผู้โดยสาร:
+VEHICLE_PANEL_EARNINGS รายได้:
+VEHICLE_PANEL_EARNINGS_TOOLTIP ผลจากการขายตั๋วลบค่าบำรุงรักษาบัสเบรก
+VEHICLE_PANEL_PREVIOUS ยานพาหนะก่อนหน้า
+VEHICLE_PANEL_PREVIOUS_TOOLTIP ข้ามไปยังยานพาหนะก่อนหน้า\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+VEHICLE_PANEL_REMOVE_VEHICLE ลบยานพาหนะ
+VEHICLE_PANEL_NEXT ยานพาหนะถัดไป
+VEHICLE_PANEL_NEXT_TOOLTIP ข้ามไปยังยานพาหนะถัดไป\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม
+VEHICLE_SELECTION_CAPACITY ความจุ
+VEHICLE_SELECTION_ADD_VEHICLE เพิ่มยานพาหนะนี้ไปยังรายการยานพาหนะที่อนุญาต
+VEHICLE_SELECTION_ADD_ALL เพิ่มยานพาหนะที่มีคุณสมบัติทั้งหมดไปยังรายการยานพาหนะที่อนุญาต
+VEHICLE_SELECTION_REMOVE_VEHICLE ลบยานพาหนะนี้ออกจากรายการยานพาหนะที่อนุญาต
+VEHICLE_SELECTION_REMOVE_ALL ลบยานพาหนะทั้งหมดออกจากรายการยานพาหนะที่อนุญาต
+VEHICLE_SELECTION_AVAILABLE_VEHICLES ยานพาหนะที่มีอยู่
+VEHICLE_SELECTION_SELECTED_VEHICLES ยานพาหนะที่เลือก
+VEHICLE_SELECTION_ANY_VEHICLE ยานพาหนะใด ๆ
+VEHICLE_BUTTON_TOOLTIP {0}\n\nคลิกเพื่อข้ามไปยังยานพาหนะนี้\nการกดปุ่ม Shift ขณะคลิกจะขยายแบบซูม\nการกดปุ่ม Alt ขณะคลิกจะป้องกันไม่ให้เปิดแผงข้อมูลยานพาหนะ
+TRANSPORT_LINE_VEHICLECOUNT จำนวนยานพาหนะ: {0}
+
+FLIGHT_TRACKER_NAME ตัวติดตามเที่ยวบิน
+FLIGHT_STATUS_NONE ไม่มี
+FLIGHT_STATUS_INCOMING เข้ามา
+FLIGHT_STATUS_LANDED ลงจอด
+FLIGHT_STATUS_AT_GATE ที่ประตู
+FLIGHT_STATUS_DEPARTED ออกเดินทาง
+
+TICKET_PRICE_TAXI_KILOMETER ค่าแท็กซี่ต่อกิโลเมตร:
+TICKET_PRICE_TAXI_MILE ค่าแท็กซี่ต่อไมล์:
+TICKET_PRICE_BUS ราคาตั๋วรถบัส:
+TICKET_PRICE_INTERCITY_BUS ราคาตั๋วรถบัสระหว่างเมือง:
+TICKET_PRICE_METRO ราคาตั๋วรถไฟฟ้า:
+TICKET_PRICE_TRAIN ราคาตั๋วรถไฟ:
+TICKET_PRICE_TRAM ราคาตั๋วรถราง:
+TICKET_PRICE_MONORAIL ราคาตั๋วรถไฟเลี่ยว:
+TICKET_PRICE_SHIP ราคาตั๋วเรือ:
+TICKET_PRICE_FERRY ราคาตั๋วเรือเฟอร์รี่:
+TICKET_PRICE_PLANE ราคาตั๋วเครื่องบิน:
+TICKET_PRICE_CABLECAR ราคาตั๋วรถเคเบิล:
+TICKET_PRICE_SIGHTSEEING_BUS ราคาตั๋วรถบัสท่องเที่ยว:
+TICKET_PRICE_TROLLEYBUS ราคาตั๋วรถเก็บกระแส:
+TICKET_PRICE_BLIMP ราคาตั๋วยานบอลลูนเบ้า:
+TICKET_PRICE_HELICOPTER ราคาตั๋วเฮลิคอปเตอร์:
+ECONOMY_TAB_TICKET_PRICES ราคาตั๋ว
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT จำนวนผู้โดยสารทั้งหมดในปัจจุบันสำหรับประเภทการขนส่งนี้
+
+
+WHATSNEW_3_0_0_1 อัปเดตสำหรับ Race Day ปัจจุบันเข้ากันได้กับ More Vehicles Renewed
+WHATSNEW_3_0_0_2 mod ต่อไปนี้ได้รวมเข้าใน IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Public Transport Unstucker ถูกรวมเข้าใน IPT3 แล้ว\nดู version 3.0 สำหรับ mod ที่รวมไว้อื่น ๆ ทั้งหมด ยกเลิกการติดตามต้นฉบับเพื่อหลีกเลี่ยงข้อขัดแย้ง
+
+SETTINGS_TAB_TRAINDISPLAY แสดงรถไฟ
+SETTINGS_TRAINDISPLAY_GROUP overlay แสดงรถไฟ
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION กำหนดค่า overlay ที่รวมไว้ซึ่งแสดงขณะตามยานพาหนะขนส่งที่สนับสนุน
+SETTINGS_TRAINDISPLAY_ENABLE เปิดใช้การแสดงรถไฟ
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP เปิดหรือปิดใช้ overlay การแสดงรถไฟที่รวมไว้
+SETTINGS_TRAINDISPLAY_MODE_DISABLED ปิดใช้
+SETTINGS_TRAINDISPLAY_MODE_ENABLED เปิดใช้
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION ตำแหน่ง overlay:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP เลือกตำแหน่งที่ overlay ปรากฏบนหน้าจอ
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT ด้านบนซ้าย
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT ด้านบนขวา
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT ด้านล่างซ้าย
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT ด้านล่างขวา
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE มาตรส่วน overlay:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP ปรับขนาด overlay
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY ความทึบแสง overlay:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP ปรับความโปร่งใส overlay
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL ช่วงเวลาการอัปเดต:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP ความถี่ที่ overlay รีเฟรชขณะตามยานพาหนะ
+SETTINGS_TRAINDISPLAY_SHOW_LINE แสดงชื่อเส้น
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP รวมชื่อเส้นใน overlay
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION แสดงปลายทาง
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP รวมปลายทางใน overlay
+SETTINGS_TRAINDISPLAY_SHOW_STATE แสดงสถานะ
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP รวมสถานะยานพาหนะใน overlay
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING เฉพาะเมื่อตาม
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP ซ่อน overlay เว้นแต่กล้องจริงหมายถึงยานพาหนะที่สนับสนุน
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY มีเฉพาะในกล้องเบิกตัวแรก
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP แสดง overlay เฉพาะเมื่อใช้ mod กล้องเบิกตัวแรก (เช่น First Person Camera - Continued) หากปิดไว้ จะแสดงทุกครั้งที่คุณตามยานพาหนะที่สนับสนุนในโหมดกล้องใด ๆ
+SETTINGS_TRAINDISPLAY_THEME ธีมสี:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP เลือกสีพื้นหลัง/ข้อความของ overlay
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE ง่าย
+SETTINGS_TRAINDISPLAY_THEME_DARK มืด
+SETTINGS_TRAINDISPLAY_THEME_LIGHT สว่าง
+
+COPY_TIP คัดลอกการตั้งค่าเส้นนี้
+PASTE_TIP วางการตั้งค่าเส้นที่คัดลอก
+COPY_BUILDING_TIP คัดลอกการตั้งค่านี้ไปยังทุกเส้นที่บริการอาคารนี้
+COPY_DISTRICT_TIP คัดลอกการตั้งค่านี้ไปยังทุกเส้นในเขตการปกครองนี้
+SETTINGS_INTEGRATIONS_GROUP เครื่องมือเสริมที่รวมไว้
+SETTINGS_INTERCITY_BUS_ENABLE เปิดใช้การควบคุมรถบัสระหว่างเมือง
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP เปิดใช้เลเยอร์ความเข้ากันได้ของการควบคุมรถบัสระหว่างเมืองที่รวมไว้และการแพตช์สถานี
+SETTINGS_FLIGHTTRACKER_ENABLE เปิดใช้ตัวติดตามเที่ยวบิน
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP เปิดใช้แพตช์ตัวติดตามเที่ยวบินที่รวมไว้และการสนับสนุน UI
+CHANGELOG_4_3_3_1 การตั้งค่าคงไว้/โหลดซ่อมแซมเดิมเพราะพยายามล้มเหลวบนกองโมดหนึ่งแม้จะหลังจากการรวมกิจ Newtonsworth.Json.dll: วิธี workaround ก่อนหน้านี้พยายาม Assembly.LoadFrom ในจุดเข้าหนึ่งเท่านั้นและยังคงขึ้นอยู่กับลำดับการโหลด IPT4 ตอนนี้ลงทะเบียน hook AssemblyResolve ทั่วโลกและ eagerly บูต Newtonsworth.Json ที่บรรจุไว้จากจุดเข้า mod/UI ทั้งหมดก่อน CSLModsCommon สัมผัส JsonWriter ดังนั้นแผง UI ตัวเลือกยังคง reliably แทนที่จะ bind สุ่มกับสำเนา Json.NET ที่เข้ากันไม่ได้ของโมด
+CHANGELOG_4_3_2_1 ซ่อมแซมโมด Fail to load ทั้งหมด ("ล้มเหลวในการโหลด dll ของโมดหรือหนึ่งในการพึ่งพา") ทุกครั้งที่ไม่มีโมดติดตั้งอื่น ๆ เสียบ Newtonsworth.Json: การสร้าง serialization (JsonHelper/SerializationContext) ของ CSLModsCommon ต้อง แต่การสร้างของเราไม่เคยใช้งาน Newtonsworth.Json.dll อย่างแท้จริงถัดจากโมด - มันใช้งานได้ตลอดเวลาโดยบังเอิญ ขี่บนสำเนา mod คนอื่น พบโดยปิดโมดอื่น ๆ ทั้งหมดสำหรับการทดสอบล้อม ซึ่งถูกต้องเท่าที่ควรทดสอบ ไปข้างหน้า
+CHANGELOG_4_3_1_1 ซ่อมแซมแผง Opciones selector ภาษาเท่านั้นแปลสตริง framework ของตัวเอง (เวอร์ชัน/Changelog/...) ในขณะที่ทุกสตริงของ mod นี้ยังคงอยู่ในภาษาเกม - loader แปลของเรา keyed ปิดภาษาเกมและไม่สนใจตัวเลือกของโมดทั่วไปเลย ตอนนี้มันติดตามตัวเลือกภาษาของโมดด้วยการลงจอดไปยังภาษาเกมและอังกฤษและการแก้ไขครั้งใหม่ทุกครั้งที่ตัวเลือกการเปลี่ยน
+CHANGELOG_4_3_1_2 เติมใน 38 คีย์แปลที่มีอยู่เฉพาะในภาษาอังกฤษและโปรตุเกส - ทุกภาษาอื่น ๆ (อาหรับ, เบงกาลี, เยอรมัน, สเปน, ฝรั่งเศส, ฮินดี, อินโดนีเซีย, อิตาลี, ญี่ปุ่น, เกาหลี, โปแลนด์, รัสเซีย, อุรดู และรูปแบบจีนทั้งหมด) ลดลงอย่างเงียบ ๆ กลับไปอังกฤษสำหรับทั้ง Train Display ส่วน ลบ Desc Desc และสามอธิบาย
+CHANGELOG_4_3_1_3 เพิ่ม 4 สำเนา/วางคีย์เคล็ดลับที่ขาดหายไปจากไฟล์ภาษาทั้งหมดรวมถึงอังกฤษ ดังนั้นพวกเขาจะ render เป็นคีย์ดิบ ("COPY_TIP") เมื่อปุ่มเหล่านั้นถูกเปิดใช้อีกครั้ง
+CHANGELOG_4_3_0_1 เพิ่ม Train Display Updated: overlay หน้าจออักษรเล็กน้อยแสดง line/destination/state ขณะทำตามยานพาหนะที่สนับสนุน Configurable ใน Opciones: ตำแหน่งหน้าจอ ขนาด ความทึบแสง เขตข้อมูลที่แสดง ความถี่อัปเดต ว่าเป็นข้อ จำกัด ไปยัง first-person mod กล้องและสี Simple/Dark/Light
+CHANGELOG_4_3_0_2 ไฟล์หลายข้อ Errores ในการรวม Train Display ใหม่: การอ้างอิง ambiguous Utils สองปพื่อไม่มี แม้ในเวอร์ชันเกมนี้ (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) และ Enum.HasFlag การใช้งาน - ซึ่งไม่มี .NET Framework 3.5 เป้าหมายรูปแบบของมอดนี้และไม่ต้องแทนที่การตรวจสอบ bitwise ด้วยตนเอง
+CHANGELOG_4_2_4_1 ซ่อมแซม modmut show "Kompatibilidad con Versión Juego: 0.0.0" - ไม่เคยประกาศหลาย game version ที่สนับสนุน ตอนนี้ตั้งค่า 1.21.1-f9 และด้านบน
+CHANGELOG_4_2_4_2 ซ่อมแซม AutoLineColor dropdown สี Strategi แสดงชื่อ enum ดิบเท่านั้น (eg "AUTOLINECOLOR_STRATEGY_RANDOMHUE") แทน translated text: Codes generate key ไม่มี ขีดเส้นใต้ในขณะ souboru Zuvor jednu Verwendet Také Reorganized sekce So Two Sliders Závisí Sit Priamo Pod Farebny Strategi Dropout, místo potom súvisiace pojmenování Dropdown
+CHANGELOG_4_2_4_3 Premenovany Tram Ununch Režim Match Buses (Disabled/Prudental/Realistic) místo "Ľahké Železnice"/"Skutočná Električka" a preložil Laatste Angles angličtiny Text Została v Popisu Portugálsky
+CHANGELOG_4_2_4_4 Opraveno popisy zaškrtávacích políček nikdy se nerendroval nikde v panelu, když se nenastavil žádný text hlavičky (což je každé zaškrtávací pole v tomto modifikaci) - kód rozložení bol umiestnený iba popis popis ako existoval aj popis hlavičky, aj keď popis bol už vytvořen a vyplnený textom
+CHANGELOG_4_2_4_5 Opraveny Opciones Tab Title Captions Obtené (Zejména v Portugálsku, Koja Běží Déle Než Angličtina) - Taby Teď Wrap Do Druhého Řádku Místo Clipping
+CHANGELOG_4_2_4_6 Opraveno Reset Buttons (Unbunching, Ticket Prices) Změna Podúlodý Nastavení Okamžitě, ale Neaktualizuje Sliders Již Na Obrazovce, Takže Vypadalo Jak Nic Se Nestalo Dokud Snovu Otevřít Opciones
+CHANGELOG_4_2_4_7 Opraveno Smazat Linky Nástroj Zaškrtnutí Polí Přetrvávajícího Jak Uložené Nastavení Místo Resetování Po Použití - Byly Omylem Zapojeny Do ModSetting Jako Skutečná Preference, Když Je To Určeno Jako "Vybrat Typy, Klikněte Smazat" Akce
+CHANGELOG_4_2_3_1 Opraveno Každý Mod Překlad Zobrazit Jak Surový Klíč (EG "SETTINGS_SPEED:0") v Každém Jazyku: Náš Vlastní Loader Překlad Stále Porovnán Plugin Podle Starého Typu ImprovedPublicTransportMod Místo Mod (Třída To Je Vlastně IUserMod Od CSLModsCommon Migrace), Takže Nikdy Nenašel Složka Mod a Nikdy Nenačítal Translations/*.txt soubor Také Zesílená Vanilla-Locale Fallback So Již Není Omylem Pomáhat Colossal "Klíč:0" Nenajde Marker Jako Skutečný Překlad
+CHANGELOG_4_2_3_2 Odstraněno Vždy Prázdný "Klíč Svazek" Tab Z Opciones - Tento Mod Nemá Klíčové Svazky Nakonfigurovat
+CHANGELOG_4_2_3_3 Sliders v Opciones Teď Zobraz Jejich Aktuální Hodnota Znovu (Ztraceno v CSLModsCommon Migrace - Nový Slider Kontrola Jej Nezobrazi Výchozí)
+CHANGELOG_4_2_3_4 Opraveno AutoLineColor "Min Color Difference" a "Max Color Pick Pokusy" Sliders Zůstáván Interaktivní Dokonce Když Je Barva Strategi Nastavena Na Disabled Nebo Kategorizovaný (Ani Z Kterého Používá Ty Nastavení)
+CHANGELOG_4_2_0_1 Přidáno Záchranu Fullwidth Digits: Normalizuje Fullwidth Číslice v Vlastní Transport Line Jména Zpět Na Bežné ASCII Číslice, Fixování A Displej/Třídy Zvláštnosti Z Některých Non-Latin Klávesnice Vstupy
+CHANGELOG_4_2_0_2 Přidáno Dedikované Ticket Prices Tab Do Opciones Panel, So Day/Night Fare Multipliers Lze Ladit Bez Otevření v Hře Ekonomika Panelu
+CHANGELOG_4_2_0_3 Opraveno Záchranu Fullwidth Digits Patch Pouze Někdy Aplikován Jednou Při Mod Startup Zatímco Undo-Ed Na Každé Úrovni Unload, Tiše Vypíná To Pro Každé Uložit Pak První Načteno v Relace
+CHANGELOG_4_2_0_4 Opraveny Taxi-Fare Integer-Overflow Bug (MileageTaxiServices) Která Mohla Drain Veřejný Transport Rozpočet Miliardami v Jednom Kroku: Taxi S Poškozeným Nebo Neinicializovaným Frame Údaje (Např. Hned Po Spawning) Mohlo Vypočítat Implausible Na Frame Vzdálenost, Přetékání Tarif Obsazení Aby Int Do Obrovské Hodnoty Odpadky - To Evens Známé Neřešené Problém Hlášené Upstream (Runaway Negativní Taxi Příjem) Teď Implausible Frame Vzdálenosti Zahozeny Místo Účtování
+CHANGELOG_4_1_5_1 Opravena Skutečná Příčina Prázdného/Černého Panelu Opciones: CSLModsCommon Vlastní UI Strings (Verze/Changelog/atd.) Bydlet Ve Fyzickém Lokalizace/Společné Folder Vedle DLL Které Naší Stavě Nikdy Nedeployoval Bez Toho Rámec LocalizationManager Tiše Vzdal Se, Zanechávajíc CurrentLocaleSource Null a Krach OptionsPanelBase.Awake() S NullReferenceException Okamžik To Pokusil Zobrazit Překlad-Pokrok Label - Který Unity Bezpečně Polousí, Přerušen Panel Uprostřed Stavby Teď .csproj Nasazuje Tu Složku A GetTranslationProgress() Již Nevypaluje Pokud Je Někdy Chybí Znovu
+CHANGELOG_4_1_4_1 Opraveno Opciones Panel Zobraz Prázdný/Černý: Panel Byl Vytvořen Pouze Kdy Hra Přepnula Viditelnost Nádržů Nastavení A Zapla, Ale To Je Obvykle Již Viditelný Když Hra Otevře Stránku Tohoto Mod, Takže Panel Nikdy Nebyl Vytvořen Teď To Také Staví Okamžitě Pokud Nádržka Již Viditelná
+CHANGELOG_4_1_4_2 Opraveno Selhání Každé CSLModsCommon UI Textury (Pozadí, Ikony, Přepínače) Chyba Zatížit A Návrh Na Zástupný Symbol: Project RootNamespace Byla Stále "ImprovedPublicTransport3" Z Původního Vidlice IPT3, Takže Vložené Zdroje Byly Zkompilovány Pod Špatným Jménem A Nikdy Neodpovídal Za Běhu
+CHANGELOG_4_1_3_1 Opraveny Tři Nastavení Uložení Bugs Zbývajícího Od CSLModsCommon Migrace (Co Je Nový Propuštění, Opciones Obnovit Tlačítko, Per-Hour Ticket Price Editor): Každá Zapsala Nová Hodnota Aby ModSetting Správně Ale Pak Uložená Starý, Nyní Mrtvý Nastavení Objekt, Takže Změna Nikdy Skutečně Trvala Na Disk
+CHANGELOG_4_1_3_2 Odstraněný Mrtvý Kód Z Éry Před CSLModsCommon: Rámcový OptionsFramework, Monolitické Settings.cs A Samostatný VehicleEditorPositions Enum - Všechny Zcela Nahrazen ModSetting A CSLModsCommonOptionsPanel
+CHANGELOG_4_0_0_1 Vidlice Od Improved Public Transport 3
+CHANGELOG_4_0_0_2 Portované AutoLineBudget Demand-Based Fleet Velikost Pro Koordinovat S IPT Vlastní Vehicle-Count API Místo Přímého Psaní Line Budget, Fixování Runaway Údržba-Náklady Bug Způsobené Dva Mods Bojovat O Stejný Stav
+CHANGELOG_4_0_0_3 Přijatý CSLModsCommon Pro Opciones UI (Verze Badge, Changelog, Kompatibilita Upozornění, Překlad Pokrok)
+TRAINDISPLAY_LABEL_NAME ชื่อ
+TRAINDISPLAY_LABEL_STATUS สถานะ
+TRAINDISPLAY_NO_LINE ไม่มีเส้น
+TRAINDISPLAY_NO_DESTINATION ไม่มีปลายทาง
+TRAINDISPLAY_HIDDEN ซ่อน
+TRAINDISPLAY_VEHICLE ยานพาหนะ
+TRAINDISPLAY_STATE_RETURNING กำลังกลับ
+TRAINDISPLAY_STATE_STOPPED ที่จุดหยุด
+TRAINDISPLAY_STATE_EN_ROUTE ระหว่างเดินทาง
+TRAINDISPLAY_STATE_ON_LINE บนเส้น
+TRAINDISPLAY_STATE_IDLE ไม่ทำงาน
+AUTOLINECOLOR_REFRESH_BUTTON รีเฟรชชื่อ/สี
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP กำหนดชื่อและสีเส้นปัจจุบันใหม่ตามการตั้งค่า AutoLineColor ที่ใช้งาน
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP เปิดใช้กลยุทธ์สีหรือการตั้งชื่อในตัวเลือกก่อนรีเฟรชเส้นนี้
+CHANGELOG_4_3_3_2 ปรับปรุง bundled Newtonsworth.Json Resolver เพื่อให้ลำดับความสำคัญของสำเนาที่จัดส่งถัดจากโมดนี้แทนที่จะส่งคืนสำเนาใดที่โมดอื่นบังเอิญโหลดก่อน (Real Time Ships Strong-Named v13; CSLModsCommon ต้องการ Unsigned v9) การมอบหมายโค้ดของเรา Build ที่ผิดพลาด JsonHelper ล้มเหลวและส่งคืนวัตถุว่าง ซึ่งเป็นสาเหตุที่ทำให้แหล่งข้อมูลประเทศของเฟรมเวิร์กเปล่าและตัวเลือกภาษาแสดง id ประเทศดิบ
+CHANGELOG_4_3_3_3 เบงกาลี, ฮินดี, อินโดนีเซีย และ อุรดู ตอนนี้ปรากฏในตัวเลือกภาษา mod พวกเขาถูกแปลอย่างสมบูรณ์แล้ว แต่เฟรมเวิร์กไม่มีไฟล์โลแคลสำหรับพวกเขา ดังนั้นจึงไม่สามารถเข้าถึงได้หากเกมไม่ทำงานในภาษานั้น
+CHANGELOG_4_3_3_4 เพิ่มประสิทธิภาพของตัวจำกัดผู้โดยสารจุดหยุด: มันแก้ไขวัตถุการตั้งค่า (สองการค้นหาพจนานุกรม) ครั้งต่อสำเร็จการศึกษาเมืองภายในลูปที่ทำงานนับพันครั้งต่อวินาที ตอนนี้แก้ไขครั้งต่อเฟรม
+CHANGELOG_4_3_3_5 สร้างการค้นหาโฟลเดอร์โมดอิสระจากคลาสใดที่ใช้ IUserMod การจับคู่นี้ได้หยุดการโหลดการแปลเงียบ ๆ ครั้งหนึ่งและกลไกไฟล์ลำดับที่สองของไฟล์ลำดับที่สองในแต่ละครั้งหลังจากการรีแฟกเตอร์ที่ไม่เกี่ยวข้อง
+CHANGELOG_4_3_4_1 ซ่อมแซม Startup ModException ("ล้มเหลวในการค้นหา ImprovedPublicTransportMod Assembly!") โยนโดย AutoLineColor ก่อนแม้แต่แผนที่ที่จะโหลด ชั้นเรือนสนับสนุนที่สองยังคงมองหา mod ตามประเภท ImprovedPublicTransportMod ซึ่งหยุดเป็น IUserMod ระหว่างการอพยพ CSLModsCommon - การจับคู่เดียวกันที่ซ่อมแซมอยู่ที่อื่น ผู้ช่วยทั้งสองตอนนี้แก้ไขโฟลเดอร์โมดจากการประกอบตัวเอง เพื่อให้ refactoring ในอนาคตไม่สามารถทำลายได้อีก
+CHANGELOG_4_3_5_1 ซ่อมแซม Train Display Overlay ไม่เคยปรากฏเมื่อตามยานพาหนะ มันค้นหาอินสแตนซ์ที่ตามมาของกล้องผ่านการตรวจสอบ "target"/"GetTarget" ทั่วไป แต่เกมเก็บไว้ในช่อง CameraController.m_targetInstance ส่วนตัวซึ่งการตรวจสอบเหล่านั้นไม่มีวันจับคู่ นอกจากนี้ยังเปิด "เฉพาะในกล้องเบิกตัวแรก" ปิดอยู่โดยค่าเริ่มต้น: โหมดติดตามเปล่า ๆ ไม่ใช่เบิกตัวแรก ดังนั้นการเพิ่มมันทำให้ overlay ดูเหมือนเสีย ๆ ออกจากกล่อง ซึ่งแตกต่างจากโมดเดิมที่แสดงมันในมุมมองใด ๆ ตาม
+CHANGELOG_4_3_7_1 ทั้ง 23 ภาษาในรายการเลือกได้รับการแปลครบถ้วนแล้ว เช็ก ดัตช์ สโลวัก ไทย และตุรกี เคยเลือกได้แต่ไม่มีไฟล์คำแปล จึงกลับไปใช้อังกริษโดยไม่แจ้ง
+CHANGELOG_4_3_7_2 ความคืบหน้าการแปลที่แสดงใต้ตัวเลือกภาษาอ่านจากไฟล์สถานะแบบคงที่ไม่เคยสร้างใหม่ จึงรายงาน 76% สำหรับสิบหกภาษาที่จริงๆ แล้วเสร็จสมบูรณ์
+CHANGELOG_4_3_6_1 แก้สาเหตุที่แท้จริงของรายจ่ายขนส่งสาธารณะกว่า -21.4 ล้าน แล้ว: การคำนวณค่าบำรุงรักษารายสัปดาห์ของ IPT หารด้วยความจุของยานพาหนะที่เป็นศูนย์หรือที่ไม่รองรับ ทำให้ NaN กลายเป็น int.MinValue แล้วยังนำมารวมทุกคันใน int อีกตัว ค่าที่ไม่ถูกต้องจะใช้ค่าสำรองของเกมหลักที่ปลอดภัย ยอดรวมของสายใช้เลขคณิต 64 บิต และจำนวนมากที่ถูกต้องจะเรียกเก็บผ่านธุรกรรมที่เป็นบวกและมีขอบเขตเท่านั้น
+CHANGELOG_4_3_6_2 ไฟล์เซฟที่ได้รับผลกระทบแล้วจะถูกซ่อมตอนโหลด: รีเซ็ตเป็นศูนย์เฉพาะช่วงรายได้หรือรายจ่ายของขนส่งสาธารณะที่เป็นลบอันเกิดจากการล้นนี้ และแก้ยอดรวมที่เกี่ยวข้อง ประวัติเศรษฐกิจที่ถูกต้องและบริการอื่นๆ ทั้งหมดจะไม่ถูกแตะต้อง
+CHANGELOG_4_3_5_2 แท็บ Ticket Prices ตอนนี้แสดงค่าโดยสารผลลัพธ์สำหรับประเภทการขนส่งแต่ละประเภทแทนจำนวนผู้โดยสารสดใจ ตัวเลื่อนแสดงเพียงเปอร์เซ็นต์เท่านั้น ดังนั้นจึงไม่มีวิธีที่จะเห็นว่าตัวคูณจริง ๆ ทำให้อยู่ - และในเมืองเล็ก ๆ หรือที่หยุดชั่วคราว จำนวนผู้โดยสารก็อ่านถาวร "0" เท่านั้น จำนวนผู้โดยสารย้ายไปยังเคล็ดลับฉลาก พร้อมกับค่าโดยสารเดิม
+TICKET_PRICE_LABEL_TOOLTIP ค่าโดยสารปัจจุบัน: {0}\nค่าโดยสารเดิม: {1}\nผู้โดยสารขับรถตอนนี้: {2}

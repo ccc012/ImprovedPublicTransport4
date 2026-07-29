@@ -1,0 +1,391 @@
+MOD_DESCRIPTION Vylepšená kontrola verejnej dopravy.
+CURRENT_WEEK Aktuálny týždeň
+LAST_WEEK Minulý týždeň
+AVERAGE Priemer
+AVERAGE_TOOLTIP Priemer posledných {0} týždňov.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS Zastávky stanice
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Vozidlá v depôte
+CITYSERVICE_ACCEPTINTERCITYBUSES Povoliť medzimiestne autobusy
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Umožniť medzimiestnym autobusom používať túto stanicu. Vypnite pre mestné autobusy.
+
+EXPLANATION_BUDGET_CONTROL Kontrola rozpočtu: Počet vozidiel sa riadi rozpočtom.
+EXPLANATION_UNBUNCHING Rozpredenie vozidiel: Hra sa pokúša vytvoriť medzeru medzi vozidlami.
+LINE_PANEL_STOPS Zastávky: {0}
+LINE_PANEL_SPAWNTIMER Ďalšie vozidlo za {0} sekúnd.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Vybraté depôte nemá žiadne vozidlá.</color>
+LINE_PANEL_BUDGET_CONTROL Kontrola rozpočtu
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Povolí alebo zakáže kontrolu rozpočtu pre túto linku.
+LINE_PANEL_UNBUNCHING_TOOLTIP Povolí alebo zakáže rozpredenie vozidiel pre túto linku.\nRozsyp je vypnutý, ak je agresivita rozpredenia nastavená na 0.
+LINE_PANEL_DEPOT Depôte:
+LINE_PANEL_NO_DEPOT_FOUND Nie je nájdené depôte.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Skočiť na vybrané depôte.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+LINE_PANEL_SELECT_TYPES Vybrať typy
+LINE_PANEL_SELECT_TYPES_TOOLTIP Prepne panel „Vybrať typy".\nAk je toto tlačidlo vypnuté, musíte najskôr vybrať depôte.
+LINE_PANEL_LINE_STOPS Zastávky linky
+LINE_PANEL_LINE_VEHICLES Vozidlá na tejto linke
+LINE_PANEL_ENQUEUED Vozidlá v rade
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} cestujúcich čaká na tejto linke.
+LINE_PANEL_ADD_VEHICLE Pridať vozidlo
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Pridá nové vozidlo na linku.\nAk je toto tlačidlo vypnuté, vybraté depôte nemá žiadne vozidlá.
+LINE_PANEL_REMOVE_VEHICLE Odstrániť vozidlo
+
+STOP_LIST_BOX_ROW_STOP Zastávka #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nČakajúci cestujúci: {1}\n\nKliknutím pravého tlačidla prejdite na túto zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Zoznam navrhovaných názvov zastávky.
+STOP_PANEL_REUSE_NAME_TOOLTIP Nastavte tento názov na všetky ostatné zastávky na tejto stanici.
+STOP_PANEL_WAITING_PEOPLE Čakajúci cestujúci: {0}
+STOP_PANEL_BORED_TIMER Čas do odchodu: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Cestujúci opustia túto zastávku, keď sa odpočítavanie dostane na nulu.
+STOP_PANEL_PASSENGERS_IN Cestujúci na palube:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Cestujúci, ktorí nastupujú do vozidla tu.
+STOP_PANEL_PASSENGERS_OUT Cestujúci vystúpil:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Cestujúci, ktorí vystúpia z vozidla tu.
+STOP_PANEL_PASSENGERS_TOTAL Spolu:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Celkový počet cestujúcich obslúžených tu.
+STOP_PANEL_UNBUNCHING_TOOLTIP Povolí alebo zakáže rozpredenie vozidiel na tejto zastávke.\nRozsyp je vypnutý, ak je agresivita rozpredenia nastavená na 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS Aktualizovať blízke zastávky
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Nastavte stav rozpredenia na všetky ostatné zastávky na tejto stanici.
+STOP_PANEL_PREVIOUS Predchádzajúca zastávka
+STOP_PANEL_PREVIOUS_TOOLTIP Skočiť na predchádzajúcu zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+STOP_PANEL_DELETE_STOP Vymazať zastávku
+STOP_PANEL_DELETE_STOP_TOOLTIP Toto tlačidlo je povolené, ak stlačíte kláves Alt.\nPoužívajte na vlastné riziko!!!
+STOP_PANEL_NEXT Ďalšia zastávka
+STOP_PANEL_NEXT_TOOLTIP Skočiť na ďalšiu zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+STOP_BUTTON_TOOLTIP {0}\n\nKliknutím prejdite na túto zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.\nKeď stlačíte Alt, počas klikania sa otvorí panel s informáciami o zastávke.
+
+SETTINGS_DELETE Vymazať
+SETTINGS_RESET Obnoviť
+
+SETTINGS_TAB_GENERAL Všeobecné
+SETTINGS_TAB_AUTOLINE Automatická linka
+SETTINGS_TAB_STOPS Zastávky a stanice
+SETTINGS_TAB_UNBUNCHING Rozpredenie
+SETTINGS_TAB_DELETE Vymazať linky
+
+SETTINGS Nastavenia
+SETTINGS_SPEED Zobrazovať rýchlosť v:
+SETTINGS_SPEED_TOOLTIP Vyberte jednotku používanú na zobrazenie rýchlosti v UI.
+SETTINGS_SPEED_KPH km/h
+SETTINGS_SPEED_MPH mph
+SETTINGS_WALKING_SPEED Rýchlosť chôdze:
+SETTINGS_WALKING_SPEED_TOOLTIP Štandardne: rýchlosti zo základnej hry.\nRealisticky: znižuje rýchlosť chôdze na realistické hodnoty závislé od veku.\nRealisticky tiež znižuje rýchlosť cyklistiky s DLC After Dark.
+SETTINGS_WALKING_SPEED_MODE_VANILLA Štandardne
+SETTINGS_WALKING_SPEED_MODE_REALISTIC Realisticky
+SETTINGS_BBSP Lepšia poloha autobusovej zastávky:
+SETTINGS_BBSP_TOOLTIP Zakázané: žiadne úpravy umiestnenia.\nPovolené: autobusy sa zastavujú na prednej časti autobusovej zastávky namiesto stredu.
+SETTINGS_BBSP_MODE_DISABLED Zakázané
+SETTINGS_BBSP_MODE_ORIGINAL Povolené
+SETTINGS_BBSP_MODE_UPDATED Použiť experimentálnu logiku
+
+SETTINGS_BUDGET Rozpočet
+SETTINGS_ENABLE_BUDGET_CONTROL Kontrola rozpočtu linky:
+SETTINGS_BUDGET_CONTROL_DISABLED Zakázané
+SETTINGS_BUDGET_CONTROL_ENABLED Povolené
+SETTINGS_BUDGET_CONTROL_TOOLTIP Ak je povolené, počet vozidiel pre linky verejnej dopravy sa riadi rozpočtom; aktualizuje všetky existujúce linky a vymazáva vozidlá v rade.
+SETTINGS_BUDGET_TICKET_PRICES Prispôsobovač ceny lístka:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED Zakázané
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED Povolené
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Ak je povolené, pridáva novú kartu do panela Ekonomika s posúvačmi na úpravu cien lístkov pre každý typ dopravy.
+SETTINGS_AUTO_LINE_BUDGET Automatická veľkosť flotily:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Zakázané
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Povolené
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Ak je povolené, linky v režime Rozpočet automaticky prispôsobia počet vozidiel na základe skutočného dopytu cestujúcich namiesto posúvača rozpočtu vanilky. Linky nastavené na Manuálne sa nikdy nemenia.
+
+SETTINGS_AUTO_LINE Automatická linka
+SETTINGS_AUTOSHOW_LINE_INFO Automaticky otvoriť panel informácií o linke
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Automaticky zobraziť panel informácií o linke po vytvorení novej linky.
+
+AUTOLINECOLOR_STRATEGY_DISABLED Zakázané
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Náhodný odtieň
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Náhodná farba
+AUTOLINECOLOR_STRATEGY_CATEGORISED Kategorizované
+AUTOLINECOLOR_STRATEGY_NAMED Pomenované farby
+AUTOLINECOLOR_NAMING_DISABLED Zakázané
+AUTOLINECOLOR_NAMING_DISTRICTS Okresy
+AUTOLINECOLOR_NAMING_LONDON Londýn
+AUTOLINECOLOR_NAMING_ROADS Cesty
+AUTOLINECOLOR_NAMING_COLORS Pomenované farby
+AUTOLINECOLOR_COLOR_STRATEGY Stratégia farieb:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Ako sa farby priradzujú novým linám:\n„Náhodný odtieň" = rovnaká sýtosť/jas, rôzne odtiene;\n„Náhodná farba" = úplne náhodné RGB;\n„Kategorizované" = farby podľa typu vozidla;\n„Pomenované farby" = preddefinovaná paleta farieb.
+AUTOLINECOLOR_NAMING_STRATEGY Stratégia pomenúvania:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Ako sa názvy priradzujú novým linám:\n„Žiadne" = bez automatického pomenúvania;\n„Okresy" = na základe obslúžených okresov;\n„Londýn" = číslované trasy (štýl londýnskych autobusov);\n„Cesty" = na základe názvov ulíc;\n„Pomenované farby" = na základe názvov farieb.
+AUTOLINECOLOR_MIN_COLOR_DIFF Minimálny rozdiel farieb (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimálne percento rozdielu farieb pri výbere náhodných farieb.
+AUTOLINECOLOR_MAX_COLOR_PICK Maximálne pokusy:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximálny počet pokusov na výber rozlišiteľnej farby.
+
+SETTINGS_UI Nastavenia používateľského rozhrania
+SETTINGS_VEHICLE_EDITOR_POSITION Poloha editora vozidiel:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Vyberte, či sa panel editora vozidiel zobrazi v dolnej alebo pravej časti obrazovky.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Nižšie
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Vpravo
+SETTINGS_VEHICLE_EDITOR_HIDE Skryť editor vozidiel
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Skryť editor vozidiel z panelov vozidiel.
+
+SETTINGS_STOPS Zastávky verejnej dopravy
+SETTINGS_ENABLE_STOPS_AND_STATIONS Umožniť zastávky a stanice
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Upravte maximálny počet občanov, ktorí môžu čakať na verejnú dopravu na rôznych zastávkach a staniciach. Konfigurácia na karte Zastávky.
+SETTINGS_STOPSANDSTATIONS_ENABLE Umožniť zastávky a stanice
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Povolte alebo zakážte vynucovanie limitu cestujúcich na zastávkach.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximálny počet cestujúcich čakajúcich na zastávke linky:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Autobusová linka
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximálny počet cestujúcich čakajúcich na autobusovej zastávke linky
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Trolejbus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke trolejbusu
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Evakuačný autobus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke evakuačného autobusu
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Turistický autobus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke turistického autobusu
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Električka
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke električky
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximálny počet cestujúcich čakajúcich na stanici metra
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Vlak
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximálny počet cestujúcich čakajúcich na vlakovej stanici
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Jednokoľajnica
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke jednokoľajnice
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Loď
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximálny počet cestujúcich čakajúcich v prístave nákladných lodí
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Trajekt
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke trajektu
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Lietadlo
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximálny počet cestujúcich čakajúcich na letiskovom termináli
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Lanovka
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke lanovky
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Teplovzdušný balón
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke teplovzdušného balóna
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Vrtuľník
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke vrtuľníka
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Vzducholoď
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke vzducholode
+
+SETTINGS_UNBUNCHING Rozpredenie
+SETTINGS_UNBUNCHING_AGGRESSION Agresivita rozpredenia:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Ako silné by malo byť rozpredenie vozidiel?\nMožné hodnoty: 0–52. Hodnota 0 zakáže rozpredenie.\nVyššie hodnoty budú silne ovplyvňovať dopravu a môžu spôsobiť zánik vozidiel.
+SETTINGS_VEHICLE_COUNT Vozidlá na nových linkách:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Počet vozidiel, ktoré sa budú automaticky pridávať novým linám, keď je kontrola rozpočtu linky vypnutá.
+SETTINGS_SPAWN_TIME_INTERVAL Interval vytváraní:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Čas v sekundách medzi vytváraním vozidiel.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Obnoví všetky posúvače na predvolené hodnoty.
+UNBUNCHING_ENABLED Rozpredenie vozidiel
+UNBUNCHING_DISABLED Rozpredenie je vypnuté.
+UNBUNCHING_TARGET_GAP Cieľová medzera: {0}
+
+SETTINGS_EBS_GROUP_BUS Expresné autobusové služby
+SETTINGS_EBS_GROUP_TRAM Expresné električkové služby
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Expresný autobus:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE „Zakázané" = Autobusy používajú nastavenia rozpredenia hore.\n„Opatrne" = Zastavuje sa na chvíľu, kontroluje cestujúcich, môže odísť prázdny.\n„Agresívne" = Úplne preskakuje zastávky, ak nečakajú cestujúci.
+SETTINGS_EBS_ENABLE_SELFBAL Umožniť samovyvažovanie služby
+SETTINGS_EBS_DESC_SELFBAL Umožňuje expresným autobusovým službám vyvažovať vozidlá v linke, aby sa uprednostňovali obsadenejšie segmenty a znižovali časy čakania.
+SETTINGS_EBS_TOOLTIP_SELFBAL Analyzuje segmenty linky a môže prerozdeleovať vozidlá na obsadenejšie segmenty alebo konečné stanice, aby sa vyvažovala služba a znižovali časy čakania.\nRozhodovania sú pravdepodobnostné a závisia od počtu cestujúcich a šancí na prerozdeleovanie.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Umožniť samovyvažovanie stredných zastávok
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Umožňuje samovyvažovaniu zvolať si zaneprázdnenú stredú zastávku namiesto iba konečnej stanice pri prerozdelení vozidiel.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Umožniť samovyvažovaniu prerozdeleovať vozidlá na zaneprázdnenú stredú zastávku (namiesto konečnej stanice).\nBerú sa do úvahy iba vtedy, keď má najpracovitejšia zastávka viac ako 30 čakajúcich cestujúcich, potom sa vyberá s približne 50% pravdepodobnosťou a v súlade so všeobecnými šancami prerozdelenia.
+SETTINGS_EBS_ENABLE_MINIBUS Umožniť režim minibus
+SETTINGS_EBS_DESC_MINIBUS Menšie autobusy môžu odísť skôr, keď nastupuje alebo vystupuje len niekoľko cestujúcich.
+SETTINGS_EBS_TOOLTIP_MINIBUS Autobusy s kapacitou ≤20 môžu odísť skôr zo zastávky, keď počet nastupujúcich a vystupujúcich cestujúcich ≤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Expresná električka:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING „Zakázané" = Električky používajú nastavenia rozpredenia hore.\n„Ľahké železnice" = Zastavuje sa na každej zastávke, vždy čaká plný časovač (vynútená disciplína).\n„Skutočná električka" = Zastavuje sa iba vtedy, keď cestujúci nastupujú/vystupujú.
+SETTINGS_EBS_MODE_NONE Zakázané
+SETTINGS_EBS_MODE_AGGRESSIVE Agresívne
+SETTINGS_EBS_MODE_PRUDENTIAL Opatrne
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Režim ľahkých železníc
+SETTINGS_EBS_TRAM_MODE_NONE Zakázané
+SETTINGS_EBS_TRAM_MODE_TRAM Režim skutočnej električky
+
+
+SETTINGS_PTU_GROUP Odomykač verejnej dopravy
+SETTINGS_PTU_ENABLE Odstrániť zaseknútych cestujúcich
+SETTINGS_PTU_TOOLTIP Automaticky odstráni cestujúcich, ktorí sa zaseknú pri pokuse nastúpiť do vozidiel verejnej dopravy, čo umožňuje vozidlu odsúpiť normálne a zabráni zamrznutiu pri odchode.
+
+
+SETTINGS_LINE_DELETION_TOOL Nástroj na vymazávanie línok
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Skontrolujte nižšie uvedené typy dopravy a potom stlačením tlačidla Vymazať odstránite každú linku týchto typov z aktuálneho mesta. Tento výber je dočasný - vždy sa začína neoznačený a vymaže sa po vymazaní, nie je uložený ako nastavenie.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Vymaže všetky linky vybraných typov. Funguje iba vtedy, keď je mesto načítané.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE POTVRDIŤ VYMAZANIE LÍNOK
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Chystáte sa vymazať všetky linky.\nChcete pokračovať?
+SETTINGS_DELETE_BUS_TOOLTIP Vymaže všetky štandardné autobusové linky.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Turistické autobusy
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Vymaže všetky turistické autobusové linky.
+SETTINGS_DELETE_TRAM_TOOLTIP Vymaže všetky električkové linky.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Vymaže všetky trolejbusové linky.
+SETTINGS_DELETE_TRAIN_TOOLTIP Vymaže všetky vlaková linky.
+SETTINGS_DELETE_METRO_TOOLTIP Vymaže všetky podzemné metrá.
+SETTINGS_DELETE_MONORAIL_TOOLTIP Vymaže všetky linky jednokoľajnice.
+SETTINGS_DELETE_FERRY_LABEL Trajekty
+SETTINGS_DELETE_SHIP_TOOLTIP Vymaže všetky trajektové linky.
+SETTINGS_DELETE_HELICOPTER_LABEL Vrtuľníky
+SETTINGS_DELETE_HELICOPTER_TOOLTIP Vymaže všetky vrtuľníkové linky.
+SETTINGS_DELETE_BLIMP_LABEL Vzducholode
+SETTINGS_DELETE_BLIMP_TOOLTIP Vymaže všetky línky vzducholode.
+
+
+VEHICLE_EDITOR_TITLE Editor vozidiel
+VEHICLE_EDITOR_SUB_TITLE {0} vozidiel
+VEHICLE_EDITOR_CAPACITY Kapacita cestujúcich
+VEHICLE_EDITOR_CAPACITY_TAXI Kapacita cestovného
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Počet cestujúcich na pracovnú zmenu.
+VEHICLE_EDITOR_MAINTENANCE Náklady na údržbu
+VEHICLE_EDITOR_MAX_SPEED Maximálna rýchlosť
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Motor vlaku na oboch koncoch
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Povolí alebo zakáže motory vlaku na oboch koncoch.
+VEHICLE_EDITOR_APPLY Aplikovať
+VEHICLE_EDITOR_DEFAULT Predvolené
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Pravým tlačidlom kliknutím na toto vozidlo ho nasledujte.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + klik na zaradenie tohto vozidla do frontu.
+VEHICLE_PANEL_EDIT_TYPE Upraviť typ vozidla
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Upravte tento typ vozidla pomocou editora vozidiel.
+VEHICLE_PANEL_STATUS_NEXT_STOP Ďalšia zastávka:
+VEHICLE_PANEL_STATUS_UNBUNCHING Rozpredenie vozidiel prebieha
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Výmena na poslednej zastávke: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS Cestujúci:
+VEHICLE_PANEL_EARNINGS Príjmy:
+VEHICLE_PANEL_EARNINGS_TOOLTIP Výsledok predaja lístkov minus náklady na údržbu vozidla.
+VEHICLE_PANEL_PREVIOUS Predchádzajúce vozidlo
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Skočiť na predchádzajúce vozidlo.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+VEHICLE_PANEL_REMOVE_VEHICLE Odstrániť vozidlo
+VEHICLE_PANEL_NEXT Ďalšie vozidlo
+VEHICLE_PANEL_NEXT_TOOLTIP Skočiť na ďalšie vozidlo.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
+VEHICLE_SELECTION_CAPACITY Kapacita
+VEHICLE_SELECTION_ADD_VEHICLE Pridajte toto vozidlo do zoznamu povolených vozidiel
+VEHICLE_SELECTION_ADD_ALL Pridajte všetky oprávnené vozidlá do zoznamu povolených vozidiel
+VEHICLE_SELECTION_REMOVE_VEHICLE Odstránite toto vozidlo zo zoznamu povolených vozidiel
+VEHICLE_SELECTION_REMOVE_ALL Odstránite všetky vozidlá zo zoznamu povolených vozidiel
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Dostupné vozidlá
+VEHICLE_SELECTION_SELECTED_VEHICLES Vybraté vozidlá
+VEHICLE_SELECTION_ANY_VEHICLE Akékoľvek vozidlo
+VEHICLE_BUTTON_TOOLTIP {0}\n\nKliknutím prejdite na toto vozidlo.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.\nKeď stlačíte Alt, počas klikania sa neotvorí panel s informáciami o vozidlu.
+TRANSPORT_LINE_VEHICLECOUNT Počet vozidiel: {0}
+
+FLIGHT_TRACKER_NAME Sledovač letov
+FLIGHT_STATUS_NONE Žiadne
+FLIGHT_STATUS_INCOMING Prichádzajúce
+FLIGHT_STATUS_LANDED Pristálo
+FLIGHT_STATUS_AT_GATE Pri brán
+FLIGHT_STATUS_DEPARTED Odletelo
+
+TICKET_PRICE_TAXI_KILOMETER Cena taxíka za kilometer:
+TICKET_PRICE_TAXI_MILE Cena taxíka za míľu:
+TICKET_PRICE_BUS Cena autobusovej letenky:
+TICKET_PRICE_INTERCITY_BUS Cena medzimiestnej autobusovej letenky:
+TICKET_PRICE_METRO Cena metrolejty:
+TICKET_PRICE_TRAIN Cena vlakovej letenky:
+TICKET_PRICE_TRAM Cena električkovej letenky:
+TICKET_PRICE_MONORAIL Cena jednokoľajnicovej letenky:
+TICKET_PRICE_SHIP Cena lodnej letenky:
+TICKET_PRICE_FERRY Cena trajektovej letenky:
+TICKET_PRICE_PLANE Cena leteckej letenky:
+TICKET_PRICE_CABLECAR Cena lanovkovej letenky:
+TICKET_PRICE_SIGHTSEEING_BUS Cena turistickej autobusovej letenky:
+TICKET_PRICE_TROLLEYBUS Cena trolejbusovej letenky:
+TICKET_PRICE_BLIMP Cena vzducholodnej letenky:
+TICKET_PRICE_HELICOPTER Cena vrtuľníkovej letenky:
+ECONOMY_TAB_TICKET_PRICES Ceny lístkov
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Celkový počet cestujúcich pre tento typ dopravy.
+
+
+WHATSNEW_3_0_0_1 Aktualizované pre Race Day; teraz kompatibilné s More Vehicles Renewed.
+WHATSNEW_3_0_0_2 Nasledujúce modifikácie boli integrované do IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Odomykač verejnej dopravy je teraz integrovaný do IPT3.\nZkus verziu 3.0 pre všetky ostatné integrované modifikácie. Odhláste sa z originálov, aby ste sa vyhli konfliktom.
+
+SETTINGS_TAB_TRAINDISPLAY Zobrazenie vlaku
+SETTINGS_TRAINDISPLAY_GROUP Prekrytie zobrazenia vlaku
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Skonfigurujte integrované prekrytie, ktoré sa zobrazuje pri sledovaní podporovaných vozidiel verejnej dopravy.
+SETTINGS_TRAINDISPLAY_ENABLE Umožniť zobrazenie vlaku
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Zapnite alebo vypnite integrované prekrytie Zobrazenia vlaku.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED Zakázané
+SETTINGS_TRAINDISPLAY_MODE_ENABLED Povolené
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Poloha prekrytia:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Vyberte, kde sa prekrytie zobrazi na obrazovke.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Vľavo hore
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Vpravo hore
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Vľavo dole
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Vpravo dole
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Mierka prekrytia:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Meradle veľkosti prekrytia.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Nepriehľadnosť prekrytia:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Upravte, aké je prekrytie priehľadné.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Interval aktualizácie:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Ako často sa prekrytie osviežuje pri sledovaní vozidla.
+SETTINGS_TRAINDISPLAY_SHOW_LINE Zobraziť názov linky
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Zahrňte názov linky do prekrytia.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Zobraziť destináciu
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Zahrňte destináciu do prekrytia.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Zobraziť stav
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Zahrňte stav vozidla do prekrytia.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Iba pri sledovaní
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Skryť prekrytie, pokiaľ kamera nie je skutočne nasledovanej podporované vozidlo.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Iba v kamere z prvej osoby
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Zobrazte prekrytie iba pri použití modifikácie kamery z prvej osoby (napr. First Person Camera - Continued). Ak je vypnutá, zobrazuje sa vždy, keď sledujete podporované vozidlo v akomkoľvek režime kamery.
+SETTINGS_TRAINDISPLAY_THEME Farebný motív:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Vyberte farby pozadia/textu prekrytia.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE Jednoduché
+SETTINGS_TRAINDISPLAY_THEME_DARK Tmavé
+SETTINGS_TRAINDISPLAY_THEME_LIGHT Svetlé
+
+COPY_TIP Kopírujte nastavenia tejto linky.
+PASTE_TIP Vložte skopírované nastavenia linky.
+COPY_BUILDING_TIP Skopírujte tieto nastavenia na všetky linky spolu s touto budovou.
+COPY_DISTRICT_TIP Skopírujte tieto nastavenia na všetky linky v tomto okrese.
+SETTINGS_INTEGRATIONS_GROUP Integrované doplnky
+SETTINGS_INTERCITY_BUS_ENABLE Umožniť kontrolu medzimiestnych autobusov
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Povolí integrovanú vrstvu kompatibility kontroly medzimiestnych autobusov a patching stanice.
+SETTINGS_FLIGHTTRACKER_ENABLE Umožniť sledovač letov
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Povolí integrované opravy sledovača letov a podporu UI.
+CHANGELOG_4_3_3_1 Opravené nastavenia uloženia/načítania stále sa pokúšali zlyhať na niektorých kôpkach modov, dokonca aj po zväzovaní Newtonsworth.Json.dll: predchádzajúce riešenie sa pokúšalo Assembly.LoadFrom iba v jednom vstupe a stále záviselo od poradia zaťaženia. IPT4 teraz registruje globálny háčik AssemblyResolve a vrúcne spúšťa svoj balený Newtonsworth.Json z každého vstupného bodu mod/UI, skôr ako CSLModsCommon sa dotkne JsonWriter, takže možnosti panela UI trvajú spoľahlivo namiesto náhodného viazania na nekompatibilnú Json.NET kópiu iného modu.
+CHANGELOG_4_3_2_1 Opravené selhanie zaťaženia modifikácie úplne ("failed to load the mod's dll or one of its dependencies"), kedykoľvek iný inštalovaný mod neposkytol náhodou Newtonsworth.Json: serializácia nastavení CSLModsCommon (JsonHelper/SerializationContext) jej potrebovala, ale naša zostava nikdy skutočne nedeployala Newtonsworth.Json.dll vedľa modu - vždy to fungovaló iba náhodou, jazda na kópii iného modula. Nájdené vypnutím všetkých ostatných modov na čistý test, čo je presne ako by to malo byť testované ideme.
+CHANGELOG_4_3_1_1 Opravené panel Možnosti výber jazyka iba znovu preložené rámca vlastne reťazce (Verzia/Changelog/...) zatiaľ čo každý reťazec tejto modifikácie ostal v jazyku hry - náš prekladateľ zaťaženia klúčový vypnutý jazyk hry a ignoroval mód vlastný výber úplne. Teraz sa riadí výberom jazyka modu s návratom k jazyku hry a potom angličtine, a znovu sa vyriešili vždy, keď sa výber zmení.
+CHANGELOG_4_3_1_2 Vyplnené v 38 klúčoch prekladu, ktoré existovali iba v angličtine a portugálčine - každý iný jazyk (arabčina, bengálčina, nemčina, španielčina, francúzština, hindčina, indonéština, taliančina, japončina, kórejčina, poľština, ruština, urdština a všetky čínske varianty) ticho padali späť do angličtiny pre celú sekciu Zobrazenia vlaku, Vymaž opisu liniek a troch expresných autobusových opisov.
+CHANGELOG_4_3_1_3 Pridané 4 kľúče kopíruje/vložiť, ktoré chýbali všetkým jazykovým súborom vrátane angličtiny, takže by sa vykreslili ako surové klúče ("COPY_TIP") keď sú tieto tlačidlá znovu povolené.
+CHANGELOG_4_3_0_1 Pridané Zobrazenie vlaku Aktualizované: malé prekrytie na obrazovke s linkou/destináciou/stavom pri sledovaní podporovaného vozidla. Konfigurovať v Možnosti: poloha obrazovky, veľkosť, nepriehľadnosť, ktoré polia sa zobrazia, frekvencia aktualizácie, či je obmedzená na modifikácie kamery z prvej osoby a jednoduchý/tmavý/svetlý farebný motív.
+CHANGELOG_4_3_0_2 Opravené niekoľko chýb zostavy v novej integrácii Zobrazenia vlaku: nejednoznačný odkaz Utils, dve rozhrania API, ktoré neexistujú v tejto verzii hry (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) a Enum.HasFlag použitie - ktoré neexistujú na .NET Framework 3.5, cieľovom rámci tejto modifikácie a museli byť nahradené manuálnymi bitovými skúškami.
+CHANGELOG_4_2_4_1 Opravené zobrazenie modifikácie vždy "Kompatibilita s verzou hry: 0.0.0" - nikdy sme nedeklarovali rozsah podporovanej verzie hry. Teraz nastavené na 1.21.1-f9 a vyššie.
+CHANGELOG_4_2_4_2 Opravené rozevierací zoznam stratégie farieb AutoLineColor zobrazuje iba surové mená enumerácie (napr. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") namiesto prekladeného textu: kód generoval kľúč bez podčiarknutia zatiaľ čo prekladový súbor jeden použil. Tiež preusporiadaní sekciu tak, aby dva závislé posúvače sedeli priamo pod rozevierací zoznam stratégie farieb, ktorý patria, namiesto po nesúvisiacom rozevieracom zozname názvov.
+CHANGELOG_4_2_4_3 Preimenované režimy rozpredenia tramvájov tak, aby zodpovedali autobusom (Zakázané/Opatrne/Realisticky) namiesto "Ľahké železnice"/"Skutočná električka" a preložili sa posledné kúsky anglického textu zostávajúce v popise portugálčiny.
+CHANGELOG_4_2_4_4 Opravené popisy zaškrtávacích políčok nikdy sa nerendoval nikde v paneli, keď nebol nastavený žiadny text hlavičky (čo je každé zaškrtávacie pole v tejto modifikácii) - kód rozloženia iba umiestnená popis popis ak existovala aj popis hlavičky, aj keď bol popis už vytvorený a vyplnený textom.
+CHANGELOG_4_2_4_5 Opravené popisy kariet panela Možnosti sa orezávajú (najmä v portugálčine, ktorá beží dlhšie ako angličtina) - karty teraz zalamujú na druhý riadok namiesto orezávania.
+CHANGELOG_4_2_4_6 Opravené tlačidlá Obnoviť (Rozpredenie, Ceny lístkov) spôsobujú zmenu podkladového nastavenia okamžite, ale neaktualizuje posúvače už na obrazovke, takže vyzeralo ako nič sa nestalo, kým sa Možnosti znova neotvorili.
+CHANGELOG_4_2_4_7 Opravené zaškrtávacie polia nástroja Vymazať linky trvajúce ako uložené nastavenia namiesto resetovania po použití - boli omylom zapojené do ModSetting ako skutočná preferencia, keď je to určené ako "vybrať typy, kliknúť Vymazať" akcia.
+CHANGELOG_4_2_3_1 Opravené každý preklad modifikácie zobrazujúci sa ako surový kľúč (napr. "SETTINGS_SPEED:0") v každom jazyku: náš vlastný prekladateľ zaťaženia stále porovnáva plugin pomocou starého typu ImprovedPublicTransportMod namiesto Mod (triedu, ktorá je vlastne IUserMod od migrácie CSLModsCommon), takže nikdy nenašiel zložku modifikácie a nikdy nenačítal žiadny súbor Translations/*.txt. Tiež posilnené vanilková miestna rezerva, takže už nie je omylom pomäť Colossal "klúč: 0" nenajdený marker ako skutočný preklad.
+CHANGELOG_4_2_3_2 Odebrané vždy prázdne "Key Bindings" karta z Možnosti - táto modifikácia nemá žiadne kľúčové viazania konfigurovať.
+CHANGELOG_4_2_3_3 Posúvače v Možnosti teraz opäť zobrazia ich aktuálnu hodnotu (stratená pri migrácii CSLModsCommon - nový ovládací prvok posúvačov to predvolene nezobrazuje).
+CHANGELOG_4_2_3_4 Opravené posúvače "minimálny rozdiel farieb" a "maximálne pokusy výberu farieb" AutoLineColor zostávajúce interaktívne aj vtedy, keď je stratégia farieb nastavená na Zakázané alebo Kategorizované (ani z nich tie nastavenia nepoužívajú).
+CHANGELOG_4_2_0_1 Pridané Rescue Fullwidth Digits: normalizuje celoživosť číslice v názvoch vlastných čiar dopravy späť na bežné ASCII číslice, opravuje zvláštnosti displeja/triedenia z niektorých vstupov klávesnice bez latiny.
+CHANGELOG_4_2_0_2 Pridaná dedikovaná karta Ceny lístkov do panela Možnosti, takže multiplicity tarifov deň/noc je možné upravovať bez otvorenia panela Ekonomika v hre.
+CHANGELOG_4_2_0_3 Opravené opravy Rescue Fullwidth Digits sa uplatňujú iba raz pri štarte modifikácie pri účti pri každom skončení úrovne, ticho vypína to pre každé uloženie potom, čo sa prvý načítal v relácii.
+CHANGELOG_4_2_0_4 Opravená chyba pretečenia celočísleného tarify taxi (MileageTaxiServices), ktorá by mohla vypustiť verejný dopravný rozpočet miliardami v jednom kroku: taxi s poškodenými alebo neinicializovanými údajmi rámca (napr. hneď po vytvorení) by mohlo vypočítať implausible na frame vzdialenosť, pretečenie tarifa je obsadnutí na int do obrovskej hodnoty smetí - to zodpovedá známemu nevyriešenému problému hlásený upstream (utekajúci záporný príjem taxi). Teraz sú implausible vzdialenosti rámca zahodené namiesto účtovania.
+CHANGELOG_4_1_5_1 Opravená skutočná príčina prázdneho/čierneho panela Možnosti: CSLModsCommon vlastné reťazce UI (Verzia/Changelog/atd.) Bývajú vo fyzickej Lokalizácii/Spoločná zložka vedľa DLL, ktorú naša zostava nikdy nedeployila. Bez nej sa správca lokalizácie rámca ticho vzdal, zostáva CurrentLocaleSource null a padá OptionsPanelBase.Awake() s NullReferenceException okamžik sa pokúšal zobraziť popis prekladu - ktorý Unity bezpečne polúša, prerušuje panel uprostred stavby. Teraz .csproj nasadzuje tú zložku a GetTranslationProgress() už nevracia výnimku, ak jej niekedy chýba znova.
+CHANGELOG_4_1_4_1 Opravené zobrazenie panela Možnosti prázdne/čierne: panel sa vytvoril iba vtedy, keď hra prepnula viditeľnosť nádoby nastavení a zapla, ale obvykle je už viditeľná, keď hra otvorí stránku tejto modifikácie, takže panel bol nikdy vytvorený. Teraz sa tiež vytvorí okamžite, ak je nádoba už viditeľná.
+CHANGELOG_4_1_4_2 Opravené selhanie všetkých textúr UI CSLModsCommon (pozadie, ikony, prepínače) zaťažovať a vracať sa na zástupný symbol: RootNamespace projektu bola stále "ImprovedPublicTransport3" z pôvodného vidlice IPT3, takže vložené zdroje boli skompilované pod zlým menom a nikdy sa počas behu nezhodli.
+CHANGELOG_4_1_3_1 Opravené tri chyby uloženia nastavení zostávajúce z migrácie CSLModsCommon (Čo je Nové prepustenie, tlačidlo Obnoviť možnosti, editor ceny lístkov za hodinu): každá zapsala novú hodnotu do ModSetting správne, ale potom uložila starý, teraz mŕtvy objekt nastavení, takže sa zmena nikdy skutočne neuložila na disk.
+CHANGELOG_4_1_3_2 Odebraný mŕtvy kód z éry pred CSLModsCommon: rámcový OptionsFramework, monolitické Settings.cs a samostatný VehicleEditorPositions výčet - všetko úplne nahradené ModSetting a CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Rozdelené od Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Portované AutoLineBudget dopyt na základe veľkosti flotily na koordináciu s vlastným rozhraním API počtu vozidiel IPT namiesto priameho písania rozpočtu linky, opravenie chyby údržby spôsobenej dvoma modami bojujúcimi o rovnaký stav.
+CHANGELOG_4_0_0_3 Prijatý CSLModsCommon pre UI možnosti (znak verzie, história zmien, upozornenia kompatibility, priebeh prekladu).
+TRAINDISPLAY_LABEL_NAME Meno
+TRAINDISPLAY_LABEL_STATUS Stav
+TRAINDISPLAY_NO_LINE Žiadna linka
+TRAINDISPLAY_NO_DESTINATION Žiadna destinácia
+TRAINDISPLAY_HIDDEN Skryté
+TRAINDISPLAY_VEHICLE Vozidlo
+TRAINDISPLAY_STATE_RETURNING Návrat
+TRAINDISPLAY_STATE_STOPPED Na zastávke
+TRAINDISPLAY_STATE_EN_ROUTE Ceste
+TRAINDISPLAY_STATE_ON_LINE Na linke
+TRAINDISPLAY_STATE_IDLE Nečinný
+AUTOLINECOLOR_REFRESH_BUTTON Obnoviť meno/farbu
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Znovu priraďte aktuálny názov a farbu linky podľa aktívnych nastavení AutoLineColor.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Povolte stratégiu farieb alebo názvov v možnosti, skôr ako obnovíte túto linku.
+CHANGELOG_4_3_3_2 Posilnené balené Newtonsworth.Json resolver, aby vždy uprednostňoval kópiu dodanú vedľa tejto modifikácie namiesto vrátenia ktorejkoľvek kópie, ktorú iná modifikácia náhodou načítala (Real Time lodí silne pomenované v13; CSLModsCommon potrebuje nepodpísanú v9). Poskytnutie našej kódu chybnej zostavy spôsobilo, že JsonHelper zlyhal potichu a vrátil prázdne objekty, čo ponechalo rámec vlastné zdroje národného prostredia prázdne a selektor jazyka zobrazujúci surové id národného prostredia.
+CHANGELOG_4_3_3_3 Bengálčina, hindčina, indonéština a urdština sa teraz zobrazujú v selektore jazyka modifikácie. Boli už úplne preložené, ale rámec pre nich nemal súbor národného prostredia, takže boli nedostupné, pokiaľ hra sama nebeží v tomto jazyku.
+CHANGELOG_4_3_3_4 Optimalizovaný omedzovač cestujúcich na zastávke: vyriešil objekt nastavení (dva hľadania v slovníku) raz za inštanciu občana v rámci slučky, ktorá beží tisíce krát za sekundu. Je teraz vyriešený raz za rámec.
+CHANGELOG_4_3_3_5 Vyrábané vyhľadávanie zložky modifikácie nezávislé na tom, ktorá trieda implementuje IUserMod. Toto spojenie bolo už ticho preložené načítanie prekladu raz a ceny lístkov ikona atlasy druhý čas, každý po nesúvisiacom refaktoringu.
+CHANGELOG_4_3_4_1 Opravená startup ModException ("Nepodarilo sa nájsť ImprovedPublicTransportMod zostavenie!") Vyhodené funkciou AutoLineColor pred načítaním mapy. Druhá pomocná trieda stále hľadala modifikáciu podľa typu ImprovedPublicTransportMod, ktorý prestali byť IUserMod počas migrácie CSLModsCommon - rovnaké spojenie už opravené inde. Obaja pomocníci teraz riešia zložku modifikácie od samotného tejto zostavy, takže budúce refaktorovanie nemôže ticho zlomiť znova.
+CHANGELOG_4_3_5_1 Opravené prekrytie Zobrazenia vlaku sa nikdy neobjavilo pri sledovaní vozidla. Vyhľadal inštanciu sledovanej kamery prostredníctvom generických sond "target"/"GetTarget", ale hra ju ukladá v súkromnom poli CameraController.m_targetInstance, ktoré tieto sondy nikdy nezhodovali. Tiež prepnutá "Iba v kamerafore prvej osoby" vypnutá štandardne: režim čistého sledovania nie je prvou osobou, takže jej ponechanie zapnuté spôsobilo, že prekrytie vyzeralo rozbitý z krabice, na rozdiel od pôvodnej modifikácie, ktorá to ukázala v ktoromkoľvek režime sledovania.
+CHANGELOG_4_3_5_2 Karta Ceny lístkov teraz zobrazuje výsledný tarif pre každý typ dopravy namiesto počtu živých cestujúcich. Posúvače iba ukazujú percento, takže nebol predtým spôsob, ako vidieť, čo multiplier skutočne vyrobil - a na malom alebo pozastavenom mestie počet cestujúcich iba čítať trvalé "0". Počet cestujúcich sa presunul na tip popisky, spolu s pôvodným tarifom.
+TICKET_PRICE_LABEL_TOOLTIP Aktuálny tarif: {0}\nPôvodný tarif: {1}\nCestujúci cestujúci teraz: {2}
+CHANGELOG_4_3_7_1 Všetkých 23 jazykov v zozname je teraz kompletne preložených. Čeština, holandčina, slovenčina, thajčina a turečtina sa dali vybrať, ale nemali prekladový súbor, takže sa tichuško prepínali na angličtinu.
+CHANGELOG_4_3_7_2 Ukazovateľ postupu prekladu pod výberom jazyka čítal statický súbor so stavom, ktorý nebol znovu vygenerovaný, a preto pri šestnástich jazykoch uvádzal 76 %, hoci boli v skutočnosti hotové.
+CHANGELOG_4_3_6_1 Opravená skutočná príčina výdavku približne -21,4 milióna vo verejnej doprave: týždenný výpočet údržby v IPT delil nulovou alebo nepodporovanou kapacitou vozidla, menil NaN na int.MinValue a potom sčítal každé vozidlo v ďalšom int. Neplatné hodnoty teraz používajú bezpečnú záložnú hodnotu zo základnej hry, súčty liniek používajú 64-bitovú aritmetiku a veľké platné sumy sa účtujú iba obmedzenými kladnými transakciami.
+CHANGELOG_4_3_6_2 Už zasiahnuté uložené pozície sa pri načítaní opravujú: vynulujú sa len záporné položky príjmov alebo výdavkov verejnej dopravy, ktoré zanechalo toto pretečenie, a opravía sa zodpovedajúce súčty. Platná ekonomická história a všetky ostatné služby zostávajú nedotknuté.

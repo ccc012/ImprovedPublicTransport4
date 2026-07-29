@@ -1,0 +1,391 @@
+MOD_DESCRIPTION Verbeterde controle van openbaar vervoer.
+CURRENT_WEEK Huidige week
+LAST_WEEK Vorige week
+AVERAGE Gemiddelde
+AVERAGE_TOOLTIP Gemiddelde van de afgelopen {0} weken.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS Halteplaatsen
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Voertuigen in depot
+CITYSERVICE_ACCEPTINTERCITYBUSES Intercity-bussen toestaan
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Sta intercity-bussen toe om dit station te gebruiken. Zet dit uit voor alleen lokale bussen.
+
+EXPLANATION_BUDGET_CONTROL Begroting: Het aantal voertuigen wordt gecontroleerd door de begroting.
+EXPLANATION_UNBUNCHING Voertuigspreiding: Het spel probeert een gat tussen voertuigen te creëren.
+LINE_PANEL_STOPS Haltes: {0}
+LINE_PANEL_SPAWNTIMER Volgende voertuig over {0} seconden.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Het geselecteerde depot heeft geen voertuigen meer.</color>
+LINE_PANEL_BUDGET_CONTROL Begroting
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Schakelt begrotingscontrole voor deze lijn in of uit.
+LINE_PANEL_UNBUNCHING_TOOLTIP Schakelt voertuigspreiding voor deze lijn in of uit.\nSpreiding is uitgeschakeld als de aggressiviteit op 0 staat.
+LINE_PANEL_DEPOT Depot:
+LINE_PANEL_NO_DEPOT_FOUND Geen depot gevonden.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Naar het geselecteerde depot springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+LINE_PANEL_SELECT_TYPES Typen selecteren
+LINE_PANEL_SELECT_TYPES_TOOLTIP Schakelt het 'Typen selecteren'-paneel in.\nAls deze knop uitgeschakeld is, moet je eerst een depot selecteren.
+LINE_PANEL_LINE_STOPS Lijnhaltes
+LINE_PANEL_LINE_VEHICLES Voertuigen op deze lijn
+LINE_PANEL_ENQUEUED Voertuigen in wachtrij
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} passagiers wachten op deze lijn.
+LINE_PANEL_ADD_VEHICLE Voertuig toevoegen
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Voegt een nieuw voertuig aan de lijn toe.\nAls deze knop uitgeschakeld is, heeft het geselecteerde depot geen voertuigen meer.
+LINE_PANEL_REMOVE_VEHICLE Voertuig verwijderen
+
+STOP_LIST_BOX_ROW_STOP Halte #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nWachtende passagiers: {1}\n\nRechts klikken om naar deze halte te springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lijst met voorgestelde haltesnamen.
+STOP_PANEL_REUSE_NAME_TOOLTIP Stel deze naam in voor alle andere haltes op dit station.
+STOP_PANEL_WAITING_PEOPLE Wachtende passagiers: {0}
+STOP_PANEL_BORED_TIMER Tijd tot vertrek: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Passagiers verlaten deze halte wanneer dit aftellen nul bereikt.
+STOP_PANEL_PASSENGERS_IN Passagiers in:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Passagiers die hier instappen.
+STOP_PANEL_PASSENGERS_OUT Passagiers uit:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Passagiers die hier uitstappen.
+STOP_PANEL_PASSENGERS_TOTAL Totaal:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Totaal aantal passagiers hier bediend.
+STOP_PANEL_UNBUNCHING_TOOLTIP Schakelt voertuigspreiding op deze halte in of uit.\nSpreiding is uitgeschakeld als de aggressiviteit op 0 staat.
+STOP_PANEL_UPDATE_CLOSE_STOPS Nabijgelegen haltes bijwerken
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Stel de spreidingsstatus in voor alle andere haltes op dit station.
+STOP_PANEL_PREVIOUS Vorige halte
+STOP_PANEL_PREVIOUS_TOOLTIP Naar de vorige halte springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+STOP_PANEL_DELETE_STOP Halte verwijderen
+STOP_PANEL_DELETE_STOP_TOOLTIP Deze knop is ingeschakeld terwijl je Alt ingedrukt houdt.\nGebeuriken op eigen risico!!!
+STOP_PANEL_NEXT Volgende halte
+STOP_PANEL_NEXT_TOOLTIP Naar de volgende halte springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+STOP_BUTTON_TOOLTIP {0}\n\nKlik om naar deze halte te springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.\nHoud Alt ingedrukt bij het klikken om het informatiepaneel van de halte niet te openen.
+
+SETTINGS_DELETE Verwijderen
+SETTINGS_RESET Herstellen
+
+SETTINGS_TAB_GENERAL Algemeen
+SETTINGS_TAB_AUTOLINE Automatische lijn
+SETTINGS_TAB_STOPS Haltes en stations
+SETTINGS_TAB_UNBUNCHING Spreiding
+SETTINGS_TAB_DELETE Lijnen verwijderen
+
+SETTINGS Instellingen
+SETTINGS_SPEED Snelheid tonen in:
+SETTINGS_SPEED_TOOLTIP Kies de eenheid voor snelheidsweergave in de UI.
+SETTINGS_SPEED_KPH km/u
+SETTINGS_SPEED_MPH mph
+SETTINGS_WALKING_SPEED Loopsnelheid:
+SETTINGS_WALKING_SPEED_TOOLTIP Standaard: snelheden uit het basisspel.\nRealistisch: snelheid aangepast aan realistische, leeftijdsafhankelijke waarden.\nRealistisch verlaagt ook fietssnelheid met DLC After Dark.
+SETTINGS_WALKING_SPEED_MODE_VANILLA Standaard
+SETTINGS_WALKING_SPEED_MODE_REALISTIC Realistisch
+SETTINGS_BBSP Betere bushalte positie:
+SETTINGS_BBSP_TOOLTIP Uitgeschakeld: geen positie-aanpassingen.\nIngeschakeld: bussen stoppen aan de voorkant van de bushalte in plaats van het midden.
+SETTINGS_BBSP_MODE_DISABLED Uitgeschakeld
+SETTINGS_BBSP_MODE_ORIGINAL Ingeschakeld
+SETTINGS_BBSP_MODE_UPDATED Experimentele logica gebruiken
+
+SETTINGS_BUDGET Begroting
+SETTINGS_ENABLE_BUDGET_CONTROL Lijnbegroting:
+SETTINGS_BUDGET_CONTROL_DISABLED Uitgeschakeld
+SETTINGS_BUDGET_CONTROL_ENABLED Ingeschakeld
+SETTINGS_BUDGET_CONTROL_TOOLTIP Wanneer ingeschakeld, wordt het aantal voertuigen voor openbaarvervoerlijnen gecontroleerd door de begroting; werkt alle bestaande lijnen bij en wist voertuigen in de wachtrij.
+SETTINGS_BUDGET_TICKET_PRICES Kaartjes-prijs aanpasser:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED Uitgeschakeld
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED Ingeschakeld
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Wanneer ingeschakeld, wordt een nieuw tabblad aan het Economie-paneel toegevoegd met schuifregelaars om kaartjesprijzen voor elk vervoerstype aan te passen.
+SETTINGS_AUTO_LINE_BUDGET Automatische flottegroottes:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Uitgeschakeld
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Ingeschakeld
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Wanneer ingeschakeld, passen lijnen in Begroting-modus automatisch hun voertuigaantal aan op basis van werkelijke vraag in plaats van de vanille begroting-schuifregelaar. Lijnen ingesteld op Handmatig worden nooit aangeraakt.
+
+SETTINGS_AUTO_LINE Automatische lijn
+SETTINGS_AUTOSHOW_LINE_INFO Informatiepaneel automatisch openen
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Toon het informatiepaneel automatisch nadat een nieuwe lijn is gemaakt.
+
+AUTOLINECOLOR_STRATEGY_DISABLED Uitgeschakeld
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Willekeurige tint
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Willekeurige kleur
+AUTOLINECOLOR_STRATEGY_CATEGORISED Gecategoriseerd
+AUTOLINECOLOR_STRATEGY_NAMED Benoemde kleuren
+AUTOLINECOLOR_NAMING_DISABLED Uitgeschakeld
+AUTOLINECOLOR_NAMING_DISTRICTS Wijken
+AUTOLINECOLOR_NAMING_LONDON Londen
+AUTOLINECOLOR_NAMING_ROADS Wegen
+AUTOLINECOLOR_NAMING_COLORS Benoemde kleuren
+AUTOLINECOLOR_COLOR_STRATEGY Kleurstrategie:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Hoe kleuren aan nieuwe lijnen worden toegewezen:\n"Willekeurige tint" = dezelfde verzadiging/helderheid, verschillende tinten;\n"Willekeurige kleur" = volledig willekeurige RGB;\n"Gecategoriseerd" = kleuren op voertuigtype;\n"Benoemde kleuren" = voorgedefinieerd kleurenpalet.
+AUTOLINECOLOR_NAMING_STRATEGY Naamstrategie:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Hoe namen aan nieuwe lijnen worden toegewezen:\n"Geen" = geen auto-naamgeving;\n"Wijken" = gebaseerd op bediende wijken;\n"Londen" = genummerde routes (Londense busstijl);\n"Wegen" = gebaseerd op straatnames;\n"Benoemde kleuren" = gebaseerd op kleurennamen.
+AUTOLINECOLOR_MIN_COLOR_DIFF Minimale kleurverschil (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimaal kleurverschilpercentage bij het kiezen van willekeurige kleuren.
+AUTOLINECOLOR_MAX_COLOR_PICK Maximale pogingen:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximaal aantal pogingen om een onderscheidbare kleur te kiezen.
+
+SETTINGS_UI UI-instellingen
+SETTINGS_VEHICLE_EDITOR_POSITION Voertuiggeditor positie:
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Kies of het voertuigeditor-paneel onderin of aan de rechterkant van het scherm verschijnt.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Onder
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Rechts
+SETTINGS_VEHICLE_EDITOR_HIDE Voertuigeditor verbergen
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Verberg de voertuigeditor uit voertuigpanelen.
+
+SETTINGS_STOPS Openbaarvervoerhaltes
+SETTINGS_ENABLE_STOPS_AND_STATIONS Haltes en stations inschakelen
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Pas het maximale aantal burgers aan dat kan wachten op openbaar vervoer op verschillende haltes en stations. Configureer in het tabblad Haltes.
+SETTINGS_STOPSANDSTATIONS_ENABLE Haltes en stations inschakelen
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Passagierslimiet handhaving op haltes in- of uitschakelen.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximaal aantal passagiers dat wacht op een lijnhalte:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Buslijn
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximaal aantal passagiers dat op een bushalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Trolleybus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximaal aantal passagiers dat op een trolleybushalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Evacuatiebus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximaal aantal passagiers dat op een evacuatiebushalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Toeristische bus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximaal aantal passagiers dat op een toeristische bushalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Tram
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximaal aantal passagiers dat op een tramhalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximaal aantal passagiers dat op een metrostation wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Trein
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximaal aantal passagiers dat op een treinstation wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximaal aantal passagiers dat op een monorailhalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Schip
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximaal aantal passagiers dat in een vrachtschiphaven wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Veerboot
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximaal aantal passagiers dat op een veerboothalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Vliegtuig
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximaal aantal passagiers dat op een vliegtuigterminal wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Kabelbaan
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximaal aantal passagiers dat op een kabelbaanhalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Heteluchtballon
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximaal aantal passagiers dat op een ballonhalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximaal aantal passagiers dat op een helikopterhalte wacht
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Blimp
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximaal aantal passagiers dat op een blimphalte wacht
+
+SETTINGS_UNBUNCHING Spreiding
+SETTINGS_UNBUNCHING_AGGRESSION Spreidingsaggressiviteit:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Hoe sterk moet voertuigspreiding werken?\nMogelijke waarden: 0–52. Een waarde van 0 schakelt spreiding uit.\nHogere waarden zullen het verkeer sterk beïnvloeden en voertuigen kunnen verdwijnen.
+SETTINGS_VEHICLE_COUNT Voertuigen op nieuwe lijnen:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Het aantal voertuigen dat automatisch aan nieuwe lijnen wordt toegevoegd wanneer lijntbegroting uitgeschakeld is.
+SETTINGS_SPAWN_TIME_INTERVAL Spawntijd interval:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Tijd in seconden tussen voertuigspawns.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Alle schuifregelaars opnieuw instellen op standaardwaarden.
+UNBUNCHING_ENABLED Voertuigspreiding
+UNBUNCHING_DISABLED Spreiding is uitgeschakeld.
+UNBUNCHING_TARGET_GAP Doelgat: {0}
+
+SETTINGS_EBS_GROUP_BUS Express busdiensten
+SETTINGS_EBS_GROUP_TRAM Express tramdiensten
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Express bus:
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE "Uitgeschakeld" = Bussen gebruiken spreidingsinstellingen van hierboven.\n"Voorzichtig" = Stopt even, controleert passagiers, kan leeg vertrekken.\n"Agressief" = Slaat haltes helemaal over als er geen passagiers wachten.
+SETTINGS_EBS_ENABLE_SELFBAL Zelf-balancering van service inschakelen
+SETTINGS_EBS_DESC_SELFBAL Laat Express busdienst voertuigen herverdelen over de lijn om drukker segmenten te bevoordelen en wachttijden te verkorten.
+SETTINGS_EBS_TOOLTIP_SELFBAL Analyzeert lijnsegmenten en kan voertuigen herverdelen naar drukker segmenten of eindstations om service uit te balanceren en wachttijden te verkorten.\nBeslissingen zijn probabilistisch en hangen af van passagieraantallen en herverdelingskansen.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Zelf-balancering van middelste haltes inschakelen
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Laat zelf-balancering een drukke middelste halte kiezen in plaats van alleen een eindstation bij herverdeling van voertuigen.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Laat zelf-balancering voertuigen naar een drukke middelste halte herverdelen (in plaats van eindstation).\nAlferneem alleen wanneer de drukste halte meer dan 30 wachtende passagiers heeft, dan gekozen met ongeveer 50% kans en onderhevig aan algemene herverdelingskansen.
+SETTINGS_EBS_ENABLE_MINIBUS Minibus-modus inschakelen
+SETTINGS_EBS_DESC_MINIBUS Maakt dat kleinere bussen eerder vertrekken wanneer slechts enkele passagiers in- of uitstappen.
+SETTINGS_EBS_TOOLTIP_MINIBUS Bussen met capaciteit ≤20 kunnen eerder vertrekken van een halte wanneer instappende + uitstappende passagiers ≤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Express tram:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING "Uitgeschakeld" = Trams gebruiken spreidingsinstellingen van hierboven.\n"Lichte spoor" = Stopt op elke halte, wacht altijd volledige timer (afgedwongen discipline).\n"Echte tram" = Stopt alleen wanneer passagiers in- of uitstappen.
+SETTINGS_EBS_MODE_NONE Uitgeschakeld
+SETTINGS_EBS_MODE_AGGRESSIVE Agressief
+SETTINGS_EBS_MODE_PRUDENTIAL Voorzichtig
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Lichte spoormodus
+SETTINGS_EBS_TRAM_MODE_NONE Uitgeschakeld
+SETTINGS_EBS_TRAM_MODE_TRAM Echte trammodus
+
+
+SETTINGS_PTU_GROUP Openbaarvervoer Unstucking
+SETTINGS_PTU_ENABLE Vastgelopen passagiers verwijderen
+SETTINGS_PTU_TOOLTIP Verwijdert automatisch passagiers die vast komen te zitten bij het instappen in voertuigen, zodat het voertuig normaal kan vertrekken en bevriezen tijdens vertrek voorkomen.
+
+
+SETTINGS_LINE_DELETION_TOOL Lijnen verwijderingshulpmiddel
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Controleer de vervoerstypen hieronder en druk vervolgens op Verwijderen om elke lijn van deze typen uit de huidige stad te verwijderen. Deze selectie is tijdelijk - deze begint altijd niet ingeschakeld en wist zichzelf na verwijdering uit, het wordt niet als instelling opgeslagen.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Verwijdert alle lijnen van de geselecteerde typen. Werkt alleen terwijl de stad is geladen.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE BEVESTIG LIJNEN VERWIJDERING
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG U staat op het punt alle lijnen te verwijderen.\nWil je doorgaan?
+SETTINGS_DELETE_BUS_TOOLTIP Verwijdert alle normale buslijnen.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Toeristische bussen
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Verwijdert alle toeristische buslijnen.
+SETTINGS_DELETE_TRAM_TOOLTIP Verwijdert alle tramlijnen.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Verwijdert alle trolleybuslijnen.
+SETTINGS_DELETE_TRAIN_TOOLTIP Verwijdert alle treinlijnen.
+SETTINGS_DELETE_METRO_TOOLTIP Verwijdert alle ondergrondse metrolijnen.
+SETTINGS_DELETE_MONORAIL_TOOLTIP Verwijdert alle monoraillijnen.
+SETTINGS_DELETE_FERRY_LABEL Veerboten
+SETTINGS_DELETE_SHIP_TOOLTIP Verwijdert alle veerbootlijnen.
+SETTINGS_DELETE_HELICOPTER_LABEL Helikopters
+SETTINGS_DELETE_HELICOPTER_TOOLTIP Verwijdert alle helikopterlijnen.
+SETTINGS_DELETE_BLIMP_LABEL Blimps
+SETTINGS_DELETE_BLIMP_TOOLTIP Verwijdert alle blimplijnen.
+
+
+VEHICLE_EDITOR_TITLE Voertuigeditor
+VEHICLE_EDITOR_SUB_TITLE {0} voertuigen
+VEHICLE_EDITOR_CAPACITY Passagierscapaciteit
+VEHICLE_EDITOR_CAPACITY_TAXI Reiscapaciteit
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Aantal passagiers per werkdienst.
+VEHICLE_EDITOR_MAINTENANCE Onderhoudskosten
+VEHICLE_EDITOR_MAX_SPEED Maximale snelheid
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Treinmotor aan beide uiteinden
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Schakelt treinmotors aan beide uiteinden in of uit.
+VEHICLE_EDITOR_APPLY Toepassen
+VEHICLE_EDITOR_DEFAULT Standaard
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Klik met rechtermuisknop op dit voertuig om het te volgen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + klik om dit voertuig in de wachtrij in te voegen.
+VEHICLE_PANEL_EDIT_TYPE Voertuigtype bewerken
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Bewerk dit voertuigtype met de voertuigeditor.
+VEHICLE_PANEL_STATUS_NEXT_STOP Volgende halte:
+VEHICLE_PANEL_STATUS_UNBUNCHING Voertuigspreiding in uitvoering
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Uitwisseling laatste halte: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS Passagiers:
+VEHICLE_PANEL_EARNINGS Inkomsten:
+VEHICLE_PANEL_EARNINGS_TOOLTIP Resultaat van kaartjesverkoop minus onderhoudskosten van voertuig.
+VEHICLE_PANEL_PREVIOUS Vorig voertuig
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Naar het vorige voertuig springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+VEHICLE_PANEL_REMOVE_VEHICLE Voertuig verwijderen
+VEHICLE_PANEL_NEXT Volgende voertuig
+VEHICLE_PANEL_NEXT_TOOLTIP Naar het volgende voertuig springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.
+VEHICLE_SELECTION_CAPACITY Capaciteit
+VEHICLE_SELECTION_ADD_VEHICLE Voeg dit voertuig toe aan de lijst met toegestane voertuigen
+VEHICLE_SELECTION_ADD_ALL Voeg alle in aanmerking komende voertuigen toe aan de lijst met toegestane voertuigen
+VEHICLE_SELECTION_REMOVE_VEHICLE Verwijder dit voertuig uit de lijst met toegestane voertuigen
+VEHICLE_SELECTION_REMOVE_ALL Verwijder alle voertuigen uit de lijst met toegestane voertuigen
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Beschikbare voertuigen
+VEHICLE_SELECTION_SELECTED_VEHICLES Geselecteerde voertuigen
+VEHICLE_SELECTION_ANY_VEHICLE Elk voertuig
+VEHICLE_BUTTON_TOOLTIP {0}\n\nKlik om naar dit voertuig te springen.\nHoud Shift ingedrukt bij het klikken om ook in te zoomen.\nHoud Alt ingedrukt bij het klikken om het informatiepaneel van het voertuig niet te openen.
+TRANSPORT_LINE_VEHICLECOUNT Voertuigaantal: {0}
+
+FLIGHT_TRACKER_NAME Vluchttracker
+FLIGHT_STATUS_NONE Geen
+FLIGHT_STATUS_INCOMING Inkomend
+FLIGHT_STATUS_LANDED Geland
+FLIGHT_STATUS_AT_GATE Bij gate
+FLIGHT_STATUS_DEPARTED Vertrokken
+
+TICKET_PRICE_TAXI_KILOMETER Taxitarief per kilometer:
+TICKET_PRICE_TAXI_MILE Taxitarief per mijl:
+TICKET_PRICE_BUS Buskaartjesprijs:
+TICKET_PRICE_INTERCITY_BUS Intercity-buskaartjesprijs:
+TICKET_PRICE_METRO Metrokaartjesprijs:
+TICKET_PRICE_TRAIN Treinkaartjesprijs:
+TICKET_PRICE_TRAM Tramkaartjesprijs:
+TICKET_PRICE_MONORAIL Monorailkaartjesprijs:
+TICKET_PRICE_SHIP Schipkaartjesprijs:
+TICKET_PRICE_FERRY Veerbootkaartjesprijs:
+TICKET_PRICE_PLANE Vliegtuigkaartjesprijs:
+TICKET_PRICE_CABLECAR Kabelbaankaartjesprijs:
+TICKET_PRICE_SIGHTSEEING_BUS Toeristische buskaartjesprijs:
+TICKET_PRICE_TROLLEYBUS Trolleybuskaartjesprijs:
+TICKET_PRICE_BLIMP Blimpkaartjesprijs:
+TICKET_PRICE_HELICOPTER Helikopterkaartjesprijs:
+ECONOMY_TAB_TICKET_PRICES Kaartjesprijzen
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Totaal hudig passagiersamtal voor dit vervoerstype.
+
+
+WHATSNEW_3_0_0_1 Bijgewerkt voor Race Day; nu compatibel met More Vehicles Renewed.
+WHATSNEW_3_0_0_2 De volgende mods zijn geïntegreerd in IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+
+WHATSNEW_3_0_1 Openbaarvervoer Unstucking is nu geïntegreerd in IPT3.\nZie versie 3.0 voor alle andere geïntegreerde mods. Meld je af van originals om conflicten te voorkomen.
+
+SETTINGS_TAB_TRAINDISPLAY Treinweergave
+SETTINGS_TRAINDISPLAY_GROUP Treinweergave-overlay
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configureer de geïntegreerde overlay die wordt weergegeven wanneer u ondersteunde vervoervoertuigen volgt.
+SETTINGS_TRAINDISPLAY_ENABLE Treinweergave inschakelen
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Schakelt de geïntegreerde Treinweergave-overlay in of uit.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED Uitgeschakeld
+SETTINGS_TRAINDISPLAY_MODE_ENABLED Ingeschakeld
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Overlay-positie:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Kies waar de overlay op het scherm wordt weergegeven.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Linksboven
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Rechtsboven
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Linksonder
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Rechtsonder
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Overlay-schaal:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Schaal de overlaygrootte.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Overlay-dekking:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Pas aan hoe transparant de overlay is.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Updateinterval:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Hoe vaak de overlay wordt vernieuwd terwijl u een voertuig volgt.
+SETTINGS_TRAINDISPLAY_SHOW_LINE Lijnnaambedrijf
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Neem de lijnnaam op in de overlay.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Bestemming weergeven
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Neem de bestemming op in de overlay.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Staat weergeven
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Neem de voertuigstatus op in de overlay.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Alleen tijdens volgen
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Verberg de overlay tenzij de camera werkelijk een ondersteund voertuig volgt.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Alleen in eerstepersonenamera
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Toon de overlay alleen bij gebruik van een eerstepersonencameramod (bijv. First Person Camera - Continued). Indien uit, wordt het weergegeven wanneer een ondersteund voertuig in een willekeurige cameramodus wordt gevolgd.
+SETTINGS_TRAINDISPLAY_THEME Kleurthema:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Kies de achtergrond-/tekstkleuren van de overlay.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simpel
+SETTINGS_TRAINDISPLAY_THEME_DARK Donker
+SETTINGS_TRAINDISPLAY_THEME_LIGHT Licht
+
+COPY_TIP Kopieer de instellingen van deze lijn.
+PASTE_TIP Plak de gekopieerde lijninstelling.
+COPY_BUILDING_TIP Kopieer deze instellingen naar alle lijnen die dit gebouw bedienen.
+COPY_DISTRICT_TIP Kopieer deze instellingen naar alle lijnen in deze wijk.
+SETTINGS_INTEGRATIONS_GROUP Geïntegreerde add-ons
+SETTINGS_INTERCITY_BUS_ENABLE Intercity-buscontrole inschakelen
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Schakelt de geïntegreerde compatibiliteitslaag voor intercity-buscontrole en stationpatching in.
+SETTINGS_FLIGHTTRACKER_ENABLE Vluchttracker inschakelen
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Schakelt de geïntegreerde Flight Tracker-patches en UI-ondersteuning in.
+CHANGELOG_4_3_3_1 Instellingen opslaan/laden vastgesteld op sommige modstacks door bundeling van Newtonsworth.Json.dll: vorige omweg probeerde alleen Assembly.LoadFrom in één ingangspunt en hing nog steeds af van laadvolgorde. IPT4 registreert nu een globale AssemblyResolve-haak en start greetig met zijn gebundelde Newtonsworth.Json van elk mod/UI-ingangspunt voordat CSLModsCommon JsonWriter aanraakt, zodat het UIpaneel Opties betrouwbaar aanhoudt in plaats van willekeurig te binden aan een inkompatibele Json.NET-kopie van een ander modwerk.
+CHANGELOG_4_3_2_1 Vast gelopen bij het laden van mod helemaal ("failed to load the mod's dll of one of its dependencies") telkens wanneer geen ander geïnstalleerd mod toevallig Newtonsworth.Json gaf: CSLModsCommon instellingen serialisatie (JsonHelper/SerializationContext) nodig het, maar onze build heeft nooit daadwerkelijk Newtonsworth.Json.dll naast de mod ingezet - het werkte altijd per ongeluk, rijdend op een ander kopie van mod. Gevonden door alle andere mods uit te schakelen voor een schone test, wat precies hoe het van nu af aan zou moeten worden getest.
+CHANGELOG_4_3_1_1 Vaste taal selector paneel Opties alleen hertaling framework eigen strings (Versie/Changelog/...) terwijl elke snaar van deze mod in de taal van het spel bleef - onze vertaling loader sleutel uit de spelsprache en negeerde het mod eigen selectie volledig. Het volgt nu de mod taalkiezer, valt terug op spelsprache en vervolgens Engels, en re-Resolves telkens de kiezer verandert.
+CHANGELOG_4_3_1_2 Gevuld in 38 vertaling sleutels die alleen in Engels en Portugees bestonden - elk ander taal (Arabisch, Bengaals, Duits, Spaans, Frans, Hindi, Indonesisch, Italiaans, Japans, Koreaans, Pools, Russisch, Urdu en alle Chinese varianten) viel stilletjes terug naar Engels voor heel Treinweergave sectie, Verwijder Lijnenbeschrijving en de drie Express Bus beschrijvingen.
+CHANGELOG_4_3_1_3 Toegevoegd 4 kopieer/plak tooltip toetsen die ontbraken aan elk taalbestand inclusief Engels, dus ze zouden hebben weergegeven als ruwe sleutels ("COPY_TIP") zodra deze knoppen opnieuw zijn ingeschakeld.
+CHANGELOG_4_3_0_1 Toegevoegd Trein Display Updated: een klein scherm overlay met lijn/bestemming/status terwijl een ondersteund voertuig wordt gevolgd. Configureerbaar in Opties: schermlocatie, grootte, dekking, welke velden tonen, updatefrequentie, of het beperkt is tot eerstepersonencameramod en een Simpel/Donker/Licht kleurschema.
+CHANGELOG_4_3_0_2 Vaste verschillende bouwfouten in de nieuwe Treinweergave integratie: een dubbelzinnige Utils verwijzing, twee API's die niet bestaan op deze versie van het spel (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) en Enum.HasFlag gebruik - die niet op .NET Framework 3.5 bestaan, deze mod doel framework, en moest worden vervangen door handmatige bitwijs controles.
+CHANGELOG_4_2_4_1 Vast gesteld mod altijd "Compatibiliteit met Game versie: 0.0.0" - we hebben nooit een ondersteunde game versie bereik verklaard. Nu ingesteld op 1.21.1-f9 en hoger.
+CHANGELOG_4_2_4_2 Vast AutoLineColor kleurfstrategie dropdown toont ruwe enum namen (bijv. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") in plaats van vertaalde tekst: code genereerde een sleutel zonder onderstrepingsteken terwijl vertaalbestand één gebruikt. Ook herschikt de sectie zodat twee afhankelijke schuifregelaars direct onder de kleurfstrategie dropdown zitten, in plaats van na de onverwante naamgeving dropdown.
+CHANGELOG_4_2_4_3 Hernoemd tram unbunching Modi om bussen (Uitgeschakeld/Voorzichtig/Realistisch) in plaats van "Lichte spoor"/"Echte tram" te matchen, en vertaalde de laatste stukken Engelse tekst overgebleven in Portugese beschrijving.
+CHANGELOG_4_2_4_4 Vast selectievakje beschrijvingen nooit rendering overal in paneel wanneer geen koptek tekst was ingesteld (wat elk selectievakje in deze mod is) - layout code alleen gepositioneerd beschrijving label als koptek label ook bestond, ook al beschrijving reeds gemaakt en ingevuld met tekst.
+CHANGELOG_4_2_4_5 Vast Opties tabblad bijschriften afgesneden (vooral in Portugees, dat langer dan Engels loopt) - tabbladen nu verpakken naar een tweede regel in plaats van knippen.
+CHANGELOG_4_2_4_6 Vast Herstellen knopen (Unbunching, Ticket Prices) onderliggende instellingen onmiddellijk wijzigen maar niet bijwerken schuifregelaars reeds op scherm, dus leek als niets gebeurde tot opnieuw openen Opties.
+CHANGELOG_4_2_4_7 Vast Verwijderen Lijnen gereedschap selectievakjes persistent als opgeslagen instellingen in plaats van reset na gebruik - zij waren onopzettelijk bedraad naar ModSetting als echte voorkeur, toen dit bedoeld als een "pick types, klik Verwijderen" actie.
+CHANGELOG_4_2_3_1 Vast elk mod vertaling toon als ruwe sleutel (bijv. "SETTINGS_SPEED:0") in elke taal: onze eigen vertaalloader nog steeds vergeleken plugin door oude ImprovedPublicTransportMod type in plaats van Mod (klasse dat is eigenlijk IUserMod sinds CSLModsCommon migratie), dus nooit mod map gevonden en nooit geladen Translations/*.txt bestand. Ook versterkt vanille-locale terugval zodat het niet meer per ongeluk fouten Colossal is "sleutel: 0" niet gevonden marker als echte vertaling.
+CHANGELOG_4_2_3_2 Verwijderde altijd leeg "Key Bindings" tabblad van Opties - deze mod heeft geen sleutel bindingen konfigureren.
+CHANGELOG_4_2_3_3 Schuifregelaars in Opties nu toon hun huidiger waarde weer (verloren in CSLModsCommon migratie - nieuwe slider control het niet weergegeven standaard).
+CHANGELOG_4_2_3_4 Vast AutoLineColor "min kleurverschil" en "max kleurkeus pogingen" schuifregelaars interactief blijven zelfs wanneer kleur strategie ingesteld op Uitgeschakeld of Gecategoriseerd (geen van welke die instellingen gebruiken).
+CHANGELOG_4_2_0_1 Toegevoegd Rescue Fullwidth Digits: normalizeert fullwidth cijfers in custom transport lijn namen terug naar normaal ASCII cijfers, fixing een display/sortering kwittie van enkele non-Latin toetsenbord ingangen.
+CHANGELOG_4_2_0_2 Toegevoegd een speciaal Ticket prijzen tabblad naar de Opties paneel, dus dag/nacht tarief vermenigvuldigers kunnen worden afgesteld zonder openen in-game Economie paneel.
+CHANGELOG_4_2_0_3 Vast Rescue Fullwidth Digits patch alleen ooit eenmaal bij mod startup toegepast terwijl undo-ed op elke level unload, stilletjes uitschakelen voor elke save nadat het eerste geladen in een sessie.
+CHANGELOG_4_2_0_4 Vast een taxi-tarief integer-overflow bug (MileageTaxiServices) die kon drain openbaar vervoer begroting door miljarden in één stap: een taxi met beschadigd of ongeïnitialiseerd frame gegevens (bijv. recht na spawning) kan berekenen implausible per-frame afstand, overflowing het tarief is cast naar int in enorme vuilnis waarde - dit evenaart een bekend onopgelost probleem gerapporteerd upstream (runaway negatief taxi inkomen). Nu implausible raamafstanden worden verwijderd in plaats van aangerekend.
+CHANGELOG_4_1_5_1 Vast echte oorzaak van lege/zwarte Opties paneel: CSLModsCommon eigen UI strings (Versie/Changelog/etc.) wonen in een fysieke Lokalisatie/Gemeenschappelijke map naast DLL dat onze build nooit ingezet. Zonder het het framework LocalizationManager stilletjes gaf op, verlaten CurrentLocaleSource null en crashen OptionsPanelBase.Awake() met een NullReferenceException onmiddellijk het geprobeerd de vertaal-voortgangs label te tonen - die Unity stilletje slikt, afbreking panel midden bouw. Nu .csproj zet die map, en GetTranslationProgress() niet langer gooien als het ooit ontbreekt opnieuw.
+CHANGELOG_4_1_4_1 Vast Opties paneel toon blanco/zwart: paneel was alleen ooit gebouwd wanneer game omgeschakeld instellingen container zichtbaarheid uit en op, maar het is meestal reeds zichtbaar wanneer het spel opent deze mod pagina, dus paneel nooit gebouwd. Nu het ook bouwt onmiddellijk als de container al zichtbaar is.
+CHANGELOG_4_1_4_2 Vast elk CSLModsCommon UI textuur (background, icons, toggles) niet laden en vallen terug op placeholder: project RootNamespace was nog steeds "ImprovedPublicTransport3" van origineel IPT3 vork, dus ingebed middelen waren gecompileerd onder de verkeerde naam en nooit gematcht op runtime.
+CHANGELOG_4_1_3_1 Vast drie instellingen sparen bugs verlaten over van CSLModsCommon migratie (Wat is New ontslag, Opties Reset knop, per-uur kaartje prijs editor): elk schreef nieuwe waarde naar ModSetting juist maar opgeslagen vervolgens oud, nu dood instellingen object, dus de wijziging nooit daadwerkelijk aangehouden naar schijf.
+CHANGELOG_4_1_3_2 Verwijderde dode code van vóór CSLModsCommon era: de attribute-gebaseerde OptionsFramework, het monolithische Settings.cs, en de standalone VehicleEditorPositions enum - alles volledig vervangen door ModSetting en CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Bevolgd van Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Geporteerd AutoLineBudget eis gebaseerde flotille grootte om coördinaten met IPT eigen voertuig aantal API in plaats van schrijven de lijn budget rechtstreeks, fixing een runaway onderhoudskost bug veroorzaakt door de twee mods vechtende over dezelfde staat.
+CHANGELOG_4_0_0_3 Aangenomen CSLModsCommon voor de Opties UI (versie badge, changelog, compatibiliteit waarschuwingen, vertaal voortgang).
+TRAINDISPLAY_LABEL_NAME Naam
+TRAINDISPLAY_LABEL_STATUS Status
+TRAINDISPLAY_NO_LINE Geen lijn
+TRAINDISPLAY_NO_DESTINATION Geen bestemming
+TRAINDISPLAY_HIDDEN Verborgen
+TRAINDISPLAY_VEHICLE Voertuig
+TRAINDISPLAY_STATE_RETURNING Terugkeren
+TRAINDISPLAY_STATE_STOPPED Bij halte
+TRAINDISPLAY_STATE_EN_ROUTE Onderweg
+TRAINDISPLAY_STATE_ON_LINE Op lijn
+TRAINDISPLAY_STATE_IDLE Inactief
+AUTOLINECOLOR_REFRESH_BUTTON Naam/kleur vernieuwen
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Wijs de huidige lijnnaam en -kleur opnieuw toe volgens de actieve AutoLineColor-instellingen.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Schakel een kleur- of naamstrategie in in Opties voordat u deze lijn vernieuwt.
+CHANGELOG_4_3_3_2 Versterkt de gebundelde Newtonsworth.Json resolver zodat het altijd de kopie geleverd naast deze mod voorkeur geeft in plaats van teruggaande welke kopie ander mod toevallig eerst geladen (Real Time scheept sterke-benoemde v13; CSLModsCommon nodig de niet-ondertekende v9). Het geven van onze code de verkeerde build gemaakt JsonHelper mislukken stilletjes en lege objecten terugkeert, wat links op het framework eigen locale bronnen leeg en taal kiezer toont raw locale ids.
+CHANGELOG_4_3_3_3 Bengaals, Hindi, Indonesisch en Urdu nu verschijnen in de mod taalkiezer. Zij waren reeds volledig vertaald, maar het framework geen locale bestand voor hen dus onbereikbaar tenzij het spel zelf in die taal liep.
+CHANGELOG_4_3_3_4 Geoptimaliseerd de stop passagier limiter: deze opgelost de instellingen object (twee woordenboek opzoekingen) eenmaal per burgerinstantie binnen loop dat loopt duizenden keer per frame. Het is nu opgelost eenmaal per frame.
+CHANGELOG_4_3_3_5 Gemaakt mod map lookup onafhankelijk van welke klasse implementeert IUserMod. Die koppeling was reeds stilletjes gebruiksbroken vertaal laden eenmaal en kaartje prijs icon atlases een tweede tijd, elk na een onverwante refactuur.
+CHANGELOG_4_3_4_1 Vast startup ModException ("Kan niet vinden ImprovedPublicTransportMod assembly!") Gegooid door AutoLineColor voordat kaart zelfs geladen. Een tweede helper klasse nog steeds opzocht mod door ImprovedPublicTransportMod type, die stopte IUserMod gedurende CSLModsCommon migratie - dezelfde koppeling al vast elders. Beide helpers nu oplossen mod map van deze assembly zichzelf, dus toekomstige refactuur niet kan stilletjes het breken weer.
+CHANGELOG_4_3_5_1 Vast Trein Display overlay nooit verschijning volgen voertuig. Deze keek camera gevolgd instantie door generieke "target"/"GetTarget" sondes, maar spel slaat op in private CameraController.m_targetInstance veld dat die sondes nooit gekoppeld. Ook geschakeld "Alleen in eerstepersonenamera" uit standaard: gewone volgen modus is niet eerste-persoon, dus het uit maken de overlay ziet er gebroken uit-van-de-box, in tegenstelling tot de originele mod die toont dit in een volgen view.
+CHANGELOG_4_3_5_2 Het tabblad Ticket prijzen toont nu het resulterende tarief voor elk vervoer type in plaats van het levend passagier aantal. De schuifregelaars alleen percentage toon, dus er was eerder geen manier zien wat een vermenigvuldiger daadwerkelijk opgesteld - en op een klein of gepauzeerd stad het passagier aantal gewoon lees een permanente "0". Het passagier aantal verplaatst naar het etiket tooltip, samen met het originele tarief.
+TICKET_PRICE_LABEL_TOOLTIP Huuidi tarief: {0}\nOrigineel tarief: {1}\nPassagiers rijden nu: {2}
+CHANGELOG_4_3_7_1 Alle 23 talen in de keuzelijst zijn nu volledig vertaald. Tsjechisch, Nederlands, Slowaaks, Thai en Turks waren selecteerbaar maar hadden geen vertaalbestand, waardoor ze stil terugvielen op Engels.
+CHANGELOG_4_3_7_2 De vertaalvoortgang onder de taalkeuze las een statisch statusbestand dat nooit opnieuw was gegenereerd en meldde daarom 76% voor zestien talen die in werkelijkheid compleet waren.
+CHANGELOG_4_3_6_1 De echte oorzaak van de uitgave van ongeveer -21,4 miljoen bij het openbaar vervoer is opgelost: de wekelijkse onderhoudsberekening van IPT deelde door een voertuigcapaciteit van nul of een niet-ondersteunde capaciteit, veranderde NaN in int.MinValue en telde daarna elk voertuig op in nog een int. Ongeldige waarden gebruiken nu een veilige vanilla-terugvalwaarde, lijntotalen gebruiken 64-bits rekenkunde en grote geldige bedragen worden alleen via begrensde positieve transacties afgeschreven.
+CHANGELOG_4_3_6_2 Al getroffen saves worden bij het laden gerepareerd: alleen de negatieve inkomsten- of uitgavenposten van het openbaar vervoer die deze overflow heeft achtergelaten worden op nul gezet en hun bijbehorende totalen gecorrigeerd. Geldige economische geschiedenis en alle andere diensten blijven onaangeroerd.

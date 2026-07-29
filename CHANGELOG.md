@@ -14,6 +14,30 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.3.6] Public transport maintenance overflow
+
+### Fixed - negative `-21.4 million` maintenance
+
+`PrefabData.MaintenanceCost` divided the total vehicle capacity by the detected
+capacity of the leading vehicle. Unsupported custom vehicle AIs returned zero,
+so the calculation produced `NaN`; `Mathf.RoundToInt(NaN)` became an
+`int.MinValue`-sized maintenance cost. `SimulationStepPatch.Postfix` then summed
+all vehicle costs in another `int` and passed the negative result to
+`EconomyManager.FetchResource`, recording a negative expense near the signed
+32-bit limit.
+
+Invalid prefab inputs now fall back to the vanilla weekly cost. Per-line totals
+use `long`, negative per-vehicle values are rejected, and large valid totals are
+split into bounded positive economy transactions.
+
+### Fixed - already-corrupted saves
+
+On level load, IPT now clears only negative public-transport income and expense
+periods and adjusts their matching aggregate totals. Other services and all
+non-negative history are left unchanged.
+
+---
+
 ## [4.3.5] Train Display detection, ticket price display
 
 ### Fixed — Train Display overlay never rendered

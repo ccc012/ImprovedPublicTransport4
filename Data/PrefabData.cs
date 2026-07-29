@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
@@ -20,6 +20,7 @@ namespace ImprovedPublicTransport.Data
     private bool _changeFlag;
     private int _maintenanceCost;
     private bool _maintenanceCostManuallySet;
+    private bool _invalidMaintenanceCostLogged;
 
     public int PrefabDataIndex => Info.m_prefabDataIndex;
 
@@ -125,8 +126,13 @@ namespace ImprovedPublicTransport.Data
             // If manually set by user, use cached value; otherwise recalculate to support dynamic carriage changes
             if (!_maintenanceCostManuallySet || _maintenanceCost == 0)
             {
-              float num = TotalCapacity / (float) CarCount / (float) GetCapacity(service, subService, level, Info.m_vehicleAI);
-              _maintenanceCost = Mathf.RoundToInt(GetMaintenanceCost(service, subService, level, Info.m_vehicleAI) * 16 * num);
+              var baseMaintenanceCost = GetMaintenanceCost(service, subService, level, Info.m_vehicleAI);
+              var unitCapacity = GetCapacity(service, subService, level, Info.m_vehicleAI);
+              _maintenanceCost = CalculateAutomaticMaintenanceCost(
+                TotalCapacity,
+                CarCount,
+                unitCapacity,
+                baseMaintenanceCost);
             }
             return _maintenanceCost;
           default:
@@ -144,6 +150,60 @@ namespace ImprovedPublicTransport.Data
         _maintenanceCostManuallySet = true;
         _changeFlag = true;
       }
+    }
+
+    private int CalculateAutomaticMaintenanceCost(
+      int totalCapacity,
+      int carCount,
+      int unitCapacity,
+      int baseMaintenanceCost)
+    {
+      var fallbackCost = CalculateVanillaWeeklyMaintenanceCost(baseMaintenanceCost);
+      if (totalCapacity <= 0 || carCount <= 0 || unitCapacity <= 0 || baseMaintenanceCost <= 0)
+      {
+        LogInvalidMaintenanceCostOnce(totalCapacity, carCount, unitCapacity, baseMaintenanceCost);
+        return fallbackCost;
+      }
+
+      var capacityScale = totalCapacity / (double)carCount / unitCapacity;
+      var calculatedCost = baseMaintenanceCost * 16d * capacityScale;
+      if (double.IsNaN(calculatedCost) || double.IsInfinity(calculatedCost) ||
+          calculatedCost <= 0d || calculatedCost > int.MaxValue)
+      {
+        LogInvalidMaintenanceCostOnce(totalCapacity, carCount, unitCapacity, baseMaintenanceCost);
+        return fallbackCost;
+      }
+
+      return (int)Math.Round(calculatedCost, MidpointRounding.AwayFromZero);
+    }
+
+    private static int CalculateVanillaWeeklyMaintenanceCost(int baseMaintenanceCost)
+    {
+      if (baseMaintenanceCost <= 0)
+      {
+        return 0;
+      }
+
+      var weeklyCost = (long)baseMaintenanceCost * 16L;
+      return weeklyCost > int.MaxValue ? int.MaxValue : (int)weeklyCost;
+    }
+
+    private void LogInvalidMaintenanceCostOnce(
+      int totalCapacity,
+      int carCount,
+      int unitCapacity,
+      int baseMaintenanceCost)
+    {
+      if (_invalidMaintenanceCostLogged)
+      {
+        return;
+      }
+
+      _invalidMaintenanceCostLogged = true;
+      Utils.LogWarning(
+        $"PrefabData: invalid maintenance inputs for '{Name}' " +
+        $"(totalCapacity={totalCapacity}, carCount={carCount}, unitCapacity={unitCapacity}, " +
+        $"baseCost={baseMaintenanceCost}); using the vanilla weekly fallback.");
     }
 
     public bool EngineOnBothEnds

@@ -15,6 +15,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
 {
     public class SimulationStepPatch
     {
+        // EconomyManager accepts an int per transaction. Keep each call well below the signed
+        // limit so economy extensions that scale the amount cannot overflow it either.
+        private const int MaxMaintenanceTransaction = 100_000_000;
+
         public static void Apply()
         {
             if (Diagnostics.VerboseTranspileLogs)
@@ -116,17 +120,26 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
                 stop1 = TransportLine.GetNextStop(stop1);
             } while (stops1 != stop1 && stop1 != 0);
 
-            var amount = 0;
+            long amount = 0;
             var activeVehicles = TransportLineUtil.CountLineActiveVehicles(__state, out _, (num3) =>
             {
                 var vInfo = VehicleManager.instance.m_vehicles.m_buffer[num3].Info;
                 if (vInfo == null) return;
                 var prefabData = VehiclePrefabs.instance.FindByIndex(vInfo.m_prefabDataIndex);
                 if (prefabData == null) return;
-                amount += prefabData.MaintenanceCost;
-                CachedVehicleData.m_cachedVehicleData[num3].StartNewWeek(prefabData.MaintenanceCost);
+                var maintenanceCost = prefabData.MaintenanceCost;
+                if (maintenanceCost < 0)
+                {
+                    ImprovedPublicTransport.Util.Utils.LogWarning(
+                        $"SimulationStepPatch: ignored negative maintenance cost {maintenanceCost} " +
+                        $"for vehicle prefab '{vInfo.name}'.");
+                    maintenanceCost = 0;
+                }
+
+                amount += maintenanceCost;
+                CachedVehicleData.m_cachedVehicleData[num3].StartNewWeek(maintenanceCost);
             });
-            if (amount != 0)
+            if (amount > 0)
             {
                 var line = TransportManager.instance.m_lines.m_buffer[__state];
                 if (Diagnostics.VerboseRuntimeLogs)
@@ -135,8 +148,21 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
                     ImprovedPublicTransport.Util.Utils.Log($"SimulationStepPatch: line {__state} ({lineName}) maintenance cost {amount}, activeVehicles={activeVehicles}");
                 }
 
-                Singleton<EconomyManager>.instance.FetchResource(EconomyManager.Resource.Maintenance, amount,
-                    line.Info.m_class);
+                ChargeMaintenance(amount, line.Info.m_class);
+            }
+        }
+
+        private static void ChargeMaintenance(long amount, ItemClass itemClass)
+        {
+            var economyManager = Singleton<EconomyManager>.instance;
+            while (amount > 0)
+            {
+                var transaction = (int)Math.Min(amount, MaxMaintenanceTransaction);
+                economyManager.FetchResource(
+                    EconomyManager.Resource.Maintenance,
+                    transaction,
+                    itemClass);
+                amount -= transaction;
             }
         }
 

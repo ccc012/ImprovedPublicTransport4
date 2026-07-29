@@ -64,6 +64,14 @@ namespace ImprovedPublicTransport
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 3, 7), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Translation, L("CHANGELOG_4_3_7_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_7_2"))
+            ,
+            new ChangelogCollection(new Version(4, 3, 6), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_6_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_6_2"))
+            ,
             new ChangelogCollection(new Version(4, 3, 5), new DateTime(2026, 7, 29), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_5_1"))
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_5_2"))

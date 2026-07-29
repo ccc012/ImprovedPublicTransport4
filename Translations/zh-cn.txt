@@ -382,3 +382,8 @@ CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTr
 CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 当前票价：{0}\n原始票价：{1}\n当前乘客数：{2}
+
+CHANGELOG_4_3_7_1 选择器中的全部 23 种语言现已完全翻译。捷克语、荷兰语、斯洛伐克语、泰语和土耳其语之前可以选择，但没有翻译文件，会静默地回退到英语。
+CHANGELOG_4_3_7_2 语言选择器下方显示的翻译进度读取的是一个从未重新生成的静态状态文件，因此对十六种实际上已经完成的语言显示为 76%。
+CHANGELOG_4_3_6_1 修正了公共交通约 -2140 万支出的真正原因：IPT 的每周维护计算会除以为零或不支持的车辆载客量，把 NaN 变成 int.MinValue，然后再把每辆车累加到另一个 int 中。无效数值现在使用安全的原版回退值，线路合计使用 64 位运算，而较大的有效金额仅通过有上限的正向交易扣除。
+CHANGELOG_4_3_6_2 已受影响的存档在加载时会被修复：仅将此次溢出遗留的公共交通负数收入或支出项清零，并修正对应的合计。有效的经济历史和所有其他服务保持不变。

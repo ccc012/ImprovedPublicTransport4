@@ -3,17 +3,17 @@
     "LanguageId": "ar",
     "LanguageName": "Arabic",
     "Locale": "ar-SA",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "bn",
     "LanguageName": "Bengali",
     "Locale": "bn-BD",
-    "TotalStrings": 112,
-    "TranslatedStrings": 112,
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
   },
@@ -21,44 +21,53 @@
     "LanguageId": "cs",
     "LanguageName": "Czech",
     "Locale": "cs-CZ",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "de",
     "LanguageName": "German",
     "Locale": "de-DE",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "en",
+    "LanguageName": "English",
+    "Locale": "en-US",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "es-ES",
     "LanguageName": "Spanish",
     "Locale": "es-ES",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "fr",
     "LanguageName": "French",
     "Locale": "fr-FR",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "hi",
     "LanguageName": "Hindi",
     "Locale": "hi-IN",
-    "TotalStrings": 112,
-    "TranslatedStrings": 112,
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
   },
@@ -66,8 +75,8 @@
     "LanguageId": "id",
     "LanguageName": "Indonesian",
     "Locale": "id-ID",
-    "TotalStrings": 112,
-    "TranslatedStrings": 112,
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
   },
@@ -75,44 +84,44 @@
     "LanguageId": "it",
     "LanguageName": "Italian",
     "Locale": "it-IT",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "ja",
     "LanguageName": "Japanese",
     "Locale": "ja-JP",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "ko",
     "LanguageName": "Korean",
     "Locale": "ko-KR",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "nl",
     "LanguageName": "Dutch",
     "Locale": "nl-NL",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "pl",
     "LanguageName": "Polish",
     "Locale": "pl-PL",
-    "TotalStrings": 112,
-    "TranslatedStrings": 112,
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
   },
@@ -120,62 +129,62 @@
     "LanguageId": "pt-BR",
     "LanguageName": "Portuguese, Brazilian",
     "Locale": "pt-BR",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "pt-PT",
     "LanguageName": "Portuguese",
     "Locale": "pt-PT",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "ru",
     "LanguageName": "Russian",
     "Locale": "ru-RU",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "sk",
     "LanguageName": "Slovak",
     "Locale": "sk-SK",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "th",
     "LanguageName": "Thai",
     "Locale": "th-TH",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "tr",
     "LanguageName": "Turkish",
     "Locale": "tr-TR",
-    "TotalStrings": 112,
-    "TranslatedStrings": 97,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   },
   {
     "LanguageId": "ur",
     "LanguageName": "Urdu",
     "Locale": "ur-PK",
-    "TotalStrings": 112,
-    "TranslatedStrings": 112,
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
   },
@@ -183,8 +192,8 @@
     "LanguageId": "zh-CN",
     "LanguageName": "Chinese Simplified",
     "Locale": "zh-CN",
-    "TotalStrings": 112,
-    "TranslatedStrings": 112,
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
   },
@@ -192,9 +201,9 @@
     "LanguageId": "zh-TW",
     "LanguageName": "Chinese Traditional",
     "Locale": "zh-TW",
-    "TotalStrings": 112,
-    "TranslatedStrings": 99,
-    "TranslationProgress": 76,
-    "ApprovalProgress": 76
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   }
 ]

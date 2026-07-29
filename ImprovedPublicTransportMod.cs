@@ -180,6 +180,8 @@ namespace ImprovedPublicTransport
                     EconomyPanelAwakePatch.Apply();
 
                     VehiclePrefabs.Init();
+                    HarmonyPatches.EconomyPanelPatches.EconomyCorruptionRepair
+                        .RepairNegativePublicTransportValues();
                     SerializableDataExtension.instance.Loaded = true;
                     LocaleModifier.Init();
 
