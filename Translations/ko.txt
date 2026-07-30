@@ -383,6 +383,7 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 현재 요금: {0}\n원래 요금: {1}\n현재 탑승 승객: {2}
 
+CHANGELOG_4_3_8_1 더 이상 BETA로 표시되지 않습니다. 이 포킬의 원인이었던 유지보수 오버필로우를 근본적으로 해결하고 이미 손상된 세이뷔도 복구합니다. 23개 언어 모든 번역이 완료되었습니다.
 CHANGELOG_4_3_7_1 선택 목록의 23개 언어 모든 번역이 완료되었습니다. 체쿠어, 네덜란드어, 슬로바키아어, 태국어, 터키어는 선택할 수는 있었지만 번역 파일이 없어 조용히 영어로 대진되었습니다.
 CHANGELOG_4_3_7_2 언어 선택 아래에 표시되는 번역 진행률은 다시 생성된 적이 없는 정적 상태 파일을 읽어, 사실상 완료된 16개 언어에 대해 76%로 표시되었습니다.
 CHANGELOG_4_3_6_1 대중교여에서 어림집어 재산되는 지상 -2,140만 지원을 발생시힌 진짜 원인을 수정했습니다. IPT의 주간 유지보수 계산이 0 또는 지원되지 않는 차량 정원으로 나누어 NaN을 int.MinValue로 바블곰, 다시 모든 차량을 또 다른 int에 합산했습니다. 이제 유효하지 않은 값은 안전한 기반 게임 값을 사용하고, 노선 합계는 64버트 연산을 사용하며, 유효한 대금은 상한이 있는 양의 거래로만 부과됩니다.

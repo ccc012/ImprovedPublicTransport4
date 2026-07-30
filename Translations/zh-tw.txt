@@ -383,6 +383,7 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 目前票價：{0}\n原始票價：{1}\n目前乘客數：{2}
 
+CHANGELOG_4_3_8_1 不再標記為 BETA。促使本分支誕生的維護費用溢出已從根源修正，並會修復已受損的存檔；23 種語言全部完成。
 CHANGELOG_4_3_7_1 選擇器中的全部 23 種語言現已完全翻譯。捷克語、荷蘭語、斯洛伐克語、泰語和土耳其語之前可以選擇，但沒有翻譯檔案，會靜默地回退到英語。
 CHANGELOG_4_3_7_2 語言選擇器下方顯示的翻譯進度讀取的是一個從未重新生成的靜態狀態檔案，因此對十六種實際上已經完成的語言顯示為 76%。
 CHANGELOG_4_3_6_1 修正了公共運輸約 -2140 萬支出的真正原因：IPT 的每週維護計算會除以為零或不支援的載客量，把 NaN 變成 int.MinValue，然後再把每輛車累加到另一個 int 中。無效數值現在使用安全的原版回退值，路線合計使用 64 位運算，而較大的有效金額僅透過有上限的正向交易扣除。

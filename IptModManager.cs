@@ -22,10 +22,14 @@ namespace ImprovedPublicTransport
         public override string RowDescription => "Unified public transport management: fleet sizing, budgets, ticket prices, stops, unbunching and more.";
         public override DateTime VersionDate { get; } = new(2026, 7, 29);
 
-        // Declared here rather than via a BETA compile constant so the channel is explicit in code
-        // and does not depend on how the project happens to be built. The framework's default is
-        // Alpha, which is why the Options header showed "ALPHA" until now.
-        public override BuildChannel CurrentBuildChannel => BuildChannel.Beta;
+        // Declared here rather than via a compile constant so the channel is explicit in code and
+        // does not depend on how the project happens to be built. The framework's default is Alpha,
+        // which is why the Options header showed "ALPHA" before this was set.
+        //
+        // Stable as of 4.3.8: the maintenance-overflow bug that motivated the fork is fixed at the
+        // root (4.3.6) with a repair pass for saves it already damaged, and all 23 languages are
+        // complete. Drop this back to Beta when landing something that needs field testing.
+        public override BuildChannel CurrentBuildChannel => BuildChannel.Stable;
 
         protected override void OnCreateSettings(SettingManager settingManager)
         {
@@ -64,6 +68,9 @@ namespace ImprovedPublicTransport
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 3, 8), new DateTime(2026, 7, 29), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_3_8_1"))
+            ,
             new ChangelogCollection(new Version(4, 3, 7), new DateTime(2026, 7, 29), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Translation, L("CHANGELOG_4_3_7_1"))
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_3_7_2"))

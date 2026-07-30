@@ -384,6 +384,7 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP বর্তমান ভাড়া: {0}\nমূল ভাড়া: {1}\nএখন ভ্রমণরত যাত্রী: {2}
 
+CHANGELOG_4_3_8_1 আর BETA হিসাবে চিহ্নিত নয়। যে রক্ষণাবেক্ষণ ওভারফ্লোর জন্য এই ফর্ক তৈরি হয়েছিল তা গোড়ায় সারা হয়েছে এবং ক্ষতিগ্রস্ত সেভ মরামত করা হয়, আর ২৩টি ভাষাই সম্পূর্ণ।
 CHANGELOG_4_3_7_1 সিলেক্টরের সব ২৩টি ভাষা এখন সম্পূর্ণ অনুবাদিত। চেক, ডাট্ম, স্লোভাক, থাই ও তুর্কি তালিকায় থাকলেও তাদের অনুবাদ ফাইল না থাকায় নীরবে ইংরেজিতে ফিরে যেত।
 CHANGELOG_4_3_7_2 ভাষা সিলেক্টরের নিচে দেখানো অনুবাদের অগ্রগতি একটি স্থির স্ট্যাটাস ফাইল পড়ত যা কখনো নতুন করা হয়নি, তাই পুরোপুরি সম্পন্ন ষোলটি ভাষার জন্য ৬৭% দেখাত।
 CHANGELOG_4_3_6_1 গণপরিবহনে প্রায় -২১.৪ মিলিয়ন খরের আসল কারণ সারা হয়েছে: IPT-এর সাপ্তাহিক রক্ষণাবেক্ষণ হিসাব শূন্য বা অসমর্থিত যানবাহন ধারণক্ষমতা দিয়ে বিভাজন করত, NaN-কে int.MinValue-তে পরিণত করত, তারপর প্রতিটি যানবাহন আরেকটি int-এ যোগ করত। অবৈধ মান এখন নিরাপদ ভ্যানিলা বিকল্প ব্যবহার করে, লাইনের মোট 64-বিট গণিত ব্যবহার করে, আর বড় বৈধ অঙ্ক কেবল সীমিত ধনাত্মক লেনদেনের মাধ্যমে আদায় হয়।
