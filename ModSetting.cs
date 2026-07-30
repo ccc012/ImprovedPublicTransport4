@@ -24,12 +24,20 @@ namespace ImprovedPublicTransport
         public enum TrainDisplayOverlayPositions { TopLeft = 0, TopRight = 1, BottomLeft = 2, BottomRight = 3 }
         [Flags]
         public enum TrainDisplayFields { None = 0, Line = 1, Destination = 2, State = 4 }
-        public enum TrainDisplayColorThemes { Simple = 0, Dark = 1, Light = 2 }
+        // Original replicates the layout of the upstream Train Display - Updated mod (Workshop
+        // 3233229958): a header strip with a key/value grid, a big centred speed readout, and a
+        // bottom-left route strip coloured to match the vehicle's actual line colour.
+        public enum TrainDisplayColorThemes { Simple = 0, Dark = 1, Light = 2, Original = 3 }
         public enum ExpressBusServicesModes { None = 0, Prudential = 1, Aggressive = 2 }
         public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
         public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
         public enum AutoLineColorNamingStrategy { Disabled = 0, Districts = 1, London = 2, Roads = 3, NamedColors = 4 }
         public enum VehicleEditorPositions { Bottom = 0, Right = 1 }
+        // Controls the intercity bus terminal vehicle cap IntercityBusControl applies (see
+        // Integration/IntercityBusControl/StationPatcher.cs) - Disabled matches the behaviour this
+        // mod always had (an effectively uncapped terminal), Realistic leaves the terminal's own
+        // prefab-defined capacity untouched, Intermediate applies a moderate fixed cap.
+        public enum DepotCapacityModes { Disabled = 0, Intermediate = 1, Realistic = 2 }
 
         public VehicleSpeedUnits SpeedUnit { get; set; } = VehicleSpeedUnits.MPH;
         public string SpeedString => SpeedUnit == VehicleSpeedUnits.KPH ? Localization.Get("SETTINGS_SPEED_KPH") : Localization.Get("SETTINGS_SPEED_MPH");
@@ -47,13 +55,13 @@ namespace ImprovedPublicTransport
         public float TrainDisplayUpdateInterval { get; set; } = 0.2f;
         public TrainDisplayFields TrainDisplayVisibleFields { get; set; } = TrainDisplayFields.Line | TrainDisplayFields.Destination | TrainDisplayFields.State;
         public TrainDisplayColorThemes TrainDisplayColorTheme { get; set; } = TrainDisplayColorThemes.Simple;
-        // Off by default: the original Train Display mod showed its overlay whenever you were
-        // following a vehicle, with or without a first-person camera mod. Defaulting this to true
-        // made the overlay look broken out of the box, since plain follow mode is not "first person".
-        public bool TrainDisplayFirstPersonOnly { get; set; } = false;
 
         public VehicleEditorPositions VehicleEditorPosition { get; set; } = VehicleEditorPositions.Bottom;
         public bool HideVehicleEditor { get; set; }
+        // Default is Disabled (today's behaviour, unchanged for existing players) rather than
+        // Realistic, so upgrading to this version does not silently shrink an existing city's
+        // intercity bus terminal capacity out from under them.
+        public DepotCapacityModes IntercityTerminalCapacityMode { get; set; } = DepotCapacityModes.Disabled;
 
         public byte IntervalAggressionFactor { get; set; } = 52;
         public int DefaultVehicleCount { get; set; } = 0;
@@ -68,6 +76,15 @@ namespace ImprovedPublicTransport
         public bool EnablePublicTransportUnstucker { get; set; } = true;
         public bool EnableIntercityBusControl { get; set; } = true;
         public bool EnableFlightTracker { get; set; } = true;
+        public bool EnableSubBuildingsTabs { get; set; } = true;
+        public bool EnableTaxiStandFix { get; set; } = true;
+        // Off by default, unlike the other integrations above: this one relaxes stop-placement
+        // flags on every loaded road prefab at level load (see SharedStopEnabler/LICENSE.txt for
+        // why). Low risk in the reduced form actually shipped, but it is the one integration here
+        // that changes shared, global prefab data rather than being purely additive/per-instance,
+        // so it stays opt-in.
+        public bool EnableSharedStopEnabler { get; set; } = false;
+        public bool EnableCommuterDestination { get; set; } = true;
 
         public bool Unbunching { get; set; } = true; // hidden
         public int StatisticWeeks { get; set; } = 10; // hidden

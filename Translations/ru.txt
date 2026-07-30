@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nОжидающих пассажиров: {1}\n\n�
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Список предлагаемых названий остановки.
 STOP_PANEL_REUSE_NAME_TOOLTIP Применить это название ко всем остановкам на этой станции / позиции.
 STOP_PANEL_WAITING_PEOPLE Ожидающих пассажиров: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Пункт назначения пассажиров
+COMMUTER_DESTINATION_BUTTON Направления
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Показать, куда направляются пассажиры, ожидающие на этой остановке.
 STOP_PANEL_BORED_TIMER Времени до недовольства: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Пассажиры покинут остановку, когда счётчик покажет 0.
 STOP_PANEL_PASSENGERS_IN Вошло:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Удалить
 SETTINGS_RESET Сбросить
 
 SETTINGS_TAB_GENERAL Общие
+SETTINGS_ADVANCED_LINKS_GROUP Ссылки
+SETTINGS_GITHUB_REPO Исходный код на GitHub
 SETTINGS_TAB_AUTOLINE Автолиния
 SETTINGS_TAB_STOPS Остановки и Станции
 SETTINGS_TAB_UNBUNCHING Распределение
 SETTINGS_TAB_DELETE Удаление линий
+SETTINGS_TAB_FLEET Парк и расписание
+SETTINGS_TAB_BUDGET Бюджет и цены
+SETTINGS_TAB_LINECOLORS Цвета линий
 
 SETTINGS Настройки
 SETTINGS_SPEED Скорость: 
@@ -288,6 +296,7 @@ SETTINGS_EBS_DESC_SELFBAL Позволяет службе экспресс-ав�
 SETTINGS_EBS_DESC_SELFBAL_TARGETMID Позволяет самобалансировке выбирать загруженную остановку в середине линии, а не только конечную, при перераспределении транспорта.
 SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Отметьте ниже виды транспорта и нажмите «Удалить», чтобы убрать все линии этих видов из текущего города. Этот выбор временный: он всегда начинается пустым и сбрасывается после удаления; он не сохраняется как настройка.
 SETTINGS_TAB_TRAINDISPLAY Дисплей поезда
+SETTINGS_TAB_INTEGRATIONS Интеграции
 SETTINGS_TRAINDISPLAY_ENABLE Включить дисплей поезда
 SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Включает или выключает встроенный оверлей дисплея поезда.
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Только в виде от первого лица
@@ -317,6 +326,7 @@ SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Включает состояние т�
 SETTINGS_TRAINDISPLAY_THEME Цветовая тема:
 SETTINGS_TRAINDISPLAY_THEME_DARK Тёмная
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Светлая
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Оригинал
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Простая
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Выберите цвета фона и текста оверлея.
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Интервал обновления:
@@ -332,8 +342,21 @@ CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implemen
 SETTINGS_INTEGRATIONS_GROUP Встроенные дополнения
 SETTINGS_INTERCITY_BUS_ENABLE Включить Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Включает встроенный слой совместимости Intercity Bus Control и патчинг станций.
+SETTINGS_INTERCITY_BUS_CAPACITY Вместимость междугороднего терминала
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Сколько транспортных средств может одновременно вместить междугородний автобусный терминал.
+SETTINGS_DEPOT_CAPACITY_DISABLED Отключено (без ограничений)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Средний
+SETTINGS_DEPOT_CAPACITY_REALISTIC Реалистичный
 SETTINGS_FLIGHTTRACKER_ENABLE Включить Flight Tracker
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Включает встроенные патчи и поддержку интерфейса Flight Tracker.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Включить вкладки дополнительных зданий
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Показывает панель вкладок в информационной панели здания, если у него есть дополнительные здания (например, аэропорт со встроенной станцией метро), позволяя переключаться между ними.
+SETTINGS_TAXISTANDFIX_ENABLE Включить исправление стоянки такси
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Отправляет свободные такси к ближайшей стоянке такси вместо случайного блуждания. Требуется DLC After Dark.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Включить общие остановки
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Позволяет более чем одному виду транспорта (автобус, трамвай, троллейбус) останавливаться на одном и том же участке дороги. По умолчанию выключено - что именно исключено в этой сокращённой версии, см. на GitHub мода.
+SETTINGS_COMMUTERDESTINATION_ENABLE Включить пункт назначения пассажиров
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Показывает, куда направляются пассажиры, ожидающие на остановке - небольшая панель и наложение на карту. Только чтение, никаких зависимостей, кроме Harmony.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -383,6 +406,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP Текущий тариф: {0}\nИсходный тариф: {1}\nПассажиров в пути: {2}
 
+CHANGELOG_4_7_0_1 Четыре новые интеграции: Вкладки дополнительных зданий (панель вкладок для любого комплекса с несколькими зданиями, а не только для аэропортов), Общие остановки (позволяет нескольким типам остановок использовать один и тот же участок дороги, по умолчанию отключено), Пункт назначения пассажиров (показывает, куда на самом деле направляются жители, ожидающие на остановке) и Исправление стоянки такси (свободные такси едут к ближайшей стоянке вместо того, чтобы бесцельно кататься). Переключатели для каждой находятся в Настройки > Интеграции.
+CHANGELOG_4_7_0_2 Добавлен режим вместимости транспорта для междугородних автобусных терминалов (Настройки > Интеграции > Вместимость междугороднего автобусного терминала): Отключено сохраняет прежний, фактически неограниченный терминал этого мода; Средний применяет умеренное фиксированное ограничение; Реалистичный восстанавливает собственную стандартную вместимость префаба терминала. В существующих сохранениях по умолчанию используется Отключено, поэтому обновление никогда не уменьшает вместимость терминала незаметно для игрока.
+CHANGELOG_4_7_0_3 Исправлен флажок «принимать междугородние автобусы» на междугороднем автобусном терминале: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged устанавливает acceptsInterCityTrains, который является простым алиасом isEmptying, из-за чего переименованный флажок мог незаметно переводить автобусный терминал в игровое состояние отключения здания вместо того, чтобы действительно переключать приём автобусов. Теперь Harmony-префикс перехватывает это и перенаправляет в состояние конкретного здания для терминалов с патчем под автобусы, не затрагивая настоящие железнодорожные станции.
+CHANGELOG_4_7_0_4 В Train Display добавлена цветовая тема «Оригинал» (Настройки > Train Display > Цветовая тема), которая воспроизводит компоновку исходного мода Train Display - Updated: полоса заголовка со скоростью и статусом, а также полоса маршрута, окрашенная в реальный цвет линии транспорта.
+CHANGELOG_4_7_0_5 Исправлены темы Простая, Тёмная и Светлая в Train Display, отображавшие неверные цвета: GUI.Box, окрашиваемый через GUI.backgroundColor, не даёт сплошного цвета, поскольку текстура блока стандартного скина Unity не является чисто белой. Теперь оверлей рисуется на кэшированной сплошной белой текстуре с помощью GUI.DrawTexture и GUI.color.
+CHANGELOG_4_7_0_6 Исправлена вкладка Цены на билеты, которая всегда откатывалась к простому пользовательскому ползунку вместо стандартного визуального элемента BudgetItem: поиск через reflection поля ползунка ночной цены у BudgetItem содержал опечатку, из-за чего он всегда завершался ошибкой, которая незаметно перехватывалась.
+CHANGELOG_4_7_0_7 Уменьшено количество повторных поисков по дереву UI на каждый кадр в двух патчах Harmony, выполняющихся для каждой видимой панели транспорта (флажок междугородних автобусов на панелях городских служб и метка числа пассажиров каждой остановки на панели линии) — теперь найденные ссылки на UI кэшируются вместо повторного поиска на каждом кадре.
+CHANGELOG_4_7_0_8 Полностью реорганизовано меню Настройки: вкладки теперь соответствуют своему реальному содержимому (Парк и расписание, Бюджет и цены, Цвета линий, Интеграции и другие) вместо старой вкладки Автолиния, где было собрано семь не связанных между собой групп настроек. Восстановлена вкладка Горячие клавиши, удалённая в одной из более ранних версий и готовая для будущих интеграций, которым она понадобится, а также добавлена ссылка на проект на GitHub в разделе Настройки > Дополнительно.
 CHANGELOG_4_3_8_1 Больше не помечен как BETA. Переполнение расходов на обслуживание, из-за которого появился этот форк, исправлено в корне и восстанавливает уже повреждённые сохранения; все 23 языка готовы.
 CHANGELOG_4_3_7_1 Все 23 языка в списке теперь переведены полностью. Чешский, нидерландский, словацкий, тайский и турецкий можно было выбрать, но файла перевода не было, и они тихо переключались на английский.
 CHANGELOG_4_3_7_2 Прогресс перевода под выбором языка читал статичный файл состояния, который ни разу не обновлялся, и поэтому показывал 76% для шестнадцати языков, которые фактически были готовы.

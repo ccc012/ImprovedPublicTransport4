@@ -698,7 +698,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             try
             {
                 daySlider    = (UISlider)biType.GetField("m_DaySlider",           flags).GetValue(budgetItem);
-                nightSlider  = (UISlider)biType.GetField("m_NightSlidermalan",     flags).GetValue(budgetItem);
+                nightSlider  = (UISlider)biType.GetField("m_NightSlider",          flags).GetValue(budgetItem);
                 dayLabel     = (UILabel) biType.GetField("m_DayPercentageLabel",  flags).GetValue(budgetItem);
                 nightLabel   = (UILabel) biType.GetField("m_NightPercentageLabel",flags).GetValue(budgetItem);
                 totalLabel   = (UILabel) biType.GetField("m_TotalLabel",          flags).GetValue(budgetItem);

@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nPassageiros esperando: {1}\n\nBotão direito do m
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Sugestões de nomes.
 STOP_PANEL_REUSE_NAME_TOOLTIP Usar esse nome para todas as paradas nessa estação / local.
 STOP_PANEL_WAITING_PEOPLE Passageiros esperando: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Destino dos Passageiros
+COMMUTER_DESTINATION_BUTTON Destinos
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Mostra para onde vão os passageiros esperando nesta parada.
 STOP_PANEL_BORED_TIMER Tempo até desistir: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Passageiros desistirão da viagem se a contagem chegar a 0.
 STOP_PANEL_PASSENGERS_IN Embarques:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Excluir
 SETTINGS_RESET Redefinir
 
 SETTINGS_TAB_GENERAL Geral
+SETTINGS_ADVANCED_LINKS_GROUP Links
+SETTINGS_GITHUB_REPO Código-fonte no GitHub
 SETTINGS_TAB_AUTOLINE Linha automática
 SETTINGS_TAB_STOPS Paradas e Estações
 SETTINGS_TAB_UNBUNCHING Distribuição
 SETTINGS_TAB_DELETE Excluir Linhas
+SETTINGS_TAB_FLEET Frota e Escalonamento
+SETTINGS_TAB_BUDGET Orçamento e Preços
+SETTINGS_TAB_LINECOLORS Cores das Linhas
 
 SETTINGS Configurações
 SETTINGS_SPEED Velocidade: 
@@ -289,6 +297,7 @@ WHATSNEW_3_0_0_2 Os seguintes mods foram integrados ao IPT3:\n • Advanced Stop
 WHATSNEW_3_0_1 Public Transport Unstucker agora integrado no IPT3.\nConsulte a versão 3.0 para os outros mods integrados. Cancele a subscrição dos mods originais para evitar conflitos.
 
 SETTINGS_TAB_TRAINDISPLAY Train Display
+SETTINGS_TAB_INTEGRATIONS Integrações
 SETTINGS_TRAINDISPLAY_GROUP Sobreposição do Train Display
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configure a sobreposição integrada mostrada ao seguir veículos de transporte suportados.
 SETTINGS_TRAINDISPLAY_ENABLE Ativar Train Display
@@ -322,6 +331,7 @@ SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Escolha as cores de fundo/texto da sobreposi
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simples
 SETTINGS_TRAINDISPLAY_THEME_DARK Escuro
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Claro
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
 
 
 COPY_TIP Copiar as configurações desta linha.
@@ -331,8 +341,21 @@ COPY_DISTRICT_TIP Copiar estas configurações para todas as linhas deste distri
 SETTINGS_INTEGRATIONS_GROUP Integracoes Adicionais
 SETTINGS_INTERCITY_BUS_ENABLE Ativar Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Ativa a camada integrada de compatibilidade do Intercity Bus Control e o patch das estacoes.
+SETTINGS_INTERCITY_BUS_CAPACITY Capacidade do Terminal Intermunicipal
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Quantos veículos um terminal de ônibus intermunicipal pode abrigar ao mesmo tempo.
+SETTINGS_DEPOT_CAPACITY_DISABLED Desativado (sem limite)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermediário
+SETTINGS_DEPOT_CAPACITY_REALISTIC Realista
 SETTINGS_FLIGHTTRACKER_ENABLE Ativar Flight Tracker
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Ativa os patches integrados e o suporte de UI do Flight Tracker.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Ativar Abas de Sub-Prédios
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Mostra uma faixa de abas no painel de informações de um prédio quando ele tem sub-prédios (ex: um aeroporto com estação de metrô integrada), permitindo alternar entre eles.
+SETTINGS_TAXISTANDFIX_ENABLE Ativar Correção de Pontos de Táxi
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Envia táxis ociosos para o ponto de táxi mais próximo em vez de deixá-los vagar aleatoriamente. Requer a DLC After Dark.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Ativar Paradas Compartilhadas
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite que mais de um tipo de transporte (ônibus, bonde, trólebus) pare no mesmo trecho de via. Desligado por padrão - veja o GitHub do mod para saber o que essa versão reduzida deixa de fora.
+SETTINGS_COMMUTERDESTINATION_ENABLE Ativar Destino dos Passageiros
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Mostra para onde vão os passageiros esperando numa parada - um pequeno painel mais um overlay no mapa. Somente leitura, sem outra dependência além do Harmony.
 CHANGELOG_4_3_3_1 Corrigido um problema em que salvar e carregar configuracoes ainda quebrava em alguns conjuntos de mods mesmo com Newtonsoft.Json.dll empacotado: a solucao anterior so tentava Assembly.LoadFrom em um ponto de entrada e ainda dependia da ordem de carregamento. Agora o IPT4 registra um hook global de AssemblyResolve e inicializa sua copia empacotada do Newtonsoft.Json em todos os pontos de entrada do mod/UI antes de o CSLModsCommon tocar em JsonWriter, entao a nova interface de Opcoes persiste com confiabilidade em vez de ligar aleatoriamente na copia incompativel de Json.NET de outro mod.
 CHANGELOG_4_3_2_1 Corrigido o mod falhar totalmente ao carregar ("failed to load the mod's dll or one of its dependencies") quando nenhum outro mod instalado ja fornecia Newtonsoft.Json: a serializacao de configuracoes do CSLModsCommon (JsonHelper/SerializationContext) precisa dele, mas nossa build nunca estava realmente distribuindo Newtonsoft.Json.dll junto com o mod - so funcionava por coincidencia, aproveitando a copia de outro mod. Isso foi encontrado desativando todos os outros mods para um teste limpo, que e exatamente como esse tipo de coisa deve ser testado.
 CHANGELOG_4_3_1_1 Corrigido o seletor de idioma do painel de Opcoes que so retraduzia os textos do framework (Version/Changelog/...) enquanto todos os textos deste mod continuavam no idioma do jogo - nosso loader de traducao usava o idioma do jogo e ignorava totalmente a selecao do proprio mod. Agora ele segue o seletor de idioma do mod, com fallback para o idioma do jogo e depois para ingles, e reavalia tudo sempre que a selecao muda.
@@ -385,6 +408,14 @@ CHANGELOG_4_3_4_1 Corrigida uma ModException na inicializacao ("Failed to find I
 CHANGELOG_4_3_5_1 Corrigido o painel do Train Display que nunca aparecia ao seguir um veiculo. Ele procurava a instancia seguida pela camera com sondagens genericas de "target"/"GetTarget", mas o jogo guarda isso num campo privado CameraController.m_targetInstance que essas sondagens nunca encontravam. Tambem desativei por padrao a opcao "Somente na camera em primeira pessoa": o modo seguir comum nao e primeira pessoa, entao deixa-la ligada fazia o painel parecer quebrado de fabrica, diferente do mod original que mostrava em qualquer modo de seguir.
 CHANGELOG_4_3_5_2 A aba Precos de Passagens agora mostra a tarifa resultante de cada tipo de transporte, em vez da contagem de passageiros. Os controles deslizantes so mostram porcentagem, entao antes nao havia como ver o valor que o multiplicador realmente produzia - e numa cidade pequena ou pausada a contagem de passageiros ficava sempre em "0". A contagem de passageiros passou para a dica do rotulo, junto com a tarifa original.
 TICKET_PRICE_LABEL_TOOLTIP Tarifa atual: {0}\nTarifa original: {1}\nPassageiros a bordo agora: {2}
+CHANGELOG_4_7_0_1 Quatro novas integracoes: Abas de Sub-Predios (barra de abas para qualquer complexo com varios predios, nao so aeroportos), Paradas Compartilhadas (permite que mais de um tipo de parada compartilhe o mesmo trecho de via, desativado por padrao), Destino dos Passageiros (mostra para onde os cidadaos esperando numa parada estao realmente indo) e Correcao de Pontos de Taxi (taxis ociosos vao para o ponto mais proximo em vez de ficar vagando). Veja Opcoes > Integracoes para cada opcao.
+CHANGELOG_4_7_0_2 Adicionado um modo de capacidade de veiculos para terminais de onibus intermunicipais (Opcoes > Integracoes > Capacidade do Terminal de Onibus Intermunicipal): Desativado mantem o terminal deste mod, ate entao praticamente sem limite; Intermediario aplica um limite fixo moderado; Realista restaura a capacidade original do prefab vanilla do terminal. Saves existentes usam Desativado por padrao, entao uma atualizacao nunca reduz silenciosamente a capacidade de um terminal.
+CHANGELOG_4_7_0_3 Corrigida a caixa de selecao "aceitar onibus intermunicipais" do terminal de onibus intermunicipal: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged define acceptsInterCityTrains, que e um simples alias de isEmptying, entao a caixa renomeada conseguia colocar silenciosamente um terminal de onibus no estado de desativacao de edificio do jogo em vez de realmente alternar a aceitacao de onibus. Um prefix do Harmony agora intercepta isso e redireciona para um estado por edificio nos terminais com patch de onibus, sem afetar as estacoes de trem de verdade.
+CHANGELOG_4_7_0_4 Adicionado um tema de cores "Original" ao Train Display (Opcoes > Train Display > Tema de cores) que reproduz o layout do mod de origem Train Display - Updated: uma faixa de cabecalho com velocidade e status, alem de uma faixa de rota colorida conforme a cor real da linha do veiculo.
+CHANGELOG_4_7_0_5 Corrigidos os temas Simples, Escuro e Claro do Train Display, que exibiam cores erradas: o GUI.Box tingido via GUI.backgroundColor nao produz uma cor solida, porque a textura da caixa do skin padrao da Unity nao e branco puro. A sobreposicao agora e desenhada sobre uma textura branca solida em cache usando GUI.DrawTexture e GUI.color.
+CHANGELOG_4_7_0_6 Corrigida a aba Precos de Passagens, que sempre caia de volta para sua linha de slider personalizado simples em vez do visual vanilla do BudgetItem: uma busca por reflection pelo campo do slider de preco noturno do BudgetItem tinha um erro de digitacao, entao ela sempre falhava e o erro era capturado silenciosamente.
+CHANGELOG_4_7_0_7 Reduzidas as buscas repetidas na arvore de UI a cada frame em dois patches do Harmony que rodam para cada painel de transporte visivel (a caixa de onibus intermunicipal nos paineis de servicos urbanos e o rotulo de contagem de passageiros de cada parada no painel de linha), agora armazenando em cache as referencias de UI resolvidas em vez de buscar de novo a cada frame.
+CHANGELOG_4_7_0_8 Reorganizado todo o menu de Opcoes em abas que realmente correspondem ao que contem (Frota e Escalonamento, Orcamento e Precos, Cores das Linhas, Integracoes e mais), em vez da antiga aba Linha Automatica, que reunia sete grupos de configuracoes sem relacao entre si. Restaurada a aba Atalhos, removida numa versao anterior, pronta para futuras integracoes que precisem dela, e adicionado um link do projeto no GitHub em Opcoes > Avancado.
 CHANGELOG_4_3_8_1 Deixou de ser marcado como BETA. O estouro de manutencao que motivou este fork foi resolvido na raiz e agora repara saves que ele ja tinha danificado, e os 23 idiomas estao completos.
 CHANGELOG_4_3_7_1 Todos os 23 idiomas do seletor agora estao completamente traduzidos. Tcheco, holandes, eslovaco, tailandes e turco apareciam na lista mas nao tinham arquivo de traducao, entao caiam para o ingles sem avisar.
 CHANGELOG_4_3_7_2 O progresso de traducao mostrado abaixo do seletor de idioma lia um arquivo de status estatico que nunca havia sido regerado, e por isso mostrava 76% para dezesseis idiomas que na verdade estavam completos.

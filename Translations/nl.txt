@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nWachtende passagiers: {1}\n\nRechts klikken om na
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lijst met voorgestelde haltesnamen.
 STOP_PANEL_REUSE_NAME_TOOLTIP Stel deze naam in voor alle andere haltes op dit station.
 STOP_PANEL_WAITING_PEOPLE Wachtende passagiers: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Bestemming forensen
+COMMUTER_DESTINATION_BUTTON Bestemmingen
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Toon waar de wachtende passagiers bij deze halte naartoe gaan.
 STOP_PANEL_BORED_TIMER Tijd tot vertrek: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Passagiers verlaten deze halte wanneer dit aftellen nul bereikt.
 STOP_PANEL_PASSENGERS_IN Passagiers in:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Verwijderen
 SETTINGS_RESET Herstellen
 
 SETTINGS_TAB_GENERAL Algemeen
+SETTINGS_ADVANCED_LINKS_GROUP Links
+SETTINGS_GITHUB_REPO Broncode op GitHub
 SETTINGS_TAB_AUTOLINE Automatische lijn
 SETTINGS_TAB_STOPS Haltes en stations
 SETTINGS_TAB_UNBUNCHING Spreiding
 SETTINGS_TAB_DELETE Lijnen verwijderen
+SETTINGS_TAB_FLEET Wagenpark & Planning
+SETTINGS_TAB_BUDGET Budget & Prijzen
+SETTINGS_TAB_LINECOLORS Lijnkleuren
 
 SETTINGS Instellingen
 SETTINGS_SPEED Snelheid tonen in:
@@ -290,6 +298,7 @@ WHATSNEW_3_0_0_2 De volgende mods zijn geïntegreerd in IPT3:\n • Advanced Sto
 WHATSNEW_3_0_1 Openbaarvervoer Unstucking is nu geïntegreerd in IPT3.\nZie versie 3.0 voor alle andere geïntegreerde mods. Meld je af van originals om conflicten te voorkomen.
 
 SETTINGS_TAB_TRAINDISPLAY Treinweergave
+SETTINGS_TAB_INTEGRATIONS Integraties
 SETTINGS_TRAINDISPLAY_GROUP Treinweergave-overlay
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configureer de geïntegreerde overlay die wordt weergegeven wanneer u ondersteunde vervoervoertuigen volgt.
 SETTINGS_TRAINDISPLAY_ENABLE Treinweergave inschakelen
@@ -323,6 +332,7 @@ SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Kies de achtergrond-/tekstkleuren van de ove
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simpel
 SETTINGS_TRAINDISPLAY_THEME_DARK Donker
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Licht
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Origineel
 
 COPY_TIP Kopieer de instellingen van deze lijn.
 PASTE_TIP Plak de gekopieerde lijninstelling.
@@ -331,8 +341,21 @@ COPY_DISTRICT_TIP Kopieer deze instellingen naar alle lijnen in deze wijk.
 SETTINGS_INTEGRATIONS_GROUP Geïntegreerde add-ons
 SETTINGS_INTERCITY_BUS_ENABLE Intercity-buscontrole inschakelen
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Schakelt de geïntegreerde compatibiliteitslaag voor intercity-buscontrole en stationpatching in.
+SETTINGS_INTERCITY_BUS_CAPACITY Capaciteit intercityterminal
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Hoeveel voertuigen een intercitybusterminal tegelijk kan herbergen.
+SETTINGS_DEPOT_CAPACITY_DISABLED Uitgeschakeld (onbeperkt)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Gemiddeld
+SETTINGS_DEPOT_CAPACITY_REALISTIC Realistisch
 SETTINGS_FLIGHTTRACKER_ENABLE Vluchttracker inschakelen
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Schakelt de geïntegreerde Flight Tracker-patches en UI-ondersteuning in.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Subgebouwtabbladen inschakelen
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Toont een tabbladstrook op het infopaneel van een gebouw wanneer het subgebouwen heeft (bijv. een vliegveld met ingebouwd metrostation), zodat je ertussen kunt wisselen.
+SETTINGS_TAXISTANDFIX_ENABLE Taxistandplaatscorrectie inschakelen
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Stuurt vrije taxi's naar de dichtstbijzijnde taxistandplaats in plaats van ze willekeurig te laten rondrijden. Vereist de After Dark-DLC.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Gedeelde haltes inschakelen
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Laat meer dan één vervoerstype (bus, tram, trolleybus) op hetzelfde wegsegment stoppen. Standaard uitgeschakeld - zie de GitHub van de mod voor wat deze verkorte versie weglaat.
+SETTINGS_COMMUTERDESTINATION_ENABLE Bestemming forensen inschakelen
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Toont waar de wachtende passagiers bij een halte naartoe gaan - een klein paneel plus een kaartoverlay. Alleen-lezen, geen andere afhankelijkheid dan Harmony.
 CHANGELOG_4_3_3_1 Instellingen opslaan/laden vastgesteld op sommige modstacks door bundeling van Newtonsworth.Json.dll: vorige omweg probeerde alleen Assembly.LoadFrom in één ingangspunt en hing nog steeds af van laadvolgorde. IPT4 registreert nu een globale AssemblyResolve-haak en start greetig met zijn gebundelde Newtonsworth.Json van elk mod/UI-ingangspunt voordat CSLModsCommon JsonWriter aanraakt, zodat het UIpaneel Opties betrouwbaar aanhoudt in plaats van willekeurig te binden aan een inkompatibele Json.NET-kopie van een ander modwerk.
 CHANGELOG_4_3_2_1 Vast gelopen bij het laden van mod helemaal ("failed to load the mod's dll of one of its dependencies") telkens wanneer geen ander geïnstalleerd mod toevallig Newtonsworth.Json gaf: CSLModsCommon instellingen serialisatie (JsonHelper/SerializationContext) nodig het, maar onze build heeft nooit daadwerkelijk Newtonsworth.Json.dll naast de mod ingezet - het werkte altijd per ongeluk, rijdend op een ander kopie van mod. Gevonden door alle andere mods uit te schakelen voor een schone test, wat precies hoe het van nu af aan zou moeten worden getest.
 CHANGELOG_4_3_1_1 Vaste taal selector paneel Opties alleen hertaling framework eigen strings (Versie/Changelog/...) terwijl elke snaar van deze mod in de taal van het spel bleef - onze vertaling loader sleutel uit de spelsprache en negeerde het mod eigen selectie volledig. Het volgt nu de mod taalkiezer, valt terug op spelsprache en vervolgens Engels, en re-Resolves telkens de kiezer verandert.
@@ -385,6 +408,14 @@ CHANGELOG_4_3_4_1 Vast startup ModException ("Kan niet vinden ImprovedPublicTran
 CHANGELOG_4_3_5_1 Vast Trein Display overlay nooit verschijning volgen voertuig. Deze keek camera gevolgd instantie door generieke "target"/"GetTarget" sondes, maar spel slaat op in private CameraController.m_targetInstance veld dat die sondes nooit gekoppeld. Ook geschakeld "Alleen in eerstepersonenamera" uit standaard: gewone volgen modus is niet eerste-persoon, dus het uit maken de overlay ziet er gebroken uit-van-de-box, in tegenstelling tot de originele mod die toont dit in een volgen view.
 CHANGELOG_4_3_5_2 Het tabblad Ticket prijzen toont nu het resulterende tarief voor elk vervoer type in plaats van het levend passagier aantal. De schuifregelaars alleen percentage toon, dus er was eerder geen manier zien wat een vermenigvuldiger daadwerkelijk opgesteld - en op een klein of gepauzeerd stad het passagier aantal gewoon lees een permanente "0". Het passagier aantal verplaatst naar het etiket tooltip, samen met het originele tarief.
 TICKET_PRICE_LABEL_TOOLTIP Huuidi tarief: {0}\nOrigineel tarief: {1}\nPassagiers rijden nu: {2}
+CHANGELOG_4_7_0_1 Vier nieuwe integraties: Subgebouwtabbladen (tabbalk voor elk complex met meerdere gebouwen, niet alleen luchthavens), Gedeelde haltes (laat meer dan één haltetype hetzelfde wegsegment delen, standaard uitgeschakeld), Bestemming forensen (toont waar de wachtende inwoners bij een halte daadwerkelijk naartoe gaan) en Taxistandplaatscorrectie (vrije taxi's rijden naar de dichtstbijzijnde standplaats in plaats van doelloos rond te rijden). Zie Opties > Integraties voor elke schakelaar.
+CHANGELOG_4_7_0_2 Een voertuigcapaciteitsmodus toegevoegd voor intercitybusterminals (Opties > Integraties > Capaciteit intercitybusterminal): Uitgeschakeld behoudt de bestaande, feitelijk onbeperkte terminal van deze mod, Gemiddeld past een gematigd vast maximum toe, Realistisch herstelt de eigen vanille-prefabcapaciteit van de terminal. Bestaande spellen gebruiken standaard Uitgeschakeld, zodat een update de capaciteit van een terminal nooit stilzwijgend verkleint.
+CHANGELOG_4_7_0_3 Het selectievakje "intercitybussen accepteren" van de intercitybusterminal gerepareerd: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged stelt acceptsInterCityTrains in, wat een pure alias is voor isEmptying, waardoor het hernoemde selectievakje een busterminal stilzwijgend in de afsluitstatus van het spel kon zetten in plaats van daadwerkelijk de busacceptatie om te schakelen. Een Harmony-prefix onderschept dit nu en leidt het om naar een status per gebouw voor terminals met een buspatch, zonder echte treinstations te raken.
+CHANGELOG_4_7_0_4 Een "Origineel" kleurthema toegevoegd aan Train Display (Opties > Train Display > Kleurthema) dat de lay-out van de bronmod Train Display - Updated nabootst: een kopstrook met snelheid en status, plus een routestrook in de werkelijke lijnkleur van het voertuig.
+CHANGELOG_4_7_0_5 De thema's Simpel, Donker en Licht van Train Display, die verkeerde kleuren weergaven, zijn gerepareerd: GUI.Box, ingekleurd via GUI.backgroundColor, levert geen effen kleur op, omdat de standaard skin-boxtextuur van Unity niet zuiver wit is. De overlay tekent nu in plaats daarvan op een gecachte, effen witte textuur met GUI.DrawTexture en GUI.color.
+CHANGELOG_4_7_0_6 Het tabblad Kaartjesprijzen viel altijd terug op zijn eenvoudige aangepaste schuifregelaarrij in plaats van het vanille BudgetItem-uiterlijk; dit is verholpen: een reflection-zoekopdracht naar het nachttariefveld van BudgetItem bevatte een typefout, waardoor deze altijd een fout gaf die stilzwijgend werd opgevangen.
+CHANGELOG_4_7_0_7 Herhaalde UI-boomzoekopdrachten per frame verminderd in twee Harmony-patches die voor elk zichtbaar vervoerspaneel draaien (het selectievakje voor intercitybussen op stadsdienstpanelen en het passagiersaantallabel van elke halte op het lijnpaneel), door de gevonden UI-referenties nu te cachen in plaats van ze elk frame opnieuw op te zoeken.
+CHANGELOG_4_7_0_8 Het volledige Opties-menu opnieuw ingedeeld in tabbladen die daadwerkelijk overeenkomen met hun inhoud (Wagenpark & Planning, Budget & Prijzen, Lijnkleuren, Integraties en meer), in plaats van het oude tabblad Automatische lijn met zeven onsamenhangende instellingsgroepen. Het tabblad Sneltoetsen, verwijderd in een eerdere versie, is hersteld en klaar voor toekomstige integraties die het nodig hebben, en er is een link naar het GitHub-project toegevoegd onder Opties > Geavanceerd.
 CHANGELOG_4_3_8_1 Niet langer als BETA gemarkeerd. De onderhoudsoverflow waarvoor deze fork bestaat is bij de wortel opgelost en repareert al beschadigde saves; alle 23 talen zijn compleet.
 CHANGELOG_4_3_7_1 Alle 23 talen in de keuzelijst zijn nu volledig vertaald. Tsjechisch, Nederlands, Slowaaks, Thai en Turks waren selecteerbaar maar hadden geen vertaalbestand, waardoor ze stil terugvielen op Engels.
 CHANGELOG_4_3_7_2 De vertaalvoortgang onder de taalkeuze las een statisch statusbestand dat nooit opnieuw was gegenereerd en meldde daarom 76% voor zestien talen die in werkelijkheid compleet waren.

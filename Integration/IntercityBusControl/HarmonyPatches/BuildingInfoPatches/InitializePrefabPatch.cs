@@ -95,7 +95,7 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                     {
                         transportStationAi.m_transportInfo = _transportInfo;
                     }
-                    transportStationAi.m_maxVehicleCount = 100000;
+                    transportStationAi.m_maxVehicleCount = StationPatcher.GetCapacityForCurrentMode();
                     if (Diagnostics.VerboseRuntimeLogs)
                     {
                         Utils.Log($"Intercity Bus Control - patched {__instance.name} primary transport with intercity bus support");
@@ -111,7 +111,7 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                     {
                         transportStationAi.m_secondaryTransportInfo = _transportInfo;
                     }
-                    transportStationAi.m_maxVehicleCount2 = 100000;
+                    transportStationAi.m_maxVehicleCount2 = StationPatcher.GetCapacityForCurrentMode();
                     if (Diagnostics.VerboseRuntimeLogs)
                     {
                         Utils.Log($"Intercity Bus Control - patched {__instance.name} secondary transport with intercity bus support");

@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nPassagers en attente à l'arrêt: {1}\n\nClic-dro
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Suggérer noms des arrêts.
 STOP_PANEL_REUSE_NAME_TOOLTIP Appliquer ce nom aux arrêts à proximité.
 STOP_PANEL_WAITING_PEOPLE Citoyens en attente: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Destination des voyageurs
+COMMUTER_DESTINATION_BUTTON Destinations
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Indique où se dirigent les voyageurs en attente à cet arrêt.
 STOP_PANEL_BORED_TIMER Impatience: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Les citoyens partiront si ce chiffre atteint 0.
 STOP_PANEL_PASSENGERS_IN Passagers Entrant:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Supprimer
 SETTINGS_RESET Réinitialiser
 
 SETTINGS_TAB_GENERAL Général
+SETTINGS_ADVANCED_LINKS_GROUP Liens
+SETTINGS_GITHUB_REPO Code source sur GitHub
 SETTINGS_TAB_AUTOLINE Ligne automatique
 SETTINGS_TAB_STOPS Arrêts et Stations
 SETTINGS_TAB_UNBUNCHING Distancement
 SETTINGS_TAB_DELETE Supprimer des lignes
+SETTINGS_TAB_FLEET Flotte et planification
+SETTINGS_TAB_BUDGET Budget et tarifs
+SETTINGS_TAB_LINECOLORS Couleurs des lignes
 
 SETTINGS Paramètres
 SETTINGS_SPEED Vitesse: 
@@ -288,6 +296,7 @@ SETTINGS_EBS_DESC_SELFBAL Permet au service de bus express de redistribuer les v
 SETTINGS_EBS_DESC_SELFBAL_TARGETMID Permet à l'auto-équilibrage de choisir un arrêt fréquenté en milieu de ligne plutôt qu'un terminus uniquement lors du redéploiement des véhicules.
 SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Cochez ci-dessous les types de transport, puis appuyez sur Supprimer pour retirer toutes les lignes de ces types de la ville actuelle. Cette sélection est temporaire : elle démarre toujours décochée et se réinitialise après la suppression ; elle n'est pas enregistrée comme paramètre.
 SETTINGS_TAB_TRAINDISPLAY Affichage de train
+SETTINGS_TAB_INTEGRATIONS Intégrations
 SETTINGS_TRAINDISPLAY_ENABLE Activer l'affichage de train
 SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Active ou désactive la superposition intégrée d'affichage de train.
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Uniquement en vue à la première personne
@@ -317,6 +326,7 @@ SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Inclut l'état du véhicule dans la sup
 SETTINGS_TRAINDISPLAY_THEME Thème de couleurs :
 SETTINGS_TRAINDISPLAY_THEME_DARK Sombre
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Clair
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simple
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Choisissez les couleurs de fond et de texte de la superposition.
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Intervalle de mise à jour :
@@ -332,8 +342,21 @@ CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implemen
 SETTINGS_INTEGRATIONS_GROUP Modules intégrés
 SETTINGS_INTERCITY_BUS_ENABLE Activer Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Active la couche de compatibilité intégrée d'Intercity Bus Control et le patch des gares.
+SETTINGS_INTERCITY_BUS_CAPACITY Capacité du terminal interurbain
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Combien de véhicules un terminal de bus interurbains peut accueillir à la fois.
+SETTINGS_DEPOT_CAPACITY_DISABLED Désactivé (illimité)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermédiaire
+SETTINGS_DEPOT_CAPACITY_REALISTIC Réaliste
 SETTINGS_FLIGHTTRACKER_ENABLE Activer Flight Tracker
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Active les correctifs et le support d'interface intégrés de Flight Tracker.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Activer les onglets de sous-bâtiments
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Affiche une barre d'onglets sur le panneau d'information d'un bâtiment lorsqu'il possède des sous-bâtiments (ex. un aéroport avec une station de métro intégrée), permettant de basculer entre eux.
+SETTINGS_TAXISTANDFIX_ENABLE Activer la correction des stations de taxis
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Envoie les taxis inactifs vers la station de taxis la plus proche au lieu de les laisser errer au hasard. Nécessite le DLC After Dark.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Activer les arrêts partagés
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permet à plusieurs types de transport (bus, tram, trolleybus) de s'arrêter sur le même tronçon de route. Désactivé par défaut - voir le GitHub du mod pour ce que cette version réduite omet.
+SETTINGS_COMMUTERDESTINATION_ENABLE Activer la destination des voyageurs
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Indique où se dirigent les voyageurs en attente à un arrêt - un petit panneau et une surcouche sur la carte. Lecture seule, aucune dépendance autre que Harmony.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -383,6 +406,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP Tarif actuel : {0}\nTarif d'origine : {1}\nPassagers à bord : {2}
 
+CHANGELOG_4_7_0_1 Quatre nouvelles intégrations : Onglets de sous-bâtiments (barre d'onglets pour tout complexe multi-bâtiments, pas seulement les aéroports), Arrêts partagés (permet à plusieurs types d'arrêts de partager un même segment de route, désactivé par défaut), Destination des voyageurs (affiche la destination réelle des citoyens qui attendent à un arrêt) et Correction des stations de taxis (les taxis inoccupés se dirigent vers la station la plus proche au lieu d'errer). Voir Options > Intégrations pour chaque option.
+CHANGELOG_4_7_0_2 Ajout d'un mode de capacité des véhicules pour les terminaux de bus interurbains (Options > Intégrations > Capacité du terminal de bus interurbain) : Désactivé conserve le terminal de ce mod, jusqu'ici pratiquement illimité, Intermédiaire applique un plafond fixe modéré, Réaliste rétablit la capacité d'origine du prefab vanilla du terminal. Les sauvegardes existantes utilisent Désactivé par défaut, afin qu'une mise à jour ne réduise jamais silencieusement la capacité d'un terminal.
+CHANGELOG_4_7_0_3 Correction de la case à cocher "accepter les bus interurbains" du terminal de bus interurbain : CityServiceWorldInfoPanel.OnAcceptsIntercityChanged définit acceptsInterCityTrains, qui n'est qu'un alias pur de isEmptying, si bien que la case renommée pouvait faire basculer silencieusement un terminal de bus dans l'état d'arrêt de bâtiment du jeu au lieu de réellement activer/désactiver l'acceptation des bus. Un préfixe Harmony intercepte désormais ce comportement et le redirige vers un état propre à chaque bâtiment pour les terminaux patchés pour les bus, sans toucher aux véritables gares ferroviaires.
+CHANGELOG_4_7_0_4 Ajout d'un thème de couleurs "Original" pour Train Display (Options > Train Display > Thème de couleurs) qui reproduit la mise en page du mod source Train Display - Updated : une bande d'en-tête avec la vitesse et le statut, plus une bande d'itinéraire colorée selon la couleur réelle de la ligne du véhicule.
+CHANGELOG_4_7_0_5 Correction des thèmes Simple, Sombre et Clair de Train Display qui affichaient de mauvaises couleurs : GUI.Box teinté via GUI.backgroundColor ne produit pas une couleur unie, car la texture de la box du skin par défaut d'Unity n'est pas d'un blanc pur. La superposition se dessine désormais sur une texture blanche unie mise en cache, via GUI.DrawTexture et GUI.color.
+CHANGELOG_4_7_0_6 Correction de l'onglet Prix des billets qui retombait toujours sur sa ligne de curseur personnalisée basique au lieu de l'affichage vanilla de BudgetItem : une recherche par réflexion du champ du curseur de tarif nocturne de BudgetItem contenait une faute de frappe, ce qui la faisait toujours échouer, l'erreur étant alors capturée silencieusement.
+CHANGELOG_4_7_0_7 Réduction des recherches répétées dans l'arbre d'interface à chaque frame, dans deux correctifs Harmony exécutés pour chaque panneau de transport visible (la case à cocher des bus interurbains sur les panneaux de service municipal, et le libellé du nombre de passagers de chaque arrêt sur le panneau de ligne), en mettant désormais en cache les références d'interface résolues au lieu de les rechercher à chaque frame.
+CHANGELOG_4_7_0_8 Réorganisation complète du menu Options en onglets correspondant réellement à leur contenu (Flotte et planification, Budget et tarifs, Couleurs des lignes, Intégrations, et plus), au lieu de l'ancien onglet Ligne automatique qui regroupait sept ensembles de réglages sans rapport entre eux. L'onglet Raccourcis, supprimé dans une version antérieure, a été restauré et est prêt pour de futures intégrations qui en auraient besoin, et un lien vers le projet GitHub a été ajouté sous Options > Avancé.
 CHANGELOG_4_3_8_1 N'est plus marqué BETA. Le débordement des coûts d'entretien pour lequel ce fork existe est corrigé à la racine et répare les sauvegardes déjà endommagées ; les 23 langues sont complètes.
 CHANGELOG_4_3_7_1 Les 23 langues du sélecteur sont désormais entièrement traduites. Le tchèque, le néerlandais, le slovaque, le thaï et le turc étaient sélectionnables mais n'avaient pas de fichier de traduction : ils basculaient silencieusement vers l'anglais.
 CHANGELOG_4_3_7_2 La progression de traduction affichée sous le sélecteur de langue lisait un fichier d'état statique qui n'avait pas été régénéré, et indiquait donc 76 % pour seize langues en réalité complètes.

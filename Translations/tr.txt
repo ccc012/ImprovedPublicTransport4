@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nBeklenen yolcular: {1}\n\nBu durağa atlamak içi
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Önerilen durak adlarının listesi.
 STOP_PANEL_REUSE_NAME_TOOLTIP Bu adı bu istasyondaki diğer tüm duraklara ayarla.
 STOP_PANEL_WAITING_PEOPLE Bekleyen Yolcular: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Yolcu Varış Noktası
+COMMUTER_DESTINATION_BUTTON Varış Noktaları
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Bu durakta bekleyen yolcuların nereye gittiğini göster.
 STOP_PANEL_BORED_TIMER Ayrılıncaya Kadar Kalan Zaman: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Yolcular geri sayım sıfıra ulaştığında bu duraktan ayrılacak.
 STOP_PANEL_PASSENGERS_IN Gelen Yolcular:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Sil
 SETTINGS_RESET Sıfırla
 
 SETTINGS_TAB_GENERAL Genel
+SETTINGS_ADVANCED_LINKS_GROUP Bağlantılar
+SETTINGS_GITHUB_REPO GitHub'daki kaynak kod
 SETTINGS_TAB_AUTOLINE Otomatik Hat
 SETTINGS_TAB_STOPS Duraklar ve İstasyonlar
 SETTINGS_TAB_UNBUNCHING Araç Aralığı
 SETTINGS_TAB_DELETE Hatları Sil
+SETTINGS_TAB_FLEET Filo ve Zamanlama
+SETTINGS_TAB_BUDGET Bütçe ve Fiyatlar
+SETTINGS_TAB_LINECOLORS Hat Renkleri
 
 SETTINGS Ayarlar
 SETTINGS_SPEED Hızı Göster:
@@ -290,6 +298,7 @@ WHATSNEW_3_0_0_2 Aşağıdaki modlar IPT3'e entegre edilmiştir:\n • Advanced 
 WHATSNEW_3_0_1 Public Transport Unstucker şimdi IPT3'e entegre edilmiştir.\nDiger entegre modlar için sürüm 3.0'a bakın. Çatışmaları önlemek için orijinallerden çıkın.
 
 SETTINGS_TAB_TRAINDISPLAY Tren Gösterimi
+SETTINGS_TAB_INTEGRATIONS Entegrasyonlar
 SETTINGS_TRAINDISPLAY_GROUP Tren Gösterimi Bindirmesi
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Desteklenen taşıma araçlarını takip ederken görüntülenen entegre yerleşimi yapılandırın.
 SETTINGS_TRAINDISPLAY_ENABLE Tren Gösterimini Etkinleştir
@@ -323,6 +332,7 @@ SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Bindirmenin arka plan/metin renklerini seç.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Basit
 SETTINGS_TRAINDISPLAY_THEME_DARK Koyu
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Açık
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Orijinal
 
 COPY_TIP Bu hatın ayarlarını kopyala.
 PASTE_TIP Kopyalanan hat ayarlarını yapıştır.
@@ -331,8 +341,21 @@ COPY_DISTRICT_TIP Bu ayarları bu ilçedeki tüm hatlara kopyala.
 SETTINGS_INTEGRATIONS_GROUP Entegre Eklentiler
 SETTINGS_INTERCITY_BUS_ENABLE Şehirlerarası Otobüs Kontrolünü Etkinleştir
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Entegre şehirlerarası otobüs kontrol uyumluluğu katmanını ve istasyon yamasını etkinleştir.
+SETTINGS_INTERCITY_BUS_CAPACITY Şehirlerarası Terminal Kapasitesi
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Şehirlerarası otobüs terminalinin aynı anda barındırabileceği araç sayısı.
+SETTINGS_DEPOT_CAPACITY_DISABLED Devre dışı (sınırsız)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Orta
+SETTINGS_DEPOT_CAPACITY_REALISTIC Gerçekçi
 SETTINGS_FLIGHTTRACKER_ENABLE Uçuş İzleyiciyi Etkinleştir
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Entegre Uçuş İzleyici yamaları ve UI desteğini etkinleştir.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Alt Bina Sekmelerini Etkinleştir
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Bir binanın alt binaları olduğunda (ör. içine entegre metro istasyonu olan bir havalimanı) bilgi panelinde bir sekme şeridi gösterir ve aralarında geçiş yapmanızı sağlar.
+SETTINGS_TAXISTANDFIX_ENABLE Taksi Durağı Düzeltmesini Etkinleştir
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Boşta bekleyen taksileri rastgele dolaşmaya bırakmak yerine en yakın taksi durağına gönderir. After Dark DLC gerektirir.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Paylaşımlı Durak Etkinleştiriciyi Aç
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Birden fazla ulaşım türünün (otobüs, tramvay, troleybüs) aynı yol bölümünde durmasına izin verir. Varsayılan olarak kapalıdır - bu azaltılmış sürümün neyi dışarıda bıraktığını modun GitHub'ından görebilirsiniz.
+SETTINGS_COMMUTERDESTINATION_ENABLE Yolcu Varış Noktasını Etkinleştir
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Bir durakta bekleyen yolcuların nereye gittiğini gösterir - küçük bir panel ile harita katmanı. Salt okunur, Harmony dışında bağımlılığı yoktur.
 CHANGELOG_4_3_3_1 Ayarların kaydedilmesi/yüklenmesi hala bazı mod yığınlarında bozuldu, hatta Newtonsworth.Json.dll paketlenildikten sonra: önceki geçici çözüm sadece bir giriş noktasında Assembly.LoadFrom denedi ve yine de yükleme sırasına bağlıydı. IPT4 şimdi global AssemblyResolve kancası kaydeder ve paketlenmiş Newtonsworth.Json'unu her mod/UI giriş noktasından CSLModsCommon JsonWriter'a dokunmadan önce hızlı bir şekilde başlatır, böylece Seçenekler UI paneli başka bir mod'un uyumsuz Json.NET kopyasına rastgele bağlanmak yerine güvenilir bir şekilde devam eder.
 CHANGELOG_4_3_2_1 Başka bir yüklü mod rastulameyse mod yükleme tamamen başarısız ("mod's dll veya bağımlılıklarından birini yükleyemedi") sabitlendi: CSLModsCommon ayarları serileştirme (JsonHelper/SerializationContext) buna ihtiyaç duydu, ancak oluşturma hiçbir zaman gerçekten Newtonsworth.Json.dll'yi mod'un yanına konuşlandırmadı - her zaman sadece başka bir mod'un kopyasında çalıştı. Tüm diğer modları devre dışı bırakarak temiz bir test için bulundu, bu tam da bundan sonra test edilmesi gereken yöntemdir.
 CHANGELOG_4_3_1_1 Seçenekler panelinin dil seçicisi sabitlendi, sadece çerçevenin kendi dizeleri (Sürüm/Changelog/...) yeniden çevrildi, oysa bu mod'un her dizesi oyun dilinde kaldı - çeviri yükleyicimiz oyun dilinden ayrı olarak anahtarlanmış ve mod'un kendi seçimini tamamen görmezden geldi. Şimdi mod'un dil seçimine uyar ve oyun diline geri döner, ardından İngilizce'ye döner ve seçici değiştiğinde yeniden çözer.
@@ -385,6 +408,14 @@ CHANGELOG_4_3_4_1 Harita bile yüklenmeden AutoLineColor tarafından atılan Ba�
 CHANGELOG_4_3_5_1 Tren Gösterimi bindirmesi bir aracı takip ederken hiçbir zaman görünmeme sabitlendi. Kameraya takip edilen örneği genel "hedef"/"GetTarget" araştırmaları yoluyla bulmuştur, ancak oyun onu özel CameraController.m_targetInstance alanında depolar ve bu araştırmalar hiçbir zaman eşleşmedi. Ayrıca "Yalnızca birinci şahıs kamerasında" varsayılan olarak kapalıdır: düz takip modu birinci şahıs değildir, bu yüzden onu açık bırakmak bindirmeyi kutudan çıkmış gibi görünecek hale getirdi, orijinal mod'a aksine, herhangi bir takip görünümünde bunu gösterdi.
 CHANGELOG_4_3_5_2 Bilet Fiyatları sekmeleri şimdi canlı yolcu sayısı yerine her bir taşıma türü için sonuç tarifesini gösterir. Kaydırıcılar sadece yüzde gösteriyor, bu yüzden bir çarpanın gerçekte ne ürettiğini görmenin öncesi bir yolu yoktu - ve küçük veya duraklatılmış bir şehirde yolcu sayısı sadece kalıcı "0" okudu. Yolcu sayısı, orijinal ücretin yanında etiket ipucuna taşındı.
 TICKET_PRICE_LABEL_TOOLTIP Mevcut ücret: {0}\nOrijinal ücret: {1}\nŞimdi yolculuk yapan yolcular: {2}
+CHANGELOG_4_7_0_1 Dört yeni entegrasyon: Alt Bina Sekmeleri (yalnızca havalimanları için değil, birden fazla binadan oluşan her kompleks için sekme çubuğu), Paylaşımlı Durak Etkinleştirici (birden fazla durak türünün aynı yol segmentini paylaşmasına izin verir, varsayılan olarak kapalı), Yolcu Varış Noktası (bir durakta bekleyen vatandaşların gerçekte nereye gittiğini gösterir) ve Taksi Durağı Düzeltmesi (boştaki taksiler amaçsızca dolaşmak yerine en yakın durağa yönelir). Her bir anahtarı Seçenekler > Entegrasyonlar altında bulabilirsiniz.
+CHANGELOG_4_7_0_2 Şehirlerarası otobüs terminalleri için bir araç kapasitesi modu eklendi (Seçenekler > Entegrasyonlar > Şehirlerarası Otobüs Terminali Kapasitesi): Devre dışı, bu modun şimdiye kadarki fiilen sınırsız terminalini korur; Orta, ölçülü sabit bir üst sınır uygular; Gerçekçi, terminalin kendi orijinal (vanilla) prefab kapasitesini geri getirir. Mevcut kayıtlar varsayılan olarak Devre dışı kullanır, böylece bir güncelleme bir terminalin kapasitesini asla sessizce küçültmez.
+CHANGELOG_4_7_0_3 Şehirlerarası otobüs terminalinin "şehirlerarası otobüsleri kabul et" onay kutusu düzeltildi: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged, isEmptying için sadece bir takma ad olan acceptsInterCityTrains değerini ayarlıyordu; bu yüzden yeniden adlandırılan onay kutusu, otobüs kabulünü gerçekten değiştirmek yerine bir otobüs terminalini sessizce oyunun bina kapatma durumuna sokabiliyordu. Artık bir Harmony prefix'i bunu yakalayıp otobüs için yamalanmış terminallerde binaya özel bir duruma yönlendiriyor; gerçek tren istasyonlarına dokunmuyor.
+CHANGELOG_4_7_0_4 Train Display'e, kaynak Train Display - Updated modunun düzenini yeniden oluşturan bir "Orijinal" renk teması eklendi (Seçenekler > Train Display > Renk Teması): hız ve durumu gösteren bir başlık şeridi ile aracın gerçek hat rengiyle eşleşecek şekilde renklendirilmiş bir güzergah şeridi.
+CHANGELOG_4_7_0_5 Train Display'in Basit, Koyu ve Açık temalarının yanlış renkler göstermesi düzeltildi: GUI.backgroundColor ile renklendirilen GUI.Box, Unity'nin varsayılan skin kutu dokusu saf beyaz olmadığı için düz bir renk üretmiyordu. Kaplama artık bunun yerine GUI.DrawTexture ve GUI.color kullanılarak önbelleğe alınmış tamamen beyaz bir doku üzerine çiziliyor.
+CHANGELOG_4_7_0_6 Bilet Fiyatları sekmesinin, varsayılan BudgetItem görünümü yerine her zaman basit özel kaydırıcı satırına geri dönmesi düzeltildi: BudgetItem'ın gece fiyatı kaydırıcı alanı için yapılan reflection sorgusunda bir yazım hatası vardı, bu yüzden sorgu her zaman hata veriyor ve bu hata sessizce yakalanıyordu.
+CHANGELOG_4_7_0_7 Görünen her ulaşım panelinde çalışan iki Harmony yamasında (şehir hizmeti panellerindeki şehirlerarası otobüs onay kutusu ve hat panelindeki her durağın yolcu sayısı etiketi) her karede tekrarlanan UI ağacı aramaları, çözümlenen UI referansları artık her karede yeniden aranmak yerine önbelleğe alınarak azaltıldı.
+CHANGELOG_4_7_0_8 Tüm Seçenekler menüsü, yedi ilgisiz ayar grubunu barındıran eski Otomatik Hat sekmesi yerine, gerçekte içerdikleriyle eşleşen sekmeler halinde yeniden düzenlendi (Filo ve Zamanlama, Bütçe ve Fiyatlar, Hat Renkleri, Entegrasyonlar ve daha fazlası). Daha önceki bir sürümde kaldırılan Kısayollar sekmesi geri getirildi ve buna ihtiyaç duyacak gelecekteki entegrasyonlar için hazır hale getirildi; ayrıca Seçenekler > Gelişmiş altına bir GitHub proje bağlantısı eklendi.
 CHANGELOG_4_3_8_1 Artık BETA olarak işaretlenmiyor. Bu çatallanmanın varlık nedeni olan bakım maliyeti taşması kökünden giderildi ve zaten bozulmuş kayıtları onarıyor; 23 dilin tamamı tamamlandı.
 CHANGELOG_4_3_7_1 Seçicideki 23 dilin tamamı artık tamamen çevrildi. Çekçe, Felemenkçe, Slovakça, Tayca ve Türkçe seçilebiliyordu ama çeviri dosyası yoktu, bu yüzden sessizce İngilizceye düşüyorlardı.
 CHANGELOG_4_3_7_2 Dil seçicisinin altında gösterilen çeviri ilerlemesi, yeniden oluşturulmamış statik bir durum dosyasını okuyordu; bu nedenle aslında tamamlanmış on altı dil için %76 bildiriyordu.

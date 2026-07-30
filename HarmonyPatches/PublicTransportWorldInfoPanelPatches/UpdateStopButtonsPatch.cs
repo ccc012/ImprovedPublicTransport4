@@ -1,4 +1,5 @@
-﻿using ColossalFramework;
+﻿using System.Collections.Generic;
+using ColossalFramework;
 using ColossalFramework.UI;
 using ImprovedPublicTransport.UI;
 using ImprovedPublicTransport.Util;
@@ -7,6 +8,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
 {
     public static class UpdateStopButtonsPatch
     {
+        // ___m_stopButtons.items reuses the same pooled UIButton instances across frames, so the
+        // "PassengerCount" child lookup below is stable per button - cache it instead of walking
+        // the UI tree for every stop button on every frame the line panel is open.
+        private static readonly Dictionary<UIComponent, UILabel> PassengerLabelCache = new Dictionary<UIComponent, UILabel>();
 
         public static void Apply()
         {
@@ -29,7 +34,12 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
             ushort stop = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].m_stops;
             foreach (UIComponent uiComponent in ___m_stopButtons.items)
             {
-                uiComponent.Find<UILabel>("PassengerCount").text = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].CalculatePassengerCount(stop).ToString();
+                if (!PassengerLabelCache.TryGetValue(uiComponent, out var passengerLabel) || passengerLabel == null)
+                {
+                    passengerLabel = uiComponent.Find<UILabel>("PassengerCount");
+                    PassengerLabelCache[uiComponent] = passengerLabel;
+                }
+                passengerLabel.text = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].CalculatePassengerCount(stop).ToString();
                 //begin mod(+): add tooltip with stop name
                 var id = InstanceID.Empty;
                 id.NetNode = stop;

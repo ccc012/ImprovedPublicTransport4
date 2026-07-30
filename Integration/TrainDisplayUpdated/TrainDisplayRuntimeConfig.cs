@@ -9,7 +9,6 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
 
     internal static class TrainDisplayRuntimeConfig
     {
-        internal static bool FirstPersonOnly => ModSetting.Instance.TrainDisplayFirstPersonOnly;
         internal static Vector2 OverlayOffset { get; set; } = Vector2.zero;
         internal static float Padding { get; set; } = 10f;
         internal static float LineSpacing { get; set; } = 1.05f;
@@ -20,8 +19,10 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
         internal static float OverlayOpacity => ModSetting.Instance.TrainDisplayOverlayOpacity;
         internal static float UpdateInterval => ModSetting.Instance.TrainDisplayUpdateInterval;
         internal static ModSetting.TrainDisplayModes Mode => ModSetting.Instance.TrainDisplayMode;
+        internal static ModSetting.TrainDisplayColorThemes ColorTheme => ModSetting.Instance.TrainDisplayColorTheme;
 
         // Simple/Dark/Light presets - kept intentionally minimal rather than a full theming system.
+        // Original has its own layout in DrawOverlay and does not use these.
         internal static Color BackgroundColor => ModSetting.Instance.TrainDisplayColorTheme switch
         {
             ModSetting.TrainDisplayColorThemes.Dark => new Color(0f, 0f, 0f, 0.85f),

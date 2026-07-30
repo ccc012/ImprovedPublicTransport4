@@ -1,0 +1,24 @@
+MIT
+
+This folder contains a new IPT4 integration layer adapted from the Steam Workshop
+item 2475986859, Commuter Destination, by jkm
+(github.com/Jameskmonger/CSL-ShowCommuterDestination).
+
+Source origin, credits, and licensing notes:
+- The upstream mod is MIT licensed.
+- The core destination-graph logic (Graph/*.cs, CitizenDestination.cs,
+  GetCitizenDestinations in this folder) is ported closely, including its
+  citizen-grid scan and the "TransportArriveAtTarget"-derived stop matching -
+  it is read-only (never writes simulation state) and was reviewed line by line.
+- The IPT2 integration (Harmony/Patches/IPT2/*) was NOT ported. Upstream hides
+  its own panel and IL-transpiles a label into IPT2's PublicTransportStopWorldInfoPanel
+  when IPT2 is detected. IPT4 does not need that trick: this integration is built
+  INTO IPT4, so it patches IPT4's own UI/PublicTransportStopWorldInfoPanel.cs
+  directly with a plain Harmony postfix (adds a button, no transpiler, no
+  IL pattern matching) instead of hiding behind another mod's panel.
+- The original mod auto-opens its panel on every single stop click
+  (OpenStopDestinationPanelPatch on PublicTransportStopButton.OnMouseDown). IPT4
+  already opens its own stop panel on that same click - stacking a second
+  automatic popup on the same click would show two panels at once. This
+  integration instead adds an on-demand button inside IPT4's existing stop
+  panel, and only opens when clicked.

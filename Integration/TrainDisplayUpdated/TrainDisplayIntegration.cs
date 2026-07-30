@@ -7,25 +7,19 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
 {
     using System;
     using System.Globalization;
-    using System.Reflection;
     using ColossalFramework;
+    using ColossalFramework.UI;
     using UnityEngine;
     using Utils = ImprovedPublicTransport.Util.Utils;
 
     internal static class TrainDisplayIntegration
     {
-        private static readonly BindingFlags InstanceFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-        private static FieldInfo _cameraModeField;
-        private static PropertyInfo _cameraModeProperty;
-        private static FieldInfo _cameraTargetField;
-        private static MethodInfo _cameraTargetMethod;
-        private static PropertyInfo _cameraTargetProperty;
-        private static bool _cached;
         private static GUIStyle _bodyStyle;
         private static GUIStyle _headerStyle;
         private static GUIStyle _metricStyle;
         private static GUIStyle _smallStyle;
         private static GUIStyle _valueStyle;
+        private static GUIStyle _tinyStyle;
 
         internal struct OverlayData
         {
@@ -37,157 +31,61 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             internal string Passengers;
             internal string Speed;
             internal string Elapsed;
+
+            // Only populated for the Original theme's route strip - gathering a line's stop names
+            // is cheap (bounded by stop count, same throttled interval as everything else here) but
+            // pointless work for the other three themes, which do not use it.
+            internal Color32 LineColor;
+            internal string[] RouteStopNames;
+            internal int RouteCurrentIndex;
         }
 
-        public static void EnsureCached()
+        /// <summary>
+        /// Gets the vehicle selected in the game's own world-info UI. This avoids camera
+        /// reflection and means the overlay works without any first-person camera mod.
+        /// </summary>
+        internal static bool TryGetSelectedVehicle(out ushort vehicleId)
         {
-            if (_cached)
-            {
-                return;
-            }
-
-            _cached = true;
+            vehicleId = 0;
 
             try
             {
-                var controller = ToolsModifierControl.cameraController;
-                if (controller == null)
-                {
-                    return;
-                }
-
-                var type = controller.GetType();
-                // CameraController.m_targetInstance is the field the game actually uses for the
-                // followed instance, and it is PRIVATE - the generic "target"/"GetTarget" probes
-                // below never matched it, so the overlay could never find the followed vehicle.
-                // Look it up by its real name first, walking up the hierarchy in case a camera mod
-                // subclasses CameraController.
-                for (var t = type; t != null && _cameraTargetField == null; t = t.BaseType)
-                {
-                    _cameraTargetField = t.GetField("m_targetInstance", InstanceFlags);
-                }
-
-                _cameraTargetProperty = type.GetProperty("target", InstanceFlags) ?? type.GetProperty("m_target", InstanceFlags);
-                if (_cameraTargetField == null)
-                {
-                    _cameraTargetField = type.GetField("target", InstanceFlags) ?? type.GetField("m_target", InstanceFlags);
-                }
-                _cameraTargetMethod = type.GetMethod("GetTarget", InstanceFlags, null, Type.EmptyTypes, null);
-                _cameraModeProperty = type.GetProperty("cameraMode", InstanceFlags) ?? type.GetProperty("m_cameraMode", InstanceFlags);
-                _cameraModeField = type.GetField("cameraMode", InstanceFlags) ?? type.GetField("m_cameraMode", InstanceFlags);
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"TrainDisplayUpdated: failed to inspect camera controller: {ex.Message}");
-            }
-        }
-
-        internal static bool IsFirstPersonCameraActive()
-        {
-            if (!TrainDisplayRuntimeConfig.FirstPersonOnly)
-            {
-                return true;
-            }
-
-            EnsureCached();
-
-            try
-            {
-                var controller = ToolsModifierControl.cameraController;
-                if (controller == null)
+                var selected = WorldInfoPanel.GetCurrentInstanceID();
+                var vehicleManager = Singleton<VehicleManager>.instance;
+                if (vehicleManager == null)
                 {
                     return false;
                 }
 
-                var typeName = controller.GetType().Name;
-                if (typeName.IndexOf("first", StringComparison.OrdinalIgnoreCase) >= 0)
+                if (selected.Vehicle != 0)
                 {
-                    return true;
-                }
-
-                object mode = null;
-                if (_cameraModeProperty != null)
-                {
-                    mode = _cameraModeProperty.GetValue(controller, null);
-                }
-                else if (_cameraModeField != null)
-                {
-                    mode = _cameraModeField.GetValue(controller);
-                }
-
-                if (mode != null)
-                {
-                    var modeText = mode.ToString();
-                    if (!string.IsNullOrEmpty(modeText) && modeText.IndexOf("first", StringComparison.OrdinalIgnoreCase) >= 0)
+                    vehicleId = vehicleManager.m_vehicles.m_buffer[selected.Vehicle].GetFirstVehicle(selected.Vehicle);
+                    if (vehicleId == 0)
                     {
-                        return true;
+                        vehicleId = selected.Vehicle;
+                    }
+                }
+                else if (selected.TransportLine != 0)
+                {
+                    // Opening a transport line is also an explicit public-transport selection.
+                    // Use its first live vehicle without requiring a camera mode.
+                    var line = Singleton<TransportManager>.instance.m_lines.m_buffer[selected.TransportLine];
+                    vehicleId = line.m_vehicles;
+                    if (vehicleId != 0)
+                    {
+                        vehicleId = vehicleManager.m_vehicles.m_buffer[vehicleId].GetFirstVehicle(vehicleId);
                     }
                 }
 
-                return false;
+                return vehicleId != 0 && IsSupportedVehicle(vehicleId);
             }
             catch (Exception ex)
             {
-                Utils.LogError($"TrainDisplayUpdated: failed to inspect camera mode: {ex.Message}");
+                Utils.LogError($"TrainDisplayUpdated: failed to read the selected vehicle: {ex.Message}");
+                vehicleId = 0;
                 return false;
             }
         }
-
-        internal static bool TryGetFollowTarget(out InstanceID target)
-        {
-            EnsureCached();
-            target = default(InstanceID);
-
-            try
-            {
-                var controller = ToolsModifierControl.cameraController;
-                if (controller == null)
-                {
-                    return false;
-                }
-
-                object value = null;
-                if (_cameraTargetMethod != null)
-                {
-                    value = _cameraTargetMethod.Invoke(controller, null);
-                }
-                else if (_cameraTargetProperty != null)
-                {
-                    value = _cameraTargetProperty.GetValue(controller, null);
-                }
-                else if (_cameraTargetField != null)
-                {
-                    value = _cameraTargetField.GetValue(controller);
-                }
-
-                if (value == null)
-                {
-                    return false;
-                }
-
-                if (value is InstanceID instanceId)
-                {
-                    target = instanceId;
-                    return target.Vehicle != 0;
-                }
-
-                var valueType = value.GetType();
-                var vehicleField = valueType.GetField("m_vehicle", InstanceFlags) ?? valueType.GetField("vehicle", InstanceFlags) ?? valueType.GetField("Vehicle", InstanceFlags);
-                if (vehicleField == null)
-                {
-                    return false;
-                }
-
-                target = new InstanceID { Vehicle = Convert.ToUInt16(vehicleField.GetValue(value), CultureInfo.InvariantCulture) };
-                return target.Vehicle != 0;
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"TrainDisplayUpdated: failed to inspect follow target: {ex.Message}");
-                return false;
-            }
-        }
-
         internal static bool IsSupportedVehicle(ushort vehicleId)
         {
             if (vehicleId == 0)
@@ -202,9 +100,7 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             }
 
             ref Vehicle vehicle = ref vehicleManager.m_vehicles.m_buffer[vehicleId];
-            var info = vehicle.Info;
-            return info?.m_class?.m_service == ItemClass.Service.PublicTransport
-                || info?.m_class?.m_service == ItemClass.Service.Road;
+            return vehicle.Info?.m_class?.m_service == ItemClass.Service.PublicTransport;
         }
 
         internal static bool TryBuildOverlayData(ushort vehicleId, float trackedSeconds, out OverlayData data)
@@ -245,7 +141,92 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             data.Passengers = capacity > 0 ? $"{currentPassengers} / {capacity}" : currentPassengers.ToString(CultureInfo.InvariantCulture);
             data.Speed = FormatSpeed(ref vehicle);
             data.Elapsed = FormatElapsedTime(trackedSeconds);
+
+            if (TrainDisplayRuntimeConfig.ColorTheme == ModSetting.TrainDisplayColorThemes.Original)
+            {
+                BuildRouteStrip(lineId, vehicle.m_targetBuilding, ref data);
+            }
+
             return true;
+        }
+
+        /// <summary>Gathers the line's stop names and which one the vehicle is currently headed to,
+        /// for the Original theme's route strip. Read-only: only walks the existing stop chain via
+        /// TransportLine.GetNextStop, same as the game's own line UI does.</summary>
+        private static void BuildRouteStrip(ushort lineId, ushort targetStop, ref OverlayData data)
+        {
+            if (lineId == 0)
+            {
+                data.RouteStopNames = new string[0];
+                return;
+            }
+
+            var transportManager = Singleton<TransportManager>.instance;
+            ref TransportLine line = ref transportManager.m_lines.m_buffer[lineId];
+            data.LineColor = line.m_color;
+
+            var firstStop = line.m_stops;
+            if (firstStop == 0)
+            {
+                data.RouteStopNames = new string[0];
+                return;
+            }
+
+            // Route strips on real displays show a handful of stops around the current position,
+            // not the whole line - cap it so a 60-stop rail line does not render an unreadable strip
+            // (or, on a line with a corrupted stop cycle, loop indefinitely).
+            const int maxStops = 8;
+            var names = new System.Collections.Generic.List<string>(maxStops);
+            var currentIndex = -1;
+            var stop = firstStop;
+            var guard = 0;
+            do
+            {
+                if (stop == targetStop)
+                {
+                    currentIndex = names.Count;
+                }
+
+                var id = new InstanceID { NetNode = stop };
+                var stopName = Singleton<InstanceManager>.instance.GetName(id);
+                names.Add(string.IsNullOrEmpty(stopName) ? "?" : stopName);
+
+                stop = global::TransportLine.GetNextStop(stop);
+                guard++;
+            }
+            while (stop != firstStop && stop != 0 && names.Count < maxStops && guard < 32768);
+
+            data.RouteStopNames = names.ToArray();
+            data.RouteCurrentIndex = currentIndex;
+        }
+
+        // A 1x1 white pixel, tinted via GUI.color to draw a flat, accurate solid-colour box.
+        // GUI.Box's default skin texture is not flat white, so tinting it via GUI.backgroundColor
+        // (the previous approach) produced a muddied/incorrect result instead of the requested
+        // colour - this was the "wrong colours" bug in the Simple/Dark/Light themes.
+        private static Texture2D _solidTexture;
+
+        private static Texture2D SolidTexture
+        {
+            get
+            {
+                if (_solidTexture == null)
+                {
+                    _solidTexture = new Texture2D(1, 1);
+                    _solidTexture.SetPixel(0, 0, Color.white);
+                    _solidTexture.Apply();
+                }
+
+                return _solidTexture;
+            }
+        }
+
+        private static void DrawSolidBox(Rect rect, Color color)
+        {
+            var previous = GUI.color;
+            GUI.color = color;
+            GUI.DrawTexture(rect, SolidTexture);
+            GUI.color = previous;
         }
 
         internal static void DrawOverlay(OverlayData data)
@@ -257,15 +238,19 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
 
             EnsureGuiStyles();
 
+            if (TrainDisplayRuntimeConfig.ColorTheme == ModSetting.TrainDisplayColorThemes.Original)
+            {
+                DrawOriginalOverlay(data);
+                return;
+            }
+
             var rect = GetOverlayRect();
             var previousColor = GUI.color;
             var previousContentColor = GUI.contentColor;
-            var previousBackgroundColor = GUI.backgroundColor;
 
-            GUI.color = new Color(1f, 1f, 1f, TrainDisplayIntegration.GetOverlayOpacity());
-            GUI.backgroundColor = TrainDisplayRuntimeConfig.BackgroundColor;
+            DrawSolidBox(rect, MultiplyAlpha(TrainDisplayRuntimeConfig.BackgroundColor, GetOverlayOpacity()));
+            GUI.color = new Color(1f, 1f, 1f, GetOverlayOpacity());
             GUI.contentColor = TrainDisplayRuntimeConfig.TextColor;
-            GUI.Box(rect, GUIContent.none);
 
             var padding = 18f * TrainDisplayRuntimeConfig.OverlayScale;
             var lineHeight = 24f * TrainDisplayRuntimeConfig.LineSpacing;
@@ -291,8 +276,109 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             GUI.Label(new Rect(rightColumn + 130f * TrainDisplayRuntimeConfig.OverlayScale, top + lineHeight * 2f, 90f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.Passengers, _valueStyle);
 
             GUI.contentColor = previousContentColor;
-            GUI.backgroundColor = previousBackgroundColor;
             GUI.color = previousColor;
+        }
+
+        private static Color MultiplyAlpha(Color color, float alphaMultiplier) =>
+            new Color(color.r, color.g, color.b, color.a * alphaMultiplier);
+
+        /// <summary>
+        /// Replicates the layout of the upstream Train Display - Updated mod: a dark header strip
+        /// (name/status on the left, big speed readout centred, line/next-stop/passengers on the
+        /// right) plus a route strip in the bottom-left corner, coloured to match the vehicle's
+        /// actual line colour, with a marker per upcoming stop and a chevron at the current one.
+        /// </summary>
+        private static void DrawOriginalOverlay(OverlayData data)
+        {
+            var scale = Mathf.Clamp(TrainDisplayRuntimeConfig.OverlayScale, 0.75f, 2.0f);
+            var opacity = GetOverlayOpacity();
+            var headerRect = GetOverlayRect();
+
+            DrawSolidBox(headerRect, new Color(0.08f, 0.08f, 0.1f, 0.85f * opacity));
+
+            var previousColor = GUI.color;
+            var previousContentColor = GUI.contentColor;
+            GUI.color = new Color(1f, 1f, 1f, opacity);
+            GUI.contentColor = Color.white;
+
+            var padding = 14f * scale;
+            var lineHeight = 22f * scale;
+            var labelWidth = 90f * scale;
+            var top = headerRect.y + padding;
+            var leftColumn = headerRect.x + padding;
+            var metricColumn = headerRect.x + headerRect.width * 0.46f;
+            var rightColumn = headerRect.x + headerRect.width - (230f * scale);
+
+            GUI.Label(new Rect(leftColumn, top, labelWidth, lineHeight), Localization.Get("TRAINDISPLAY_LABEL_NAME"), _smallStyle);
+            GUI.Label(new Rect(leftColumn + labelWidth, top, 240f * scale, lineHeight), data.Name, _headerStyle);
+            GUI.Label(new Rect(leftColumn, top + lineHeight, labelWidth, lineHeight), Localization.Get("TRAINDISPLAY_LABEL_STATUS"), _smallStyle);
+            GUI.Label(new Rect(leftColumn + labelWidth, top + lineHeight, 240f * scale, lineHeight), data.Status, _bodyStyle);
+
+            GUI.Label(new Rect(metricColumn, top, 210f * scale, 44f * scale), data.Speed, _metricStyle);
+            GUI.Label(new Rect(metricColumn + 6f, top + 46f * scale, 160f * scale, lineHeight), data.Elapsed, _smallStyle);
+
+            GUI.Label(new Rect(rightColumn, top, 220f * scale, lineHeight), data.Breadcrumb, _headerStyle);
+            GUI.Label(new Rect(rightColumn, top + lineHeight, 130f * scale, lineHeight), Localization.Get("VEHICLE_PANEL_STATUS_NEXT_STOP"), _smallStyle);
+            GUI.Label(new Rect(rightColumn + 130f * scale, top + lineHeight, 90f * scale, lineHeight), data.NextStop, _valueStyle);
+            GUI.Label(new Rect(rightColumn, top + lineHeight * 2f, 130f * scale, lineHeight), Localization.Get("VEHICLE_PANEL_PASSENGERS"), _smallStyle);
+            GUI.Label(new Rect(rightColumn + 130f * scale, top + lineHeight * 2f, 90f * scale, lineHeight), data.Passengers, _valueStyle);
+
+            DrawRouteStrip(data, headerRect, scale, opacity);
+
+            GUI.contentColor = previousContentColor;
+            GUI.color = previousColor;
+        }
+
+        private static void DrawRouteStrip(OverlayData data, Rect headerRect, float scale, float opacity)
+        {
+            if (data.RouteStopNames == null || data.RouteStopNames.Length == 0)
+            {
+                return;
+            }
+
+            var lineColor = new Color(data.LineColor.r / 255f, data.LineColor.g / 255f, data.LineColor.b / 255f, 1f);
+            var stripWidth = 260f * scale;
+            var badgeHeight = 46f * scale;
+            var trackHeight = 40f * scale;
+            var stripRect = new Rect(headerRect.x, headerRect.yMax, stripWidth, badgeHeight + trackHeight);
+
+            // Solid white backing so semi-transparent line colours (e.g. a pale line) still read
+            // clearly, matching the upstream mod's white-backed strip.
+            DrawSolidBox(stripRect, new Color(1f, 1f, 1f, 0.9f * opacity));
+            var badgeRect = new Rect(stripRect.x, stripRect.y, stripRect.width, badgeHeight);
+            DrawSolidBox(badgeRect, new Color(lineColor.r, lineColor.g, lineColor.b, opacity));
+
+            GUI.Label(new Rect(badgeRect.x + 8f, badgeRect.y + 4f, badgeRect.width - 16f, badgeHeight * 0.4f),
+                Localization.Get("VEHICLE_PANEL_STATUS_NEXT_STOP"), _smallStyle);
+            var nextStopName = data.RouteCurrentIndex >= 0 && data.RouteCurrentIndex < data.RouteStopNames.Length
+                ? data.RouteStopNames[data.RouteCurrentIndex]
+                : data.NextStop;
+            GUI.Label(new Rect(badgeRect.x + 8f, badgeRect.y + badgeHeight * 0.35f, badgeRect.width - 16f, badgeHeight * 0.6f),
+                nextStopName, _headerStyle);
+
+            var trackRect = new Rect(stripRect.x, badgeRect.yMax, stripRect.width, trackHeight);
+            var count = data.RouteStopNames.Length;
+            var markerY = trackRect.y + trackHeight * 0.28f;
+            var markerSize = 12f * scale;
+            var trackLineHeight = 4f * scale;
+            var trackLineRect = new Rect(trackRect.x + 6f, markerY + markerSize / 2f - trackLineHeight / 2f, trackRect.width - 12f, trackLineHeight);
+            DrawSolidBox(trackLineRect, lineColor);
+
+            for (var i = 0; i < count; i++)
+            {
+                var x = trackRect.x + 6f + (count == 1 ? 0f : i * (trackRect.width - 12f - markerSize) / (count - 1));
+                var markerRect = new Rect(x, markerY, markerSize, markerSize);
+                var passed = data.RouteCurrentIndex >= 0 && i <= data.RouteCurrentIndex;
+                DrawSolidBox(markerRect, passed ? lineColor : Color.white);
+                if (passed)
+                {
+                    // A thin ring around filled markers keeps them visible against a same-colour track.
+                    GUI.Box(markerRect, GUIContent.none);
+                }
+
+                var nameRect = new Rect(x - 20f, markerY + markerSize + 2f, markerSize + 40f, trackHeight - markerSize - 4f);
+                GUI.Label(nameRect, data.RouteStopNames[i], _tinyStyle);
+            }
         }
 
         internal static Rect GetOverlayRect()
@@ -341,6 +427,7 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             _metricStyle = _metricStyle ?? new GUIStyle(GUI.skin.label);
             _smallStyle = _smallStyle ?? new GUIStyle(GUI.skin.label);
             _valueStyle = _valueStyle ?? new GUIStyle(GUI.skin.label);
+            _tinyStyle = _tinyStyle ?? new GUIStyle(GUI.skin.label);
 
             _headerStyle.fontSize = Mathf.RoundToInt(18f * scale);
             _headerStyle.fontStyle = FontStyle.Bold;
@@ -360,6 +447,14 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             _valueStyle.fontStyle = FontStyle.Bold;
             _valueStyle.alignment = TextAnchor.UpperRight;
             _valueStyle.normal.textColor = textColor;
+
+            // Always dark, regardless of theme text colour: this style only labels the Original
+            // theme's route strip, which is drawn on a solid white/light backing (see
+            // DrawRouteStrip), so it needs to stay readable independent of the header's own colour.
+            _tinyStyle.fontSize = Mathf.RoundToInt(10f * scale);
+            _tinyStyle.alignment = TextAnchor.UpperCenter;
+            _tinyStyle.wordWrap = true;
+            _tinyStyle.normal.textColor = new Color(0.1f, 0.1f, 0.12f, 1f);
         }
 
         private static string FormatElapsedTime(float trackedSeconds)

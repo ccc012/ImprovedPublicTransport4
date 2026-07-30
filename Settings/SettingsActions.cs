@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using ColossalFramework;
@@ -152,6 +152,103 @@ namespace ImprovedPublicTransport.Settings
                     PublicTransportUnstucker.PublicTransportUnstuckerIntegration.Deactivate();
                 }
             });
+        }
+
+        public static void OnFlightTrackerChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    FlightTracker.Patcher.PatchAll();
+                }
+                else
+                {
+                    FlightTracker.TrackerPanelManager.Close();
+                    FlightTracker.Patcher.UnpatchAll();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update FlightTracker: {ex.Message}");
+            }
+        }
+
+        public static void OnSubBuildingsTabsChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    SubBuildingsTabs.PatchController.Activate();
+                }
+                else
+                {
+                    SubBuildingsTabs.PatchController.Deactivate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update SubBuildingsTabs: {ex.Message}");
+            }
+        }
+
+        public static void OnTaxiStandFixChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame || !SteamHelper.IsDLCOwned(SteamHelper.DLC.AfterDarkDLC))
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    TaxiStandFix.PatchController.Activate();
+                }
+                else
+                {
+                    TaxiStandFix.PatchController.Deactivate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update TaxiStandFix: {ex.Message}");
+            }
+        }
+
+        public static void OnSharedStopEnablerChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    SharedStopEnabler.PatchController.Activate();
+                }
+                else
+                {
+                    SharedStopEnabler.PatchController.Deactivate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update SharedStopEnabler: {ex.Message}");
+            }
         }
 
         public static void OnRealisticWalkingSpeedChanged(int walkingSpeedMode)

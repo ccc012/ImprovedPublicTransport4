@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nČekající cestující: {1}\n\nKlikněte pravým
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Seznam navrhovaných názvů zastávky.
 STOP_PANEL_REUSE_NAME_TOOLTIP Nastavit tento název na všechny ostatní zastávky na této stanici.
 STOP_PANEL_WAITING_PEOPLE Čekající cestující: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Cíl cestujících
+COMMUTER_DESTINATION_BUTTON Cíle
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Zobrazit, kam míří cestující čekající na této zastávce.
 STOP_PANEL_BORED_TIMER Čas do odchodu: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Cestující opustí tuto zastávku, když se odpočítávání dostane na nulu.
 STOP_PANEL_PASSENGERS_IN Cestující vstupující:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Smazat
 SETTINGS_RESET Obnovit
 
 SETTINGS_TAB_GENERAL Obecné
+SETTINGS_ADVANCED_LINKS_GROUP Odkazy
+SETTINGS_GITHUB_REPO Zdrojový kód na GitHubu
 SETTINGS_TAB_AUTOLINE Automatická linka
 SETTINGS_TAB_STOPS Zastávky a stanice
 SETTINGS_TAB_UNBUNCHING Rozvolňování
 SETTINGS_TAB_DELETE Smazat linky
+SETTINGS_TAB_FLEET Vozový park a plánování
+SETTINGS_TAB_BUDGET Rozpočet a ceny
+SETTINGS_TAB_LINECOLORS Barvy linek
 
 SETTINGS Nastavení
 SETTINGS_SPEED Zobrazit rychlost v:
@@ -290,6 +298,7 @@ WHATSNEW_3_0_0_2 Následující modifikace byly integrovány do IPT3:\n • Adva
 WHATSNEW_3_0_1 Odblokátor veřejné dopravy je nyní integrován do IPT3.\nViz verzi 3.0 pro všechny ostatní integrované modifikace. Odhlásit se z originálu, abyste se vyhnuli konfliktům.
 
 SETTINGS_TAB_TRAINDISPLAY Zobrazení vlaku
+SETTINGS_TAB_INTEGRATIONS Integrace
 SETTINGS_TRAINDISPLAY_GROUP Překryv zobrazení vlaku
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Nakonfigurujte integrovaný overlay zobrazený při sledování podporovaných vozidel dopravy.
 SETTINGS_TRAINDISPLAY_ENABLE Povolit zobrazení vlaku
@@ -323,6 +332,7 @@ SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Vyberte barvy pozadí/textu overlay.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Jednoduché
 SETTINGS_TRAINDISPLAY_THEME_DARK Tmavé
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Světlé
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Původní
 
 COPY_TIP Kopírovat nastavení této linky.
 PASTE_TIP Vložit zkopírovaná nastavení linky.
@@ -331,8 +341,21 @@ COPY_DISTRICT_TIP Kopírovat tato nastavení na všechny linky v tomto okresu.
 SETTINGS_INTEGRATIONS_GROUP Integrované doplňky
 SETTINGS_INTERCITY_BUS_ENABLE Povolit kontrolu meziměstských autobusů
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Povolí integrovanou vrstvu kompatibility kontroly meziměstských autobusů a údržbu stanic.
+SETTINGS_INTERCITY_BUS_CAPACITY Kapacita meziměstského terminálu
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Kolik vozidel může meziměstský autobusový terminál pojmout najednou.
+SETTINGS_DEPOT_CAPACITY_DISABLED Vypnuto (bez limitu)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Střední
+SETTINGS_DEPOT_CAPACITY_REALISTIC Realistické
 SETTINGS_FLIGHTTRACKER_ENABLE Povolit sledování letů
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Povolí integrované opravy sledování letů a podporu uživatelského rozhraní.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Povolit karty vedlejších budov
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Zobrazí panel karet v informačním panelu budovy, pokud má vedlejší budovy (např. letiště se zabudovanou stanicí metra), a umožní mezi nimi přepínat.
+SETTINGS_TAXISTANDFIX_ENABLE Povolit opravu stanoviště taxíků
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Posílá volné taxíky k nejbližšímu stanovišti taxíků místo toho, aby bloudily náhodně. Vyžaduje DLC After Dark.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Povolit sdílené zastávky
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Umožňuje více než jednomu typu dopravy (autobus, tramvaj, trolejbus) zastavit na stejném úseku silnice. Ve výchozím nastavení vypnuto - co tato zjednodušená verze vynechává, zjistíte na GitHubu modu.
+SETTINGS_COMMUTERDESTINATION_ENABLE Povolit cíl cestujících
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Zobrazí, kam míří cestující čekající na zastávce - malý panel plus překryv na mapě. Pouze pro čtení, žádná jiná závislost než Harmony.
 CHANGELOG_4_3_3_1 Opraveno ukládání/načítání nastavení stále se pokoušelo selhat na některých hromádkách modů, a to i poté, co se Newtonsoft.Json.dll sdružil: předchozí řešení se pokoušelo assembly.LoadFrom v jednom vstupním bodě a stále záviselo na pořadí zatížení. IPT4 nyní registruje globální háček AssemblyResolve a dychtivě spouští svůj sdružený Newtonsoft.Json z každého vstupního bodu mod/UI, než se CSLModsCommon dotýká JsonWriter, takže uživatelské rozhraní Možností přetrvává spolehlivě místo náhodného vázání na nekompatibilní Json.NET kopii jiného modifikace.
 CHANGELOG_4_3_2_1 Opraveno selhání zatížení modifikace úplně ("failed to load the mod's dll or one of its dependencies"), kdykoli žádný jiný nainstalovaný mod neposkytnul Newtonsoft.Json: serializace nastavení CSLModsCommon (JsonHelper/SerializationContext) ji potřebuje, ale naše sestava nikdy nedeployovala Newtonsoft.Json.dll vedle modifikace - vždy to fungoval jen náhodou, jízda na kopii jiného modelu. Zjištěno zakázáním všech ostatních modů pro čistý test, což je přesně to, jak by mělo být testováno jít vpřed.
 CHANGELOG_4_3_1_1 Opraveno, že panel Možnosti se pokazil výběr jazyka, který pouze znovu přeložil vlastní řetězce frameworku (verze/Changelog/...), zatímco každý řetězec tohoto modku zůstal v jazyce hry - náš načítač překladu klíčoval vypnutý jazyk hry a ignoroval vlastní výběr modifikace úplně. Nyní se řídí výběrem jazyka modifikace s návrhem na jazyk hry a poté na angličtinu a znovu se vyřeší, kdykoli se výběr změní.
@@ -385,6 +408,14 @@ CHANGELOG_4_3_4_1 Opraveno spuštění ModException ("Selhání najít ImprovedP
 CHANGELOG_4_3_5_1 Opraveno overlay zobrazení vlaku nikdy se nechvěl při sledování vozidla. Vyhledal instance cíle kamery prostřednictvím obecných sond "cíl"/"GetTarget", ale hra ji ukládá v soukromém poli CameraController.m_targetInstance, které tyto sondy nikdy neodpovídaly. Také se přepnulo "Pouze v kameře z první osoby" vypnuto výchozím: režim prostého sledování není první osobou, takže jeho ponechání vzalo overlay vypadat rozbitě z krabice, na rozdíl od původního modku, který jej ukázal v jakémkoliv režimu sledování.
 CHANGELOG_4_3_5_2 Karta Ceny jízdenek nyní zobrazuje výsledný tarif pro každý typ dopravy místo počtu živých cestujících. Posuvníky pouze zobrazují procento, takže nebylo dříve způsob, jak vidět, jaký násobitel skutečně vytvořil - a na malém nebo pozastavené město počet cestujících jen čteníí permanentní "0". Počet cestujících se přesunul na tip popisku po boku původního tarif.
 TICKET_PRICE_LABEL_TOOLTIP Aktuální tarif: {0}\nPůvodní tarif: {1}\nCestující jedoucí nyní: {2}
+CHANGELOG_4_7_0_1 Čtyři nové integrace: Karty vedlejších budov (lišta karet pro jakýkoli komplex více budov, nejen letiště), Sdílené zastávky (umožňuje více typům zastávek sdílet stejný úsek silnice, ve výchozím nastavení vypnuto), Cíl cestujících (zobrazuje, kam skutečně směřují obyvatelé čekající na zastávce) a Oprava stanoviště taxíků (volné taxíky míří na nejbližší stanoviště místo bezcílného bloudění). Jednotlivé přepínače najdete v Možnosti > Integrace.
+CHANGELOG_4_7_0_2 Přidán režim kapacity vozidel pro meziměstské autobusové terminály (Možnosti > Integrace > Kapacita meziměstského autobusového terminálu): Vypnuto zachovává dosavadní, prakticky neomezený terminál tohoto modu, Střední uplatňuje mírný pevný limit, Realistické obnovuje původní kapacitu prefabu terminálu ze hry. Existující uložené hry ve výchozím nastavení používají Vypnuto, takže aktualizace nikdy tiše nezmenší kapacitu terminálu.
+CHANGELOG_4_7_0_3 Opravena zaškrtávací volba "přijímat meziměstské autobusy" u meziměstského autobusového terminálu: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged nastavuje acceptsInterCityTrains, což je pouhý alias pro isEmptying, takže přejmenovaná volba mohla tiše přepnout autobusový terminál do stavu uzavření budovy ve hře, místo aby skutečně přepínala přijímání autobusů. Prefix Harmony nyní tento případ zachytává a přesměrovává na stav podle konkrétní budovy u terminálů upravených pro autobusy, zatímco skutečná vlaková nádraží zůstávají nedotčena.
+CHANGELOG_4_7_0_4 Do Train Display přidáno barevné téma "Původní" (Možnosti > Train Display > Barevný motiv), které napodobuje rozvržení zdrojového modu Train Display - Updated: záhlaví s rychlostí a stavem a pruh trasy zbarvený podle skutečné barvy linky vozidla.
+CHANGELOG_4_7_0_5 Opraveny motivy Jednoduché, Tmavé a Světlé v Train Display, které zobrazovaly nesprávné barvy: GUI.Box obarvený přes GUI.backgroundColor nevytváří jednolitou barvu, protože textura boxu výchozího skinu Unity není čistě bílá. Overlay se nyní místo toho vykresluje na uloženou plně bílou texturu pomocí GUI.DrawTexture a GUI.color.
+CHANGELOG_4_7_0_6 Opravena karta Ceny jízdenek, která se vždy vracela k jednoduchému vlastnímu řádku posuvníku místo výchozího vzhledu BudgetItem ze hry: vyhledávání pole posuvníku noční ceny BudgetItem pomocí reflection obsahovalo překlep, takže vždy skončilo chybou, která byla tiše zachycena.
+CHANGELOG_4_7_0_7 Sníženo opakované vyhledávání ve stromu UI na každý snímek ve dvou opravách Harmony, které běží pro každý viditelný panel dopravy (zaškrtávací volba meziměstských autobusů na panelech městských služeb a popisek počtu cestujících u každé zastávky na panelu linky), a to ukládáním nalezených odkazů na UI do mezipaměti místo jejich opětovného hledání při každém snímku.
+CHANGELOG_4_7_0_8 Celé menu Možnosti bylo přeuspořádáno do karet, které skutečně odpovídají svému obsahu (Vozový park a plánování, Rozpočet a ceny, Barvy linek, Integrace a další), místo staré karty Automatická linka obsahující sedm nesouvisejících skupin nastavení. Obnovena karta Zkratky, odstraněná v dřívější verzi, připravená pro budoucí integrace, které ji budou potřebovat, a pod Možnosti > Pokročilé přidán odkaz na projekt na GitHubu.
 CHANGELOG_4_3_8_1 Již není označeno jako BETA. Přetečení nákladů na údržbu, kvůli kterému tento fork vznikl, je vyřešeno v základu a opravuje již poškozené uložené pozice; všech 23 jazyků je kompletních.
 CHANGELOG_4_3_7_1 Všech 23 jazyků v seznamu je nyní kompletně přeloženo. Čeština, nižozemština, slovenština, thajština a turečtina se daly vybrat, ale neměly překladový soubor, takže tiše přecházely na angličtinu.
 CHANGELOG_4_3_7_2 Ukazatel postupu překladu pod výběrem jazyka čte statický soubor se stavem, který nebyl aktualizován, a proto u šestnácti jazyků uváděl 76 %, i když byly ve skutečnosti hotové.

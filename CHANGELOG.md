@@ -14,6 +14,182 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.7.0] Four new integrations, Options menu reorganized, bug/perf sweep
+
+Jumps straight from 4.3.8 to 4.7.0 - the module counter absorbs everything below
+as one release rather than a bump per item, since none of it shipped
+individually. `major` stays 4: this project intentionally does not version past
+IPT4's own generation, however many modules it grows.
+
+### Added - Sub-Buildings Tabs, Shared Stop Enabler, Commuter Destination, Taxi Stand Fix
+
+Four new `Integration/` folders, each with its own toggle under
+Options > Integrations. Per-mod credit and licence detail is in
+`README.md#absorbed-mods` and each folder's own `LICENSE.txt`; summary:
+
+- **Sub-Buildings Tabs** (ported, MIT, BloodyPenguin/AJ3D) - the Harmony patch
+  is on `CityServiceWorldInfoPanel.OnSetTarget`, which fires uniformly for every
+  subclass that calls `base.OnSetTarget()`. It is not airport-specific; the
+  "only works on the airport" symptom reported during testing is because only
+  airports have vanilla sub-buildings to show tabs for, confirmed by reflection
+  over the panel hierarchy and by asking whether any other hub type had actually
+  been tested (it had not). No code change was needed for that part; see #15
+  below for the one real bug found in this integration.
+- **Shared Stop Enabler** (ported, GPL-3.0, CodeBardian) - a **reduced** port.
+  The `RoadBridgeAI`/elevated-stop patch, the `PathManager.FindPathPosition`
+  patch, and an IL-transpiler patch matching `TransportTool.GetStopPosition` by
+  string content were deliberately left out - they either touch a very hot
+  vanilla method or are fragile string-matched IL, out of proportion with what
+  this integration adds. Only the core mechanism (more than one stop type per
+  road segment) was ported. `SharedStopsTool`'s MonoBehaviour/Singleton was
+  replaced with a static `SharedStopRegistry`, matching how IPT4 already tracks
+  per-line/per-segment state elsewhere. **Off by default** - this is the one
+  integration here that changes shared, global prefab data rather than being
+  purely additive/per-instance.
+- **Commuter Destination** (ported, MIT, jkm/Jameskmonger) - the destination-
+  graph logic itself is a close, line-by-line-reviewed port; the *integration*
+  point is not. Upstream hides its own panel and IL-transpiles a label into
+  IPT2's stop panel when IPT2 is present - IPT4 doesn't need that trick, since
+  this is built in, so it's a plain Harmony postfix adding a button to IPT4's
+  own `UI/PublicTransportStopWorldInfoPanel.cs`. Upstream also auto-opens its
+  panel on every stop click; IPT4 already opens its own stop panel on that same
+  click, so stacking a second automatic popup would show two panels at once -
+  this integration opens on-demand from a button instead. One real upstream bug
+  was found and **not** ported: `Bridge.cs`'s `StopIsDestination` calls
+  `PathManager.ReleaseFirstUnit`, which - per `ReleaseFirstUnit`'s own
+  decompiled logic - frees a citizen's shared path unit back to the pool when
+  `m_referenceCount <= 1`, the common case for an unshared citizen path, while
+  that citizen may still be using it. Omitted with the accuracy trade-off
+  documented in `Integration/CommuterDestination/LICENSE.txt`: citizens whose
+  immediate path crosses a `PathUnit` boundary are treated as "not yet at this
+  stop" instead of being read via the unsafe call.
+- **Taxi Stand Fix** (original implementation, not a port) - sends a genuinely
+  idle taxi (no passenger, no destination already assigned) toward the nearest
+  stand via the same public, vanilla `TaxiAI.SetTarget` the game itself uses to
+  dispatch taxis, so pathfinding, building registration and the "I am
+  available" broadcast all behave exactly as a normal dispatch. Inspired by the
+  standalone [Taxi Stand Fix](https://steamcommunity.com/sharedfiles/filedetails/?id=3712889232)
+  mod's concept; written fresh rather than adapted from its code, so it carries
+  no upstream licence and is not listed in the `README.md` absorbed-mods table.
+
+### Added - Depot/terminal vehicle capacity mode
+
+`ModSetting.DepotCapacityModes` (`Disabled` / `Intermediate` / `Realistic`),
+exposed as `IntercityTerminalCapacityMode` under Options > Integrations. The
+reported "extremely high garage/depot limits" traced specifically to
+`IntercityBusControl.StationPatcher` and `InitializePrefabPatch`'s hardcoded
+`m_maxVehicleCount = 100000` / `m_maxVehicleCount2 = 100000` - not a general
+vanilla depot issue, so the fix is scoped to that one mechanism rather than
+touching depot AI broadly. `Disabled` preserves the existing 100000 (no
+behaviour change for saves already running this mod); `Intermediate` applies a
+fixed 200; `Realistic` returns 40, close to the terminal's own vanilla prefab
+capacity. Both call sites - the retroactive `PatchStations()` sweep and the
+live `InitializePrefab` postfix - now read the same
+`StationPatcher.GetCapacityForCurrentMode()` instead of two independent
+hardcoded literals that could have drifted apart.
+
+### Fixed - Intercity bus terminal accept-toggle silently touched `isEmptying`
+
+Decompiling `CityServiceWorldInfoPanel.OnAcceptsIntercityChanged` showed
+`acceptsInterCityTrains` is a pure alias for `isEmptying`
+(`set { isEmptying = !value; }`). The existing "accept intercity buses"
+checkbox on patched bus terminals just relabelled vanilla's train checkbox
+without intercepting its click handler, meaning toggling it could put a bus
+terminal into the game's building-shutdown/evacuate state. Fixed with a new
+Harmony prefix (`Patch_OnAcceptsIntercityChanged`) that intercepts the change
+for buildings in `StationPatcher.PatchedBuildingNames`, persists the choice
+per-building via the new `IntercityAcceptanceState` (backed by
+`SerializableDataExtension`, `DataID = "IPT4_IntercityBusAcceptance"`), and
+returns `false` so `isEmptying` is never touched for those buildings; native
+train stations are unaffected and keep using the vanilla property directly.
+`UpdateBindingsPatch` now syncs the checkbox from this per-building state
+instead of leaving it wired to nothing.
+
+### Added - Train Display "Original" theme, and fixed wrong colors in the rest
+
+Added `ModSetting.TrainDisplayColorThemes.Original`, built from screenshots of
+the source [Train Display - Updated](https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958)
+mod's Workshop page (no live game access to compare against): a dark header
+strip (name/status left, speed centre, next-stop/passengers right) plus a
+route strip below it, coloured to the vehicle's actual `TransportLine.m_color`
+and walking `TransportLine.m_stops`/`GetNextStop` to lay out passed/current/
+upcoming station markers. Interface-only, as requested - no change to how or
+when the overlay is triggered.
+
+Separately, the three existing themes (Simple/Dark/Light) were rendering the
+wrong colors: they tinted `GUI.Box(rect, GUIContent.none)` via
+`GUI.backgroundColor`, which does not produce a flat, accurate color because
+Unity's default skin box texture is not pure white - a tint multiplies against
+whatever that texture actually is. Replaced with a cached solid white
+`Texture2D` drawn via `GUI.DrawTexture` + `GUI.color`, which does tint
+accurately.
+
+### Fixed - Ticket Prices tab always used the fallback slider row
+
+`CreateSliderRowFromTemplate` reflects into the vanilla `BudgetItem` prefab to
+reuse its dual-handle slider visual. The lookup for the night-price slider
+field had a typo (`m_NightSlidermalan` instead of `m_NightSlider`), so
+`GetField` always returned `null`, the subsequent `GetValue` always threw, and
+every row silently fell back to `CreateSliderRowFallback` - the vanilla-styled
+row was never actually used, and every row paid for a wasted reflection/
+exception/`GameObject.Destroy` cycle in the process.
+
+### Optimized - cached per-frame UI lookups in two hot Harmony patches
+
+- `IntercityBusControl/.../UpdateBindingsPatch` postfixes
+  `CityServiceWorldInfoPanel.UpdateBindings`, which vanilla calls every frame
+  while **any** city-service panel is open (fire, police, health - not just
+  transport). It called `Find<UILabel>("Label")` and
+  `Find<UICheckBox>("AcceptIntercityTrains")` every frame instead of once; both
+  are now cached against the panel instance, which the game reuses across every
+  building the player inspects. Also added a null-guard on `building.Info` -
+  without it, inspecting a building that gets bulldozed while its panel is
+  still open threw every frame until the panel closed, since Harmony does not
+  swallow postfix exceptions.
+- `PublicTransportWorldInfoPanelPatches/UpdateStopButtonsPatch` fully replaces
+  `UpdateStopButtons` and called `Find<UILabel>("PassengerCount")` per stop
+  button, per frame, while the line panel is open - 30+ redundant UI-tree
+  searches per frame on a 30-stop line. The pooled `UIButton` instances are
+  stable across frames, so the label is now cached in a
+  `Dictionary<UIComponent, UILabel>` keyed by button instance instead.
+- `XYZVehicleAIPatches/CanLeavePatch` marked its `currentVehicleID`/
+  `currentStop` static fields `[ThreadStatic]`. They smuggle per-call context
+  from `Prefix` into a transpiler-injected wrapper call within the same
+  `CanLeave` invocation; vehicle AI simulation runs on a single thread today so
+  this was not a live bug, but the attribute removes the risk at zero cost if
+  that ever changes.
+
+A broader sweep (hot-path allocations, Harmony patch safety, event-subscription
+lifecycle across level loads) found nothing else actionable at this scope; see
+the PR/commit history for the full list of what was checked and ruled out,
+including a full-array-scan in `StopsAndStations/PassengerCountLimiter`'s
+`OnBeforeSimulationTick` that was deliberately left alone - the array is a
+fixed, small, compile-time bound (not city-size-dependent), the scan is
+allocation-free, and simulation ticks run far less often than frames, so
+bucketing it would trade real correctness risk (stale counts letting
+over-capacity spikes through) for no measurable gain.
+
+### Updated - Options menu reorganized around what each tab actually contains
+
+The old "Auto Line" tab had grown to seven unrelated settings groups (line
+info, budget, ticket prices, `AutoLineColor` under an un-localized hardcoded
+section title, Express Bus, Express Tram, `PublicTransportUnstucker`, and a
+catch-all "Integrations" group holding six unrelated third-party toggles).
+Split into: **Fleet & Scheduling** (line info, Unbunching's aggression/vehicle-
+count/spawn-interval controls, Express Bus/Tram - two approaches to the same
+spacing problem, now together), **Budget & Prices**, **Line Colors** (given its
+own tab and a real localization key instead of the hardcoded string), and
+**Integrations** (every absorbed third-party mod's toggle in one place - the
+landing tab for any future integration's switch). Stops, Delete Lines and
+Train Display were already well-scoped and are unchanged. Also restored the
+Shortcuts/Keybindings tab removed in an earlier version (currently an empty
+scaffold - no keybindings are defined yet, but the tab is ready for an
+integration that needs one), and added a GitHub project link under
+Options > Advanced, matching what several of the absorbed mods already did on
+their own settings pages.
+
+---
+
 ## [4.3.8] Stable channel
 
 ### Updated - `CurrentBuildChannel` is now `BuildChannel.Stable`

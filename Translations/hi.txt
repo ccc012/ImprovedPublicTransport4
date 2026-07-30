@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nप्रतीक्षारत यात्र
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP सुझाए गए स्टॉप नामों की सूची।
 STOP_PANEL_REUSE_NAME_TOOLTIP इस स्टेशन / स्थान के अन्य सभी स्टॉप पर यह नाम सेट करें।
 STOP_PANEL_WAITING_PEOPLE प्रतीक्षारत यात्री: {0}
+COMMUTER_DESTINATION_PANEL_TITLE यात्री गंतव्य
+COMMUTER_DESTINATION_BUTTON गंतव्य
+COMMUTER_DESTINATION_BUTTON_TOOLTIP इस स्टॉप पर प्रतीक्षारत यात्री कहाँ जा रहे हैं यह दिखाता है।
 STOP_PANEL_BORED_TIMER बोर होने तक का समय: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP यह उलटी गिनती शून्य होने पर यात्री इस स्टॉप को छोड़ देंगे।
 STOP_PANEL_PASSENGERS_IN यात्री अंदर:
@@ -57,10 +60,15 @@ SETTINGS_DELETE हटाएं
 SETTINGS_RESET रीसेट करें
 
 SETTINGS_TAB_GENERAL सामान्य
+SETTINGS_ADVANCED_LINKS_GROUP लिंक
+SETTINGS_GITHUB_REPO GitHub पर स्रोत कोड
 SETTINGS_TAB_AUTOLINE ऑटो लाइन
 SETTINGS_TAB_STOPS स्टॉप और स्टेशन
 SETTINGS_TAB_UNBUNCHING अनबंचिंग
 SETTINGS_TAB_DELETE लाइनें हटाएं
+SETTINGS_TAB_FLEET बेड़ा और समय-निर्धारण
+SETTINGS_TAB_BUDGET बजट और कीमतें
+SETTINGS_TAB_LINECOLORS लाइन रंग
 
 SETTINGS सेटिंग्स
 SETTINGS_SPEED गति दिखाएं:
@@ -289,6 +297,7 @@ SETTINGS_EBS_DESC_SELFBAL एक्सप्रेस बस सेवा को
 SETTINGS_EBS_DESC_SELFBAL_TARGETMID वाहनों को पुनः तैनात करते समय स्वतः-संतुलन को केवल टर्मिनल के बजाय लाइन के बीच का व्यस्त स्टॉप चुनने देता है।
 SETTINGS_LINE_DELETION_TOOL_DESCRIPTION नीचे परिवहन प्रकार चुनें, फिर वर्तमान शहर से उन प्रकारों की सभी लाइनें हटाने के लिए हटाएँ दबाएँ। यह चयन अस्थायी है - यह हमेशा अचयनित शुरू होता है और हटाने के बाद स्वयं साफ़ हो जाता है, इसे सेटिंग के रूप में सहेजा नहीं जाता।
 SETTINGS_TAB_TRAINDISPLAY ट्रेन डिस्प्ले
+SETTINGS_TAB_INTEGRATIONS एकीकरण
 SETTINGS_TRAINDISPLAY_ENABLE ट्रेन डिस्प्ले सक्षम करें
 SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP एकीकृत ट्रेन डिस्प्ले ओवरले चालू या बंद करें।
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY केवल प्रथम-पुरुष कैमरे में
@@ -318,6 +327,7 @@ SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP ओवरले में वाहन 
 SETTINGS_TRAINDISPLAY_THEME रंग थीम:
 SETTINGS_TRAINDISPLAY_THEME_DARK गहरा
 SETTINGS_TRAINDISPLAY_THEME_LIGHT हल्का
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL मूल
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE सरल
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP ओवरले की पृष्ठभूमि/पाठ के रंग चुनें।
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL अद्यतन अंतराल:
@@ -333,8 +343,21 @@ CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implemen
 SETTINGS_INTEGRATIONS_GROUP एकीकृत ऐड-ऑन
 SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control सक्षम करें
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP एकीकृत Intercity Bus Control संगतता परत और स्टेशन पैचिंग सक्षम करता है।
+SETTINGS_INTERCITY_BUS_CAPACITY इंटरसिटी टर्मिनल क्षमता
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP एक इंटरसिटी बस टर्मिनल एक साथ कितने वाहन रख सकता है।
+SETTINGS_DEPOT_CAPACITY_DISABLED अक्षम (असीमित)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE मध्यवर्ती
+SETTINGS_DEPOT_CAPACITY_REALISTIC यथार्थवादी
 SETTINGS_FLIGHTTRACKER_ENABLE Flight Tracker सक्षम करें
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP एकीकृत Flight Tracker पैच और इंटरफ़ेस समर्थन सक्षम करता है।
+SETTINGS_SUBBUILDINGSTABS_ENABLE सब-बिल्डिंग्स टैब सक्षम करें
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP जब किसी इमारत में सब-बिल्डिंग हों (जैसे मेट्रो स्टेशन वाला हवाई अड्डा), तो उसके जानकारी पैनल पर टैब स्ट्रिप दिखाता है, जिससे आप उनके बीच स्विच कर सकते हैं।
+SETTINGS_TAXISTANDFIX_ENABLE टैक्सी स्टैंड फिक्स सक्षम करें
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP खाली टैक्सियों को यूं ही घूमने देने के बजाय निकटतम टैक्सी स्टैंड की ओर भेजता है। After Dark DLC आवश्यक है।
+SETTINGS_SHAREDSTOPENABLER_ENABLE साझा स्टॉप सक्षम करें
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP एक से अधिक परिवहन प्रकार (बस, ट्राम, ट्रॉलीबस) को एक ही सड़क खंड पर रुकने देता है। डिफ़ॉल्ट रूप से बंद - यह संक्षिप्त संस्करण क्या छोड़ता है, यह जानने के लिए मॉड का GitHub देखें।
+SETTINGS_COMMUTERDESTINATION_ENABLE यात्री गंतव्य सक्षम करें
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP किसी स्टॉप पर प्रतीक्षारत यात्री कहाँ जा रहे हैं यह दिखाता है - एक छोटा पैनल और मानचित्र ओवरले। केवल पढ़ने के लिए, Harmony के अलावा कोई निर्भरता नहीं।
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -384,6 +407,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP वर्तमान किराया: {0}\nमूल किराया: {1}\nअभी सवार यात्री: {2}
 
+CHANGELOG_4_7_0_1 चार नए इंटीग्रेशन: सब-बिल्डिंग्स टैब (केवल हवाई अड्डों के लिए नहीं, बल्कि कई इमारतों वाले किसी भी परिसर के लिए टैब बार), साझा स्टॉप सक्षमकर्ता (एक से अधिक स्टॉप प्रकारों को एक ही सड़क खंड साझा करने देता है, डिफ़ॉल्ट रूप से बंद), यात्री गंतव्य (किसी स्टॉप पर प्रतीक्षारत नागरिक वास्तव में कहाँ जा रहे हैं, यह दिखाता है), और टैक्सी स्टैंड फिक्स (खाली टैक्सियाँ इधर-उधर भटकने के बजाय निकटतम स्टैंड की ओर जाती हैं)। प्रत्येक टॉगल के लिए विकल्प > एकीकरण देखें।
+CHANGELOG_4_7_0_2 इंटरसिटी बस टर्मिनलों के लिए एक वाहन क्षमता मोड जोड़ा गया (विकल्प > एकीकरण > इंटरसिटी बस टर्मिनल क्षमता): अक्षम इस मॉड के मौजूदा, व्यावहारिक रूप से असीमित टर्मिनल को बनाए रखता है, मध्यवर्ती एक मध्यम स्थिर सीमा लागू करता है, यथार्थवादी टर्मिनल की अपनी मूल गेम प्रीफैब क्षमता बहाल करता है। मौजूदा सेव डिफ़ॉल्ट रूप से अक्षम का उपयोग करते हैं, ताकि अपडेट करने पर किसी टर्मिनल की क्षमता कभी भी चुपचाप न घटे।
+CHANGELOG_4_7_0_3 इंटरसिटी बस टर्मिनल के "इंटरसिटी बसें स्वीकार करें" चेकबॉक्स को ठीक किया गया: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged, acceptsInterCityTrains सेट करता है, जो isEmptying के लिए महज़ एक उपनाम (alias) है, जिससे नाम बदला गया यह चेकबॉक्स वास्तव में बस स्वीकृति टॉगल करने के बजाय चुपचाप एक बस टर्मिनल को गेम की बिल्डिंग-शटडाउन स्थिति में डाल सकता था। अब एक Harmony prefix इसे रोकता है और बस-पैच किए गए टर्मिनलों के लिए प्रति-बिल्डिंग स्थिति की ओर पुनर्निर्देशित करता है, जबकि वास्तविक ट्रेन स्टेशन अप्रभावित रहते हैं।
+CHANGELOG_4_7_0_4 Train Display में एक "मूल" कलर थीम जोड़ी गई (विकल्प > Train Display > रंग थीम) जो मूल Train Display - Updated मॉड के लेआउट को दोहराती है: गति और स्थिति दिखाने वाली एक हेडर पट्टी, साथ ही वाहन की वास्तविक लाइन के रंग से मेल खाती एक रूट पट्टी।
+CHANGELOG_4_7_0_5 Train Display की सरल, गहरा और हल्का थीम गलत रंग दिखा रही थीं, इसे ठीक किया गया: GUI.backgroundColor के माध्यम से रंगा गया GUI.Box एक समतल रंग उत्पन्न नहीं करता, क्योंकि Unity के डिफ़ॉल्ट स्किन बॉक्स टेक्सचर शुद्ध सफ़ेद नहीं है। ओवरले अब इसके बजाय GUI.DrawTexture और GUI.color का उपयोग करके एक कैश्ड ठोस सफ़ेद टेक्सचर पर बनाया जाता है।
+CHANGELOG_4_7_0_6 टिकट मूल्य टैब हमेशा BudgetItem के मूल गेम विज़ुअल के बजाय अपनी सामान्य कस्टम स्लाइडर पंक्ति पर वापस चला जाता था, इसे ठीक किया गया: BudgetItem के रात्रि-मूल्य स्लाइडर फ़ील्ड के लिए एक reflection लुकअप में एक टाइपो था, जिससे यह हमेशा विफल होता था और यह त्रुटि चुपचाप पकड़ ली जाती थी।
+CHANGELOG_4_7_0_7 हर दृश्यमान परिवहन पैनल के लिए चलने वाले दो Harmony पैच में (सिटी-सर्विस पैनल पर इंटरसिटी-बस चेकबॉक्स, और लाइन पैनल पर प्रत्येक स्टॉप का यात्री-गणना लेबल) हर फ़्रेम में बार-बार होने वाली UI ट्री लुकअप को कम किया गया, हल किए गए UI संदर्भों को हर फ़्रेम में फिर से खोजने के बजाय कैश करके।
+CHANGELOG_4_7_0_8 पूरे विकल्प मेनू को ऐसे टैब में पुनर्गठित किया गया जो वास्तव में उनकी सामग्री से मेल खाते हैं (बेड़ा और समय-निर्धारण, बजट और कीमतें, लाइन रंग, एकीकरण, और अधिक), पुराने ऑटो लाइन टैब के बजाय जिसमें सात असंबंधित सेटिंग्स समूह थे। पहले के किसी संस्करण में हटाया गया शॉर्टकट टैब बहाल किया गया, भविष्य के उन एकीकरणों के लिए तैयार जिन्हें इसकी आवश्यकता होगी, और विकल्प > उन्नत के तहत एक GitHub प्रोजेक्ट लिंक जोड़ा गया।
 CHANGELOG_4_3_8_1 अब BETA के रूप में लेबल नहीं है। जिस रखरखाव ओवरफ्लो के लिए यह फोर्क बना था वह जड़ से ठीक हो गया है और प्रभावित सेव को सुधारता है; सभी 23 भाषाएँ पूरी हैं।
 CHANGELOG_4_3_7_1 सूची के सभी 23 भाषाएँ अब पूरी तरह अनूदित हैं। चेक, डच, स्लोवाक, थाई और तुर्की चुनी जा सकती थीं पर उनकी अनुवाद फाइल नहीं थी, इसलिए वे बिना सूचना अंग्रेजी पर लौट जाती थीं।
 CHANGELOG_4_3_7_2 भाषा चयन के नीचे दिखने वाला अनुवाद प्रगति का आंकड़ा एक स्थिर स्थिति फाइल से आता था जो कभी दोबारा नहीं बनाई गई थी, इसलिए वह सोलह भाषाओं के लिए 76% दिखाता था जो वास्तव में पूरी थीं।

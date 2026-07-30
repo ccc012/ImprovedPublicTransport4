@@ -2,7 +2,7 @@
 
 [b]One mod instead of fifteen.[/b] Real control over every transit line — how many vehicles run, which ones, where they stop, what a ticket costs — with a shelf of small transit mods folded in so they stop fighting.
 
-[b]Version 4.3.8[/b] · Built for game version 1.21.1-f9
+[b]Version 4.7.0[/b] · Built for game version 1.21.1-f9
 
 [hr][/hr]
 
@@ -46,6 +46,16 @@ Price each transport type independently in the [b]Ticket Prices[/b] tab of the E
 [*][b]Unstucker[/b] — stuck vehicles get released instead of blocking a route.
 [/list]
 
+[h2]New in 4.7[/h2]
+[list]
+[*][b]Sub-Buildings Tabs[/b] — a tab bar on any multi-building hub's info panel, not just airports.
+[*][b]Commuter Destination[/b] — see where the passengers waiting at a stop are actually headed.
+[*][b]Shared Stop Enabler[/b] (off by default) — more than one stop type on the same road segment.
+[*][b]Taxi Stand Fix[/b] — idle taxis head for the nearest stand instead of wandering.
+[*][b]Intercity bus terminal capacity mode[/b] — Disabled, Intermediate or Realistic, in Options.
+[*][b]Train Display “Original” theme[/b], matching the source mod's own look, and corrected colours on the other three themes.
+[/list]
+
 [hr][/hr]
 
 [h1]Mods absorbed into IPT4 — and who made them[/h1]
@@ -60,6 +70,7 @@ Every one is somebody else's work. If a feature here is useful to you, go say so
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] — [b]TaradinoC[/b], from Phil Scott's original AutoLineColor
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] — [b]Vectorial1024[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] — [b]llunak[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] — [b]jkm[/b] (James Monger)
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] — [b]macsergey[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] — [b]Vectorial1024[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] — [b]Nyoko[/b]
@@ -67,13 +78,17 @@ Every one is somebody else's work. If a feature here is useful to you, go say so
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] — [b]Vectorial1024[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] — [b]Vectorial1024[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] — [b]egi[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] — [b]CodeBardian[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] — [b]dymanoid[/b]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] — [b]BloodyPenguin, AJ3D[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] — [b]BloodyPenguin[/b]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] — [b]Will[/b], continuing [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape's Train Display Mod[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] — [b]Gansaku[/b]
 [/list]
 
 Most have their own switch or mode selector in the options. A few that only repair broken vanilla behaviour are always on. Taxi mileage income needs [b]After Dark[/b].
+
+The [b]Taxi Stand Fix[/b] feature above isn't in that list because it isn't ported code — it's an original IPT4 implementation of the same idea as the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3712889232]Taxi Stand Fix[/url] mod, written fresh rather than adapted from it. Credit for the idea either way.
 
 [hr][/hr]
 

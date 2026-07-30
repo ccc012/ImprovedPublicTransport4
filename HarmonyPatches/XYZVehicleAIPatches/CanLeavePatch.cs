@@ -14,7 +14,12 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
     public static class CanLeavePatch
     {
         private const string CanLeaveMethod = "CanLeave";
+        // Smuggles per-call context from Prefix into the transpiler-injected wrapper call within
+        // the same CanLeave invocation. [ThreadStatic] costs nothing here (vehicle AI simulation
+        // runs on a single thread) but removes any risk if that ever changes.
+        [ThreadStatic]
         private static ushort currentVehicleID;
+        [ThreadStatic]
         private static ushort currentStop;
         
         

@@ -1,0 +1,22 @@
+GPL-3.0-only
+
+This folder contains a new IPT4 integration layer adapted from the Steam Workshop
+item 2096382380, SharedStopEnabler, by CodeBardian
+(github.com/CodeBardian/SharedStopEnabler).
+
+Source origin, credits, and licensing notes:
+- The upstream mod is GPL-3.0 licensed - see the repository's own LICENSE for the
+  full text (also reproduced at the root of this repository, since IPT4 as a whole
+  is GPL-3.0).
+- This is a REDUCED port, not a full one. Left out deliberately, after reviewing
+  the full upstream source: the RoadBridgeAI/elevated-stop patch, the
+  PathManager.FindPathPosition patch, and the IL-transpiler patch on
+  TransportTool.GetStopPosition. Those touch either a very hot vanilla method
+  (PathManager) or match IL by string content, which is fragile across game
+  updates - out of proportion with what this integration is meant to add. Only
+  the core mechanism (allow more than one transit stop type on the same road
+  segment) was ported.
+- `SharedStopsTool`'s MonoBehaviour/Singleton pattern was replaced with a static
+  class (`SharedStopRegistry`), matching how IPT4 already tracks per-line/per-
+  segment state elsewhere (see Data/CachedTransportLineData.cs) rather than
+  introducing a second lifecycle pattern.

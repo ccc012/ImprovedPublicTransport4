@@ -165,6 +165,7 @@ named.
 | `AutoLineColor` | [AutoLineColor Redux](https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282) | **TaradinoC**, from Phil Scott's original AutoLineColor | MIT |
 | `BetterBoarding` | [Better Train Boarding](https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744) | **Vectorial1024** | MIT |
 | `BetterBusStopPosition` | [Better Bus Stop Position](https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535) | **llunak** | GPL |
+| `CommuterDestination` | [Commuter Destination](https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859) · [source](https://github.com/Jameskmonger/CSL-ShowCommuterDestination) | **jkm** (James Monger) | MIT |
 | `ElevatedStopsEnabler` | [Elevated Stops Enabler Revisited](https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091) | **macsergey** | GPL |
 | `ExpressBusServices` | [Express Bus Services](https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175) | **Vectorial1024** (Vincent Wong) | MIT |
 | `FlightTracker` | [Flight Tracker](https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468) | **Nyoko** | MIT |
@@ -172,14 +173,23 @@ named.
 | `MileageTaxiServices` | [Mileage Taxi Services](https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582) | **Vectorial1024** | MIT |
 | `PublicTransportUnstucker` | [Public Transport Unstucker](https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140) | **Vectorial1024** | MIT |
 | `RealisticWalkingSpeed` | [Realistic Walking Speed](https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620) | **egi** (DaEgi01) | MIT |
+| `SharedStopEnabler` | [Shared Stop Enabler](https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380) · [source](https://github.com/CodeBardian/SharedStopEnabler) | **CodeBardian** | GPL-3.0 |
 | `StopsAndStations` | [Stops & Stations](https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533) | **dymanoid** | MIT |
+| `SubBuildingsTabs` | [Sub-Buildings Tabs](https://steamcommunity.com/sharedfiles/filedetails/?id=608517757) · [source](https://github.com/bloodypenguin/Skylines-SubBuildingsTabBar) | **BloodyPenguin, AJ3D** | MIT |
 | `TicketPriceCustomizer` | [Ticket Price Customizer](https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309) | **BloodyPenguin** | GPL |
 | `TrainDisplayUpdated` | [Train Display - Updated](https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958) | **Will**, continuing [Asmape's Train Display Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816) | GPL-3.0 |
 | `HarmonyPatches/…/NormalizeFullwidthLineNamesPatch` | [Rescue Fullwidth Digits](https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364) | **Gansaku** | — |
 
 The licence column is the licence of the code **as absorbed**; the authoritative
-copy lives in each `Integration/<Name>/LICENSE`. Two GPL-3.0 entries
-(`AutoLineBudget`, `TrainDisplayUpdated`) are why IPT4 as a whole is GPL-3.0.
+copy lives in each `Integration/<Name>/LICENSE`. Three GPL-3.0 entries
+(`AutoLineBudget`, `TrainDisplayUpdated`, `SharedStopEnabler`) are why IPT4 as a
+whole is GPL-3.0.
+
+`TaxiStandFix` is deliberately absent from this table: unlike everything else
+above, it is not a code port. It is an original IPT4 implementation of the same
+idea as the standalone [Taxi Stand Fix](https://steamcommunity.com/sharedfiles/filedetails/?id=3712889232)
+mod - written fresh against IPT4's own Harmony conventions rather than adapted
+from its source - so there is no upstream licence to carry forward.
 
 > **Attribution check, worth repeating if you absorb another mod:** several of
 > these folders contain a copyright header for *AlgernonCommons*, the vendored
@@ -342,6 +352,12 @@ Controls how buses position themselves at stops, moving them forward instead of 
   - PassengerBlimpAI
   - PassengerFerryAI
 
+### Commuter Destination
+Adds a "Destinations" button to the transit stop info panel showing where the
+citizens currently waiting there are actually headed — useful for spotting a stop
+that mostly serves one distant employer or venue versus a general-purpose one.
+Read-only: it never writes simulation state, only reads existing citizen paths.
+
 ### Elevated Stops Enabler
 Build transit stops on elevated roads, opening up new urban layouts.
 
@@ -365,6 +381,8 @@ Fine-tune intercity bus behavior with a toggle on regular bus stations to allow 
   - Harbor-Bus-Monorail Hub / Harbor-Bus Hub
   - Monorail-Bus Hub
 - **Note**: The Bus-Train-Tram Hub uses its native intercity trains toggle and is left unchanged to avoid transport mode conflicts (only one intercity toggle per building is supported by the game UI).
+- **Per-terminal accept toggle**: each patched bus terminal has its own "accept intercity buses" checkbox, persisted per building rather than shared across the city.
+- **Vehicle capacity mode** (Options > Integrations): `Disabled` keeps the effectively-uncapped terminal capacity this mod has always used, `Intermediate` applies a moderate fixed cap, `Realistic` leaves the terminal's own vanilla prefab capacity untouched. Existing saves default to `Disabled` so upgrading never silently shrinks a terminal out from under you.
 
 ### Mileage Taxi Service
 Taxis now charge per mile/kilometer traveled (based on IPT 'Show speed in' setting) instead of straight line distance from start to finish points, making them a realistic urban transportation option (After Dark DLC).
@@ -386,11 +404,29 @@ Enables realistic pedestrian and cycling speeds in your city, controllable from 
 - Cycling becomes a realistic alternative to transit for shorter distances, but longer trips favor public transport
 - Citizens move more realistically overall, affecting passenger boarding times and transfer experiences
 
+### Shared Stop Enabler
+Allows more than one transit stop type to share the same road segment (for example
+a bus stop and a tram stop on the same street), instead of vanilla's one-stop-per-
+segment restriction. **Off by default** — see `Integration/SharedStopEnabler/LICENSE.txt`
+for the reduced scope of what was ported.
+
 ### Stops and Stations
 Adds a waiting passenger limiter to all transit stops in Options Panel:
 - Controls maximum passenger overflow at busy stops
 - Prevents unrealistic passenger accumulation that can cause performance issues
 - Applies universally to each transport type
+
+### Sub-Buildings Tabs
+Adds a tab bar to any building's info panel that has sub-buildings — not just
+airports, any multi-building service hub — so each sub-building's own panel is one
+click away instead of requiring you to find and click it on the map directly.
+
+### Taxi Stand Fix
+Idle taxis (no passenger, no destination already assigned) head toward the
+nearest taxi stand instead of wandering at random, using the same vanilla
+dispatch path (`TaxiAI.SetTarget`) the game itself uses for normal fares. See the
+note under [Absorbed mods](#absorbed-mods) — this one is an original
+implementation, not a port.
 
 ### Ticket Price Customizer
 Integrated directly into the Economy Panel with its own tab alongside Budget, Taxes, Loans, and Investments.

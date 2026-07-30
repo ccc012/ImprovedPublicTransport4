@@ -22,12 +22,6 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                 return;
             }
 
-            if (!TrainDisplayIntegration.IsFirstPersonCameraActive())
-            {
-                ClearOverlay();
-                return;
-            }
-
             if (Time.realtimeSinceStartup < _nextPollTime)
             {
                 return;
@@ -35,25 +29,19 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
 
             _nextPollTime = Time.realtimeSinceStartup + TrainDisplayIntegration.GetUpdateInterval();
 
-            if (!TrainDisplayIntegration.TryGetFollowTarget(out InstanceID target) || target.Vehicle == 0)
+            if (!TrainDisplayIntegration.TryGetSelectedVehicle(out ushort vehicleId))
             {
                 ClearOverlay();
                 return;
             }
 
-            if (!TrainDisplayIntegration.IsSupportedVehicle(target.Vehicle))
+            if (_trackedVehicle != vehicleId)
             {
-                ClearOverlay();
-                return;
-            }
-
-            if (_trackedVehicle != target.Vehicle)
-            {
-                _trackedVehicle = target.Vehicle;
+                _trackedVehicle = vehicleId;
                 _trackedSince = Time.realtimeSinceStartup;
             }
 
-            if (!TrainDisplayIntegration.TryBuildOverlayData(target.Vehicle, Time.realtimeSinceStartup - _trackedSince, out _overlayData))
+            if (!TrainDisplayIntegration.TryBuildOverlayData(vehicleId, Time.realtimeSinceStartup - _trackedSince, out _overlayData))
             {
                 ClearOverlay();
             }

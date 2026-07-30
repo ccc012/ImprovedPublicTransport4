@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nWaiting passengers: {1}\n\nRight click to jump to
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP List of suggested stop names.
 STOP_PANEL_REUSE_NAME_TOOLTIP Set this name to all other stops at this station / position.
 STOP_PANEL_WAITING_PEOPLE Waiting passengers: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Commuter Destination
+COMMUTER_DESTINATION_BUTTON Destinations
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Show where the passengers waiting at this stop are headed.
 STOP_PANEL_BORED_TIMER Time till bored: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Passengers will leaving this stop when this countdown hits zero.
 STOP_PANEL_PASSENGERS_IN Passengers in:
@@ -57,10 +60,15 @@ SETTINGS_DELETE Delete
 SETTINGS_RESET Reset
 
 SETTINGS_TAB_GENERAL General
+SETTINGS_ADVANCED_LINKS_GROUP Links
+SETTINGS_GITHUB_REPO Source code on GitHub
 SETTINGS_TAB_AUTOLINE Auto Line
 SETTINGS_TAB_STOPS Stops and Stations
 SETTINGS_TAB_UNBUNCHING Unbunching
 SETTINGS_TAB_DELETE Delete Lines
+SETTINGS_TAB_FLEET Fleet & Scheduling
+SETTINGS_TAB_BUDGET Budget & Prices
+SETTINGS_TAB_LINECOLORS Line Colors
 
 SETTINGS Settings
 SETTINGS_SPEED Show speed in: 
@@ -290,6 +298,7 @@ WHATSNEW_3_0_0_2 The following mods have been integrated into IPT3:\n • Advanc
 WHATSNEW_3_0_1 Public Transport Unstucker now integrated into IPT3.\nSee version 3.0 for all other integrated mods. Unsubscribe from originals to avoid conflicts.
 
 SETTINGS_TAB_TRAINDISPLAY Train Display
+SETTINGS_TAB_INTEGRATIONS Integrations
 SETTINGS_TRAINDISPLAY_GROUP Train Display Overlay
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configure the integrated overlay shown while following supported transport vehicles.
 SETTINGS_TRAINDISPLAY_ENABLE Enable Train Display
@@ -323,6 +332,7 @@ SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Choose the overlay's background/text colors.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simple
 SETTINGS_TRAINDISPLAY_THEME_DARK Dark
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Light
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
 
 COPY_TIP Copy this line's settings.
 PASTE_TIP Paste the copied line settings.
@@ -331,8 +341,21 @@ COPY_DISTRICT_TIP Copy these settings to all lines in this district.
 SETTINGS_INTEGRATIONS_GROUP Integrated Add-ons
 SETTINGS_INTERCITY_BUS_ENABLE Enable Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Enables the integrated Intercity Bus Control compatibility layer and station patching.
+SETTINGS_INTERCITY_BUS_CAPACITY Intercity Terminal Capacity
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP How many vehicles an intercity bus terminal can hold at once.
+SETTINGS_DEPOT_CAPACITY_DISABLED Disabled (uncapped)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermediate
+SETTINGS_DEPOT_CAPACITY_REALISTIC Realistic
 SETTINGS_FLIGHTTRACKER_ENABLE Enable Flight Tracker
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Enables the integrated Flight Tracker patches and UI support.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Enable Sub-Buildings Tabs
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Shows a tab strip on a building's info panel when it has sub-buildings (e.g. an airport with a built-in metro station), letting you switch between them.
+SETTINGS_TAXISTANDFIX_ENABLE Enable Taxi Stand Fix
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sends idle taxis toward the nearest taxi stand instead of leaving them to wander at random. Requires the After Dark DLC.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared Stop Enabler
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) to stop on the same road segment. Off by default - see the mod's GitHub for what this reduced version leaves out.
+SETTINGS_COMMUTERDESTINATION_ENABLE Enable Commuter Destination
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Read-only, no dependency other than Harmony.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -385,6 +408,14 @@ CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTr
 CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP Current fare: {0}\nOriginal fare: {1}\nPassengers riding now: {2}
+CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (shows where the citizens waiting at a stop are actually headed) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
+CHANGELOG_4_7_0_2 Added a vehicle capacity mode for intercity bus terminals (Options > Integrations > Intercity Bus Terminal Capacity): Disabled keeps this mod's existing effectively-uncapped terminal, Intermediate applies a moderate fixed cap, Realistic restores the terminal's own vanilla prefab capacity. Existing saves default to Disabled so upgrading never silently shrinks a terminal's capacity.
+CHANGELOG_4_7_0_3 Fixed the intercity bus terminal's "accept intercity buses" checkbox: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged sets acceptsInterCityTrains, which is a pure alias for isEmptying, so the relabeled checkbox was able to silently put a bus terminal into the game's building-shutdown state instead of actually toggling bus acceptance. A Harmony prefix now intercepts and redirects it to per-building state for bus-patched terminals, leaving real train stations untouched.
+CHANGELOG_4_7_0_4 Added an "Original" color theme to Train Display (Options > Train Display > Color Theme) that reproduces the layout of the source Train Display - Updated mod: a header strip with speed and status, plus a route strip colored to match the vehicle's actual line color.
+CHANGELOG_4_7_0_5 Fixed the Simple, Dark and Light Train Display themes rendering the wrong colors: GUI.Box tinted via GUI.backgroundColor does not produce a flat color, because Unity's default skin box texture is not pure white. The overlay now draws onto a cached solid white texture with GUI.DrawTexture and GUI.color instead.
+CHANGELOG_4_7_0_6 Fixed the Ticket Prices tab always falling back to its plain custom slider row instead of the vanilla BudgetItem visual: a reflection lookup for BudgetItem's night-price slider field had a typo, so it always threw and was silently caught.
+CHANGELOG_4_7_0_7 Reduced repeated per-frame UI tree lookups in two Harmony patches that run for every visible transport panel (the intercity-bus checkbox on city-service panels, and each stop's passenger-count label on the line panel) by caching the resolved UI references instead of re-searching for them every frame.
+CHANGELOG_4_7_0_8 Reorganized the entire Options menu into tabs that match what they actually contain (Fleet & Scheduling, Budget & Prices, Line Colors, Integrations, and more) instead of the old Auto Line tab holding seven unrelated settings groups. Restored the Shortcuts tab removed in an earlier version, ready for future integrations that need one, and added a GitHub project link under Options > Advanced.
 CHANGELOG_4_3_8_1 No longer marked BETA. The maintenance overflow that this fork exists to fix is resolved at the root and repairs saves it already damaged, and all 23 languages are complete.
 CHANGELOG_4_3_7_1 All 23 languages in the selector are now fully translated. Czech, Dutch, Slovak, Thai and Turkish were selectable but had no translation file, so they silently fell back to English.
 CHANGELOG_4_3_7_2 The translation progress shown under the language selector was reading a static status file that had not been regenerated, so it reported 76% for sixteen languages that were in fact complete.

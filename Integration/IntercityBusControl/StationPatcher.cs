@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using ImprovedPublicTransport;
 using ImprovedPublicTransport.Util;
 
 namespace IntercityBusControl
@@ -100,7 +101,7 @@ namespace IntercityBusControl
                 {
                     ai.m_transportInfo = intercityBusTransport;
                 }
-                ai.m_maxVehicleCount = 100000;
+                ApplyCapacity(ai, primary: true);
                 if (Diagnostics.VerboseRuntimeLogs)
                 {
                     Utils.Log($"Intercity Bus Control - StationPatcher: patched {info.name} (primary bus)");
@@ -112,7 +113,7 @@ namespace IntercityBusControl
                 {
                     ai.m_secondaryTransportInfo = intercityBusTransport;
                 }
-                ai.m_maxVehicleCount2 = 100000;
+                ApplyCapacity(ai, primary: false);
                 if (Diagnostics.VerboseRuntimeLogs)
                 {
                     Utils.Log($"Intercity Bus Control - StationPatcher: patched {info.name} (secondary bus)");
@@ -121,6 +122,46 @@ namespace IntercityBusControl
 
             PatchedBuildingNames.Add(info.name);
             return true;
+        }
+
+        /// <summary>
+        /// Vehicle cap for a patched intercity bus terminal, per
+        /// <see cref="ModSetting.IntercityTerminalCapacityMode"/>. Shared with
+        /// <see cref="HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch"/>, which applies the
+        /// same patch to prefabs that finish loading after level load (custom assets, editor) - both
+        /// call sites must agree, or a terminal's cap would depend on which code path happened to
+        /// patch it first.
+        /// </summary>
+        /// <remarks>
+        /// A single intercity bus terminal typically serves several intercity lines at once (unlike
+        /// a normal depot, which usually serves one), so even "Realistic" leaves headroom rather
+        /// than adopting whatever a plain bus depot's own default happens to be - it just drops the
+        /// effectively-unlimited 100,000 down to something a player could plausibly hit and notice.
+        /// </remarks>
+        internal static int GetCapacityForCurrentMode()
+        {
+            switch (ModSetting.Instance.IntercityTerminalCapacityMode)
+            {
+                case ModSetting.DepotCapacityModes.Realistic:
+                    return 40;
+                case ModSetting.DepotCapacityModes.Intermediate:
+                    return 200;
+                default: // Disabled - preserves the behaviour every existing save already has.
+                    return 100000;
+            }
+        }
+
+        private static void ApplyCapacity(TransportStationAI ai, bool primary)
+        {
+            var cap = GetCapacityForCurrentMode();
+            if (primary)
+            {
+                ai.m_maxVehicleCount = cap;
+            }
+            else
+            {
+                ai.m_maxVehicleCount2 = cap;
+            }
         }
 
         private static bool IsBusSubService(TransportInfo ti, ItemClass.SubService subService)

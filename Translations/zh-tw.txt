@@ -34,6 +34,9 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\n等待乘客：{1}\n\n按右鍵前往此站點。
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP 建議的站點名稱清單。
 STOP_PANEL_REUSE_NAME_TOOLTIP 將此名稱設定為此車站/地點的所有其他站點。
 STOP_PANEL_WAITING_PEOPLE 等待乘客：{0}
+COMMUTER_DESTINATION_PANEL_TITLE 乘客目的地
+COMMUTER_DESTINATION_BUTTON 目的地
+COMMUTER_DESTINATION_BUTTON_TOOLTIP 顯示在此站點等待的乘客要前往何處。
 STOP_PANEL_BORED_TIMER 厭倦前的時間：<color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP 當此倒數到 0 時，乘客離開站點。
 STOP_PANEL_PASSENGERS_IN 上車乘客：
@@ -57,10 +60,15 @@ SETTINGS_DELETE 刪除
 SETTINGS_RESET 重設
 
 SETTINGS_TAB_GENERAL 一般
+SETTINGS_ADVANCED_LINKS_GROUP 連結
+SETTINGS_GITHUB_REPO GitHub 上的原始碼
 SETTINGS_TAB_AUTOLINE 自動路線
 SETTINGS_TAB_STOPS 站點和車站
 SETTINGS_TAB_UNBUNCHING 車間分散
 SETTINGS_TAB_DELETE 刪除路線
+SETTINGS_TAB_FLEET 車隊與調度
+SETTINGS_TAB_BUDGET 預算與票價
+SETTINGS_TAB_LINECOLORS 路線顏色
 
 SETTINGS 設定
 SETTINGS_SPEED 速度: 
@@ -288,6 +296,7 @@ SETTINGS_EBS_DESC_SELFBAL 允許快速公車服務在整條路線上重新分配
 SETTINGS_EBS_DESC_SELFBAL_TARGETMID 允許自動平衡在重新調配車輛時選擇路線中段的繁忙站點，而不僅僅是終點站。
 SETTINGS_LINE_DELETION_TOOL_DESCRIPTION 勾選下方的運輸類型，然後按刪除即可從目前城市中移除這些類型的所有路線。此選擇是暫時的——它始終以未勾選狀態開始，並在刪除後自動清空，不會儲存為設定。
 SETTINGS_TAB_TRAINDISPLAY 列車顯示
+SETTINGS_TAB_INTEGRATIONS 整合模組
 SETTINGS_TRAINDISPLAY_ENABLE 啟用列車顯示
 SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP 開啟或關閉整合的列車顯示浮層。
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 僅在第一人稱視角
@@ -317,6 +326,7 @@ SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP 在浮層中包含車輛狀態。
 SETTINGS_TRAINDISPLAY_THEME 配色主題：
 SETTINGS_TRAINDISPLAY_THEME_DARK 深色
 SETTINGS_TRAINDISPLAY_THEME_LIGHT 淺色
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL 原版
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE 簡約
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP 選擇浮層的背景/文字顏色。
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL 更新間隔：
@@ -332,8 +342,21 @@ CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implemen
 SETTINGS_INTEGRATIONS_GROUP 整合外掛
 SETTINGS_INTERCITY_BUS_ENABLE 啟用 Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP 啟用整合的 Intercity Bus Control 相容層與車站修補。
+SETTINGS_INTERCITY_BUS_CAPACITY 城際客運站容量
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP 城際巴士客運站一次可容納的車輛數量。
+SETTINGS_DEPOT_CAPACITY_DISABLED 停用（無限制）
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE 適中
+SETTINGS_DEPOT_CAPACITY_REALISTIC 真實
 SETTINGS_FLIGHTTRACKER_ENABLE 啟用 Flight Tracker
 SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP 啟用整合的 Flight Tracker 修補與介面支援。
+SETTINGS_SUBBUILDINGSTABS_ENABLE 啟用子建築標籤頁
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP 當建築物擁有子建築時（例如內建地鐵站的機場），在資訊面板上顯示標籤列，方便在它們之間切換。
+SETTINGS_TAXISTANDFIX_ENABLE 啟用計程車招呼站修正
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP 將閒置計程車派往最近的招呼站，而不是讓它們隨意遊蕩。需要 After Dark DLC。
+SETTINGS_SHAREDSTOPENABLER_ENABLE 啟用共享站點
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP 允許多種交通類型（公車、有軌電車、無軌電車）在同一路段停靠。預設關閉 - 此精簡版省略了哪些內容請參閱模組的 GitHub。
+SETTINGS_COMMUTERDESTINATION_ENABLE 啟用乘客目的地
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 顯示在站點等待的乘客要前往何處 - 一個小面板加地圖疊加層。唯讀，除 Harmony 外無其他依賴。
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -383,6 +406,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 目前票價：{0}\n原始票價：{1}\n目前乘客數：{2}
 
+CHANGELOG_4_7_0_1 四項新的整合模組：子建築標籤頁（適用於任何多建築複合設施的標籤列，不僅限於機場）、共享站點（允許多種站點類型共用同一路段，預設關閉）、乘客目的地（顯示在站點等候的市民實際要前往的地方）以及計程車招呼站修正（閒置計程車會前往最近的招呼站，而不是四處遊蕩）。各項開關請見 選項 > 整合模組。
+CHANGELOG_4_7_0_2 為城際客運站新增了車輛容量模式（選項 > 整合模組 > 城際客運站容量）：停用會保留本模組先前實際上無限制的容量；適中會套用一個適度的固定上限；真實則會還原客運站本身原版預製件的容量。既有存檔預設使用停用，因此升級不會在不知不覺中縮減客運站容量。
+CHANGELOG_4_7_0_3 修正了城際客運站的「接受城際巴士」核取方塊：CityServiceWorldInfoPanel.OnAcceptsIntercityChanged 設定的是 acceptsInterCityTrains，而它其實只是 isEmptying 的別名，因此這個改了名稱的核取方塊可能會在不知不覺中將巴士站切換到遊戲的建築關閉狀態，而不是真正切換是否接受巴士。現在有一個 Harmony 前綴會攔截並將其重新導向到針對已套用巴士修補的客運站的按建築狀態，真正的火車站則不受影響。
+CHANGELOG_4_7_0_4 為 Train Display 新增了「原版」配色主題（選項 > Train Display > 配色主題），重現了原始 mod Train Display - Updated 的版面配置：一條顯示速度與狀態的標題列，加上一條依車輛實際路線顏色著色的路線列。
+CHANGELOG_4_7_0_5 修正了 Train Display 的簡約、深色與淺色主題顯示錯誤顏色的問題：透過 GUI.backgroundColor 上色的 GUI.Box 並不會產生單一純色，因為 Unity 預設外觀的方框材質並非純白色。現在浮層改為使用 GUI.DrawTexture 與 GUI.color，繪製到一張快取的純白材質上。
+CHANGELOG_4_7_0_6 修正了票價分頁總是退回其簡易自訂滑桿列、而非使用原版 BudgetItem 視覺樣式的問題：對 BudgetItem 夜間票價滑桿欄位的反射（reflection）查詢中有一處拼字錯誤，導致查詢一律拋出例外，並被靜默攔截。
+CHANGELOG_4_7_0_7 減少了兩個 Harmony 修補程式中每影格重複的 UI 樹狀結構查詢：這兩個修補程式分別在每個可見的運輸面板（城市服務面板上的城際巴士核取方塊，以及路線面板中每個站點的乘客數標籤）上執行，現在會快取已解析的 UI 參照，而不是每個影格都重新查詢。
+CHANGELOG_4_7_0_8 將整個選項選單重新整理為與實際內容相符的標籤頁（車隊與調度、預算與票價、路線顏色、整合模組等），取代了原本把七個互不相關的設定群組塞在一起的自動路線標籤頁。恢復了先前版本中被移除的快捷鍵標籤頁，為未來需要它的整合模組做好準備，並在 選項 > 進階 底下新增了一個 GitHub 專案連結。
 CHANGELOG_4_3_8_1 不再標記為 BETA。促使本分支誕生的維護費用溢出已從根源修正，並會修復已受損的存檔；23 種語言全部完成。
 CHANGELOG_4_3_7_1 選擇器中的全部 23 種語言現已完全翻譯。捷克語、荷蘭語、斯洛伐克語、泰語和土耳其語之前可以選擇，但沒有翻譯檔案，會靜默地回退到英語。
 CHANGELOG_4_3_7_2 語言選擇器下方顯示的翻譯進度讀取的是一個從未重新生成的靜態狀態檔案，因此對十六種實際上已經完成的語言顯示為 76%。

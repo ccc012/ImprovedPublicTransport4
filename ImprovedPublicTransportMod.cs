@@ -21,7 +21,6 @@ using ImprovedPublicTransport.UI;
 using ImprovedPublicTransport.UI.PanelExtenders;
 using ImprovedPublicTransport.Integration.AdvancedStopSelection;
 using ElevatedStopsEnabler;
-// using SharedStopEnabler.Util;  // DISABLED: SharedStopsEnabler folder removed from Integration/
 using MileageTaxiServices;
 using RealisticWalkingSpeed;
 using UnityEngine;
@@ -100,7 +99,7 @@ namespace ImprovedPublicTransport
                         if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TicketPriceCustomizer: disabled by settings, skipping DayNightPriceWatcher.");
                     }
 
-                    // Train Display - Updated: lightweight overlay for followed transport vehicles.
+                    // Train Display - Updated: lightweight overlay for the selected public transport vehicle.
                     try
                     {
                         IptGameObject.AddComponent<Integration.TrainDisplayUpdated.TrainDisplayWatcher>();
@@ -218,21 +217,6 @@ namespace ImprovedPublicTransport
                     // Activate integration patches
                     ImprovedPublicTransport.Integration.AdvancedStopSelection.PatchController.Activate();
 
-                    // SharedStopsEnabler (patches TransportTool to enable shared stops)
-                    // DISABLED: Shared Stops Enabler integration folder removed from Integration/
-                    // Uncomment to restore if re-adding the mod
-                    /*
-                    try
-                    {
-                        SharedStopEnabler.Util.Patcher.PatchAll();
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SharedStopsEnabler: integration applied.");
-                    }
-                    catch (Exception ex)
-                    {
-                        Utils.LogError($"SharedStopsEnabler: failed to apply integration: {ex.Message}");
-                    }
-                    */
-
                     // BetterBoarding integration (enhanced boarding decisions)
                     try
                     {
@@ -338,6 +322,7 @@ namespace ImprovedPublicTransport
                         else
                         {
                             IntercityBusControl.HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch.Reset();
+                            IntercityBusControl.IntercityAcceptanceState.Init();
                             IntercityBusControl.Patcher.PatchAll();
                             // Prefabs are already loaded by the time OnLevelLoaded fires, so the
                             // InitializePrefab Harmony patches never ran for vanilla/workshop assets.
@@ -367,6 +352,88 @@ namespace ImprovedPublicTransport
                     catch (Exception ex)
                     {
                         Utils.LogError($"FlightTracker: failed to apply integration: {ex.Message}");
+                    }
+
+                    // SubBuildingsTabs integration (UI-only: tab strip on buildings with sub-buildings)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableSubBuildingsTabs)
+                        {
+                            SubBuildingsTabs.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SubBuildingsTabs: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SubBuildingsTabs: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"SubBuildingsTabs: failed to apply integration: {ex.Message}");
+                    }
+
+                    // TaxiStandFix integration (sends idle taxis toward taxi stands)
+                    // Requires After Dark DLC (taxis are an After Dark feature)
+                    if (SteamHelper.IsDLCOwned(SteamHelper.DLC.AfterDarkDLC))
+                    {
+                        try
+                        {
+                            if (ModSetting.Instance.EnableTaxiStandFix)
+                            {
+                                TaxiStandFix.PatchController.Activate();
+                                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TaxiStandFix: integration applied.");
+                            }
+                            else
+                            {
+                                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TaxiStandFix: integration disabled (toggle is off).");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Utils.LogError($"TaxiStandFix: failed to apply integration: {ex.Message}");
+                        }
+                    }
+                    else
+                    {
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TaxiStandFix: After Dark DLC not detected, skipping integration.");
+                    }
+
+                    // SharedStopEnabler integration (allows more than one transit stop type on the
+                    // same road segment) - reduced port, off by default; see
+                    // Integration/SharedStopEnabler/LICENSE.txt for what was left out and why.
+                    try
+                    {
+                        if (ModSetting.Instance.EnableSharedStopEnabler)
+                        {
+                            SharedStopEnabler.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SharedStopEnabler: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SharedStopEnabler: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"SharedStopEnabler: failed to apply integration: {ex.Message}");
+                    }
+
+                    // CommuterDestination integration (shows where waiting passengers are headed)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableCommuterDestination)
+                        {
+                            CommuterDestination.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"CommuterDestination: failed to apply integration: {ex.Message}");
                     }
 
                     // Show What's New notification now that the in-game UI is fully initialized.
@@ -573,21 +640,6 @@ namespace ImprovedPublicTransport
                 Utils.LogError($"BetterBusStopPosition: failed to remove integration: {ex.Message}");
             }
 
-            // SharedStopsEnabler cleanup
-            // DISABLED: Shared Stops Enabler integration folder removed from Integration/
-            // Uncomment to restore if re-adding the mod
-            /*
-            try
-            {
-                SharedStopEnabler.Util.Patcher.UnpatchAll();
-                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SharedStopsEnabler: integration removed.");
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"SharedStopsEnabler: failed to remove integration: {ex.Message}");
-            }
-            */
-
             // BetterBoarding cleanup
             try
             {
@@ -634,6 +686,7 @@ namespace ImprovedPublicTransport
                 {
                     IntercityBusControl.Patcher.UnpatchAll();
                     IntercityBusControl.HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch.Reset();
+                    IntercityBusControl.IntercityAcceptanceState.Deinit();
                     if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("IntercityBusControl: integration removed.");
                 }
                 catch (Exception ex)
@@ -651,6 +704,53 @@ namespace ImprovedPublicTransport
             catch (Exception ex)
             {
                 Utils.LogError($"FlightTracker: failed to remove integration: {ex.Message}");
+            }
+
+            // SubBuildingsTabs cleanup
+            try
+            {
+                SubBuildingsTabs.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SubBuildingsTabs: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SubBuildingsTabs: failed to remove integration: {ex.Message}");
+            }
+
+            // TaxiStandFix cleanup (only if After Dark DLC present)
+            if (SteamHelper.IsDLCOwned(SteamHelper.DLC.AfterDarkDLC))
+            {
+                try
+                {
+                    TaxiStandFix.PatchController.Deactivate();
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TaxiStandFix: integration removed.");
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError($"TaxiStandFix: failed to remove integration: {ex.Message}");
+                }
+            }
+
+            // SharedStopEnabler cleanup
+            try
+            {
+                SharedStopEnabler.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SharedStopEnabler: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SharedStopEnabler: failed to remove integration: {ex.Message}");
+            }
+
+            // CommuterDestination cleanup
+            try
+            {
+                CommuterDestination.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"CommuterDestination: failed to remove integration: {ex.Message}");
             }
 
         }

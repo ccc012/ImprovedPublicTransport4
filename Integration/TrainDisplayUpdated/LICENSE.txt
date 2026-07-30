@@ -7,6 +7,6 @@ Source origin, credits, and licensing notes:
 - The upstream mod is GPL-3.0 licensed.
 - Preserve upstream copyright notices when importing source files.
 - Keep this integration isolated from IPT UI/menu/options files.
-- The First Person Camera - Continued dependency (Workshop 3236046692) is treated as optional at runtime.
+- The IPT integration reads the game's selected vehicle directly and has no camera-mod dependency.
 
 This folder only contains the IPT-side integration and runtime bridge.

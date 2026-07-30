@@ -129,15 +129,18 @@ namespace AutoLineColor
             _refreshBtn.disabledBgSprite = "ButtonMenuDisabled";
             //refreshBtn.focusedBgSprite = "ButtonMenuFocused";
             _refreshBtn.pressedBgSprite = "ButtonMenuPressed";
-
-            _refreshBtn.SendToBack();
             buttonPanel.ResetLayout();
 
             _refreshBtnClick = (x, y) =>
             {
                 ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-                if (lineId == 0) return;
+                if (lineId == 0)
+                {
+                    Utils.LogWarning("AutoLineColor: refresh requested without an active transport line.");
+                    return;
+                }
 
+                Utils.Log($"AutoLineColor: manual refresh requested for line {lineId}.");
                 ColorMonitor.ForceRefreshLineNow(lineId);
             };
 
