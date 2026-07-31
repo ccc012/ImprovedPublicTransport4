@@ -1,6 +1,6 @@
 [h1]Improved Public Transport 4[/h1]
 
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, which vehicles run, where they stop, what a ticket costs — small transit mods folded in so they stop fighting.
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
 
 [b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
 
@@ -8,9 +8,9 @@
 
 [h1]Why this exists[/h1]
 
-A city was bleeding money — transit maintenance ran away to roughly [b]-42,000,000,000[/b]. Neither mod involved was broken; two working mods were each deciding, independently, how big every line's fleet should be, overwriting each other until upkeep grew without limit. Disabling one is not a fix, since both were doing their job — the fix is one place, one system. That is IPT4.
+A city was bleeding money — transit maintenance ran away to roughly [b]-42,000,000,000[/b]. Neither mod involved was broken; two working mods were each deciding, independently, how big every line's fleet should be, overwriting each other. The fix is one place, one system. That is IPT4.
 
-One assembly patching each hooked method once, instead of several mods each patching it separately, also tends to run lighter: informal single-machine testing measured ~50-60 FPS with IPT4 against ~40-50 FPS running the same feature set as separate mods (or the predecessor IPT3). Not a controlled benchmark, but a fair expectation of the general direction.
+One assembly, one patch per method, tends to run lighter too: informal testing measured ~50-60 FPS here against ~40-50 FPS as separate mods.
 
 [hr][/hr]
 
@@ -21,12 +21,12 @@ Bus, tram, metro, train, ship, plane, monorail, cable car, taxi, tour — every 
 
 [list]
 [*][b]Set the fleet size yourself[/b], or let the mod size it from the budget — never silently overridden.
-[*][b]Choose which vehicles run[/b], so city trams stay on city routes and intercity trains stay intercity.
+[*][b]Choose which vehicles run[/b] on each line.
 [*][b]Edit vehicles individually[/b] and [b]pick the depot[/b] per line.
 [/list]
 
 [h2]Fix bunching[/h2]
-Four buses nose to tail, then nothing for ten minutes. Three levels, set separately for buses and trams: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (gentle spacing), [b]Realistic[/b] (true intervals). Or use [b]Express[/b] mode to skip empty stops.
+Four buses nose to tail, then nothing for ten minutes. Three levels, per line: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (gentle spacing), [b]Realistic[/b] (true intervals). Or use [b]Express[/b] mode to skip empty stops.
 
 [h2]Set your own fares[/h2]
 Price each transport type independently in the [b]Ticket Prices[/b] tab of the Economy panel, with optional [b]day/night pricing[/b]. Prices feed demand: cheap transit fills up, expensive transit empties out.
@@ -48,21 +48,11 @@ Price each transport type independently in the [b]Ticket Prices[/b] tab of the E
 
 [h2]New in 4.8[/h2]
 [list]
-[*][b]Single Train Track AI[/b] — shared single-track rail segments are reserved for one direction at a time, so two trains no longer risk colliding.
+[*][b]Single Train Track AI[/b] — a shared single-track rail segment is reserved for one direction at a time, so two trains no longer risk colliding.
 [*][b]Stop Stacker[/b] — a second bus converging on the same stop gets its own berth further back instead of queuing behind the first.
-[*][b]Intercity Bus Control[/b] fixed at the root — the DLC check was unreliable and could silently disable the whole feature even for players who own Sunset Harbor; now on by default.
-[*][b]Sub-Buildings Tabs[/b] — fixed a rare stale-tab bug after demolishing/rebuilding; now on by default.
-[*]Bug and performance sweep across several integrations — see the technical changelog for the full list.
-[/list]
-
-[h2]New in 4.7[/h2]
-[list]
-[*][b]Sub-Buildings Tabs[/b] — tab bar on any multi-building hub, not just airports.
-[*][b]Commuter Destination[/b] — see where waiting passengers are headed.
-[*][b]Shared Stop Enabler[/b] (off by default) — share a road segment between stop types.
-[*][b]Taxi Stand Fix[/b] — idle taxis head for the nearest stand instead of wandering.
-[*][b]Intercity terminal capacity mode[/b] — Disabled, Intermediate or Realistic.
-[*][b]Train Display “Original” theme[/b], plus corrected colours elsewhere.
+[*][b]Intercity Bus Control[/b] fixed at the root — the DLC check was unreliable and could silently disable it even for owners of Sunset Harbor; on by default again.
+[*][b]Sub-Buildings Tabs[/b] — fixed a rare stale-tab bug after demolish/rebuild; on by default again.
+[*]Bug and performance sweep — see the technical changelog for the full list.
 [/list]
 
 [hr][/hr]
@@ -93,31 +83,31 @@ Price each transport type independently in the [b]Ticket Prices[/b] tab of the E
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] — [b]Gansaku[/b]
 [/list]
 
-Most have their own switch in the options; a few that only repair broken vanilla behaviour are always on. Taxi mileage income needs [b]After Dark[/b]. [b]Taxi Stand Fix[/b] isn't in this list — it's original code, not a port, inspired by the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3712889232]mod of the same name[/url]. [b]Single Train Track AI[/b] and [b]Stop Stacker[/b] aren't in this list either — both source mods have no declared licence, so these are clean-room reimplementations of their publicly documented behaviour, not ports of their code.
+Most have their own switch in the options; a few that only repair broken vanilla behaviour are always on. Taxi mileage income needs [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] and [b]Stop Stacker[/b] aren't in this list — all three are original/clean-room code, not ports (their source mods have no declared licence or available source).
 
 [hr][/hr]
 
 [h1]Requirements & compatibility[/h1]
 
-[b]Harmony[/b] (ID 2040656402) required, nothing else. [b]Not compatible with:[/b] IPT2, IPT3, Transport Lines Manager, standalone AutoLineBudget, or a standalone copy of any mod above — warns you in-game if it finds one.
+[b]Harmony[/b] (ID 2040656402) required. [b]Not compatible with:[/b] IPT2, IPT3, Transport Lines Manager, standalone AutoLineBudget, or a standalone copy of any mod above — warns you in-game if found.
 
 [hr][/hr]
 
 [h1]Languages[/h1]
 
-[b]All 23 languages are fully translated[/b] — every string, not just the menus. Follows your game language, or pick one in the options. Something read awkwardly? Files are plain text on GitHub.
+[b]All 23 languages fully translated[/b] — every string, not just the menus. Follows your game language, or pick one in the options.
 
 [hr][/hr]
 
 [h1]Getting started[/h1]
 
-Subscribe to [b]Harmony[/b], unsubscribe the standalone mods above, enable IPT4 in Content Manager, load a city and click any transit line. Options live under [b]Settings → Mod Settings → Improved Public Transport 4[/b]; fares are in the [b]Economy[/b] panel. [b]Existing saves work[/b] — same save data as IPT2/IPT3, so per-line settings carry over.
+Subscribe to [b]Harmony[/b], unsubscribe the standalone mods above, enable IPT4, load a city and click any transit line. Options live under [b]Settings → Mod Settings → Improved Public Transport 4[/b]; fares are in the [b]Economy[/b] panel. [b]Existing saves work[/b] — same save data as IPT2/IPT3.
 
 [hr][/hr]
 
 [h1]Stability[/h1]
 
-Stable channel. The runaway-maintenance bug that motivated this fork is fixed at its root, and damaged saves are repaired automatically on load. [b]Keep a backup save[/b] regardless, the first time you load a large city with a new transit mod. If something breaks, say [i]what you were doing[/i] and attach your log:
+Stable channel. The runaway-maintenance bug that motivated this fork is fixed at its root, and damaged saves are repaired automatically on load. [b]Keep a backup save[/b] regardless. If something breaks, say [i]what you were doing[/i] and attach:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
 “Doesn’t work” with no log cannot be diagnosed.
 
@@ -125,6 +115,6 @@ Stable channel. The runaway-maintenance bug that motivated this fork is fixed at
 
 [h1]Source and credits[/h1]
 
-Source and technical changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]github.com/ccc012/ImprovedPublicTransport4[/url]
+Source and technical changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
 
-IPT4 is [b]GPL-3.0[/b] and stands on other people's work: [b]DontCryJustDie[/b] wrote the original IPT (2015), [b]BloodyPenguin[/b] wrote [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url] for six years, [b]Madisonian[/b] wrote [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], which this forks. Absorbed mods are credited above; UI frameworks by [b]algernon[/b] and [b]Mbyron26[/b]. Thank you, all of you.
+IPT4 is [b]GPL-3.0[/b] and stands on other people's work: [b]DontCryJustDie[/b] wrote the original IPT (2015), [b]BloodyPenguin[/b] wrote [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] wrote [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], which this forks. Absorbed mods are credited above; UI frameworks by [b]algernon[/b] and [b]Mbyron26[/b]. Thank you, all of you.
