@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Seznam navrhovaných názvů zastávky.
 STOP_PANEL_REUSE_NAME_TOOLTIP Nastavit tento název na všechny ostatní zastávky na této stanici.
 STOP_PANEL_WAITING_PEOPLE Čekající cestující: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Cíl cestujících
+COMMUTER_DESTINATION_HEADER Nejcastejsi cile:
+COMMUTER_DESTINATION_NONE Prave tu nikdo neceka.
+COMMUTER_DESTINATION_LOADING Pocitam...
 COMMUTER_DESTINATION_BUTTON Cíle
 COMMUTER_DESTINATION_BUTTON_TOOLTIP Zobrazit, kam míří cestující čekající na této zastávce.
 STOP_PANEL_BORED_TIMER Čas do odchodu: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS Barvy linek
 SETTINGS Nastavení
 SETTINGS_SPEED Zobrazit rychlost v:
 SETTINGS_SPEED_TOOLTIP Vyberte jednotku použitou pro zobrazení rychlosti v uživatelském rozhraní.
+SETTINGS_GAMEPLAY_PROFILE Profil hratelnosti
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Pouzije skupinu nastaveni najednou misto rucniho ladeni kazdeho zvlast. Vychozi vypne kazdou pohlcenou integraci a co nejvice odpovida zakladni hre; Realisticky je zapne a pouzije realistictejsi moznost, kde existuje. Vyber kterehokoli prepise jednotliva nastaveni nize - vyberte Vlastni pro rucni spravu bez zmeny tohoto menu.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Vlastni
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Vychozi
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realisticky
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED Rychlost chůze/cyklování:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE Skrýt editor vozidel
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Skrýt editor vozidel z panelů vozidel.
 
 SETTINGS_STOPS Zastávky veřejné dopravy
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Kolik cestujicich kazdeho typu dopravy muze cekat na jedne zastavce, nez je povazovana za plnou. Vyssi hodnoty snizuji stiznosti na preplneni na rusnych zastavkach za cenu mene realistické velikosti fronty.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Obnovi vsechny limity cestujicich na zastavkach vyse na vychozi hodnoty.
 SETTINGS_ENABLE_STOPS_AND_STATIONS Povolit zastávky a stanice
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Upravit maximální počet občanů, kteří mohou čekat na veřejnou dopravu na různých zastávkách a stanicích. Konfigurovat na kartě Zastávky.
 SETTINGS_STOPSANDSTATIONS_ENABLE Povolit zastávky a stanice
@@ -343,6 +353,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Povolit kontrolu meziměstských autobusů
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Povolí integrovanou vrstvu kompatibility kontroly meziměstských autobusů a údržbu stanic.
 SETTINGS_INTERCITY_BUS_CAPACITY Kapacita meziměstského terminálu
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Kolik vozidel může meziměstský autobusový terminál pojmout najednou.
+SETTINGS_TRAM_DEPOT_CAPACITY Kapacita vozovny tramvaji
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Standardni hra nastavuje kazdou vozovnu tramvaji na prakticky neomezenych 100 000 vozidel. Realisticky a Stredni misto toho pouziji mirny pevny strop; Vypnuto zachova stavajici chovani.
+SETTINGS_TAXI_DEPOT_CAPACITY Kapacita taxi garaze
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Standardni hra nastavuje kazdou taxi garaz na prakticky neomezenych 100 000 vozidel. Realisticky a Stredni misto toho pouziji mirny pevny strop; Vypnuto zachova stavajici chovani.
+SETTINGS_BUS_DEPOT_CAPACITY Kapacita autobusoveho depa
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Vychozi hra ponechava kazde autobusove depo (bezne, na biopalivo i zajezdove autobusy) prakticky bez limitu 100 000 vozidel. Realisticky a Stredni rezim misto toho uplatni mirny pevny strop; Vypnuto zachovava soucasne chovani.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Kapacita depa trolejbusu
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Vychozi hra ponechava kazde depo trolejbusu prakticky bez limitu 100 000 vozidel. Realisticky a Stredni rezim misto toho uplatni mirny pevny strop; Vypnuto zachovava soucasne chovani.
+SETTINGS_FERRY_DEPOT_CAPACITY Kapacita depa trajektu
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vychozi hra ponechava kazde depo trajektu prakticky bez limitu 100 000 vozidel. Realisticky a Stredni rezim misto toho uplatni mirny pevny strop; Vypnuto zachovava soucasne chovani.
 SETTINGS_DEPOT_CAPACITY_DISABLED Vypnuto (bez limitu)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Střední
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistické
@@ -356,6 +376,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Povolit sdílené zastávky
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Umožňuje více než jednomu typu dopravy (autobus, tramvaj, trolejbus) zastavit na stejném úseku silnice. Ve výchozím nastavení vypnuto - co tato zjednodušená verze vynechává, zjistíte na GitHubu modu.
 SETTINGS_COMMUTERDESTINATION_ENABLE Povolit cíl cestujících
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Zobrazí, kam míří cestující čekající na zastávce - malý panel plus překryv na mapě. Pouze pro čtení, žádná jiná závislost než Harmony.
+SETTINGS_OOC_ENABLE Optimalizovana vnejsi spojeni
+SETTINGS_OOC_ENABLE_TOOLTIP Nakladni vlaky, letadla a lode cekaji na vetsi naklad delsi dobu, nez odjedou z vnejsich spojeni.
+SETTINGS_OOC_WAIT_MULTIPLIER Nasobitel cekani
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP O kolik dele nez ve vanilla cekat na plnejsi naklad. Vyssi hodnoty znamenaji mene, ale plnejsich cest.
+SETTINGS_OOC_PASSENGER_SCOPE Rozsah cekani cestujicich
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Kde se vyse uvedeny nasobitel cekani vztahuje na obcany cekajici na verejnou dopravu. Pouze vnejsi spojeni ovlivnuje jen obcany cekajici u vnejsiho spojeni; cele mesto take zpomali bezne domaci cekani kazdeho obcana (odpovida skutecnemu chovani puvodniho modu).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Pouze vnejsi spojeni
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Cele mesto
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Vypnuto (vanilla)
+SETTINGS_OOC_DISABLE_DUMMY Vypnout dekorativni prujezdovy provoz
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Vypnout dekorativni silnicni provoz
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Vypnout dekorativni vlakovy provoz
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Vypnout dekorativni letecky provoz
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Vypnout dekorativni lodni provoz
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Vnejsi spojeni bezne generuji extra dekorativni provoz, ktery ve skutecnosti nikdy nevstoupi ani neopusti mesto, cistě pro vizualni atmosferu. Vypnutim se tento provoz odstrani, zatimco skutecny tok dovozu/vyvozu/cestujicich zustane nedotcen.
+SETTINGS_UOC_ENABLE Neomezena vnejsi spojeni
+SETTINGS_UOC_ENABLE_TOOLTIP Odstranuje standardni limit 4 spojeni pro silnice, zeleznicni trate, lodni trasy a letecke trasy, a zpetne propojuje dopravni linky, kdyz se poblíž existujici stanice postavi nove spojeni. Projevi se pri dalsim nacteni urovne.
+SETTINGS_STTAI_ENABLE Vyhybani se kolizim vlaku na jednokolejce
+SETTINGS_STTAI_ENABLE_TOOLTIP Rezervuje usek jednokolejne trate pro jeden vlak najednou a drzi protijedouci vlak u vjezdu, dokud se usek neuvolni. Puvodni funkce IPT4, neni v zakladni hre ani v zadnem pohlcenem modu.
+SETTINGS_STOPSTACKER_ENABLE Skladani stanovist autobusu
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Umoznuje druhemu/tretimu autobusu prijizdejicimu ke stejne zastavce pouzit vlastni stanoviste dale vzadu na jizdnim pruhu zastavky misto razeni za prvnim autobusem, takze muze nastupovat/vystupovat vice autobusu najednou. Puvodni funkce IPT4 (zjednodusena reimplementace bez pristupu k puvodnimu kodu), neni v zakladni hre ani v zadnem pohlcenem modu.
 CHANGELOG_4_3_3_1 Opraveno ukládání/načítání nastavení stále se pokoušelo selhat na některých hromádkách modů, a to i poté, co se Newtonsoft.Json.dll sdružil: předchozí řešení se pokoušelo assembly.LoadFrom v jednom vstupním bodě a stále záviselo na pořadí zatížení. IPT4 nyní registruje globální háček AssemblyResolve a dychtivě spouští svůj sdružený Newtonsoft.Json z každého vstupního bodu mod/UI, než se CSLModsCommon dotýká JsonWriter, takže uživatelské rozhraní Možností přetrvává spolehlivě místo náhodného vázání na nekompatibilní Json.NET kopii jiného modifikace.
 CHANGELOG_4_3_2_1 Opraveno selhání zatížení modifikace úplně ("failed to load the mod's dll or one of its dependencies"), kdykoli žádný jiný nainstalovaný mod neposkytnul Newtonsoft.Json: serializace nastavení CSLModsCommon (JsonHelper/SerializationContext) ji potřebuje, ale naše sestava nikdy nedeployovala Newtonsoft.Json.dll vedle modifikace - vždy to fungoval jen náhodou, jízda na kopii jiného modelu. Zjištěno zakázáním všech ostatních modů pro čistý test, což je přesně to, jak by mělo být testováno jít vpřed.
 CHANGELOG_4_3_1_1 Opraveno, že panel Možnosti se pokazil výběr jazyka, který pouze znovu přeložil vlastní řetězce frameworku (verze/Changelog/...), zatímco každý řetězec tohoto modku zůstal v jazyce hry - náš načítač překladu klíčoval vypnutý jazyk hry a ignoroval vlastní výběr modifikace úplně. Nyní se řídí výběrem jazyka modifikace s návrhem na jazyk hry a poté na angličtinu a znovu se vyřeší, kdykoli se výběr změní.
@@ -408,6 +449,14 @@ CHANGELOG_4_3_4_1 Opraveno spuštění ModException ("Selhání najít ImprovedP
 CHANGELOG_4_3_5_1 Opraveno overlay zobrazení vlaku nikdy se nechvěl při sledování vozidla. Vyhledal instance cíle kamery prostřednictvím obecných sond "cíl"/"GetTarget", ale hra ji ukládá v soukromém poli CameraController.m_targetInstance, které tyto sondy nikdy neodpovídaly. Také se přepnulo "Pouze v kameře z první osoby" vypnuto výchozím: režim prostého sledování není první osobou, takže jeho ponechání vzalo overlay vypadat rozbitě z krabice, na rozdíl od původního modku, který jej ukázal v jakémkoliv režimu sledování.
 CHANGELOG_4_3_5_2 Karta Ceny jízdenek nyní zobrazuje výsledný tarif pro každý typ dopravy místo počtu živých cestujících. Posuvníky pouze zobrazují procento, takže nebylo dříve způsob, jak vidět, jaký násobitel skutečně vytvořil - a na malém nebo pozastavené město počet cestujících jen čteníí permanentní "0". Počet cestujících se přesunul na tip popisku po boku původního tarif.
 TICKET_PRICE_LABEL_TOOLTIP Aktuální tarif: {0}\nPůvodní tarif: {1}\nCestující jedoucí nyní: {2}
+CHANGELOG_4_8_0_1 Přidáno SingleTrainTrackAI: jednokolejné traťové úseky jsou nyní vždy vyhrazeny pouze pro jeden směr, takže dva vlaky sdílející obousměrnou trať už nehrozí srážkou. Clean-room reimplementace - zdrojový mod (Workshop 949504539) nemá deklarovanou licenci, takže byl znovu implementován pouze jeho veřejně zdokumentovaný koncept, a to na vlastním patchování tohoto projektu založeném na Harmony místo syrových paměťových zásahů.
+CHANGELOG_4_8_0_2 Přidáno Stop Stacker: když se na stejné zastávce sejde více vozidel stejné linky, normální zastávkovou pozici použije jen vedoucí vozidlo - následující vozidla dostanou vlastní místo dále v pruhu místo řazení do fronty za sebou. Clean-room reimplementace pouze na základě veřejného popisu zdrojového modu (zdrojový kód nebyl k dispozici); pouze autobusy a trolejbusy, v souladu se stávajícím bodem napojení BetterBusStopPosition v tomto projektu.
+CHANGELOG_4_8_0_3 Opraveno: integrace terminálu meziměstských autobusů se nikdy tiše neaktivovala pro hráče vlastnící DLC Sunset Harbor: DLC detekovala pomocí reflexe do soukromého pole hry místo kontroly DLC Steam, která se jinde v tomto projektu už používá, a tato kontrola založená na reflexi mohla vrátit false, i když bylo DLC skutečně nainstalováno.
+CHANGELOG_4_8_0_4 Opraveno: zaškrtávací políčko "přijímat meziměstské autobusy" na některých terminálech zůstávalo nereagující. Vanilla hra může políčko ponechat neinteraktivní za podmínek, s nimiž přeznačené použití tímto modem nikdy nepočítalo. Nyní je vynuceno jako interaktivní vždy, když ho tento mod ovládá. Opravena byla i související chyba, kdy již správně nastavený terminál mohl při pozdější kontrole tiše ztratit svůj přepínač.
+CHANGELOG_4_8_0_5 Opraveno: Sub-Buildings Tabs občas zobrazovaly zastaralý pruh karet na nesouvisející budově: hra po demolici recykluje ID budov a cache dříve věřila, že recyklované ID stále patří k předchozímu shluku budov. Nyní před opětovným použitím čehokoli z cache znovu ověřuje skutečný nadřazený řetězec budovy.
+CHANGELOG_4_8_0_6 Obecný úklid chyb napříč několika integracemi: obrácená kontrola expirace cache, která zahazovala čerstvá data a místo nich servírovala zastaralá, chyba o jedna v hranici smyčky, která u automatického barvení a kontroly duplicitních názvů vynechávala poslední dopravní linku, chybné porovnání ID, které rozbíjelo obchvat "jen jedno vozidlo na této lince" pro zamezení shlukování, vyhledávání ceny, které selhání trvale ukládalo do cache místo pozdějšího nového pokusu, a několik Harmony patchů, které mohly vyhodit výjimku při nulové referenci UI/prefabu.
+CHANGELOG_4_8_0_7 Sníženy opakované reflexe a vyhledávání na snímek napříč několika integracemi: popisy tooltipů vozidel, klasifikace jednokolejných úseků a vyhledávání item-class pro meziměstské autobusy se nyní ukládají do cache místo přepočítávání při každém volání, a tlačítko obnovení UI už nepřepisuje svůj text v každém jednotlivém snímku bez ohledu na to, zda se něco změnilo.
+CHANGELOG_4_8_0_8 Intercity Bus Control a Sub-Buildings Tabs jsou po výše uvedených opravách opět ve výchozím stavu zapnuté - obě jsou potvrzeně funkční, zbývají jen drobné známé problémy (jemné doladění pozice karty, vzácná zvláštnost v zobrazení názvu zastávky) ponechané k hlubší analýze v budoucí verzi.
 CHANGELOG_4_7_0_1 Čtyři nové integrace: Karty vedlejších budov (lišta karet pro jakýkoli komplex více budov, nejen letiště), Sdílené zastávky (umožňuje více typům zastávek sdílet stejný úsek silnice, ve výchozím nastavení vypnuto), Cíl cestujících (zobrazuje, kam skutečně směřují obyvatelé čekající na zastávce) a Oprava stanoviště taxíků (volné taxíky míří na nejbližší stanoviště místo bezcílného bloudění). Jednotlivé přepínače najdete v Možnosti > Integrace.
 CHANGELOG_4_7_0_2 Přidán režim kapacity vozidel pro meziměstské autobusové terminály (Možnosti > Integrace > Kapacita meziměstského autobusového terminálu): Vypnuto zachovává dosavadní, prakticky neomezený terminál tohoto modu, Střední uplatňuje mírný pevný limit, Realistické obnovuje původní kapacitu prefabu terminálu ze hry. Existující uložené hry ve výchozím nastavení používají Vypnuto, takže aktualizace nikdy tiše nezmenší kapacitu terminálu.
 CHANGELOG_4_7_0_3 Opravena zaškrtávací volba "přijímat meziměstské autobusy" u meziměstského autobusového terminálu: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged nastavuje acceptsInterCityTrains, což je pouhý alias pro isEmptying, takže přejmenovaná volba mohla tiše přepnout autobusový terminál do stavu uzavření budovy ve hře, místo aby skutečně přepínala přijímání autobusů. Prefix Harmony nyní tento případ zachytává a přesměrovává na stav podle konkrétní budovy u terminálů upravených pro autobusy, zatímco skutečná vlaková nádraží zůstávají nedotčena.

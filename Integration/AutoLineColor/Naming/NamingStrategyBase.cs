@@ -264,7 +264,7 @@ namespace AutoLineColor.Naming
             var names = new List<string>();
             var theTransportManager = Singleton<TransportManager>.instance;
             var lines = theTransportManager.m_lines.m_buffer;
-            for (ushort lineIndex = 0; lineIndex < lines.Length - 1; lineIndex++)
+            for (ushort lineIndex = 0; lineIndex < lines.Length; lineIndex++)
             {
                 if (lineIndex == excludeLineId)
                     continue;

@@ -19,9 +19,46 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
     public static class TicketPricesTab
     {
         private static bool s_initialized;
+        private static bool s_localeHooked;
         private static UIScrollablePanel s_ticketPricesContainer;
         private static readonly List<TicketPriceSliderRow> s_sliderRows = new List<TicketPriceSliderRow>();
         private static readonly Dictionary<string, UITextureAtlas> s_customIconAtlases = new Dictionary<string, UITextureAtlas>();
+
+        // This tab's tab-button text, headers, tooltips and per-row transport labels are all set
+        // once at build time via Localization.Get(...) - unlike the mod's own Options panel (which
+        // CSLModsCommon fully rebuilds on a locale change), nothing ever told this tab to redraw
+        // itself, so switching the in-game language left it showing whatever language it happened to
+        // be built in until the next level load. Tearing down and rebuilding on the same locale-
+        // change events the Options panel already uses is simpler and more robust than patching every
+        // individual label/tooltip call site to refresh itself.
+        private static void HookLocaleChangeOnce()
+        {
+            if (s_localeHooked)
+            {
+                return;
+            }
+
+            s_localeHooked = true;
+            ColossalFramework.Globalization.LocaleManager.eventLocaleChanged += OnLocaleChanged;
+            CSLModsCommon.Manager.LocalizationManager.ModActiveLocaleChanged += (_, __) => OnLocaleChanged();
+        }
+
+        private static void OnLocaleChanged()
+        {
+            if (!s_initialized)
+            {
+                return;
+            }
+
+            var economyPanel = GetEconomyPanel();
+            if (economyPanel == null)
+            {
+                return;
+            }
+
+            HideTicketPricesTab(economyPanel);
+            InjectTab(economyPanel);
+        }
 
         // Passenger count refresh timer
         private static float s_refreshAccumulator = 0f;
@@ -54,6 +91,8 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         {
             try
             {
+                HookLocaleChangeOnce();
+
                 // Honor user setting: don't inject the Ticket Prices UI if disabled
                 var currentSettings = ModSetting.Instance;
                 if (currentSettings.TicketPriceCustomizerMode != ModSetting.TicketPriceCustomizerModes.Enabled)
@@ -531,7 +570,9 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             var leftColumn = mainContainer.AddUIComponent<UIScrollablePanel>();
             leftColumn.autoLayout = true;
             leftColumn.autoLayoutDirection = LayoutDirection.Vertical;
-            leftColumn.autoLayoutPadding = new RectOffset(0, 0, 0, 2);
+            // Was 2px - rows read as one solid block at that gap. 8px gives each row visible
+            // breathing room without needing to scroll noticeably more to see the same rows.
+            leftColumn.autoLayoutPadding = new RectOffset(0, 0, 0, 8);
             leftColumn.clipChildren = true;
             leftColumn.relativePosition = Vector3.zero;
             leftColumn.size = new Vector2(columnWidth, columnHeight);
@@ -542,7 +583,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             var rightColumn = mainContainer.AddUIComponent<UIScrollablePanel>();
             rightColumn.autoLayout = true;
             rightColumn.autoLayoutDirection = LayoutDirection.Vertical;
-            rightColumn.autoLayoutPadding = new RectOffset(0, 0, 0, 2);
+            rightColumn.autoLayoutPadding = new RectOffset(0, 0, 0, 8);
             rightColumn.clipChildren = true;
             rightColumn.relativePosition = new Vector3(columnWidth + COL_GAP, 0);
             rightColumn.size = new Vector2(columnWidth, columnHeight);
@@ -724,7 +765,12 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             if (backDivider != null)
             {
                 var ep = ToolsModifierControl.economyPanel;
-                backDivider.color = (index % 2 == 0) ? ep.m_BackDividerColor : ep.m_BackDividerAltColor;
+                // Vanilla's own divider colors are tuned to blend into the Budget tab's background -
+                // exactly what makes them hard to tell apart from the Economy panel behind this tab.
+                // Bumping the alpha (not swapping to a different hue) keeps the same vanilla look but
+                // makes the alternating rows actually read as a distinct row, not a wash of one color.
+                var baseColor = (index % 2 == 0) ? ep.m_BackDividerColor : ep.m_BackDividerAltColor;
+                backDivider.color = new Color(baseColor.r, baseColor.g, baseColor.b, Mathf.Min(1f, baseColor.a + 60f / 255f));
             }
 
             // Transport icon
@@ -765,6 +811,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
             // Income total — deferred: populated by OnUpdate once the game is running,
             // to avoid scanning the vehicle buffer (huge with MoreVehicles) during loading.
+            // Shrunk from the template's own default scale since the text is now "fare (passengers)"
+            // rather than just a bare fare number - UNCONFIRMED whether this is small enough to avoid
+            // clipping against the template's fixed label width; needs an in-game check.
+            totalLabel.textScale *= 0.8f;
             totalLabel.text = "-";
             
             // Set tooltip on the parent panel since UILabel doesn't support tooltips natively.
@@ -809,7 +859,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         {
             const float ICON_W   = 26f;
             const float PCT_W    = 38f;   // "250%" label width
-            const float TOTAL_W  = 82f;   // income display
+            const float TOTAL_W  = 100f;  // fare + "(passengers)" display
             const float PAD      = 3f;
             const float SLD_H    = 18f;   // height of one slider track (matches BudgetItem)
             const float SLD_GAP  = 3f;    // gap between day and night sliders
@@ -829,9 +879,12 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             bg.spriteName        = "GenericPanelWhite";
             bg.relativePosition  = Vector2.zero;
             bg.size              = rowPanel.size;
+            // Widened the gap between the two shades (was 56/61/75 vs 49/52/64, barely distinguishable
+            // against the Economy panel's own dark background) so alternating rows are actually easy
+            // to tell apart at a glance.
             bg.color = (index % 2 == 0)
-                ? new Color32((byte)56, (byte)61, (byte)75, (byte)255)
-                : new Color32((byte)49, (byte)52, (byte)64, (byte)255);
+                ? new Color32((byte)68, (byte)74, (byte)92, (byte)255)
+                : new Color32((byte)38, (byte)41, (byte)52, (byte)255);
 
             // Transport icon – centred vertically (use custom atlas if available)
             var icon = rowPanel.AddUIComponent<UISprite>();
@@ -881,7 +934,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             totalLabel.autoSize          = false;
             totalLabel.wordWrap          = false;
             totalLabel.textAlignment     = UIHorizontalAlignment.Center;
-            totalLabel.textScale         = 0.85f;
+            totalLabel.textScale         = 0.75f; // was 0.85 - text is longer now (fare + passenger count)
             totalLabel.textColor         = new Color32((byte)206, (byte)248, (byte)0, (byte)255);
             totalLabel.size              = new Vector2(TOTAL_W, rowH - 4f);
             totalLabel.relativePosition  = new Vector3(totalX, 2f);
@@ -949,14 +1002,14 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             track.relativePosition = new Vector2(0f, 4f);
             track.size = new Vector2(width, 9f);
 
-            // Thumb — plain white rectangle. "SliderBudget" is the Budget panel's combined
-            // day+night dual-indicator sprite and renders with two visual handles, which
-            // makes every slider look like a dual-handled Budget slider — wrong here.
+            // Thumb — same "SliderBudget" handle sprite AlgernonCommons' own generic slider helper
+            // uses throughout the rest of this mod (Train Display overlay scale/opacity sliders,
+            // etc.), instead of a plain custom rectangle, so this row matches the game's own slider
+            // look instead of looking hand-rolled.
             var thumb = slider.AddUIComponent<UISlicedSprite>();
-            thumb.atlas = UIView.GetAView().defaultAtlas;
-            thumb.spriteName = "GenericPanelWhite";
-            thumb.color = new Color32((byte)220, (byte)220, (byte)200, (byte)255);
-            thumb.size = new Vector2(10f, 18f);
+            thumb.atlas = UITextures.InGameAtlas;
+            thumb.spriteName = "SliderBudget";
+            thumb.size = new Vector2(20f, 18f);
 
             slider.thumbObject = thumb;
 
@@ -1010,13 +1063,17 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 // price.) The passenger count moves to the tooltip, where it is still useful.
                 if (PriceCustomization.TryGetCurrentPrice(transportName, out int currentPrice, out int basePrice))
                 {
-                    totalLabel.text = currentPrice.ToString("N0");
-                    // Highlight when the fare differs from the game's original value for this type.
-                    totalLabel.textColor = currentPrice == basePrice
-                        ? new Color32(206, 248, 0, 255)
-                        : new Color32(255, 190, 60, 255);
-
                     int passengers = CalculateCurrentPassengerLoad(transportName);
+                    // Passenger count used to be tooltip-only (hover required, easy to miss) - now
+                    // shown inline too, so both numbers are visible at a glance without needing to
+                    // hover every row. "|" instead of "(42)" per feedback - reads cleaner at a glance.
+                    totalLabel.text = $"{currentPrice:N0} | {passengers:N0}";
+                    // White at the base fare (slider untouched, 100%), fading toward red as the
+                    // slider approaches its 250% maximum - a continuous gauge of "how far from
+                    // default" rather than a flat two-colour on/off flag.
+                    var ratio = basePrice > 0 ? (float)currentPrice / basePrice : 1f;
+                    totalLabel.textColor = GetPriceGaugeColor(ratio);
+
                     totalLabel.tooltip = string.Format(
                         Localization.Get("TICKET_PRICE_LABEL_TOOLTIP"),
                         currentPrice.ToString("N0"),
@@ -1036,6 +1093,31 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 totalLabel.text = "-";
                 Utils.LogWarning($"TicketPricesTab: Failed to update price label for {transportName}: {ex.Message}");
             }
+        }
+
+        // A continuous gauge of "how far the current fare is from the game's own default", rather
+        // than a flat two-colour on/off flag: white at the base fare (100%, slider untouched), warming
+        // through orange to red as it climbs toward the 250% maximum, and cooling toward green as it
+        // drops toward 0% (a cheaper fare reads as a deliberate, positive choice, not a warning).
+        private static Color32 GetPriceGaugeColor(float ratio)
+        {
+            var white = new Color32(255, 255, 255, 255);
+            if (ratio >= 1f)
+            {
+                var orange = new Color32(255, 170, 40, 255);
+                var red = new Color32(230, 40, 40, 255);
+                // 1.0-1.75 fades white->orange, 1.75-2.5 fades orange->red - a straight white->red
+                // lerp passes through a muddy pink that doesn't read as "getting more expensive".
+                if (ratio <= 1.75f)
+                {
+                    return Color32.Lerp(white, orange, Mathf.InverseLerp(1f, 1.75f, ratio));
+                }
+
+                return Color32.Lerp(orange, red, Mathf.InverseLerp(1.75f, 2.5f, ratio));
+            }
+
+            var green = new Color32(90, 220, 120, 255);
+            return Color32.Lerp(green, white, Mathf.Clamp01(ratio));
         }
 
         private static int CalculateCurrentPassengerLoad(string transportName)

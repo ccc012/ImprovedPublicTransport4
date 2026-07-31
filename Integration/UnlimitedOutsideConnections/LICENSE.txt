@@ -1,0 +1,33 @@
+The MIT License (MIT)
+
+Copyright (c) algernon (K. Algernon A. Sheppard), BloodyPenguin (Egor Aralov)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+---
+Ported into Improved Public Transport 4 from
+https://github.com/algernon-A/UnlimitedOutsideConnections-Revisited (Workshop
+item 2367735356, "Unlimited Outside Connections Revisited"), adapted to
+IPT4's own PatchController Activate/Deactivate wiring and logging. The
+transpiler that clears the "too many connections" tool error was verified
+against the actual current game IL for RoadAI/TrainTrackAI/ShipPathAI/
+FlightPathAI.GetInfo and is unchanged from upstream: it already used
+Harmony's semantic CodeInstruction.LoadsConstant(...) match rather than a
+raw opcode scan, which is the same standard this fork holds its own
+transpilers to.

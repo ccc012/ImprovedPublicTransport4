@@ -14,6 +14,184 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.0] Two clean-room integrations, Intercity Bus Control root-caused, bug/perf sweep
+
+Module bumps from 7 to 8 for two newly absorbed integrations (`SingleTrainTrackAI`,
+`StopStacker`); everything else below is a `build`-level fix/optimization pass on
+existing modules, not a new absorption. Reversible Tram AI and a Breakdown
+Revisited port were both scoped this cycle and explicitly deferred to a future
+version rather than shipped half-finished.
+
+### Added - SingleTrainTrackAI, Stop Stacker
+
+Two new `Integration/` folders, both **clean-room reimplementations** - neither
+source mod (`SingleTrainTrackAI`, Workshop 949504539, CoarzFlovv;
+`Stop Stacker`, Workshop 3751418194, ScratchyBald) has a declared licence or
+available source, so only their publicly documented behaviour was
+reimplemented, using this project's own established Harmony conventions. Full
+scope notes and honesty disclosures are in each folder's `LICENSE.txt`.
+
+- **SingleTrainTrackAI** - `TrackReservation` holds one reservation slot per
+  single-track segment (`SegmentClassifier.IsSingleTrainTrack`, classifying by
+  counting `NetInfo.m_lanes` entries with `VehicleType.Train` and
+  `LaneType.Vehicle`): the first train to claim a segment holds it until it
+  moves off, and a `TrainAI.CalculateTargetSpeed` postfix brakes any other
+  train to a stop before it can enter a segment held by someone else. A
+  `VehicleAI.ReleaseVehicle` postfix now also releases a train's hold
+  immediately when it despawns mid-segment, rather than relying solely on
+  `TrackReservation`'s 600-frame stale-reservation timeout as the only cleanup
+  path.
+- **Stop Stacker** - a Harmony postfix on
+  `BusAI`/`TrolleybusAI.CalculateSegmentPosition` (the same hook point
+  `BetterBusStopPosition` already uses) assigns any vehicle behind the lead
+  vehicle on a stop lane its own berth further back, spaced by vehicle length
+  plus margin, computed with the same vanilla `NetLane.CalculateStopPositionAndDirection`
+  curb-offset math BBSP uses - so trailing buses can load/unload passengers
+  instead of queuing single-file as ordinary blocked traffic. Falls back to
+  vanilla positioning if the lane is too short for another berth. Bus and
+  trolleybus only, matching the original's stated scope; trams and trains are
+  intentionally excluded since `SingleTrainTrackAI` already owns train-track
+  sharing logic.
+
+### Fixed - Intercity Bus Control silently inert for players who own Sunset Harbor
+
+`IntercityBusControl.Mod.IsSunsetHarborInstalled()` checked for the DLC via
+reflection into `ItemClassCollection`'s private `m_classDict`, looking for an
+`"Intercity Bus"` key - a fragile proxy that returned `false` for a player
+confirmed to own and actively use the DLC (built and clicked multiple bus
+terminals). Root-caused via `output_log.txt` (not this project's own
+`ImprovedPublicTransport4.log`, a separate CSLModsCommon-only sink most
+`Utils.Log`/`LogWarning`/`LogError` calls never reach - see the `Diagnostics`
+note below) showing `"Intercity Bus Control - Sunset Harbor DLC not found,
+skipping patches."` at load time, which meant `Patcher.PatchAll()` never ran
+and the entire integration - not just the accept-toggle checkbox - was a
+no-op regardless of the `EnableIntercityBusControl` setting. Replaced with
+`SteamHelper.IsDLCOwned(SteamHelper.DLC.UrbanDLC)`, the exact same check
+`TicketPriceCustomizer` already used successfully for the same DLC elsewhere
+in this codebase.
+
+### Fixed - accept-intercity-buses checkbox unresponsive, and other terminal bugs
+
+- `UpdateBindingsPatch` now forces `_cachedCheckBox.isEnabled = true` whenever
+  it relabels the checkbox for a bus terminal - vanilla's own `UpdateBindings`
+  body can leave the control non-interactive under conditions this mod's
+  reuse of it never accounted for, which showed as a visible, correctly-
+  labelled checkbox that silently ignored every click.
+- `StationPatcher.TryPatchStation`'s "already patched with the current mode's
+  capacity" early-return bailed without adding the building to
+  `PatchedBuildingNames`, so a terminal that was already correctly set up
+  from an earlier sweep could lose its toggle's visibility on a later check.
+  It now registers the name before bailing.
+- Added `Diagnostics.VerboseRuntimeLogs`-gated logging to
+  `StationPatcher.TryPatchStation`'s two silent bail branches (mismatched
+  primary/secondary transport type, or an existing non-intercity line already
+  assigned) so a future "toggle missing on this terminal" report is
+  diagnosable from a single log grep instead of static analysis.
+
+### Fixed - Sub-Buildings Tabs stale tab strip on a recycled building ID
+
+`SubBuildingsTabstrip.UpdateInfoPanelTabs`'s cache check
+(`_idList.Contains(buildingId)`) trusted a building ID match as proof the
+player was still looking at the same building cluster as last time. Cities:
+Skylines recycles building IDs after demolition, so a demolished sub-building
+ID that later gets reassigned to an unrelated new building could pass this
+check and inherit the previous cluster's stale tab strip - rare (needs a
+demolish-and-rebuild to land on the exact freed slot), matching reports that
+this only "sometimes" happened. The cache now re-walks the candidate
+building's parent chain and only trusts the cache if it still resolves to the
+same cached main-building ID.
+
+### Fixed - fourteen-item bug sweep across existing integrations
+
+A dedicated read-only review pass (not tied to any specific bug report) found:
+
+- **ExpressBusServices** - `CachedVehicleProperties.GetFromCache`'s expiry
+  check used `>` where it needed `<`, so a not-yet-expired entry was treated
+  as expired (discarded immediately) while a genuinely expired entry was
+  returned as still valid.
+- **ExpressBusServices** - `Patch_TrolleyBusLoadsPassengers`'s postfix was
+  missing the `BusStopSkippingLookupTable.ForgetBus(vehicleID)` call its
+  `Patch_BusLoadsPassengers` sibling has, so a trolleybus once marked to skip
+  a stop never got un-marked and kept skipping every subsequent stop
+  indefinitely.
+- **Unbunching** - `CanLeavePatch.TransportLineCanLeaveStopWrapper`'s "only
+  one vehicle on this line" bypass compared a vehicle-ID field
+  (`TransportLine.m_vehicles`) against `currentStop` (a node ID) instead of
+  `currentVehicleID` - different ID spaces, so the bypass essentially never
+  fired and a lone vehicle on a line could be incorrectly held for
+  unbunching.
+- **AutoLineColor** - `ColorMonitor`'s refresh loop and
+  `NamingStrategyBase.GetExistingNames` both iterated `lines.Length - 1`,
+  skipping the last slot of the line buffer on every pass (never
+  auto-colored/considered for duplicate-name checks) and
+  `ColorSelector.DifferenceThresholdSelector` used
+  `Random.Range(0, colors.Count - 1)` (max-exclusive overload), so the last
+  color in every palette could never be picked.
+- **BetterBusStopPosition** - `BusAI_Patch`/`TrolleybusAI_Patch`'s postfixes
+  dereferenced `info.m_lanes` without the `info?.` the sibling `StopStacker`
+  patch already uses, risking an uncaught `NullReferenceException` in a
+  Harmony postfix if `Info` is null for a segment mid-destruction.
+- **TicketPriceCustomizer** - `PriceCustomization.TryGetTransportInfo` cached
+  failed lookups permanently; a transport type queried before any line of
+  that type existed (e.g. before an airport was built) stayed uncustomizable
+  for the rest of the session even after a matching line was created. Only
+  successful lookups are cached now.
+- **UnlimitedOutsideConnections** - `BuildingUtil.FindServiceBuildings`'s
+  early-return required `Service.PublicTransport`, making the method's own
+  documented "intercity bus routes match to roads instead" branch
+  unreachable dead code. The gate now allows both `PublicTransport` and
+  `Road`.
+- **ElevatedStopsEnabler** - `ElevatedStops.EnableStops` bounded its loop by
+  `info.m_lanes.Length - 2` while indexing `info.m_sortedLanes[i]`,
+  inconsistent with the sibling `AddElevatedStoptypes` (bounded by
+  `m_sortedLanes.Length - 2`); a network variant where the two lengths differ
+  would throw (silently caught) and skip elevated-stop enabling for it.
+- **BetterBoarding** - `LoadPassengers_TrolleybusAI` was missing the
+  `[HarmonyAfter(ExpressBusServicesHarmonyID)]` ordering attribute its
+  `LoadPassengers_BusAI` sibling has, so a trolleybus that should skip
+  boarding at an express-marked stop could still load passengers.
+- **SingleTrainTrackAI** - see Added section above (`ReleaseVehicle` wiring).
+- **Line panel UI** - `UpdateStopButtonsPatch.Prefix` cached a possibly-null
+  `Find<UILabel>("PassengerCount")` result but dereferenced it unconditionally,
+  risking an uncaught exception in this Harmony prefix; now guarded.
+- **AutoLineColor** - `Console.Error` was gated behind the same debug flag as
+  `Message`/`Warning`, silencing real failures for anyone who hadn't enabled
+  debug logging.
+
+### Optimized - reflection and per-frame lookup caching
+
+- `RefreshVehicleButtonsPatch` (runs every frame a line panel is open, once
+  per vehicle button) now caches each vehicle prefab's description instead of
+  calling `VehiclePrefabs.instance.FindByName(...).GetDescription()` fresh
+  every frame.
+- `SegmentClassifier.IsSingleTrainTrack` now caches its result **by `NetInfo`
+  prefab**, not by segment ID - the lane layout it inspects is entirely a
+  prefab property, shared by every segment instance using that prefab, so
+  this is both correct and immune to per-instance mutation, and avoids
+  re-walking `m_lanes` on every `CalculateTargetSpeed` call (up to twice per
+  train per tick: current segment and next).
+- `AutoLineColor.UIExtender`'s `RefreshButtonStateUpdater.Update()` (runs
+  every frame for the life of the loaded level) now only touches
+  `Button.isEnabled`/`tooltip` when the enabled state actually changed since
+  last frame, invalidated on a locale change via
+  `LocalizationManager.ModActiveLocaleChanged` so a language switch still
+  refreshes the tooltip text promptly.
+- `IntercityBusControl.StationPatcher` and `InitializePrefabPatch` each did
+  their own uncached reflection into `ItemClassCollection.m_classDict` -
+  consolidated into one `static readonly FieldInfo` behind
+  `Mod.GetItemClassDict()`.
+
+### Changed - Intercity Bus Control and Sub-Buildings Tabs default to on
+
+Both are confirmed working after the fixes above and are enabled by default
+again (`ModSetting.EnableIntercityBusControl`, `EnableSubBuildingsTabs`).
+Remaining known issues (Sub-Buildings Tabs' tab-strip vertical offset could
+still use fine-tuning; an unconfirmed stop-name display report) are minor
+enough to ship rather than block on, and are tracked for deeper analysis in a
+future version rather than left silently unresolved.
+
+---
+
 ## [4.7.0] Four new integrations, Options menu reorganized, bug/perf sweep
 
 Jumps straight from 4.3.8 to 4.7.0 - the module counter absorbs everything below

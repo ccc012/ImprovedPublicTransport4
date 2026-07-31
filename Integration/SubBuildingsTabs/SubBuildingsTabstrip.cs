@@ -28,7 +28,13 @@ namespace SubBuildingsTabs
         {
             base.Start();
             size = new Vector2(432, 25);
-            relativePosition = new Vector2(13, -25);
+            // relativePosition is deliberately NOT set here - it used to be hardcoded to (13, -25)
+            // in this method, which conflicted with Patch_BuildingWorldInfoPanel_OnSetTarget's own
+            // re-assertion of the same property on every OnSetTarget call. Start() is deferred by
+            // Unity to a later frame than the postfix that creates this component, so whichever one
+            // ran last silently won - which meant tuning the postfix's offset value had no visible
+            // effect, since this line always ran after it and stomped it back to the old value. The
+            // postfix is now the single place that sets it.
             name = ComponentName;
             startSelectedIndex = 0;
             padding = new RectOffset(0, 3, 0, 0);
@@ -49,14 +55,52 @@ namespace SubBuildingsTabs
                 return;
             }
 
+            var buildingManager = BuildingManager.instance;
+
             if (_idList != null && _idList.Contains(buildingId))
             {
-                return;
+                // Same cluster as last time - IF the cache is still actually valid. Building IDs are
+                // recycled by the game once a building is demolished, so a stale _idList entry could
+                // otherwise be silently reused for an unrelated new building that happens to land on
+                // a recycled slot from the last cluster the player inspected (rare - needs a demolish
+                // + rebuild to hit that exact ID - which matches the "hard to reproduce" reports of
+                // the tab strip appearing on buildings that shouldn't have one). Cheaply re-walk the
+                // parent chain to confirm buildingId still actually belongs to the cached main
+                // building before trusting the cache.
+                var checkId = buildingId;
+                var walkGuard = 0;
+                while (buildingManager.m_buildings.m_buffer[checkId].m_parentBuilding != 0)
+                {
+                    checkId = buildingManager.m_buildings.m_buffer[checkId].m_parentBuilding;
+                    if (++walkGuard > 49152)
+                    {
+                        break;
+                    }
+                }
+
+                if (checkId == _idList[0])
+                {
+                    // Skip rebuilding the tab buttons themselves (expensive, and unnecessary since
+                    // the same buildings are still there), but the highlighted tab still has to track
+                    // whichever building is ACTUALLY being shown now. Returning here unconditionally
+                    // used to leave selectedIndex at whatever it was from the player's previous visit
+                    // - e.g. reopening the main building after last leaving on its "Metro" sub-tab
+                    // would show the main building's data while the tab strip kept "Metro"
+                    // highlighted, since nothing here ever re-synced the two.
+                    var currentIndex = _idList.IndexOf(buildingId);
+                    if (currentIndex >= 0 && selectedIndex != currentIndex)
+                    {
+                        selectedIndex = currentIndex;
+                    }
+
+                    return;
+                }
+                // Cache is stale (buildingId's actual parent chain no longer matches) - fall through
+                // and rebuild from scratch below.
             }
 
             RemoveAllTabs();
 
-            var buildingManager = BuildingManager.instance;
             var selectedBuilding = buildingManager.m_buildings.m_buffer[buildingId];
             if (selectedBuilding.m_parentBuilding == 0 && selectedBuilding.m_subBuilding == 0)
             {

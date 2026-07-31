@@ -78,7 +78,21 @@ public abstract partial class OptionsPanelBase {
         public CheckBoxCard AddCheckBox(bool isChecked, string checkBoxText, string header = null, string description = null, UIElementEventHandler<CheckBox, bool> callback = null, Action<CheckBoxCard> beforeLayoutAction = null) {
             var card = AddItemCard<CheckBoxCard, CheckBox>(header, description);
             var checkBox = card.Control;
-            checkBox.width = card.width - card.LayoutPadding.Horizontal;
+            // With no description sharing the row, stretch the checkbox to fill the whole card so
+            // its own label has all the room it needs.
+            //
+            // With a description present, DON'T leave checkBox.width untouched either: CheckBox
+            // defaults to width=100 (see CheckBox.Awake()) and derives its own label's width from
+            // that internally (UpdateTextWidth() - width minus the indicator and padding), which
+            // left only ~50-60px for the checkbox's own text. WordWrap then had to break every
+            // Portuguese word in the label (e.g. "automaticamente", "informações") onto its own
+            // line, since no single word fit - the exact same one-character-per-line symptom as the
+            // original bug, just moved from the description onto the checkbox's own label instead of
+            // being fixed. A fixed, generous width here leaves the rest of the row for the
+            // description via ArrangeRow()'s own width - Control.width calculation.
+            checkBox.width = string.IsNullOrEmpty(description)
+                ? card.width - card.LayoutPadding.Horizontal
+                : 320f;
             checkBox.LabelElement.TextPadding.SetTop(1);
             checkBox.CheckBoxIndicatorElement.SetStyle(StyleType.OptionPanelStyle);
             checkBox.IsChecked = isChecked;
@@ -408,8 +422,14 @@ public abstract partial class OptionsPanelBase {
             card.LayoutPadding.SetAll(16, 16, 14, 14);
             _itemCards.Add(card);
             RenderItemPanelFg();
-            if (string.IsNullOrEmpty(header)) return card;
-            card.Header = header;
+            // header and description are independent - a card with no header (every checkbox in this
+            // project passes header: null, relying only on its own inline label) still needs its
+            // description to render, since that is where callers put the explanatory tooltip text.
+            // An early return keyed only on header silently dropped every such description.
+            if (!string.IsNullOrEmpty(header))
+            {
+                card.Header = header;
+            }
             if (string.IsNullOrEmpty(description)) return card;
             card.Description = description;
             card.DescriptionElement.TextColors.DisabledColor = UIColors.White50;

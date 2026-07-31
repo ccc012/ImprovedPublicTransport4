@@ -33,7 +33,7 @@ namespace ExpressBusServices.PerformanceBoost
             }
             CachedVehicleProperties props = cachedProps[vehicleId];
             // is it expired?
-            if (props.ExpirySimTick > Singleton<SimulationManager>.instance.m_currentTickIndex)
+            if (props.ExpirySimTick < Singleton<SimulationManager>.instance.m_currentTickIndex)
             {
                 // expired; forget it
                 UnsetCache(vehicleId);

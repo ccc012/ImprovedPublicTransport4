@@ -52,7 +52,7 @@ namespace ElevatedStopsEnabler
                 if (info.m_lanes.Length == 0 || info.m_sortedLanes.Length == 0)
                     return;
 
-                for (int i = 1; i < info.m_lanes.Length - 2; i++)
+                for (int i = 1; i < info.m_sortedLanes.Length - 2; i++)
                 {
                     if (info.m_lanes[info.m_sortedLanes[i]].m_vehicleType == VehicleInfo.VehicleType.None)
                     {

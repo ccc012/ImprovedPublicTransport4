@@ -25,7 +25,7 @@ public static class BusAI_Patch
 
         NetManager instance = Singleton<NetManager>.instance;
         NetInfo info = instance.m_segments.m_buffer[position.m_segment].Info;
-        if (info.m_lanes == null || info.m_lanes.Length <= position.m_lane)
+        if (info?.m_lanes == null || info.m_lanes.Length <= position.m_lane)
             return;
 
         NetInfo.Lane laneInfo = info.m_lanes[position.m_lane];
@@ -155,7 +155,7 @@ public static class TrolleybusAI_Patch
 
         NetManager instance = Singleton<NetManager>.instance;
         NetInfo info = instance.m_segments.m_buffer[position.m_segment].Info;
-        if (info.m_lanes == null || info.m_lanes.Length <= position.m_lane)
+        if (info?.m_lanes == null || info.m_lanes.Length <= position.m_lane)
             return;
 
         NetInfo.Lane laneInfo = info.m_lanes[position.m_lane];

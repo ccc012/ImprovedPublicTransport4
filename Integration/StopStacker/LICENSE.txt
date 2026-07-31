@@ -1,0 +1,50 @@
+Stop Stacker integration - license notes
+=========================================
+
+Original mod: "Stop Stacker" by ScratchyBald, Steam Workshop ID 3751418194.
+The Workshop page for this mod does not publish a license, and no source
+code was available to read. This integration is therefore a 100% clean-room
+reimplementation, written from the mod's public description only:
+
+  "Stop Stacker helps bus stop pits work like real multi-berth loading
+  pockets [...] the mod only targets real bus-category vehicles with an
+  active line and valid target stop [...] groups nearby same-side bus
+  stops into physical stop pockets, calculates berth positions for
+  supported pit geometry, shows lightweight berth markers, and provides a
+  floating inspector [...] does not change road rules, bus lane priority,
+  pathfinding preferences, or transport line routing."
+
+No source code, decompiled IL, or assets from the original mod were read,
+copied, or referenced. Everything under this folder was written from that
+functional description plus IPT4's own existing BetterBusStopPosition
+integration (same author's own prior code in this repository, MIT-style
+internal reuse - see Integration/BetterBusStopPosition/), which already
+proved the safe Harmony hook point (a Postfix on
+BusAI/TrolleybusAI.CalculateSegmentPosition) for adjusting where a bus
+parks at a stop without touching pathfinding or traffic-following logic.
+
+Scope reduction vs. the original mod (documented honestly, 2026-07-30):
+- No clustering of multiple adjacent physical stop props into a single
+  "pit" across several stops/segments - this integration only stacks
+  berths along the single stop lane a vehicle's path already assigns it
+  to, which is the part that can be done safely from a Postfix.
+- No berth marker overlay or floating inspector panel (visualization
+  only, not needed for the underlying gameplay improvement).
+- No standalone "Cities Harmony" dependency - IPT4 already provides its
+  own Harmony instance, so it isn't needed.
+- Bus and trolleybus only (matches the original's stated "bus-category
+  vehicles" scope) - trams and trains are intentionally excluded, since
+  IPT4 already reserves dedicated logic in SingleTrainTrackAI for trains.
+
+Mechanically: when more than one vehicle serving the same line is
+converging on the same stop lane, only the first (lead) vehicle uses the
+normal/vanilla stop position. Every following vehicle already tracked as
+Arriving/Leaving on that lane is assigned its own berth further back
+along the lane (spaced by vehicle length + margin), computed with the
+same vanilla NetLane.CalculateStopPositionAndDirection curb-offset math
+BetterBusStopPosition already uses, so following buses can be considered
+"at the stop" (and load/unload passengers) without waiting single-file
+behind the lead vehicle as ordinary blocked traffic. If the lane is too
+short to fit another berth, a vehicle is left with the vanilla behavior
+(queues as normal traffic), so this never overrides physics or clips
+vehicles into each other.

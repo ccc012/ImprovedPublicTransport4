@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using ImprovedPublicTransport.Util;
 
@@ -66,8 +65,7 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                     return;
                 }
 
-                var classField = typeof(ItemClassCollection).GetField("m_classDict", BindingFlags.Static | BindingFlags.NonPublic);
-                var itemClasses = classField?.GetValue(null) as Dictionary<string, ItemClass>;
+                var itemClasses = Mod.GetItemClassDict();
                 if (itemClasses == null || !itemClasses.ContainsKey("Intercity Bus"))
                 {
                     throw new Exception("Intercity Bus Control - Sunset Harbor 'Intercity Bus' item class is not found! Is Sunset Harbor DLC installed & enabled?");

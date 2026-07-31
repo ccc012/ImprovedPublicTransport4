@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Önerilen durak adlarının listesi.
 STOP_PANEL_REUSE_NAME_TOOLTIP Bu adı bu istasyondaki diğer tüm duraklara ayarla.
 STOP_PANEL_WAITING_PEOPLE Bekleyen Yolcular: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Yolcu Varış Noktası
+COMMUTER_DESTINATION_HEADER En cok gidilen yerler:
+COMMUTER_DESTINATION_NONE Su anda burada bekleyen yolcu yok.
+COMMUTER_DESTINATION_LOADING Hesaplaniyor...
 COMMUTER_DESTINATION_BUTTON Varış Noktaları
 COMMUTER_DESTINATION_BUTTON_TOOLTIP Bu durakta bekleyen yolcuların nereye gittiğini göster.
 STOP_PANEL_BORED_TIMER Ayrılıncaya Kadar Kalan Zaman: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS Hat Renkleri
 SETTINGS Ayarlar
 SETTINGS_SPEED Hızı Göster:
 SETTINGS_SPEED_TOOLTIP UI'de hız görüntüleme için kullanılacak birimi seç.
+SETTINGS_GAMEPLAY_PROFILE Oynanis profili
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Her birini elle ayarlamak yerine bir grup ayari aninda uygular. Varsayilan, emilen her entegrasyonu kapatir ve temel oyuna mumkun oldugunca yakin olur; Gercekci ise bunlari acar ve var oldugunda daha gercekci secenegi uygular. Ikisinden birini secmek asagidaki tekil ayarlarin uzerine yazar - bunlari bu acilir menu hicbir sey degistirmeden kendiniz yonetmek icin Ozel'i secin.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Ozel
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Varsayilan
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Gercekci
 SETTINGS_SPEED_KPH km/s
 SETTINGS_SPEED_MPH mil/s
 SETTINGS_WALKING_SPEED Yürüme/Bisiklet Hızı:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE Araç Editörünü Gizle
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Araç editörünü araç panellerinden gizle.
 
 SETTINGS_STOPS Toplu Taşıma Durağı
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Bir durak dolu sayilmadan once her ulasim turunden kac yolcunun orada bekleyebilecegi. Daha yuksek degerler yogun duraklardaki asiri kalabalik sikayetlerini azaltir, ancak siranin gercekciligi biraz azalir.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Yukaridaki tum durak yolcu sinirlarini varsayilan degerlerine sifirlar.
 SETTINGS_ENABLE_STOPS_AND_STATIONS Durağı ve İstasyonları Etkinleştir
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Çeşitli duraklar ve istasyonlarda toplu taşımacılık için bekleyebilecek azami vatandaş sayısını ayarla. Duraklar sekmesinde yapılandır.
 SETTINGS_STOPSANDSTATIONS_ENABLE Durağı ve İstasyonları Etkinleştir
@@ -343,6 +353,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Şehirlerarası Otobüs Kontrolünü Etkinleştir
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Entegre şehirlerarası otobüs kontrol uyumluluğu katmanını ve istasyon yamasını etkinleştir.
 SETTINGS_INTERCITY_BUS_CAPACITY Şehirlerarası Terminal Kapasitesi
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Şehirlerarası otobüs terminalinin aynı anda barındırabileceği araç sayısı.
+SETTINGS_TRAM_DEPOT_CAPACITY Tramvay deposu kapasitesi
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Varsayilan olarak her tramvay deposu fiilen sinirsiz 100.000 arac kapasitesine sahiptir. Gercekci ve Orta bunun yerine orta duzeyde sabit bir sinir uygular; Devre disi mevcut davranisi korur.
+SETTINGS_TAXI_DEPOT_CAPACITY Taksi garaji kapasitesi
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Varsayilan olarak her taksi deposu fiilen sinirsiz 100.000 arac kapasitesine sahiptir. Gercekci ve Orta bunun yerine orta duzeyde sabit bir sinir uygular; Devre disi mevcut davranisi korur.
+SETTINGS_BUS_DEPOT_CAPACITY Otobus garaji kapasitesi
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Varsayilan olarak oyun her otobus garajini (normal, biyoyakit ve tur otobusu) pratikte sinirsiz 100.000 arac kapasitesinde birakir. Gercekci ve Orta bunun yerine orta duzeyde sabit bir tavan uygular; Devre disi mevcut davranisi korur.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Troleybus garaji kapasitesi
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Varsayilan olarak oyun her troleybus garajini pratikte sinirsiz 100.000 arac kapasitesinde birakir. Gercekci ve Orta bunun yerine orta duzeyde sabit bir tavan uygular; Devre disi mevcut davranisi korur.
+SETTINGS_FERRY_DEPOT_CAPACITY Feribot garaji kapasitesi
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Varsayilan olarak oyun her feribot garajini pratikte sinirsiz 100.000 arac kapasitesinde birakir. Gercekci ve Orta bunun yerine orta duzeyde sabit bir tavan uygular; Devre disi mevcut davranisi korur.
 SETTINGS_DEPOT_CAPACITY_DISABLED Devre dışı (sınırsız)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Orta
 SETTINGS_DEPOT_CAPACITY_REALISTIC Gerçekçi
@@ -356,6 +376,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Paylaşımlı Durak Etkinleştiriciyi Aç
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Birden fazla ulaşım türünün (otobüs, tramvay, troleybüs) aynı yol bölümünde durmasına izin verir. Varsayılan olarak kapalıdır - bu azaltılmış sürümün neyi dışarıda bıraktığını modun GitHub'ından görebilirsiniz.
 SETTINGS_COMMUTERDESTINATION_ENABLE Yolcu Varış Noktasını Etkinleştir
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Bir durakta bekleyen yolcuların nereye gittiğini gösterir - küçük bir panel ile harita katmanı. Salt okunur, Harmony dışında bağımlılığı yoktur.
+SETTINGS_OOC_ENABLE Optimize edilmis dis baglantilar
+SETTINGS_OOC_ENABLE_TOOLTIP Yuk trenleri, ucaklar ve gemiler dis baglantilarda hareket etmeden once daha dolu bir yuk icin daha uzun bekler.
+SETTINGS_OOC_WAIT_MULTIPLIER Bekleme carpani
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Daha dolu bir yuk icin vanilyadan ne kadar daha uzun beklenecegi. Yuksek degerler daha az ama daha dolu sefer anlamina gelir.
+SETTINGS_OOC_PASSENGER_SCOPE Yolcu bekleme kapsami
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Yukaridaki bekleme carpaninin toplu tasima bekleyen vatandaslara nerede uygulandigi. Sadece dis baglantilar sadece dis baglantida bekleyen vatandaslari etkiler; sehir geneli her vatandasin normal yerel beklemesini de yavaslatir (kaynak modun gercek davranisiyla eslesir).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Sadece dis baglantilar
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Sehir geneli
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Devre disi (vanilya)
+SETTINGS_OOC_DISABLE_DUMMY Dekoratif gecis trafigini devre disi birak
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Dekoratif kara yolu trafigini kapat
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Dekoratif tren trafigini kapat
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Dekoratif ucak trafigini kapat
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Dekoratif gemi trafigini kapat
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Dis baglantilar normalde sehre gercekte hic girmeyen veya cikmayan, sadece gorsel atmosfer icin ekstra dekoratif trafik olusturur. Devre disi birakmak gercek ithalat/ihracat/yolcu akisini etkilemeden bu trafigi kaldirir.
+SETTINGS_UOC_ENABLE Sinirsiz dis baglantilar
+SETTINGS_UOC_ENABLE_TOOLTIP Yol, tren rayi, gemi rotasi ve ucus rotasi icin standart 4 baglanti sinirini kaldirir ve mevcut bir istasyona yakin yeni bir baglanti insa edildiginde ulasim hatlarini geriye donuk olarak baglar. Bir sonraki seviye yuklemesinde etkili olur.
+SETTINGS_STTAI_ENABLE Tek hatli tren carpisma onleme
+SETTINGS_STTAI_ENABLE_TOOLTIP Tek hatli bir bolumu bir seferde bir tren icin ayirir, bolum bosalana kadar karsi yondeki treni girişte bekletir. Orijinal IPT4 ozelligi, vanilyada veya emilen herhangi bir modda bulunmaz.
+SETTINGS_STOPSTACKER_ENABLE Otobus duragi bindirme yuvasi
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Ayni durağa yaklasan ikinci/ucuncu otobusun, onculuk eden otobusun arkasinda tek sira halinde beklemek yerine durak seridinde daha geride kendi yuvasini kullanmasini saglayarak birden fazla otobusun ayni anda yolcu indirip bindirmesine olanak tanir. Orijinal IPT4 ozelligi (basitlestirilmis yeniden uygulama), vanilyada veya emilen herhangi bir modda bulunmaz.
 CHANGELOG_4_3_3_1 Ayarların kaydedilmesi/yüklenmesi hala bazı mod yığınlarında bozuldu, hatta Newtonsworth.Json.dll paketlenildikten sonra: önceki geçici çözüm sadece bir giriş noktasında Assembly.LoadFrom denedi ve yine de yükleme sırasına bağlıydı. IPT4 şimdi global AssemblyResolve kancası kaydeder ve paketlenmiş Newtonsworth.Json'unu her mod/UI giriş noktasından CSLModsCommon JsonWriter'a dokunmadan önce hızlı bir şekilde başlatır, böylece Seçenekler UI paneli başka bir mod'un uyumsuz Json.NET kopyasına rastgele bağlanmak yerine güvenilir bir şekilde devam eder.
 CHANGELOG_4_3_2_1 Başka bir yüklü mod rastulameyse mod yükleme tamamen başarısız ("mod's dll veya bağımlılıklarından birini yükleyemedi") sabitlendi: CSLModsCommon ayarları serileştirme (JsonHelper/SerializationContext) buna ihtiyaç duydu, ancak oluşturma hiçbir zaman gerçekten Newtonsworth.Json.dll'yi mod'un yanına konuşlandırmadı - her zaman sadece başka bir mod'un kopyasında çalıştı. Tüm diğer modları devre dışı bırakarak temiz bir test için bulundu, bu tam da bundan sonra test edilmesi gereken yöntemdir.
 CHANGELOG_4_3_1_1 Seçenekler panelinin dil seçicisi sabitlendi, sadece çerçevenin kendi dizeleri (Sürüm/Changelog/...) yeniden çevrildi, oysa bu mod'un her dizesi oyun dilinde kaldı - çeviri yükleyicimiz oyun dilinden ayrı olarak anahtarlanmış ve mod'un kendi seçimini tamamen görmezden geldi. Şimdi mod'un dil seçimine uyar ve oyun diline geri döner, ardından İngilizce'ye döner ve seçici değiştiğinde yeniden çözer.
@@ -408,6 +449,14 @@ CHANGELOG_4_3_4_1 Harita bile yüklenmeden AutoLineColor tarafından atılan Ba�
 CHANGELOG_4_3_5_1 Tren Gösterimi bindirmesi bir aracı takip ederken hiçbir zaman görünmeme sabitlendi. Kameraya takip edilen örneği genel "hedef"/"GetTarget" araştırmaları yoluyla bulmuştur, ancak oyun onu özel CameraController.m_targetInstance alanında depolar ve bu araştırmalar hiçbir zaman eşleşmedi. Ayrıca "Yalnızca birinci şahıs kamerasında" varsayılan olarak kapalıdır: düz takip modu birinci şahıs değildir, bu yüzden onu açık bırakmak bindirmeyi kutudan çıkmış gibi görünecek hale getirdi, orijinal mod'a aksine, herhangi bir takip görünümünde bunu gösterdi.
 CHANGELOG_4_3_5_2 Bilet Fiyatları sekmeleri şimdi canlı yolcu sayısı yerine her bir taşıma türü için sonuç tarifesini gösterir. Kaydırıcılar sadece yüzde gösteriyor, bu yüzden bir çarpanın gerçekte ne ürettiğini görmenin öncesi bir yolu yoktu - ve küçük veya duraklatılmış bir şehirde yolcu sayısı sadece kalıcı "0" okudu. Yolcu sayısı, orijinal ücretin yanında etiket ipucuna taşındı.
 TICKET_PRICE_LABEL_TOOLTIP Mevcut ücret: {0}\nOrijinal ücret: {1}\nŞimdi yolculuk yapan yolcular: {2}
+CHANGELOG_4_8_0_1 SingleTrainTrackAI eklendi: tek hatlı ray segmentleri artık aynı anda yalnızca bir yön için ayrılıyor, böylece çift yönlü bir hattı paylaşan iki tren artık çarpışma riski taşımıyor. Temiz oda (clean-room) yeniden uygulaması - kaynak mod (Workshop 949504539) beyan edilmiş bir lisansa sahip değil, bu yüzden yalnızca kamuya açık şekilde belgelenmiş kavramı, ham bellek yönlendirmeleri yerine bu projenin kendi Harmony tabanlı yamalama sistemi üzerinde yeniden uygulandı.
+CHANGELOG_4_8_0_2 Stop Stacker eklendi: aynı hattaki birden fazla araç bir durakta birleştiğinde, yalnızca öndeki araç normal durak konumunu kullanır - arkadan gelen araçlar, onun arkasında tek sıra halinde kuyruğa girmek yerine şeritte daha geride kendi park yerlerini alır. Yalnızca kaynak modun herkese açık açıklamasına dayanan temiz oda yeniden uygulaması (kaynak kod mevcut değildi); yalnızca otobüs ve troleybüs, bu projenin mevcut BetterBusStopPosition bağlantı noktasıyla eşleşecek şekilde.
+CHANGELOG_4_8_0_3 Düzeltildi: şehirlerarası otobüs terminali entegrasyonu, Sunset Harbor DLC'sine sahip oyuncular için sessizce hiç etkinleşmiyordu: DLC'yi, bu projenin başka yerlerinde zaten kullanılan Steam DLC kontrolü yerine oyunun özel bir alanına reflection ile erişerek algılıyordu ve bu reflection tabanlı kontrol, DLC gerçekten yüklü olsa bile false döndürebiliyordu.
+CHANGELOG_4_8_0_4 Düzeltildi: bazı terminallerde "şehirlerarası otobüsleri kabul et" onay kutusu tepkisiz takılıp kalıyordu: vanilla oyun, bu modun yeniden etiketlenmiş kullanımının hiç hesaba katmadığı koşullar altında onay kutusunu etkileşimsiz bırakabiliyor. Artık bu mod onu kontrol ettiğinde her zaman etkileşimli olması zorlanıyor. Ayrıca, zaten doğru şekilde kurulmuş bir terminalin daha sonraki bir kontrolde sessizce anahtarını kaybedebildiği ilgili bir hata da düzeltildi.
+CHANGELOG_4_8_0_5 Düzeltildi: Sub-Buildings Tabs bazen ilgisiz bir binada eski bir sekme şeridi gösteriyordu: oyun, bir yıkımdan sonra bina kimliklerini yeniden kullanıyor ve önbellek, yeniden kullanılan bir kimliğin hâlâ önceki bina kümesine ait olduğuna güveniyordu. Artık önbellekten herhangi bir şeyi yeniden kullanmadan önce binanın gerçek üst zincirini yeniden doğruluyor.
+CHANGELOG_4_8_0_6 Birkaç entegrasyonda genel hata temizliği: taze verileri atıp bunun yerine eski verileri sunan ters çevrilmiş bir önbellek geçerlilik süresi kontrolü, otomatik renklendirme ve yinelenen ad kontrollerinde son ulaşım hattını atlayan bire bir hatalı bir döngü sınırı, "bu hatta yalnızca bir araç" yığılma önleme atlamasını bozan yanlış bir kimlik karşılaştırması, bir başarısızlığı yeniden denemek yerine kalıcı olarak önbelleğe alan bir fiyat sorgusu ve boş bir UI/prefab referansında hata verebilen birkaç Harmony yaması.
+CHANGELOG_4_8_0_7 Birkaç entegrasyonda tekrarlanan reflection ve kare başına aramalar azaltıldı: araç ipucu açıklamaları, tek hatlı segment sınıflandırması ve şehirlerarası otobüs öğe sınıfı araması artık her çağrıda yeniden hesaplanmak yerine önbelleğe alınıyor ve bir arayüz yenileme düğmesi artık bir şey değişmiş olsa da olmasa da her karede metnini yeniden atamıyor.
+CHANGELOG_4_8_0_8 Yukarıdaki düzeltmelerden sonra Intercity Bus Control ve Sub-Buildings Tabs varsayılan olarak yeniden açık - ikisinin de çalıştığı doğrulandı, yalnızca gelecekteki bir sürümde daha derin analiz için bırakılan küçük bilinen sorunlar var (sekme konumunun ince ayarı, nadir görülen bir durak adı görüntüleme tuhaflığı).
 CHANGELOG_4_7_0_1 Dört yeni entegrasyon: Alt Bina Sekmeleri (yalnızca havalimanları için değil, birden fazla binadan oluşan her kompleks için sekme çubuğu), Paylaşımlı Durak Etkinleştirici (birden fazla durak türünün aynı yol segmentini paylaşmasına izin verir, varsayılan olarak kapalı), Yolcu Varış Noktası (bir durakta bekleyen vatandaşların gerçekte nereye gittiğini gösterir) ve Taksi Durağı Düzeltmesi (boştaki taksiler amaçsızca dolaşmak yerine en yakın durağa yönelir). Her bir anahtarı Seçenekler > Entegrasyonlar altında bulabilirsiniz.
 CHANGELOG_4_7_0_2 Şehirlerarası otobüs terminalleri için bir araç kapasitesi modu eklendi (Seçenekler > Entegrasyonlar > Şehirlerarası Otobüs Terminali Kapasitesi): Devre dışı, bu modun şimdiye kadarki fiilen sınırsız terminalini korur; Orta, ölçülü sabit bir üst sınır uygular; Gerçekçi, terminalin kendi orijinal (vanilla) prefab kapasitesini geri getirir. Mevcut kayıtlar varsayılan olarak Devre dışı kullanır, böylece bir güncelleme bir terminalin kapasitesini asla sessizce küçültmez.
 CHANGELOG_4_7_0_3 Şehirlerarası otobüs terminalinin "şehirlerarası otobüsleri kabul et" onay kutusu düzeltildi: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged, isEmptying için sadece bir takma ad olan acceptsInterCityTrains değerini ayarlıyordu; bu yüzden yeniden adlandırılan onay kutusu, otobüs kabulünü gerçekten değiştirmek yerine bir otobüs terminalini sessizce oyunun bina kapatma durumuna sokabiliyordu. Artık bir Harmony prefix'i bunu yakalayıp otobüs için yamalanmış terminallerde binaya özel bir duruma yönlendiriyor; gerçek tren istasyonlarına dokunmuyor.

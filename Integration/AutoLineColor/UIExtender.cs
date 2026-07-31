@@ -48,6 +48,29 @@ namespace AutoLineColor
         {
             internal UIButton Button { get; set; }
 
+            // This button is only visible while the line-overview panel is open, but Update() still
+            // runs every frame for the lifetime of the loaded level - only touch the button (and pay
+            // for the Localization.Get lookup) when the enabled state has actually changed since last
+            // frame, instead of reassigning isEnabled/tooltip unconditionally every frame. Also
+            // invalidated on a language change (see OnEnable/OnDisable below), or the tooltip would
+            // keep showing stale text after switching languages until the enabled state next flips.
+            private bool? _lastEnabled;
+
+            private void OnEnable()
+            {
+                CSLModsCommon.Manager.LocalizationManager.ModActiveLocaleChanged += OnLocaleChanged;
+            }
+
+            private void OnDisable()
+            {
+                CSLModsCommon.Manager.LocalizationManager.ModActiveLocaleChanged -= OnLocaleChanged;
+            }
+
+            private void OnLocaleChanged(string localeId, CSLModsCommon.Manager.LocalizationManager manager)
+            {
+                _lastEnabled = null;
+            }
+
             private void Update()
             {
                 if (Button == null)
@@ -58,6 +81,12 @@ namespace AutoLineColor
                 var settings = ImprovedPublicTransport.ModSetting.Instance;
                 var enabled = settings.AutoLineColorColorStrategy != ImprovedPublicTransport.ModSetting.AutoLineColorStrategy.Disabled
                     || settings.AutoLineColorNamingStrategyMode != ImprovedPublicTransport.ModSetting.AutoLineColorNamingStrategy.Disabled;
+
+                if (_lastEnabled == enabled)
+                {
+                    return;
+                }
+                _lastEnabled = enabled;
 
                 Button.isEnabled = enabled;
                 Button.tooltip = ImprovedPublicTransport.Localization.Get(

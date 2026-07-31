@@ -1,6 +1,6 @@
 # Improved Public Transport 4
 
-**Version 4.3.5** (BETA channel) · Cities: Skylines 1 · targets 1.21.1-f9
+**Version 4.8.0** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
 
 IPT4 is a fork of [Improved Public Transport 3](https://github.com/TheMadisonian/ImprovedPublicTransport3)
 that absorbs other public-transport mods into a **single assembly**. The goal is not
@@ -40,6 +40,19 @@ identical, since both have `BudgetControl == false`).
 
 The same failure family showed up again in 4.2.0, in absorbed taxi-fare code that
 could overflow an `int` and drain the budget in a single simulation step.
+
+---
+
+## Performance note
+
+Informal, single-machine observation, not a controlled benchmark: on the
+maintainer's save, this mod consistently runs at **~50-60 FPS**, against
+**~40-50 FPS** running the same feature set as separate standalone mods (or
+under the predecessor IPT3). One assembly means one Harmony patch per hooked
+method instead of several competing ones, and the 4.8.0 optimization pass
+(caching several previously uncached reflection/UI lookups - see
+`CHANGELOG.md`) narrowed that gap further. Your mileage will vary by city size
+and mod list.
 
 ---
 
@@ -153,6 +166,14 @@ missing wiring.
 
 Compiled in; unsubscribe the standalone versions.
 
+**Default configuration policy:** most absorbed integrations ship **off** by
+default (Options > Integrations) - the mod installs with the minimum enabled,
+so nothing changes behind your back on first launch. An integration is
+switched on by default only once it's confirmed working well enough for
+everyday use; as of 4.8.0 that applies to Intercity Bus Control and
+Sub-Buildings Tabs. Commuter Destination and Train Display remain off by
+default pending further work - see `CHANGELOG.md` for what's tracked.
+
 Every author below is credited from the source itself — the Workshop item's
 "Created by" field, or the copyright header in the licence file that shipped
 with the code. Where a mod is a continuation of someone else's work, both are
@@ -185,11 +206,27 @@ copy lives in each `Integration/<Name>/LICENSE`. Three GPL-3.0 entries
 (`AutoLineBudget`, `TrainDisplayUpdated`, `SharedStopEnabler`) are why IPT4 as a
 whole is GPL-3.0.
 
-`TaxiStandFix` is deliberately absent from this table: unlike everything else
-above, it is not a code port. It is an original IPT4 implementation of the same
-idea as the standalone [Taxi Stand Fix](https://steamcommunity.com/sharedfiles/filedetails/?id=3712889232)
-mod - written fresh against IPT4's own Harmony conventions rather than adapted
-from its source - so there is no upstream licence to carry forward.
+`TaxiStandFix`, `SingleTrainTrackAI` and `StopStacker` are deliberately absent
+from this table: unlike everything else above, none of the three are code
+ports.
+
+- `TaxiStandFix` is an original IPT4 implementation of the same idea as the
+  standalone [Taxi Stand Fix](https://steamcommunity.com/sharedfiles/filedetails/?id=3712889232)
+  mod - written fresh against IPT4's own Harmony conventions rather than
+  adapted from its source - so there is no upstream licence to carry forward.
+- `SingleTrainTrackAI` is a clean-room reimplementation of the concept behind
+  [SingleTrainTrackAI](https://steamcommunity.com/sharedfiles/filedetails/?id=949504539)
+  by **CoarzFlovv** (Workshop 949504539, no declared licence, no source read) -
+  only the publicly documented idea (reserve a shared single-track segment for
+  one direction at a time) was reimplemented, on this project's own
+  Harmony-based patching instead of upstream's raw memory detour.
+- `StopStacker` is a clean-room reimplementation of the concept behind
+  [Stop Stacker](https://steamcommunity.com/sharedfiles/filedetails/?id=3751418194)
+  by **ScratchyBald** (Workshop 3751418194, no declared licence, no source
+  available) - written from the mod's public description only, reusing this
+  project's own `BetterBusStopPosition` hook point. See
+  `Integration/StopStacker/LICENSE.txt` for the documented scope reduction
+  versus the original.
 
 > **Attribution check, worth repeating if you absorb another mod:** several of
 > these folders contain a copyright header for *AlgernonCommons*, the vendored
@@ -201,7 +238,7 @@ from its source - so there is no upstream licence to carry forward.
 
 ## Localization
 
-19 mod translation files (`Translations/*.txt`, 364 keys each) plus 23 framework
+24 mod translation files (`Translations/*.txt`, 447 keys each) plus 23 framework
 locale files (`CSLModsCommonShared/Localization/Common/*.json`).
 
 Two separate systems, which is easy to trip over:
@@ -217,7 +254,7 @@ Indonesian and Urdu were invisible until 4.3.3 despite being fully translated.
 
 `FindLanguage` maps long ids to short filenames (`de-DE` → `de.txt`,
 `zh-TW` → `zh-tw.txt`). **All 23** selector entries now have a full mod
-translation - 364 keys each, same key set, verified programmatically.
+translation - 447 keys each, same key set, verified programmatically.
 
 `Localization/Common/TranslationStatus.json` feeds the percentage shown under the
 language dropdown. It is a static file, not computed at runtime: if you add keys
@@ -409,6 +446,22 @@ Allows more than one transit stop type to share the same road segment (for examp
 a bus stop and a tram stop on the same street), instead of vanilla's one-stop-per-
 segment restriction. **Off by default** — see `Integration/SharedStopEnabler/LICENSE.txt`
 for the reduced scope of what was ported.
+
+### Single Train Track AI
+Reserves a single-track rail segment for one direction of travel at a time, so
+two trains sharing a bidirectional track no longer risk colliding. Trains
+already standing on a shared segment keep their hold; a train approaching one
+held by another train brakes to a stop instead of entering. Clean-room
+reimplementation - see [Absorbed mods](#absorbed-mods).
+
+### Stop Stacker
+When more than one vehicle serving the same line converges on a stop, only the
+lead vehicle uses the normal vanilla stop position - each vehicle behind it
+gets its own berth further back along the same lane instead of queuing
+single-file as ordinary blocked traffic, so following buses can load/unload
+passengers without waiting. Bus and trolleybus only; falls back to vanilla
+behavior if the lane is too short to fit another berth. Clean-room
+reimplementation - see [Absorbed mods](#absorbed-mods).
 
 ### Stops and Stations
 Adds a waiting passenger limiter to all transit stops in Options Panel:

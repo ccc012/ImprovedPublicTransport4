@@ -25,6 +25,7 @@ namespace ExpressBusServices
         [UsedImplicitly]
         public static void HandleBusAlreadyLoadedPassengers(ushort vehicleID, ref Vehicle data)
         {
+            BusStopSkippingLookupTable.ForgetBus(vehicleID);
             VehiclePaxDeltaInfo.Notify_VehicleFinishedLoadingPax(vehicleID, ref data);
         }
     }

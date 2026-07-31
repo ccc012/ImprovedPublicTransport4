@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lista sugerowanych nazw przystanków.
 STOP_PANEL_REUSE_NAME_TOOLTIP Ustaw tę nazwę dla wszystkich pozostałych przystanków na tej stacji / pozycji.
 STOP_PANEL_WAITING_PEOPLE Czekający pasażerowie: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Cel podróży pasażerów
+COMMUTER_DESTINATION_HEADER Najczestsze cele:
+COMMUTER_DESTINATION_NONE Nikt tu teraz nie czeka.
+COMMUTER_DESTINATION_LOADING Obliczanie...
 COMMUTER_DESTINATION_BUTTON Cele podróży
 COMMUTER_DESTINATION_BUTTON_TOOLTIP Pokaż, dokąd zmierzają pasażerowie czekający na tym przystanku.
 STOP_PANEL_BORED_TIMER Czas do znudzenia: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS Kolory Linii
 SETTINGS Ustawienia
 SETTINGS_SPEED Prędkość: 
 SETTINGS_SPEED_TOOLTIP Wybierz jednostkę prędkości wyświetlaną w interfejsie.
+SETTINGS_GAMEPLAY_PROFILE Profil rozgrywki
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Stosuje grupe ustawien naraz zamiast recznie dostrajac kazde z osobna. Wersja podstawowa wylacza kazda wchlonieta integracje i jak najbardziej przypomina gre bazowa; Realistyczny wlacza je i stosuje bardziej realistyczna opcje tam, gdzie istnieje. Wybranie ktoregokolwiek nadpisuje ponizsze indywidualne ustawienia - wybierz Wlasny, aby zarzadzac nimi samodzielnie bez zmiany czegokolwiek przez to menu.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Wlasny
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Wersja podstawowa
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistyczny
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mil/h
 SETTINGS_WALKING_SPEED Szybkość chodzenia/jazdy na rowerze: 
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE Ukryj edytor pojazdów
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Ukryj edytor pojazdów z paneli pojazdów.
 
 SETTINGS_STOPS Przystanki transportu publicznego
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Ile pasazerow kazdego rodzaju transportu moze czekac na jednym przystanku, zanim zostanie uznany za pelny. Wyzsze wartosci zmniejszaja skargi na przepelnienie na ruchliwych przystankach, kosztem mniej realistycznej wielkosci kolejki.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Przywraca wszystkie powyzsze limity pasazerow na przystanku do wartosci domyslnych.
 SETTINGS_ENABLE_STOPS_AND_STATIONS Włącz Przystanki i Stacje
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Dostosuj maksymalną liczbę obywateli mogących czekać na transport publiczny na różnych przystankach i stacjach. Skonfiguruj w zakładce Przystanki.
 SETTINGS_STOPSANDSTATIONS_ENABLE Włącz Przystanki i Stacje
@@ -344,6 +354,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Włącz Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Włącza zintegrowaną warstwę zgodności Intercity Bus Control i łatanie stacji.
 SETTINGS_INTERCITY_BUS_CAPACITY Pojemność terminalu międzymiastowego
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Ile pojazdów może pomieścić jednocześnie terminal autobusów międzymiastowych.
+SETTINGS_TRAM_DEPOT_CAPACITY Pojemnosc zajezdni tramwajowej
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Domyslnie kazda zajezdnia tramwajowa ma praktycznie nieograniczony limit 100 000 pojazdow. Realistyczny i Posredni stosuja zamiast tego umiarkowany staly limit; Wylaczone zachowuje obecne zachowanie.
+SETTINGS_TAXI_DEPOT_CAPACITY Pojemnosc bazy taksowek
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Domyslnie kazda baza taksowek ma praktycznie nieograniczony limit 100 000 pojazdow. Realistyczny i Posredni stosuja zamiast tego umiarkowany staly limit; Wylaczone zachowuje obecne zachowanie.
+SETTINGS_BUS_DEPOT_CAPACITY Pojemnosc zajezdni autobusowej
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Domyslnie kazda zajezdnia autobusowa (zwykla, na biopaliwo i wycieczkowa) ma praktycznie nieograniczona pojemnosc 100 000 pojazdow. Realistyczny i Posredni stosuja zamiast tego umiarkowany staly limit; Wylaczony zachowuje obecne zachowanie.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Pojemnosc zajezdni trolejbusowej
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Domyslnie kazda zajezdnia trolejbusowa ma praktycznie nieograniczona pojemnosc 100 000 pojazdow. Realistyczny i Posredni stosuja zamiast tego umiarkowany staly limit; Wylaczony zachowuje obecne zachowanie.
+SETTINGS_FERRY_DEPOT_CAPACITY Pojemnosc bazy promowej
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Domyslnie kazda baza promowa ma praktycznie nieograniczona pojemnosc 100 000 pojazdow. Realistyczny i Posredni stosuja zamiast tego umiarkowany staly limit; Wylaczony zachowuje obecne zachowanie.
 SETTINGS_DEPOT_CAPACITY_DISABLED Wyłączone (bez limitu)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Pośredni
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistyczny
@@ -357,6 +377,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Włącz wspólne przystanki
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Pozwala więcej niż jednemu rodzajowi transportu (autobus, tramwaj, trolejbus) zatrzymywać się na tym samym odcinku drogi. Domyślnie wyłączone - zobacz GitHub moda, co pomija ta okrojona wersja.
 SETTINGS_COMMUTERDESTINATION_ENABLE Włącz cel podróży pasażerów
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Pokazuje, dokąd zmierzają pasażerowie czekający na przystanku - mały panel plus nakładka na mapie. Tylko do odczytu, brak innej zależności niż Harmony.
+SETTINGS_OOC_ENABLE Zoptymalizowane polaczenia zewnetrzne
+SETTINGS_OOC_ENABLE_TOOLTIP Pociagi, samoloty i statki towarowe czekaja dluzej na pelniejszy ladunek przed odjazdem na polaczeniach zewnetrznych.
+SETTINGS_OOC_WAIT_MULTIPLIER Mnoznik oczekiwania
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP O ile dluzej niz w wersji podstawowej czekac na pelniejszy ladunek. Wyzsze wartosci oznaczaja mniej, ale pelniejszych podrozy.
+SETTINGS_OOC_PASSENGER_SCOPE Zakres oczekiwania pasazerow
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Gdzie powyzszy mnoznik oczekiwania dotyczy obywateli czekajacych na transport publiczny. Tylko polaczenia zewnetrzne wplywa tylko na obywateli czekajacych przy polaczeniu zewnetrznym; w calym miescie spowalnia rowniez zwykle krajowe oczekiwanie kazdego obywatela (odpowiada rzeczywistemu zachowaniu oryginalnego moda).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Tylko polaczenia zewnetrzne
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Cale miasto
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Wylaczone (vanilla)
+SETTINGS_OOC_DISABLE_DUMMY Wylacz dekoracyjny ruch przejazdowy
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Wylacz dekoracyjny ruch drogowy
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Wylacz dekoracyjny ruch kolejowy
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Wylacz dekoracyjny ruch lotniczy
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Wylacz dekoracyjny ruch statkow
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Polaczenia zewnetrzne zwykle generuja dodatkowy dekoracyjny ruch, ktory nigdy faktycznie nie wjezdza ani nie wyjezdza z miasta, wylacznie dla wizualnej atmosfery. Wylaczenie usuwa ten ruch, pozostawiajac rzeczywisty przeplyw importu/eksportu/pasazerow nietkniety.
+SETTINGS_UOC_ENABLE Nieograniczone polaczenia zewnetrzne
+SETTINGS_UOC_ENABLE_TOOLTIP Usuwa standardowy limit 4 polaczen dla drog, torow kolejowych, tras statkow i tras lotniczych, oraz retroaktywnie laczy linie transportowe, gdy nowe polaczenie jest budowane blisko istniejacej stacji. Wchodzi w zycie przy nastepnym wczytaniu poziomu.
+SETTINGS_STTAI_ENABLE Unikanie kolizji pociagow na jednym torze
+SETTINGS_STTAI_ENABLE_TOOLTIP Rezerwuje odcinek jednotorowy dla jednego pociagu naraz, wstrzymujac pociag jadacy z przeciwka przy wjezdzie, az odcinek bedzie wolny. Oryginalna funkcja IPT4, nieobecna w wersji podstawowej ani w zadnym wchlonietym modzie.
+SETTINGS_STOPSTACKER_ENABLE Ukladanie stanowisk na przystankach autobusowych
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Pozwala drugiemu/trzeciemu autobusowi zblizajacemu sie do tego samego przystanku uzyc wlasnego stanowiska dalej wzdluz pasa przystankowego zamiast ustawiac sie w kolejce za pierwszym autobusem, dzieki czemu wiecej niz jeden autobus moze jednoczesnie wsiadac/wysiadac. Oryginalna funkcja IPT4 (uproszczona reimplementacja bez dostepu do oryginalnego kodu), nieobecna w wersji podstawowej ani w zadnym wchlonietym modzie.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -406,6 +447,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP Aktualna opłata: {0}\nPierwotna opłata: {1}\nPasażerowie w pojazdach: {2}
 
+CHANGELOG_4_8_0_1 Dodano SingleTrainTrackAI: odcinki toru jednotorowego są teraz rezerwowane dla jednego kierunku na raz, dzięki czemu dwa pociągi dzielące tor dwukierunkowy nie ryzykują już zderzenia. Reimplementacja typu clean-room - moda źródłowa (Workshop 949504539) nie ma zadeklarowanej licencji, więc odtworzono jedynie jej publicznie udokumentowaną koncepcję, wykorzystując własny system łatek oparty na Harmony zamiast surowych przekierowań pamięci.
+CHANGELOG_4_8_0_2 Dodano Stop Stacker: gdy więcej niż jeden pojazd tej samej linii zbiega się na przystanku, tylko pojazd prowadzący korzysta z normalnej pozycji przystankowej - kolejne pojazdy otrzymują własne miejsce dalej wzdłuż pasa zamiast ustawiać się w kolejce gęsiego za nim. Reimplementacja typu clean-room oparta wyłącznie na publicznym opisie mody źródłowej (kod źródłowy nie był dostępny); tylko autobusy i trolejbusy, zgodnie z istniejącym punktem zaczepienia BetterBusStopPosition w tym projekcie.
+CHANGELOG_4_8_0_3 Naprawiono integrację terminalu autobusów międzymiastowych, która nigdy po cichu nie aktywowała się dla graczy posiadających DLC Sunset Harbor: wykrywała DLC poprzez refleksję do prywatnego pola gry zamiast sprawdzenia DLC Steam już używanego gdzie indziej w tym projekcie, a to sprawdzenie oparte na refleksji mogło zwrócić fałsz, nawet gdy DLC było faktycznie zainstalowane.
+CHANGELOG_4_8_0_4 Naprawiono zawieszanie się i brak reakcji pola wyboru "akceptuj autobusy międzymiastowe" na niektórych terminalach: gra bazowa może pozostawić pole wyboru nieinteraktywne w warunkach, których przeetykietowane użycie go przez tego moda nigdy nie uwzględniało. Teraz jest ono wymuszane jako interaktywne, zawsze gdy kontroluje je ten mod. Naprawiono też powiązany błąd, w którym terminal już poprawnie skonfigurowany mógł po cichu utracić swój przełącznik przy późniejszym sprawdzeniu.
+CHANGELOG_4_8_0_5 Naprawiono okazjonalne wyświetlanie przez Sub-Buildings Tabs nieaktualnego paska zakładek na niepowiązanym budynku: gra ponownie wykorzystuje identyfikatory budynków po rozbiórce, a pamięć podręczna ufała, że ponownie wykorzystany identyfikator nadal należy do poprzedniego klastra budynków. Teraz ponownie weryfikuje faktyczny łańcuch nadrzędny budynku przed ponownym użyciem czegokolwiek z pamięci podręcznej.
+CHANGELOG_4_8_0_6 Ogólne porządki z błędami w kilku integracjach: odwrócone sprawdzenie wygaśnięcia pamięci podręcznej, które odrzucało świeże dane i zamiast tego serwowało nieaktualne, błąd o jeden w granicy pętli, który pomijał ostatnią linię transportową przy automatycznym kolorowaniu i sprawdzaniu duplikatów nazw, błędne porównanie identyfikatorów, które psuło obejście "tylko jeden pojazd na tej linii" zapobiegające zbijaniu się pojazdów, wyszukiwanie ceny, które trwale zapamiętywało niepowodzenie zamiast ponawiać próbę później, oraz kilka łatek Harmony, które mogły rzucić wyjątek przy pustym odwołaniu do UI/prefabu.
+CHANGELOG_4_8_0_7 Zmniejszono liczbę powtarzanych wyszukiwań przez refleksję i na klatkę w kilku integracjach: opisy dymków podpowiedzi pojazdów, klasyfikacja odcinków jednotorowych oraz wyszukiwanie klasy przedmiotu dla autobusów międzymiastowych są teraz zapamiętywane w pamięci podręcznej zamiast przeliczane przy każdym wywołaniu, a przycisk odświeżania interfejsu nie przypisuje już swojego tekstu na nowo w każdej pojedynczej klatce, niezależnie od tego, czy coś się zmieniło.
+CHANGELOG_4_8_0_8 Intercity Bus Control oraz Sub-Buildings Tabs są ponownie domyślnie włączone po powyższych poprawkach - oba zostały potwierdzone jako działające poprawnie, pozostały jedynie drobne znane problemy (dostrojenie pozycji zakładki, rzadka dziwna sytuacja przy wyświetlaniu nazwy przystanku) pozostawione do głębszej analizy w przyszłej wersji.
 CHANGELOG_4_7_0_1 Cztery nowe integracje: Zakładki podbudynków (pasek zakładek dla dowolnego kompleksu z wieloma budynkami, nie tylko lotnisk), Wspólne przystanki (pozwala więcej niż jednemu typowi przystanku współdzielić ten sam odcinek drogi, domyślnie wyłączone), Cel podróży pasażerów (pokazuje, dokąd faktycznie zmierzają mieszkańcy czekający na przystanku) oraz Poprawka postoju taksówek (wolne taksówki jadą do najbliższego postoju zamiast błąkać się bez celu). Poszczególne przełączniki znajdziesz w Opcje > Integracje.
 CHANGELOG_4_7_0_2 Dodano tryb pojemności pojazdów dla terminali autobusów międzymiastowych (Opcje > Integracje > Pojemność terminalu autobusów międzymiastowych): Wyłączone zachowuje dotychczasowy, praktycznie nieograniczony terminal tego moda; Pośredni stosuje umiarkowany stały limit; Realistyczny przywraca oryginalną pojemność prefabu terminalu z gry podstawowej. Istniejące zapisy domyślnie używają opcji Wyłączone, dzięki czemu aktualizacja nigdy niepostrzeżenie nie zmniejsza pojemności terminalu.
 CHANGELOG_4_7_0_3 Naprawiono pole wyboru "akceptuj autobusy międzymiastowe" terminalu autobusów międzymiastowych: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged ustawia acceptsInterCityTrains, które jest jedynie aliasem dla isEmptying, przez co przemianowane pole wyboru mogło niepostrzeżenie przełączać terminal autobusowy w stan wyłączenia budynku zamiast faktycznie przełączać akceptowanie autobusów. Prefiks Harmony przechwytuje to teraz i przekierowuje do stanu przypisanego do konkretnego budynku w przypadku terminali spatchowanych pod autobusy, pozostawiając prawdziwe dworce kolejowe nietknięte.

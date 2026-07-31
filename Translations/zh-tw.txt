@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP 建議的站點名稱清單。
 STOP_PANEL_REUSE_NAME_TOOLTIP 將此名稱設定為此車站/地點的所有其他站點。
 STOP_PANEL_WAITING_PEOPLE 等待乘客：{0}
 COMMUTER_DESTINATION_PANEL_TITLE 乘客目的地
+COMMUTER_DESTINATION_HEADER 主要目的地:
+COMMUTER_DESTINATION_NONE 現在這裡沒有等待的乘客。
+COMMUTER_DESTINATION_LOADING 計算中...
 COMMUTER_DESTINATION_BUTTON 目的地
 COMMUTER_DESTINATION_BUTTON_TOOLTIP 顯示在此站點等待的乘客要前往何處。
 STOP_PANEL_BORED_TIMER 厭倦前的時間：<color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS 路線顏色
 SETTINGS 設定
 SETTINGS_SPEED 速度: 
 SETTINGS_SPEED_TOOLTIP 選擇介面中速度顯示使用的單位。
+SETTINGS_GAMEPLAY_PROFILE 遊戲設定檔
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP 一次套用一組設定,而不用逐一手動調整。原版會關閉所有吸收的整合功能,盡量貼近原版遊戲;寫實會開啟它們,並在存在的地方套用更寫實的選項。選擇其中任一個都會覆蓋下面的各項個別設定——選擇自訂可以自行管理,不會被此下拉選單更改任何內容。
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM 自訂
+SETTINGS_GAMEPLAY_PROFILE_VANILLA 原版
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC 寫實
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED 步行/騎行速度: 
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE 隱藏車輛編輯器
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP 從車輛面板隱藏車輛編輯器。
 
 SETTINGS_STOPS 公共交通站點
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION 每種交通方式在一個站點被視為已滿之前可以有多少乘客等待。數值越高,繁忙站點的擁擠投訴就越少,但排隊規模的真實感也會下降。
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP 將以上所有站點乘客上限重置為預設值。
 SETTINGS_ENABLE_STOPS_AND_STATIONS 啟用站點和車站
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP 調整各站點和車站可等待公共交通的最大市民數。在站點標籤中設定。
 SETTINGS_STOPSANDSTATIONS_ENABLE 啟用站點和車站
@@ -344,6 +354,16 @@ SETTINGS_INTERCITY_BUS_ENABLE 啟用 Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP 啟用整合的 Intercity Bus Control 相容層與車站修補。
 SETTINGS_INTERCITY_BUS_CAPACITY 城際客運站容量
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP 城際巴士客運站一次可容納的車輛數量。
+SETTINGS_TRAM_DEPOT_CAPACITY 路面電車車庫容量
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP 原版預設每個電車車庫的容量實際上不受限制,高達10萬輛。真實和中等改為套用適度的固定上限;停用則保留現有行為。
+SETTINGS_TAXI_DEPOT_CAPACITY 計程車庫容量
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP 原版預設每個計程車庫的容量實際上不受限制,高達10萬輛。真實和中等改為套用適度的固定上限;停用則保留現有行為。
+SETTINGS_BUS_DEPOT_CAPACITY 公車車庫容量
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP 原版遊戲預設每個公車車庫(普通、生質燃料和旅遊巴士)容量幾乎無上限,達100,000輛。寫實和中等模式會改為套用一個適度的固定上限;停用則維持現有行為。
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY 無軌電車車庫容量
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP 原版遊戲預設每個無軌電車車庫容量幾乎無上限,達100,000輛。寫實和中等模式會改為套用一個適度的固定上限;停用則維持現有行為。
+SETTINGS_FERRY_DEPOT_CAPACITY 渡輪車庫容量
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP 原版遊戲預設每個渡輪車庫容量幾乎無上限,達100,000輛。寫實和中等模式會改為套用一個適度的固定上限;停用則維持現有行為。
 SETTINGS_DEPOT_CAPACITY_DISABLED 停用（無限制）
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE 適中
 SETTINGS_DEPOT_CAPACITY_REALISTIC 真實
@@ -357,6 +377,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE 啟用共享站點
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP 允許多種交通類型（公車、有軌電車、無軌電車）在同一路段停靠。預設關閉 - 此精簡版省略了哪些內容請參閱模組的 GitHub。
 SETTINGS_COMMUTERDESTINATION_ENABLE 啟用乘客目的地
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 顯示在站點等待的乘客要前往何處 - 一個小面板加地圖疊加層。唯讀，除 Harmony 外無其他依賴。
+SETTINGS_OOC_ENABLE 優化外部連接
+SETTINGS_OOC_ENABLE_TOOLTIP 貨運列車、飛機和輪船在外部連接處出發前會等待更長時間以裝載更滿的貨物。
+SETTINGS_OOC_WAIT_MULTIPLIER 等待倍率
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP 比原版多等待多久以裝載更滿的貨物。數值越高,行程越少但越滿載。
+SETTINGS_OOC_PASSENGER_SCOPE 乘客等待適用範圍
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP 上面的等待倍率適用於哪些等待公共交通的市民。僅外部連接只影響在外部連接處等待的市民;全市範圍也會減慢每個市民的普通國內等待(與源模組的實際行為一致)。
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE 僅外部連接
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE 全市範圍
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED 停用(原版)
+SETTINGS_OOC_DISABLE_DUMMY 停用裝飾性過境交通
+SETTINGS_OOC_DISABLE_DUMMY_ROAD 停用裝飾性公路交通
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN 停用裝飾性鐵路交通
+SETTINGS_OOC_DISABLE_DUMMY_PLANE 停用裝飾性航空交通
+SETTINGS_OOC_DISABLE_DUMMY_SHIP 停用裝飾性船運交通
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP 外部連接通常會產生額外的裝飾性交通,這些交通實際上從未真正進出城市,純粹是為了視覺氛圍。停用它會移除這些交通,同時不影響真實的進出口/乘客流量。
+SETTINGS_UOC_ENABLE 無限外部連接
+SETTINGS_UOC_ENABLE_TOOLTIP 移除公路、鐵路、航線和航路的預設4連接上限,並在現有車站附近新建連接時追溯性地連接交通線路。將在下次關卡載入時生效。
+SETTINGS_STTAI_ENABLE 單線鐵路列車防撞
+SETTINGS_STTAI_ENABLE_TOOLTIP 一次為一列火車保留單線區段,在區段清空之前讓對向火車在入口處等待。IPT4原創功能,原版遊戲或任何已吸收的模組中都沒有。
+SETTINGS_STOPSTACKER_ENABLE 公車站台多泊位堆疊
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 讓第二輛、第三輛駛向同一站點的公車在站台車道後方使用自己的泊位,而不是排在頭車後面單列等待,從而讓多輛公車同時上下客。IPT4原創功能(簡化的重新實作),原版遊戲或任何已吸收的模組中都沒有。
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -406,6 +447,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 目前票價：{0}\n原始票價：{1}\n目前乘客數：{2}
 
+CHANGELOG_4_8_0_1 新增 SingleTrainTrackAI：單線鐵路區段現在同一時間只會為一個方向保留，因此共用雙向軌道的兩列火車不再有相撞風險。潔室重新實作 - 來源模組（Workshop 949504539）沒有聲明授權條款，因此只重新實作了其公開記錄的概念，基於本專案自有的 Harmony 修補機制，而非原始記憶體劫持。
+CHANGELOG_4_8_0_2 新增 Stop Stacker：當同一路線的多輛車匯聚到同一站點時，只有領頭車輛使用正常停靠位置 - 後續車輛會在車道更靠後的位置取得各自的停靠位，而不是排成單列在其後等候。僅根據來源模組的公開說明進行的潔室重新實作（沒有可用的原始碼）；僅適用於公車和無軌電車，與本專案現有的 BetterBusStopPosition 掛鉤點保持一致。
+CHANGELOG_4_8_0_3 修正了城際巴士總站整合功能對擁有 Sunset Harbor DLC 的玩家從未靜默啟用的問題：它是透過反射讀取遊戲的一個私有欄位來偵測 DLC，而不是使用本專案其他地方已經採用的 Steam DLC 偵測方式，而這種基於反射的偵測即使在 DLC 確實已安裝的情況下也可能回傳 false。
+CHANGELOG_4_8_0_4 修正了部分總站上「接受城際巴士」核取方塊卡住無回應的問題：原版遊戲可能在本模組重新標示用法從未考慮到的情況下使該核取方塊變成無法互動。現在只要本模組正在控制它，就會強制其保持可互動。同時修正了一個相關錯誤，即已經正確設定好的總站可能在之後的檢查中靜默失去其開關狀態。
+CHANGELOG_4_8_0_5 修正了子建築標籤頁偶爾在無關建築上顯示過期標籤列的問題：遊戲會在拆除後回收建築 ID，而快取先前會信任被回收的 ID 仍屬於先前的建築群組。現在它會在重用快取中的任何內容之前重新驗證建築的實際父級鏈。
+CHANGELOG_4_8_0_6 對多個整合功能進行了一次全面的錯誤清理：一個方向顛倒的快取過期檢查，會捨棄最新資料而改為提供過期資料；一個差一錯誤的迴圈邊界，會在自動配色和重名檢查中跳過最後一條交通路線；一個錯誤的 ID 比較，破壞了「該路線僅有一輛車」防扎堆繞過邏輯；一個價格查詢會將失敗結果永久快取而不是稍後重試；以及若干在 UI/預製件參照為空時可能拋出例外的 Harmony 修補程式。
+CHANGELOG_4_8_0_7 減少了多個整合功能中重複的反射呼叫和逐幀查找：車輛提示描述、單線區段分類以及城際巴士物品類別查找現在會被快取，而不是每次呼叫都重新計算，UI 重新整理按鈕也不再每一幀都重新賦值其文字，無論內容是否發生變化。
+CHANGELOG_4_8_0_8 經過以上修正，Intercity Bus Control 和子建築標籤頁已重新預設開啟 - 兩者均已確認可正常運作，僅剩一些次要的已知問題（標籤位置的微調、偶發的站名顯示小問題）留待未來版本深入分析。
 CHANGELOG_4_7_0_1 四項新的整合模組：子建築標籤頁（適用於任何多建築複合設施的標籤列，不僅限於機場）、共享站點（允許多種站點類型共用同一路段，預設關閉）、乘客目的地（顯示在站點等候的市民實際要前往的地方）以及計程車招呼站修正（閒置計程車會前往最近的招呼站，而不是四處遊蕩）。各項開關請見 選項 > 整合模組。
 CHANGELOG_4_7_0_2 為城際客運站新增了車輛容量模式（選項 > 整合模組 > 城際客運站容量）：停用會保留本模組先前實際上無限制的容量；適中會套用一個適度的固定上限；真實則會還原客運站本身原版預製件的容量。既有存檔預設使用停用，因此升級不會在不知不覺中縮減客運站容量。
 CHANGELOG_4_7_0_3 修正了城際客運站的「接受城際巴士」核取方塊：CityServiceWorldInfoPanel.OnAcceptsIntercityChanged 設定的是 acceptsInterCityTrains，而它其實只是 isEmptying 的別名，因此這個改了名稱的核取方塊可能會在不知不覺中將巴士站切換到遊戲的建築關閉狀態，而不是真正切換是否接受巴士。現在有一個 Harmony 前綴會攔截並將其重新導向到針對已套用巴士修補的客運站的按建築狀態，真正的火車站則不受影響。

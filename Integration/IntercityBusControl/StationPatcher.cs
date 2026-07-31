@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using ImprovedPublicTransport;
 using ImprovedPublicTransport.Util;
@@ -27,8 +26,7 @@ namespace IntercityBusControl
                     return;
                 }
 
-                var classField = typeof(ItemClassCollection).GetField("m_classDict", BindingFlags.Static | BindingFlags.NonPublic);
-                var classDict = classField?.GetValue(null) as Dictionary<string, ItemClass>;
+                var classDict = Mod.GetItemClassDict();
                 if (classDict == null || !classDict.ContainsKey("Intercity Bus"))
                 {
                     Utils.LogWarning("Intercity Bus Control - 'Intercity Bus' item class not found; Sunset Harbor DLC may not be active.");
@@ -53,7 +51,7 @@ namespace IntercityBusControl
 
                 if (Diagnostics.VerboseRuntimeLogs)
                 {
-                    Utils.Log($"Intercity Bus Control - PatchStations complete: {patched} station(s) patched.");
+                    Utils.Log($"Intercity Bus Control - PatchStations complete: {patched} newly patched this sweep, {PatchedBuildingNames.Count} total eligible station(s): [{string.Join(", ", new List<string>(PatchedBuildingNames).ToArray())}].");
                 }
             }
             catch (Exception e)
@@ -77,18 +75,38 @@ namespace IntercityBusControl
 
             if (!(isBusPrimary ^ isBusSecondary))
             {
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"Intercity Bus Control - skipped {info.name}: not exactly one of primary/secondary transport is Bus (primary={isBusPrimary}, secondary={isBusSecondary}).");
+                }
                 return false;
             }
 
             bool alreadyHasIntercityLine = ai.m_transportLineInfo?.name == Mod.IntercityBusLine;
             int curMax = isBusPrimary ? ai.m_maxVehicleCount : ai.m_maxVehicleCount2;
-            if (alreadyHasIntercityLine && curMax > 0)
+            // Bails only if the cap already matches what the CURRENT mode wants - comparing against
+            // "> 0" instead let a terminal patched under an earlier mode (e.g. still carrying the old
+            // effectively-unlimited 100,000) survive forever: this guard would see a positive number,
+            // consider the station "already patched" and never re-apply ApplyCapacity again, so
+            // switching modes in Options had no visible effect on any terminal patched before the
+            // switch.
+            if (alreadyHasIntercityLine && curMax == GetCapacityForCurrentMode())
             {
+                // Already patched (by an earlier call this same session, e.g. InitializePrefabPatch
+                // catching a late-loaded asset before this retroactive sweep ran) - still register it
+                // so the UI toggle keeps showing. Without this, a station that was already correctly
+                // patched would silently lose its entry in PatchedBuildingNames on the next sweep,
+                // hiding the toggle for a station that is, in fact, fully functional.
+                PatchedBuildingNames.Add(info.name);
                 return false;
             }
 
             if (isBusPrimary && ai.m_transportLineInfo != null && !alreadyHasIntercityLine)
             {
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"Intercity Bus Control - skipped {info.name}: primary transport already has a non-intercity line assigned ({ai.m_transportLineInfo.name}).");
+                }
                 return false;
             }
 

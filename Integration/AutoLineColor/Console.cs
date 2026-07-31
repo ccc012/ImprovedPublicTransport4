@@ -44,7 +44,8 @@ namespace AutoLineColor
 
         public void Error(string p)
         {
-            if (!Debug) return;
+            // Unlike Message/Warning, errors are not debug-gated - a real failure should always
+            // surface, or it silently hides from players/support who never enabled debug logging.
             var msg = FormatMessage(p, "Error");
             Utils.LogError($"[AutoLineColor] {msg}");
         }

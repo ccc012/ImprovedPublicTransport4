@@ -4,6 +4,7 @@ using ColossalFramework.UI;
 using HarmonyLib;
 using ImprovedPublicTransport;
 using ImprovedPublicTransport.Util;
+using UnityEngine;
 
 namespace SubBuildingsTabs
 {
@@ -45,6 +46,22 @@ namespace SubBuildingsTabs
 
                 var tabstrip = __instance.Find<SubBuildingsTabstrip>(SubBuildingsTabstrip.ComponentName)
                                 ?? __instance.component.AddUIComponent<SubBuildingsTabstrip>();
+
+                // UITabstrip.Start() sets this once, but Start() on a component added via
+                // AddUIComponent() this frame is deferred by Unity to the next Update cycle - the
+                // very first OnSetTarget for a given panel instance can therefore render one frame
+                // (sometimes more, if the panel itself hasn't finished sizing for the same target
+                // yet) before the offset takes effect, leaving the strip visibly adrift above the
+                // panel instead of flush with its top edge. Re-asserting it here, every call, costs
+                // nothing and matches the original mod's own approach (upstream re-applies this same
+                // offset on every panel visibility-change event rather than trusting a one-time
+                // Start() to have already run).
+                //
+                // UNCONFIRMED (2026-07-30): with the Start()-vs-postfix race fixed, live tests went
+                // -50 (wrong direction - moved further from the panel's top edge, not closer) -> 0
+                // (still a visible gap, not flush). Negative was wrong and zero undershoots, so the
+                // correct value is a small positive offset - trying +10 next.
+                tabstrip.relativePosition = new Vector2(13, 10);
                 tabstrip.UpdateInfoPanelTabs(___m_InstanceID.Building);
             }
             catch (Exception ex)

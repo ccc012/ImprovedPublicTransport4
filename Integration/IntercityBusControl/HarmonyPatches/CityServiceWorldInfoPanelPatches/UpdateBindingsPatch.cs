@@ -11,6 +11,14 @@ namespace IntercityBusControl.HarmonyPatches.CityServiceWorldInfoPanelPatches
     {
         private static string _originalLabel;
         private static string _originalTooltip;
+        private static ushort _lastLoggedBuilding;
+
+        // Set around our own isChecked write below so Patch_OnAcceptsIntercityChanged can tell "this
+        // eventCheckChanged firing is our own display refresh re-confirming the stored value" apart
+        // from "the player actually clicked the checkbox" - both reach the same handler, and while
+        // re-persisting the same value is harmless, there is no reason to let a display refresh look
+        // like a user action (e.g. in the verbose log trail).
+        internal static bool IsSyncingDisplay;
 
         // This panel is a single persistent UI instance the game reuses for every city-service
         // building the player inspects (fire, police, health, transport...), so the child lookups
@@ -106,13 +114,43 @@ namespace IntercityBusControl.HarmonyPatches.CityServiceWorldInfoPanelPatches
                 // intercepted for these buildings (see Patch_OnAcceptsIntercityChanged) so it never
                 // reaches acceptsInterCityTrains, which is really just an alias for isEmptying;
                 // toggling it on a bus terminal would put the building into vanilla's shutdown/
-                // evacuate state. Reflect OUR OWN per-building state here instead. Setting isChecked
-                // does re-fire eventCheckChanged, but that is safe: the intercepting prefix below
-                // just re-persists the same value for bus-patched buildings rather than touching
-                // isEmptying, so no detach/reattach dance is needed to avoid it.
+                // evacuate state. Reflect OUR OWN per-building state here instead.
+                //
+                // Vanilla's own UpdateBindings body (which runs BEFORE this postfix, as part of the
+                // original method) does its own sync of this same checkbox against
+                // acceptsInterCityTrains (isEmptying) every single frame, unconditionally - since we
+                // never touch isEmptying for a bus terminal, that value never changes, so vanilla's
+                // sync keeps forcing the checkbox back to whatever isEmptying's default is,
+                // regardless of what the player actually clicked. This write has to win every frame
+                // to have any visible effect.
                 if (_cachedCheckBox != null)
                 {
-                    _cachedCheckBox.isChecked = IntercityAcceptanceState.Accepts(building1);
+                    // Vanilla's own UpdateBindings body may leave this checkbox disabled for
+                    // buildings that don't natively qualify for the intercity-trains toggle (e.g. it
+                    // is train-station-oriented) - force it interactive whenever we've relabeled it
+                    // for a bus terminal, or the player can see the checkbox but every click is
+                    // silently swallowed by the UI control itself.
+                    _cachedCheckBox.isEnabled = true;
+
+                    var accepts = IntercityAcceptanceState.Accepts(building1);
+                    if (_cachedCheckBox.isChecked != accepts)
+                    {
+                        IsSyncingDisplay = true;
+                        try
+                        {
+                            _cachedCheckBox.isChecked = accepts;
+                        }
+                        finally
+                        {
+                            IsSyncingDisplay = false;
+                        }
+                    }
+
+                    if (Diagnostics.VerboseRuntimeLogs && _lastLoggedBuilding != building1)
+                    {
+                        _lastLoggedBuilding = building1;
+                        Utils.Log($"IntercityBusControl: displaying checkbox for building {building1} ({info.name}) - Accepts()={accepts}, checkbox now {_cachedCheckBox.isChecked}.");
+                    }
                 }
             }
             else

@@ -10,6 +10,7 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
     using ColossalFramework;
     using ColossalFramework.UI;
     using UnityEngine;
+    using ImprovedPublicTransport.Util;
     using Utils = ImprovedPublicTransport.Util.Utils;
 
     internal static class TrainDisplayIntegration
@@ -172,29 +173,32 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                 return;
             }
 
-            // Route strips on real displays show a handful of stops around the current position,
-            // not the whole line - cap it so a 60-stop rail line does not render an unreadable strip
-            // (or, on a line with a corrupted stop cycle, loop indefinitely).
-            const int maxStops = 8;
+            // Route strips on real displays show the current stop plus a handful of upcoming ones,
+            // not the whole line - a big rail line's full stop list would not fit legibly in one
+            // strip. Walking from the line's first stop and stopping after N regardless of where the
+            // vehicle actually is meant a vehicle past stop N never had its position found at all
+            // (currentIndex stayed -1) - starting the walk from the vehicle's own next stop instead
+            // always puts "where it is now" at index 0.
+            const int maxStops = 5; // current stop + next 4
             var names = new System.Collections.Generic.List<string>(maxStops);
-            var currentIndex = -1;
-            var stop = firstStop;
+            var currentIndex = 0;
+            var startStop = targetStop != 0 ? targetStop : firstStop;
+            var stop = startStop;
             var guard = 0;
             do
             {
-                if (stop == targetStop)
-                {
-                    currentIndex = names.Count;
-                }
-
                 var id = new InstanceID { NetNode = stop };
-                var stopName = Singleton<InstanceManager>.instance.GetName(id);
+                // Most stops on a line are never individually clicked by the player, so they would
+                // never get named by AutoNameStopPatch (which only fires when a stop's own world info
+                // panel is opened) and would permanently render as "?" here. Name them proactively
+                // the first time the route strip needs to show one, same nearest-building fallback.
+                var stopName = StopAutoNamer.EnsureNamed(id);
                 names.Add(string.IsNullOrEmpty(stopName) ? "?" : stopName);
 
                 stop = global::TransportLine.GetNextStop(stop);
                 guard++;
             }
-            while (stop != firstStop && stop != 0 && names.Count < maxStops && guard < 32768);
+            while (stop != startStop && stop != 0 && names.Count < maxStops && guard < 32768);
 
             data.RouteStopNames = names.ToArray();
             data.RouteCurrentIndex = currentIndex;
@@ -237,69 +241,36 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             }
 
             EnsureGuiStyles();
-
-            if (TrainDisplayRuntimeConfig.ColorTheme == ModSetting.TrainDisplayColorThemes.Original)
-            {
-                DrawOriginalOverlay(data);
-                return;
-            }
-
-            var rect = GetOverlayRect();
-            var previousColor = GUI.color;
-            var previousContentColor = GUI.contentColor;
-
-            DrawSolidBox(rect, MultiplyAlpha(TrainDisplayRuntimeConfig.BackgroundColor, GetOverlayOpacity()));
-            GUI.color = new Color(1f, 1f, 1f, GetOverlayOpacity());
-            GUI.contentColor = TrainDisplayRuntimeConfig.TextColor;
-
-            var padding = 18f * TrainDisplayRuntimeConfig.OverlayScale;
-            var lineHeight = 24f * TrainDisplayRuntimeConfig.LineSpacing;
-            var labelWidth = 110f * TrainDisplayRuntimeConfig.OverlayScale;
-            var top = rect.y + padding;
-            var leftColumn = rect.x + padding;
-            var metricColumn = rect.x + rect.width * 0.46f;
-            var rightColumn = rect.x + rect.width - (235f * TrainDisplayRuntimeConfig.OverlayScale);
-
-            GUI.Label(new Rect(leftColumn, top, labelWidth, lineHeight), Localization.Get("TRAINDISPLAY_LABEL_NAME"), _smallStyle);
-            GUI.Label(new Rect(leftColumn + labelWidth, top, 250f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.Name, _headerStyle);
-
-            GUI.Label(new Rect(leftColumn, top + lineHeight, labelWidth, lineHeight), Localization.Get("TRAINDISPLAY_LABEL_STATUS"), _smallStyle);
-            GUI.Label(new Rect(leftColumn + labelWidth, top + lineHeight, 250f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.Status, _bodyStyle);
-
-            GUI.Label(new Rect(metricColumn, top, 210f * TrainDisplayRuntimeConfig.OverlayScale, 48f * TrainDisplayRuntimeConfig.OverlayScale), data.Speed, _metricStyle);
-            GUI.Label(new Rect(metricColumn + 6f, top + 50f * TrainDisplayRuntimeConfig.OverlayScale, 160f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.Elapsed, _smallStyle);
-
-            GUI.Label(new Rect(rightColumn, top, 220f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.Breadcrumb, _headerStyle);
-            GUI.Label(new Rect(rightColumn, top + lineHeight, 130f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), Localization.Get("VEHICLE_PANEL_STATUS_NEXT_STOP"), _smallStyle);
-            GUI.Label(new Rect(rightColumn + 130f * TrainDisplayRuntimeConfig.OverlayScale, top + lineHeight, 90f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.NextStop, _valueStyle);
-            GUI.Label(new Rect(rightColumn, top + lineHeight * 2f, 130f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), Localization.Get("VEHICLE_PANEL_PASSENGERS"), _smallStyle);
-            GUI.Label(new Rect(rightColumn + 130f * TrainDisplayRuntimeConfig.OverlayScale, top + lineHeight * 2f, 90f * TrainDisplayRuntimeConfig.OverlayScale, lineHeight), data.Passengers, _valueStyle);
-
-            GUI.contentColor = previousContentColor;
-            GUI.color = previousColor;
+            DrawUnifiedOverlay(data);
         }
 
         private static Color MultiplyAlpha(Color color, float alphaMultiplier) =>
             new Color(color.r, color.g, color.b, color.a * alphaMultiplier);
 
         /// <summary>
-        /// Replicates the layout of the upstream Train Display - Updated mod: a dark header strip
-        /// (name/status on the left, big speed readout centred, line/next-stop/passengers on the
-        /// right) plus a route strip in the bottom-left corner, coloured to match the vehicle's
-        /// actual line colour, with a marker per upcoming stop and a chevron at the current one.
+        /// Single layout for every theme - a header strip (name/status on the left, big speed
+        /// readout centred, line/next-stop/passengers on the right) plus a route strip below it,
+        /// coloured to match the vehicle's actual line colour, with a marker per upcoming stop and a
+        /// chevron at the current one. Themes only ever change the header's background/text colour
+        /// (see <see cref="TrainDisplayRuntimeConfig.BackgroundColor"/>/<c>TextColor</c>) - there is
+        /// no separate simplified layout anymore, since having one meant Simple/Dark/Light looked
+        /// like a completely different, smaller panel instead of a colour variant of the same one.
         /// </summary>
-        private static void DrawOriginalOverlay(OverlayData data)
+        private static void DrawUnifiedOverlay(OverlayData data)
         {
             var scale = Mathf.Clamp(TrainDisplayRuntimeConfig.OverlayScale, 0.75f, 2.0f);
             var opacity = GetOverlayOpacity();
             var headerRect = GetOverlayRect();
+            var isOriginal = TrainDisplayRuntimeConfig.ColorTheme == ModSetting.TrainDisplayColorThemes.Original;
+            var backgroundColor = isOriginal ? new Color(0.08f, 0.08f, 0.1f, 0.85f) : TrainDisplayRuntimeConfig.BackgroundColor;
+            var textColor = isOriginal ? Color.white : TrainDisplayRuntimeConfig.TextColor;
 
-            DrawSolidBox(headerRect, new Color(0.08f, 0.08f, 0.1f, 0.85f * opacity));
+            DrawSolidBox(headerRect, MultiplyAlpha(backgroundColor, opacity));
 
             var previousColor = GUI.color;
             var previousContentColor = GUI.contentColor;
             GUI.color = new Color(1f, 1f, 1f, opacity);
-            GUI.contentColor = Color.white;
+            GUI.contentColor = textColor;
 
             var padding = 14f * scale;
             var lineHeight = 22f * scale;
@@ -308,11 +279,15 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             var leftColumn = headerRect.x + padding;
             var metricColumn = headerRect.x + headerRect.width * 0.46f;
             var rightColumn = headerRect.x + headerRect.width - (230f * scale);
+            // How much room the name/status value actually has before it would run into the speed
+            // readout - was a flat 240px regardless of available space, clipping longer vehicle/line
+            // names even though there was room to spare.
+            var nameFieldWidth = Mathf.Max(120f * scale, metricColumn - (leftColumn + labelWidth) - 10f * scale);
 
             GUI.Label(new Rect(leftColumn, top, labelWidth, lineHeight), Localization.Get("TRAINDISPLAY_LABEL_NAME"), _smallStyle);
-            GUI.Label(new Rect(leftColumn + labelWidth, top, 240f * scale, lineHeight), data.Name, _headerStyle);
+            GUI.Label(new Rect(leftColumn + labelWidth, top, nameFieldWidth, lineHeight), data.Name, _headerStyle);
             GUI.Label(new Rect(leftColumn, top + lineHeight, labelWidth, lineHeight), Localization.Get("TRAINDISPLAY_LABEL_STATUS"), _smallStyle);
-            GUI.Label(new Rect(leftColumn + labelWidth, top + lineHeight, 240f * scale, lineHeight), data.Status, _bodyStyle);
+            GUI.Label(new Rect(leftColumn + labelWidth, top + lineHeight, nameFieldWidth, lineHeight), data.Status, _bodyStyle);
 
             GUI.Label(new Rect(metricColumn, top, 210f * scale, 44f * scale), data.Speed, _metricStyle);
             GUI.Label(new Rect(metricColumn + 6f, top + 46f * scale, 160f * scale, lineHeight), data.Elapsed, _smallStyle);
@@ -498,7 +473,7 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             if (stop != 0)
             {
                 var id = new InstanceID { NetNode = stop };
-                var stopName = Singleton<InstanceManager>.instance.GetName(id);
+                var stopName = StopAutoNamer.EnsureNamed(id);
                 if (!string.IsNullOrEmpty(stopName))
                 {
                     return stopName;
@@ -520,26 +495,27 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                 return Localization.Get("TRAINDISPLAY_VEHICLE");
             }
 
+            // Was accidentally pulling from the TICKET_PRICE_* family (Economy panel labels like
+            // "Ticket price of train: ") instead of a plain vehicle-type noun - same subService switch
+            // shape as a ticket-price lookup nearby probably got copy-pasted without updating the
+            // keys. INFO_PUBLICTRANSPORT_* are vanilla's own labels (already used successfully
+            // elsewhere in this project - see the Delete Lines checkboxes in
+            // UI/CSLModsCommonOptionsPanel.cs); the three subServices without a confirmed vanilla key
+            // fall back to the existing generic "Vehicle" string rather than guessing a new one.
             switch (info.m_class.m_subService)
             {
                 case ItemClass.SubService.PublicTransportBus:
-                    return Localization.Get("TICKET_PRICE_BUS");
+                    return Localization.Get("INFO_PUBLICTRANSPORT_BUS");
                 case ItemClass.SubService.PublicTransportTrolleybus:
-                    return Localization.Get("TICKET_PRICE_TROLLEYBUS");
+                    return Localization.Get("INFO_PUBLICTRANSPORT_TROLLEYBUS");
                 case ItemClass.SubService.PublicTransportTram:
-                    return Localization.Get("TICKET_PRICE_TRAM");
+                    return Localization.Get("INFO_PUBLICTRANSPORT_TRAM");
                 case ItemClass.SubService.PublicTransportMetro:
-                    return Localization.Get("TICKET_PRICE_METRO");
+                    return Localization.Get("INFO_PUBLICTRANSPORT_METRO");
                 case ItemClass.SubService.PublicTransportTrain:
-                    return Localization.Get("TICKET_PRICE_TRAIN");
+                    return Localization.Get("INFO_PUBLICTRANSPORT_TRAIN");
                 case ItemClass.SubService.PublicTransportMonorail:
-                    return Localization.Get("TICKET_PRICE_MONORAIL");
-                case ItemClass.SubService.PublicTransportCableCar:
-                    return Localization.Get("TICKET_PRICE_CABLECAR");
-                case ItemClass.SubService.PublicTransportShip:
-                    return Localization.Get("TICKET_PRICE_SHIP");
-                case ItemClass.SubService.PublicTransportPlane:
-                    return Localization.Get("TICKET_PRICE_PLANE");
+                    return Localization.Get("INFO_PUBLICTRANSPORT_MONORAIL");
                 default:
                     return Localization.Get("TRAINDISPLAY_VEHICLE");
             }

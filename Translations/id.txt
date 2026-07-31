@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Daftar nama pemberhentian yang disarankan.
 STOP_PANEL_REUSE_NAME_TOOLTIP Terapkan nama ini ke semua pemberhentian lain di stasiun/posisi ini.
 STOP_PANEL_WAITING_PEOPLE Penumpang menunggu: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Tujuan Komuter
+COMMUTER_DESTINATION_HEADER Tujuan teratas:
+COMMUTER_DESTINATION_NONE Tidak ada penumpang yang menunggu di sini sekarang.
+COMMUTER_DESTINATION_LOADING Menghitung...
 COMMUTER_DESTINATION_BUTTON Tujuan
 COMMUTER_DESTINATION_BUTTON_TOOLTIP Tunjukkan ke mana penumpang yang menunggu di halte ini akan pergi.
 STOP_PANEL_BORED_TIMER Waktu hingga bosan: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS Warna Jalur
 SETTINGS Pengaturan
 SETTINGS_SPEED Tampilkan kecepatan dalam:
 SETTINGS_SPEED_TOOLTIP Pilih satuan yang digunakan untuk tampilan kecepatan di UI.
+SETTINGS_GAMEPLAY_PROFILE Profil gameplay
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Menerapkan sekelompok pengaturan sekaligus alih-alih menyetel masing-masing secara manual. Vanilla menonaktifkan setiap integrasi yang diserap dan menyerupai game dasar sedekat mungkin; Realistis mengaktifkannya dan menerapkan opsi yang lebih realistis jika ada. Memilih salah satu akan menimpa pengaturan individual di bawah - pilih Kustom untuk mengelolanya sendiri tanpa dropdown ini mengubah apa pun.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Kustom
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistis
 SETTINGS_SPEED_KPH kph
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED Kecepatan Jalan/Bersepeda:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE Sembunyikan Editor Kendaraan
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Sembunyikan Editor Kendaraan dari panel kendaraan.
 
 SETTINGS_STOPS Pemberhentian Transportasi Umum
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Berapa banyak penumpang dari setiap jenis transportasi yang dapat menunggu di satu halte sebelum dianggap penuh. Nilai yang lebih tinggi mengurangi keluhan kepadatan di halte yang sibuk, dengan mengorbankan ukuran antrean yang kurang realistis.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Mengatur ulang semua batas penumpang per halte di atas ke nilai bawaannya.
 SETTINGS_ENABLE_STOPS_AND_STATIONS Aktifkan Pemberhentian dan Stasiun
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Sesuaikan jumlah maksimum warga yang dapat menunggu transportasi umum di berbagai pemberhentian dan stasiun. Konfigurasi di tab Pemberhentian.
 SETTINGS_STOPSANDSTATIONS_ENABLE Aktifkan Pemberhentian dan Stasiun
@@ -345,6 +355,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Aktifkan Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Mengaktifkan lapisan kompatibilitas Intercity Bus Control terintegrasi dan penambalan stasiun.
 SETTINGS_INTERCITY_BUS_CAPACITY Kapasitas Terminal Antarkota
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Berapa banyak kendaraan yang dapat ditampung terminal bus antarkota sekaligus.
+SETTINGS_TRAM_DEPOT_CAPACITY Kapasitas depo trem
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Secara default setiap depo trem memiliki batas 100.000 kendaraan yang praktis tak terbatas. Realistis dan Menengah menerapkan batas tetap moderat sebagai gantinya; Nonaktif mempertahankan perilaku yang ada.
+SETTINGS_TAXI_DEPOT_CAPACITY Kapasitas depo taksi
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Secara default setiap depo taksi memiliki batas 100.000 kendaraan yang praktis tak terbatas. Realistis dan Menengah menerapkan batas tetap moderat sebagai gantinya; Nonaktif mempertahankan perilaku yang ada.
+SETTINGS_BUS_DEPOT_CAPACITY Kapasitas depo bus
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Secara bawaan, setiap depo bus (biasa, biofuel, dan garasi bus wisata) memiliki kapasitas yang praktis tak terbatas sebanyak 100.000 kendaraan. Realistis dan Menengah menerapkan batas tetap yang moderat; Nonaktif mempertahankan perilaku yang ada.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Kapasitas depo trolibus
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Secara bawaan, setiap depo trolibus memiliki kapasitas yang praktis tak terbatas sebanyak 100.000 kendaraan. Realistis dan Menengah menerapkan batas tetap yang moderat; Nonaktif mempertahankan perilaku yang ada.
+SETTINGS_FERRY_DEPOT_CAPACITY Kapasitas depo feri
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Secara bawaan, setiap depo feri memiliki kapasitas yang praktis tak terbatas sebanyak 100.000 kendaraan. Realistis dan Menengah menerapkan batas tetap yang moderat; Nonaktif mempertahankan perilaku yang ada.
 SETTINGS_DEPOT_CAPACITY_DISABLED Nonaktif (tanpa batas)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Menengah
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistis
@@ -358,6 +378,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Aktifkan Pemberdaya Halte Bersama
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Memungkinkan lebih dari satu jenis transportasi (bus, trem, bus listrik) berhenti di segmen jalan yang sama. Nonaktif secara default - lihat GitHub mod untuk mengetahui apa yang tidak disertakan versi ringkas ini.
 SETTINGS_COMMUTERDESTINATION_ENABLE Aktifkan Tujuan Komuter
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Menunjukkan ke mana penumpang yang menunggu di halte akan pergi - panel kecil plus overlay peta. Hanya baca, tanpa dependensi lain selain Harmony.
+SETTINGS_OOC_ENABLE Koneksi luar yang dioptimalkan
+SETTINGS_OOC_ENABLE_TOOLTIP Kereta, pesawat, dan kapal kargo menunggu lebih lama untuk muatan yang lebih penuh sebelum berangkat di koneksi luar.
+SETTINGS_OOC_WAIT_MULTIPLIER Pengali tunggu
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Berapa lama lagi dibandingkan vanilla untuk menunggu muatan yang lebih penuh. Nilai lebih tinggi berarti lebih sedikit perjalanan tapi lebih penuh.
+SETTINGS_OOC_PASSENGER_SCOPE Cakupan tunggu penumpang
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Di mana pengali tunggu di atas berlaku untuk warga yang menunggu transportasi umum. Hanya koneksi luar hanya memengaruhi warga yang menunggu di koneksi luar; seluruh kota juga memperlambat tunggu domestik biasa untuk setiap warga (sesuai dengan perilaku sebenarnya dari mod sumber).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Hanya koneksi luar
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Seluruh kota
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Nonaktif (vanilla)
+SETTINGS_OOC_DISABLE_DUMMY Nonaktifkan lalu lintas hias yang melintas
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Nonaktifkan lalu lintas jalan hias
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Nonaktifkan lalu lintas kereta hias
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Nonaktifkan lalu lintas pesawat hias
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Nonaktifkan lalu lintas kapal hias
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Koneksi luar biasanya menghasilkan lalu lintas hias tambahan yang sebenarnya tidak pernah masuk atau keluar kota, murni untuk suasana visual. Menonaktifkannya menghapus lalu lintas itu tanpa mempengaruhi aliran impor/ekspor/penumpang yang sebenarnya.
+SETTINGS_UOC_ENABLE Koneksi luar tanpa batas
+SETTINGS_UOC_ENABLE_TOOLTIP Menghapus batas standar 4 koneksi untuk jalan, jalur kereta, jalur kapal, dan jalur penerbangan, dan menghubungkan jalur transportasi secara retroaktif saat koneksi baru dibangun dekat stasiun yang sudah ada. Berlaku saat game dimuat ulang.
+SETTINGS_STTAI_ENABLE Penghindaran tabrakan kereta jalur tunggal
+SETTINGS_STTAI_ENABLE_TOOLTIP Mereservasi segmen jalur tunggal untuk satu kereta pada satu waktu, menahan kereta berlawanan arah di pintu masuk sampai segmen bersih. Fitur asli IPT4, tidak ada di vanilla atau mod yang diserap.
+SETTINGS_STOPSTACKER_ENABLE Penumpukan jalur halte bus
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Memungkinkan bus kedua/ketiga yang mendekati halte yang sama menggunakan jalur sendiri lebih jauh ke belakang di jalur halte alih-alih mengantre satu per satu di belakang bus terdepan, sehingga lebih dari satu bus dapat menaikkan/menurunkan penumpang sekaligus. Fitur asli IPT4 (implementasi ulang yang disederhanakan), tidak ada di vanilla atau mod yang diserap.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -407,6 +448,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP Tarif saat ini: {0}\nTarif asli: {1}\nPenumpang saat ini: {2}
 
+CHANGELOG_4_8_0_1 Menambahkan SingleTrainTrackAI: segmen rel tunggal kini dicadangkan untuk satu arah saja pada satu waktu, sehingga dua kereta yang berbagi jalur dua arah tidak lagi berisiko bertabrakan. Implementasi ulang clean-room - mod sumber (Workshop 949504539) tidak memiliki lisensi yang dinyatakan, jadi hanya konsepnya yang didokumentasikan secara publik yang diimplementasikan ulang, menggunakan sistem patch berbasis Harmony milik proyek ini sendiri, bukan pengalihan memori mentah.
+CHANGELOG_4_8_0_2 Menambahkan Stop Stacker: ketika lebih dari satu kendaraan pada jalur yang sama bertemu di sebuah halte, hanya kendaraan terdepan yang menggunakan posisi halte normal - kendaraan berikutnya mendapatkan tempat sendiri lebih jauh di sepanjang jalur, alih-alih mengantre satu per satu di belakangnya. Implementasi ulang clean-room hanya berdasarkan deskripsi publik mod sumber (tidak ada kode sumber yang tersedia); hanya untuk bus dan trolibus, sesuai dengan titik hook BetterBusStopPosition yang sudah ada di proyek ini.
+CHANGELOG_4_8_0_3 Memperbaiki integrasi terminal bus antarkota yang secara diam-diam tidak pernah aktif bagi pemain yang memiliki DLC Sunset Harbor: fitur ini mendeteksi DLC melalui reflection ke field privat game, bukan menggunakan pemeriksaan DLC Steam yang sudah digunakan di tempat lain dalam proyek ini, dan pemeriksaan berbasis reflection tersebut bisa mengembalikan false meskipun DLC-nya benar-benar terpasang.
+CHANGELOG_4_8_0_4 Memperbaiki kotak centang "terima bus antarkota" yang macet dan tidak responsif di beberapa terminal: game vanilla dapat membuat kotak centang tidak interaktif dalam kondisi yang tidak pernah diperhitungkan oleh penggunaan ulang label mod ini. Kini kotak centang tersebut dipaksa selalu interaktif setiap kali dikendalikan oleh mod ini. Juga memperbaiki bug terkait di mana terminal yang sudah diatur dengan benar bisa secara diam-diam kehilangan toggle-nya pada pemeriksaan berikutnya.
+CHANGELOG_4_8_0_5 Memperbaiki Tab Sub-Bangunan yang sesekali menampilkan strip tab usang pada bangunan yang tidak terkait: game mendaur ulang ID bangunan setelah pembongkaran, dan cache sebelumnya mempercayai bahwa ID yang didaur ulang masih milik klaster bangunan sebelumnya. Kini validasi ulang rantai induk bangunan yang sebenarnya dilakukan sebelum menggunakan kembali apa pun dari cache.
+CHANGELOG_4_8_0_6 Pembersihan bug umum di beberapa integrasi: pemeriksaan kedaluwarsa cache yang terbalik sehingga membuang data baru dan menyajikan data usang, batas loop off-by-one yang melewatkan jalur transportasi terakhir pada pewarnaan otomatis dan pemeriksaan nama duplikat, perbandingan ID yang salah yang merusak bypass anti-penggerombolan "hanya satu kendaraan di jalur ini", pencarian harga yang menyimpan kegagalan secara permanen di cache alih-alih mencoba lagi nanti, dan beberapa patch Harmony yang bisa melempar exception pada referensi UI/prefab null.
+CHANGELOG_4_8_0_7 Mengurangi reflection berulang dan pencarian per-frame di beberapa integrasi: deskripsi tooltip kendaraan, klasifikasi segmen rel tunggal, dan pencarian item-class bus antarkota kini di-cache alih-alih dihitung ulang setiap kali dipanggil, dan tombol refresh UI tidak lagi menetapkan ulang teksnya setiap frame terlepas dari ada tidaknya perubahan.
+CHANGELOG_4_8_0_8 Intercity Bus Control dan Tab Sub-Bangunan kembali aktif secara default setelah perbaikan di atas - keduanya sudah dikonfirmasi berfungsi, hanya menyisakan masalah kecil yang diketahui (penyesuaian halus posisi tab, keanehan langka pada tampilan nama halte) yang ditinggalkan untuk analisis lebih dalam pada versi mendatang.
 CHANGELOG_4_7_0_1 Empat integrasi baru: Tab Sub-Bangunan (bilah tab untuk kompleks bangunan mana pun dengan banyak bangunan, tidak hanya bandara), Pemberdaya Halte Bersama (memungkinkan lebih dari satu jenis halte berbagi segmen jalan yang sama, nonaktif secara default), Tujuan Komuter (menampilkan tujuan sebenarnya dari warga yang menunggu di sebuah halte), dan Perbaikan Pangkalan Taksi (taksi yang menganggur menuju pangkalan terdekat, bukannya berkeliaran tanpa tujuan). Lihat Opsi > Integrasi untuk setiap sakelarnya.
 CHANGELOG_4_7_0_2 Menambahkan mode kapasitas kendaraan untuk terminal bus antarkota (Opsi > Integrasi > Kapasitas Terminal Bus Antarkota): Nonaktif mempertahankan terminal mod ini yang sebelumnya nyaris tanpa batas, Menengah menerapkan batas tetap yang moderat, Realistis memulihkan kapasitas prefab bawaan asli terminal tersebut. Save yang sudah ada menggunakan Nonaktif secara default, sehingga pembaruan tidak akan pernah diam-diam mengecilkan kapasitas sebuah terminal.
 CHANGELOG_4_7_0_3 Memperbaiki kotak centang "terima bus antarkota" pada terminal bus antarkota: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged mengatur acceptsInterCityTrains, yang hanyalah alias murni untuk isEmptying, sehingga kotak centang yang telah diberi label baru ini bisa diam-diam membuat terminal bus masuk ke status penutupan bangunan milik game, alih-alih benar-benar mengubah status penerimaan bus. Sebuah prefix Harmony kini mencegat dan mengalihkannya ke status per-bangunan untuk terminal yang telah ditambal untuk bus, tanpa memengaruhi stasiun kereta yang sesungguhnya.

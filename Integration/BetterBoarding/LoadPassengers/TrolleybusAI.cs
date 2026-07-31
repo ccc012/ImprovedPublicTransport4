@@ -6,6 +6,8 @@ namespace BetterBoarding
 {
     [HarmonyPatch(typeof(TrolleybusAI))]
     [HarmonyPatch("LoadPassengers", MethodType.Normal)]
+    // need to execute after our other mod, Express Bus Services
+    [HarmonyAfter(new string[] { PatchController.ExpressBusServicesHarmonyID })]
     public class LoadPassengers_TrolleybusAI
     {
         [HarmonyPrefix]

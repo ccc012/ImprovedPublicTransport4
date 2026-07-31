@@ -39,7 +39,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
                     passengerLabel = uiComponent.Find<UILabel>("PassengerCount");
                     PassengerLabelCache[uiComponent] = passengerLabel;
                 }
-                passengerLabel.text = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].CalculatePassengerCount(stop).ToString();
+                if (passengerLabel != null)
+                {
+                    passengerLabel.text = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].CalculatePassengerCount(stop).ToString();
+                }
                 //begin mod(+): add tooltip with stop name
                 var id = InstanceID.Empty;
                 id.NetNode = stop;

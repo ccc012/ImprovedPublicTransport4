@@ -1,0 +1,18 @@
+No license.
+
+This folder is an ORIGINAL implementation, not a port. It exists because Steam
+Workshop item 949504539 ("SingleTrainTrackAI" by CoarzFlovv,
+github.com/CoarzFlovv/SingleTrainTrackAI) has no declared license, so its code
+was never read for anything beyond understanding the general problem it
+solves ("trains sharing a single bidirectional track segment can collide -
+reserve the segment for one direction at a time"). No code, IL, or file from
+that repository was copied, translated, or referenced while writing this.
+
+The upstream mod's own README documents its detection approach conceptually
+(classifying NetInfo lanes by vehicle type and direction to find single-track
+segments) - that high-level idea (not any implementation detail) is what this
+folder reimplements from scratch, using this project's own established
+Harmony-based patching conventions instead of upstream's raw x64 memory
+detour (RedirectionHelper), which this project avoids as a matter of general
+policy - Harmony patches are far easier to verify stay correct across game
+updates.

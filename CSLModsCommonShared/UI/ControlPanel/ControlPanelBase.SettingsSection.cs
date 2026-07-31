@@ -77,7 +77,14 @@ public partial class ControlPanelBase {
         public CheckBoxCard AddCheckBox(bool isChecked, string checkBoxText, string header = null, string description = null, UIElementEventHandler<CheckBox, bool> callback = null, Action<CheckBoxCard> beforeLayoutAction = null) {
             var card = AddItemCard<CheckBoxCard, CheckBox>(header, description);
             var checkBox = card.Control;
-            checkBox.width = card.width - card.LayoutPadding.Horizontal;
+            // See the matching fix (and its full explanation) in OptionsPanelBase.SettingsSection.cs:
+            // a full-width checkbox left zero/negative room for a description sharing the same row,
+            // and leaving checkBox.width untouched at its CheckBox.Awake() default of 100 was just as
+            // broken the other way - only ~50-60px was left for the checkbox's OWN label internally,
+            // forcing every word onto its own line. A fixed, generous width is needed either way.
+            checkBox.width = string.IsNullOrEmpty(description)
+                ? card.width - card.LayoutPadding.Horizontal
+                : 320f;
             checkBox.LabelElement.TextPadding.SetTop(1);
             checkBox.CheckBoxIndicatorElement.SetStyle(StyleType.ControlPanelStyle);
             checkBox.IsChecked = isChecked;
@@ -409,9 +416,14 @@ public partial class ControlPanelBase {
             card.LayoutPadding.SetAll(10);
             _itemCards.Add(card);
             RenderItemPanelFg();
-            if (string.IsNullOrEmpty(header)) return card;
-            card.Header = header;
-            card.HeaderElement.TextScale = 0.8f;
+            // header and description are independent - see the matching fix in
+            // OptionsPanelBase.SettingsSection.cs for why the early return keyed only on header was
+            // wrong (it silently dropped every description on a header-less card).
+            if (!string.IsNullOrEmpty(header))
+            {
+                card.Header = header;
+                card.HeaderElement.TextScale = 0.8f;
+            }
             if (string.IsNullOrEmpty(description)) return card;
             card.Description = description;
             card.DescriptionElement.TextScale = 0.7f;

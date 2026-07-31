@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lista de nombres sugeridos para la parada.
 STOP_PANEL_REUSE_NAME_TOOLTIP Establecer este nombre a todas las otras paradas en esta estación / posición.
 STOP_PANEL_WAITING_PEOPLE Pasajeros esperando: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Destino de pasajeros
+COMMUTER_DESTINATION_HEADER Principales destinos:
+COMMUTER_DESTINATION_NONE No hay pasajeros esperando aqui ahora.
+COMMUTER_DESTINATION_LOADING Calculando...
 COMMUTER_DESTINATION_BUTTON Destinos
 COMMUTER_DESTINATION_BUTTON_TOOLTIP Muestra hacia dónde se dirigen los pasajeros que esperan en esta parada.
 STOP_PANEL_BORED_TIMER Tiempo hasta el aburrimiento: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS Colores de Líneas
 SETTINGS Ajustes
 SETTINGS_SPEED Velocidad: 
 SETTINGS_SPEED_TOOLTIP Elige la unidad en la que se muestra la velocidad en la interfaz.
+SETTINGS_GAMEPLAY_PROFILE Perfil de juego
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Aplica un grupo de ajustes a la vez en lugar de configurar cada uno a mano. Vainilla desactiva cada integracion absorbida y se acerca lo mas posible al juego base; Realista las activa y aplica la opcion mas realista donde exista. Elegir cualquiera sobrescribe los ajustes individuales de abajo - elige Personalizado para gestionarlos tu mismo sin que este menu cambie nada.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Personalizado
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Vainilla
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realista
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED Velocidad de caminar: 
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE Ocultar el editor de vehículos
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Oculta el editor de vehículos de los paneles de vehículos.
 
 SETTINGS_STOPS Paradas de transporte público
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Cuantos pasajeros de cada tipo de transporte pueden esperar en una sola parada antes de que se considere llena. Valores mas altos reducen las quejas por hacinamiento en paradas concurridas, a costa de un tamano de cola menos realista.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Restablece todos los limites de pasajeros por parada anteriores a sus valores predeterminados.
 SETTINGS_ENABLE_STOPS_AND_STATIONS Activa paradas y estaciones
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Ajusta el número máximo de ciudadanos que pueden esperar transporte público en varias paradas y estaciones. Configura en la pestaña Paradas.
 SETTINGS_STOPSANDSTATIONS_ENABLE Activa paradas y estaciones
@@ -344,6 +354,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Activar Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Activa la capa de compatibilidad integrada de Intercity Bus Control y el parcheo de estaciones.
 SETTINGS_INTERCITY_BUS_CAPACITY Capacidad de la terminal interurbana
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Cuántos vehículos puede albergar a la vez una terminal de autobuses interurbanos.
+SETTINGS_TRAM_DEPOT_CAPACITY Capacidad del deposito de tranvias
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP De forma predeterminada, cada deposito de tranvias tiene un limite practicamente ilimitado de 100.000 vehiculos. Realista e Intermedio aplican en su lugar un tope fijo moderado; Desactivado mantiene el comportamiento actual.
+SETTINGS_TAXI_DEPOT_CAPACITY Capacidad del garaje de taxis
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP De forma predeterminada, cada garaje de taxis tiene un limite practicamente ilimitado de 100.000 vehiculos. Realista e Intermedio aplican en su lugar un tope fijo moderado; Desactivado mantiene el comportamiento actual.
+SETTINGS_BUS_DEPOT_CAPACITY Capacidad del deposito de autobuses
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Por defecto, el juego deja cada deposito de autobuses (normal, biocombustible y turistico) con un limite practicamente ilimitado de 100.000 vehiculos. Realista e Intermedio aplican en su lugar un tope fijo moderado; Desactivado mantiene el comportamiento actual.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Capacidad del deposito de trolebuses
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Por defecto, el juego deja cada deposito de trolebuses con un limite practicamente ilimitado de 100.000 vehiculos. Realista e Intermedio aplican en su lugar un tope fijo moderado; Desactivado mantiene el comportamiento actual.
+SETTINGS_FERRY_DEPOT_CAPACITY Capacidad del deposito de ferris
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Por defecto, el juego deja cada deposito de ferris con un limite practicamente ilimitado de 100.000 vehiculos. Realista e Intermedio aplican en su lugar un tope fijo moderado; Desactivado mantiene el comportamiento actual.
 SETTINGS_DEPOT_CAPACITY_DISABLED Desactivado (sin límite)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermedio
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realista
@@ -357,6 +377,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Activar paradas compartidas
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite que más de un tipo de transporte (autobús, tranvía, trolebús) se detenga en el mismo tramo de vía. Desactivado por defecto - consulta el GitHub del mod para ver qué omite esta versión reducida.
 SETTINGS_COMMUTERDESTINATION_ENABLE Activar destino de pasajeros
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Muestra hacia dónde se dirigen los pasajeros que esperan en una parada - un pequeño panel más una superposición en el mapa. Solo lectura, sin más dependencias que Harmony.
+SETTINGS_OOC_ENABLE Conexiones externas optimizadas
+SETTINGS_OOC_ENABLE_TOOLTIP Los trenes, aviones y barcos de carga esperan mas tiempo por una carga mas completa antes de partir en las conexiones externas.
+SETTINGS_OOC_WAIT_MULTIPLIER Multiplicador de espera
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Cuanto mas tiempo que en el juego base esperar por una carga mas completa. Valores mas altos significan menos viajes, pero mas completos.
+SETTINGS_OOC_PASSENGER_SCOPE Alcance de espera de pasajeros
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Donde se aplica el multiplicador de espera anterior a los ciudadanos que esperan transporte publico. Solo conexiones externas afecta solo a los ciudadanos que esperan en una conexion externa; toda la ciudad tambien ralentiza la espera domestica normal de cada ciudadano (coincide con el comportamiento real del mod original).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Solo conexiones externas
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Toda la ciudad
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Desactivado (vanilla)
+SETTINGS_OOC_DISABLE_DUMMY Desactivar trafico decorativo de paso
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Desactivar trafico decorativo de carretera
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Desactivar trafico decorativo de tren
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Desactivar trafico decorativo de avion
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Desactivar trafico decorativo de barco
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Las conexiones externas normalmente generan trafico decorativo adicional que nunca entra ni sale realmente de la ciudad, solo para ambientacion visual. Desactivarlo elimina ese trafico sin afectar el flujo real de importacion/exportacion/pasajeros.
+SETTINGS_UOC_ENABLE Conexiones externas ilimitadas
+SETTINGS_UOC_ENABLE_TOOLTIP Elimina el limite estandar de 4 conexiones para carreteras, vias de tren, rutas de barco y rutas de vuelo, y conecta retroactivamente las lineas de transporte cuando se construye una conexion nueva cerca de una estacion existente. Entra en vigor en la proxima carga.
+SETTINGS_STTAI_ENABLE Prevencion de colisiones en via unica
+SETTINGS_STTAI_ENABLE_TOOLTIP Reserva un tramo de via unica para un tren a la vez, deteniendo al tren contrario en la entrada hasta que el tramo quede libre. Funcion original de IPT4, no presente en el juego base ni en ningun mod absorbido.
+SETTINGS_STOPSTACKER_ENABLE Apilamiento de andenes en paradas de autobus
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Permite que un segundo/tercer autobus que se aproxima a la misma parada use su propio anden mas atras en el carril de parada en lugar de hacer fila detras del autobus delantero, para que mas de uno pueda subir/bajar pasajeros a la vez. Funcion original de IPT4 (reimplementacion simplificada sin acceso al codigo original), no presente en el juego base ni en ningun mod absorbido.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -406,6 +447,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP Tarifa actual: {0}\nTarifa original: {1}\nPasajeros a bordo ahora: {2}
 
+CHANGELOG_4_8_0_1 Se añadió SingleTrainTrackAI: los tramos de vía única ahora se reservan para una sola dirección a la vez, de modo que dos trenes que comparten una vía bidireccional ya no corren riesgo de colisionar. Reimplementación de sala limpia - el mod de origen (Workshop 949504539) no tiene licencia declarada, por lo que solo se reimplementó su concepto documentado públicamente, usando el sistema de parcheo basado en Harmony propio de este proyecto en lugar de desvíos de memoria en bruto.
+CHANGELOG_4_8_0_2 Se añadió Stop Stacker: cuando más de un vehículo de la misma línea converge en una parada, solo el vehículo líder usa la posición de parada normal - los vehículos siguientes obtienen su propio lugar más atrás en el carril en vez de hacer fila uno tras otro. Reimplementación de sala limpia basada únicamente en la descripción pública del mod de origen (no había código fuente disponible); solo autobús y trolebús, coincidiendo con el punto de enganche BetterBusStopPosition ya existente en este proyecto.
+CHANGELOG_4_8_0_3 Corregido: la integración de la terminal de autobuses interurbanos nunca se activaba silenciosamente para los jugadores que poseen el DLC Sunset Harbor: detectaba el DLC mediante reflexión sobre un campo privado del juego en lugar de la comprobación de DLC de Steam ya usada en otras partes de este proyecto, y esa comprobación basada en reflexión podía devolver falso incluso cuando el DLC estaba realmente instalado.
+CHANGELOG_4_8_0_4 Corregido: la casilla "aceptar autobuses interurbanos" se quedaba atascada sin responder en algunas terminales: en el juego base, la casilla puede quedar no interactiva en condiciones que el uso reetiquetado de este mod nunca contempló. Ahora se fuerza a ser interactiva siempre que este mod la controle. También se corrigió un error relacionado por el cual una terminal ya configurada correctamente podía perder silenciosamente su interruptor en una comprobación posterior.
+CHANGELOG_4_8_0_5 Corregido: Sub-Buildings Tabs a veces mostraba una barra de pestañas obsoleta en un edificio no relacionado: el juego reutiliza los ID de edificio tras una demolición, y la caché confiaba en que un ID reutilizado seguía perteneciendo al complejo de edificios anterior. Ahora vuelve a validar la cadena de edificio principal real antes de reutilizar nada de la caché.
+CHANGELOG_4_8_0_6 Barrido general de errores en varias integraciones: una comprobación de expiración de caché invertida que descartaba datos actualizados y servía datos obsoletos en su lugar, un límite de bucle desviado en uno que omitía la última línea de transporte en la coloración automática y en las comprobaciones de nombres duplicados, una comparación de ID incorrecta que rompía el atajo de "solo un vehículo en esta línea" para evitar aglomeraciones, una búsqueda de precio que almacenaba en caché un fallo de forma permanente en lugar de reintentarlo más tarde, y varios parches de Harmony que podían lanzar una excepción ante una referencia nula de UI/prefab.
+CHANGELOG_4_8_0_7 Se redujeron las búsquedas repetidas por reflexión y por fotograma en varias integraciones: las descripciones de los tooltips de vehículos, la clasificación de tramos de vía única y la búsqueda de la clase de artículo de autobuses interurbanos ahora se almacenan en caché en lugar de recalcularse en cada llamada, y un botón de actualización de la interfaz ya no reasigna su texto en cada fotograma sin importar si algo cambió.
+CHANGELOG_4_8_0_8 Intercity Bus Control y Sub-Buildings Tabs vuelven a estar activados por defecto tras las correcciones anteriores - ambos están confirmados como funcionales, y solo quedan problemas menores conocidos (ajuste fino de la posición de las pestañas, una rara peculiaridad en la visualización del nombre de la parada) para un análisis más profundo en una futura versión.
 CHANGELOG_4_7_0_1 Cuatro integraciones nuevas: Pestañas de subedificios (barra de pestañas para cualquier complejo con varios edificios, no solo aeropuertos), Paradas compartidas (permite que más de un tipo de parada comparta un mismo segmento de carretera, desactivado por defecto), Destino de pasajeros (muestra hacia dónde se dirigen realmente los ciudadanos que esperan en una parada) y Corrección de paradas de taxi (los taxis inactivos se dirigen a la parada más cercana en lugar de deambular). Consulta Opciones > Integraciones para cada interruptor.
 CHANGELOG_4_7_0_2 Se añadió un modo de capacidad de vehículos para las terminales de autobuses interurbanos (Opciones > Integraciones > Capacidad de la terminal de autobuses interurbanos): Desactivado conserva la terminal de este mod, prácticamente sin límite hasta ahora; Intermedio aplica un límite fijo moderado; Realista restaura la capacidad original del prefab vanilla de la terminal. Las partidas existentes usan Desactivado por defecto, de modo que actualizar nunca reduce silenciosamente la capacidad de una terminal.
 CHANGELOG_4_7_0_3 Se corrigió la casilla "aceptar autobuses interurbanos" de la terminal de autobuses interurbanos: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged establece acceptsInterCityTrains, que es un simple alias de isEmptying, por lo que la casilla renombrada podía poner silenciosamente una terminal de autobuses en el estado de cierre de edificio del juego en lugar de alternar realmente la aceptación de autobuses. Un prefijo de Harmony ahora intercepta esto y lo redirige a un estado por edificio en las terminales parcheadas para autobuses, sin afectar a las estaciones de tren reales.

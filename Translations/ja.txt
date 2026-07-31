@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP 自動生成した命名候補のリスト。
 STOP_PANEL_REUSE_NAME_TOOLTIP 駅や道路にある停車場に、まとめて名前を設定します。
 STOP_PANEL_WAITING_PEOPLE 待機中の乗客数: {0}
 COMMUTER_DESTINATION_PANEL_TITLE 通勤先
+COMMUTER_DESTINATION_HEADER 主な行き先:
+COMMUTER_DESTINATION_NONE 現在ここで待っている乗客はいません。
+COMMUTER_DESTINATION_LOADING 計算中...
 COMMUTER_DESTINATION_BUTTON 行き先
 COMMUTER_DESTINATION_BUTTON_TOOLTIP この停留所で待っている乗客がどこへ向かっているかを表示します。
 STOP_PANEL_BORED_TIMER 退屈タイマー: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS 路線カラー
 SETTINGS 設定
 SETTINGS_SPEED 速度: 
 SETTINGS_SPEED_TOOLTIP UIで速度表示に使用する単位を選択します。
+SETTINGS_GAMEPLAY_PROFILE ゲームプレイプロファイル
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP 各設定を個別に調整する代わりに、一括で設定を適用します。バニラはすべての吸収済み統合機能をオフにし、可能な限りベースゲームに近づけます。リアルはそれらをオンにし、存在する場合はよりリアルな選択肢を適用します。どちらかを選ぶと下の個別設定が上書きされます - このドロップダウンが何も変更しないようにするにはカスタムを選んでください。
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM カスタム
+SETTINGS_GAMEPLAY_PROFILE_VANILLA バニラ
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC リアル
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED 歩行/自転車速度: 
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE 車両エディタを隠す
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP 車両パネルから車両エディタを非表示にします。
 
 SETTINGS_STOPS 公共交通停留所
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION 各交通機関の乗客が満員とみなされるまでに1つの停留所で何人待てるか。値を高くすると混雑した停留所での過密の苦情は減りますが、行列の長さの現実感は下がります。
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP 上記のすべての停留所別乗客上限をデフォルト値に戻します。
 SETTINGS_ENABLE_STOPS_AND_STATIONS 停留所と駅を有効化
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP 各種停留所や駅で公共交通を待てる市民の最大数を調整します。停留所タブで設定します。
 SETTINGS_STOPSANDSTATIONS_ENABLE 停留所と駅を有効化
@@ -344,6 +354,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control を有効化
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP 統合された Intercity Bus Control の互換レイヤーと駅のパッチ適用を有効にします。
 SETTINGS_INTERCITY_BUS_CAPACITY 都市間バスターミナルの収容台数
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP 都市間バスターミナルが一度に収容できる車両数です。
+SETTINGS_TRAM_DEPOT_CAPACITY 路面電車車庫の収容数
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP バニラではすべての路面電車車庫が実質無制限の10万台に設定されています。現実的と中間は代わりに適度な固定上限を適用します。無効は既存の動作を維持します。
+SETTINGS_TAXI_DEPOT_CAPACITY タクシー車庫の収容数
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP バニラではすべてのタクシー車庫が実質無制限の10万台に設定されています。現実的と中間は代わりに適度な固定上限を適用します。無効は既存の動作を維持します。
+SETTINGS_BUS_DEPOT_CAPACITY バス車庫の収容台数
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP バニラでは、すべてのバス車庫(通常・バイオ燃料・観光バス)の収容台数が事実上無制限の10万台になっています。「リアル」と「中間」はその代わりに適度な固定上限を適用し、「無効」は現在の動作を維持します。
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY トロリーバス車庫の収容台数
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP バニラでは、すべてのトロリーバス車庫の収容台数が事実上無制限の10万台になっています。「リアル」と「中間」はその代わりに適度な固定上限を適用し、「無効」は現在の動作を維持します。
+SETTINGS_FERRY_DEPOT_CAPACITY フェリー車庫の収容台数
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP バニラでは、すべてのフェリー車庫の収容台数が事実上無制限の10万台になっています。「リアル」と「中間」はその代わりに適度な固定上限を適用し、「無効」は現在の動作を維持します。
 SETTINGS_DEPOT_CAPACITY_DISABLED 無効（無制限）
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE 中間
 SETTINGS_DEPOT_CAPACITY_REALISTIC リアル
@@ -357,6 +377,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE 共有停留所を有効化
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP バス、路面電車、トロリーバスなど複数の交通機関が同じ道路区間で停車できるようにします。デフォルトでは無効 - この簡略版で省略されている内容はMODのGitHubを参照してください。
 SETTINGS_COMMUTERDESTINATION_ENABLE 通勤先表示を有効化
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 停留所で待っている乗客がどこへ向かっているかを表示します - 小さなパネルとマップオーバーレイです。読み取り専用で、Harmony以外の依存関係はありません。
+SETTINGS_OOC_ENABLE 都市間接続の最適化
+SETTINGS_OOC_ENABLE_TOOLTIP 貨物列車、飛行機、船は都市間接続で出発する前に、より満載になるまで長く待機します。
+SETTINGS_OOC_WAIT_MULTIPLIER 待機倍率
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP バニラよりどれだけ長く満載を待つか。値が高いほど便数は減りますが、より満載になります。
+SETTINGS_OOC_PASSENGER_SCOPE 乗客待機の適用範囲
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP 上記の待機倍率が公共交通機関を待つ市民にどこで適用されるか。都市間接続のみは都市間接続で待機している市民にのみ影響します。都市全体はすべての市民の通常の国内待機も遅くします(元のMODの実際の動作と一致)。
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE 都市間接続のみ
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE 都市全体
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED 無効(バニラ)
+SETTINGS_OOC_DISABLE_DUMMY 装飾的な通過交通を無効化
+SETTINGS_OOC_DISABLE_DUMMY_ROAD 装飾的な道路交通を無効化
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN 装飾的な鉄道交通を無効化
+SETTINGS_OOC_DISABLE_DUMMY_PLANE 装飾的な航空交通を無効化
+SETTINGS_OOC_DISABLE_DUMMY_SHIP 装飾的な船舶交通を無効化
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP 都市間接続は通常、実際には市に出入りしない装飾的な追加交通を生成します。これは視覚的な雰囲気のためだけのものです。無効にすると、実際の輸出入・旅客の流れに影響を与えずにその交通を削除します。
+SETTINGS_UOC_ENABLE 都市間接続の上限撤廃
+SETTINGS_UOC_ENABLE_TOOLTIP 道路、線路、航路、航空路のデフォルトの4接続制限を撤廃し、既存の駅の近くに新しい接続が建設されたときに交通路線を遡って接続します。次回のレベル読み込みで有効になります。
+SETTINGS_STTAI_ENABLE 単線区間の列車衝突回避
+SETTINGS_STTAI_ENABLE_TOOLTIP 単線区間を一度に1本の列車に予約し、区間が空くまで対向列車を入口で待機させます。IPT4独自の機能で、バニラや吸収した他のMODには存在しません。
+SETTINGS_STOPSTACKER_ENABLE バス停の多段乗降スペース
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 同じ停留所に向かう2台目・3台目のバスが、先頭のバスの後ろに一列で並ぶ代わりに、停留所レーンの後方に自分専用の乗降スペースを使えるようにし、複数のバスが同時に乗客の乗り降りをできるようにします。IPT4独自の機能(オリジナルコードを参照しない簡略化された再実装)で、バニラや吸収した他のMODには存在しません。
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -406,6 +447,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 現在の運賃: {0}\n元の運賃: {1}\n現在の乗客数: {2}
 
+CHANGELOG_4_8_0_1 SingleTrainTrackAIを追加: 単線区間は常に一方向のみに予約されるようになり、双方向の単線を共有する2本の列車が衝突する危険がなくなりました。クリーンルーム再実装 - 元modのWorkshop 949504539にはライセンスが明記されていないため、公開されているコンセプトのみを、生のメモリデトアではなくこのプロジェクト独自のHarmonyベースのパッチ機構の上で再実装しました。
+CHANGELOG_4_8_0_2 Stop Stackerを追加: 同じ路線の複数の車両が同じ停留所に集まった場合、先頭車両のみが通常の停車位置を使用し、後続車両はその後ろに一列で並ぶ代わりに、車線のさらに後方に自分専用の停車スペースを確保します。ソースコードが入手できなかったため、元modの公開説明のみに基づくクリーンルーム再実装です。バスとトロリーバスのみ対応し、このプロジェクト既存のBetterBusStopPositionフック位置に合わせています。
+CHANGELOG_4_8_0_3 修正: 都市間バスターミナル連携が、Sunset Harbor DLCを所有するプレイヤーに対して気付かれないまま一度も有効化されない問題を修正しました。これはこのプロジェクトの他の箇所で既に使われているSteamのDLCチェックの代わりに、ゲームのプライベートフィールドへのリフレクションでDLCを検出していたためで、このリフレクションベースのチェックはDLCが実際にインストールされていてもfalseを返すことがありました。
+CHANGELOG_4_8_0_4 修正: 一部のターミナルで「都市間バスを受け入れる」チェックボックスが反応しなくなる問題を修正しました。バニラのゲームは、このmodのラベルを変更した使い方が想定していなかった条件下でチェックボックスを非インタラクティブなままにすることがあります。このmodが制御している間は、常に強制的にインタラクティブになるようにしました。また、既に正しく設定されていたターミナルが、後のチェックで気付かれないままトグルを失うことがあった関連バグも修正しました。
+CHANGELOG_4_8_0_5 修正: Sub-Buildings Tabsが無関係の建物に古いタブバーを表示することがある問題を修正しました。ゲームは解体後に建物IDを再利用しますが、キャッシュは再利用されたIDが依然として以前の建物クラスターに属していると信じていました。キャッシュから何かを再利用する前に、建物の実際の親チェーンを再検証するようになりました。
+CHANGELOG_4_8_0_6 複数の連携機能にわたる全般的なバグ修正: 新しいデータを破棄して古いデータを提供してしまう反転したキャッシュ有効期限チェック、自動着色と重複名チェックで最後の交通路線をスキップしてしまうoff-by-oneのループ境界、「この路線には車両が1台のみ」という団子運転回避策を壊していた誤ったID比較、失敗を永続的にキャッシュしてしまい後で再試行しない価格検索、そしてnullのUI/プレハブ参照で例外を投げることがあった複数のHarmonyパッチを修正しました。
+CHANGELOG_4_8_0_7 複数の連携機能で繰り返されるリフレクションとフレームごとのルックアップを削減しました: 車両ツールチップの説明、単線区間の分類、都市間バスのアイテムクラス検索は、呼び出しのたびに再計算するのではなくキャッシュされるようになり、UI更新ボタンも何か変わったかどうかに関わらず毎フレームテキストを再割り当てすることがなくなりました。
+CHANGELOG_4_8_0_8 上記の修正により、Intercity Bus ControlとSub-Buildings Tabsは再びデフォルトで有効になりました - どちらも動作確認済みで、残っている既知の問題はわずか(タブ位置の微調整、まれに発生する停留所名表示の不具合)で、今後のバージョンでさらに詳しく分析される予定です。
 CHANGELOG_4_7_0_1 4つの新しい連携機能を追加: サブ建物タブ(空港に限らず、複数の建物からなる複合施設向けのタブバー)、共有停留所(複数の停留所タイプが同じ道路区間を共有できるようにする機能、デフォルトでは無効)、通勤先表示(停留所で待っている市民の実際の行き先を表示)、タクシー乗り場修正(空車のタクシーがさまよう代わりに最寄りの乗り場へ向かう)。それぞれの切り替えはオプション > 連携機能から行えます。
 CHANGELOG_4_7_0_2 都市間バスターミナル向けの車両収容台数モードを追加(オプション > 連携機能 > 都市間バスターミナルの収容台数): 無効はこれまでの実質無制限のターミナルを維持し、中間は適度な固定上限を適用し、リアルはターミナル本来のプレハブ収容台数を復元します。既存のセーブデータはデフォルトで無効になるため、アップデートによってターミナルの収容台数が気づかないうちに縮小することはありません。
 CHANGELOG_4_7_0_3 都市間バスターミナルの「都市間バスを受け入れる」チェックボックスを修正: CityServiceWorldInfoPanel.OnAcceptsIntercityChangedはacceptsInterCityTrainsを設定しますが、これはisEmptyingの単なるエイリアスであるため、ラベルを変更したこのチェックボックスは、実際にはバスの受け入れを切り替えず、バスターミナルをゲームの建物閉鎖状態に気づかないうちに移行させてしまうことがありました。現在はHarmonyのprefixがこれを横取りし、バス対応にパッチ済みのターミナルでは建物ごとの状態にリダイレクトする一方、本物の鉄道駅には影響しません。

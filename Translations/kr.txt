@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP 제안된 역 명칭 목록입니다.
 STOP_PANEL_REUSE_NAME_TOOLTIP 이 이름으로 모든 정거장역을 설정합니다.
 STOP_PANEL_WAITING_PEOPLE 대기중인 승객 : {0}
 COMMUTER_DESTINATION_PANEL_TITLE 통근 목적지
+COMMUTER_DESTINATION_HEADER 주요 목적지:
+COMMUTER_DESTINATION_NONE 현재 이곳에서 대기 중인 승객이 없습니다.
+COMMUTER_DESTINATION_LOADING 계산 중...
 COMMUTER_DESTINATION_BUTTON 목적지
 COMMUTER_DESTINATION_BUTTON_TOOLTIP 이 정류장에서 기다리는 승객이 어디로 향하는지 보여줍니다.
 STOP_PANEL_BORED_TIMER 불만표출까지 남은 시간 : <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS 노선 색상
 SETTINGS 설정
 SETTINGS_SPEED 속도: 
 SETTINGS_SPEED_TOOLTIP UI에서 속도 표시에 사용할 단위를 선택합니다.
+SETTINGS_GAMEPLAY_PROFILE 게임플레이 프로필
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP 각 설정을 일일이 조정하는 대신 여러 설정을 한 번에 적용합니다. 바닐라는 흡수된 모든 통합 기능을 끄고 기본 게임에 최대한 가깝게 맞춥니다. 리얼리스틱은 이를 켜고 존재하는 경우 더 현실적인 옵션을 적용합니다. 둘 중 하나를 선택하면 아래의 개별 설정이 덮어써집니다 - 이 드롭다운이 아무것도 변경하지 않도록 직접 관리하려면 커스텀을 선택하세요.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM 커스텀
+SETTINGS_GAMEPLAY_PROFILE_VANILLA 바닐라
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC 리얼리스틱
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED 보행/자전거 속도: 
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE 차량 에디터 숨기기
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP 차량 패널에서 차량 편집기를 숨깁니다.
 
 SETTINGS_STOPS 대중 교통 정거장
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION 각 교통수단의 승객이 만원으로 간주되기 전에 하나의 정류장에서 몇 명까지 대기할 수 있는지입니다. 값을 높이면 혼잡한 정류장의 과밀 불만이 줄어들지만, 대기열 크기의 현실성은 떨어집니다.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP 위의 모든 정류장별 승객 제한을 기본값으로 재설정합니다.
 SETTINGS_ENABLE_STOPS_AND_STATIONS 정거장 및 역 활성화
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP 다양한 정거장과 역에서 대중교통을 기다릴 수 있는 최대 시민 수를 조정합니다. 정거장 탭에서 구성하세요.
 SETTINGS_STOPSANDSTATIONS_ENABLE 정거장 및 역 활성화
@@ -344,6 +354,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control 활성화
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP 통합된 Intercity Bus Control 호환 계층과 역 패치를 활성화합니다.
 SETTINGS_INTERCITY_BUS_CAPACITY 시외 터미널 수용 대수
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP 시외버스 터미널이 한 번에 수용할 수 있는 차량 수입니다.
+SETTINGS_TRAM_DEPOT_CAPACITY 트램 차고 수용 대수
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 트램 차고가 사실상 무제한인 100,000대로 설정됩니다. 현실적과 중간은 대신 적당한 고정 상한을 적용합니다. 비활성화는 기존 동작을 유지합니다.
+SETTINGS_TAXI_DEPOT_CAPACITY 택시 차고 수용 대수
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 택시 차고가 사실상 무제한인 100,000대로 설정됩니다. 현실적과 중간은 대신 적당한 고정 상한을 적용합니다. 비활성화는 기존 동작을 유지합니다.
+SETTINGS_BUS_DEPOT_CAPACITY 버스 차고지 수용 대수
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 버스 차고지(일반, 바이오연료, 관광버스)의 수용 대수가 사실상 무제한인 10만 대로 설정되어 있습니다. '현실적' 및 '중간'은 대신 적당한 고정 상한을 적용하며, '비활성화'는 기존 동작을 유지합니다.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY 트롤리버스 차고지 수용 대수
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 트롤리버스 차고지의 수용 대수가 사실상 무제한인 10만 대로 설정되어 있습니다. '현실적' 및 '중간'은 대신 적당한 고정 상한을 적용하며, '비활성화'는 기존 동작을 유지합니다.
+SETTINGS_FERRY_DEPOT_CAPACITY 페리 차고지 수용 대수
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 페리 차고지의 수용 대수가 사실상 무제한인 10만 대로 설정되어 있습니다. '현실적' 및 '중간'은 대신 적당한 고정 상한을 적용하며, '비활성화'는 기존 동작을 유지합니다.
 SETTINGS_DEPOT_CAPACITY_DISABLED 사용 안 함(무제한)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE 중간
 SETTINGS_DEPOT_CAPACITY_REALISTIC 현실적
@@ -357,6 +377,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE 공유 정류장 사용
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP 버스, 트램, 트롤리버스 등 둘 이상의 대중교통 유형이 같은 도로 구간에서 정차할 수 있게 합니다. 기본적으로 꺼져 있음 - 이 축소판에서 제외된 내용은 모드의 GitHub를 참고하세요.
 SETTINGS_COMMUTERDESTINATION_ENABLE 통근 목적지 표시 사용
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 정류장에서 기다리는 승객이 어디로 향하는지 보여줍니다 - 작은 패널과 지도 오버레이입니다. 읽기 전용이며 Harmony 외에 다른 종속성이 없습니다.
+SETTINGS_OOC_ENABLE 외부 연결 최적화
+SETTINGS_OOC_ENABLE_TOOLTIP 화물 열차, 비행기, 선박이 외부 연결에서 출발하기 전에 더 가득 찰 때까지 더 오래 기다립니다.
+SETTINGS_OOC_WAIT_MULTIPLIER 대기 배율
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP 바닐라보다 더 가득 찰 때까지 얼마나 더 기다릴지 설정합니다. 값이 높을수록 운행 횟수는 줄지만 더 가득 찹니다.
+SETTINGS_OOC_PASSENGER_SCOPE 승객 대기 적용 범위
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP 위의 대기 배율이 대중교통을 기다리는 시민에게 어디에 적용되는지 설정합니다. 외부 연결만은 외부 연결에서 기다리는 시민에게만 영향을 줍니다. 도시 전체는 모든 시민의 일반적인 국내 대기도 느리게 만듭니다(원본 모드의 실제 동작과 일치).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE 외부 연결만
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE 도시 전체
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED 비활성화(바닐라)
+SETTINGS_OOC_DISABLE_DUMMY 장식용 통과 교통 비활성화
+SETTINGS_OOC_DISABLE_DUMMY_ROAD 장식용 도로 교통 비활성화
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN 장식용 철도 교통 비활성화
+SETTINGS_OOC_DISABLE_DUMMY_PLANE 장식용 항공 교통 비활성화
+SETTINGS_OOC_DISABLE_DUMMY_SHIP 장식용 선박 교통 비활성화
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP 외부 연결은 일반적으로 실제로 도시에 출입하지 않는 장식용 추가 교통을 생성하며, 이는 순전히 시각적 분위기를 위한 것입니다. 비활성화하면 실제 수출입/승객 흐름에는 영향을 주지 않고 해당 교통만 제거됩니다.
+SETTINGS_UOC_ENABLE 외부 연결 무제한
+SETTINGS_UOC_ENABLE_TOOLTIP 도로, 철도, 항로, 항공로의 기본 4개 연결 제한을 제거하고, 기존 정류장 근처에 새 연결이 건설되면 소급하여 교통 노선을 연결합니다. 다음 레벨 로드 시 적용됩니다.
+SETTINGS_STTAI_ENABLE 단선 구간 열차 충돌 방지
+SETTINGS_STTAI_ENABLE_TOOLTIP 단선 구간을 한 번에 한 열차에만 예약하고, 구간이 비워질 때까지 반대 방향 열차를 입구에서 대기시킵니다. IPT4의 독자적인 기능으로, 바닐라나 흡수한 다른 모드에는 없습니다.
+SETTINGS_STOPSTACKER_ENABLE 버스 정류장 다중 승하차 구역
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 같은 정류장으로 오는 두 번째/세 번째 버스가 선두 버스 뒤에 한 줄로 대기하는 대신 정류장 차선 뒤쪽에 자신만의 승하차 구역을 사용하도록 하여, 여러 대의 버스가 동시에 승객을 태우고 내릴 수 있게 합니다. IPT4의 독자적인 기능(원본 코드 없이 단순화하여 재구현)으로, 바닐라나 흡수한 다른 모드에는 없습니다.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -406,6 +447,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 현재 요금: {0}\n원래 요금: {1}\n현재 탑승 승객: {2}
 
+CHANGELOG_4_8_0_1 SingleTrainTrackAI 추가: 단선 철도 구간이 이제 한 번에 한 방향으로만 예약되어, 양방향 선로를 공유하는 두 열차가 더 이상 충돌할 위험이 없습니다. 클린룸 재구현 - 원본 모드(Workshop 949504539)에는 명시된 라이선스가 없어서, 공개적으로 문서화된 개념만을 원시 메모리 디투어 대신 이 프로젝트 자체의 Harmony 기반 패치 방식으로 재구현했습니다.
+CHANGELOG_4_8_0_2 Stop Stacker 추가: 같은 노선의 차량이 두 대 이상 한 정류장에 모이면, 선두 차량만 일반 정차 위치를 사용하고 뒤따르는 차량은 그 뒤에 한 줄로 줄서는 대신 차선을 따라 더 뒤쪽에 자체 정차 위치를 배정받습니다. 소스 코드를 구할 수 없어 원본 모드의 공개 설명만을 바탕으로 한 클린룸 재구현이며, 버스와 트롤리버스에만 적용되고 이 프로젝트에 이미 있는 BetterBusStopPosition 연결 지점과 일치합니다.
+CHANGELOG_4_8_0_3 수정: Sunset Harbor DLC를 보유한 플레이어에게 시외버스 터미널 통합 기능이 조용히 전혀 활성화되지 않던 문제를 수정했습니다. 이 프로젝트의 다른 곳에서 이미 사용 중인 Steam DLC 확인 대신 게임의 비공개 필드에 대한 리플렉션으로 DLC를 감지했으며, 이 리플렉션 기반 확인은 DLC가 실제로 설치되어 있어도 false를 반환할 수 있었습니다.
+CHANGELOG_4_8_0_4 수정: 일부 터미널에서 "시외버스 수락" 체크박스가 멈춰서 반응하지 않던 문제를 수정했습니다. 바닐라 게임은 이 모드가 이름을 바꿔 사용하는 방식이 전혀 고려하지 않았던 조건에서 체크박스를 상호작용 불가 상태로 둘 수 있습니다. 이제 이 모드가 제어할 때는 항상 강제로 상호작용 가능하게 만듭니다. 또한 이미 올바르게 설정된 터미널이 이후 검사에서 조용히 토글을 잃을 수 있던 관련 버그도 수정했습니다.
+CHANGELOG_4_8_0_5 수정: Sub-Buildings Tabs가 가끔 관련 없는 건물에 오래된 탭 목록을 표시하던 문제를 수정했습니다. 게임은 철거 후 건물 ID를 재사용하는데, 캐시는 재사용된 ID가 여전히 이전 건물 클러스터에 속한다고 신뢰했습니다. 이제 캐시에서 무언가를 재사용하기 전에 건물의 실제 상위 체인을 다시 검증합니다.
+CHANGELOG_4_8_0_6 여러 통합 기능에 걸친 전반적인 버그 정리: 최신 데이터를 버리고 오래된 데이터를 대신 제공하던 뒤집힌 캐시 만료 확인, 자동 색상 지정과 중복 이름 확인에서 마지막 교통 노선을 건너뛰던 off-by-one 루프 경계, "이 노선에는 차량이 한 대뿐"이라는 뭉침 방지 우회를 망가뜨리던 잘못된 ID 비교, 실패를 나중에 재시도하는 대신 영구적으로 캐시해버리던 가격 조회, 그리고 null UI/프리팹 참조에서 예외를 던질 수 있었던 여러 Harmony 패치를 수정했습니다.
+CHANGELOG_4_8_0_7 여러 통합 기능에서 반복되는 리플렉션과 프레임별 조회를 줄였습니다: 차량 툴팁 설명, 단선 구간 분류, 시외버스 아이템 클래스 조회가 이제 호출할 때마다 다시 계산하는 대신 캐시되며, UI 새로고침 버튼도 무언가 바뀌었는지 여부와 관계없이 매 프레임 텍스트를 다시 지정하지 않습니다.
+CHANGELOG_4_8_0_8 위 수정 사항들 이후 Intercity Bus Control과 Sub-Buildings Tabs가 다시 기본적으로 켜져 있습니다 - 둘 다 정상 작동이 확인되었으며, 향후 버전에서 더 깊이 분석할 사소한 알려진 문제(탭 위치 미세 조정, 드문 정류장 이름 표시 오류)만 남아 있습니다.
 CHANGELOG_4_7_0_1 네 가지 새로운 통합 기능: 하위 건물 탭(공항뿐 아니라 여러 건물로 이루어진 모든 복합 시설에 사용할 수 있는 탭 바), 공유 정류장(둘 이상의 정류장 유형이 같은 도로 구간을 공유할 수 있게 함, 기본값은 비활성화), 통근 목적지 표시(정류장에서 기다리는 시민들이 실제로 향하는 곳을 표시), 택시 승강장 수정(빈 택시가 배회하는 대신 가장 가까운 택시 승강장으로 이동). 각 기능의 켜고 끄기는 옵션 > 통합 기능에서 확인할 수 있습니다.
 CHANGELOG_4_7_0_2 시외버스 터미널을 위한 차량 수용 대수 모드가 추가되었습니다(옵션 > 통합 기능 > 시외버스 터미널 수용 대수): 사용 안 함은 지금까지의 사실상 무제한이었던 이 모드의 터미널을 그대로 유지하고, 중간은 적당한 고정 상한을 적용하며, 현실적은 터미널 자체의 기본 게임 프리팹 수용 대수를 복원합니다. 기존 세이브는 기본값으로 사용 안 함을 사용하므로, 업데이트로 인해 터미널 수용 대수가 모르는 사이에 줄어드는 일은 없습니다.
 CHANGELOG_4_7_0_3 시외버스 터미널의 "시외버스 수용" 체크박스를 수정했습니다: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged는 acceptsInterCityTrains를 설정하는데, 이는 isEmptying의 단순한 별칭이었습니다. 그래서 이름이 바뀐 이 체크박스는 실제로 버스 수용 여부를 전환하는 대신, 버스 터미널을 게임의 건물 폐쇄 상태로 모르는 사이에 전환시킬 수 있었습니다. 이제 Harmony prefix가 이를 가로채어, 버스로 패치된 터미널에서는 건물별 상태로 리디렉션하고, 실제 기차역은 그대로 둡니다.

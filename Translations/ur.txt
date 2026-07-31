@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP تجویز کردہ اسٹاپ ناموں ک�
 STOP_PANEL_REUSE_NAME_TOOLTIP اس نام کو اس اسٹیشن / مقام کے دیگر تمام اسٹاپس پر لاگو کریں۔
 STOP_PANEL_WAITING_PEOPLE انتظار کرنے والے مسافر: {0}
 COMMUTER_DESTINATION_PANEL_TITLE مسافر منزل
+COMMUTER_DESTINATION_HEADER اہم منزلیں:
+COMMUTER_DESTINATION_NONE اس وقت یہاں کوئی مسافر انتظار نہیں کر رہا۔
+COMMUTER_DESTINATION_LOADING حساب لگایا جا رہا ہے...
 COMMUTER_DESTINATION_BUTTON منزلیں
 COMMUTER_DESTINATION_BUTTON_TOOLTIP اس اسٹاپ پر انتظار کرنے والے مسافر کہاں جا رہے ہیں دکھائیں۔
 STOP_PANEL_BORED_TIMER اکتاہٹ تک وقت: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS لائن کے رنگ
 SETTINGS ترتیبات
 SETTINGS_SPEED رفتار دکھائیں:
 SETTINGS_SPEED_TOOLTIP UI میں رفتار دکھانے کے لیے استعمال ہونے والی اکائی منتخب کریں۔
+SETTINGS_GAMEPLAY_PROFILE گیم پلے پروفائل
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP ہر ایک کو ہاتھ سے ایڈجسٹ کرنے کے بجائے ایک ساتھ سیٹنگز کا ایک گروپ لاگو کرتا ہے۔ ونیلا ہر جذب شدہ انضمام کو بند کر دیتا ہے اور بنیادی گیم سے زیادہ سے زیادہ مماثل ہوتا ہے؛ حقیقت پسندانہ انہیں آن کر دیتا ہے اور جہاں بھی موجود ہو زیادہ حقیقت پسندانہ آپشن لاگو کرتا ہے۔ کسی کا بھی انتخاب نیچے دی گئی انفرادی سیٹنگز کو اوور رائٹ کر دیتا ہے - اس ڈراپ ڈاؤن کو کچھ بھی تبدیل کیے بغیر خود انتظام کرنے کے لیے حسب ضرورت منتخب کریں۔
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM حسب ضرورت
+SETTINGS_GAMEPLAY_PROFILE_VANILLA ونیلا
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC حقیقت پسندانہ
 SETTINGS_SPEED_KPH کلومیٹر فی گھنٹہ
 SETTINGS_SPEED_MPH میل فی گھنٹہ
 SETTINGS_WALKING_SPEED پیدل چلنے/سائیکل چلانے کی رفتار:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE گاڑی ایڈیٹر چھپائیں
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP گاڑی ایڈیٹر کو گاڑی کے پینلز سے چھپائیں۔
 
 SETTINGS_STOPS عوامی نقل و حمل کے اسٹاپس
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION ہر نقل و حمل کی قسم کے کتنے مسافر ایک اسٹاپ کو بھرا ہوا سمجھے جانے سے پہلے وہاں انتظار کر سکتے ہیں۔ زیادہ اقدار مصروف اسٹاپس پر بھیڑ کی شکایات کو کم کرتی ہیں، کم حقیقت پسندانہ قطار کے سائز کی قیمت پر۔
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP اوپر دی گئی تمام اسٹاپ مسافر حدود کو ان کی ڈیفالٹ اقدار پر ری سیٹ کریں۔
 SETTINGS_ENABLE_STOPS_AND_STATIONS اسٹاپس اور اسٹیشنز فعال کریں
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP مختلف اسٹاپس اور اسٹیشنز پر عوامی نقل و حمل کا انتظار کرنے والے زیادہ سے زیادہ شہریوں کی تعداد ایڈجسٹ کریں۔ اسٹاپس ٹیب میں ترتیب دیں۔
 SETTINGS_STOPSANDSTATIONS_ENABLE اسٹاپس اور اسٹیشنز فعال کریں
@@ -345,6 +355,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control فعال کریں
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP مربوط Intercity Bus Control مطابقت پرت اور اسٹیشن پیچنگ فعال کرتا ہے۔
 SETTINGS_INTERCITY_BUS_CAPACITY بین شہری ٹرمینل گنجائش
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP ایک بین شہری بس ٹرمینل ایک ہی وقت میں کتنی گاڑیاں رکھ سکتا ہے۔
+SETTINGS_TRAM_DEPOT_CAPACITY ٹرام ڈپو کی گنجائش
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP ونیلا ہر ٹرام ڈپو کو مؤثر طور پر لامحدود 100,000 گاڑیوں پر ڈیفالٹ کرتا ہے۔ حقیقت پسندانہ اور درمیانی اس کے بجائے ایک اعتدال پسند مقررہ حد لاگو کرتے ہیں؛ غیر فعال موجودہ رویے کو برقرار رکھتا ہے۔
+SETTINGS_TAXI_DEPOT_CAPACITY ٹیکسی گیراج کی گنجائش
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP ونیلا ہر ٹیکسی ڈپو کو مؤثر طور پر لامحدود 100,000 گاڑیوں پر ڈیفالٹ کرتا ہے۔ حقیقت پسندانہ اور درمیانی اس کے بجائے ایک اعتدال پسند مقررہ حد لاگو کرتے ہیں؛ غیر فعال موجودہ رویے کو برقرار رکھتا ہے۔
+SETTINGS_BUS_DEPOT_CAPACITY بس ڈپو گنجائش
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP ونیلا ہر بس ڈپو (عام، بایو فیول اور ٹور بس گیراج) کو عملی طور پر لامحدود 100,000 گاڑیوں پر ڈیفالٹ کرتا ہے۔ حقیقت پسندانہ اور درمیانی اس کے بجائے ایک اعتدال پسند مقررہ حد لاگو کرتے ہیں؛ غیر فعال موجودہ رویے کو برقرار رکھتا ہے۔
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY ٹرالی بس ڈپو گنجائش
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP ونیلا ہر ٹرالی بس ڈپو کو عملی طور پر لامحدود 100,000 گاڑیوں پر ڈیفالٹ کرتا ہے۔ حقیقت پسندانہ اور درمیانی اس کے بجائے ایک اعتدال پسند مقررہ حد لاگو کرتے ہیں؛ غیر فعال موجودہ رویے کو برقرار رکھتا ہے۔
+SETTINGS_FERRY_DEPOT_CAPACITY فیری ڈپو گنجائش
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP ونیلا ہر فیری ڈپو کو عملی طور پر لامحدود 100,000 گاڑیوں پر ڈیفالٹ کرتا ہے۔ حقیقت پسندانہ اور درمیانی اس کے بجائے ایک اعتدال پسند مقررہ حد لاگو کرتے ہیں؛ غیر فعال موجودہ رویے کو برقرار رکھتا ہے۔
 SETTINGS_DEPOT_CAPACITY_DISABLED غیر فعال (لامحدود)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE درمیانہ
 SETTINGS_DEPOT_CAPACITY_REALISTIC حقیقت پسندانہ
@@ -358,6 +378,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE مشترکہ اسٹاپ فعال کریں
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP ایک سے زیادہ ٹرانسپورٹ اقسام (بس، ٹرام، ٹرالی بس) کو ایک ہی سڑک کے حصے پر رکنے کی اجازت دیتا ہے۔ پہلے سے غیر فعال - یہ مختصر ورژن کیا چھوڑتا ہے یہ جاننے کے لیے ماڈ کا GitHub دیکھیں۔
 SETTINGS_COMMUTERDESTINATION_ENABLE مسافر منزل فعال کریں
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP دکھاتا ہے کہ اسٹاپ پر انتظار کرنے والے مسافر کہاں جا رہے ہیں - ایک چھوٹا پینل اور نقشے پر اوورلے۔ صرف پڑھنے کے لیے، Harmony کے علاوہ کوئی انحصار نہیں۔
+SETTINGS_OOC_ENABLE بہتر بیرونی رابطے
+SETTINGS_OOC_ENABLE_TOOLTIP کارگو ٹرینیں، ہوائی جہاز اور بحری جہاز بیرونی رابطوں پر روانہ ہونے سے پہلے زیادہ بھرے ہوئے لوڈ کے لیے زیادہ دیر انتظار کرتے ہیں۔
+SETTINGS_OOC_WAIT_MULTIPLIER انتظار ضارب
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP ونیلا سے کتنا زیادہ دیر زیادہ بھرے ہوئے لوڈ کا انتظار کرنا ہے۔ زیادہ قدریں کم لیکن زیادہ بھری ہوئی سفروں کا مطلب ہیں۔
+SETTINGS_OOC_PASSENGER_SCOPE مسافر انتظار کا دائرہ
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP اوپر دیا گیا انتظار ضارب عوامی نقل و حمل کا انتظار کرنے والے شہریوں پر کہاں لاگو ہوتا ہے۔ صرف بیرونی رابطے صرف بیرونی رابطے پر انتظار کرنے والے شہریوں کو متاثر کرتا ہے؛ پورا شہر ہر شہری کے عام گھریلو انتظار کو بھی سست کر دیتا ہے (اصل موڈ کے حقیقی رویے سے مماثل ہے)۔
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE صرف بیرونی رابطے
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE پورا شہر
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED غیر فعال (ونیلا)
+SETTINGS_OOC_DISABLE_DUMMY آرائشی گزرگاہ ٹریفک کو غیر فعال کریں
+SETTINGS_OOC_DISABLE_DUMMY_ROAD آرائشی سڑک ٹریفک کو غیر فعال کریں
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN آرائشی ٹرین ٹریفک کو غیر فعال کریں
+SETTINGS_OOC_DISABLE_DUMMY_PLANE آرائشی ہوائی جہاز ٹریفک کو غیر فعال کریں
+SETTINGS_OOC_DISABLE_DUMMY_SHIP آرائشی بحری جہاز ٹریفک کو غیر فعال کریں
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP بیرونی رابطے عام طور پر اضافی آرائشی ٹریفک پیدا کرتے ہیں جو دراصل کبھی شہر میں داخل یا خارج نہیں ہوتی، صرف بصری ماحول کے لیے۔ اسے غیر فعال کرنے سے حقیقی درآمد/برآمد/مسافر بہاؤ متاثر ہوئے بغیر وہ ٹریفک ہٹ جاتی ہے۔
+SETTINGS_UOC_ENABLE لامحدود بیرونی رابطے
+SETTINGS_UOC_ENABLE_TOOLTIP سڑکوں، ریل کی پٹریوں، بحری راستوں اور پرواز کے راستوں کے لیے معیاری 4-رابطہ کی حد کو ہٹاتا ہے، اور جب موجودہ اسٹیشن کے قریب نیا رابطہ بنایا جاتا ہے تو ٹرانسپورٹ لائنوں کو ماضی سے جوڑتا ہے۔ اگلے لیول لوڈ پر نافذ ہوتا ہے۔
+SETTINGS_STTAI_ENABLE سنگل ٹریک ٹرین تصادم سے بچاؤ
+SETTINGS_STTAI_ENABLE_TOOLTIP ایک وقت میں ایک ٹرین کے لیے سنگل ٹریک حصہ محفوظ کرتا ہے، جب تک حصہ صاف نہ ہو مخالف سمت کی ٹرین کو داخلی دروازے پر روکتا ہے۔ اصل IPT4 خصوصیت، ونیلا یا کسی جذب شدہ موڈ میں موجود نہیں۔
+SETTINGS_STOPSTACKER_ENABLE بس اسٹاپ برتھ اسٹیکنگ
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP ایک ہی اسٹاپ کی طرف آنے والی دوسری/تیسری بس کو سب سے آگے والی بس کے پیچھے قطار میں لگنے کے بجائے اسٹاپ لین میں مزید پیچھے اپنی برتھ استعمال کرنے دیتا ہے، تاکہ ایک سے زیادہ بسیں بیک وقت سواریاں چڑھا/اتار سکیں۔ اصل IPT4 خصوصیت (سادہ نئی تشکیل)، ونیلا یا کسی جذب شدہ موڈ میں موجود نہیں۔
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -407,6 +448,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP موجودہ کرایہ: {0}\nاصل کرایہ: {1}\nابھی سوار مسافر: {2}
 
+CHANGELOG_4_8_0_1 SingleTrainTrackAI شامل کیا گیا: سنگل ٹریک ریل حصے اب ایک وقت میں صرف ایک سمت کے لیے محفوظ ہوتے ہیں، اس لیے دو طرفہ ٹریک شیئر کرنے والی دو ٹرینوں کے ٹکرانے کا خطرہ اب باقی نہیں رہا۔ کلین روم دوبارہ نفاذ - سورس موڈ (Workshop 949504539) کا کوئی اعلان شدہ لائسنس نہیں ہے، اس لیے صرف اس کے عوامی طور پر دستاویزی تصور کو دوبارہ نافذ کیا گیا، خام میموری ڈیٹور کے بجائے اس پروجیکٹ کے اپنے Harmony پر مبنی پیچنگ نظام پر۔
+CHANGELOG_4_8_0_2 Stop Stacker شامل کیا گیا: جب ایک ہی لائن کی ایک سے زیادہ گاڑیاں کسی اسٹاپ پر جمع ہوتی ہیں، تو صرف آگے والی گاڑی معمول کی اسٹاپ پوزیشن استعمال کرتی ہے - پیچھے آنے والی گاڑیاں اس کے پیچھے ایک قطار میں لگنے کے بجائے لین میں مزید پیچھے اپنی الگ جگہ حاصل کرتی ہیں۔ صرف سورس موڈ کی عوامی تفصیل پر مبنی کلین روم دوبارہ نفاذ (کوئی سورس کوڈ دستیاب نہیں تھا)؛ صرف بس اور ٹرالی بس کے لیے، اس پروجیکٹ کے موجودہ BetterBusStopPosition ہک پوائنٹ سے مطابقت رکھتے ہوئے۔
+CHANGELOG_4_8_0_3 درست کیا گیا: Sunset Harbor DLC رکھنے والے کھلاڑیوں کے لیے انٹرسٹی بس ٹرمینل انضمام خاموشی سے کبھی فعال نہیں ہوتا تھا: یہ اس پروجیکٹ میں دیگر جگہوں پر پہلے سے استعمال ہونے والے Steam DLC چیک کے بجائے گیم کے ایک نجی فیلڈ میں ریفلیکشن کے ذریعے DLC کا پتہ لگاتا تھا، اور یہ ریفلیکشن پر مبنی چیک DLC حقیقتاً انسٹال ہونے کے باوجود false واپس کر سکتا تھا۔
+CHANGELOG_4_8_0_4 درست کیا گیا: کچھ ٹرمینلز پر "انٹرسٹی بسیں قبول کریں" چیک باکس بغیر ردعمل کے پھنس جاتا تھا: ونیلا گیم چیک باکس کو ایسے حالات میں غیر تعاملی چھوڑ سکتا ہے جن پر اس موڈ کے دوبارہ لیبل شدہ استعمال نے کبھی غور نہیں کیا تھا۔ اب جب بھی یہ موڈ اسے کنٹرول کرتا ہے تو اسے ہمیشہ تعاملی بنایا جاتا ہے۔ اس کے ساتھ ایک متعلقہ خرابی بھی درست کی گئی جس میں پہلے سے درست طور پر ترتیب دیا گیا ٹرمینل بعد کی جانچ میں خاموشی سے اپنا ٹوگل کھو سکتا تھا۔
+CHANGELOG_4_8_0_5 درست کیا گیا: ذیلی عمارتوں کے ٹیبز کبھی کبھار غیر متعلقہ عمارت پر پرانی ٹیب پٹی دکھاتے تھے: گیم انہدام کے بعد عمارت کی آئی ڈیز کو دوبارہ استعمال کرتا ہے، اور کیش پہلے یہ سمجھتا تھا کہ دوبارہ استعمال ہونے والی آئی ڈی اب بھی پچھلے عمارتی کلسٹر سے تعلق رکھتی ہے۔ اب یہ کیش سے کچھ بھی دوبارہ استعمال کرنے سے پہلے عمارت کی اصل والدین چین کی دوبارہ تصدیق کرتا ہے۔
+CHANGELOG_4_8_0_6 متعدد انضمامات میں عمومی بگ صفائی: ایک الٹی کیش میعاد ختم ہونے کی جانچ جو تازہ ڈیٹا کو رد کر کے اس کے بجائے پرانا ڈیٹا فراہم کرتی تھی، ایک آف بائی ون لوپ حد جو خودکار رنگ کاری اور ڈپلیکیٹ نام کی جانچ کے لیے آخری ٹرانسپورٹ لائن کو چھوڑ دیتی تھی، ایک غلط آئی ڈی موازنہ جو "اس لائن پر صرف ایک گاڑی" کے ہجوم مخالف بائی پاس کو خراب کرتا تھا، ایک قیمت کی تلاش جو بعد میں دوبارہ کوشش کرنے کے بجائے ناکامی کو مستقل طور پر کیش کر لیتی تھی، اور کئی Harmony پیچز جو null UI/prefab حوالے پر استثنا پھینک سکتے تھے۔
+CHANGELOG_4_8_0_7 متعدد انضمامات میں بار بار ہونے والی ریفلیکشن اور فی فریم تلاش کو کم کیا گیا: گاڑی کے ٹول ٹپ کی تفصیلات، سنگل ٹریک حصے کی درجہ بندی، اور انٹرسٹی بس آئٹم کلاس تلاش اب ہر کال پر دوبارہ شمار کرنے کے بجائے کیش کی جاتی ہیں، اور ایک UI ریفریش بٹن اب ہر فریم میں اپنا متن دوبارہ تفویض نہیں کرتا چاہے کچھ بدلا ہو یا نہیں۔
+CHANGELOG_4_8_0_8 مندرجہ بالا اصلاحات کے بعد Intercity Bus Control اور ذیلی عمارتوں کے ٹیبز دوبارہ ڈیفالٹ کے طور پر فعال ہیں - دونوں کی کارکردگی کی تصدیق ہو چکی ہے، صرف چند معمولی معلوم مسائل (ٹیب پوزیشن کی باریک ایڈجسٹمنٹ، اسٹاپ کے نام کی نمائش میں ایک نایاب خامی) مستقبل کے ورژن میں گہرے تجزیے کے لیے باقی ہیں۔
 CHANGELOG_4_7_0_1 چار نئے انضمامات: ذیلی عمارتوں کے ٹیبز (کسی بھی کثیر عمارتی مرکز کے لیے ٹیب بار، نہ صرف ہوائی اڈوں کے لیے)، مشترکہ اسٹاپ فعال کار (ایک سے زیادہ اسٹاپ اقسام کو ایک ہی سڑک کے حصے میں شریک ہونے دیتا ہے، ڈیفالٹ طور پر غیر فعال)، مسافر منزل (دکھاتا ہے کہ اسٹاپ پر انتظار کرنے والے شہری اصل میں کہاں جا رہے ہیں) اور ٹیکسی اسٹینڈ فکس (خالی ٹیکسیاں بھٹکنے کے بجائے قریب ترین اسٹینڈ کی طرف جاتی ہیں)۔ ہر ٹوگل کے لیے اختیارات > انضمامات دیکھیں۔
 CHANGELOG_4_7_0_2 بین شہری بس ٹرمینلز کے لیے ایک گاڑی گنجائش موڈ شامل کیا گیا (اختیارات > انضمامات > بین شہری بس ٹرمینل گنجائش): غیر فعال اس مانع کے موجودہ، عملی طور پر لامحدود ٹرمینل کو برقرار رکھتا ہے، درمیانہ ایک معتدل مقررہ حد لاگو کرتا ہے، حقیقت پسندانہ ٹرمینل کی اپنی اصل گیم پریفیب گنجائش بحال کرتا ہے۔ موجودہ سیوز ڈیفالٹ طور پر غیر فعال استعمال کرتے ہیں، تاکہ اپ ڈیٹ کبھی بھی خاموشی سے کسی ٹرمینل کی گنجائش کم نہ کرے۔
 CHANGELOG_4_7_0_3 بین شہری بس ٹرمینل کے "بین شہری بسیں قبول کریں" چیک باکس کو ٹھیک کیا گیا: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged، acceptsInterCityTrains سیٹ کرتا ہے، جو محض isEmptying کا ایک عرفی نام (alias) ہے، اس لیے دوبارہ لیبل کیا گیا یہ چیک باکس اصل میں بس کی قبولیت تبدیل کرنے کے بجائے خاموشی سے کسی بس ٹرمینل کو گیم کی عمارت بند کرنے کی حالت میں ڈال سکتا تھا۔ اب ایک Harmony prefix اسے روک کر بس کے لیے پیچ شدہ ٹرمینلز کے لیے فی عمارت حالت کی طرف موڑ دیتا ہے، جبکہ اصل ٹرین اسٹیشنز کو چھوڑ دیتا ہے۔

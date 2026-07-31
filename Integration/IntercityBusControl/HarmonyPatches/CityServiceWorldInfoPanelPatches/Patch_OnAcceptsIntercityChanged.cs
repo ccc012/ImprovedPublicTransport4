@@ -35,6 +35,12 @@ namespace IntercityBusControl.HarmonyPatches.CityServiceWorldInfoPanelPatches
                     return true;
                 }
 
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    var origin = UpdateBindingsPatch.IsSyncingDisplay ? "display refresh" : "player click";
+                    Utils.Log($"IntercityBusControl: building {buildingId} ({info.name}) accept-intercity-buses -> {value} (source: {origin}).");
+                }
+
                 IntercityAcceptanceState.SetAccepts(buildingId, value);
                 return false; // skip the original - never touch isEmptying for a bus terminal.
             }

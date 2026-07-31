@@ -122,7 +122,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             var vehicleData = VehicleManager.instance.m_vehicles.m_buffer[currentVehicleID];
             if (vehicleData.Info?.m_class?.m_service == ItemClass.Service.Disaster ||
                 vehicleData.m_nextLineVehicle == 0 && Singleton<TransportManager>.instance.m_lines
-                    .m_buffer[vehicleData.m_transportLine].m_vehicles == currentStop)
+                    .m_buffer[vehicleData.m_transportLine].m_vehicles == currentVehicleID)
             {
                 return true;
             }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ColossalFramework;
 using ColossalFramework.UI;
 using ImprovedPublicTransport.Data;
@@ -8,7 +9,12 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
 {
     public static class RefreshVehicleButtonsPatch
     {
-        
+        // GetDescription() only depends on the vehicle's prefab, never the individual vehicle - cache
+        // it per-prefab instead of re-resolving VehiclePrefabs.instance.FindByName(...) for every
+        // vehicle button on every single frame this panel stays open.
+        private static readonly Dictionary<VehicleInfo, string> DescriptionCache = new Dictionary<VehicleInfo, string>();
+
+
         public static void Apply()
         {
             PatchUtil.Patch(
@@ -44,11 +50,12 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
                 {
                     description = Singleton<VehicleManager>.instance.GetVehicleName(num);
                 }
-                else
+                else if (!DescriptionCache.TryGetValue(prefab, out description))
                 {
                     description = VehiclePrefabs.instance.FindByName(prefab.name)?.GetDescription();
+                    DescriptionCache[prefab] = description;
                 }
-                ___m_vehicleButtons.items[index].tooltip = string.Format(Localization.Get("VEHICLE_BUTTON_TOOLTIP"), description); 
+                ___m_vehicleButtons.items[index].tooltip = string.Format(Localization.Get("VEHICLE_BUTTON_TOOLTIP"), description);
                 //end mod
                 num = instance.m_vehicles.m_buffer[(int)num].m_nextLineVehicle;
                 if (++index >= CachedVehicleData.MaxVehicleCount)

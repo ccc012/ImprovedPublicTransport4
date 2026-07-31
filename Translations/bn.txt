@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP প্রস্তাবিত স্টপ �
 STOP_PANEL_REUSE_NAME_TOOLTIP এই স্টেশন/অবস্থানের অন্য সব স্টপে এই নামটি সেট করুন।
 STOP_PANEL_WAITING_PEOPLE অপেক্ষারত যাত্রী: {0}
 COMMUTER_DESTINATION_PANEL_TITLE যাত্রী গন্তব্য
+COMMUTER_DESTINATION_HEADER শীর্ষ গন্তব্যস্থল:
+COMMUTER_DESTINATION_NONE এখানে এখন কোনো যাত্রী অপেক্ষা করছেন না।
+COMMUTER_DESTINATION_LOADING গণনা করা হচ্ছে...
 COMMUTER_DESTINATION_BUTTON গন্তব্যসমূহ
 COMMUTER_DESTINATION_BUTTON_TOOLTIP এই স্টপে অপেক্ষমাণ যাত্রীরা কোথায় যাচ্ছে তা দেখায়।
 STOP_PANEL_BORED_TIMER বিরক্ত হওয়ার সময়: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS লাইনের রং
 SETTINGS সেটিংস
 SETTINGS_SPEED গতি প্রদর্শন করুন:
 SETTINGS_SPEED_TOOLTIP UI-তে গতি প্রদর্শনের জন্য ব্যবহৃত একক নির্বাচন করুন।
+SETTINGS_GAMEPLAY_PROFILE গেমপ্লে প্রোফাইল
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP প্রতিটি সেটিং হাতে সামঞ্জস্য করার পরিবর্তে একবারে একগুচ্ছ সেটিং প্রয়োগ করে। ভ্যানিলা প্রতিটি শোষিত ইন্টিগ্রেশন বন্ধ করে এবং যতটা সম্ভব মূল গেমের সাথে মেলে; বাস্তবসম্মত সেগুলি চালু করে এবং যেখানে বিদ্যমান সেখানে আরও বাস্তবসম্মত বিকল্প প্রয়োগ করে। যেকোনোটি বেছে নিলে নিচের পৃথক সেটিংস ওভাররাইট হয় - এই ড্রপডাউন কিছু পরিবর্তন না করে নিজে পরিচালনা করতে কাস্টম বেছে নিন।
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM কাস্টম
+SETTINGS_GAMEPLAY_PROFILE_VANILLA ভ্যানিলা
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC বাস্তবসম্মত
 SETTINGS_SPEED_KPH কিমি/ঘণ্টা
 SETTINGS_SPEED_MPH মাইল/ঘণ্টা
 SETTINGS_WALKING_SPEED হাঁটা/সাইকেল চালানোর গতি:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE যানবাহন সম্পাদক লু�
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP যানবাহন প্যানেল থেকে যানবাহন সম্পাদক লুকান।
 
 SETTINGS_STOPS গণপরিবহন স্টপ
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION প্রতিটি পরিবহন প্রকারের কতজন যাত্রী একটি একক স্টপে অপেক্ষা করতে পারে তার আগে এটি পূর্ণ বিবেচিত হয়। উচ্চ মান ব্যস্ত স্টপে ভিড়ের অভিযোগ কমায়, কম বাস্তবসম্মত সারির আকারের বিনিময়ে।
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP উপরের সমস্ত স্টপ যাত্রী সীমা তাদের ডিফল্ট মানগুলিতে পুনরায় সেট করুন।
 SETTINGS_ENABLE_STOPS_AND_STATIONS স্টপ ও স্টেশন সক্ষম করুন
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP বিভিন্ন স্টপ ও স্টেশনে গণপরিবহনের জন্য অপেক্ষারত সর্বোচ্চ নাগরিক সংখ্যা সমন্বয় করুন। স্টপ ট্যাবে কনফিগার করুন।
 SETTINGS_STOPSANDSTATIONS_ENABLE স্টপ ও স্টেশন সক্ষম করুন
@@ -345,6 +355,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control সক্রিয় কর
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP সমন্বিত Intercity Bus Control সামঞ্জস্য স্তর ও স্টেশন প্যাচিং সক্রিয় করে।
 SETTINGS_INTERCITY_BUS_CAPACITY আন্তঃনগর টার্মিনাল ক্ষমতা
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP একটি আন্তঃনগর বাস টার্মিনাল একসাথে কতগুলো যানবাহন ধারণ করতে পারবে।
+SETTINGS_TRAM_DEPOT_CAPACITY ট্রাম ডিপো ক্ষমতা
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP ভ্যানিলা প্রতিটি ট্রাম ডিপোকে কার্যত সীমাহীন ১,০০,০০০ যানবাহনে ডিফল্ট করে। বাস্তবসম্মত এবং মধ্যবর্তী একটি মাঝারি নির্দিষ্ট সীমা প্রয়োগ করে; নিষ্ক্রিয় বিদ্যমান আচরণ বজায় রাখে।
+SETTINGS_TAXI_DEPOT_CAPACITY ট্যাক্সি ডিপো ক্ষমতা
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP ভ্যানিলা প্রতিটি ট্যাক্সি ডিপোকে কার্যত সীমাহীন ১,০০,০০০ যানবাহনে ডিফল্ট করে। বাস্তবসম্মত এবং মধ্যবর্তী একটি মাঝারি নির্দিষ্ট সীমা প্রয়োগ করে; নিষ্ক্রিয় বিদ্যমান আচরণ বজায় রাখে।
+SETTINGS_BUS_DEPOT_CAPACITY বাস ডিপো ধারণক্ষমতা
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP ভ্যানিলা প্রতিটি বাস ডিপোকে (নিয়মিত, জৈব জ্বালানি এবং পর্যটক বাস গ্যারেজ) কার্যত সীমাহীন ১,০০,০০০ যানবাহনে ডিফল্ট করে। বাস্তবসম্মত এবং মধ্যবর্তী পরিবর্তে একটি মাঝারি নির্দিষ্ট সীমা প্রয়োগ করে; নিষ্ক্রিয় বিদ্যমান আচরণ বজায় রাখে।
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY ট্রলিবাস ডিপো ধারণক্ষমতা
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP ভ্যানিলা প্রতিটি ট্রলিবাস ডিপোকে কার্যত সীমাহীন ১,০০,০০০ যানবাহনে ডিফল্ট করে। বাস্তবসম্মত এবং মধ্যবর্তী পরিবর্তে একটি মাঝারি নির্দিষ্ট সীমা প্রয়োগ করে; নিষ্ক্রিয় বিদ্যমান আচরণ বজায় রাখে।
+SETTINGS_FERRY_DEPOT_CAPACITY ফেরি ডিপো ধারণক্ষমতা
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP ভ্যানিলা প্রতিটি ফেরি ডিপোকে কার্যত সীমাহীন ১,০০,০০০ যানবাহনে ডিফল্ট করে। বাস্তবসম্মত এবং মধ্যবর্তী পরিবর্তে একটি মাঝারি নির্দিষ্ট সীমা প্রয়োগ করে; নিষ্ক্রিয় বিদ্যমান আচরণ বজায় রাখে।
 SETTINGS_DEPOT_CAPACITY_DISABLED নিষ্ক্রিয় (সীমাহীন)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE মধ্যবর্তী
 SETTINGS_DEPOT_CAPACITY_REALISTIC বাস্তবসম্মত
@@ -358,6 +378,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE শেয়ারড স্টপ এনে�
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP একাধিক পরিবহন ধরন (বাস, ট্রাম, ট্রলিবাস) একই রাস্তার অংশে থামতে দেয়। ডিফল্টরূপে বন্ধ - এই সংক্ষিপ্ত সংস্করণে কী বাদ দেওয়া হয়েছে তা জানতে মডের GitHub দেখুন।
 SETTINGS_COMMUTERDESTINATION_ENABLE যাত্রী গন্তব্য সক্রিয় করুন
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP একটি স্টপে অপেক্ষমাণ যাত্রীরা কোথায় যাচ্ছে তা দেখায় - একটি ছোট প্যানেল ও মানচিত্র ওভারলে। শুধু পড়ার জন্য, Harmony ছাড়া অন্য কোনো নির্ভরতা নেই।
+SETTINGS_OOC_ENABLE অপ্টিমাইজড আউটসাইড কানেকশন
+SETTINGS_OOC_ENABLE_TOOLTIP কার্গো ট্রেন, প্লেন এবং জাহাজ বাইরের সংযোগে রওনা হওয়ার আগে আরও পূর্ণ লোডের জন্য বেশি সময় অপেক্ষা করে।
+SETTINGS_OOC_WAIT_MULTIPLIER অপেক্ষা গুণক
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP সাধারণ অবস্থার চেয়ে কতটা বেশি সময় পূর্ণ লোডের জন্য অপেক্ষা করতে হবে। বেশি মান মানে কম কিন্তু পূর্ণ ট্রিপ।
+SETTINGS_OOC_PASSENGER_SCOPE যাত্রী অপেক্ষার সুযোগ
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP উপরের অপেক্ষা গুণক নাগরিকদের সর্বজনীন পরিবহনের জন্য অপেক্ষার ক্ষেত্রে কোথায় প্রযোজ্য। শুধুমাত্র বাইরের সংযোগ শুধুমাত্র বাইরের সংযোগে অপেক্ষারত নাগরিকদের প্রভাবিত করে; শহরব্যাপী প্রতিটি নাগরিকের সাধারণ অভ্যন্তরীণ অপেক্ষাও ধীর করে দেয় (মূল মডের প্রকৃত আচরণের সাথে মেলে)।
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE শুধুমাত্র বাইরের সংযোগ
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE শহরব্যাপী
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED নিষ্ক্রিয় (ভ্যানিলা)
+SETTINGS_OOC_DISABLE_DUMMY সজ্জামূলক পাস-থ্রু ট্র্যাফিক নিষ্ক্রিয় করুন
+SETTINGS_OOC_DISABLE_DUMMY_ROAD সজ্জামূলক সড়ক ট্র্যাফিক নিষ্ক্রিয় করুন
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN সজ্জামূলক ট্রেন ট্র্যাফিক নিষ্ক্রিয় করুন
+SETTINGS_OOC_DISABLE_DUMMY_PLANE সজ্জামূলক বিমান ট্র্যাফিক নিষ্ক্রিয় করুন
+SETTINGS_OOC_DISABLE_DUMMY_SHIP সজ্জামূলক জাহাজ ট্র্যাফিক নিষ্ক্রিয় করুন
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP বাইরের সংযোগগুলি সাধারণত অতিরিক্ত সাজসজ্জামূলক ট্র্যাফিক তৈরি করে যা প্রকৃতপক্ষে শহরে প্রবেশ বা প্রস্থান করে না, শুধুমাত্র চাক্ষুষ পরিবেশের জন্য। এটি নিষ্ক্রিয় করলে প্রকৃত আমদানি/রপ্তানি/যাত্রী প্রবাহ অক্ষত রেখে সেই ট্র্যাফিক সরিয়ে দেয়।
+SETTINGS_UOC_ENABLE সীমাহীন আউটসাইড কানেকশন
+SETTINGS_UOC_ENABLE_TOOLTIP রাস্তা, রেললাইন, জাহাজের পথ এবং ফ্লাইট পথের জন্য স্বাভাবিক ৪-সংযোগ সীমা সরিয়ে দেয়, এবং বিদ্যমান স্টেশনের কাছে নতুন সংযোগ তৈরি হলে পরিবহন লাইন পূর্ববর্তীভাবে সংযুক্ত করে। পরের লেভেল লোডে কার্যকর হয়।
+SETTINGS_STTAI_ENABLE একক ট্র্যাক ট্রেন সংঘর্ষ এড়ানো
+SETTINGS_STTAI_ENABLE_TOOLTIP একটি একক ট্র্যাক অংশ একবারে একটি ট্রেনের জন্য সংরক্ষণ করে, বিপরীত ট্রেনকে প্রবেশপথে ধরে রাখে যতক্ষণ না অংশটি পরিষ্কার হয়। মূল IPT4 বৈশিষ্ট্য, ভ্যানিলা বা কোনো শোষিত মডে উপস্থিত নেই।
+SETTINGS_STOPSTACKER_ENABLE বাস স্টপ বার্থ স্ট্যাকিং
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP একই স্টপে আসা দ্বিতীয়/তৃতীয় বাসকে সামনের বাসের পিছনে সারিবদ্ধ হওয়ার পরিবর্তে স্টপ লেনে আরও পিছনে নিজস্ব বার্থ ব্যবহার করতে দেয়, যাতে একাধিক বাস একসাথে যাত্রী তুলতে/নামাতে পারে। মূল IPT4 বৈশিষ্ট্য (সরলীকৃত পুনর্বাস্তবায়ন), ভ্যানিলা বা কোনো শোষিত মডে উপস্থিত নেই।
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -407,6 +448,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP বর্তমান ভাড়া: {0}\nমূল ভাড়া: {1}\nএখন ভ্রমণরত যাত্রী: {2}
 
+CHANGELOG_4_8_0_1 SingleTrainTrackAI যোগ করা হয়েছে: একক-লাইন রেল সেগমেন্টগুলো এখন একবারে শুধু একটি দিকের জন্য সংরক্ষিত থাকে, ফলে একটি দ্বিমুখী ট্র্যাক ভাগ করে নেওয়া দুটি ট্রেনের সংঘর্ষের ঝুঁকি আর থাকে না। ক্লিন-রুম পুনর্বাস্তবায়ন - উৎস মডটির (Workshop 949504539) কোনো ঘোষিত লাইসেন্স নেই, তাই শুধুমাত্র এর প্রকাশ্যে নথিভুক্ত ধারণাটিই পুনর্বাস্তবায়ন করা হয়েছে, কাঁচা মেমরি ডিটুরের পরিবর্তে এই প্রকল্পের নিজস্ব Harmony-ভিত্তিক প্যাচিং ব্যবস্থায়।
+CHANGELOG_4_8_0_2 Stop Stacker যোগ করা হয়েছে: একই লাইনের একাধিক যানবাহন একটি স্টপে একত্র হলে, শুধুমাত্র সামনের যানবাহনটি স্বাভাবিক স্টপ অবস্থান ব্যবহার করে - পেছনের যানবাহনগুলো তার পেছনে এক সারিতে অপেক্ষা করার পরিবর্তে লেন ধরে আরও পেছনে নিজস্ব জায়গা পায়। উৎস মডের প্রকাশ্য বিবরণের উপর ভিত্তি করে একমাত্র ক্লিন-রুম পুনর্বাস্তবায়ন (কোনো সোর্স কোড পাওয়া যায়নি); শুধুমাত্র বাস ও ট্রলিবাসের জন্য, এই প্রকল্পের বিদ্যমান BetterBusStopPosition হুক পয়েন্টের সাথে মিল রেখে।
+CHANGELOG_4_8_0_3 ঠিক করা হয়েছে: Sunset Harbor DLC-এর মালিক খেলোয়াড়দের জন্য আন্তঃনগর বাস টার্মিনাল ইন্টিগ্রেশন নীরবে কখনো সক্রিয় হতো না: এটি এই প্রকল্পের অন্যত্র ইতিমধ্যে ব্যবহৃত Steam DLC পরীক্ষার পরিবর্তে গেমের একটি প্রাইভেট ফিল্ডে রিফ্লেকশনের মাধ্যমে DLC শনাক্ত করত, এবং রিফ্লেকশন-ভিত্তিক এই পরীক্ষা DLC প্রকৃতপক্ষে ইনস্টল থাকা সত্ত্বেও false ফেরত দিতে পারত।
+CHANGELOG_4_8_0_4 ঠিক করা হয়েছে: কিছু টার্মিনালে "আন্তঃনগর বাস গ্রহণ করুন" চেকবক্সটি সাড়া না দিয়ে আটকে থাকত: ভ্যানিলা গেম এমন পরিস্থিতিতে চেকবক্সটিকে অ-ইন্টারঅ্যাকটিভ রাখতে পারে যা এই মডের পুনর্নামকরণ করা ব্যবহার কখনো বিবেচনা করেনি। এখন এই মড যখনই এটি নিয়ন্ত্রণ করে তখন এটি জোর করে ইন্টারঅ্যাকটিভ করা হয়। এর পাশাপাশি একটি সম্পর্কিত বাগও ঠিক করা হয়েছে, যেখানে ইতিমধ্যে সঠিকভাবে সেট আপ করা একটি টার্মিনাল পরবর্তী পরীক্ষায় নীরবে তার টগল হারাতে পারত।
+CHANGELOG_4_8_0_5 ঠিক করা হয়েছে: সাব-বিল্ডিংস ট্যাবস মাঝে মাঝে অসম্পর্কিত একটি ভবনে পুরনো ট্যাব স্ট্রিপ দেখাত: গেমটি ভাঙার পর ভবনের আইডি পুনর্ব্যবহার করে, এবং ক্যাশ আগে বিশ্বাস করত যে পুনর্ব্যবহৃত আইডি এখনও পূর্ববর্তী ভবন ক্লাস্টারের অন্তর্গত। এখন এটি ক্যাশ থেকে কিছু পুনর্ব্যবহার করার আগে ভবনের প্রকৃত প্যারেন্ট চেইন পুনরায় যাচাই করে।
+CHANGELOG_4_8_0_6 একাধিক ইন্টিগ্রেশন জুড়ে সাধারণ বাগ পরিষ্কার: একটি উল্টানো ক্যাশ-মেয়াদ শেষ পরীক্ষা যা নতুন ডেটা বাতিল করে পরিবর্তে পুরনো ডেটা সরবরাহ করত, একটি অফ-বাই-ওয়ান লুপ সীমা যা স্বয়ংক্রিয় রং করা এবং ডুপ্লিকেট-নাম পরীক্ষায় শেষ পরিবহন লাইনটি বাদ দিত, একটি ভুল আইডি তুলনা যা "এই লাইনে শুধুমাত্র একটি যানবাহন" জমাট-বাঁধা এড়ানোর ব্যবস্থাকে ভেঙে দিত, একটি মূল্য অনুসন্ধান যা পরে পুনরায় চেষ্টা করার পরিবর্তে ব্যর্থতাকে স্থায়ীভাবে ক্যাশ করে রাখত, এবং একাধিক Harmony প্যাচ যা null UI/prefab রেফারেন্সে ব্যতিক্রম ছুঁড়তে পারত।
+CHANGELOG_4_8_0_7 একাধিক ইন্টিগ্রেশন জুড়ে বারবার রিফ্লেকশন এবং প্রতি-ফ্রেম অনুসন্ধান কমানো হয়েছে: যানবাহনের টুলটিপ বিবরণ, একক-লাইন সেগমেন্ট শ্রেণীবিন্যাস, এবং আন্তঃনগর-বাস আইটেম-ক্লাস অনুসন্ধান এখন প্রতিটি কলে পুনরায় গণনা করার পরিবর্তে ক্যাশ করা হয়, এবং একটি UI রিফ্রেশ বাটন এখন আর কিছু পরিবর্তিত হোক বা না হোক প্রতিটি ফ্রেমে তার টেক্সট পুনরায় নির্ধারণ করে না।
+CHANGELOG_4_8_0_8 উপরের সংশোধনগুলোর পর Intercity Bus Control এবং সাব-বিল্ডিংস ট্যাবস আবার ডিফল্টরূপে চালু আছে - উভয়ই কাজ করছে বলে নিশ্চিত করা হয়েছে, শুধুমাত্র সামান্য কিছু পরিচিত সমস্যা (ট্যাবের অবস্থান সূক্ষ্ম-সমন্বয়, একটি বিরল স্টপ-নাম প্রদর্শন সমস্যা) ভবিষ্যতের সংস্করণে আরও গভীর বিশ্লেষণের জন্য অবশিষ্ট রয়েছে।
 CHANGELOG_4_7_0_1 চারটি নতুন ইন্টিগ্রেশন: সাব-বিল্ডিংস ট্যাবস (শুধু বিমানবন্দর নয়, একাধিক ভবনবিশিষ্ট যেকোনো কমপ্লেক্সের জন্য ট্যাব বার), শেয়ারড স্টপ এনেবলার (একাধিক ধরনের স্টপকে একই রাস্তার অংশ শেয়ার করতে দেয়, ডিফল্টভাবে বন্ধ), যাত্রী গন্তব্য (একটি স্টপে অপেক্ষারত নাগরিকরা প্রকৃতপক্ষে কোথায় যাচ্ছেন তা দেখায়), এবং ট্যাক্সি স্ট্যান্ড ফিক্স (খালি ট্যাক্সিগুলো এলোমেলোভাবে ঘোরার বদলে নিকটতম স্ট্যান্ডে যায়)। প্রতিটি টগলের জন্য দেখুন অপশন > ইন্টিগ্রেশন।
 CHANGELOG_4_7_0_2 আন্তঃনগর বাস টার্মিনালের জন্য একটি যানবাহন ধারণক্ষমতা মোড যুক্ত করা হয়েছে (অপশন > ইন্টিগ্রেশন > আন্তঃনগর বাস টার্মিনাল ক্ষমতা): নিষ্ক্রিয় এই মডের বর্তমান কার্যত-সীমাহীন টার্মিনাল বজায় রাখে, মধ্যবর্তী একটি মাঝারি স্থির সীমা প্রয়োগ করে, বাস্তবসম্মত টার্মিনালের নিজস্ব মূল গেমের প্রিফ্যাব ক্ষমতা পুনরুদ্ধার করে। বিদ্যমান সেভগুলো ডিফল্টভাবে নিষ্ক্রিয় ব্যবহার করে, যাতে আপডেট করলে কোনো টার্মিনালের ক্ষমতা অজান্তে কমে না যায়।
 CHANGELOG_4_7_0_3 আন্তঃনগর বাস টার্মিনালের "আন্তঃনগর বাস গ্রহণ করুন" চেকবক্সটি ঠিক করা হয়েছে: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged, acceptsInterCityTrains সেট করে, যা আসলে isEmptying-এর একটি নিছক ওরফে (alias), ফলে নতুন নামকরণ করা এই চেকবক্সটি প্রকৃতপক্ষে বাস গ্রহণ চালু/বন্ধ করার বদলে অজান্তেই একটি বাস টার্মিনালকে গেমের বিল্ডিং-শাটডাউন অবস্থায় ফেলে দিতে পারত। এখন একটি Harmony prefix এটি আটকে বাস-প্যাচ করা টার্মিনালগুলোর জন্য প্রতি-বিল্ডিং অবস্থায় পুনর্নির্দেশ করে, প্রকৃত রেল স্টেশনগুলো অক্ষত রেখে।

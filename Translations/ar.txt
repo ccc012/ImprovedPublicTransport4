@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP قائمة بأسماء المحطات الم
 STOP_PANEL_REUSE_NAME_TOOLTIP تعيين هذا الاسم لجميع المحطات الأخرى في هذه المحطة الرئيسية / الموقع.
 STOP_PANEL_WAITING_PEOPLE الركاب المنتظرون: {0}
 COMMUTER_DESTINATION_PANEL_TITLE وجهة الركاب
+COMMUTER_DESTINATION_HEADER أهم الوجهات:
+COMMUTER_DESTINATION_NONE لا يوجد ركاب ينتظرون هنا الآن.
+COMMUTER_DESTINATION_LOADING جارٍ الحساب...
 COMMUTER_DESTINATION_BUTTON الوجهات
 COMMUTER_DESTINATION_BUTTON_TOOLTIP أظهر إلى أين يتجه الركاب المنتظرون عند هذه المحطة.
 STOP_PANEL_BORED_TIMER الوقت المتبقي حتى الملل: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS ألوان الخطوط
 SETTINGS الإعدادات
 SETTINGS_SPEED إظهار السرعة بوحدة:
 SETTINGS_SPEED_TOOLTIP اختر الوحدة المستخدمة لعرض السرعة في الواجهة.
+SETTINGS_GAMEPLAY_PROFILE ملف تعريف اللعب
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP يطبق مجموعة من الإعدادات دفعة واحدة بدلاً من ضبط كل واحد يدوياً. الوضع الأصلي يعطل كل تكامل مدمج ويطابق اللعبة الأساسية قدر الإمكان؛ الواقعي يفعلها ويطبق الخيار الأكثر واقعية حيثما وجد. اختيار أي منهما يستبدل الإعدادات الفردية أدناه - اختر مخصص لإدارتها بنفسك دون أن يغير هذا القائمة أي شيء.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM مخصص
+SETTINGS_GAMEPLAY_PROFILE_VANILLA أصلي
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC واقعي
 SETTINGS_SPEED_KPH كم/س
 SETTINGS_SPEED_MPH ميل/س
 SETTINGS_WALKING_SPEED سرعة المشي/ركوب الدراجة:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE إخفاء محرر المركبات
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP إخفاء محرر المركبات من لوحات المركبات.
 
 SETTINGS_STOPS محطات النقل العام
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION كم عدد الركاب من كل نوع نقل الذين يمكنهم الانتظار في محطة واحدة قبل اعتبارها ممتلئة. القيم الاعلى تقلل من شكاوى الازدحام في المحطات المزدحمة، على حساب حجم طابور اقل واقعية.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP إعادة تعيين جميع حدود الركاب بالمحطات أعلاه إلى قيمها الافتراضية.
 SETTINGS_ENABLE_STOPS_AND_STATIONS تفعيل المحطات والمحطات الرئيسية
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP اضبط الحد الأقصى لعدد المواطنين الذين يمكنهم انتظار وسائل النقل العام في مختلف المحطات والمحطات الرئيسية. قم بالتهيئة في علامة تبويب المحطات.
 SETTINGS_STOPSANDSTATIONS_ENABLE تفعيل المحطات والمحطات الرئيسية
@@ -345,6 +355,16 @@ SETTINGS_INTERCITY_BUS_ENABLE تفعيل Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP يفعّل طبقة توافق Intercity Bus Control المدمجة وتصحيح المحطات.
 SETTINGS_INTERCITY_BUS_CAPACITY سعة المحطة بين المدن
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP عدد المركبات التي يمكن لمحطة الحافلات بين المدن استيعابها في وقت واحد.
+SETTINGS_TRAM_DEPOT_CAPACITY سعة مستودع الترام
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP يجعل الوضع الافتراضي كل مستودع ترام يحتوي على سعة غير محدودة فعليا تبلغ 100,000 مركبة. يطبق الواقعي والمتوسط حدا ثابتا معتدلا بدلا من ذلك؛ يحافظ المعطل على السلوك الحالي.
+SETTINGS_TAXI_DEPOT_CAPACITY سعة موقف سيارات الاجرة
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP يجعل الوضع الافتراضي كل موقف سيارات اجرة يحتوي على سعة غير محدودة فعليا تبلغ 100,000 مركبة. يطبق الواقعي والمتوسط حدا ثابتا معتدلا بدلا من ذلك؛ يحافظ المعطل على السلوك الحالي.
+SETTINGS_BUS_DEPOT_CAPACITY سعة مرآب الحافلات
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP يترك جوهر اللعبة كل مرآب حافلات (عادي، وقود حيوي، وحافلات سياحية) بسعة غير محدودة فعليا تبلغ 100,000 مركبة. يطبق الواقعي والمتوسط حدا اقصى ثابتا معتدلا بدلا من ذلك؛ المعطل يحافظ على السلوك الحالي.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY سعة مرآب الترولي باص
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP يترك جوهر اللعبة كل مرآب ترولي باص بسعة غير محدودة فعليا تبلغ 100,000 مركبة. يطبق الواقعي والمتوسط حدا اقصى ثابتا معتدلا بدلا من ذلك؛ المعطل يحافظ على السلوك الحالي.
+SETTINGS_FERRY_DEPOT_CAPACITY سعة مرآب العبارات
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP يترك جوهر اللعبة كل مرآب عبارات بسعة غير محدودة فعليا تبلغ 100,000 مركبة. يطبق الواقعي والمتوسط حدا اقصى ثابتا معتدلا بدلا من ذلك؛ المعطل يحافظ على السلوك الحالي.
 SETTINGS_DEPOT_CAPACITY_DISABLED معطّل (بلا حد)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE متوسط
 SETTINGS_DEPOT_CAPACITY_REALISTIC واقعي
@@ -358,6 +378,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE تفعيل تمكين المحطات المش�
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP يسمح بأكثر من نوع نقل واحد (حافلة، ترام، حافلة كهربائية) بالتوقف على نفس مقطع الطريق. معطّل افتراضياً - راجع GitHub الخاص بالمود لمعرفة ما تستبعده هذه النسخة المخفّضة.
 SETTINGS_COMMUTERDESTINATION_ENABLE تفعيل وجهة الركاب
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP يعرض إلى أين يتجه الركاب المنتظرون عند محطة - لوحة صغيرة مع تراكب على الخريطة. للقراءة فقط، لا يعتمد على شيء غير Harmony.
+SETTINGS_OOC_ENABLE تحسين الاتصالات الخارجية
+SETTINGS_OOC_ENABLE_TOOLTIP تنتظر قطارات وطائرات وسفن الشحن وقتًا أطول لتحميل أكبر قبل المغادرة عند الاتصالات الخارجية.
+SETTINGS_OOC_WAIT_MULTIPLIER مضاعف الانتظار
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP كم من الوقت الإضافي مقارنة بالوضع الافتراضي للانتظار من أجل حمولة أكبر. القيم الأعلى تعني رحلات أقل وأكثر امتلاءً.
+SETTINGS_OOC_PASSENGER_SCOPE نطاق انتظار الركاب
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP أين ينطبق مضاعف الانتظار أعلاه على المواطنين الذين ينتظرون وسائل النقل العام. الاتصالات الخارجية فقط تؤثر فقط على المواطنين الذين ينتظرون عند اتصال خارجي؛ على مستوى المدينة يبطئ أيضًا الانتظار المحلي العادي لكل مواطن (يطابق السلوك الفعلي للمود الأصلي).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE الاتصالات الخارجية فقط
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE على مستوى المدينة
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED معطل (الوضع الافتراضي)
+SETTINGS_OOC_DISABLE_DUMMY تعطيل حركة المرور الزخرفية العابرة
+SETTINGS_OOC_DISABLE_DUMMY_ROAD تعطيل حركة الطرق الزخرفية
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN تعطيل حركة القطارات الزخرفية
+SETTINGS_OOC_DISABLE_DUMMY_PLANE تعطيل حركة الطائرات الزخرفية
+SETTINGS_OOC_DISABLE_DUMMY_SHIP تعطيل حركة السفن الزخرفية
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP تولد الاتصالات الخارجية عادة حركة مرور زخرفية إضافية لا تدخل أو تغادر المدينة فعليًا، لغرض المظهر البصري فقط. تعطيلها يزيل تلك الحركة دون التأثير على تدفق الاستيراد/التصدير/الركاب الحقيقي.
+SETTINGS_UOC_ENABLE اتصالات خارجية غير محدودة
+SETTINGS_UOC_ENABLE_TOOLTIP يزيل حد الاتصالات الأربعة الافتراضي للطرق وسكك القطارات ومسارات السفن ومسارات الطيران، ويربط خطوط النقل بأثر رجعي عند بناء اتصال جديد بالقرب من محطة موجودة. يسري في التحميل التالي.
+SETTINGS_STTAI_ENABLE تجنب تصادم القطارات في المسار الواحد
+SETTINGS_STTAI_ENABLE_TOOLTIP يحجز مقطعا من مسار واحد لقطار واحد في كل مرة، ويوقف القطار المعاكس عند المدخل حتى يصبح المقطع خاليا. ميزة اصلية من IPT4، غير موجودة في اللعبة الاساسية او في اي مود مدمج.
+SETTINGS_STOPSTACKER_ENABLE تكديس مواقف محطات الحافلات
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP يتيح للحافلة الثانية أو الثالثة القادمة إلى نفس المحطة استخدام موقفها الخاص في مكان ابعد على مسار المحطة بدلا من الاصطفاف خلف الحافلة الاولى، بحيث يمكن لاكثر من حافلة الصعود والنزول في نفس الوقت. ميزة اصلية من IPT4 (اعادة تنفيذ مبسطة دون الوصول للكود الاصلي)، غير موجودة في اللعبة الاساسية او في اي مود مدمج.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -407,6 +448,14 @@ CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while followin
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP الأجرة الحالية: {0}\nالأجرة الأصلية: {1}\nالركاب الآن: {2}
 
+CHANGELOG_4_8_0_1 تمت إضافة SingleTrainTrackAI: أصبحت مقاطع السكك الحديدية أحادية المسار الآن محجوزة لاتجاه واحد فقط في كل مرة، بحيث لم يعد هناك خطر تصادم بين قطارين يشتركان في مسار ثنائي الاتجاه. إعادة تنفيذ بطريقة الغرفة النظيفة (clean-room) - المود المصدر (Workshop 949504539) لا يحمل ترخيصًا معلنًا، لذا أُعيد تنفيذ مفهومه الموثق علنًا فقط، باستخدام نظام الترقيع الخاص بهذا المشروع المبني على Harmony بدلاً من تحويلات الذاكرة الخام.
+CHANGELOG_4_8_0_2 تمت إضافة Stop Stacker: عندما تتجمع أكثر من مركبة من نفس الخط عند محطة واحدة، تستخدم المركبة الأمامية فقط موضع التوقف العادي - بينما تحصل المركبات التالية على موضع توقف خاص بها أبعد على طول المسار بدلاً من الاصطفاف في طابور خلفها. إعادة تنفيذ بطريقة الغرفة النظيفة استنادًا فقط إلى الوصف العلني للمود المصدر (لم يكن الكود المصدري متاحًا)؛ للحافلات وحافلات الترولي فقط، بما يتوافق مع نقطة الربط BetterBusStopPosition الموجودة مسبقًا في هذا المشروع.
+CHANGELOG_4_8_0_3 تم إصلاح مشكلة عدم تفعيل تكامل محطة الحافلات بين المدن أبدًا وبصمت للاعبين الذين يمتلكون حزمة Sunset Harbor: كانت تكتشف الحزمة عبر reflection إلى حقل خاص في اللعبة بدلاً من فحص DLC الخاص بـ Steam المستخدم بالفعل في أماكن أخرى من هذا المشروع، وكان هذا الفحص القائم على reflection قد يعيد false حتى عند تثبيت الحزمة فعليًا.
+CHANGELOG_4_8_0_4 تم إصلاح مشكلة تجمّد مربع اختيار "قبول الحافلات بين المدن" وعدم استجابته في بعض المحطات: قد تترك اللعبة الأساسية مربع الاختيار غير تفاعلي في ظروف لم يأخذها استخدام هذا المود المُعاد تسميته في الحسبان أبدًا. أصبح الآن يُفرض عليه أن يكون تفاعليًا كلما تحكم فيه هذا المود. كما تم إصلاح خطأ مرتبط حيث يمكن لمحطة مُعدّة بشكل صحيح بالفعل أن تفقد مفتاحها بصمت عند فحص لاحق.
+CHANGELOG_4_8_0_5 تم إصلاح مشكلة عرض علامات تبويب المباني الفرعية أحيانًا لشريط علامات تبويب قديم على مبنى غير ذي صلة: تعيد اللعبة استخدام معرّفات المباني بعد الهدم، وكانت ذاكرة التخزين المؤقت تثق بأن المعرّف المُعاد استخدامه لا يزال ينتمي إلى مجموعة المباني السابقة. أصبحت الآن تعيد التحقق من سلسلة المبنى الأصلية الفعلية قبل إعادة استخدام أي شيء من ذاكرة التخزين المؤقت.
+CHANGELOG_4_8_0_6 تنظيف عام للأخطاء عبر عدة عمليات تكامل: فحص انتهاء صلاحية ذاكرة تخزين مؤقت معكوس كان يتجاهل البيانات الحديثة ويقدم بيانات قديمة بدلاً منها، وحد حلقة تكرار به خطأ إزاحة بواحد كان يتجاوز آخر خط نقل في التلوين التلقائي وفحوصات الأسماء المكررة، ومقارنة معرّف خاطئة كانت تُعطّل آلية تجاوز "مركبة واحدة فقط على هذا الخط" لمنع التكتل، وبحث عن الأسعار كان يخزّن الفشل بشكل دائم بدلاً من إعادة المحاولة لاحقًا، وعدة تصحيحات Harmony كانت قد ترمي استثناءً عند مرجع UI/prefab فارغ (null).
+CHANGELOG_4_8_0_7 تقليل عمليات reflection المتكررة والبحث في كل إطار عبر عدة عمليات تكامل: أصبحت أوصاف تلميحات المركبات، وتصنيف مقاطع المسار الأحادي، والبحث عن فئة عنصر الحافلات بين المدن الآن مخزّنة مؤقتًا بدلاً من إعادة حسابها في كل استدعاء، ولم يعد زر تحديث الواجهة يعيد تعيين نصه في كل إطار بغض النظر عمّا إذا تغيّر شيء أم لا.
+CHANGELOG_4_8_0_8 أصبح كل من Intercity Bus Control وعلامات تبويب المباني الفرعية مفعّلين افتراضيًا مرة أخرى بعد الإصلاحات أعلاه - وقد تأكد عملهما بشكل صحيح، ولم يتبق سوى مشكلات معروفة بسيطة (ضبط دقيق لموضع علامة التبويب، خلل نادر في عرض اسم المحطة) تُركت لتحليل أعمق في إصدار مستقبلي.
 CHANGELOG_4_7_0_1 أربع تكاملات جديدة: علامات تبويب المباني الفرعية (شريط علامات تبويب لأي مجمّع متعدد المباني، وليس المطارات فقط)، تمكين المحطات المشتركة (يتيح لأكثر من نوع محطة مشاركة نفس مقطع الطريق، معطّل افتراضيًا)، وجهة الركاب (تعرض إلى أين يتجه فعليًا المواطنون المنتظرون عند محطة)، وإصلاح موقف سيارات الأجرة (تتجه سيارات الأجرة الخاملة إلى أقرب موقف بدلاً من التجوال). راجع الخيارات > عمليات الدمج لكل مفتاح تفعيل.
 CHANGELOG_4_7_0_2 أُضيف وضع لسعة المركبات في محطات الحافلات بين المدن (الخيارات > عمليات الدمج > سعة محطة الحافلات بين المدن): معطّل يبقي على محطة هذه الإضافة الحالية غير المحدودة عمليًا، متوسط يطبّق حدًا أقصى ثابتًا معتدلًا، واقعي يستعيد السعة الأصلية للنموذج الجاهز (prefab) الخاص بالمحطة في اللعبة الأساسية. الحفظات الحالية تستخدم معطّل افتراضيًا، بحيث لا يؤدي التحديث أبدًا إلى تقليص سعة محطة ما دون علم اللاعب.
 CHANGELOG_4_7_0_3 تم إصلاح مربع اختيار "قبول الحافلات بين المدن" الخاص بمحطة الحافلات بين المدن: تضبط CityServiceWorldInfoPanel.OnAcceptsIntercityChanged القيمة acceptsInterCityTrains، وهي مجرد اسم مستعار لـ isEmptying، مما كان يجعل مربع الاختيار المُعاد تسميته قادرًا على وضع محطة الحافلات، دون علم اللاعب، في حالة إغلاق المبنى الخاصة باللعبة بدلاً من تبديل قبول الحافلات فعليًا. الآن تعترض بادئة (prefix) من Harmony هذا السلوك وتعيد توجيهه إلى حالة خاصة بكل مبنى في المحطات المُعدَّلة للحافلات، دون المساس بمحطات القطارات الحقيقية.

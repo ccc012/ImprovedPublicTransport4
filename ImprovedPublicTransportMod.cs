@@ -140,6 +140,15 @@ namespace ImprovedPublicTransport
                     LoadPassengersPatch.Apply();
                     UnloadPassengersPatch.Apply();
                     StartTransferPatch.Apply();
+                    DepotCapacityPatch.Apply();
+                    ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPanelPatches.AutoNameStopPatch.Apply();
+                    // Same reason IntercityBusControl needs its own retroactive PatchStations() sweep
+                    // just below: prefabs are already loaded by the time OnLevelLoaded fires, so the
+                    // InitializePrefab Harmony patch above never actually runs for any of them without
+                    // this - the tram/taxi depot cap would otherwise silently stay at whatever the
+                    // last-applied value was (or vanilla's 100,000 on a fresh session), regardless of
+                    // what mode is selected in Options.
+                    DepotCapacityPatch.PatchAllLoaded();
                     ReleaseNodePatch.Apply();
                     ReleaseWaterSourcePatch.Apply();
                     GetVehicleInfoPatch.Apply();
@@ -436,6 +445,79 @@ namespace ImprovedPublicTransport
                         Utils.LogError($"CommuterDestination: failed to apply integration: {ex.Message}");
                     }
 
+                    // OptimisedOutsideConnections integration (cargo trains/planes/ships wait longer
+                    // for a fuller load before departing; optional dummy pass-through traffic removal)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableOptimisedOutsideConnections)
+                        {
+                            OptimisedOutsideConnections.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("OptimisedOutsideConnections: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("OptimisedOutsideConnections: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"OptimisedOutsideConnections: failed to apply integration: {ex.Message}");
+                    }
+
+                    // UnlimitedOutsideConnections integration (removes the vanilla 4-connection cap)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableUnlimitedOutsideConnections)
+                        {
+                            UnlimitedOutsideConnections.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("UnlimitedOutsideConnections: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("UnlimitedOutsideConnections: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"UnlimitedOutsideConnections: failed to apply integration: {ex.Message}");
+                    }
+
+                    // SingleTrainTrackAI integration (reserves single-track segments for one train at a time)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableSingleTrainTrackAI)
+                        {
+                            SingleTrainTrackAI.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SingleTrainTrackAI: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SingleTrainTrackAI: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"SingleTrainTrackAI: failed to apply integration: {ex.Message}");
+                    }
+
+                    // StopStacker integration (multi-berth stop stacking for buses/trolleybuses)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableStopStacker)
+                        {
+                            StopStacker.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("StopStacker: integration applied.");
+                        }
+                        else
+                        {
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("StopStacker: integration disabled (toggle is off).");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"StopStacker: failed to apply integration: {ex.Message}");
+                    }
+
                     // Show What's New notification now that the in-game UI is fully initialized.
                     AlgernonCommons.Notifications.WhatsNew.ShowWhatsNew();
                 }
@@ -592,6 +674,8 @@ namespace ImprovedPublicTransport
             LoadPassengersPatch.Undo();
             UnloadPassengersPatch.Undo();
             StartTransferPatch.Undo();
+            DepotCapacityPatch.Undo();
+            ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPanelPatches.AutoNameStopPatch.Undo();
             ReleaseNodePatch.Undo();
             ReleaseWaterSourcePatch.Undo();
             GetVehicleInfoPatch.Undo();
@@ -751,6 +835,50 @@ namespace ImprovedPublicTransport
             catch (Exception ex)
             {
                 Utils.LogError($"CommuterDestination: failed to remove integration: {ex.Message}");
+            }
+
+            // OptimisedOutsideConnections cleanup
+            try
+            {
+                OptimisedOutsideConnections.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("OptimisedOutsideConnections: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"OptimisedOutsideConnections: failed to remove integration: {ex.Message}");
+            }
+
+            // UnlimitedOutsideConnections cleanup
+            try
+            {
+                UnlimitedOutsideConnections.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("UnlimitedOutsideConnections: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"UnlimitedOutsideConnections: failed to remove integration: {ex.Message}");
+            }
+
+            // SingleTrainTrackAI cleanup
+            try
+            {
+                SingleTrainTrackAI.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("SingleTrainTrackAI: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SingleTrainTrackAI: failed to remove integration: {ex.Message}");
+            }
+
+            // StopStacker cleanup
+            try
+            {
+                StopStacker.PatchController.Deactivate();
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("StopStacker: integration removed.");
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"StopStacker: failed to remove integration: {ex.Message}");
             }
 
         }

@@ -35,6 +35,9 @@ STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lijst met voorgestelde haltesnamen.
 STOP_PANEL_REUSE_NAME_TOOLTIP Stel deze naam in voor alle andere haltes op dit station.
 STOP_PANEL_WAITING_PEOPLE Wachtende passagiers: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Bestemming forensen
+COMMUTER_DESTINATION_HEADER Belangrijkste bestemmingen:
+COMMUTER_DESTINATION_NONE Er wacht hier momenteel niemand.
+COMMUTER_DESTINATION_LOADING Berekenen...
 COMMUTER_DESTINATION_BUTTON Bestemmingen
 COMMUTER_DESTINATION_BUTTON_TOOLTIP Toon waar de wachtende passagiers bij deze halte naartoe gaan.
 STOP_PANEL_BORED_TIMER Tijd tot vertrek: <color #{0}>{1}</color>
@@ -73,6 +76,11 @@ SETTINGS_TAB_LINECOLORS Lijnkleuren
 SETTINGS Instellingen
 SETTINGS_SPEED Snelheid tonen in:
 SETTINGS_SPEED_TOOLTIP Kies de eenheid voor snelheidsweergave in de UI.
+SETTINGS_GAMEPLAY_PROFILE Gameplayprofiel
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Past een groep instellingen tegelijk toe in plaats van elke handmatig af te stellen. Vanilla schakelt elke geabsorbeerde integratie uit en komt zo dicht mogelijk bij het basisspel; Realistisch schakelt ze in en past de meer realistische optie toe waar die bestaat. Een van beide kiezen overschrijft de individuele instellingen hieronder - kies Aangepast om ze zelf te beheren zonder dat deze keuzelijst iets wijzigt.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Aangepast
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistisch
 SETTINGS_SPEED_KPH km/u
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED Loopsnelheid:
@@ -131,6 +139,8 @@ SETTINGS_VEHICLE_EDITOR_HIDE Voertuigeditor verbergen
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Verberg de voertuigeditor uit voertuigpanelen.
 
 SETTINGS_STOPS Openbaarvervoerhaltes
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Hoeveel passagiers van elk vervoertype op een enkele halte kunnen wachten voordat deze als vol wordt beschouwd. Hogere waarden verminderen klachten over overvolle drukke haltes, ten koste van een minder realistische wachtrijgrootte.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Zet alle bovenstaande passagierslimieten per halte terug naar hun standaardwaarden.
 SETTINGS_ENABLE_STOPS_AND_STATIONS Haltes en stations inschakelen
 SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Pas het maximale aantal burgers aan dat kan wachten op openbaar vervoer op verschillende haltes en stations. Configureer in het tabblad Haltes.
 SETTINGS_STOPSANDSTATIONS_ENABLE Haltes en stations inschakelen
@@ -343,6 +353,16 @@ SETTINGS_INTERCITY_BUS_ENABLE Intercity-buscontrole inschakelen
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Schakelt de geïntegreerde compatibiliteitslaag voor intercity-buscontrole en stationpatching in.
 SETTINGS_INTERCITY_BUS_CAPACITY Capaciteit intercityterminal
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Hoeveel voertuigen een intercitybusterminal tegelijk kan herbergen.
+SETTINGS_TRAM_DEPOT_CAPACITY Capaciteit tramremise
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Standaard heeft elke tramremise een praktisch onbeperkte limiet van 100.000 voertuigen. Realistisch en Gemiddeld passen in plaats daarvan een gematigde vaste limiet toe; Uitgeschakeld behoudt het bestaande gedrag.
+SETTINGS_TAXI_DEPOT_CAPACITY Capaciteit taxigarage
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Standaard heeft elk taxidepot een praktisch onbeperkte limiet van 100.000 voertuigen. Realistisch en Gemiddeld passen in plaats daarvan een gematigde vaste limiet toe; Uitgeschakeld behoudt het bestaande gedrag.
+SETTINGS_BUS_DEPOT_CAPACITY Buscapaciteit
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Standaard heeft elke busgarage (normaal, biobrandstof en toerbus) een praktisch onbeperkte capaciteit van 100.000 voertuigen. Realistisch en Gemiddeld passen in plaats daarvan een gematigd vast maximum toe; Uitgeschakeld behoudt het huidige gedrag.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Trolleybuscapaciteit
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Standaard heeft elke trolleybusgarage een praktisch onbeperkte capaciteit van 100.000 voertuigen. Realistisch en Gemiddeld passen in plaats daarvan een gematigd vast maximum toe; Uitgeschakeld behoudt het huidige gedrag.
+SETTINGS_FERRY_DEPOT_CAPACITY Verencapaciteit
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Standaard heeft elke verendepot een praktisch onbeperkte capaciteit van 100.000 voertuigen. Realistisch en Gemiddeld passen in plaats daarvan een gematigd vast maximum toe; Uitgeschakeld behoudt het huidige gedrag.
 SETTINGS_DEPOT_CAPACITY_DISABLED Uitgeschakeld (onbeperkt)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Gemiddeld
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistisch
@@ -356,6 +376,27 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Gedeelde haltes inschakelen
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Laat meer dan één vervoerstype (bus, tram, trolleybus) op hetzelfde wegsegment stoppen. Standaard uitgeschakeld - zie de GitHub van de mod voor wat deze verkorte versie weglaat.
 SETTINGS_COMMUTERDESTINATION_ENABLE Bestemming forensen inschakelen
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Toont waar de wachtende passagiers bij een halte naartoe gaan - een klein paneel plus een kaartoverlay. Alleen-lezen, geen andere afhankelijkheid dan Harmony.
+SETTINGS_OOC_ENABLE Geoptimaliseerde externe verbindingen
+SETTINGS_OOC_ENABLE_TOOLTIP Vrachttreinen, vliegtuigen en schepen wachten langer op een vollere lading voordat ze bij externe verbindingen vertrekken.
+SETTINGS_OOC_WAIT_MULTIPLIER Wachtvermenigvuldiger
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Hoeveel langer dan vanilla wachten op een vollere lading. Hogere waarden betekenen minder, maar vollere ritten.
+SETTINGS_OOC_PASSENGER_SCOPE Bereik van passagierswachttijd
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Waar de bovenstaande wachtvermenigvuldiger geldt voor burgers die op openbaar vervoer wachten. Alleen externe verbindingen beinvloedt alleen burgers die bij een externe verbinding wachten; stadsbreed vertraagt ook het gewone binnenlandse wachten voor elke burger (komt overeen met het daadwerkelijke gedrag van de bron-mod).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Alleen externe verbindingen
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Stadsbreed
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Uitgeschakeld (vanilla)
+SETTINGS_OOC_DISABLE_DUMMY Decoratief doorgaand verkeer uitschakelen
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Decoratief wegverkeer uitschakelen
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Decoratief treinverkeer uitschakelen
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Decoratief vliegverkeer uitschakelen
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Decoratief scheepvaartverkeer uitschakelen
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Externe verbindingen genereren normaal extra decoratief verkeer dat nooit echt de stad binnenkomt of verlaat, puur voor visuele sfeer. Uitschakelen verwijdert dat verkeer zonder de echte import-/export-/passagiersstroom te beinvloeden.
+SETTINGS_UOC_ENABLE Onbeperkte externe verbindingen
+SETTINGS_UOC_ENABLE_TOOLTIP Verwijdert de standaardlimiet van 4 verbindingen voor wegen, spoorlijnen, scheepvaartroutes en vliegroutes, en koppelt vervoerslijnen met terugwerkende kracht wanneer een nieuwe verbinding wordt gebouwd bij een bestaand station. Wordt van kracht bij de volgende levelload.
+SETTINGS_STTAI_ENABLE Botsingspreventie op enkelspoor
+SETTINGS_STTAI_ENABLE_TOOLTIP Reserveert een enkelsporig segment voor een trein tegelijk en houdt een tegemoetkomende trein bij de ingang tegen totdat het segment vrij is. Originele IPT4-functie, niet aanwezig in vanilla of een geabsorbeerde mod.
+SETTINGS_STOPSTACKER_ENABLE Bushalteplaats stapelen
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Laat een tweede/derde bus die naar dezelfde halte onderweg is een eigen plaats verderop in de haltestrook gebruiken in plaats van achter de voorste bus aan te sluiten, zodat meerdere bussen tegelijk kunnen in- en uitstappen. Originele IPT4-functie (vereenvoudigde herimplementatie zonder toegang tot de originele code), niet aanwezig in vanilla of een geabsorbeerde mod.
 CHANGELOG_4_3_3_1 Instellingen opslaan/laden vastgesteld op sommige modstacks door bundeling van Newtonsworth.Json.dll: vorige omweg probeerde alleen Assembly.LoadFrom in één ingangspunt en hing nog steeds af van laadvolgorde. IPT4 registreert nu een globale AssemblyResolve-haak en start greetig met zijn gebundelde Newtonsworth.Json van elk mod/UI-ingangspunt voordat CSLModsCommon JsonWriter aanraakt, zodat het UIpaneel Opties betrouwbaar aanhoudt in plaats van willekeurig te binden aan een inkompatibele Json.NET-kopie van een ander modwerk.
 CHANGELOG_4_3_2_1 Vast gelopen bij het laden van mod helemaal ("failed to load the mod's dll of one of its dependencies") telkens wanneer geen ander geïnstalleerd mod toevallig Newtonsworth.Json gaf: CSLModsCommon instellingen serialisatie (JsonHelper/SerializationContext) nodig het, maar onze build heeft nooit daadwerkelijk Newtonsworth.Json.dll naast de mod ingezet - het werkte altijd per ongeluk, rijdend op een ander kopie van mod. Gevonden door alle andere mods uit te schakelen voor een schone test, wat precies hoe het van nu af aan zou moeten worden getest.
 CHANGELOG_4_3_1_1 Vaste taal selector paneel Opties alleen hertaling framework eigen strings (Versie/Changelog/...) terwijl elke snaar van deze mod in de taal van het spel bleef - onze vertaling loader sleutel uit de spelsprache en negeerde het mod eigen selectie volledig. Het volgt nu de mod taalkiezer, valt terug op spelsprache en vervolgens Engels, en re-Resolves telkens de kiezer verandert.
@@ -408,6 +449,14 @@ CHANGELOG_4_3_4_1 Vast startup ModException ("Kan niet vinden ImprovedPublicTran
 CHANGELOG_4_3_5_1 Vast Trein Display overlay nooit verschijning volgen voertuig. Deze keek camera gevolgd instantie door generieke "target"/"GetTarget" sondes, maar spel slaat op in private CameraController.m_targetInstance veld dat die sondes nooit gekoppeld. Ook geschakeld "Alleen in eerstepersonenamera" uit standaard: gewone volgen modus is niet eerste-persoon, dus het uit maken de overlay ziet er gebroken uit-van-de-box, in tegenstelling tot de originele mod die toont dit in een volgen view.
 CHANGELOG_4_3_5_2 Het tabblad Ticket prijzen toont nu het resulterende tarief voor elk vervoer type in plaats van het levend passagier aantal. De schuifregelaars alleen percentage toon, dus er was eerder geen manier zien wat een vermenigvuldiger daadwerkelijk opgesteld - en op een klein of gepauzeerd stad het passagier aantal gewoon lees een permanente "0". Het passagier aantal verplaatst naar het etiket tooltip, samen met het originele tarief.
 TICKET_PRICE_LABEL_TOOLTIP Huuidi tarief: {0}\nOrigineel tarief: {1}\nPassagiers rijden nu: {2}
+CHANGELOG_4_8_0_1 SingleTrainTrackAI toegevoegd: enkelsporige spoorsegmenten worden nu telkens voor één richting tegelijk gereserveerd, zodat twee treinen die een tweerichtingsspoor delen niet meer het risico lopen te botsen. Clean-room herimplementatie - de bron-mod (Workshop 949504539) heeft geen verklaarde licentie, dus alleen het publiekelijk gedocumenteerde concept is opnieuw geïmplementeerd, met de eigen Harmony-gebaseerde patchmethode van dit project in plaats van ruwe geheugen-detours.
+CHANGELOG_4_8_0_2 Stop Stacker toegevoegd: wanneer meer dan één voertuig van dezelfde lijn samenkomt bij een halte, gebruikt alleen het voorste voertuig de normale haltepositie - volgende voertuigen krijgen hun eigen plek verderop in de rijstrook in plaats van achter elkaar in de rij te staan. Clean-room herimplementatie op basis van alleen de publieke beschrijving van de bron-mod (geen broncode beschikbaar); alleen bus en trolleybus, passend bij het bestaande BetterBusStopPosition-aanknopingspunt van dit project.
+CHANGELOG_4_8_0_3 Opgelost: de integratie van de interlokale bushalte-terminal werd stilzwijgend nooit geactiveerd voor spelers met de Sunset Harbor-DLC: deze detecteerde de DLC via reflection op een privéveld van het spel in plaats van de Steam-DLC-controle die elders in dit project al wordt gebruikt, en die op reflection gebaseerde controle kon false teruggeven, zelfs als de DLC daadwerkelijk was geïnstalleerd.
+CHANGELOG_4_8_0_4 Opgelost: het selectievakje "interlokale bussen accepteren" bleef op sommige terminals onreageerbaar vastzitten: vanilla kan het selectievakje niet-interactief laten onder omstandigheden waar het van naam veranderde gebruik door deze mod nooit rekening mee hield. Het wordt nu altijd geforceerd interactief zodra deze mod het beheert. Ook is een gerelateerde bug opgelost waarbij een terminal die al correct was ingesteld bij een latere controle stilzwijgend zijn schakelaar kon verliezen.
+CHANGELOG_4_8_0_5 Opgelost: Sub-Buildings Tabs toonde af en toe een verouderde tabbladenbalk op een niet-gerelateerd gebouw: het spel hergebruikt gebouw-ID's na een sloop, en de cache vertrouwde erop dat een hergebruikte ID nog steeds bij de vorige gebouwcluster hoorde. Nu wordt de daadwerkelijke bovenliggende keten van het gebouw opnieuw gevalideerd voordat er iets uit de cache wordt hergebruikt.
+CHANGELOG_4_8_0_6 Algemene bugronde over meerdere integraties: een omgekeerde cache-vervalcontrole die verse data verwierp en in plaats daarvan verouderde data leverde, een off-by-one lusgrens die de laatste vervoerslijn oversloeg bij automatische kleuring en controles op dubbele namen, een verkeerde ID-vergelijking die de "slechts één voertuig op deze lijn"-omzeiling voor samenklontering brak, een prijsopzoeking die een mislukking permanent cachete in plaats van later opnieuw te proberen, en verschillende Harmony-patches die konden vastlopen op een lege UI/prefab-referentie.
+CHANGELOG_4_8_0_7 Minder herhaalde reflection- en per-frame-opzoekingen bij meerdere integraties: voertuig-tooltipbeschrijvingen, classificatie van enkelsporige segmenten en de item-class-opzoeking voor interlokale bussen worden nu gecachet in plaats van bij elke aanroep opnieuw berekend, en een UI-vernieuwingsknop wijst zijn tekst niet meer elk frame opnieuw toe, ongeacht of er iets veranderd is.
+CHANGELOG_4_8_0_8 Intercity Bus Control en Sub-Buildings Tabs staan na de bovenstaande correcties weer standaard aan - beide werken aantoonbaar correct, met alleen nog enkele kleine bekende problemen (fijnafstemming van de tabpositie, een zeldzame eigenaardigheid bij het weergeven van haltenamen) die in een toekomstige versie dieper geanalyseerd zullen worden.
 CHANGELOG_4_7_0_1 Vier nieuwe integraties: Subgebouwtabbladen (tabbalk voor elk complex met meerdere gebouwen, niet alleen luchthavens), Gedeelde haltes (laat meer dan één haltetype hetzelfde wegsegment delen, standaard uitgeschakeld), Bestemming forensen (toont waar de wachtende inwoners bij een halte daadwerkelijk naartoe gaan) en Taxistandplaatscorrectie (vrije taxi's rijden naar de dichtstbijzijnde standplaats in plaats van doelloos rond te rijden). Zie Opties > Integraties voor elke schakelaar.
 CHANGELOG_4_7_0_2 Een voertuigcapaciteitsmodus toegevoegd voor intercitybusterminals (Opties > Integraties > Capaciteit intercitybusterminal): Uitgeschakeld behoudt de bestaande, feitelijk onbeperkte terminal van deze mod, Gemiddeld past een gematigd vast maximum toe, Realistisch herstelt de eigen vanille-prefabcapaciteit van de terminal. Bestaande spellen gebruiken standaard Uitgeschakeld, zodat een update de capaciteit van een terminal nooit stilzwijgend verkleint.
 CHANGELOG_4_7_0_3 Het selectievakje "intercitybussen accepteren" van de intercitybusterminal gerepareerd: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged stelt acceptsInterCityTrains in, wat een pure alias is voor isEmptying, waardoor het hernoemde selectievakje een busterminal stilzwijgend in de afsluitstatus van het spel kon zetten in plaats van daadwerkelijk de busacceptatie om te schakelen. Een Harmony-prefix onderschept dit nu en leidt het om naar een status per gebouw voor terminals met een buspatch, zonder echte treinstations te raken.

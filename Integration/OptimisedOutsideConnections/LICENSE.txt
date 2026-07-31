@@ -1,0 +1,41 @@
+The MIT License (MIT)
+
+Copyright (c) 2021 Quboid
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+---
+Ported into Improved Public Transport 4 from
+https://github.com/Quboid/OptimisedOutsideConnections (Workshop item
+1721492498, "Optimised Outside Connections"), reimplemented as
+semantically-anchored Harmony transpilers (locating the specific
+Randomizer.Int32(uint) call site rather than the upstream mod's approach of
+scanning for the first raw ldc.i4.2 opcode in the method body, which is
+harder to verify stays correct across game updates).
+
+The passenger wait multiplier (Patch_HumanAI_SimulationStep.cs) deviates from
+upstream on purpose: upstream's own version (Citizens.cs) always widens this
+roll regardless of citizen location, which slows down ordinary domestic
+public-transport patience for every citizen in the city - a side effect that
+has nothing to do with the mod's stated "outside connections" purpose, and
+was likely never intended by upstream itself. The default here
+(Options > Integrations > "Passenger wait scope: Outside connections only")
+only widens it for citizens actually waiting at an outside connection.
+Upstream's actual city-wide behaviour is still available, as an explicit
+opt-in ("City-wide") rather than the only option.

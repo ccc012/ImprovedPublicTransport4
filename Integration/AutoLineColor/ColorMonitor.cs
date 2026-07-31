@@ -180,7 +180,7 @@ namespace AutoLineColor
 
                 _usedColors = UsedColors.FromLines(lines);
 
-                for (ushort i = 0; i < lines.Length - 1; i++)
+                for (ushort i = 0; i < lines.Length; i++)
                 {
                     ProcessLine(i, lines[i], false, theSimulationManager, theTransportManager);
                 }

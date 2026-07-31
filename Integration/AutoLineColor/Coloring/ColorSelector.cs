@@ -18,7 +18,7 @@ namespace AutoLineColor.Coloring
 
                 for (var i = 0; i < ModSetting.Instance.AutoLineColorMaxDiffColorPickAttempt; i++)
                 {
-                    var candidate = colors[Random.Range(0, colors.Count - 1)];
+                    var candidate = colors[Random.Range(0, colors.Count)];
 
                     if (usedColors.MeasureNovelty(candidate, metric) >= threshold)
                     {

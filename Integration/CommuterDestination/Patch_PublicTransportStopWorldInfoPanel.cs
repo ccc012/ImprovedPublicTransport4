@@ -15,6 +15,33 @@ using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace CommuterDestination
 {
+    /// <summary>Auto-shows the destination panel/map icons the moment a stop is selected, matching
+    /// upstream's own behaviour (it patches PublicTransportStopButton.OnMouseDown to do the same) -
+    /// the player never has to click anything extra. The button added below is kept only as a way to
+    /// bring the panel back if the player closes it manually without also closing the main stop
+    /// panel.</summary>
+    [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "Show", new[] { typeof(UnityEngine.Vector3), typeof(InstanceID) })]
+    internal static class Patch_PublicTransportStopWorldInfoPanel_Show
+    {
+        [HarmonyPostfix]
+        public static void Postfix(InstanceID instanceID)
+        {
+            try
+            {
+                if (!ModSetting.Instance.EnableCommuterDestination || !InstanceManager.IsValid(instanceID))
+                {
+                    return;
+                }
+
+                CommuterDestinationPanel.ShowForStop(instanceID.NetNode);
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"CommuterDestination: failed to auto-show panel on stop selection: {ex.Message}");
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "SetupPanel")]
     internal static class Patch_PublicTransportStopWorldInfoPanel_SetupPanel
     {
@@ -35,6 +62,17 @@ namespace CommuterDestination
                 if (buttonsPanel == null)
                 {
                     Utils.LogWarning("CommuterDestination: \"Buttons\" panel not found on stop info panel, skipping button.");
+                    return;
+                }
+
+                // Guards against duplicate buttons piling up on the same "Buttons" bar - SetupPanel
+                // was assumed to run only once per panel GameObject, but every level load re-runs
+                // Activate()/Deactivate() on this integration's Harmony patches, and if a prior
+                // Deactivate() ever failed to fully unpatch (or the panel GameObject genuinely
+                // survives across level loads), the postfix below would otherwise add one more
+                // "Destinos" button each time, producing an ever-growing row of them.
+                if (buttonsPanel.Find<UIButton>("CommuterDestination") != null)
+                {
                     return;
                 }
 

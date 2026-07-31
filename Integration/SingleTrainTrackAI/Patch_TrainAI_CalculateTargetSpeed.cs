@@ -1,0 +1,56 @@
+using ColossalFramework;
+using HarmonyLib;
+using ImprovedPublicTransport;
+
+namespace SingleTrainTrackAI
+{
+    /// <summary>
+    /// Holds a train at speed 0 before it enters a single-track segment that another train is
+    /// currently occupying, and claims/renews the segment for whichever train is already on it -
+    /// giving each direction exclusive use of the shared track without touching the vehicle's actual
+    /// path or position calculation (unlike vanilla same-direction following, which is already
+    /// handled by TrainAI's own overlap checks - this only concerns opposing-direction sharing).
+    /// </summary>
+    [HarmonyPatch(typeof(TrainAI), "CalculateTargetSpeed")]
+    internal static class Patch_TrainAI_CalculateTargetSpeed
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ushort vehicleID, ref Vehicle data, ref float __result)
+        {
+            if (!ModSetting.Instance.EnableSingleTrainTrackAI || data.m_path == 0)
+            {
+                return;
+            }
+
+            var pathManager = Singleton<PathManager>.instance;
+            var pathIndex = data.m_pathPositionIndex >> 1;
+            if (!pathManager.m_pathUnits.m_buffer[data.m_path].GetPosition(pathIndex, out var currentPos))
+            {
+                return;
+            }
+
+            var currentFrame = TrackReservation.CurrentFrame;
+
+            if (SegmentClassifier.IsSingleTrainTrack(currentPos.m_segment))
+            {
+                // Already on the shared track - claim it (renews our own hold, releases whatever we
+                // held before if we've moved to a different segment since last tick) and proceed at
+                // normal speed; we got here because nothing blocked us from entering.
+                TrackReservation.Occupy(currentPos.m_segment, vehicleID, currentFrame);
+                return;
+            }
+
+            // Not on a shared segment yet - if the very next one is single-track and held by a
+            // different train, brake to a stop rather than enter it.
+            if (!pathManager.m_pathUnits.m_buffer[data.m_path].GetNextPosition(pathIndex, out var nextPos))
+            {
+                return;
+            }
+
+            if (SegmentClassifier.IsSingleTrainTrack(nextPos.m_segment) && TrackReservation.IsHeldByOther(nextPos.m_segment, vehicleID))
+            {
+                __result = 0f;
+            }
+        }
+    }
+}

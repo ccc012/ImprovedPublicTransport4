@@ -112,6 +112,20 @@ namespace ImprovedPublicTransport.UI
             var setting = ModSetting.Instance;
 
             var commonSection = AddSection(page, Localization.Get("SETTINGS"));
+
+            // A one-click cascade over the dropdowns/checkboxes below (and several on other pages) -
+            // deliberately placed first, above the individual settings it can override, so a player
+            // reads it as "pick a starting point" rather than "one setting among many".
+            commonSection.AddDropDown<ModSetting.GameplayProfiles>(Localization.Get("SETTINGS_GAMEPLAY_PROFILE"), Localization.Get("SETTINGS_GAMEPLAY_PROFILE_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.GameplayProfiles>(e => Localization.Get(e switch
+                {
+                    ModSetting.GameplayProfiles.Vanilla => "SETTINGS_GAMEPLAY_PROFILE_VANILLA",
+                    ModSetting.GameplayProfiles.Realistic => "SETTINGS_GAMEPLAY_PROFILE_REALISTIC",
+                    _ => "SETTINGS_GAMEPLAY_PROFILE_CUSTOM",
+                })),
+                item => item.Value == setting.GameplayProfile,
+                item => Settings.SettingsActions.OnGameplayProfileChanged(item.Value), null);
+
             commonSection.AddDropDown<ModSetting.VehicleSpeedUnits>(Localization.Get("SETTINGS_SPEED"), Localization.Get("SETTINGS_SPEED_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.VehicleSpeedUnits>(e => Localization.Get(e == ModSetting.VehicleSpeedUnits.KPH ? "SETTINGS_SPEED_KPH" : "SETTINGS_SPEED_MPH")),
                 item => item.Value == setting.SpeedUnit,
@@ -296,7 +310,55 @@ namespace ImprovedPublicTransport.UI
                     _ => "SETTINGS_DEPOT_CAPACITY_DISABLED",
                 })),
                 item => item.Value == setting.IntercityTerminalCapacityMode,
-                item => ModSetting.Instance.IntercityTerminalCapacityMode = item.Value, null);
+                item => { ModSetting.Instance.IntercityTerminalCapacityMode = item.Value; Settings.SettingsActions.OnDepotCapacityModeChanged(); }, null);
+            // Separate from the intercity terminal above: vanilla's plain DepotAI (no dedicated
+            // TramDepotAI/TaxiDepotAI class exists) defaults every ordinary tram and taxi depot to
+            // the same effectively-uncapped 100,000 vehicle limit.
+            integrationSection.AddDropDown<ModSetting.DepotCapacityModes>(Localization.Get("SETTINGS_TRAM_DEPOT_CAPACITY"), Localization.Get("SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.DepotCapacityModes>(e => Localization.Get(e switch
+                {
+                    ModSetting.DepotCapacityModes.Realistic => "SETTINGS_DEPOT_CAPACITY_REALISTIC",
+                    ModSetting.DepotCapacityModes.Intermediate => "SETTINGS_DEPOT_CAPACITY_INTERMEDIATE",
+                    _ => "SETTINGS_DEPOT_CAPACITY_DISABLED",
+                })),
+                item => item.Value == setting.TramDepotCapacityMode,
+                item => { ModSetting.Instance.TramDepotCapacityMode = item.Value; Settings.SettingsActions.OnDepotCapacityModeChanged(); }, null);
+            integrationSection.AddDropDown<ModSetting.DepotCapacityModes>(Localization.Get("SETTINGS_TAXI_DEPOT_CAPACITY"), Localization.Get("SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.DepotCapacityModes>(e => Localization.Get(e switch
+                {
+                    ModSetting.DepotCapacityModes.Realistic => "SETTINGS_DEPOT_CAPACITY_REALISTIC",
+                    ModSetting.DepotCapacityModes.Intermediate => "SETTINGS_DEPOT_CAPACITY_INTERMEDIATE",
+                    _ => "SETTINGS_DEPOT_CAPACITY_DISABLED",
+                })),
+                item => item.Value == setting.TaxiDepotCapacityMode,
+                item => { ModSetting.Instance.TaxiDepotCapacityMode = item.Value; Settings.SettingsActions.OnDepotCapacityModeChanged(); }, null);
+            integrationSection.AddDropDown<ModSetting.DepotCapacityModes>(Localization.Get("SETTINGS_BUS_DEPOT_CAPACITY"), Localization.Get("SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.DepotCapacityModes>(e => Localization.Get(e switch
+                {
+                    ModSetting.DepotCapacityModes.Realistic => "SETTINGS_DEPOT_CAPACITY_REALISTIC",
+                    ModSetting.DepotCapacityModes.Intermediate => "SETTINGS_DEPOT_CAPACITY_INTERMEDIATE",
+                    _ => "SETTINGS_DEPOT_CAPACITY_DISABLED",
+                })),
+                item => item.Value == setting.BusDepotCapacityMode,
+                item => { ModSetting.Instance.BusDepotCapacityMode = item.Value; Settings.SettingsActions.OnDepotCapacityModeChanged(); }, null);
+            integrationSection.AddDropDown<ModSetting.DepotCapacityModes>(Localization.Get("SETTINGS_TROLLEYBUS_DEPOT_CAPACITY"), Localization.Get("SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.DepotCapacityModes>(e => Localization.Get(e switch
+                {
+                    ModSetting.DepotCapacityModes.Realistic => "SETTINGS_DEPOT_CAPACITY_REALISTIC",
+                    ModSetting.DepotCapacityModes.Intermediate => "SETTINGS_DEPOT_CAPACITY_INTERMEDIATE",
+                    _ => "SETTINGS_DEPOT_CAPACITY_DISABLED",
+                })),
+                item => item.Value == setting.TrolleybusDepotCapacityMode,
+                item => { ModSetting.Instance.TrolleybusDepotCapacityMode = item.Value; Settings.SettingsActions.OnDepotCapacityModeChanged(); }, null);
+            integrationSection.AddDropDown<ModSetting.DepotCapacityModes>(Localization.Get("SETTINGS_FERRY_DEPOT_CAPACITY"), Localization.Get("SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.DepotCapacityModes>(e => Localization.Get(e switch
+                {
+                    ModSetting.DepotCapacityModes.Realistic => "SETTINGS_DEPOT_CAPACITY_REALISTIC",
+                    ModSetting.DepotCapacityModes.Intermediate => "SETTINGS_DEPOT_CAPACITY_INTERMEDIATE",
+                    _ => "SETTINGS_DEPOT_CAPACITY_DISABLED",
+                })),
+                item => item.Value == setting.FerryDepotCapacityMode,
+                item => { ModSetting.Instance.FerryDepotCapacityMode = item.Value; Settings.SettingsActions.OnDepotCapacityModeChanged(); }, null);
             integrationSection.AddCheckBox(setting.EnableFlightTracker, Localization.Get("SETTINGS_FLIGHTTRACKER_ENABLE"), null, Localization.Get("SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP"),
                 (_, isChecked) =>
                 {
@@ -330,29 +392,67 @@ namespace ImprovedPublicTransport.UI
             // that predate the live-toggle pattern (e.g. EnableIntercityBusControl).
             integrationSection.AddCheckBox(setting.EnableCommuterDestination, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE"), null, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP"),
                 (_, isChecked) => ModSetting.Instance.EnableCommuterDestination = isChecked);
+            // Takes effect on next level load, same as the other integrations above that predate the
+            // live-toggle pattern - the dummy-traffic field write and the Harmony transpilers both
+            // apply once, at OnLevelLoaded.
+            integrationSection.AddCheckBox(setting.EnableOptimisedOutsideConnections, Localization.Get("SETTINGS_OOC_ENABLE"), null, Localization.Get("SETTINGS_OOC_ENABLE_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.EnableOptimisedOutsideConnections = isChecked);
+            integrationSection.AddSliderWithValue(Localization.Get("SETTINGS_OOC_WAIT_MULTIPLIER"), Localization.Get("SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP"),
+                1f, 10f, 1f, setting.OutsideConnectionWaitMultiplier,
+                v => ModSetting.Instance.OutsideConnectionWaitMultiplier = (int)v, "x");
+            integrationSection.AddDropDown<ModSetting.PassengerWaitScopes>(Localization.Get("SETTINGS_OOC_PASSENGER_SCOPE"), Localization.Get("SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.PassengerWaitScopes>(e => Localization.Get(e switch
+                {
+                    ModSetting.PassengerWaitScopes.CityWide => "SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE",
+                    ModSetting.PassengerWaitScopes.Disabled => "SETTINGS_OOC_PASSENGER_SCOPE_DISABLED",
+                    _ => "SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE",
+                })),
+                item => item.Value == setting.OutsideConnectionPassengerWaitScope,
+                item => ModSetting.Instance.OutsideConnectionPassengerWaitScope = item.Value, null);
+            integrationSection.AddCheckBox(setting.DisableRoadDummyTraffic, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_ROAD"), null, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.DisableRoadDummyTraffic = isChecked);
+            integrationSection.AddCheckBox(setting.DisableTrainDummyTraffic, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_TRAIN"), null, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.DisableTrainDummyTraffic = isChecked);
+            integrationSection.AddCheckBox(setting.DisablePlaneDummyTraffic, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_PLANE"), null, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.DisablePlaneDummyTraffic = isChecked);
+            integrationSection.AddCheckBox(setting.DisableShipDummyTraffic, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_SHIP"), null, Localization.Get("SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.DisableShipDummyTraffic = isChecked);
+            integrationSection.AddCheckBox(setting.EnableUnlimitedOutsideConnections, Localization.Get("SETTINGS_UOC_ENABLE"), null, Localization.Get("SETTINGS_UOC_ENABLE_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.EnableUnlimitedOutsideConnections = isChecked);
+            integrationSection.AddCheckBox(setting.EnableSingleTrainTrackAI, Localization.Get("SETTINGS_STTAI_ENABLE"), null, Localization.Get("SETTINGS_STTAI_ENABLE_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.EnableSingleTrainTrackAI = isChecked);
+            integrationSection.AddCheckBox(setting.EnableStopStacker, Localization.Get("SETTINGS_STOPSTACKER_ENABLE"), null, Localization.Get("SETTINGS_STOPSTACKER_ENABLE_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.EnableStopStacker = isChecked);
         }
 
         private void FillStopsPage(ScrollContainer page)
         {
             var setting = ModSetting.Instance;
-            var section = AddSection(page, Localization.Get("SETTINGS_STOPS"));
+            // One combined description at the top instead of repeating a full explanation under each
+            // of the 14 sliders below (same pattern as the Delete Lines tab) - they are all the same
+            // kind of setting (a per-vehicle-type waiting-passenger cap), so a single explanation up
+            // front says everything the per-slider ones did, without the visual repetition.
+            var section = AddSection(page, Localization.Get("SETTINGS_STOPS"), Localization.Get("SETTINGS_STOPSANDSTATIONS_DESCRIPTION"));
 
-            void PassengerSlider(string headerKey, string tooltipKey, float min, float max, float step, int current, Action<int> setter)
-                => section.AddSliderWithValue(Localization.Get(headerKey), Localization.Get(tooltipKey), min, max, step, current, v => setter((int)v));
+            void PassengerSlider(string headerKey, float min, float max, float step, int current, Action<int> setter)
+                => section.AddSliderWithValue(Localization.Get(headerKey), null, min, max, step, current, v => setter((int)v));
 
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersBus, v => ModSetting.Instance.MaxWaitingPassengersBus = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersTrolleybus, v => ModSetting.Instance.MaxWaitingPassengersTrolleybus = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersEvacuationBus, v => ModSetting.Instance.MaxWaitingPassengersEvacuationBus = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersTouristBus, v => ModSetting.Instance.MaxWaitingPassengersTouristBus = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersTram, v => ModSetting.Instance.MaxWaitingPassengersTram = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP", 50f, 2000f, 25f, setting.MaxWaitingPassengersMetro, v => ModSetting.Instance.MaxWaitingPassengersMetro = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP", 50f, 2000f, 25f, setting.MaxWaitingPassengersTrain, v => ModSetting.Instance.MaxWaitingPassengersTrain = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP", 50f, 2000f, 25f, setting.MaxWaitingPassengersMonorail, v => ModSetting.Instance.MaxWaitingPassengersMonorail = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP", 50f, 1000f, 10f, setting.MaxWaitingPassengersShip, v => ModSetting.Instance.MaxWaitingPassengersShip = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP", 50f, 1000f, 10f, setting.MaxWaitingPassengersAirplane, v => ModSetting.Instance.MaxWaitingPassengersAirplane = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersCableCar, v => ModSetting.Instance.MaxWaitingPassengersCableCar = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersHotAirBalloon, v => ModSetting.Instance.MaxWaitingPassengersHotAirBalloon = v);
-            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER", "SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP", 10f, 500f, 5f, setting.MaxWaitingPassengersHelicopter, v => ModSetting.Instance.MaxWaitingPassengersHelicopter = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS", 10f, 500f, 5f, setting.MaxWaitingPassengersBus, v => ModSetting.Instance.MaxWaitingPassengersBus = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS", 10f, 500f, 5f, setting.MaxWaitingPassengersTrolleybus, v => ModSetting.Instance.MaxWaitingPassengersTrolleybus = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS", 10f, 500f, 5f, setting.MaxWaitingPassengersEvacuationBus, v => ModSetting.Instance.MaxWaitingPassengersEvacuationBus = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS", 10f, 500f, 5f, setting.MaxWaitingPassengersTouristBus, v => ModSetting.Instance.MaxWaitingPassengersTouristBus = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM", 10f, 500f, 5f, setting.MaxWaitingPassengersTram, v => ModSetting.Instance.MaxWaitingPassengersTram = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO", 50f, 2000f, 25f, setting.MaxWaitingPassengersMetro, v => ModSetting.Instance.MaxWaitingPassengersMetro = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN", 50f, 2000f, 25f, setting.MaxWaitingPassengersTrain, v => ModSetting.Instance.MaxWaitingPassengersTrain = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL", 50f, 2000f, 25f, setting.MaxWaitingPassengersMonorail, v => ModSetting.Instance.MaxWaitingPassengersMonorail = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP", 50f, 1000f, 10f, setting.MaxWaitingPassengersShip, v => ModSetting.Instance.MaxWaitingPassengersShip = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE", 50f, 1000f, 10f, setting.MaxWaitingPassengersAirplane, v => ModSetting.Instance.MaxWaitingPassengersAirplane = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR", 10f, 500f, 5f, setting.MaxWaitingPassengersCableCar, v => ModSetting.Instance.MaxWaitingPassengersCableCar = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON", 10f, 500f, 5f, setting.MaxWaitingPassengersHotAirBalloon, v => ModSetting.Instance.MaxWaitingPassengersHotAirBalloon = v);
+            PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER", 10f, 500f, 5f, setting.MaxWaitingPassengersHelicopter, v => ModSetting.Instance.MaxWaitingPassengersHelicopter = v);
+
+            section.AddButton(null, Localization.Get("SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP"), Localization.Get("SETTINGS_RESET"),
+                () => SettingsActions.OnResetStopsButtonClick());
         }
 
         private void FillTrainDisplayPage(ScrollContainer page)

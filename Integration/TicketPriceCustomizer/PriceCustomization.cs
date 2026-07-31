@@ -306,7 +306,14 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             // We purposely skip PrefabCollection lookups here in the simulation thread path because some external
             // mods (e.g. LoadingScreenModRevisited custom asset deserializer) can crash when called from worker threads.
             // Use line snapshot data only.
-            s_cachedTransportInfos[transportType] = info;
+            // Only cache a successful lookup - caching a miss would stick forever (e.g. a transport
+            // type queried before any line of that type exists yet, such as before an airport is
+            // built), permanently disabling price customization for that type for the rest of the
+            // session even after a matching line is created.
+            if (info != null)
+            {
+                s_cachedTransportInfos[transportType] = info;
+            }
             return info != null;
         }
     }
