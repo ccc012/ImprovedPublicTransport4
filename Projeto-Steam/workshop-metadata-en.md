@@ -52,6 +52,17 @@ bisection isolated the key itself.
 Keep the description under **8,000 characters** anyway; that is the Workshop
 editor's own limit.
 
+**Avoid `[list]`/`[*]` blocks in the description entirely.** Confirmed twice
+now (4.7.0 and again on the 4.8.0 update attempt) that pasting a description
+containing `[list]...[/list]` into the web editor fails to save with a bare
+"There was a problem saving the title and description" - no further detail
+given. Removing the `[list]` blocks (rewriting bulleted sections as plain
+sentences, or joining items with `·`) made the identical content save
+successfully both times. Root cause not confirmed (Steam gives no error
+detail), but the correlation is exact and reproducible - just don't use list
+tags in this specific description, even though they're documented as
+supported BBCode elsewhere on Steam (forum posts, comments).
+
 **No straight double quotes in the file.** The `.vdf` parser does not process
 escape sequences, so an unescaped `"` terminates the value and everything after it
 is read as a key name - that is the real source of the
