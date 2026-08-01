@@ -31,7 +31,7 @@ CONTENT = r"C:\Users\Lucas\AppData\Local\Colossal Order\Cities_Skylines\Addons\M
 # esta em CONTENT vai no download do jogador, e uma capa de 2 MB nao serve pra nada
 # no jogo. O lugar certo e junto deste script.
 PREVIEW = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                       "ipt4-workshop-cover.jpg")
+                       "PreviewImage.jpg")
 
 CHANGENOTE = [
  u"Version 4.8.5 - Stability release: Train Display redesign, deep bug sweep",

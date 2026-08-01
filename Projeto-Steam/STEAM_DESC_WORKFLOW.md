@@ -95,8 +95,15 @@ python apply_steam_header.py
 
 - No `[list]` / `[*]`
 - No straight `"` in text (use typographic quotes)
-- Keep under ~8000 chars per language
-- Description is **manual paste** — not in VDF
+- Keep under **7000** chars per language (lowered from 8000 on 2026-08-01 after
+  paste errors on several languages in the Workshop web editor at 8000-8961
+  chars; unconfirmed whether length was the actual cause, but staying safely
+  under 7000 costs nothing and removes it as a variable)
+- Description is **manual paste** — not in VDF (see note below; a manual
+  `steamcmd` upload with `description` inlined in the `.vdf` did succeed once
+  on 2026-08-01 for the English body, contradicting the 2026-07-29 test that
+  found it broke the upload — not yet re-tested enough to trust as a new
+  default workflow, treat as unconfirmed)
 
 ## 4.9 plan (prepared now)
 
