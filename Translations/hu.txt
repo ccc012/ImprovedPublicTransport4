@@ -1,578 +1,578 @@
-MOD_DESCRIPTION Továbbfejlesztett tömegközlekedés: vonalvezérlés, flotta, integrációk és egyebek.
-CURRENT_WEEK Aktuális hét
-LAST_WEEK Előző hét
-AVERAGE Átlag
-AVERAGE_TOOLTIP Az utolsó {0} hét átlaga.
-CITY_SERVICE_PANEL_TITLE_STATION_STOPS Állomási megállók
-CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Telephelyi járművek
-CITYSERVICE_ACCEPTINTERCITYBUSES Távolsági buszok engedélyezése
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Engedélyezi a távolsági buszoknak az állomás használatát. Kapcsolja ki csak helyi buszokhoz.
-EXPLANATION_BUDGET_CONTROL Költségvetés-vezérlés: A járművek számát a költségvetés szabályozza.
-EXPLANATION_UNBUNCHING Csoportosulásgátlás: A játék megpróbál rést tartani a járművek között.
-LINE_PANEL_STOPS Megállók: {0}
-LINE_PANEL_SPAWNTIMER Következő jármű {0} másodperc múlva.
-LINE_PANEL_DEPOT_WARNING <color #FF0000>A kiválasztott telephelyen nincs több jármű.</color>
-LINE_PANEL_BUDGET_CONTROL Költségvetés-vezérlés
-LINE_PANEL_BUDGET_CONTROL_TOOLTIP Bekapcsolja vagy kikapcsolja a költségvetés-vezérlést ezen a vonalon.
-LINE_PANEL_UNBUNCHING_TOOLTIP Bekapcsolja vagy kikapcsolja a csoportosulásgátlást ezen a vonalon.\nA gátlás ki van kapcsolva, ha az agresszivitás 0.
+﻿MOD_DESCRIPTION TovÃ¡bbfejlesztett tÃ¶megkÃ¶zlekedÃ©s: vonalvezÃ©rlÃ©s, flotta, integrÃ¡ciÃ³k Ã©s egyebek.
+CURRENT_WEEK AktuÃ¡lis hÃ©t
+LAST_WEEK ElÅ‘zÅ‘ hÃ©t
+AVERAGE Ãtlag
+AVERAGE_TOOLTIP Az utolsÃ³ {0} hÃ©t Ã¡tlaga.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS ÃllomÃ¡si megÃ¡llÃ³k
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Telephelyi jÃ¡rmÅ±vek
+CITYSERVICE_ACCEPTINTERCITYBUSES TÃ¡volsÃ¡gi buszok engedÃ©lyezÃ©se
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP EngedÃ©lyezi a tÃ¡volsÃ¡gi buszoknak az Ã¡llomÃ¡s hasznÃ¡latÃ¡t. Kapcsolja ki csak helyi buszokhoz.
+EXPLANATION_BUDGET_CONTROL KÃ¶ltsÃ©gvetÃ©s-vezÃ©rlÃ©s: A jÃ¡rmÅ±vek szÃ¡mÃ¡t a kÃ¶ltsÃ©gvetÃ©s szabÃ¡lyozza.
+EXPLANATION_UNBUNCHING CsoportosulÃ¡sgÃ¡tlÃ¡s: A jÃ¡tÃ©k megprÃ³bÃ¡l rÃ©st tartani a jÃ¡rmÅ±vek kÃ¶zÃ¶tt.
+LINE_PANEL_STOPS MegÃ¡llÃ³k: {0}
+LINE_PANEL_SPAWNTIMER KÃ¶vetkezÅ‘ jÃ¡rmÅ± {0} mÃ¡sodperc mÃºlva.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>A kivÃ¡lasztott telephelyen nincs tÃ¶bb jÃ¡rmÅ±.</color>
+LINE_PANEL_BUDGET_CONTROL KÃ¶ltsÃ©gvetÃ©s-vezÃ©rlÃ©s
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Bekapcsolja vagy kikapcsolja a kÃ¶ltsÃ©gvetÃ©s-vezÃ©rlÃ©st ezen a vonalon.
+LINE_PANEL_UNBUNCHING_TOOLTIP Bekapcsolja vagy kikapcsolja a csoportosulÃ¡sgÃ¡tlÃ¡st ezen a vonalon.\nA gÃ¡tlÃ¡s ki van kapcsolva, ha az agresszivitÃ¡s 0.
 LINE_PANEL_DEPOT Telephely:
-LINE_PANEL_NO_DEPOT_FOUND Nem található telephely.
-LINE_PANEL_DEPOT_MARKER_TOOLTIP Ugrás a kiválasztott telephelyre.\nShift nyomva tartása kattintáskor ráközelít is.
-LINE_PANEL_SELECT_TYPES Típusok kiválasztása
-LINE_PANEL_SELECT_TYPES_TOOLTIP Váltja a „Típusok kiválasztása” panelt.\nHa a gomb inaktív, előbb válasszon telephelyet.
-LINE_PANEL_LINE_STOPS Vonalmegállók
-LINE_PANEL_LINE_VEHICLES Járművek ezen a vonalon
-LINE_PANEL_ENQUEUED Sorban álló járművek
-LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} utas vár ezen a vonalon.
-LINE_PANEL_ADD_VEHICLE Jármű hozzáadása
-LINE_PANEL_ADD_VEHICLE_TOOLTIP Új járművet ad a vonalhoz.\nHa a gomb inaktív, a kiválasztott telephelyen nincs több jármű.
-LINE_PANEL_REMOVE_VEHICLE Jármű eltávolítása
-STOP_LIST_BOX_ROW_STOP Megálló #{0}
-STOP_LIST_BOX_ROW_TOOLTIP {0}\nVáró utasok: {1}\nJobb kattintás a megállóra ugráshoz.\nShift nyomva tartása kattintáskor ráközelít is.
-STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Javasolt megállónevek listája.
-STOP_PANEL_REUSE_NAME_TOOLTIP Állítsa be ezt a nevet az összes többi megállóra ezen az állomáson / pozíción.
-STOP_PANEL_WAITING_PEOPLE Váró utasok: {0}
-COMMUTER_DESTINATION_PANEL_TITLE Utas célállomása
-COMMUTER_DESTINATION_HEADER Legnépszerűbb célok:
-COMMUTER_DESTINATION_NONE Jelenleg senki sem vár itt.
-COMMUTER_DESTINATION_LOADING Számítás...
-COMMUTER_DESTINATION_BUTTON Célok
-COMMUTER_DESTINATION_BUTTON_TOOLTIP Mutatja, hová tartanak a megállónál várakozó utasok.
-STOP_PANEL_BORED_TIMER Idő a türelmetlenségig: <color #{0}>{1}</color>
-STOP_PANEL_BORED_TIMER_TOOLTIP Az utasok elhagyják a megállót, ha a visszaszámlálás nullára ér.
-STOP_PANEL_PASSENGERS_IN Felszállók:
-STOP_PANEL_PASSENGERS_IN_TOOLTIP Itt felszálló utasok.
-STOP_PANEL_PASSENGERS_OUT Leszállók:
-STOP_PANEL_PASSENGERS_OUT_TOOLTIP Itt leszálló utasok.
-STOP_PANEL_PASSENGERS_TOTAL Összesen:
-STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Itt kiszolgált utasok összesen.
-STOP_PANEL_UNBUNCHING_TOOLTIP Bekapcsolja vagy kikapcsolja a csoportosulásgátlást ennél a megállónál.\nA gátlás ki van kapcsolva, ha az agresszivitás 0.
-STOP_PANEL_UPDATE_CLOSE_STOPS Közeli megállók frissítése
-STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Állítsa be a csoportosulásgátlás állapotát az összes többi megállóra ezen az állomáson / pozíción.
-STOP_PANEL_PREVIOUS Előző megálló
-STOP_PANEL_PREVIOUS_TOOLTIP Ugrás az előző megállóra.\nShift nyomva tartása kattintáskor ráközelít is.
-STOP_PANEL_DELETE_STOP Megálló törlése
-STOP_PANEL_DELETE_STOP_TOOLTIP Ez a gomb aktív, amíg az Alt billentyűt nyomva tartja.\nSaját felelősségre használja!!!
-STOP_PANEL_NEXT Következő megálló
-STOP_PANEL_NEXT_TOOLTIP Ugrás a következő megállóra.\nShift nyomva tartása kattintáskor ráközelít is.
-STOP_BUTTON_TOOLTIP {0}\nKattintson a megállóra ugráshoz.\nShift nyomva tartása kattintáskor ráközelít is.\nAlt nyomva tartása kattintáskor megakadályozza a megállóinfó panel megnyitását.
-SETTINGS_DELETE Törlés
-SETTINGS_RESET Visszaállítás
-SETTINGS_TAB_GENERAL Általános
-SETTINGS_ADVANCED_LINKS_GROUP Hivatkozások
-SETTINGS_GITHUB_REPO Forráskód a GitHubon
+LINE_PANEL_NO_DEPOT_FOUND Nem talÃ¡lhatÃ³ telephely.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP UgrÃ¡s a kivÃ¡lasztott telephelyre.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+LINE_PANEL_SELECT_TYPES TÃ­pusok kivÃ¡lasztÃ¡sa
+LINE_PANEL_SELECT_TYPES_TOOLTIP VÃ¡ltja a â€žTÃ­pusok kivÃ¡lasztÃ¡saâ€ panelt.\nHa a gomb inaktÃ­v, elÅ‘bb vÃ¡lasszon telephelyet.
+LINE_PANEL_LINE_STOPS VonalmegÃ¡llÃ³k
+LINE_PANEL_LINE_VEHICLES JÃ¡rmÅ±vek ezen a vonalon
+LINE_PANEL_ENQUEUED Sorban Ã¡llÃ³ jÃ¡rmÅ±vek
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} utas vÃ¡r ezen a vonalon.
+LINE_PANEL_ADD_VEHICLE JÃ¡rmÅ± hozzÃ¡adÃ¡sa
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Ãšj jÃ¡rmÅ±vet ad a vonalhoz.\nHa a gomb inaktÃ­v, a kivÃ¡lasztott telephelyen nincs tÃ¶bb jÃ¡rmÅ±.
+LINE_PANEL_REMOVE_VEHICLE JÃ¡rmÅ± eltÃ¡volÃ­tÃ¡sa
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Küldje vissza a kiválasztott járművet a telephelyére/garázs. Csökkenti a vonal céljármúszámát.
+STOP_LIST_BOX_ROW_STOP MegÃ¡llÃ³ #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nVÃ¡rÃ³ utasok: {1}\nJobb kattintÃ¡s a megÃ¡llÃ³ra ugrÃ¡shoz.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Javasolt megÃ¡llÃ³nevek listÃ¡ja.
+STOP_PANEL_REUSE_NAME_TOOLTIP ÃllÃ­tsa be ezt a nevet az Ã¶sszes tÃ¶bbi megÃ¡llÃ³ra ezen az Ã¡llomÃ¡son / pozÃ­ciÃ³n.
+STOP_PANEL_WAITING_PEOPLE VÃ¡rÃ³ utasok: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Utas cÃ©lÃ¡llomÃ¡sa
+COMMUTER_DESTINATION_HEADER LegnÃ©pszerÅ±bb cÃ©lok:
+COMMUTER_DESTINATION_NONE Jelenleg senki sem vÃ¡r itt.
+COMMUTER_DESTINATION_LOADING SzÃ¡mÃ­tÃ¡s...
+COMMUTER_DESTINATION_BUTTON CÃ©lok
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Mutatja, hovÃ¡ tartanak a megÃ¡llÃ³nÃ¡l vÃ¡rakozÃ³ utasok.
+COMMUTER_STOP_WITH_WAITING {0} ({1} vár)
+STOP_PANEL_BORED_TIMER IdÅ‘ a tÃ¼relmetlensÃ©gig: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Az utasok elhagyjÃ¡k a megÃ¡llÃ³t, ha a visszaszÃ¡mlÃ¡lÃ¡s nullÃ¡ra Ã©r.
+STOP_PANEL_PASSENGERS_IN FelszÃ¡llÃ³k:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Itt felszÃ¡llÃ³ utasok.
+STOP_PANEL_PASSENGERS_OUT LeszÃ¡llÃ³k:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Itt leszÃ¡llÃ³ utasok.
+STOP_PANEL_PASSENGERS_TOTAL Ã–sszesen:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Itt kiszolgÃ¡lt utasok Ã¶sszesen.
+STOP_PANEL_UNBUNCHING_TOOLTIP Bekapcsolja vagy kikapcsolja a csoportosulÃ¡sgÃ¡tlÃ¡st ennÃ©l a megÃ¡llÃ³nÃ¡l.\nA gÃ¡tlÃ¡s ki van kapcsolva, ha az agresszivitÃ¡s 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS KÃ¶zeli megÃ¡llÃ³k frissÃ­tÃ©se
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP ÃllÃ­tsa be a csoportosulÃ¡sgÃ¡tlÃ¡s Ã¡llapotÃ¡t az Ã¶sszes tÃ¶bbi megÃ¡llÃ³ra ezen az Ã¡llomÃ¡son / pozÃ­ciÃ³n.
+STOP_PANEL_PREVIOUS ElÅ‘zÅ‘ megÃ¡llÃ³
+STOP_PANEL_PREVIOUS_TOOLTIP UgrÃ¡s az elÅ‘zÅ‘ megÃ¡llÃ³ra.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+STOP_PANEL_DELETE_STOP MegÃ¡llÃ³ tÃ¶rlÃ©se
+STOP_PANEL_DELETE_STOP_TOOLTIP Ez a gomb aktÃ­v, amÃ­g az Alt billentyÅ±t nyomva tartja.\nSajÃ¡t felelÅ‘ssÃ©gre hasznÃ¡lja!!!
+STOP_PANEL_NEXT KÃ¶vetkezÅ‘ megÃ¡llÃ³
+STOP_PANEL_NEXT_TOOLTIP UgrÃ¡s a kÃ¶vetkezÅ‘ megÃ¡llÃ³ra.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+STOP_BUTTON_TOOLTIP {0}\nKattintson a megÃ¡llÃ³ra ugrÃ¡shoz.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.\nAlt nyomva tartÃ¡sa kattintÃ¡skor megakadÃ¡lyozza a megÃ¡llÃ³infÃ³ panel megnyitÃ¡sÃ¡t.
+SETTINGS_DELETE TÃ¶rlÃ©s
+SETTINGS_RESET VisszaÃ¡llÃ­tÃ¡s
+SETTINGS_TAB_GENERAL ÃltalÃ¡nos
+SETTINGS_ADVANCED_LINKS_GROUP HivatkozÃ¡sok
+SETTINGS_GITHUB_REPO ForrÃ¡skÃ³d a GitHubon
 SETTINGS_TAB_AUTOLINE Auto vonal
-SETTINGS_TAB_STOPS Megállók és állomások
-SETTINGS_TAB_UNBUNCHING Csoportosulásgátlás
-SETTINGS_TAB_DELETE Vonalak törlése
-SETTINGS_TAB_FLEET Flotta és ütemezés
-SETTINGS_TAB_BUDGET Költségvetés és árak
-SETTINGS_TAB_LINECOLORS Vonalszínek
-SETTINGS Beállítások
-SETTINGS_SPEED Sebesség megjelenítése: 
-SETTINGS_SPEED_TOOLTIP Válassza ki a sebesség megjelenítési egységét a felületen.
-SETTINGS_GAMEPLAY_PROFILE Játékmenet-profil
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Egyszerre alkalmaz egy beállítás-csomagot. Biztonságos (alapértelmezett) mindent kikapcsol a maximális kompatibilitásért. Vanilla a sima játékot követi. Ajánlott csak az IPT magot kapcsolja be (költségvetés flottakezelés, csoportosulásgátlás, távolsági busz, alépítmény-fülek, unstucker, haladó megállóválasztás, emelt megállók). Realisztikus a legtöbb integrációt. Egyéni soha nem kaszkádol - minden kapcsolót te kezelsz.
-SETTINGS_GAMEPLAY_PROFILE_CUSTOM Egyéni
-SETTINGS_GAMEPLAY_PROFILE_SAFE Biztonságos (minden ki)
+SETTINGS_TAB_STOPS MegÃ¡llÃ³k Ã©s Ã¡llomÃ¡sok
+SETTINGS_TAB_UNBUNCHING CsoportosulÃ¡sgÃ¡tlÃ¡s
+SETTINGS_TAB_DELETE Vonalak tÃ¶rlÃ©se
+SETTINGS_TAB_FLEET Flotta Ã©s Ã¼temezÃ©s
+SETTINGS_TAB_BUDGET KÃ¶ltsÃ©gvetÃ©s Ã©s Ã¡rak
+SETTINGS_TAB_LINECOLORS VonalszÃ­nek
+SETTINGS BeÃ¡llÃ­tÃ¡sok
+SETTINGS_SPEED SebessÃ©g megjelenÃ­tÃ©se: 
+SETTINGS_SPEED_TOOLTIP VÃ¡lassza ki a sebessÃ©g megjelenÃ­tÃ©si egysÃ©gÃ©t a felÃ¼leten.
+SETTINGS_GAMEPLAY_PROFILE JÃ¡tÃ©kmenet-profil
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Egyszerre alkalmaz egy beÃ¡llÃ­tÃ¡s-csomagot. BiztonsÃ¡gos (alapÃ©rtelmezett) mindent kikapcsol a maximÃ¡lis kompatibilitÃ¡sÃ©rt. Vanilla a sima jÃ¡tÃ©kot kÃ¶veti. AjÃ¡nlott csak az IPT magot kapcsolja be (kÃ¶ltsÃ©gvetÃ©s flottakezelÃ©s, csoportosulÃ¡sgÃ¡tlÃ¡s, tÃ¡volsÃ¡gi busz, alÃ©pÃ­tmÃ©ny-fÃ¼lek, unstucker, haladÃ³ megÃ¡llÃ³vÃ¡lasztÃ¡s, emelt megÃ¡llÃ³k). Realisztikus a legtÃ¶bb integrÃ¡ciÃ³t. EgyÃ©ni soha nem kaszkÃ¡dol - minden kapcsolÃ³t te kezelsz.
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe â€” everything optional stays OFF (best with many mods).\nâ˜… Vanilla â€” closest to the base game (no IPT extras).\nâ˜… Recommended â€” IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic â€” most features on (stronger sim, more cost).\nâ˜… Custom â€” you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM EgyÃ©ni
+SETTINGS_GAMEPLAY_PROFILE_SAFE BiztonsÃ¡gos (minden ki)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
-SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Ajánlott (IPT mag)
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED AjÃ¡nlott (IPT mag)
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realisztikus
-SETTINGS_SPEED_KPH km/h
-SETTINGS_SPEED_MPH mph
-SETTINGS_WALKING_SPEED Gyalogos/kerékpáros sebesség: 
-SETTINGS_WALKING_SPEED_TOOLTIP Alap: az alapjáték sebességei.\nRealisztikus: a gyaloglási sebességet realisztikus, korhoz kötött értékekre csökkenti.\nA Realisztikus az After Dark DLC-vel a kerékpározást is lassítja.
-SETTINGS_WALKING_SPEED_MODE_VANILLA Alap
-SETTINGS_WALKING_SPEED_MODE_REALISTIC Realisztikus
-SETTINGS_BBSP Jobb buszmegálló-pozíció: 
-SETTINGS_BBSP_TOOLTIP Kikapcsolva: nincs pozícióállítás.\nBekapcsolva: a buszok a megálló elején állnak meg középen helyett.
-SETTINGS_BBSP_MODE_DISABLED Kikapcsolva
-SETTINGS_BBSP_MODE_ORIGINAL Bekapcsolva
-SETTINGS_BBSP_MODE_UPDATED Kísérleti logika használata
-SETTINGS_BUDGET Költségvetés
-SETTINGS_ENABLE_BUDGET_CONTROL Vonal költségvetés-vezérlés:
-SETTINGS_BUDGET_CONTROL_DISABLED Kikapcsolva
-SETTINGS_BUDGET_CONTROL_ENABLED Bekapcsolva
-SETTINGS_BUDGET_CONTROL_TOOLTIP Bekapcsolva a közlekedési vonalak járműszámát a költségvetés szabályozza; frissíti az összes meglévő vonalat és üríti a sorban álló járműveket.
-SETTINGS_BUDGET_TICKET_PRICES Jegyár-testreszabó:
-SETTINGS_BUDGET_TICKET_PRICES_DISABLED Kikapcsolva
-SETTINGS_BUDGET_TICKET_PRICES_ENABLED Bekapcsolva
-SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Bekapcsolva új fület ad a Gazdaság panelhez csúszkákkal minden közlekedési típus jegyárához.
-SETTINGS_AUTO_LINE_BUDGET Automatikus flottaméret:
-SETTINGS_AUTO_LINE_BUDGET_DISABLED Kikapcsolva
-SETTINGS_AUTO_LINE_BUDGET_ENABLED Bekapcsolva
-SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Bekapcsolva a költségvetés módban lévő vonalak automatikusan a valós utasigényhez igazítják a járműszámot a vanilla költségvetés-csúszka helyett. A Kézi vonalakat soha nem érinti.
-SETTINGS_AUTO_LINE Auto vonal
-SETTINGS_AUTOSHOW_LINE_INFO Vonalinfó panel automatikus megnyitása
-SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Automatikusan megjeleníti a vonalinfó panelt új vonal létrehozása után.
-AUTOLINECOLOR_STRATEGY_DISABLED Kikapcsolva
-AUTOLINECOLOR_STRATEGY_RANDOM_HUE Véletlen árnyalat
-AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Véletlen szín
-AUTOLINECOLOR_STRATEGY_CATEGORISED Kategorizált
-AUTOLINECOLOR_STRATEGY_NAMED Elnevezett színek
-AUTOLINECOLOR_NAMING_DISABLED Kikapcsolva
-AUTOLINECOLOR_NAMING_DISTRICTS Kerületek
-AUTOLINECOLOR_NAMING_LONDON London
-AUTOLINECOLOR_NAMING_ROADS Utak
-AUTOLINECOLOR_NAMING_COLORS Elnevezett színek
-AUTOLINECOLOR_COLOR_STRATEGY Színstratégia:
-AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Hogyan kapnak színeket az új vonalak:\n'Véletlen árnyalat' = azonos telítettség/fényerő, különböző árnyalatok;\n'Véletlen szín' = teljesen véletlen RGB;\n'Kategorizált' = szín a járműtípus szerint;\n'Elnevezett színek' = előre definiált színpaletta.
-AUTOLINECOLOR_NAMING_STRATEGY Névstratégia:
-AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Hogyan kapnak neveket az új vonalak:\n'Nincs' = nincs automatikus névadás;\n'Kerületek' = a kiszolgált kerületek alapján;\n'London' = számozott járatok (London Buses stílus);\n'Utak' = utcanevek alapján;\n'Elnevezett színek' = színnevek alapján.
-AUTOLINECOLOR_MIN_COLOR_DIFF Minimális színkülönbség (%):
-AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimális színkülönbség százalék véletlen színek választásakor.
-AUTOLINECOLOR_MAX_COLOR_PICK Maximális próbálkozások:
-AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximális próbálkozás megkülönböztethető szín választására.
-SETTINGS_UI Felület beállítások
-SETTINGS_VEHICLE_EDITOR_POSITION Járműszerkesztő pozíció: 
-SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Válassza ki, hogy a járműszerkesztő panel alul vagy jobbra jelenjen meg.
-SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Alul
-SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Jobb
-SETTINGS_VEHICLE_EDITOR_HIDE Járműszerkesztő elrejtése
-SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Elrejti a járműszerkesztőt a járműpanelekről.
-SETTINGS_STOPS Tömegközlekedési megállók
-SETTINGS_STOPSANDSTATIONS_DESCRIPTION Hány utas várakozhat egy megállónál szállítási típusonként, mielőtt tele lenne. Magasabb értékek csökkentik a zsúfoltsági panaszokat forgalmas megállóknál, kevésbé realisztikus sorméret árán.
-SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Minden fenti utaskorlát visszaállítása az alapértelmezett értékekre.
-SETTINGS_ENABLE_STOPS_AND_STATIONS Megállók és állomások engedélyezése
-SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Állítsa be, hány lakos várakozhat tömegközlekedésre a megállóknál és állomásokon. Konfigurálja a Megállók fülön.
-SETTINGS_STOPSANDSTATIONS_ENABLE Megállók és állomások engedélyezése
-SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Utaskorlát érvényesítésének be- vagy kikapcsolása a megállóknál.
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximális várakozó utasok egy vonali megállónál:
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Helyi busz
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximális várakozó utasok helyi buszmegállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Trolibusz
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximális várakozó utasok trolibusz-megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Evakuációs busz
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximális várakozó utasok evakuációs buszmegállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Kirándulóbusz
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximális várakozó utasok kirándulóbusz-megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Villamos
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximális várakozó utasok villamosmegállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metró
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximális várakozó utasok metróállomáson
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Vonat
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximális várakozó utasok vasútállomáson
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Egysínű
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximális várakozó utasok egysínű megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Hajó
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximális várakozó utasok teherszállító kikötőben
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Komp
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximális várakozó utasok komp-megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Repülő
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximális várakozó utasok repülőterminálon
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Kábelfüggő
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximális várakozó utasok kábelfüggő-megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Hőlégballon
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximális várakozó utasok hőlégballon-megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximális várakozó utasok helikopter-megállónál
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Léghajó
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximális várakozó utasok léghajó-megállónál
-SETTINGS_UNBUNCHING Csoportosulásgátlás
-SETTINGS_UNBUNCHING_AGGRESSION Csoportosulásgátlás agresszivitása:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Mennyire erősen hat a csoportosulásgátlás?\nLehetséges értékek: 0–52. A 0 kikapcsolja.\nMagasabb értékek erősen befolyásolják a forgalmat, és a járművek eltűnhetnek.
-SETTINGS_VEHICLE_COUNT Járművek új vonalakon:
-SETTINGS_VEHICLE_COUNT_TOOLTIP Az új vonalakhoz automatikusan hozzáadott járművek száma, ha a vonal költségvetés-vezérlés ki van kapcsolva.
-SETTINGS_SPAWN_TIME_INTERVAL Megjelenési időköz:
-SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Idő másodpercben a járművek megjelenése között.
-SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Minden csúszkát visszaállít az alapértelmezettre.
-UNBUNCHING_ENABLED Jármű-csoportosulásgátlás
-UNBUNCHING_DISABLED A csoportosulásgátlás ki van kapcsolva.
-UNBUNCHING_TARGET_GAP Célrés: {0}
-SETTINGS_EBS_GROUP_BUS Gyorsbusz-szolgáltatások
-SETTINGS_EBS_GROUP_TRAM Gyorsvillamos-szolgáltatások
-SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Gyorsbusz: 
-SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Kikapcsolva' = A buszok a fenti csoportosulásgátlást használják.\n'Óvatos' = Röviden megáll, ellenőrzi az utasokat, üresen is indulhat.\n'Agresszív' = Teljesen kihagyja a megállókat, ha senki sem vár.
-SETTINGS_EBS_ENABLE_SELFBAL Szolgáltatás önkiegyensúlyozásának bekapcsolása
-SETTINGS_EBS_DESC_SELFBAL A gyorsbusz-szolgáltatás újraoszthatja a járműveket a vonalon a forgalmasabb szakaszok javára és a várakozási idők csökkentésére.
-SETTINGS_EBS_TOOLTIP_SELFBAL Elemzi a vonalszakaszokat, és járműveket helyezhet át forgalmasabb szakaszokra vagy végállomásokra az egyenletesebb szolgáltatásért.\nA döntések valószínűségiek, az utasszámoktól és az áthelyezési esélyektől függenek.
-SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Önkiegyensúlyozás a vonal középső megállóira
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID Az önkiegyensúlyozás forgalmas középső megállót is választhat, nem csak végállomást, járműáthelyezéskor.
-SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Engedélyezi, hogy az önkiegyensúlyozó forgalmas középső megállóra helyezzen járműveket (végállomás helyett).\nCsak akkor jön szóba, ha a legforgalmasabb megállón több mint 30 utas vár, majd ~50% eséllyel választódik, az összes áthelyezési esély mellett.
-SETTINGS_EBS_ENABLE_MINIBUS Minibusz mód bekapcsolása
-SETTINGS_EBS_DESC_MINIBUS A kisebb kapacitású buszok korábban indulnak, ha csak kevés utas száll fel vagy le.
-SETTINGS_EBS_TOOLTIP_MINIBUS A ≤20 kapacitású buszok korábban indulhatnak, ha a felszálló + leszálló utasok ≤5.
-SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Gyorsvillamos: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Kikapcsolva' = A villamosok a fenti csoportosulásgátlást használják.\n'Könnyűvasút' = Minden megállónál megáll, mindig a teljes időt várja (szigorú fegyelem).\n'Igazi villamos' = Csak akkor áll meg, ha utasok szállnak fel/le.
-SETTINGS_EBS_MODE_NONE Kikapcsolva
-SETTINGS_EBS_MODE_AGGRESSIVE Agresszív
-SETTINGS_EBS_MODE_PRUDENTIAL Óvatos
-SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Könnyűvasút mód
-SETTINGS_EBS_TRAM_MODE_NONE Kikapcsolva
-SETTINGS_EBS_TRAM_MODE_TRAM Igazi villamos mód
-SETTINGS_PTU_GROUP Beragadt utasok felszabadítása
-SETTINGS_PTU_ENABLE Beragadt utasok eltávolítása
-SETTINGS_PTU_TOOLTIP Automatikusan eltávolítja a felszállás közben beragadt utasokat, így a jármű rendesen indulhat, és elkerülhetők a befagyott indulások.
-SETTINGS_LINE_DELETION_TOOL Vonal törlő eszköz
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Jelölje be az alábbi közlekedési típusokat, majd nyomja meg a Törlés gombot az összes ilyen típusú vonal eltávolításához a jelenlegi városból. A kiválasztás ideiglenes - mindig üresen indul, és törlés után törlődik; nem mentődik beállításként.
-SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Törli a kiválasztott típusok összes vonalát. Csak betöltött városnál működik.
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE VONALTÖRLÉS MEGERŐSÍTÉSE
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Összes vonal törlésére készül.\nFolytatja?
-SETTINGS_DELETE_BUS_TOOLTIP Törli az összes rendes buszjáratot.
-SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Kirándulóbuszok
-SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Törli az összes kirándulóbusz-járatot.
-SETTINGS_DELETE_TRAM_TOOLTIP Törli az összes villamosjáratot.
-SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Törli az összes trolibuszjáratot.
-SETTINGS_DELETE_TRAIN_TOOLTIP Törli az összes vonatjáratot.
-SETTINGS_DELETE_METRO_TOOLTIP Törli az összes földalatti metrójáratot.
-SETTINGS_DELETE_MONORAIL_TOOLTIP Törli az összes egysínű járatot.
-SETTINGS_DELETE_FERRY_LABEL Kompok
-SETTINGS_DELETE_SHIP_TOOLTIP Törli az összes kompjáratot.
-SETTINGS_DELETE_HELICOPTER_LABEL Helikopterek
-SETTINGS_DELETE_HELICOPTER_TOOLTIP Törli az összes helikopterjáratot.
-SETTINGS_DELETE_BLIMP_LABEL Léghajók
-SETTINGS_DELETE_BLIMP_TOOLTIP Törli az összes léghajójáratot.
-VEHICLE_EDITOR_TITLE Járműszerkesztő
-VEHICLE_EDITOR_SUB_TITLE {0} jármű
-VEHICLE_EDITOR_CAPACITY Utas kapacitás
-VEHICLE_EDITOR_CAPACITY_TAXI Utazási kapacitás
-VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Utasok száma műszakonként.
-VEHICLE_EDITOR_MAINTENANCE Karbantartási költség
-VEHICLE_EDITOR_MAX_SPEED Max. sebesség
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Vonatmotor mindkét végén
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Bekapcsolja vagy kikapcsolja a vonatmotorokat a vonat mindkét végén.
-VEHICLE_EDITOR_APPLY Alkalmaz
-VEHICLE_EDITOR_DEFAULT Alapértelmezett
-VEHICLE_LIST_BOX_ROW_TOOLTIP1 Jobb kattintás a jármű követéséhez.\nShift nyomva tartása kattintáskor ráközelít is.
-VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + kattintás a jármű sorba állításához.
-VEHICLE_PANEL_EDIT_TYPE Járműtípus szerkesztése
-VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Szerkessze ezt a járműtípust a Járműszerkesztővel.
-VEHICLE_PANEL_STATUS_NEXT_STOP Következő megálló:
-VEHICLE_PANEL_STATUS_UNBUNCHING Csoportosulásgátlás folyamatban
-VEHICLE_PANEL_LAST_STOP_EXCHANGE Utaskereskedelem az utolsó megállón: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
-VEHICLE_PANEL_PASSENGERS Utasok:
-VEHICLE_PANEL_EARNINGS Bevétel:
-VEHICLE_PANEL_EARNINGS_TOOLTIP A jegyeladás eredménye mínusz a jármű karbantartási költsége.
-VEHICLE_PANEL_PREVIOUS Előző jármű
-VEHICLE_PANEL_PREVIOUS_TOOLTIP Ugrás az előző járműre.\nShift nyomva tartása kattintáskor ráközelít is.
-VEHICLE_PANEL_REMOVE_VEHICLE Jármű eltávolítása
-VEHICLE_PANEL_NEXT Következő jármű
-VEHICLE_PANEL_NEXT_TOOLTIP Ugrás a következő járműre.\nShift nyomva tartása kattintáskor ráközelít is.
-VEHICLE_SELECTION_CAPACITY Kapacitás
-VEHICLE_SELECTION_ADD_VEHICLE Adja hozzá ezt a járművet az engedélyezett járművek listájához
-VEHICLE_SELECTION_ADD_ALL Adja hozzá az összes alkalmas járművet az engedélyezett járművek listájához
-VEHICLE_SELECTION_REMOVE_VEHICLE Távolítsa el ezt a járművet az engedélyezett járművek listájáról
-VEHICLE_SELECTION_REMOVE_ALL Távolítsa el az összes járművet az engedélyezett járművek listájáról
-VEHICLE_SELECTION_AVAILABLE_VEHICLES Elérhető járművek
-VEHICLE_SELECTION_SELECTED_VEHICLES Kiválasztott járművek
-VEHICLE_SELECTION_ANY_VEHICLE Bármely jármű
-VEHICLE_BUTTON_TOOLTIP {0}\nKattintson a járműre ugráshoz.\nShift nyomva tartása kattintáskor ráközelít is.\nAlt nyomva tartása kattintáskor megakadályozza a járműinfó panel megnyitását.
-TRANSPORT_LINE_VEHICLECOUNT Járművek száma: {0}
-FLIGHT_TRACKER_NAME Járatkövető
-FLIGHT_STATUS_NONE Nincs
-FLIGHT_STATUS_INCOMING Érkező
-FLIGHT_STATUS_LANDED Leszállt
-FLIGHT_STATUS_AT_GATE Kapunál
-FLIGHT_STATUS_DEPARTED Elindult
-TICKET_PRICE_TAXI_KILOMETER Taxiár kilométerenként: 
-TICKET_PRICE_TAXI_MILE Taxiár mérföldenként: 
-TICKET_PRICE_BUS Buszjegy ára: 
-TICKET_PRICE_INTERCITY_BUS Távolsági buszjegy ára: 
-TICKET_PRICE_METRO Metrójegy ára: 
-TICKET_PRICE_TRAIN Vonatjegy ára: 
-TICKET_PRICE_TRAM Villamosjegy ára: 
-TICKET_PRICE_MONORAIL Egysínű jegy ára: 
-TICKET_PRICE_SHIP Hajójegy ára: 
-TICKET_PRICE_FERRY Kompjegy ára: 
-TICKET_PRICE_PLANE Repülőjegy ára: 
-TICKET_PRICE_CABLECAR Kábelfüggő jegy ára: 
-TICKET_PRICE_SIGHTSEEING_BUS Kirándulóbusz-jegy ára: 
-TICKET_PRICE_TROLLEYBUS Trolibuszjegy ára: 
-TICKET_PRICE_BLIMP Léghajójegy ára: 
-TICKET_PRICE_HELICOPTER Helikopterjegy ára: 
-ECONOMY_TAB_TICKET_PRICES Jegyárak
-ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Jelenlegi összes utasszám ehhez a közlekedési típushoz.
-WHATSNEW_3_0_0_1 Frissítve Race Day-re; most kompatibilis a More Vehicles Renewed-del.
-WHATSNEW_3_0_0_2 A következő modok integrálva lettek az IPT3-ba:\n• Advanced Stop Selection Revisited\n• Auto Line Color Redux\n• Better Bus Stop Position\n• Better Train Boarding\n• Elevated Stops Enabler Revisited\n• Express Bus Services\n• Flight Tracker\n• Intercity Bus Control\n• Mileage Taxi Services\n• Public Transport Unstucker\n• Realistic Walking Speed\n• Stops and Stations\n• Ticket Price Customizer
-WHATSNEW_3_0_1 A Public Transport Unstucker most integrálva van az IPT3-ba.\nLásd a 3.0-s verziót a többi integrált modhoz. Iratkozzon le az eredetikről a konfliktusok elkerüléséhez.
-SETTINGS_TAB_TRAINDISPLAY Vonatkijelző
-SETTINGS_TAB_INTEGRATIONS Integrációk
-SETTINGS_TRAINDISPLAY_GROUP Vonatkijelző átfedés
-SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Állítsa be a támogatott közlekedési járművek követése közben megjelenő integrált átfedést.
-SETTINGS_TRAINDISPLAY_ENABLE Vonatkijelző bekapcsolása
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Az integrált vonatkijelző átfedés be- vagy kikapcsolása.
-SETTINGS_TRAINDISPLAY_MODE_DISABLED Kikapcsolva
-SETTINGS_TRAINDISPLAY_MODE_ENABLED Bekapcsolva
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Átfedés pozíciója:
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Válassza ki, hol jelenjen meg az átfedés a képernyőn.
-SETTINGS_TRAINDISPLAY_POS_TOPLEFT Bal felső
-SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Jobb felső
-SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Bal alsó
-SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Jobb alsó
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Átfedés mérete:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Az átfedés méretének skálázása.
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Átfedés átlátszósága:
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Állítsa be, mennyire átlátszó az átfedés.
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Frissítési időköz:
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Milyen gyakran frissül az átfedés járműkövetés közben.
-SETTINGS_TRAINDISPLAY_SHOW_LINE Vonalnév megjelenítése
-SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP A vonalnév szerepeljen az átfedésben.
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Cél megjelenítése
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP A cél szerepeljen az átfedésben.
-SETTINGS_TRAINDISPLAY_SHOW_STATE Állapot megjelenítése
-SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP A jármű állapota szerepeljen az átfedésben.
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Csak követés közben
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Rejtse el az átfedést, hacsak a kamera ténylegesen nem követ támogatott járművet.
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Csak első személyű kamerában
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Csak első személyű kamera mod használatakor jelenjen meg (pl. First Person Camera - Continued). Ha ki van kapcsolva, bármely kameramódban megjelenik támogatott jármű követésekor.
-SETTINGS_TRAINDISPLAY_THEME Színtéma:
-SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Válassza ki az átfedés háttér-/szövegszíneit.
-SETTINGS_TRAINDISPLAY_THEME_SIMPLE Egyszerű
-SETTINGS_TRAINDISPLAY_THEME_DARK Sötét
-SETTINGS_TRAINDISPLAY_THEME_LIGHT Világos
-SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Eredeti
-SETTINGS_TRAINDISPLAY_THEME_BLUE Kék
-SETTINGS_TRAINDISPLAY_THEME_GREEN Zöld
-SETTINGS_TRAINDISPLAY_THEME_AMBER Borostyán
-COPY_TIP Másolja a vonal beállításait.
-PASTE_TIP Illessze be a másolt vonalbeállításokat.
-COPY_BUILDING_TIP Másolja ezeket a beállításokat az épületet kiszolgáló összes vonalra.
-COPY_DISTRICT_TIP Másolja ezeket a beállításokat a kerület összes vonalára.
-SETTINGS_INTEGRATIONS_GROUP Beépített kiegészítők
-SETTINGS_INTERCITY_BUS_ENABLE Távolsági buszvezérlés bekapcsolása
-SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Bekapcsolja az integrált távolsági busz kompatibilitási réteget és az állomásjavításokat.
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Haladó megállóválasztás bekapcsolása
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Megállókat helyezhet el többvágányos állomások alternatív peronjain/vágányain (tartsa az alternatív mód billentyűt elhelyezéskor). A következő szintbetöltéskor lép életbe.
-SETTINGS_BETTERBOARDING_ENABLE Jobb felszállás bekapcsolása
-SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Javítja a felszállási döntéseket, hogy az utasok a céljukat ténylegesen kiszolgáló járművet válasszák. A következő szintbetöltéskor lép életbe.
-SETTINGS_MILEAGETAXI_ENABLE Kilométeres taxi bekapcsolása
-SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP A taxit a megtett távolság alapján számolja fix díj helyett, így a hosszabb utak többet hoznak. After Dark DLC szükséges. A következő szintbetöltéskor lép életbe.
-SETTINGS_ELEVATEDSTOPS_ENABLE Emelt megállók bekapcsolása
-SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Engedélyezi a tömegközlekedési megállókat emelt utakon/hidakon, és megtartja a közvilágítást azokon a szakaszokon. A következő szintbetöltéskor lép életbe.
-SETTINGS_INTERCITY_BUS_CAPACITY Távolsági terminál kapacitása
-SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Hány járművet fogadhat egyszerre egy távolsági buszterminál.
-SETTINGS_TRAM_DEPOT_CAPACITY Villamos telephely kapacitása
-SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP A vanilla minden villamos telephelyet gyakorlatilag korlátlan 100 000 járműre állít. A Realisztikus és a Közepes mérsékelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglévő viselkedést.
-SETTINGS_TAXI_DEPOT_CAPACITY Taxi telephely kapacitása
-SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP A vanilla minden taxi telephelyet gyakorlatilag korlátlan 100 000 járműre állít. A Realisztikus és a Közepes mérsékelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglévő viselkedést.
-SETTINGS_BUS_DEPOT_CAPACITY Busz telephely kapacitása
-SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP A vanilla minden busz telephelyet (rendes, bioüzemanyag és túrabusz-garázsok) gyakorlatilag korlátlan 100 000 járműre állít. A Realisztikus és a Közepes mérsékelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglévő viselkedést.
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Trolibusz telephely kapacitása
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP A vanilla minden trolibusz telephelyet gyakorlatilag korlátlan 100 000 járműre állít. A Realisztikus és a Közepes mérsékelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglévő viselkedést.
-SETTINGS_FERRY_DEPOT_CAPACITY Komp telephely kapacitása
-SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP A vanilla minden komp telephelyet gyakorlatilag korlátlan 100 000 járműre állít. A Realisztikus és a Közepes mérsékelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglévő viselkedést.
-SETTINGS_DEPOT_CAPACITY_DISABLED Kikapcsolva (korlátlan)
-SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Közepes
-SETTINGS_DEPOT_CAPACITY_REALISTIC Realisztikus
-SETTINGS_FLIGHTTRACKER_ENABLE Járatkövető bekapcsolása
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Bekapcsolja az integrált járatkövető javításokat és a felület támogatását.
-SETTINGS_SUBBUILDINGSTABS_ENABLE Alépítmény-fülek bekapcsolása
-SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Fülsort jelenít meg egy épület infopaneljén, ha alépítményei vannak (pl. repülőtér beépített metróállomással), így váltani lehet közöttük.
-SETTINGS_TAXISTANDFIX_ENABLE Taxidállás javítás bekapcsolása
-SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP A tétlen taxikat a legközelebbi taxidálláshoz küldi ahelyett, hogy véletlenszerűen kóborolnának. After Dark DLC szükséges.
-SETTINGS_SHAREDSTOPENABLER_ENABLE Megosztott megállók bekapcsolása
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Egynél több közlekedési típus (busz, villamos, trolibusz) megállhat ugyanazon az útszakaszon. Alapból ki - a mod GitHubján látható, mit hagy ki ez a csökkentett verzió.
-SETTINGS_COMMUTERDESTINATION_ENABLE Utas célállomás bekapcsolása (újratervezés folyamatban)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Átmenetileg nem elérhető: a korábbi panel megkettőzte a megállóinfó UI-t, és az újratervezésig kényszerítve ki van kapcsolva. A jelölőnégyzet nem kapcsolja vissza.
-SETTINGS_OOC_ENABLE Optimalizált külső kapcsolatok
-SETTINGS_OOC_ENABLE_TOOLTIP A teher-vonatok, repülők és hajók tovább várnak teltebb rakományra a külső kapcsolatoknál indulás előtt.
-SETTINGS_OOC_WAIT_MULTIPLIER Várakozási szorzó
-SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Mennyivel tovább vár a vanilla-nál a teltebb rakományra. Magasabb értékek kevesebb, de teltebb utat jelentenek.
-SETTINGS_OOC_PASSENGER_SCOPE Utas várakozás hatóköre
-SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Hol érvényes a fenti várakozási szorzó a tömegközlekedésre váró lakosokra. Csak külső kapcsolatok csak a külső kapcsolatnál várókat érinti; városi szintű a szokásos belföldi várakozást is lassítja minden lakosnál (a forrásmod tényleges viselkedése szerint).
-SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Csak külső kapcsolatok
-SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Városi szintű
-SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Kikapcsolva (vanilla)
-SETTINGS_OOC_DISABLE_DUMMY Dekoratív átmenő forgalom kikapcsolása
-SETTINGS_OOC_DISABLE_DUMMY_ROAD Dekoratív közúti forgalom kikapcsolása
-SETTINGS_OOC_DISABLE_DUMMY_TRAIN Dekoratív vonatforgalom kikapcsolása
-SETTINGS_OOC_DISABLE_DUMMY_PLANE Dekoratív légiforgalom kikapcsolása
-SETTINGS_OOC_DISABLE_DUMMY_SHIP Dekoratív hajóforgalom kikapcsolása
-SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP A külső kapcsolatok általában extra dekoratív forgalmat indítanak, amely soha nem lép be ténylegesen a városba, csak a látványért. Kikapcsolása eltávolítja ezt a forgalmat a valós import/export/utasáramlás érintése nélkül.
-SETTINGS_UOC_ENABLE Korlátlan külső kapcsolatok
-SETTINGS_UOC_ENABLE_TOOLTIP Eltávolítja a vanilla 4-kapcsolatos korlátot utakra, vágányokra, hajó- és repülőútvonalakra, és visszamenőleg összeköti a közlekedési vonalakat, ha új kapcsolat épül meglévő állomás közelében. A következő szintbetöltéskor lép életbe.
-SETTINGS_STTAI_ENABLE Egyvágányú vonat ütközéselkerülés
-SETTINGS_STTAI_ENABLE_TOOLTIP Egyvágányú szakaszt egyszerre egy vonatnak tart fenn, a szembejövő vonatot a bejáratnál tartja, amíg a szakasz szabad. Eredeti IPT4 funkció, nincs a vanillában és egyetlen abszorbeált modban sem.
-SETTINGS_STOPSTACKER_ENABLE Buszmegálló-állás egymásra rakása
-SETTINGS_STOPSTACKER_ENABLE_TOOLTIP A második/harmadik, ugyanarra a megállóra érkező busz a saját állását használhatja hátrébb a megállósávon, ahelyett hogy egy sorban állna a vezető busz mögött, így több busz is rakodhat egyszerre. Eredeti IPT4 funkció (egyszerűsített clean-room újraimplementáció), nincs a vanillában és egyetlen abszorbeált modban sem.
-CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
-CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
-CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
-CHANGELOG_4_3_1_2 Filled in 38 translation keys that existed only in English and Portuguese - every other language (Arabic, Bengali, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Russian, Urdu and all Chinese variants) was silently falling back to English for the whole Train Display section, the Delete Lines description and the three Express Bus descriptions.
-CHANGELOG_4_3_1_3 Added 4 copy/paste tooltip keys that were missing from every language file including English, so they would have rendered as raw keys ("COPY_TIP") once those buttons are re-enabled.
-CHANGELOG_4_3_0_1 Added Train Display Updated: a small on-screen overlay showing line/destination/state while following a supported vehicle. Configurable in Options: screen position, size, opacity, which fields show, update frequency, whether it's restricted to first-person camera mods, and a Simple/Dark/Light color theme.
-CHANGELOG_4_3_0_2 Fixed several build errors in the new Train Display integration: an ambiguous Utils reference, two APIs that don't exist on this game version (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), and Enum.HasFlag usage - which doesn't exist on .NET Framework 3.5, this mod's target framework, and had to be replaced with manual bitwise checks.
-CHANGELOG_4_2_4_1 Fixed the mod always showing "Compatibility with Game Version: 0.0.0" - we never declared a supported game version range. Now set to 1.21.1-f9 and up.
-CHANGELOG_4_2_4_2 Fixed the AutoLineColor color-strategy dropdown showing raw enum names (e.g. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") instead of translated text: the code generated a key with no underscore while the translation file used one. Also reordered the section so the two dependent sliders sit right under the color-strategy dropdown they belong to, instead of after the unrelated naming dropdown.
-CHANGELOG_4_2_4_3 Renamed the tram unbunching modes to match the bus ones (Disabled/Prudent/Realistic) instead of "Light Rail"/"Real Tram", and translated the last bits of English text left in the Portuguese description.
-CHANGELOG_4_2_4_4 Fixed checkbox descriptions never rendering anywhere in the panel whenever no header text was set (which is every checkbox in this mod) - the layout code only positioned the description label if a header label existed too, even though the description was already being created and populated with text.
-CHANGELOG_4_2_4_5 Fixed Options tab captions getting cut off (especially in Portuguese, which runs longer than English) - tabs now wrap to a second line instead of clipping.
-CHANGELOG_4_2_4_6 Fixed the Reset buttons (Unbunching, Ticket Prices) changing the underlying settings immediately but not updating the sliders already on screen, so it looked like nothing happened until reopening Options.
-CHANGELOG_4_2_4_7 Fixed the Delete Lines tool's checkboxes persisting as saved settings instead of resetting after use - they were accidentally wired to ModSetting like a real preference, when this is meant to be a one-shot "pick types, click Delete" action.
-CHANGELOG_4_2_3_1 Fixed every mod translation showing up as the raw key (e.g. "SETTINGS_SPEED:0") in every language: our own translation loader still matched the plugin by the old ImprovedPublicTransportMod type instead of Mod (the class that's actually IUserMod since the CSLModsCommon migration), so it never found the mod folder and never loaded any Translations/*.txt file. Also hardened the vanilla-locale fallback so it no longer mistakes Colossal's "key:0" not-found marker for a real translation.
-CHANGELOG_4_2_3_2 Removed the always-empty "Key Bindings" tab from Options - this mod has no key bindings to configure.
-CHANGELOG_4_2_3_3 Sliders in Options now show their current value again (lost in the CSLModsCommon migration - the new slider control doesn't display it by default).
-CHANGELOG_4_2_3_4 Fixed the AutoLineColor "min color difference" and "max color pick attempts" sliders staying interactive even when the color strategy is set to Disabled or Categorised (neither of which uses those settings).
-CHANGELOG_4_2_0_1 Added Rescue Fullwidth Digits: normalizes fullwidth digits in custom transport line names back to regular ASCII digits, fixing a display/sorting quirk from some non-Latin keyboard inputs.
-CHANGELOG_4_2_0_2 Added a dedicated Ticket Prices tab to the Options panel, so day/night fare multipliers can be tuned without opening the in-game Economy panel.
-CHANGELOG_4_2_0_3 Fixed the Rescue Fullwidth Digits patch only ever being applied once at mod startup while being undone on every level unload, silently disabling it for every save after the first one loaded in a session.
-CHANGELOG_4_2_0_4 Fixed a taxi-fare integer-overflow bug (MileageTaxiServices) that could drain the public transport budget by billions in one step: a taxi with corrupted or uninitialized frame data (e.g. right after spawning) could compute an implausibly large per-frame distance, overflowing the fare's cast to int into a huge garbage value - this matches a known unresolved issue reported upstream (runaway negative taxi income). Now implausible frame distances are discarded instead of being charged.
-CHANGELOG_4_1_5_1 Fixed the real cause of the blank/black Options panel: CSLModsCommon's own UI strings (Version/Changelog/etc.) live in a physical Localization/Common folder next to the DLL that our build never deployed. Without it, the framework's LocalizationManager silently gave up, leaving CurrentLocaleSource null and crashing OptionsPanelBase.Awake() with a NullReferenceException the instant it tried to show the translation-progress label - which Unity swallows silently, aborting the panel mid-build. Now the .csproj deploys that folder, and GetTranslationProgress() no longer throws if it's ever missing again.
-CHANGELOG_4_1_4_1 Fixed the Options panel showing up blank/black: the panel was only ever built when the game toggled the settings container's visibility off and on, but it's usually already visible when the game opens this mod's page, so the panel never got created. Now it also builds immediately if the container is already visible.
-CHANGELOG_4_1_4_2 Fixed every CSLModsCommon UI texture (background, icons, toggles) failing to load and falling back to a placeholder: the project's RootNamespace was still "ImprovedPublicTransport3" from the original IPT3 fork, so embedded resources were compiled under the wrong name and never matched at runtime.
-CHANGELOG_4_1_3_1 Fixed three settings-save bugs left over from the CSLModsCommon migration (What's New dismissal, Options Reset button, per-hour ticket price editor): each wrote the new value to ModSetting correctly but then saved the old, now-dead settings object, so the change never actually persisted to disk.
-CHANGELOG_4_1_3_2 Removed dead code from the pre-CSLModsCommon era: the attribute-based OptionsFramework, the monolithic Settings.cs, and the standalone VehicleEditorPositions enum - all fully superseded by ModSetting and CSLModsCommonOptionsPanel.
-CHANGELOG_4_0_0_1 Forked from Improved Public Transport 3.
-CHANGELOG_4_0_0_2 Ported AutoLineBudget's demand-based fleet sizing to coordinate with IPT's own vehicle-count API instead of writing the line budget directly, fixing a runaway maintenance-cost bug caused by the two mods fighting over the same state.
-CHANGELOG_4_0_0_3 Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).
-TRAINDISPLAY_LABEL_NAME Név
-TRAINDISPLAY_LABEL_STATUS Állapot
-TRAINDISPLAY_NO_LINE Nincs vonal
-TRAINDISPLAY_NO_DESTINATION Nincs cél
-TRAINDISPLAY_HIDDEN Rejtett
-TRAINDISPLAY_VEHICLE Jármű
-TRAINDISPLAY_STATE_RETURNING Visszatér
-TRAINDISPLAY_STATE_STOPPED Megállónál
-TRAINDISPLAY_STATE_EN_ROUTE Úton
-TRAINDISPLAY_STATE_ON_LINE Vonalon
-TRAINDISPLAY_STATE_IDLE Üresjárat
-AUTOLINECOLOR_REFRESH_BUTTON Név/szín frissítése
-AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Újra kiosztja a jelenlegi vonalnevet és színt az aktív AutoLineColor beállítások szerint.
-AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Kapcsoljon be szín- vagy névstratégiát a Beállításokban a vonal frissítése előtt.
-CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
-CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
-CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
-CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
-CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
-CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
-CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
-TICKET_PRICE_LABEL_TOOLTIP Jelenlegi díj: {0}\nEredeti díj: {1}\nMost utazó utasok: {2}
-CHANGELOG_4_8_0_1 Added SingleTrainTrackAI: single-track rail segments are now reserved for one direction at a time, so two trains sharing a bidirectional track no longer risk colliding. Clean-room reimplementation - the source mod (Workshop 949504539) has no declared license, so only its publicly documented concept was reimplemented, on this project's own Harmony-based patching instead of raw memory detours.
-CHANGELOG_4_8_0_2 Added Stop Stacker: when more than one vehicle on the same line converges on a stop, only the lead vehicle uses the normal stop position - following vehicles get their own berth further back along the lane instead of queuing single-file behind it. Clean-room reimplementation from the source mod's public description only (no source code was available); bus and trolleybus only, matching this project's existing BetterBusStopPosition hook point.
-CHANGELOG_4_8_0_3 Fixed the intercity bus terminal integration silently never activating for players who own the Sunset Harbor DLC: it detected the DLC via reflection into a private game field instead of the Steam DLC check already used elsewhere in this project, and that reflection-based check could return false even when the DLC was genuinely installed.
-CHANGELOG_4_8_0_4 Fixed the "accept intercity buses" checkbox getting stuck unresponsive on some terminals: vanilla can leave the checkbox non-interactive under conditions this mod's relabeled use of it never accounted for. It is now forced interactive whenever this mod controls it. Also fixed a related bug where a terminal that was already correctly set up could silently lose its toggle on a later check.
-CHANGELOG_4_8_0_5 Fixed Sub-Buildings Tabs occasionally showing a stale tab strip on an unrelated building: the game recycles building IDs after a demolition, and the cache used to trust a recycled ID as still belonging to the previous building cluster. It now re-validates the building's actual parent chain before reusing anything from the cache.
-CHANGELOG_4_8_0_6 General bug sweep across several integrations: an inverted cache-expiry check that discarded fresh data and served stale data instead, an off-by-one loop bound that skipped the last transport line for automatic coloring and duplicate-name checks, a wrong ID comparison that broke the "only one vehicle on this line" unbunching bypass, a price lookup that permanently cached a failure instead of retrying later, and several Harmony patches that could throw on a null UI/prefab reference.
-CHANGELOG_4_8_0_7 Reduced repeated reflection and per-frame lookups across several integrations: vehicle tooltip descriptions, single-track segment classification, and the intercity-bus item-class lookup are now cached instead of recomputed on every call, and a UI refresh button no longer reassigns its text every single frame regardless of whether anything changed.
-CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
-CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
-CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
-CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
-CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
-CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
-CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
-CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
-CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (destination display - currently forced off pending redesign) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
-CHANGELOG_4_7_0_2 Added a vehicle capacity mode for intercity bus terminals (Options > Integrations > Intercity Bus Terminal Capacity): Disabled keeps this mod's existing effectively-uncapped terminal, Intermediate applies a moderate fixed cap, Realistic restores the terminal's own vanilla prefab capacity. Existing saves default to Disabled so upgrading never silently shrinks a terminal's capacity.
-CHANGELOG_4_7_0_3 Fixed the intercity bus terminal's "accept intercity buses" checkbox: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged sets acceptsInterCityTrains, which is a pure alias for isEmptying, so the relabeled checkbox was able to silently put a bus terminal into the game's building-shutdown state instead of actually toggling bus acceptance. A Harmony prefix now intercepts and redirects it to per-building state for bus-patched terminals, leaving real train stations untouched.
-CHANGELOG_4_7_0_4 Added an "Original" color theme to Train Display (Options > Train Display > Color Theme) that reproduces the layout of the source Train Display - Updated mod: a header strip with speed and status, plus a route strip colored to match the vehicle's actual line color.
-CHANGELOG_4_7_0_5 Fixed the Simple, Dark and Light Train Display themes rendering the wrong colors: GUI.Box tinted via GUI.backgroundColor does not produce a flat color, because Unity's default skin box texture is not pure white. The overlay now draws onto a cached solid white texture with GUI.DrawTexture and GUI.color instead.
-CHANGELOG_4_7_0_6 Fixed the Ticket Prices tab always falling back to its plain custom slider row instead of the vanilla BudgetItem visual: a reflection lookup for BudgetItem's night-price slider field had a typo, so it always threw and was silently caught.
-CHANGELOG_4_7_0_7 Reduced repeated per-frame UI tree lookups in two Harmony patches that run for every visible transport panel (the intercity-bus checkbox on city-service panels, and each stop's passenger-count label on the line panel) by caching the resolved UI references instead of re-searching for them every frame.
-CHANGELOG_4_7_0_8 Reorganized the entire Options menu into tabs that match what they actually contain (Fleet & Scheduling, Budget & Prices, Line Colors, Integrations, and more) instead of the old Auto Line tab holding seven unrelated settings groups. Restored the Shortcuts tab removed in an earlier version, ready for future integrations that need one, and added a GitHub project link under Options > Advanced.
-CHANGELOG_4_3_8_1 No longer marked BETA. The maintenance overflow that this fork exists to fix is resolved at the root and repairs saves it already damaged, and all 23 languages are complete.
-CHANGELOG_4_3_7_1 All 23 languages in the selector are now fully translated. Czech, Dutch, Slovak, Thai and Turkish were selectable but had no translation file, so they silently fell back to English.
-CHANGELOG_4_3_7_2 The translation progress shown under the language selector was reading a static status file that had not been regenerated, so it reported 76% for sixteen languages that were in fact complete.
-CHANGELOG_4_3_6_1 Fixed the real source of the approximately -21.4 million public-transport expense: IPT's weekly maintenance replacement divided by a zero or unsupported vehicle capacity, turning NaN into int.MinValue, and then summed every vehicle in another int. Maintenance inputs now use a safe vanilla fallback, line totals use 64-bit arithmetic, and large valid totals are charged only through bounded positive transactions.
-CHANGELOG_4_3_6_2 Existing saves are repaired on load by clearing only negative public-transport income or expense buckets left by this overflow and correcting their matching totals. Valid economy history and every non-transport service remain untouched.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
-SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_PERFORMANCE_PROFILE Teljesítményprofil
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk â€” fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Könnyű (simább)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normál (kiegyensúlyozott)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (teljes részlet)
+SETTINGS_TAB_PERFORMANCE Teljesítmény
+SETTINGS_PERFORMANCE_TIPS_GROUP Tippek
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Könnyű profil használata, ha a felület vagy átfedések akadoznak; Maximum csak erős gépeken. A vonatkijelző és az utas célja azonnal frissül. Más integrációk térképbetöltést igényelhetnek.
+SETTINGS_TAB_FLEET_SHORT Flotta
+SETTINGS_TAB_STOPS_SHORT Megállók
+SETTINGS_TAB_OVERLAY_SHORT Átfedés
+SETTINGS_TAB_SYSTEM_SHORT Rendszer
+SETTINGS_SUB_SPACING Távolság
+SETTINGS_SUB_SPACING_DESC Tartsa a járműveket egyenletesen elrendezve. A csoportosulásgatás a klasszikus IPT eszköz; a gyorsított busz/villamos alternatív stílus.
+SETTINGS_SUB_BUDGET Költségvetés
+SETTINGS_SUB_COLOR Szín
+SETTINGS_SUB_CAPS Korlátok
+SETTINGS_SUB_NET Hálózat
+SETTINGS_SUB_NET_DESC Megállóelhelyezés utakon: emelt, megosztott típusok, rakodás, haladó peronok.
+SETTINGS_SUB_VEHICLES Járművek
+SETTINGS_SUB_VEHICLES_DESC Felszállás, telephelyre visszatérés, egyvágányú vonatok, taxik, unstucker.
+SETTINGS_SUB_DEPOTS Telephelyek
+SETTINGS_SUB_DEPOTS_DESC Lágykörüli limit, hogy egy telephely hány járművet tarthat (a vanilla gyakran korlátlan).
+SETTINGS_SUB_OUTSIDE Kívül
+SETTINGS_SUB_OUTSIDE_DESC Távolsági terminálok és kültarti áruráfordítás/utas várakozás.
+SETTINGS_SUB_DISPLAY Megjelenítés
+SETTINGS_SUB_INFO Információ
+SETTINGS_SUB_INFO_DESC Panelek és város infóeszközök (nem flottaszimulációs).
+SETTINGS_SUB_PERF Teljesítm
+SETTINGS_SUB_COMPAT Kompatib
+SETTINGS_SUB_KEYS Billentyűk
+SETTINGS_FUTURE_GROUP Hamarosan érkezik
+SETTINGS_FUTURE_GROUP_DESCRIPTION Tervezett funkciók előnézete. Szürkített, amíg kész nem - még nincs hatásuk.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Fordítható villamos AI (hamarosan)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Tervezett: villamosok fordulnak végpontokhoz hurok nélkül. Még nem elérhető.
+SETTINGS_FUTURE_BREAKDOWN Meghibásodás diagnosztika eszközök (hamarosan)
+SETTINGS_FUTURE_BREAKDOWN_TIP Tervezett: útvonal/forgalmi diagnosztika ragadt közlekedéshez. Még nem elérhető.
+SETTINGS_QUICK_TIPS_GROUP Gyors tippek
+SETTINGS_QUICK_TIPS_DESC Kis emlékeztetők - nincs extra kód, csak hogyan használjuk, amit már van.
+SETTINGS_QUICK_TIP_1_TITLE Kezdj egyszerűen
+SETTINGS_QUICK_TIP_1_BODY Válaszd az Ajánlott profilt, majd csak azt kapcsold be, amit szükséges. Biztonságos a legjobb, ha sok más modot használsz.
+SETTINGS_QUICK_TIP_2_TITLE Lassú PC?
+SETTINGS_QUICK_TIP_2_BODY System â†’ Perf â†’ Light. Also avoid Commuter â€œFull mapâ€ if FPS drops.
+SETTINGS_QUICK_TIP_3_TITLE A kapcsolók után
+SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System â†’ Compat checks conflicting mods.
+SETTINGS_OOC_RESET_TOOLTIP Állítsa vissza a külső kapcsolat várakozást, dekoratív forgalmat és kapcsolódó kapcsolókat a Biztonságos alapértékekre.
+SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board â€” optional advanced spacing.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra sorok
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) â€” they stay clickable on purpose.
+SETTINGS_TAB_COMPATIBILITY Kompatibilitás
+SETTINGS_COMPAT_INTRO_GROUP Ellenőrizze betöltési sorrendjét
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1â€“3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
+SETTINGS_COMPAT_RUN_CHECK Ütközések keresése
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Az engedélyezett bővítményeket az IPT4 ismert inkompatibilis listájához hasonlítja.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Ellenőrzés most
+SETTINGS_COMPAT_STATUS_GROUP Jelenlegi eredmény
+SETTINGS_COMPAT_STATUS_OK Nincsenek ütközések vagy hiányzó függőségek az utolsó szkenelésből.
+SETTINGS_COMPAT_STATUS_WARN One or more problems were found â€” disable the listed mods (or subscribe Harmony) and restart the game.
+SETTINGS_COMPAT_MATCHED_GENERIC Ez a mod ütközik az IPT4-gyel. Kapcsolja ki vagy iratkozzon le.
+SETTINGS_COMPAT_MISSING_DEP A szükséges függőség nincs jelen. Iratkozzon fel és kapcsolja be, majd indítsa újra a játékot.
+SETTINGS_COMPAT_NO_ISSUES Jelenleg nincs ütköző mod engedélyezve.
+SETTINGS_COMPAT_BADGE_CONFLICT Ütközés
+SETTINGS_COMPAT_BADGE_MISSING Hiányzik
+SETTINGS_COMPAT_BADGE_OK OK
+SETTINGS_COMPAT_GUIDE_GROUP Mit ne futtasson az IPT4-gyel
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. â€” full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
-SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
-SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
-SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_SPEED_KPH km/h
+SETTINGS_SPEED_MPH mph
+SETTINGS_WALKING_SPEED Gyalogos/kerÃ©kpÃ¡ros sebessÃ©g: 
+SETTINGS_WALKING_SPEED_TOOLTIP Alap: az alapjÃ¡tÃ©k sebessÃ©gei.\nRealisztikus: a gyaloglÃ¡si sebessÃ©get realisztikus, korhoz kÃ¶tÃ¶tt Ã©rtÃ©kekre csÃ¶kkenti.\nA Realisztikus az After Dark DLC-vel a kerÃ©kpÃ¡rozÃ¡st is lassÃ­tja.
+SETTINGS_WALKING_SPEED_MODE_VANILLA Alap
+SETTINGS_WALKING_SPEED_MODE_REALISTIC Realisztikus
+SETTINGS_BBSP Jobb buszmegÃ¡llÃ³-pozÃ­ciÃ³: 
+SETTINGS_BBSP_TOOLTIP Kikapcsolva: nincs pozÃ­ciÃ³Ã¡llÃ­tÃ¡s.\nBekapcsolva: a buszok a megÃ¡llÃ³ elejÃ©n Ã¡llnak meg kÃ¶zÃ©pen helyett.
+SETTINGS_BBSP_MODE_DISABLED Kikapcsolva
+SETTINGS_BBSP_MODE_ORIGINAL Bekapcsolva
+SETTINGS_BBSP_MODE_UPDATED KÃ­sÃ©rleti logika hasznÃ¡lata
+SETTINGS_BUDGET KÃ¶ltsÃ©gvetÃ©s
+SETTINGS_ENABLE_BUDGET_CONTROL Vonal kÃ¶ltsÃ©gvetÃ©s-vezÃ©rlÃ©s:
+SETTINGS_BUDGET_CONTROL_DISABLED Kikapcsolva
+SETTINGS_BUDGET_CONTROL_ENABLED Bekapcsolva
+SETTINGS_BUDGET_CONTROL_TOOLTIP Bekapcsolva a kÃ¶zlekedÃ©si vonalak jÃ¡rmÅ±szÃ¡mÃ¡t a kÃ¶ltsÃ©gvetÃ©s szabÃ¡lyozza; frissÃ­ti az Ã¶sszes meglÃ©vÅ‘ vonalat Ã©s Ã¼rÃ­ti a sorban Ã¡llÃ³ jÃ¡rmÅ±veket.
+SETTINGS_BUDGET_TICKET_PRICES JegyÃ¡r-testreszabÃ³:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED Kikapcsolva
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED Bekapcsolva
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Bekapcsolva Ãºj fÃ¼let ad a GazdasÃ¡g panelhez csÃºszkÃ¡kkal minden kÃ¶zlekedÃ©si tÃ­pus jegyÃ¡rÃ¡hoz.
+SETTINGS_AUTO_LINE_BUDGET Automatikus flottamÃ©ret:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Kikapcsolva
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Bekapcsolva
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Bekapcsolva a kÃ¶ltsÃ©gvetÃ©s mÃ³dban lÃ©vÅ‘ vonalak automatikusan a valÃ³s utasigÃ©nyhez igazÃ­tjÃ¡k a jÃ¡rmÅ±szÃ¡mot a vanilla kÃ¶ltsÃ©gvetÃ©s-csÃºszka helyett. A KÃ©zi vonalakat soha nem Ã©rinti.
+SETTINGS_AUTO_LINE Auto vonal
+SETTINGS_AUTOSHOW_LINE_INFO VonalinfÃ³ panel automatikus megnyitÃ¡sa
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Automatikusan megjelenÃ­ti a vonalinfÃ³ panelt Ãºj vonal lÃ©trehozÃ¡sa utÃ¡n.
+AUTOLINECOLOR_STRATEGY_DISABLED Kikapcsolva
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE VÃ©letlen Ã¡rnyalat
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR VÃ©letlen szÃ­n
+AUTOLINECOLOR_STRATEGY_CATEGORISED KategorizÃ¡lt
+AUTOLINECOLOR_STRATEGY_NAMED Elnevezett szÃ­nek
+AUTOLINECOLOR_NAMING_DISABLED Kikapcsolva
+AUTOLINECOLOR_NAMING_DISTRICTS KerÃ¼letek
+AUTOLINECOLOR_NAMING_LONDON London
+AUTOLINECOLOR_NAMING_ROADS Utak
+AUTOLINECOLOR_NAMING_COLORS Elnevezett szÃ­nek
+AUTOLINECOLOR_COLOR_STRATEGY SzÃ­nstratÃ©gia:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Hogyan kapnak szÃ­neket az Ãºj vonalak:\n'VÃ©letlen Ã¡rnyalat' = azonos telÃ­tettsÃ©g/fÃ©nyerÅ‘, kÃ¼lÃ¶nbÃ¶zÅ‘ Ã¡rnyalatok;\n'VÃ©letlen szÃ­n' = teljesen vÃ©letlen RGB;\n'KategorizÃ¡lt' = szÃ­n a jÃ¡rmÅ±tÃ­pus szerint;\n'Elnevezett szÃ­nek' = elÅ‘re definiÃ¡lt szÃ­npaletta.
+AUTOLINECOLOR_NAMING_STRATEGY NÃ©vstratÃ©gia:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Hogyan kapnak neveket az Ãºj vonalak:\n'Nincs' = nincs automatikus nÃ©vadÃ¡s;\n'KerÃ¼letek' = a kiszolgÃ¡lt kerÃ¼letek alapjÃ¡n;\n'London' = szÃ¡mozott jÃ¡ratok (London Buses stÃ­lus);\n'Utak' = utcanevek alapjÃ¡n;\n'Elnevezett szÃ­nek' = szÃ­nnevek alapjÃ¡n.
+AUTOLINECOLOR_MIN_COLOR_DIFF MinimÃ¡lis szÃ­nkÃ¼lÃ¶nbsÃ©g (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP MinimÃ¡lis szÃ­nkÃ¼lÃ¶nbsÃ©g szÃ¡zalÃ©k vÃ©letlen szÃ­nek vÃ¡lasztÃ¡sakor.
+AUTOLINECOLOR_MAX_COLOR_PICK MaximÃ¡lis prÃ³bÃ¡lkozÃ¡sok:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP MaximÃ¡lis prÃ³bÃ¡lkozÃ¡s megkÃ¼lÃ¶nbÃ¶ztethetÅ‘ szÃ­n vÃ¡lasztÃ¡sÃ¡ra.
+SETTINGS_UI FelÃ¼let beÃ¡llÃ­tÃ¡sok
+SETTINGS_VEHICLE_EDITOR_POSITION JÃ¡rmÅ±szerkesztÅ‘ pozÃ­ciÃ³: 
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP VÃ¡lassza ki, hogy a jÃ¡rmÅ±szerkesztÅ‘ panel alul vagy jobbra jelenjen meg.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Alul
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Jobb
+SETTINGS_VEHICLE_EDITOR_HIDE JÃ¡rmÅ±szerkesztÅ‘ elrejtÃ©se
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Elrejti a jÃ¡rmÅ±szerkesztÅ‘t a jÃ¡rmÅ±panelekrÅ‘l.
+SETTINGS_STOPS TÃ¶megkÃ¶zlekedÃ©si megÃ¡llÃ³k
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION HÃ¡ny utas vÃ¡rakozhat egy megÃ¡llÃ³nÃ¡l szÃ¡llÃ­tÃ¡si tÃ­pusonkÃ©nt, mielÅ‘tt tele lenne. Magasabb Ã©rtÃ©kek csÃ¶kkentik a zsÃºfoltsÃ¡gi panaszokat forgalmas megÃ¡llÃ³knÃ¡l, kevÃ©sbÃ© realisztikus sormÃ©ret Ã¡rÃ¡n.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Minden fenti utaskorlÃ¡t visszaÃ¡llÃ­tÃ¡sa az alapÃ©rtelmezett Ã©rtÃ©kekre.
+SETTINGS_ENABLE_STOPS_AND_STATIONS MegÃ¡llÃ³k Ã©s Ã¡llomÃ¡sok engedÃ©lyezÃ©se
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP ÃllÃ­tsa be, hÃ¡ny lakos vÃ¡rakozhat tÃ¶megkÃ¶zlekedÃ©sre a megÃ¡llÃ³knÃ¡l Ã©s Ã¡llomÃ¡sokon. KonfigurÃ¡lja a MegÃ¡llÃ³k fÃ¼lÃ¶n.
+SETTINGS_STOPSANDSTATIONS_ENABLE MegÃ¡llÃ³k Ã©s Ã¡llomÃ¡sok engedÃ©lyezÃ©se
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP UtaskorlÃ¡t Ã©rvÃ©nyesÃ­tÃ©sÃ©nek be- vagy kikapcsolÃ¡sa a megÃ¡llÃ³knÃ¡l.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER MaximÃ¡lis vÃ¡rakozÃ³ utasok egy vonali megÃ¡llÃ³nÃ¡l:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Helyi busz
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok helyi buszmegÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Trolibusz
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok trolibusz-megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS EvakuÃ¡ciÃ³s busz
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok evakuÃ¡ciÃ³s buszmegÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS KirÃ¡ndulÃ³busz
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok kirÃ¡ndulÃ³busz-megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Villamos
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok villamosmegÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO MetrÃ³
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok metrÃ³Ã¡llomÃ¡son
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Vonat
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok vasÃºtÃ¡llomÃ¡son
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL EgysÃ­nÅ±
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok egysÃ­nÅ± megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP HajÃ³
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok teherszÃ¡llÃ­tÃ³ kikÃ¶tÅ‘ben
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Komp
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok komp-megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE RepÃ¼lÅ‘
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok repÃ¼lÅ‘terminÃ¡lon
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR KÃ¡belfÃ¼ggÅ‘
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok kÃ¡belfÃ¼ggÅ‘-megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON HÅ‘lÃ©gballon
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok hÅ‘lÃ©gballon-megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok helikopter-megÃ¡llÃ³nÃ¡l
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP LÃ©ghajÃ³
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP MaximÃ¡lis vÃ¡rakozÃ³ utasok lÃ©ghajÃ³-megÃ¡llÃ³nÃ¡l
+SETTINGS_UNBUNCHING CsoportosulÃ¡sgÃ¡tlÃ¡s
+SETTINGS_UNBUNCHING_AGGRESSION CsoportosulÃ¡sgÃ¡tlÃ¡s agresszivitÃ¡sa:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Mennyire erÅ‘sen hat a csoportosulÃ¡sgÃ¡tlÃ¡s?\nLehetsÃ©ges Ã©rtÃ©kek: 0â€“52. A 0 kikapcsolja.\nMagasabb Ã©rtÃ©kek erÅ‘sen befolyÃ¡soljÃ¡k a forgalmat, Ã©s a jÃ¡rmÅ±vek eltÅ±nhetnek.
+SETTINGS_VEHICLE_COUNT JÃ¡rmÅ±vek Ãºj vonalakon:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Az Ãºj vonalakhoz automatikusan hozzÃ¡adott jÃ¡rmÅ±vek szÃ¡ma, ha a vonal kÃ¶ltsÃ©gvetÃ©s-vezÃ©rlÃ©s ki van kapcsolva.
+SETTINGS_SPAWN_TIME_INTERVAL MegjelenÃ©si idÅ‘kÃ¶z:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP IdÅ‘ mÃ¡sodpercben a jÃ¡rmÅ±vek megjelenÃ©se kÃ¶zÃ¶tt.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Minden csÃºszkÃ¡t visszaÃ¡llÃ­t az alapÃ©rtelmezettre.
+UNBUNCHING_ENABLED JÃ¡rmÅ±-csoportosulÃ¡sgÃ¡tlÃ¡s
+UNBUNCHING_DISABLED A csoportosulÃ¡sgÃ¡tlÃ¡s ki van kapcsolva.
+UNBUNCHING_TARGET_GAP CÃ©lrÃ©s: {0}
+SETTINGS_EBS_GROUP_BUS Gyorsbusz-szolgÃ¡ltatÃ¡sok
+SETTINGS_EBS_GROUP_TRAM Gyorsvillamos-szolgÃ¡ltatÃ¡sok
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Gyorsbusz: 
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Kikapcsolva' = A buszok a fenti csoportosulÃ¡sgÃ¡tlÃ¡st hasznÃ¡ljÃ¡k.\n'Ã“vatos' = RÃ¶viden megÃ¡ll, ellenÅ‘rzi az utasokat, Ã¼resen is indulhat.\n'AgresszÃ­v' = Teljesen kihagyja a megÃ¡llÃ³kat, ha senki sem vÃ¡r.
+SETTINGS_EBS_ENABLE_SELFBAL SzolgÃ¡ltatÃ¡s Ã¶nkiegyensÃºlyozÃ¡sÃ¡nak bekapcsolÃ¡sa
+SETTINGS_EBS_DESC_SELFBAL A gyorsbusz-szolgÃ¡ltatÃ¡s Ãºjraoszthatja a jÃ¡rmÅ±veket a vonalon a forgalmasabb szakaszok javÃ¡ra Ã©s a vÃ¡rakozÃ¡si idÅ‘k csÃ¶kkentÃ©sÃ©re.
+SETTINGS_EBS_TOOLTIP_SELFBAL Elemzi a vonalszakaszokat, Ã©s jÃ¡rmÅ±veket helyezhet Ã¡t forgalmasabb szakaszokra vagy vÃ©gÃ¡llomÃ¡sokra az egyenletesebb szolgÃ¡ltatÃ¡sÃ©rt.\nA dÃ¶ntÃ©sek valÃ³szÃ­nÅ±sÃ©giek, az utasszÃ¡moktÃ³l Ã©s az Ã¡thelyezÃ©si esÃ©lyektÅ‘l fÃ¼ggenek.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Ã–nkiegyensÃºlyozÃ¡s a vonal kÃ¶zÃ©psÅ‘ megÃ¡llÃ³ira
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Az Ã¶nkiegyensÃºlyozÃ¡s forgalmas kÃ¶zÃ©psÅ‘ megÃ¡llÃ³t is vÃ¡laszthat, nem csak vÃ©gÃ¡llomÃ¡st, jÃ¡rmÅ±Ã¡thelyezÃ©skor.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID EngedÃ©lyezi, hogy az Ã¶nkiegyensÃºlyozÃ³ forgalmas kÃ¶zÃ©psÅ‘ megÃ¡llÃ³ra helyezzen jÃ¡rmÅ±veket (vÃ©gÃ¡llomÃ¡s helyett).\nCsak akkor jÃ¶n szÃ³ba, ha a legforgalmasabb megÃ¡llÃ³n tÃ¶bb mint 30 utas vÃ¡r, majd ~50% esÃ©llyel vÃ¡lasztÃ³dik, az Ã¶sszes Ã¡thelyezÃ©si esÃ©ly mellett.
+SETTINGS_EBS_ENABLE_MINIBUS Minibusz mÃ³d bekapcsolÃ¡sa
+SETTINGS_EBS_DESC_MINIBUS A kisebb kapacitÃ¡sÃº buszok korÃ¡bban indulnak, ha csak kevÃ©s utas szÃ¡ll fel vagy le.
+SETTINGS_EBS_TOOLTIP_MINIBUS A â‰¤20 kapacitÃ¡sÃº buszok korÃ¡bban indulhatnak, ha a felszÃ¡llÃ³ + leszÃ¡llÃ³ utasok â‰¤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Gyorsvillamos: 
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Kikapcsolva' = A villamosok a fenti csoportosulÃ¡sgÃ¡tlÃ¡st hasznÃ¡ljÃ¡k.\n'KÃ¶nnyÅ±vasÃºt' = Minden megÃ¡llÃ³nÃ¡l megÃ¡ll, mindig a teljes idÅ‘t vÃ¡rja (szigorÃº fegyelem).\n'Igazi villamos' = Csak akkor Ã¡ll meg, ha utasok szÃ¡llnak fel/le.
+SETTINGS_EBS_MODE_NONE Kikapcsolva
+SETTINGS_EBS_MODE_AGGRESSIVE AgresszÃ­v
+SETTINGS_EBS_MODE_PRUDENTIAL Ã“vatos
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL KÃ¶nnyÅ±vasÃºt mÃ³d
+SETTINGS_EBS_TRAM_MODE_NONE Kikapcsolva
+SETTINGS_EBS_TRAM_MODE_TRAM Igazi villamos mÃ³d
+SETTINGS_PTU_GROUP Beragadt utasok felszabadÃ­tÃ¡sa
+SETTINGS_PTU_ENABLE Beragadt utasok eltÃ¡volÃ­tÃ¡sa
+SETTINGS_PTU_TOOLTIP Automatikusan eltÃ¡volÃ­tja a felszÃ¡llÃ¡s kÃ¶zben beragadt utasokat, Ã­gy a jÃ¡rmÅ± rendesen indulhat, Ã©s elkerÃ¼lhetÅ‘k a befagyott indulÃ¡sok.
+SETTINGS_LINE_DELETION_TOOL Vonal tÃ¶rlÅ‘ eszkÃ¶z
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION JelÃ¶lje be az alÃ¡bbi kÃ¶zlekedÃ©si tÃ­pusokat, majd nyomja meg a TÃ¶rlÃ©s gombot az Ã¶sszes ilyen tÃ­pusÃº vonal eltÃ¡volÃ­tÃ¡sÃ¡hoz a jelenlegi vÃ¡rosbÃ³l. A kivÃ¡lasztÃ¡s ideiglenes - mindig Ã¼resen indul, Ã©s tÃ¶rlÃ©s utÃ¡n tÃ¶rlÅ‘dik; nem mentÅ‘dik beÃ¡llÃ­tÃ¡skÃ©nt.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP TÃ¶rli a kivÃ¡lasztott tÃ­pusok Ã¶sszes vonalÃ¡t. Csak betÃ¶ltÃ¶tt vÃ¡rosnÃ¡l mÅ±kÃ¶dik.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE VONALTÃ–RLÃ‰S MEGERÅSÃTÃ‰SE
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Ã–sszes vonal tÃ¶rlÃ©sÃ©re kÃ©szÃ¼l.\nFolytatja?
+SETTINGS_DELETE_BUS_TOOLTIP TÃ¶rli az Ã¶sszes rendes buszjÃ¡ratot.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL KirÃ¡ndulÃ³buszok
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP TÃ¶rli az Ã¶sszes kirÃ¡ndulÃ³busz-jÃ¡ratot.
+SETTINGS_DELETE_TRAM_TOOLTIP TÃ¶rli az Ã¶sszes villamosjÃ¡ratot.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP TÃ¶rli az Ã¶sszes trolibuszjÃ¡ratot.
+SETTINGS_DELETE_TRAIN_TOOLTIP TÃ¶rli az Ã¶sszes vonatjÃ¡ratot.
+SETTINGS_DELETE_METRO_TOOLTIP TÃ¶rli az Ã¶sszes fÃ¶ldalatti metrÃ³jÃ¡ratot.
+SETTINGS_DELETE_MONORAIL_TOOLTIP TÃ¶rli az Ã¶sszes egysÃ­nÅ± jÃ¡ratot.
+SETTINGS_DELETE_FERRY_LABEL Kompok
+SETTINGS_DELETE_SHIP_TOOLTIP TÃ¶rli az Ã¶sszes kompjÃ¡ratot.
+SETTINGS_DELETE_HELICOPTER_LABEL Helikopterek
+SETTINGS_DELETE_HELICOPTER_TOOLTIP TÃ¶rli az Ã¶sszes helikopterjÃ¡ratot.
+SETTINGS_DELETE_BLIMP_LABEL LÃ©ghajÃ³k
+SETTINGS_DELETE_BLIMP_TOOLTIP TÃ¶rli az Ã¶sszes lÃ©ghajÃ³jÃ¡ratot.
+VEHICLE_EDITOR_TITLE JÃ¡rmÅ±szerkesztÅ‘
+VEHICLE_EDITOR_SUB_TITLE {0} jÃ¡rmÅ±
+VEHICLE_EDITOR_CAPACITY Utas kapacitÃ¡s
+VEHICLE_EDITOR_CAPACITY_TAXI UtazÃ¡si kapacitÃ¡s
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Utasok szÃ¡ma mÅ±szakonkÃ©nt.
+VEHICLE_EDITOR_MAINTENANCE KarbantartÃ¡si kÃ¶ltsÃ©g
+VEHICLE_EDITOR_MAX_SPEED Max. sebessÃ©g
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Vonatmotor mindkÃ©t vÃ©gÃ©n
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Bekapcsolja vagy kikapcsolja a vonatmotorokat a vonat mindkÃ©t vÃ©gÃ©n.
+VEHICLE_EDITOR_APPLY Alkalmaz
+VEHICLE_EDITOR_DEFAULT AlapÃ©rtelmezett
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Jobb kattintÃ¡s a jÃ¡rmÅ± kÃ¶vetÃ©sÃ©hez.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + kattintÃ¡s a jÃ¡rmÅ± sorba Ã¡llÃ­tÃ¡sÃ¡hoz.
+VEHICLE_PANEL_EDIT_TYPE JÃ¡rmÅ±tÃ­pus szerkesztÃ©se
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Szerkessze ezt a jÃ¡rmÅ±tÃ­pust a JÃ¡rmÅ±szerkesztÅ‘vel.
+VEHICLE_PANEL_STATUS_NEXT_STOP KÃ¶vetkezÅ‘ megÃ¡llÃ³:
+VEHICLE_PANEL_STATUS_UNBUNCHING CsoportosulÃ¡sgÃ¡tlÃ¡s folyamatban
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Utaskereskedelem az utolsÃ³ megÃ¡llÃ³n: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS Utasok:
+VEHICLE_PANEL_EARNINGS BevÃ©tel:
+VEHICLE_PANEL_EARNINGS_TOOLTIP A jegyeladÃ¡s eredmÃ©nye mÃ­nusz a jÃ¡rmÅ± karbantartÃ¡si kÃ¶ltsÃ©ge.
+VEHICLE_PANEL_PREVIOUS ElÅ‘zÅ‘ jÃ¡rmÅ±
+VEHICLE_PANEL_PREVIOUS_TOOLTIP UgrÃ¡s az elÅ‘zÅ‘ jÃ¡rmÅ±re.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+VEHICLE_PANEL_REMOVE_VEHICLE JÃ¡rmÅ± eltÃ¡volÃ­tÃ¡sa
+VEHICLE_PANEL_NEXT KÃ¶vetkezÅ‘ jÃ¡rmÅ±
+VEHICLE_PANEL_NEXT_TOOLTIP UgrÃ¡s a kÃ¶vetkezÅ‘ jÃ¡rmÅ±re.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.
+VEHICLE_SELECTION_CAPACITY KapacitÃ¡s
+VEHICLE_SELECTION_ADD_VEHICLE Adja hozzÃ¡ ezt a jÃ¡rmÅ±vet az engedÃ©lyezett jÃ¡rmÅ±vek listÃ¡jÃ¡hoz
+VEHICLE_SELECTION_ADD_ALL Adja hozzÃ¡ az Ã¶sszes alkalmas jÃ¡rmÅ±vet az engedÃ©lyezett jÃ¡rmÅ±vek listÃ¡jÃ¡hoz
+VEHICLE_SELECTION_REMOVE_VEHICLE TÃ¡volÃ­tsa el ezt a jÃ¡rmÅ±vet az engedÃ©lyezett jÃ¡rmÅ±vek listÃ¡jÃ¡rÃ³l
+VEHICLE_SELECTION_REMOVE_ALL TÃ¡volÃ­tsa el az Ã¶sszes jÃ¡rmÅ±vet az engedÃ©lyezett jÃ¡rmÅ±vek listÃ¡jÃ¡rÃ³l
+VEHICLE_SELECTION_AVAILABLE_VEHICLES ElÃ©rhetÅ‘ jÃ¡rmÅ±vek
+VEHICLE_SELECTION_SELECTED_VEHICLES KivÃ¡lasztott jÃ¡rmÅ±vek
+VEHICLE_SELECTION_ANY_VEHICLE BÃ¡rmely jÃ¡rmÅ±
+VEHICLE_BUTTON_TOOLTIP {0}\nKattintson a jÃ¡rmÅ±re ugrÃ¡shoz.\nShift nyomva tartÃ¡sa kattintÃ¡skor rÃ¡kÃ¶zelÃ­t is.\nAlt nyomva tartÃ¡sa kattintÃ¡skor megakadÃ¡lyozza a jÃ¡rmÅ±infÃ³ panel megnyitÃ¡sÃ¡t.
+TRANSPORT_LINE_VEHICLECOUNT JÃ¡rmÅ±vek szÃ¡ma: {0}
+FLIGHT_TRACKER_NAME JÃ¡ratkÃ¶vetÅ‘
+FLIGHT_STATUS_NONE Nincs
+FLIGHT_STATUS_INCOMING Ã‰rkezÅ‘
+FLIGHT_STATUS_LANDED LeszÃ¡llt
+FLIGHT_STATUS_AT_GATE KapunÃ¡l
+FLIGHT_STATUS_DEPARTED Elindult
+TICKET_PRICE_TAXI_KILOMETER TaxiÃ¡r kilomÃ©terenkÃ©nt: 
+TICKET_PRICE_TAXI_MILE TaxiÃ¡r mÃ©rfÃ¶ldenkÃ©nt: 
+TICKET_PRICE_BUS Buszjegy Ã¡ra: 
+TICKET_PRICE_INTERCITY_BUS TÃ¡volsÃ¡gi buszjegy Ã¡ra: 
+TICKET_PRICE_METRO MetrÃ³jegy Ã¡ra: 
+TICKET_PRICE_TRAIN Vonatjegy Ã¡ra: 
+TICKET_PRICE_TRAM Villamosjegy Ã¡ra: 
+TICKET_PRICE_MONORAIL EgysÃ­nÅ± jegy Ã¡ra: 
+TICKET_PRICE_SHIP HajÃ³jegy Ã¡ra: 
+TICKET_PRICE_FERRY Kompjegy Ã¡ra: 
+TICKET_PRICE_PLANE RepÃ¼lÅ‘jegy Ã¡ra: 
+TICKET_PRICE_CABLECAR KÃ¡belfÃ¼ggÅ‘ jegy Ã¡ra: 
+TICKET_PRICE_SIGHTSEEING_BUS KirÃ¡ndulÃ³busz-jegy Ã¡ra: 
+TICKET_PRICE_TROLLEYBUS Trolibuszjegy Ã¡ra: 
+TICKET_PRICE_BLIMP LÃ©ghajÃ³jegy Ã¡ra: 
+TICKET_PRICE_HELICOPTER Helikopterjegy Ã¡ra: 
+ECONOMY_TAB_TICKET_PRICES JegyÃ¡rak
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Jelenlegi Ã¶sszes utasszÃ¡m ehhez a kÃ¶zlekedÃ©si tÃ­pushoz.
+WHATSNEW_3_0_0_1 FrissÃ­tve Race Day-re; most kompatibilis a More Vehicles Renewed-del.
+WHATSNEW_3_0_0_2 A kÃ¶vetkezÅ‘ modok integrÃ¡lva lettek az IPT3-ba:\nâ€¢ Advanced Stop Selection Revisited\nâ€¢ Auto Line Color Redux\nâ€¢ Better Bus Stop Position\nâ€¢ Better Train Boarding\nâ€¢ Elevated Stops Enabler Revisited\nâ€¢ Express Bus Services\nâ€¢ Flight Tracker\nâ€¢ Intercity Bus Control\nâ€¢ Mileage Taxi Services\nâ€¢ Public Transport Unstucker\nâ€¢ Realistic Walking Speed\nâ€¢ Stops and Stations\nâ€¢ Ticket Price Customizer
+WHATSNEW_3_0_1 A Public Transport Unstucker most integrÃ¡lva van az IPT3-ba.\nLÃ¡sd a 3.0-s verziÃ³t a tÃ¶bbi integrÃ¡lt modhoz. Iratkozzon le az eredetikrÅ‘l a konfliktusok elkerÃ¼lÃ©sÃ©hez.
+SETTINGS_TAB_TRAINDISPLAY VonatkijelzÅ‘
+SETTINGS_TAB_INTEGRATIONS IntegrÃ¡ciÃ³k
+SETTINGS_TRAINDISPLAY_GROUP VonatkijelzÅ‘ Ã¡tfedÃ©s
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION ÃllÃ­tsa be a tÃ¡mogatott kÃ¶zlekedÃ©si jÃ¡rmÅ±vek kÃ¶vetÃ©se kÃ¶zben megjelenÅ‘ integrÃ¡lt Ã¡tfedÃ©st.
+SETTINGS_TRAINDISPLAY_ENABLE VonatkijelzÅ‘ bekapcsolÃ¡sa
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Az integrÃ¡lt vonatkijelzÅ‘ Ã¡tfedÃ©s be- vagy kikapcsolÃ¡sa.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED Kikapcsolva
+SETTINGS_TRAINDISPLAY_MODE_ENABLED Bekapcsolva
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION ÃtfedÃ©s pozÃ­ciÃ³ja:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP VÃ¡lassza ki, hol jelenjen meg az Ã¡tfedÃ©s a kÃ©pernyÅ‘n.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Bal felsÅ‘
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Jobb felsÅ‘
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Bal alsÃ³
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Jobb alsÃ³
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE ÃtfedÃ©s mÃ©rete:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Az Ã¡tfedÃ©s mÃ©retÃ©nek skÃ¡lÃ¡zÃ¡sa.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY ÃtfedÃ©s Ã¡tlÃ¡tszÃ³sÃ¡ga:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP ÃllÃ­tsa be, mennyire Ã¡tlÃ¡tszÃ³ az Ã¡tfedÃ©s.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL FrissÃ­tÃ©si idÅ‘kÃ¶z:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Milyen gyakran frissÃ¼l az Ã¡tfedÃ©s jÃ¡rmÅ±kÃ¶vetÃ©s kÃ¶zben.
+SETTINGS_TRAINDISPLAY_SHOW_LINE VonalnÃ©v megjelenÃ­tÃ©se
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP A vonalnÃ©v szerepeljen az Ã¡tfedÃ©sben.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION CÃ©l megjelenÃ­tÃ©se
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP A cÃ©l szerepeljen az Ã¡tfedÃ©sben.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Ãllapot megjelenÃ­tÃ©se
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP A jÃ¡rmÅ± Ã¡llapota szerepeljen az Ã¡tfedÃ©sben.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Csak kÃ¶vetÃ©s kÃ¶zben
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Rejtse el az Ã¡tfedÃ©st, hacsak a kamera tÃ©nylegesen nem kÃ¶vet tÃ¡mogatott jÃ¡rmÅ±vet.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Csak elsÅ‘ szemÃ©lyÅ± kamerÃ¡ban
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Csak elsÅ‘ szemÃ©lyÅ± kamera mod hasznÃ¡latakor jelenjen meg (pl. First Person Camera - Continued). Ha ki van kapcsolva, bÃ¡rmely kameramÃ³dban megjelenik tÃ¡mogatott jÃ¡rmÅ± kÃ¶vetÃ©sekor.
+SETTINGS_TRAINDISPLAY_THEME SzÃ­ntÃ©ma:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP VÃ¡lassza ki az Ã¡tfedÃ©s hÃ¡ttÃ©r-/szÃ¶vegszÃ­neit.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE EgyszerÅ±
+SETTINGS_TRAINDISPLAY_THEME_DARK SÃ¶tÃ©t
+SETTINGS_TRAINDISPLAY_THEME_LIGHT VilÃ¡gos
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Eredeti
+SETTINGS_TRAINDISPLAY_THEME_BLUE KÃ©k
+SETTINGS_TRAINDISPLAY_THEME_GREEN ZÃ¶ld
+SETTINGS_TRAINDISPLAY_THEME_AMBER BorostyÃ¡n
+COPY_TIP MÃ¡solja a vonal beÃ¡llÃ­tÃ¡sait.
+PASTE_TIP Illessze be a mÃ¡solt vonalbeÃ¡llÃ­tÃ¡sokat.
+COPY_BUILDING_TIP MÃ¡solja ezeket a beÃ¡llÃ­tÃ¡sokat az Ã©pÃ¼letet kiszolgÃ¡lÃ³ Ã¶sszes vonalra.
+COPY_DISTRICT_TIP MÃ¡solja ezeket a beÃ¡llÃ­tÃ¡sokat a kerÃ¼let Ã¶sszes vonalÃ¡ra.
+SETTINGS_INTEGRATIONS_GROUP BeÃ©pÃ­tett kiegÃ©szÃ­tÅ‘k
+SETTINGS_INTERCITY_BUS_ENABLE TÃ¡volsÃ¡gi buszvezÃ©rlÃ©s bekapcsolÃ¡sa
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Bekapcsolja az integrÃ¡lt tÃ¡volsÃ¡gi busz kompatibilitÃ¡si rÃ©teget Ã©s az Ã¡llomÃ¡sjavÃ­tÃ¡sokat.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE HaladÃ³ megÃ¡llÃ³vÃ¡lasztÃ¡s bekapcsolÃ¡sa
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP MegÃ¡llÃ³kat helyezhet el tÃ¶bbvÃ¡gÃ¡nyos Ã¡llomÃ¡sok alternatÃ­v peronjain/vÃ¡gÃ¡nyain (tartsa az alternatÃ­v mÃ³d billentyÅ±t elhelyezÃ©skor). A kÃ¶vetkezÅ‘ szintbetÃ¶ltÃ©skor lÃ©p Ã©letbe.
+SETTINGS_BETTERBOARDING_ENABLE Jobb felszÃ¡llÃ¡s bekapcsolÃ¡sa
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP JavÃ­tja a felszÃ¡llÃ¡si dÃ¶ntÃ©seket, hogy az utasok a cÃ©ljukat tÃ©nylegesen kiszolgÃ¡lÃ³ jÃ¡rmÅ±vet vÃ¡lasszÃ¡k. A kÃ¶vetkezÅ‘ szintbetÃ¶ltÃ©skor lÃ©p Ã©letbe.
+SETTINGS_MILEAGETAXI_ENABLE KilomÃ©teres taxi bekapcsolÃ¡sa
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP A taxit a megtett tÃ¡volsÃ¡g alapjÃ¡n szÃ¡molja fix dÃ­j helyett, Ã­gy a hosszabb utak tÃ¶bbet hoznak. After Dark DLC szÃ¼ksÃ©ges. A kÃ¶vetkezÅ‘ szintbetÃ¶ltÃ©skor lÃ©p Ã©letbe.
+SETTINGS_ELEVATEDSTOPS_ENABLE Emelt megÃ¡llÃ³k bekapcsolÃ¡sa
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP EngedÃ©lyezi a tÃ¶megkÃ¶zlekedÃ©si megÃ¡llÃ³kat emelt utakon/hidakon, Ã©s megtartja a kÃ¶zvilÃ¡gÃ­tÃ¡st azokon a szakaszokon. A kÃ¶vetkezÅ‘ szintbetÃ¶ltÃ©skor lÃ©p Ã©letbe.
+SETTINGS_INTERCITY_BUS_CAPACITY TÃ¡volsÃ¡gi terminÃ¡l kapacitÃ¡sa
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP HÃ¡ny jÃ¡rmÅ±vet fogadhat egyszerre egy tÃ¡volsÃ¡gi buszterminÃ¡l.
+SETTINGS_TRAM_DEPOT_CAPACITY Villamos telephely kapacitÃ¡sa
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP A vanilla minden villamos telephelyet gyakorlatilag korlÃ¡tlan 100 000 jÃ¡rmÅ±re Ã¡llÃ­t. A Realisztikus Ã©s a KÃ¶zepes mÃ©rsÃ©kelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglÃ©vÅ‘ viselkedÃ©st.
+SETTINGS_TAXI_DEPOT_CAPACITY Taxi telephely kapacitÃ¡sa
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP A vanilla minden taxi telephelyet gyakorlatilag korlÃ¡tlan 100 000 jÃ¡rmÅ±re Ã¡llÃ­t. A Realisztikus Ã©s a KÃ¶zepes mÃ©rsÃ©kelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglÃ©vÅ‘ viselkedÃ©st.
+SETTINGS_BUS_DEPOT_CAPACITY Busz telephely kapacitÃ¡sa
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP A vanilla minden busz telephelyet (rendes, bioÃ¼zemanyag Ã©s tÃºrabusz-garÃ¡zsok) gyakorlatilag korlÃ¡tlan 100 000 jÃ¡rmÅ±re Ã¡llÃ­t. A Realisztikus Ã©s a KÃ¶zepes mÃ©rsÃ©kelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglÃ©vÅ‘ viselkedÃ©st.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Trolibusz telephely kapacitÃ¡sa
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP A vanilla minden trolibusz telephelyet gyakorlatilag korlÃ¡tlan 100 000 jÃ¡rmÅ±re Ã¡llÃ­t. A Realisztikus Ã©s a KÃ¶zepes mÃ©rsÃ©kelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglÃ©vÅ‘ viselkedÃ©st.
+SETTINGS_FERRY_DEPOT_CAPACITY Komp telephely kapacitÃ¡sa
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP A vanilla minden komp telephelyet gyakorlatilag korlÃ¡tlan 100 000 jÃ¡rmÅ±re Ã¡llÃ­t. A Realisztikus Ã©s a KÃ¶zepes mÃ©rsÃ©kelt fix plafont alkalmaz; a Kikapcsolva megtartja a meglÃ©vÅ‘ viselkedÃ©st.
+SETTINGS_DEPOT_CAPACITY_DISABLED Kikapcsolva (korlÃ¡tlan)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE KÃ¶zepes
+SETTINGS_DEPOT_CAPACITY_REALISTIC Realisztikus
+SETTINGS_FLIGHTTRACKER_ENABLE JÃ¡ratkÃ¶vetÅ‘ bekapcsolÃ¡sa
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Bekapcsolja az integrÃ¡lt jÃ¡ratkÃ¶vetÅ‘ javÃ­tÃ¡sokat Ã©s a felÃ¼let tÃ¡mogatÃ¡sÃ¡t.
+SETTINGS_SUBBUILDINGSTABS_ENABLE AlÃ©pÃ­tmÃ©ny-fÃ¼lek bekapcsolÃ¡sa
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP FÃ¼lsort jelenÃ­t meg egy Ã©pÃ¼let infopaneljÃ©n, ha alÃ©pÃ­tmÃ©nyei vannak (pl. repÃ¼lÅ‘tÃ©r beÃ©pÃ­tett metrÃ³Ã¡llomÃ¡ssal), Ã­gy vÃ¡ltani lehet kÃ¶zÃ¶ttÃ¼k.
+SETTINGS_TAXISTANDFIX_ENABLE TaxidÃ¡llÃ¡s javÃ­tÃ¡s bekapcsolÃ¡sa
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP A tÃ©tlen taxikat a legkÃ¶zelebbi taxidÃ¡llÃ¡shoz kÃ¼ldi ahelyett, hogy vÃ©letlenszerÅ±en kÃ³borolnÃ¡nak. After Dark DLC szÃ¼ksÃ©ges.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Megosztott megÃ¡llÃ³k bekapcsolÃ¡sa
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP EgynÃ©l tÃ¶bb kÃ¶zlekedÃ©si tÃ­pus (busz, villamos, trolibusz) megÃ¡llhat ugyanazon az Ãºtszakaszon. AlapbÃ³l ki - a mod GitHubjÃ¡n lÃ¡thatÃ³, mit hagy ki ez a csÃ¶kkentett verziÃ³.
+SETTINGS_COMMUTERDESTINATION_ENABLE Utas cÃ©lÃ¡llomÃ¡s bekapcsolÃ¡sa (ÃºjratervezÃ©s folyamatban)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Ãtmenetileg nem elÃ©rhetÅ‘: a korÃ¡bbi panel megkettÅ‘zte a megÃ¡llÃ³infÃ³ UI-t, Ã©s az ÃºjratervezÃ©sig kÃ©nyszerÃ­tve ki van kapcsolva. A jelÃ¶lÅ‘nÃ©gyzet nem kapcsolja vissza.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Térképrészlet:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Teljesítmény kevesebb térképikonnal és gyorsabb frissítéssel. Teljes térkép sok több célikonnal; a panel lassabban frissül, így gyengébb gépek is használhatják.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Teljesítmény (gyorsabb)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Teljes térkép (több ikon, lassabb frissítés)
+SETTINGS_KEYBINDINGS_GROUP Játékbeli gyorsbillentyűk
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Billentyűkombinációk betöltött város közben. Kattintson egy parancsra, majd nyomjon egy billentyűt az átlételezéshez.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Vonatkijelző kapcsolgatása
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Az átfedés járműablakot be- vagy kikapcsolása.
+SETTINGS_HOTKEY_LINE_COLOR Vonalszín átrendelése
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Vonal kiválasztásakor futtassa újra az automatikus vonalszín beállítást.
+LINE_PANEL_COPY Másolás
+LINE_PANEL_PASTE Beillesztés
+SETTINGS_OOC_ENABLE OptimalizÃ¡lt kÃ¼lsÅ‘ kapcsolatok
+SETTINGS_OOC_ENABLE_TOOLTIP A teher-vonatok, repÃ¼lÅ‘k Ã©s hajÃ³k tovÃ¡bb vÃ¡rnak teltebb rakomÃ¡nyra a kÃ¼lsÅ‘ kapcsolatoknÃ¡l indulÃ¡s elÅ‘tt.
+SETTINGS_OOC_WAIT_MULTIPLIER VÃ¡rakozÃ¡si szorzÃ³
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Mennyivel tovÃ¡bb vÃ¡r a vanilla-nÃ¡l a teltebb rakomÃ¡nyra. Magasabb Ã©rtÃ©kek kevesebb, de teltebb utat jelentenek.
+SETTINGS_OOC_PASSENGER_SCOPE Utas vÃ¡rakozÃ¡s hatÃ³kÃ¶re
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Hol Ã©rvÃ©nyes a fenti vÃ¡rakozÃ¡si szorzÃ³ a tÃ¶megkÃ¶zlekedÃ©sre vÃ¡rÃ³ lakosokra. Csak kÃ¼lsÅ‘ kapcsolatok csak a kÃ¼lsÅ‘ kapcsolatnÃ¡l vÃ¡rÃ³kat Ã©rinti; vÃ¡rosi szintÅ± a szokÃ¡sos belfÃ¶ldi vÃ¡rakozÃ¡st is lassÃ­tja minden lakosnÃ¡l (a forrÃ¡smod tÃ©nyleges viselkedÃ©se szerint).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Csak kÃ¼lsÅ‘ kapcsolatok
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE VÃ¡rosi szintÅ±
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Kikapcsolva (vanilla)
+SETTINGS_OOC_DISABLE_DUMMY DekoratÃ­v Ã¡tmenÅ‘ forgalom kikapcsolÃ¡sa
+SETTINGS_OOC_DISABLE_DUMMY_ROAD DekoratÃ­v kÃ¶zÃºti forgalom kikapcsolÃ¡sa
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN DekoratÃ­v vonatforgalom kikapcsolÃ¡sa
+SETTINGS_OOC_DISABLE_DUMMY_PLANE DekoratÃ­v lÃ©giforgalom kikapcsolÃ¡sa
+SETTINGS_OOC_DISABLE_DUMMY_SHIP DekoratÃ­v hajÃ³forgalom kikapcsolÃ¡sa
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP A kÃ¼lsÅ‘ kapcsolatok Ã¡ltalÃ¡ban extra dekoratÃ­v forgalmat indÃ­tanak, amely soha nem lÃ©p be tÃ©nylegesen a vÃ¡rosba, csak a lÃ¡tvÃ¡nyÃ©rt. KikapcsolÃ¡sa eltÃ¡volÃ­tja ezt a forgalmat a valÃ³s import/export/utasÃ¡ramlÃ¡s Ã©rintÃ©se nÃ©lkÃ¼l.
+SETTINGS_UOC_ENABLE KorlÃ¡tlan kÃ¼lsÅ‘ kapcsolatok
+SETTINGS_UOC_ENABLE_TOOLTIP EltÃ¡volÃ­tja a vanilla 4-kapcsolatos korlÃ¡tot utakra, vÃ¡gÃ¡nyokra, hajÃ³- Ã©s repÃ¼lÅ‘Ãºtvonalakra, Ã©s visszamenÅ‘leg Ã¶sszekÃ¶ti a kÃ¶zlekedÃ©si vonalakat, ha Ãºj kapcsolat Ã©pÃ¼l meglÃ©vÅ‘ Ã¡llomÃ¡s kÃ¶zelÃ©ben. A kÃ¶vetkezÅ‘ szintbetÃ¶ltÃ©skor lÃ©p Ã©letbe.
+SETTINGS_STTAI_ENABLE EgyvÃ¡gÃ¡nyÃº vonat Ã¼tkÃ¶zÃ©selkerÃ¼lÃ©s
+SETTINGS_STTAI_ENABLE_TOOLTIP EgyvÃ¡gÃ¡nyÃº szakaszt egyszerre egy vonatnak tart fenn, a szembejÃ¶vÅ‘ vonatot a bejÃ¡ratnÃ¡l tartja, amÃ­g a szakasz szabad. Eredeti IPT4 funkciÃ³, nincs a vanillÃ¡ban Ã©s egyetlen abszorbeÃ¡lt modban sem.
+SETTINGS_STOPSTACKER_ENABLE BuszmegÃ¡llÃ³-Ã¡llÃ¡s egymÃ¡sra rakÃ¡sa
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP A mÃ¡sodik/harmadik, ugyanarra a megÃ¡llÃ³ra Ã©rkezÅ‘ busz a sajÃ¡t Ã¡llÃ¡sÃ¡t hasznÃ¡lhatja hÃ¡trÃ©bb a megÃ¡llÃ³sÃ¡von, ahelyett hogy egy sorban Ã¡llna a vezetÅ‘ busz mÃ¶gÃ¶tt, Ã­gy tÃ¶bb busz is rakodhat egyszerre. Eredeti IPT4 funkciÃ³ (egyszerÅ±sÃ­tett clean-room ÃºjraimplementÃ¡ciÃ³), nincs a vanillÃ¡ban Ã©s egyetlen abszorbeÃ¡lt modban sem.
+CHANGELOG_4_3_3_1 Beállítások mentés/betöltésének hibája javítva még Newtonsoft.Json.dll csomagolása után.
+CHANGELOG_4_3_2_1 A mod teljes sikertelenül betöltésének hibája javítva.
+CHANGELOG_4_3_1_1 Az Options panel nyelvválasztó csak a keretrendszer saját stringjeit fordította hibája javítva.
+CHANGELOG_4_3_1_2 38 fordítás kulcs feltöltve amely csak angol és portugál nyelven létezett.
+CHANGELOG_4_3_1_3 4 másolat/beillesztés eszköztipp kulcs hozzáadva amely hiányzott.
+CHANGELOG_4_3_0_1 Train Display Updated hozzáadva: egy kis képernyőn belüli átfedés sor/cél/állapottal.
+CHANGELOG_4_3_0_2 Több build hiba javítva az új Train Display integrációban.
+CHANGELOG_4_2_4_1 A mod mindig 0.0.0 verzió mutató hibája javítva.
+CHANGELOG_4_2_4_2 AutoLineColor szín-stratégia legördülő fordítás hibája javítva.
+CHANGELOG_4_2_4_3 A villamos csoportosulás módok átnevezve a busz modokkal egyezni.
+CHANGELOG_4_2_4_4 Jelölőnégyzet leírásainak soha nem renderelésének hibája javítva.
+CHANGELOG_4_2_4_5 Options fül feliratozása levágott hibája javítva.
+CHANGELOG_4_2_4_6 Reset gombok rendszerint azonnal módosították az alapul szolgáló beállításokat hibája javítva.
+CHANGELOG_4_2_4_7 Delete Lines eszköz jelölőnégyzetei megmaradtak mentett beállításként hibája javítva.
+CHANGELOG_4_2_3_1 Minden mod fordítás nyersforráskód-kulcsként jelent meg minden nyelvben.
+CHANGELOG_4_2_3_2 Az üres Key Bindings fül eltávolítva az Options panelből.
+CHANGELOG_4_2_3_3 A csúszkák az Options-ban most ismét mutatják az aktuális értéket.
+CHANGELOG_4_2_3_4 AutoLineColor min szín különbség és max szín választási csúszkái javítva.
+CHANGELOG_4_2_0_1 Hozzáadva Rescue Fullwidth Digits: normalizálja a teljes szélességű számjegyeket normál ASCII-vé.
+CHANGELOG_4_2_0_2 Egy dedikált Ticket Prices fül hozzáadva az Options panelhez.
+CHANGELOG_4_2_0_3 Rescue Fullwidth Digits javítása csak egyszer alkalmazva mod induláskor.
+CHANGELOG_4_2_0_4 Taxi jegyár integer-overflow hibájának javítása (MileageTaxiServices).
+CHANGELOG_4_1_5_1 Az Options panel üres/fekete hibájának igazi oka javítva.
+CHANGELOG_4_1_4_1 Az Options panel üres/fekete hibája javítva.
+CHANGELOG_4_1_4_2 Minden CSLModsCommon felhasználóifelület textúra betöltésének hibája javítva.
+CHANGELOG_4_1_3_1 CSLModsCommon migrációból maradt három beállítás-mentés hiba javítva.
+CHANGELOG_4_1_3_2 Halott kód eltávolítva az előCSLModsCommon korszakból.
+CHANGELOG_4_0_0_1 Forkolva az Improved Public Transport 3-ból.
+CHANGELOG_4_0_0_2 Az AutoLineBudget kereslet alapú flottaméreteztésé portálva az IPT saját járműszám-API-jához a vonal költségvetésének közvetlen írása helyett, fenntartási költségek robbanásáért felelős hiba javítva.
+CHANGELOG_4_0_0_3 CSLModsCommon fogadott az Options felhasználóifelülethez (verzió jel, changelog, kompatibilitás figyelmeztetések, fordítás előrehaladás).
+TRAINDISPLAY_LABEL_NAME NÃ©v
+TRAINDISPLAY_LABEL_STATUS Ãllapot
+TRAINDISPLAY_NO_LINE Nincs vonal
+TRAINDISPLAY_NO_DESTINATION Nincs cÃ©l
+TRAINDISPLAY_HIDDEN Rejtett
+TRAINDISPLAY_VEHICLE JÃ¡rmÅ±
+TRAINDISPLAY_STATE_RETURNING VisszatÃ©r
+TRAINDISPLAY_STATE_STOPPED MegÃ¡llÃ³nÃ¡l
+TRAINDISPLAY_STATE_EN_ROUTE Ãšton
+TRAINDISPLAY_STATE_ON_LINE Vonalon
+TRAINDISPLAY_STATE_IDLE ÃœresjÃ¡rat
+AUTOLINECOLOR_REFRESH_BUTTON NÃ©v/szÃ­n frissÃ­tÃ©se
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Ãšjra kiosztja a jelenlegi vonalnevet Ã©s szÃ­nt az aktÃ­v AutoLineColor beÃ¡llÃ­tÃ¡sok szerint.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Kapcsoljon be szÃ­n- vagy nÃ©vstratÃ©giÃ¡t a BeÃ¡llÃ­tÃ¡sokban a vonal frissÃ­tÃ©se elÅ‘tt.
+CHANGELOG_4_3_3_2 A csomagolt Newtonsoft.Json feloldó megkeményítve.
+CHANGELOG_4_3_3_3 Bengali, Hindi, indonéz és urdu mostjelenik meg a mod nyelvválasztójában.
+CHANGELOG_4_3_3_4 A megálló utaskorlátozó optimalizálva.
+CHANGELOG_4_3_3_5 A mod mappa keresése függetlenné tette attól mely osztály alkalmazott IUserMod-ot.
+CHANGELOG_4_3_4_1 Egy indítási ModException javítva.
+CHANGELOG_4_3_5_1 Train Display átfedésének soha meg nem jelenésének hibája javítva.
+CHANGELOG_4_3_5_2 Ticket Prices fül most az eredményes jegyárat mutatja szállítási típusonként.
+TICKET_PRICE_LABEL_TOOLTIP Jelenlegi dÃ­j: {0}\nEredeti dÃ­j: {1}\nMost utazÃ³ utasok: {2}
+CHANGELOG_4_8_0_1 Hozzáadva SingleTrainTrackAI: egyvágányú vasúti szegmensek előszörben egy irányhoz vannak foglalva.
+CHANGELOG_4_8_0_2 Hozzáadva Stop Stacker: amikor több mint egy jármű azonos vonali ugyanire a megállóra konvergál.
+CHANGELOG_4_8_0_3 Az intercity busz terminál integráció hibája javítva.
+CHANGELOG_4_8_0_4 Az jelölőnégyzetének ragadt nem reagálónak hibája javítva.
+CHANGELOG_4_8_0_5 Sub-Buildings Tabs szétutasított fül sáv hibája javítva.
+CHANGELOG_4_8_0_6 Általános hiba seep több integrációkon keresztül javítva.
+CHANGELOG_4_8_0_7 Ismételt reflexió és per-képkocka keresések csökkentve.
+CHANGELOG_4_8_0_8 Friss telepítések most a Safe játék profilt használják.
+CHANGELOG_4_8_0_9 Options > Integrations most kiteszi Advanced Stop Selection, Better Boarding, Mileage Taxi Services és Elevated Stops.
+CHANGELOG_4_8_0_10 Teljes Steam Workshop nyelvcsomag hozzáadva.
+CHANGELOG_4_8_5_1 Train Display gátlódás/befagyás javítva.
+CHANGELOG_4_8_5_2 Train Display útvonal sáv és megálló automatikus elnevezés optimalizálva.
+CHANGELOG_4_8_5_3 Parked Commuter Destination: kikapcsolódott az összes profil/mentéshez.
+CHANGELOG_4_8_5_4 Options nyelvcsomag teljes Common JSON halmaztal szállít telepítéskor.
+CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
+CHANGELOG_4_7_0_1 Négy új integráció: Sub-Buildings Tabs, Shared Stop Enabler, Commuter Destination és Taxi Stand Fix.
+CHANGELOG_4_7_0_2 Egy jármű kapacitás mód hozzáadva az intercity busz terminálokhoz.
+CHANGELOG_4_7_0_3 Az intercity busz terminál jelölőnégyzetének hibája javítva.
+CHANGELOG_4_7_0_4 Az Original szín téma hozzáadva a Train Display-hez.
+CHANGELOG_4_7_0_5 Az egyszerű, sötét és világos Train Display témák rossz szín renderelésének hibája javítva.
+CHANGELOG_4_7_0_6 Ticket Prices fül mindig vissza esés hibája javítva.
+CHANGELOG_4_7_0_7 Ismételt per-képkocka felhasználóifelület fa keresések csökkentve.
+CHANGELOG_4_7_0_8 A teljes Options menü átszervezve fülekbe.
+CHANGELOG_4_3_8_1 Már nincs BETA-ként jelölve.
+CHANGELOG_4_3_7_1 Az összes 23 nyelv a választóban most teljes fordított.
+CHANGELOG_4_3_7_2 A fordítás előrehaladás mutatott a nyelvválasztó alatt javítva.
+CHANGELOG_4_3_6_1 Az körülbelül -21,4 millió közlekedési költségvetés igazi forrása javítva.
+CHANGELOG_4_3_6_2 Meglévő mentések javítottak betöltéskor.
+DEPOT_STATS_HELICOPTERS Helikopterek használatban
+DEPOT_STATS_FERRIES_IN_USE Kompok használatban
+DEPOT_STATS_BLIMPS_IN_USE Légballonok használatban
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolibuszok használatban
+DEPOT_STATS_VEHICLES_IN_USE Járművek használatban
+SETTINGS_EMPTY_BEFORE_DEPOT Ürítse le az utasokat a telephelyhez való visszatérés előtt
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Ha engedélyezve, a közlekedési járművek utasokkal nem hagyják el a vonalat a telephelyhez, amíg üres nem. Alapértelmezésben ki; a Realisztikus profil bekapcsolja.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Járműtípusok az átfedésen
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Mely közlekedési járművek mutathatják a vonatkijelzőt kiválasztáskor.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Mutassa az átfedést ezen járműtípus kiválasztásakor.
+SETTINGS_TRAINDISPLAY_TYPE_BUS Busz
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolibusz
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Villamos
+SETTINGS_TRAINDISPLAY_TYPE_METRO Metró
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Vonat
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Egysín
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Hajó / komp
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Repülő / légballon / helikopter
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Kábelfüggő
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Túrabusz
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Fekete (félig átlátszó)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Sebesség megjelenítése (extrák sáv)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Utasok megjelenítése (extrák sáv)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Eltelt idő megjelenítése (extrák sáv)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Vonalszínű sávot ad az átfedés fölé ezekkel az extrákkal. Alapértelmezésben ki.
+TRAINDISPLAY_LABEL_SPEED Sebesség
+TRAINDISPLAY_LABEL_TIME Idő

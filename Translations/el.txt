@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 All 23 languages in the selector are now fully translated. Cze
 CHANGELOG_4_3_7_2 The translation progress shown under the language selector was reading a static status file that had not been regenerated, so it reported 76% for sixteen languages that were in fact complete.
 CHANGELOG_4_3_6_1 Fixed the real source of the approximately -21.4 million public-transport expense: IPT's weekly maintenance replacement divided by a zero or unsupported vehicle capacity, turning NaN into int.MinValue, and then summed every vehicle in another int. Maintenance inputs now use a safe vanilla fallback, line totals use 64-bit arithmetic, and large valid totals are charged only through bounded positive transactions.
 CHANGELOG_4_3_6_2 Existing saves are repaired on load by clearing only negative public-transport income or expense buckets left by this overflow and correcting their matching totals. Valid economy history and every non-transport service remain untouched.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+DEPOT_STATS_FERRIES_IN_USE Φέρι σε χρήση
+DEPOT_STATS_BLIMPS_IN_USE Αερόπλοια σε χρήση
+DEPOT_STATS_HELICOPTERS Ελικόπτερα σε χρήση
+DEPOT_STATS_TROLLEYBUSES_IN_USE Τρόλεϊ σε χρήση
+DEPOT_STATS_VEHICLES_IN_USE Οχήματα σε χρήση
+SETTINGS_EMPTY_BEFORE_DEPOT Άδειασμα επιβατών πριν από την επιστροφή στο αμαξοστάσιο
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Όταν ενεργό, τα οχήματα δημόσιας μεταφοράς με επιβάτες δεν θα φύγουν από τη γραμμή για το αμαξοστάσιο μέχρι να αδειάσουν. Στη συνέχεια επιστρέφουν στο σπίτι. Ανενεργό από προεπιλογή· το προφίλ Ρεαλιστικό το ενεργοποιεί.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Τύποι οχημάτων στην επικάλυψη
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Ποια οχήματα δημόσιας μεταφοράς μπορούν να εμφανίσουν το πάνελ Train Display όταν επιλεγούν.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Εμφάνιση της επικάλυψης όταν αυτός ο τύπος οχήματος επιλεγεί.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
-SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Τρόλεϊ
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Τραμ
+SETTINGS_TRAINDISPLAY_TYPE_METRO Μετρό
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Τρένο
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Μονόραγο
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Πλοίο / φέρι
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Αεροπλάνο / αερόπλοιο / ελικόπτερο
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Ταξί
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Τελεφερίκ
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Τουριστικό λεωφορείο
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Μαύρο (ημι-διαφανές)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Εμφάνιση ταχύτητας (επιπλέον ταινία)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Εμφάνιση επιβατών (επιπλέον ταινία)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Εμφάνιση που πέρασε χρόνος (επιπλέον ταινία)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Προσθέτει μια ταινία χρώματος γραμμής πάνω από το κύριο πάνελ με αυτά. Ανενεργό από προεπιλογή.
+TRAINDISPLAY_LABEL_SPEED Ταχύτητα
+TRAINDISPLAY_LABEL_TIME Χρόνος
+SETTINGS_PERFORMANCE_PROFILE Προφίλ απόδοσης
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Παγκόσμιος προϋπολογισμός για βαρύ UI και σαρώσεις (ανανέωση Train Display, χάρτης Commuter Destination/λίστα, παρόμοιο έργο).\nΕλαφρύ: ελαχιστοποίηση κινδύνου κιλήδας — λιγότερα εικονίδια, πιο αργή ανανέωση.\nΚανονικό: ισορροπημένο (προεπιλογή).\nΜέγιστο: πλήρη λεπτομέρεια και πιο ζωηρές επικαλύψεις· μπορεί να κοστίσει FPS σε ασθενέστερα PC.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Ελαφρύ (πιο ομαλό)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Κανονικό (ισορροπημένο)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Μέγιστο (πλήρη λεπτομέρεια)
+SETTINGS_TAB_PERFORMANCE Απόδοση
+SETTINGS_PERFORMANCE_TIPS_GROUP Συμβουλές
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Χρησιμοποιήστε ελαφρύ αν το UI ή οι επικαλύψεις κιλήδα· Μέγιστο μόνο αν το PC σας είναι ισχυρό. Οι αλλαγές ισχύουν αμέσως για Train Display και Commuter Destination. Ορισμένες άλλες ενσωματώσεις χρειάζονται ακόμα επαναφόρτωση χάρτη.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_TAB_COMPATIBILITY Συμβατότητα
+SETTINGS_COMPAT_INTRO_GROUP Ελέγξτε τη σειρά φόρτωσής σας
+SETTINGS_COMPAT_INTRO_DESCRIPTION Το IPT4 σαρώνει ενεργά Workshop/τοπικά mods για γνωστές συγκρούσεις (IPT1–3, TLM, ITM, απορροφημένα standalone) και απαιτούμενες εξαρτήσεις (Harmony). Εκτελέστε έλεγχο μετά την αλλαγή συνδρομών.
+SETTINGS_COMPAT_RUN_CHECK Σάρωση για συγκρούσεις
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Συγκρίνει ενεργά plugins με τη λίστα συγκρούσεων IPT4 (όνομα assembly + Workshop ID) και την εξάρτηση Harmony.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Έλεγχος τώρα
+SETTINGS_COMPAT_STATUS_GROUP Τρέχον αποτέλεσμα
+SETTINGS_COMPAT_STATUS_OK Δεν ανιχνεύθηκαν συγκρούσεις ή ελλιπείς εξαρτήσεις στην τελευταία σάρωση.
+SETTINGS_COMPAT_STATUS_WARN Βρέθηκε ένα ή περισσότερα προβλήματα — απενεργοποιήστε τα αναφερόμενα mods (ή εγγραφείτε στο Harmony) και επανεκκινήστε το παιχνίδι.
+SETTINGS_COMPAT_MATCHED_GENERIC Αυτό το mod συγκρούεται με IPT4. Απενεργοποιήστε ή καταργήστε την εγγραφή.
+SETTINGS_COMPAT_MISSING_DEP Η απαιτούμενη εξάρτηση δεν υπάρχει. Εγγραφείτε και ενεργοποιήστε το, στη συνέχεια επανεκκινήστε.
+SETTINGS_COMPAT_NO_ISSUES Τίποτα συγκρουόμενο δεν είναι ενεργοποιημένο αυτή τη στιγμή.
+SETTINGS_COMPAT_BADGE_CONFLICT Σύγκρουση
+SETTINGS_COMPAT_BADGE_MISSING Ελλιπές
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
-SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
-SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
+SETTINGS_COMPAT_GUIDE_GROUP Τι να μην εκτελέσετε με IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Ποτέ μην ενεργοποιήσετε: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nΚαταργήστε την εγγραφή από standalone mods ήδη ενσωματωμένα στο IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, κλπ. — πλήρης λίστα στη συζήτηση Workshop).\nΑπαιτούμενο: Harmony (CitiesHarmony, Workshop 2040656402).\nΜετά την απενεργοποίηση σύγκρουσης, επανεκκινήστε το παιχνίδι ώστε τα Harmony patches να ξεφορτωθούν καθαρά.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Επιστροφή του επιλεγμένου οχήματος στο αμαξοστάσιό του/γκαράζ. Μειώνει το στόχο γραμμής.
+COMMUTER_STOP_WITH_WAITING {0} ({1} περιμένει)
+SETTINGS_TAB_FLEET_SHORT Στόλος
+SETTINGS_TAB_STOPS_SHORT Στάσεις
+SETTINGS_TAB_OVERLAY_SHORT Επικάλυψη
+SETTINGS_TAB_SYSTEM_SHORT Σύστημα
+SETTINGS_SUB_SPACING Διάστημα
+SETTINGS_SUB_SPACING_DESC Διατηρήστε τα οχήματα ομοιόμορφα διαχωρισμένα. Η αποφυγή συσσώρευσης είναι το κλασικό εργαλείο IPT· το Express Bus/Tram είναι ένα εναλλακτικό στυλ.
+SETTINGS_SUB_BUDGET Προϋπολογισμός
+SETTINGS_SUB_COLOR Χρώμα
+SETTINGS_SUB_CAPS Όρια
+SETTINGS_SUB_NET Δίκτυο
+SETTINGS_SUB_NET_DESC Τοποθέτηση στάσης σε δρόμους: υπερυψωμένο, κοινοί τύποι, στοίβαξη, προηγμένες πλατφόρμες.
+SETTINGS_SUB_VEHICLES Οχήματα
+SETTINGS_SUB_VEHICLES_DESC Επιβίβαση, επιστροφή-στο-αμαξοστάσιο, τρένα μονής τροχιάς, ταξί, unstucker.
+SETTINGS_SUB_DEPOTS Αμαξοστάσια
+SETTINGS_SUB_DEPOTS_DESC Μαλακά όρια για πόσα οχήματα μπορεί να κρατήσει ένα αμαξοστάσιο (το vanilla είναι συχνά απεριόριστο).
+SETTINGS_SUB_OUTSIDE Εξω
+SETTINGS_SUB_OUTSIDE_DESC Τερματικά intercity και αναμονή φορτίου/επιβατών εξωτερικής σύνδεσης.
+SETTINGS_SUB_DISPLAY Οθόνη
+SETTINGS_SUB_INFO Πληροφορίες
+SETTINGS_SUB_INFO_DESC Πάνελ και εργαλεία πληροφοριών πόλης (όχι προσομοίωση στόλου).
+SETTINGS_SUB_PERF Απόδοση
+SETTINGS_SUB_COMPAT Συμβατότητα
+SETTINGS_SUB_KEYS Πλήκτρα
+SETTINGS_FUTURE_GROUP Έρχεται αργότερα
+SETTINGS_FUTURE_GROUP_DESCRIPTION Προεπισκόπηση σχεδιαζόμενων χαρακτηριστικών. Αποχρωματισμένο μέχρι να είναι έτοιμο — ακόμα χωρίς εφέ.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Αντιστρεψιμό τραμ AI (σύντομα)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Σχεδιαζόμενο: τα τραμ αντιστρέφονται στα άκρα χωρίς βρόχο. Δεν διατίθεται ακόμα.
+SETTINGS_FUTURE_BREAKDOWN Εργαλεία βλάβης (σύντομα)
+SETTINGS_FUTURE_BREAKDOWN_TIP Σχεδιαζόμενο: διαγνωστικά διαδρομής/κυκλοφορίας για κολλημένα transit. Δεν διατίθεται ακόμα.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Λεπτομέρεια χάρτη:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Απόδοση δείχνει λιγότερα εικονίδια χάρτη και ανανεώνεται γρηγορότερα. Πλήρης χάρτης δείχνει πολλά περισσότερα εικονίδια προορισμού. Το πάνελ ενημερώνεται πιο αργά ώστε ασθενέστερα PC να μπορούν να το χρησιμοποιούν.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Απόδοση (γρηγορότερα)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Πλήρης χάρτης (περισσότερα εικονίδια, πιο αργή ανανέωση)
+SETTINGS_KEYBINDINGS_GROUP Διακοπές κατά τη διάρκεια του παιχνιδιού
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Συντομεύσεις ενώ μια πόλη είναι φορτωμένη. Κάντε κλικ σε δέσμευση και μετά πατήστε πλήκτρο για επαναδέσμευση.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Εναλλαγή οθόνης τρένου
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Ενεργοποίηση ή απενεργοποίηση της επικάλυψης οχήματος γωνίας.
+SETTINGS_HOTKEY_LINE_COLOR Επαναανάθεση χρώματος γραμμής
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Ενώ μια γραμμή μεταφοράς είναι επιλεγμένη, εκτελέστε ξανά το Auto Line Color για αυτή τη γραμμή (χρειάζεται στρατηγική χρώματος ενεργοποιημένη).
+LINE_PANEL_COPY Αντιγραφή
+LINE_PANEL_PASTE Επικόλληση
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP Γρήγορες συμβουλές
+SETTINGS_QUICK_TIPS_DESC Μικρές υπενθυμίσεις — χωρίς επιπλέον κώδικα, απλώς πώς να χρησιμοποιήσετε αυτά που έχετε ήδη.
+SETTINGS_QUICK_TIP_1_TITLE Ξεκινήστε απλά
+SETTINGS_QUICK_TIP_1_BODY Επιλέξτε Προτεινόμενο, στη συνέχεια ενεργοποιήστε μόνο αυτά που χρειάζεστε. Ασφαλές είναι καλύτερο αν χρησιμοποιείτε πολλά άλλα mods.
+SETTINGS_QUICK_TIP_2_TITLE Αργό PC;
+SETTINGS_QUICK_TIP_2_BODY Σύστημα → Απόδοση → Ελαφρύ. Επίσης αποφύγετε Commuter «Πλήρης χάρτης» αν τα FPS πέσουν.
+SETTINGS_QUICK_TIP_3_TITLE Μετά τις διακοπές
+SETTINGS_QUICK_TIP_3_BODY Ορισμένες επιλογές χρειάζονται επαναφόρτωση πόλης (η συμβουλή λέει ποιες). Σύστημα → Compat ελέγχει συγκρουόμενα mods.
+SETTINGS_OOC_RESET_TOOLTIP Επαναφέρει την αναμονή εξωτερικής σύνδεσης, διακοσμητική κυκλοφορία και σχετικές διακοπές στις ασφαλείς προεπιλογές.
+SETTINGS_EBS_GROUP_BUS_DESC Τα λεωφορεία εξπρές μπορεί να φύγουν νωρίτερα όταν λίγοι επιβάτες επιβιβάζονται — προαιρετική προηγμένη διακοπή.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Επιπλέον σειρές
+SETTINGS_SUB_NET_BBSP_NOTE Το Better Bus Stop αλλάζει μόνο πού παρκάρουν τα λεωφορεία στη στάση. Οι παρακάτω επιλογές είναι ξεχωριστά χαρακτηριστικά (υπερυψωμένο, κοινές στάσεις, κλπ.) — παραμένουν κλικάρι σκόπιμα.

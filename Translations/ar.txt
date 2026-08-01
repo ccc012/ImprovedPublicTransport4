@@ -385,7 +385,7 @@ SETTINGS_STTAI_ENABLE تجنب تصادم القطارات في المسار ا�
 SETTINGS_STTAI_ENABLE_TOOLTIP يحجز مقطعا من مسار واحد لقطار واحد في كل مرة، ويوقف القطار المعاكس عند المدخل حتى يصبح المقطع خاليا. ميزة اصلية من IPT4، غير موجودة في اللعبة الاساسية او في اي مود مدمج.
 SETTINGS_STOPSTACKER_ENABLE تكديس مواقف محطات الحافلات
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP يتيح للحافلة الثانية أو الثالثة القادمة إلى نفس المحطة استخدام موقفها الخاص في مكان ابعد على مسار المحطة بدلا من الاصطفاف خلف الحافلة الاولى، بحيث يمكن لاكثر من حافلة الصعود والنزول في نفس الوقت. ميزة اصلية من IPT4 (اعادة تنفيذ مبسطة دون الوصول للكود الاصلي)، غير موجودة في اللعبة الاساسية او في اي مود مدمج.
-CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
+CHANGELOG_4_3_3_1 تم إصلاح مشكلة كسر حفظ/تحميل الإعدادات على بعض مجموعات الإضافات حتى بعد توصيل Newtonsoft.Json.dll: محاولة الحل السابقة حاولت فقط Assembly.LoadFrom في نقطة دخول واحدة وكانت لا تزال تعتمد على ترتيب التحميل. يسجل IPT4 الآن خطاف AssemblyResolve عالمي ويبدأ بفعل Newtonsoft.Json المجمع من كل نقطة دخول mod/UI قبل أن تلمس CSLModsCommon JsonWriter، لذلك تستمر واجهة الخيارات الجديدة بموثوقية بدلاً من الربط العشوائي بنسخة Json.NET غير المتوافقة من إضافة أخرى.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
 CHANGELOG_4_3_1_2 Filled in 38 translation keys that existed only in English and Portuguese - every other language (Arabic, Bengali, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Russian, Urdu and all Chinese variants) was silently falling back to English for the whole Train Display section, the Delete Lines description and the three Express Bus descriptions.
@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 جميع اللغات الثلاث والعشرين في ال�
 CHANGELOG_4_3_7_2 كان تقدم الترجمة المعروض تحت محدد اللغة يقرأ ملف حالة ثابتًا لم يُعد إنشاءه، لذلك أظهر 76% لست عشرة لغة كانت مكتملة فعليًا.
 CHANGELOG_4_3_6_1 تم إصلاح السبب الحقيقي لمصروف النقل العام البالغ حوالي 21.4- مليون: كان حساب الصيانة الأسبوعي في IPT يقسم على سعة مركبة تساوي صفرًا أو غير مدعومة، فيتحول NaN إلى int.MinValue، ويُجمع بعدها لكل مركبة داخل int أخر. القيم غير الصالحة تستخدم الآن قيمة احتياطية أصلية آمنة، ومجاميع الخطوط تستخدم حسابًا بدقة 64 بتًا، والمبالغ الكبيرة الصالحة تُحمل فقط عبر معاملات موجبة محدودة.
 CHANGELOG_4_3_6_2 يتم إصلاح الملفات المحفوظة المتأثرة عند التحميل: تُصفّر فقط فترات الدخل أو المصروف السلبية الخاصة بالنقل العام التي تركها هذا الخلل، مع تصحيح المجاميع المقابلة. يبقى التاريخ الاقتصادي السليم وكل الخدمات الأخرى دون مساس.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
-SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
-SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
-SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
-SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
-SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
-SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+DEPOT_STATS_FERRIES_IN_USE العبّارات قيد الاستخدام
+DEPOT_STATS_BLIMPS_IN_USE المناطيد قيد الاستخدام
+DEPOT_STATS_HELICOPTERS المروحيات قيد الاستخدام
+DEPOT_STATS_TROLLEYBUSES_IN_USE حافلات الترولي قيد الاستخدام
+DEPOT_STATS_VEHICLES_IN_USE المركبات قيد الاستخدام
+SETTINGS_EMPTY_BEFORE_DEPOT إفراغ الركاب قبل العودة إلى المستودع
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP عند التفعيل، لن تغادر مركبات النقل العام التي تحتوي على ركاب خطوطها إلى المستودع حتى تصبح فارغة. ثم تعود إلى الديار. معطل افتراضياً؛ ملف تعريف واقعي يفعله.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP أنواع المركبات على الطبقة
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION أي مركبات النقل العام يمكنها إظهار لوحة Train Display عند اختيارها.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP أظهر الطبقة عند اختيار نوع المركبة هذا.
+SETTINGS_TRAINDISPLAY_TYPE_BUS حافلة
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY ترولي باص
+SETTINGS_TRAINDISPLAY_TYPE_TRAM ترام
+SETTINGS_TRAINDISPLAY_TYPE_METRO مترو
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN قطار
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL قطار معلّق
+SETTINGS_TRAINDISPLAY_TYPE_SHIP سفينة / عبّارة
+SETTINGS_TRAINDISPLAY_TYPE_PLANE طائرة / منطاد / مروحية
+SETTINGS_TRAINDISPLAY_TYPE_TAXI تاكسي
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR تلفريك
+SETTINGS_TRAINDISPLAY_TYPE_TOURS حافلة سياحية
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI أسود (شبه شفاف)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED إظهار السرعة (شريط إضافي)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS إظهار الركاب (شريط إضافي)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED إظهار الوقت المنقضي (شريط إضافي)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP يضيف شريطًا ملونًا بلون الخط فوق اللوحة الرئيسية بهذه الإضافات. معطل افتراضيًا.
+TRAINDISPLAY_LABEL_SPEED السرعة
+TRAINDISPLAY_LABEL_TIME الوقت
+SETTINGS_PERFORMANCE_PROFILE ملف تعريف الأداء
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP ميزانية عالمية للواجهة الثقيلة والمسحات (تحديث Train Display، خريطة/قائمة وجهة الركاب، أعمال مشابهة).\nخفيف: قلل خطر التعثر — أيقونات أقل، تحديث أبطأ.\nعادي: متوازن (افتراضي).\nأقصى: أكثر التفاصيل والطبقات الحادة؛ قد يكلف FPS على أجهزة الكمبيوتر الضعيفة.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT خفيف (أسلس)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL عادي (متوازن)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM أقصى (تفاصيل كاملة)
+SETTINGS_TAB_PERFORMANCE الأداء
+SETTINGS_PERFORMANCE_TIPS_GROUP نصائح
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION استخدم خفيف إذا حدث تعثر في الواجهة أو الطبقات؛ أقصى فقط إذا كان حاسوبك قويًا. تنطبق التغييرات فورًا على Train Display ووجهة الركاب. لا تزال بعض عمليات التكامل الأخرى بحاجة إلى إعادة تحميل الخريطة.
+SETTINGS_TICKET_PATHFINDING_COST أسعار البحث عن المسارات (حارات المحطات)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP تجريبي. يكتب تكلفة بحث عن مسار صغيرة على حارات محطات النقل العام من متوسط أسعار التذاكر (نفس الحقل الذي تستخدمه رسوم الطرق). قد يفضل المواطنون الخطوط الأرخص قليلاً. يتطلب تفعيل أسعار التذاكر. معطل افتراضيًا.
+SETTINGS_TAB_COMPATIBILITY التوافقية
+SETTINGS_COMPAT_INTRO_GROUP تحقق من ترتيب التحميل الخاص بك
+SETTINGS_COMPAT_INTRO_DESCRIPTION يقوم IPT4 بفحص الإضافات المدمجة في الورشة/المحلية بحثًا عن تضاربات معروفة (IPT1–3، TLM، ITM، إضافات مستقلة مدمجة) والمتطلبات المتعلقة بها (Harmony). قم بتشغيل فحص بعد تغيير الاشتراكات.
+SETTINGS_COMPAT_RUN_CHECK فحص التضاربات
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP يقارن الإضافات المفعلة مقابل قائمة IPT4 المعروفة بعدم التوافقية (اسم التجميع + معرف الورشة) واعتماد Harmony.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON تحقق الآن
+SETTINGS_COMPAT_STATUS_GROUP النتيجة الحالية
+SETTINGS_COMPAT_STATUS_OK لم يتم اكتشاف تضاربات أو متطلبات مفقودة في آخر فحص.
+SETTINGS_COMPAT_STATUS_WARN تم العثور على مشكلة واحدة أو أكثر — عطّل الإضافات المذكورة (أو اشترك في Harmony) وأعد تشغيل اللعبة.
+SETTINGS_COMPAT_MATCHED_GENERIC هذه الإضافة تتضارب مع IPT4. عطّلها أو ألغِ الاشتراك عنها.
+SETTINGS_COMPAT_MISSING_DEP المتطلب المطلوب غير موجود. اشترك وفعّله، ثم أعد التشغيل.
+SETTINGS_COMPAT_NO_ISSUES لا يوجد شيء متضارب مفعّل الآن.
+SETTINGS_COMPAT_BADGE_CONFLICT تضارب
+SETTINGS_COMPAT_BADGE_MISSING مفقود
+SETTINGS_COMPAT_BADGE_OK حسناً
+SETTINGS_COMPAT_GUIDE_GROUP ما لا تشغّله مع IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION لا تفعّل أبدًا: IPT1 / IPT2 / IPT3، Transport Lines Manager، Improved Transport Manager.\nألغِ الاشتراك في الإضافات المستقلة المدمجة بالفعل في IPT4 (Auto Line Budget، Express Bus، Train Display، Shared Stop Enabler، Commuter Destination، وغيرها — توجد القائمة الكاملة في نقاش الورشة).\nمطلوب: Harmony (CitiesHarmony، Workshop 2040656402).\nبعد تعطيل التضارب، أعد تشغيل اللعبة حتى تُفرّغ تصحيحات Harmony بنظافة.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP أرسل المركبة المحددة إلى مستودعها/مرآبها. يقلل من عدد الخط المستهدف.
+COMMUTER_STOP_WITH_WAITING {0} ({1} منتظر)
+SETTINGS_TAB_FLEET_SHORT الأسطول
+SETTINGS_TAB_STOPS_SHORT المحطات
+SETTINGS_TAB_OVERLAY_SHORT الطبقة
+SETTINGS_TAB_SYSTEM_SHORT النظام
+SETTINGS_SUB_SPACING التباعد
+SETTINGS_SUB_SPACING_DESC اجعل المركبات متباعدة بالتساوي. التفريق هو أداة IPT الكلاسيكية؛ Express Bus/Tram هو أسلوب بديل.
+SETTINGS_SUB_BUDGET الميزانية
+SETTINGS_SUB_COLOR اللون
+SETTINGS_SUB_CAPS الحدود
+SETTINGS_SUB_NET الشبكة
+SETTINGS_SUB_NET_DESC موضع المحطات على الطرق: مرتفعة، أنواع مشتركة، تكديس، منصات متقدمة.
+SETTINGS_SUB_VEHICLES المركبات
+SETTINGS_SUB_VEHICLES_DESC الصعود، العودة إلى المستودع، القطارات أحادية المسار، سيارات الأجرة، أداة إلغاء التعليق.
+SETTINGS_SUB_DEPOTS المستودعات
+SETTINGS_SUB_DEPOTS_DESC حدود ناعمة لكم عدد المركبات التي يمكن للمستودع استيعابها (اللعبة الأساسية غالبًا بلا حدود).
+SETTINGS_SUB_OUTSIDE الخارج
+SETTINGS_SUB_OUTSIDE_DESC محطات النقل بين المدن والانتظار الخارجي للشحن/الركاب.
+SETTINGS_SUB_DISPLAY العرض
+SETTINGS_SUB_INFO معلومات
+SETTINGS_SUB_INFO_DESC اللوحات وأدوات معلومات المدينة (ليس محاكاة الأسطول).
+SETTINGS_SUB_PERF الأداء
+SETTINGS_SUB_COMPAT التوافقية
+SETTINGS_SUB_KEYS المفاتيح
+SETTINGS_FUTURE_GROUP سيأتي لاحقاً
+SETTINGS_FUTURE_GROUP_DESCRIPTION معاينة للميزات المخطط لها. مظلمة حتى تصبح جاهزة — بلا تأثير حتى الآن.
+SETTINGS_FUTURE_REVERSIBLE_TRAM ذكاء الترام القابل للعكس (قريباً)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP مخطط: الترامات تعكس عند محطات النهاية دون حلقة. غير متاح حتى الآن.
+SETTINGS_FUTURE_BREAKDOWN أدوات الانهيار (قريباً)
+SETTINGS_FUTURE_BREAKDOWN_TIP مخطط: تشخيصات الطرق/حركة المرور للنقل العالق. غير متاح حتى الآن.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL تفاصيل الخريطة:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP الأداء يعرض أيقونات خريطة أقل وينعش أسرع. الخريطة الكاملة تعرض العديد من أيقونات الوجهات على الخريطة؛ تحدّث اللوحة ببطء أكثر حتى تتمكن أجهزة الكمبيوتر الضعيفة من استخدامها.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF الأداء (أسرع)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL الخريطة الكاملة (أيقونات أكثر، تحديث أبطأ)
+SETTINGS_KEYBINDINGS_GROUP اختصارات لوحة المفاتيح أثناء اللعب
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION اختصارات أثناء تحميل المدينة. انقر فوق رابط ثم اضغط على مفتاح لإعادة ربط.
+SETTINGS_HOTKEY_TRAIN_DISPLAY تبديل Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP تفعيل أو تعطيل طبقة المركبة في الزاوية.
+SETTINGS_HOTKEY_LINE_COLOR إعادة تعيين لون الخط
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP أثناء تحديد خط نقل، أعد تشغيل Auto Line Color لذلك الخط (يتطلب استراتيجية لون مفعّلة).
+LINE_PANEL_COPY نسخ
+LINE_PANEL_PASTE لصق
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ آمن — كل شيء اختياري يبقى معطل (أفضل مع عدد كبير من الإضافات).\n★ أصلي — الأقرب إلى اللعبة الأساسية (بلا إضافات IPT).\n★ موصى به — نواة IPT فقط: ميزانية الأسطول، والتفريق، والنقل بين المدن، والعلامات الفرعية، وأداة إلغاء التعليق، والمحطات المتقدمة، والمحطات المرتفعة.\n★ واقعي — معظم الميزات قيد التشغيل (محاكاة أقوى، تكلفة أكثر).\n★ مخصص — أنت تختار كل مفتاح تبديل؛ لا تستبدل الملفات الشخصية Custom مرة أخرى حتى تختار حزمة أخرى.
+SETTINGS_QUICK_TIPS_GROUP نصائح سريعة
+SETTINGS_QUICK_TIPS_DESC تذكيرات صغيرة — بدون كود إضافي، فقط كيفية استخدام ما لديك بالفعل.
+SETTINGS_QUICK_TIP_1_TITLE ابدأ ببساطة
+SETTINGS_QUICK_TIP_1_BODY اختر موصى به، ثم فعّل فقط ما تحتاجه. الآمن هو الأفضل إذا استخدمت العديد من الإضافات الأخرى.
+SETTINGS_QUICK_TIP_2_TITLE حاسوب بطيء؟
+SETTINGS_QUICK_TIP_2_BODY النظام → الأداء → خفيف. تجنب أيضًا Commuter «الخريطة الكاملة» إذا انخفض FPS.
+SETTINGS_QUICK_TIP_3_TITLE بعد التبديلات
+SETTINGS_QUICK_TIP_3_BODY تتطلب بعض الخيارات إعادة تحميل المدينة (كما تقول التلميح). النظام → التوافقية تفحص الإضافات المتضاربة.
+SETTINGS_OOC_RESET_TOOLTIP إعادة تعيين انتظار الاتصال الخارجي، وحركة المرور الوهمية، والمفاتيح المرتبطة إلى الافتراضيات الآمنة.
+SETTINGS_EBS_GROUP_BUS_DESC قد تغادر الحافلات السريعة مبكراً عندما يصعد عدد قليل من الركاب — تباعد متقدم اختياري.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP صفوف إضافية
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop فقط يغير حيث تتوقف الحافلات. الخيارات أدناه هي ميزات منفصلة (مرتفعة، محطات مشتركة، إلخ) — تبقى قابلة للنقر عن قصد.

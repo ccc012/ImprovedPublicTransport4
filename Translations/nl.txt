@@ -59,7 +59,7 @@ STOP_BUTTON_TOOLTIP {0}\n\nKlik om naar deze halte te springen.\nHoud Shift inge
 SETTINGS_DELETE Verwijderen
 SETTINGS_RESET Herstellen
 SETTINGS_TAB_GENERAL Algemeen
-SETTINGS_ADVANCED_LINKS_GROUP Links
+SETTINGS_ADVANCED_LINKS_GROUP Koppelingen
 SETTINGS_GITHUB_REPO Broncode op GitHub
 SETTINGS_TAB_AUTOLINE Automatische lijn
 SETTINGS_TAB_STOPS Haltes en stations
@@ -465,62 +465,62 @@ CHANGELOG_4_3_7_1 Alle 23 talen in de keuzelijst zijn nu volledig vertaald. Tsje
 CHANGELOG_4_3_7_2 De vertaalvoortgang onder de taalkeuze las een statisch statusbestand dat nooit opnieuw was gegenereerd en meldde daarom 76% voor zestien talen die in werkelijkheid compleet waren.
 CHANGELOG_4_3_6_1 De echte oorzaak van de uitgave van ongeveer -21,4 miljoen bij het openbaar vervoer is opgelost: de wekelijkse onderhoudsberekening van IPT deelde door een voertuigcapaciteit van nul of een niet-ondersteunde capaciteit, veranderde NaN in int.MinValue en telde daarna elk voertuig op in nog een int. Ongeldige waarden gebruiken nu een veilige vanilla-terugvalwaarde, lijntotalen gebruiken 64-bits rekenkunde en grote geldige bedragen worden alleen via begrensde positieve transacties afgeschreven.
 CHANGELOG_4_3_6_2 Al getroffen saves worden bij het laden gerepareerd: alleen de negatieve inkomsten- of uitgavenposten van het openbaar vervoer die deze overflow heeft achtergelaten worden op nul gezet en hun bijbehorende totalen gecorrigeerd. Geldige economische geschiedenis en alle andere diensten blijven onaangeroerd.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+DEPOT_STATS_FERRIES_IN_USE Veerboten in gebruik
+DEPOT_STATS_BLIMPS_IN_USE Blimps in gebruik
+DEPOT_STATS_HELICOPTERS Helikopters in gebruik
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybussen in gebruik
+DEPOT_STATS_VEHICLES_IN_USE Voertuigen in gebruik
+SETTINGS_EMPTY_BEFORE_DEPOT Voertuigen leegmaken voordat terugkeer naar depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Als ingeschakeld, verlaten voertuigen hun lijn niet voor het depot totdat zij leeg zijn. Daarna keren zij terug naar huis. Standaard uit; het realistische profiel schakelt het in.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Voertuigtypes in overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Welke voertuigen van het openbaar vervoer kunnen het Train Display-paneel weergeven wanneer deze zijn geselecteerd.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Toon de overlay wanneer dit voertuigtype wordt geselecteerd.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
 SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Trein
 SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Schip / veerboot
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Vliegtuig / blimp / helikopter
 SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Kabelbaan
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Rondleiding bus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Zwart (semi-doorzichtig)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Snelheid tonen (extra rij)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Passagiers tonen (extra rij)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Verstreken tijd tonen (extra rij)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Voegt een gekleurde rij boven het hoofdpaneel toe met deze extra's. Standaard uit.
+TRAINDISPLAY_LABEL_SPEED Snelheid
+TRAINDISPLAY_LABEL_TIME Tijd
+SETTINGS_PERFORMANCE_PROFILE Prestatieprofiel
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Globaal budget voor zware UI en scans (Treinweergave vernieuwen, Bestemming forensen kaart/lijst, dergelijk werk).\nLicht: minimaliseer hapering - minder pictogrammen, langzamer verversen.\nNormaal: gebalanceerd (standaard).\nMaximaal: volledigste detail en snellere overlays; kan FPS op zwakkere pc's kosten.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Licht (vloeiender)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normaal (gebalanceerd)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (volledig detail)
+SETTINGS_TAB_PERFORMANCE Prestatie
 SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
-SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
-SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Gebruik Licht als de UI of overlays haperen; Maximum alleen als uw pc sterk is. Wijzigingen gelden onmiddellijk voor Treinweergave en Bestemming forensen. Sommige andere integraties hebben nog steeds een kaartherlading nodig.
+SETTINGS_TICKET_PATHFINDING_COST Routevindingstarieven (haltestroken)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimenteel. Schrijft een kleine routevindingskosten naar openbarvervoerhaltestroken op basis van gemiddelde kaartjesprijzen (hetzelfde veld dat wegtollen gebruiken). Burgers geven misschien iets voorkeur aan goedkopere lijnen. Vereist dat kaartjesprijzen zijn ingeschakeld. Standaard uit.
+SETTINGS_TAB_COMPATIBILITY Compatibiliteit
+SETTINGS_COMPAT_INTRO_GROUP Controleer uw laadvolgorde
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scant ingeschakelde Workshop/lokale mods op bekende conflicten (IPT1–3, TLM, ITM, opgenomen standalones) en vereiste afhankelijkheden (Harmony). Voer een controle uit na het wijzigen van abonnementen.
+SETTINGS_COMPAT_RUN_CHECK Controleren op conflicten
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Vergelijkt ingeschakelde plugins met IPT4's bekende incompatibiliteitenlijst (assemblynaam + Workshop-ID) en Harmony-afhankelijkheid.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Nu controleren
+SETTINGS_COMPAT_STATUS_GROUP Huidig resultaat
+SETTINGS_COMPAT_STATUS_OK Geen conflicten of ontbrekende afhankelijkheden gedetecteerd bij de laatste scan.
+SETTINGS_COMPAT_STATUS_WARN Er zijn een of meer problemen gevonden. Schakel de vermelde mods uit (of abonneer je op Harmony) en start het spel opnieuw.
+SETTINGS_COMPAT_MATCHED_GENERIC Deze mod veroorzaakt conflicten met IPT4. Schakel deze uit of meld je af.
+SETTINGS_COMPAT_MISSING_DEP Vereiste afhankelijkheid ontbreekt. Abonneer je op en schakel het in, start dan opnieuw op.
+SETTINGS_COMPAT_NO_ISSUES Niets konflicterends is op dit moment ingeschakeld.
 SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_MISSING Ontbreekt
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
+SETTINGS_COMPAT_GUIDE_GROUP Wat niet te gebruiken met IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Nooit inschakelen: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nMeld je af van standalones die al in IPT4 zijn ingebouwd (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, enz. - volledige lijst staat in het Workshop-discussie).\nVereist: Harmony (CitiesHarmony, Workshop 2040656402).\nStart het spel opnieuw nadat u een conflict hebt uitgeschakeld, zodat Harmony-patches netjes ontladen.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Stuur het geselecteerde voertuig terug naar zijn depot/garage. Verlaagt het doel aantal lijnen.
 COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
 SETTINGS_TAB_FLEET_SHORT Fleet
 SETTINGS_TAB_STOPS_SHORT Stops

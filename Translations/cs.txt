@@ -1,4 +1,4 @@
-MOD_DESCRIPTION Vylepšená kontrola veřejné dopravy.
+﻿MOD_DESCRIPTION Vylepšená kontrola veřejné dopravy.
 CURRENT_WEEK Aktuální týden
 LAST_WEEK Poslední týden
 AVERAGE Průměr
@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 Všech 23 jazyků v seznamu je nyní kompletně přeloženo. �
 CHANGELOG_4_3_7_2 Ukazatel postupu překladu pod výběrem jazyka čte statický soubor se stavem, který nebyl aktualizován, a proto u šestnácti jazyků uváděl 76 %, i když byly ve skutečnosti hotové.
 CHANGELOG_4_3_6_1 Opravena skutečná příčina výdaje veřejné dopravy kolem -21,4 milionu: týdenní výpočet údržby v IPT dělil nulovou nebo nepodporovanou kapacitou vozidla, měnil NaN na int.MinValue a pak sčítal každé vozidlo v dalším int. Neplatné hodnoty nyní používají bezpečnou východní hodnotu ze hry, součty linek používají 64bitovou aritmetiku a velké platné částky se účtují pouze omezenými kladnými transakcemi.
 CHANGELOG_4_3_6_2 Již zasažené uložené pozice se při načtení opravují: vynulují se pouze záporné položky příjmů nebo výdajů veřejné dopravy, které způsobilo toto přetečení, a opraví se odpovídající součty. Platná ekonomická historie a všechny ostatní služby zůstávají nedotčeny.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+DEPOT_STATS_FERRIES_IN_USE Přívozy v provozu
+DEPOT_STATS_BLIMPS_IN_USE Vzducholodi v provozu
+DEPOT_STATS_HELICOPTERS Vrtulníky v provozu
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolejbusy v provozu
+DEPOT_STATS_VEHICLES_IN_USE Vozidla v provozu
+SETTINGS_EMPTY_BEFORE_DEPOT Vyprázdnit cestující před návratem do depa
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Pokud je povoleno, vozidla veřejné dopravy s cestujícími nebudou opouštět svou linku pro depo, dokud nejsou prázdná. Poté se vrátí domů. Ve výchozím nastavení vypnuto; profil Realistic jej povoluje.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Typy vozidel na overlaye
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Která vozidla veřejné dopravy mohou zobrazit panel Train Display, když jsou vybrána.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Zobrazit overlay, když je vybrán tento typ vozidla.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolejbus
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tramvaj
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Vlak
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Jednokolejka
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Loď / přívoz
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Letadlo / vzducholoď / vrtulník
 SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Lanovka
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Zájezdní autobus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Černá (poloprůhledná)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Zobrazit rychlost (extra pruh)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Zobrazit cestující (extra pruh)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Zobrazit uplynulý čas (extra pruh)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Přidá pruh zbarvený barvou linky nad hlavní panel s těmito extras. Ve výchozím nastavení vypnuto.
+TRAINDISPLAY_LABEL_SPEED Rychlost
+TRAINDISPLAY_LABEL_TIME Čas
+SETTINGS_PERFORMANCE_PROFILE Profil výkonu
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Globální rozpočet pro těžké UI a skenování (Train Display aktualizace, Commuter Destination mapa/seznam, podobná práce).\nLight: minimalizace rizika zakolísání — méně ikon, pomalejší obnova.\nNormal: vyvážené (výchozí).\nMaximum: nejpodrobnější detaily a pohotovější overlaye; může stát FPS na slabších PC.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (hladší)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normální (vyvážené)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (plný detail)
+SETTINGS_TAB_PERFORMANCE Výkon
+SETTINGS_PERFORMANCE_TIPS_GROUP Tipy
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Použijte Light, pokud se UI nebo overlaye seknou; Maximum pouze pokud je váš PC výkonný. Změny se aplikují okamžitě na Train Display a Commuter Destination. Některé další integrace stále potřebují opětovné načtení mapy.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_TAB_COMPATIBILITY Kompatibilita
+SETTINGS_COMPAT_INTRO_GROUP Zkontrolujte pořadí zatížení
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 skenuje povolené Workshop/místní modifikace pro známé konflikty (IPT1–3, TLM, ITM, absorbované samostatné) a požadované závislosti (Harmony). Spusťte kontrolu po změně předplatného.
+SETTINGS_COMPAT_RUN_CHECK Skenovat konflikty
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Porovnává povolené pluginy se seznamem IPT4 nekompatibilních (název sestavení + Workshop ID) a závislostí Harmony.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Zkontrolovat nyní
+SETTINGS_COMPAT_STATUS_GROUP Aktuální výsledek
+SETTINGS_COMPAT_STATUS_OK Při poslední kontrole nebyly zjištěny žádné konflikty nebo chybějící závislosti.
+SETTINGS_COMPAT_STATUS_WARN Byly nalezeny jeden nebo více problémů — zakažte uvedené modifikace (nebo si předplaťte Harmony) a restartujte hru.
+SETTINGS_COMPAT_MATCHED_GENERIC Tato modifikace je v konfliktu s IPT4. Zakažte nebo se odhlašte.
+SETTINGS_COMPAT_MISSING_DEP Požadovaná závislost není přítomna. Předplaťte si ji a povolte, poté restartujte.
+SETTINGS_COMPAT_NO_ISSUES Žádný konfliktní obsah není nyní povolen.
+SETTINGS_COMPAT_BADGE_CONFLICT Konflikt
+SETTINGS_COMPAT_BADGE_MISSING Chybí
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_COMPAT_GUIDE_GROUP Co nepoužívat s IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Nikdy nepovolujte: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nOdhlaste se ze samostatných modulů již zabudovaných do IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination atd. — úplný seznam je na diskuzi Workshop).\nPožadováno: Harmony (CitiesHarmony, Workshop 2040656402).\nPo zakázání konfliktu restartujte hru, aby se opravy Harmony čistě uvolnily.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Pošlete vybrané vozidlo zpět na své depo/garáž. Snižuje počet cílů linky.
+COMMUTER_STOP_WITH_WAITING {0} ({1} čekajících)
+SETTINGS_TAB_FLEET_SHORT Vozový park
+SETTINGS_TAB_STOPS_SHORT Zastávky
 SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
+SETTINGS_TAB_SYSTEM_SHORT Systém
+SETTINGS_SUB_SPACING Rozestup
+SETTINGS_SUB_SPACING_DESC Udržujte vozidla rovnoměrně rozestoupená. Unbunching je klasický nástroj IPT; Express Bus/Tram je alternativní styl.
+SETTINGS_SUB_BUDGET Rozpočet
+SETTINGS_SUB_COLOR Barva
+SETTINGS_SUB_CAPS Limity
+SETTINGS_SUB_NET Síť
+SETTINGS_SUB_NET_DESC Umístění zastávek na silnicích: zvýšené, sdílené typy, skládání, pokročilé platformy.
+SETTINGS_SUB_VEHICLES Vozidla
+SETTINGS_SUB_VEHICLES_DESC Nástup, návrat do depa, vlaky na jednokolejce, taxíky, odblokátor.
+SETTINGS_SUB_DEPOTS Depa
+SETTINGS_SUB_DEPOTS_DESC Měkké limity na to, kolik vozidel depo pojme (vanilla je často bez limitu).
+SETTINGS_SUB_OUTSIDE Vně
+SETTINGS_SUB_OUTSIDE_DESC Meziměstské terminály a čekání na náklad/cestující na vně.
+SETTINGS_SUB_DISPLAY Zobrazení
 SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_INFO_DESC Panely a nástroje informací o městě (ne simulace flotily).
+SETTINGS_SUB_PERF Výkon
 SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
+SETTINGS_SUB_KEYS Klávesy
+SETTINGS_FUTURE_GROUP Chystá se později
+SETTINGS_FUTURE_GROUP_DESCRIPTION Náhled plánovaných funkcí. Zašednuté, dokud nejsou připraveny — zatím bez efektu.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Obrácení tramvaje AI (brzy)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Plánováno: tramvaje se obracejí u terminálů bez smyčky. Zatím není k dispozici.
+SETTINGS_FUTURE_BREAKDOWN Nástroje pro poruchu (brzy)
+SETTINGS_FUTURE_BREAKDOWN_TIP Plánováno: diagnostika trasy/provozu pro zaseknutou dopravu. Zatím není k dispozici.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detail mapy:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Výkon zobrazuje méně ikon a obnovuje se rychleji. Plná mapa zobrazuje mnohem více ikon cíle na mapě; panel se aktualizuje pomaleji, aby jej mohly používat slabší PC.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Výkon (rychlejší)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Plná mapa (více ikon, pomalejší obnova)
+SETTINGS_KEYBINDINGS_GROUP Klávesové zkratky v herní
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Zkratky při nahrané městě. Klikněte na vazbu a poté stiskněte klávesu pro převázání.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Přepnout zobrazení vlaku
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Zapne nebo vypne overlay vozidla v rohu.
+SETTINGS_HOTKEY_LINE_COLOR Přeřadit barvu linky
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Pokud je vybrána dopravní linka, znovu spusťte Auto Line Color pro tuto linku (vyžaduje povolenou strategii barev).
+LINE_PANEL_COPY Kopírovat
+LINE_PANEL_PASTE Vložit
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP Rychlé tipy
+SETTINGS_QUICK_TIPS_DESC Malé připomínky — žádný další kód, jen jak používat to, co už máte.
+SETTINGS_QUICK_TIP_1_TITLE Začněte jednoduše
+SETTINGS_QUICK_TIP_1_BODY Vyberte Doporučené, pak zapněte pouze to, co potřebujete. Safe je nejlepší, pokud používáte mnoho dalších modů.
+SETTINGS_QUICK_TIP_2_TITLE Pomalý PC?
+SETTINGS_QUICK_TIP_2_BODY Systém → Perf → Light. Také se vyhněte Commuter „Plná mapa", pokud FPS klesá.
+SETTINGS_QUICK_TIP_3_TITLE Po přepínačích
+SETTINGS_QUICK_TIP_3_BODY Některé možnosti vyžadují opětovné načtení města (popis to říká). Systém → Compat kontroluje konfliktní modifikace.
+SETTINGS_OOC_RESET_TOOLTIP Obnoví čekání na vně, fiktivní provoz a související přepínače na Safe výchozí hodnoty.
+SETTINGS_EBS_GROUP_BUS_DESC Expresní autobusy mohou odjet brzy, když nastoupí jen pár cestujících — volitelný pokročilý rozestup.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra řady
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop pouze změní, kde se autobusy zastaví na zastávce. Možnosti níže jsou oddělené funkce (zvýšené, sdílené zastávky atd.) — zůstávají úmyslně klikatelné.

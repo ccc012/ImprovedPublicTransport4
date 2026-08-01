@@ -248,7 +248,7 @@ VEHICLE_PANEL_PREVIOUS_TOOLTIP 이전 차량으로 이동합니다.\n쉬프트 �
 VEHICLE_PANEL_REMOVE_VEHICLE 차량 제거
 VEHICLE_PANEL_NEXT 다음 차량
 VEHICLE_PANEL_NEXT_TOOLTIP 다음 차량으로 이동합니다.\n쉬프트 키를 누른 채 클릭하면 확대 됩니다.
-VEHICLE_SELECTION_CAPACITY Capacity
+VEHICLE_SELECTION_CAPACITY 탑승 인원
 VEHICLE_SELECTION_ADD_VEHICLE 이 차량을 허용된 차량 목록에 추가하기
 VEHICLE_SELECTION_ADD_ALL 모든 적합 차량을 허용된 차량 목록에 추가하기
 VEHICLE_SELECTION_REMOVE_VEHICLE 이 차량을 허용된 차량 목록에서 삭제하기
@@ -256,7 +256,7 @@ VEHICLE_SELECTION_REMOVE_ALL 모든 차량을 허용된 차량 목록에서 삭�
 VEHICLE_SELECTION_AVAILABLE_VEHICLES 이용가능한 차량
 VEHICLE_SELECTION_SELECTED_VEHICLES 선택된 차량
 VEHICLE_SELECTION_ANY_VEHICLE 아무 차량이나
-VEHICLE_BUTTON_TOOLTIP {0}\n\nClick to jump to this vehicle.\nHolding down a shift key when clicking will also zoom in.\nHoling down an alt key when clicking will prevent opening the vehicle info panel.
+VEHICLE_BUTTON_TOOLTIP {0}
 TRANSPORT_LINE_VEHICLECOUNT 차량 수: {0}
 FLIGHT_TRACKER_NAME 비행 추적기
 FLIGHT_STATUS_NONE 없음
@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 선택 목록의 23개 언어 모든 번역이 완료되었습
 CHANGELOG_4_3_7_2 언어 선택 아래에 표시되는 번역 진행률은 다시 생성된 적이 없는 정적 상태 파일을 읽어, 사실상 완료된 16개 언어에 대해 76%로 표시되었습니다.
 CHANGELOG_4_3_6_1 대중교여에서 어림집어 재산되는 지상 -2,140만 지원을 발생시힌 진짜 원인을 수정했습니다. IPT의 주간 유지보수 계산이 0 또는 지원되지 않는 차량 정원으로 나누어 NaN을 int.MinValue로 바블곰, 다시 모든 차량을 또 다른 int에 합산했습니다. 이제 유효하지 않은 값은 안전한 기반 게임 값을 사용하고, 노선 합계는 64버트 연산을 사용하며, 유효한 대금은 상한이 있는 양의 거래로만 부과됩니다.
 CHANGELOG_4_3_6_2 이미 영향을 받은 세이뷔는 불러올 때 복구됩니다. 이 오버필로우가 남긴 대중교통 수입 또는 지출의 음수 항목만 0으로 만들고 해당 합계를 바로잖습니다. 정상적인 경제 기록과 다른 모든 서버스는 그대로 유지됩니다.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
-SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+DEPOT_STATS_FERRIES_IN_USE 운용 중인 페리
+DEPOT_STATS_BLIMPS_IN_USE 운용 중인 비행선
+DEPOT_STATS_HELICOPTERS 운용 중인 헬리콥터
+DEPOT_STATS_TROLLEYBUSES_IN_USE 운용 중인 트롤리버스
+DEPOT_STATS_VEHICLES_IN_USE 운용 중인 차량
+SETTINGS_EMPTY_BEFORE_DEPOT 차고지 복귀 전 탑승객 하차
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP 활성화하면 탑승객이 있는 대중교통 차량은 모두 하차할 때까지 노선을 떠나지 않습니다. 그 다음 차고지로 돌아갑니다. 기본값은 비활성화; 현실적 프로필에서 활성화됩니다.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP 오버레이에 표시할 차량 유형
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION 선택했을 때 Train Display 패널을 표시할 수 있는 대중교통 차량 유형을 선택합니다.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP 이 차량 유형을 선택했을 때 오버레이를 표시합니다.
+SETTINGS_TRAINDISPLAY_TYPE_BUS 버스
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY 트롤리버스
+SETTINGS_TRAINDISPLAY_TYPE_TRAM 트램
+SETTINGS_TRAINDISPLAY_TYPE_METRO 지하철
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN 기차
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL 모노레일
+SETTINGS_TRAINDISPLAY_TYPE_SHIP 선박 / 페리
+SETTINGS_TRAINDISPLAY_TYPE_PLANE 비행기 / 비행선 / 헬리콥터
+SETTINGS_TRAINDISPLAY_TYPE_TAXI 택시
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR 케이블카
+SETTINGS_TRAINDISPLAY_TYPE_TOURS 투어 버스
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI 검정색 (반투명)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED 속도 표시 (추가 행)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS 승객 수 표시 (추가 행)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED 경과 시간 표시 (추가 행)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP 메인 패널 위에 이 정보를 표시하는 노선 색상 띠를 추가합니다. 기본값은 비활성화입니다.
+TRAINDISPLAY_LABEL_SPEED 속도
+TRAINDISPLAY_LABEL_TIME 시간
+SETTINGS_PERFORMANCE_PROFILE 성능 프로필
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP 무거운 UI 및 검사에 대한 전역 예산 (Train Display 새로고침, 통근 목적지 지도/목록 등).
+SETTINGS_PERFORMANCE_PROFILE_LIGHT 낮음 (더 부드러움)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL 보통 (균형잡힘)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM 최대 (완전한 세부)
+SETTINGS_TAB_PERFORMANCE 성능
+SETTINGS_PERFORMANCE_TIPS_GROUP 팁
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION UI 또는 오버레이가 끊기면 낮음 사용; PC가 강력할 경우에만 최대 사용. 변경사항은 Train Display 및 통근 목적지에 즉시 적용됩니다. 일부 통합은 맵 새로고침이 필요합니다.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_TAB_COMPATIBILITY 호환성
+SETTINGS_COMPAT_INTRO_GROUP 로드 순서 확인
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4가 활성화된 Workshop/로컬 모드에서 알려진 충돌(IPT1-3, TLM, ITM, 흡수된 스탠드얼론)과 필수 의존성(Harmony)을 검사합니다. 구독 변경 후 검사를 실행하세요.
+SETTINGS_COMPAT_RUN_CHECK 충돌 검사
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP 활성화된 플러그인을 IPT4의 알려진 호환 불가 목록(어셈블리 이름 + Workshop ID)과 Harmony 의존성과 비교합니다.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON 지금 확인
+SETTINGS_COMPAT_STATUS_GROUP 현재 결과
+SETTINGS_COMPAT_STATUS_OK 마지막 검사에서 충돌이나 누락된 의존성이 감지되지 않았습니다.
+SETTINGS_COMPAT_STATUS_WARN 문제를 찾았습니다 — 나열된 모드를 비활성화하고 (또는 Harmony 구독) 게임을 다시 시작하세요.
+SETTINGS_COMPAT_MATCHED_GENERIC 이 모드는 IPT4와 충돌합니다. 비활성화하거나 구독 취소하세요.
+SETTINGS_COMPAT_MISSING_DEP 필수 의존성이 없습니다. 구독하여 활성화한 후 다시 시작하세요.
+SETTINGS_COMPAT_NO_ISSUES 현재 충돌 문제가 없습니다.
+SETTINGS_COMPAT_BADGE_CONFLICT 충돌
+SETTINGS_COMPAT_BADGE_MISSING 누락됨
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
-SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
-SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
+SETTINGS_COMPAT_GUIDE_GROUP IPT4와 함께 사용하면 안 되는 것
+SETTINGS_COMPAT_GUIDE_DESCRIPTION 활성화하지 마세요: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP 선택한 차량을 차고지/차량기지로 복귀시킵니다. 노선 목표 차량 수가 감소합니다.
+COMMUTER_STOP_WITH_WAITING {0} ({1}명 대기 중)
+SETTINGS_TAB_FLEET_SHORT 함대
+SETTINGS_TAB_STOPS_SHORT 정류장
+SETTINGS_TAB_OVERLAY_SHORT 오버레이
+SETTINGS_TAB_SYSTEM_SHORT 시스템
+SETTINGS_SUB_SPACING 간격유지
+SETTINGS_SUB_SPACING_DESC 차량을 균등 간격으로 유지. 차량 간격유지는 고전 IPT 도구; 급행 버스/트램은 대체 방식.
+SETTINGS_SUB_BUDGET 예산
+SETTINGS_SUB_COLOR 색상
+SETTINGS_SUB_CAPS 한계
+SETTINGS_SUB_NET 네트워크
+SETTINGS_SUB_NET_DESC 도로의 정류장 배치: 고가, 공유 유형, 중첩, 고급 플랫폼.
+SETTINGS_SUB_VEHICLES 차량
+SETTINGS_SUB_VEHICLES_DESC 탑승, 차고지 복귀, 단선 열차, 택시, unstucker.
+SETTINGS_SUB_DEPOTS 차고지
+SETTINGS_SUB_DEPOTS_DESC 차고지가 수용할 수 있는 차량 수에 대한 소프트 한계 (바닐라는 종종 무제한).
+SETTINGS_SUB_OUTSIDE 외부
+SETTINGS_SUB_OUTSIDE_DESC 시외 터미널 및 외부 연결 화물/승객 대기.
+SETTINGS_SUB_DISPLAY 표시
+SETTINGS_SUB_INFO 정보
+SETTINGS_SUB_INFO_DESC 패널 및 도시 정보 도구 (함대 시뮬레이션 아님).
+SETTINGS_SUB_PERF 성능
+SETTINGS_SUB_COMPAT 호환성
+SETTINGS_SUB_KEYS 키
+SETTINGS_FUTURE_GROUP 나중에 추가 예정
+SETTINGS_FUTURE_GROUP_DESCRIPTION 계획된 기능 미리보기. 준비될 때까지 회색으로 표시 — 아직 효과 없음.
+SETTINGS_FUTURE_REVERSIBLE_TRAM 가역 트램 AI (곧 예정)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 계획됨: 트램이 루프 없이 종점에서 역방향으로 진행. 아직 사용 불가.
+SETTINGS_FUTURE_BREAKDOWN 고장 도구 (곧 예정)
+SETTINGS_FUTURE_BREAKDOWN_TIP 계획됨: 막힌 교통에 대한 경로/교통 진단. 아직 사용 불가.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL 지도 세부 수준:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP 성능은 더 적은 지도 아이콘을 표시하고 더 빠르게 새로고칩니다. 전체 지도는 지도에 훨씬 많은 목적지 아이콘을 표시하고; 패널은 더 느리게 업데이트되므로 약한 PC도 사용할 수 있습니다.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF 성능 (더 빠름)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL 전체 지도 (더 많은 아이콘, 느린 새로고침)
+SETTINGS_KEYBINDINGS_GROUP 게임 내 핫키
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION 도시가 로드되어 있을 때의 단축키. 바인딩을 클릭한 다음 키를 눌러 다시 바인딩합니다.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Train Display 토글
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP 모서리 차량 오버레이를 켜거나 끕니다.
+SETTINGS_HOTKEY_LINE_COLOR 노선 색상 재지정
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP 교통 노선을 선택한 상태에서 해당 노선에 대해 Auto Line Color를 다시 실행합니다 (색상 전략 활성화 필요).
+LINE_PANEL_COPY 복사
+LINE_PANEL_PASTE 붙여넣기
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP 빠른 팁
+SETTINGS_QUICK_TIPS_DESC 작은 알림 — 추가 코드 없음, 이미 가지고 있는 것을 사용하는 방법일 뿐.
+SETTINGS_QUICK_TIP_1_TITLE 간단하게 시작
+SETTINGS_QUICK_TIP_1_BODY 권장을 선택한 다음 필요한 것만 활성화합니다. 다른 모드가 많으면 안전 사용을 권장합니다.
+SETTINGS_QUICK_TIP_2_TITLE 느린 PC?
+SETTINGS_QUICK_TIP_2_BODY 시스템 → 성능 → 낮음. 또한 FPS가 떨어지면 통근 "전체 지도" 피하세요.
+SETTINGS_QUICK_TIP_3_TITLE 토글 이후
+SETTINGS_QUICK_TIP_3_BODY 일부 옵션은 도시 재로드 필요 (툴팁에 표시됨). 시스템 → 호환성에서 충돌 모드를 확인합니다.
+SETTINGS_OOC_RESET_TOOLTIP 외부 연결 대기, 장식용 교통 및 관련 토글을 안전 기본값으로 재설정합니다.
+SETTINGS_EBS_GROUP_BUS_DESC 급행 버스는 승객이 적을 때 일찍 떠날 수 있습니다 — 선택적 고급 간격유지.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 추가 행
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop은 정류장에서 버스가 정차하는 위치만 변경합니다. 아래 옵션은 별도의 기능(고가, 공유 정류장 등)입니다 — 의도적으로 클릭 가능하게 유지됩니다.

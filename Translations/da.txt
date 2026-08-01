@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 All 23 languages in the selector are now fully translated. Cze
 CHANGELOG_4_3_7_2 The translation progress shown under the language selector was reading a static status file that had not been regenerated, so it reported 76% for sixteen languages that were in fact complete.
 CHANGELOG_4_3_6_1 Fixed the real source of the approximately -21.4 million public-transport expense: IPT's weekly maintenance replacement divided by a zero or unsupported vehicle capacity, turning NaN into int.MinValue, and then summed every vehicle in another int. Maintenance inputs now use a safe vanilla fallback, line totals use 64-bit arithmetic, and large valid totals are charged only through bounded positive transactions.
 CHANGELOG_4_3_6_2 Existing saves are repaired on load by clearing only negative public-transport income or expense buckets left by this overflow and correcting their matching totals. Valid economy history and every non-transport service remain untouched.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+DEPOT_STATS_FERRIES_IN_USE Færger i brug
+DEPOT_STATS_BLIMPS_IN_USE Luftskibe i brug
+DEPOT_STATS_HELICOPTERS Helikoptere i brug
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybusser i brug
+DEPOT_STATS_VEHICLES_IN_USE Køretøjer i brug
+SETTINGS_EMPTY_BEFORE_DEPOT Tom passagerer før retur til depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Når aktiveret, vil offentlige transportkøretøjer med passagerer ikke forlade deres linje for depotet, før de er tomme. Derefter vender de hjem. Slået fra som standard; Realistisk profil aktiverer det.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Køretøjstyper på overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Hvilke offentlige transportkøretøjer kan vise togvisningspanelet når markeret.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Vis overlay når denne køretøjstype er markeret.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Sporvogn
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Tog
 SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Skib/færge
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Fly/luftskib/helikopter
 SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Svævebane
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Turistbus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Sort (semi-gennemsigtig)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Vis hastighed (ekstra strimmel)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Vis passagerer (ekstra strimmel)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Vis forløbet tid (ekstra strimmel)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Tilføjer en linjefarvet strimmel over hovedpanelet med disse ekstra. Slået fra som standard.
+TRAINDISPLAY_LABEL_SPEED Hastighed
+TRAINDISPLAY_LABEL_TIME Tid
+SETTINGS_PERFORMANCE_PROFILE Ydelses-profil
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Globalt budget for tung brugt-flade og scanninger (Togvisning refresh, Passagerdestination kort/liste, lignende arbejde).\nLys: minimer hakkerisiko – færre ikoner, langsommere opdatering.\nNormal: afbalanceret (standard).\nMaksimum: fuldt detalje og mere responsiv overlays; kan koste FPS på svagere computere.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Lys (glattere)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (afbalanceret)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maksimum (fuld detalje)
+SETTINGS_TAB_PERFORMANCE Ydeelse
+SETTINGS_PERFORMANCE_TIPS_GROUP Tip
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Brug Lys hvis brugerfladen eller overlays hakker; Maksimum kun hvis din pc er kraftig. Ændringer gælder øjeblikkeligt for togvisning og passagerdestination. Nogle andre integrationer kræver stadig kortgenindlæsning.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_TAB_COMPATIBILITY Kompatibilitet
+SETTINGS_COMPAT_INTRO_GROUP Tjek din indlæsningsrækkefølge
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scanner aktiverede Workshop/lokale mods for kendt konflikter (IPT1–3, TLM, ITM, absorberede standalones) og påkrævede afhængigheder (Harmony). Kør en kontrol efter ændring af abonnementer.
+SETTINGS_COMPAT_RUN_CHECK Skan efter konflikter
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Sammenligner aktiverede plugin mod IPT4's kendt-inkompatibel liste (assembly-navn + Workshop-id) og Harmony-afhængighed.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Tjek nu
+SETTINGS_COMPAT_STATUS_GROUP Nuværende resultat
+SETTINGS_COMPAT_STATUS_OK Ingen konflikter eller manglende afhængigheder opdaget ved sidste scanning.
+SETTINGS_COMPAT_STATUS_WARN Et eller flere problemer blev fundet – deaktivér de anførte mods (eller abonnér Harmony) og genstart spillet.
+SETTINGS_COMPAT_MATCHED_GENERIC Denne mod er i konflikt med IPT4. Deaktivér eller afmeld den.
+SETTINGS_COMPAT_MISSING_DEP Påkrævet afhængighed er ikke til stede. Abonnér og aktiver det, og genstart.
+SETTINGS_COMPAT_NO_ISSUES Intet konfliktende er aktiveret lige nu.
+SETTINGS_COMPAT_BADGE_CONFLICT Konflikt
+SETTINGS_COMPAT_BADGE_MISSING Manglende
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_COMPAT_GUIDE_GROUP Hvad ikke at køre med IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Aktivér aldrig: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nAfmeld standalones allerede bygget ind i IPT4 (Auto Line Budget, Ekspresbus, Togvisning, Delt Stop Enabler, Passagerdestination osv. – fuld liste er på Workshop-diskussionen).\nPåkrævet: Harmony (CitiesHarmony, Workshop 2040656402).\nNår du deaktiverer en konflikt, genstart spillet så Harmony-patches aflastes rent.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send det valgte køretøj tilbage til dets depot/garage. Reducerer linjemålantallet.
+COMMUTER_STOP_WITH_WAITING {0} ({1} venter)
+SETTINGS_TAB_FLEET_SHORT Flåde
+SETTINGS_TAB_STOPS_SHORT Stop
 SETTINGS_TAB_OVERLAY_SHORT Overlay
 SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_SPACING Afstand
+SETTINGS_SUB_SPACING_DESC Hold køretøjer jævnt fordelt. Afstandsstyring er det klassiske IPT-værktøj; Ekspresbus/Sporvogn er en alternativ stil.
 SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_COLOR Farve
+SETTINGS_SUB_CAPS Grænser
+SETTINGS_SUB_NET Netværk
+SETTINGS_SUB_NET_DESC Stopplacering på veje: forhøjet, delte typer, stabling, avancerede platforme.
+SETTINGS_SUB_VEHICLES Køretøjer
+SETTINGS_SUB_VEHICLES_DESC Indstigning, tilbage-til-depot, enkelt-spor tog, taxaer, unstucker.
+SETTINGS_SUB_DEPOTS Depoter
+SETTINGS_SUB_DEPOTS_DESC Myke grænser for hvor mange køretøjer et depot kan indeholde (vanilla er ofte ubegrænset).
+SETTINGS_SUB_OUTSIDE Udenfor
+SETTINGS_SUB_OUTSIDE_DESC Intercityterminaler og ekstern forbindelses gods/passagerventen.
+SETTINGS_SUB_DISPLAY Visning
 SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
+SETTINGS_SUB_INFO_DESC Paneler og byinformationsværktøjer (ikke flådesimulation).
+SETTINGS_SUB_PERF Ydeelse
+SETTINGS_SUB_COMPAT Kompatibilitet
+SETTINGS_SUB_KEYS Genveje
+SETTINGS_FUTURE_GROUP Kommer senere
+SETTINGS_FUTURE_GROUP_DESCRIPTION Forhåndsvisning af planlagte funktioner. Grå fra til klar – ingen effekt endnu.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Reversibel sporvogns-AI (snart)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planlagt: sporvogne vender ved endestationer uden en løkke. Ikke tilgængelig endnu.
+SETTINGS_FUTURE_BREAKDOWN Nedbrydningsværktøjer (snart)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planlagt: rute-/trafikdiagnostik for strandsat transit. Ikke tilgængelig endnu.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Kortkvalitet:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Ydeelse viser færre kortikooner og opdaterer hurtigere. Fuldt kort viser mange flere destinationsikooner på kortet; panelet opdateres langsommere, så mindre kraftige computere kan stadig bruge det.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Ydeelse (hurtigere)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Fuldt kort (flere ikoner, langsommere opdatering)
+SETTINGS_KEYBINDINGS_GROUP Genveje i spillet
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Genveje mens byen indlæses. Klik en binding og tryk derefter en tast for at ændre binding.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Slå togvisning til/fra
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Aktivér eller deaktivér hjørne-køretøjsoverlayet.
+SETTINGS_HOTKEY_LINE_COLOR Tildel linjefarve igen
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Mens en transportlinje er valgt, kør Auto Line Color igen for den linje (kræver farvestrategi aktiveret).
+LINE_PANEL_COPY Kopiér
+LINE_PANEL_PASTE Indsæt
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP Hurtige tip
+SETTINGS_QUICK_TIPS_DESC Små påmindelser – ingen ekstra kode, bare hvordan du bruger hvad du allerede har.
+SETTINGS_QUICK_TIP_1_TITLE Start enkelt
+SETTINGS_QUICK_TIP_1_BODY Vælg Anbefalet, og slå kun til hvad du har brug for. Sikker er bedst hvis du bruger mange andre mods.
+SETTINGS_QUICK_TIP_2_TITLE Langsom pc?
+SETTINGS_QUICK_TIP_2_BODY System → Ydeelse → Lys. Undgå også Passager »Fuldt kort« hvis FPS falder.
+SETTINGS_QUICK_TIP_3_TITLE Efter kontakter
+SETTINGS_QUICK_TIP_3_BODY Nogle indstillinger kræver bygenindlæsning (tooltip siger det). System → Kompatibilitet tjekker konfliktende mods.
+SETTINGS_OOC_RESET_TOOLTIP Nulstiller ekstern forbindelsesventen, attraps-trafik og relaterede kontakter til Sikre standarder.
+SETTINGS_EBS_GROUP_BUS_DESC Ekspressbusser kan køre tidligt når få passagerer stiger på – valgfri avanceret afstand.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ekstra rækker
+SETTINGS_SUB_NET_BBSP_NOTE Bedre busstop ændrer kun hvor busser parkerer ved stoppet. Indstillingerne nedenfor er separate funktioner (forhøjet, delte stop osv.) – de forbliver klikbare med vilje.

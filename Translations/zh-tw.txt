@@ -385,36 +385,36 @@ SETTINGS_STTAI_ENABLE 單線鐵路列車防撞
 SETTINGS_STTAI_ENABLE_TOOLTIP 一次為一列火車保留單線區段,在區段清空之前讓對向火車在入口處等待。IPT4原創功能,原版遊戲或任何已吸收的模組中都沒有。
 SETTINGS_STOPSTACKER_ENABLE 公車站台多泊位堆疊
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 讓第二輛、第三輛駛向同一站點的公車在站台車道後方使用自己的泊位,而不是排在頭車後面單列等待,從而讓多輛公車同時上下客。IPT4原創功能(簡化的重新實作),原版遊戲或任何已吸收的模組中都沒有。
-CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
-CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
-CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
-CHANGELOG_4_3_1_2 Filled in 38 translation keys that existed only in English and Portuguese - every other language (Arabic, Bengali, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Russian, Urdu and all Chinese variants) was silently falling back to English for the whole Train Display section, the Delete Lines description and the three Express Bus descriptions.
-CHANGELOG_4_3_1_3 Added 4 copy/paste tooltip keys that were missing from every language file including English, so they would have rendered as raw keys ("COPY_TIP") once those buttons are re-enabled.
-CHANGELOG_4_3_0_1 Added Train Display Updated: a small on-screen overlay showing line/destination/state while following a supported vehicle. Configurable in Options: screen position, size, opacity, which fields show, update frequency, whether it's restricted to first-person camera mods, and a Simple/Dark/Light color theme.
-CHANGELOG_4_3_0_2 Fixed several build errors in the new Train Display integration: an ambiguous Utils reference, two APIs that don't exist on this game version (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), and Enum.HasFlag usage - which doesn't exist on .NET Framework 3.5, this mod's target framework, and had to be replaced with manual bitwise checks.
-CHANGELOG_4_2_4_1 Fixed the mod always showing "Compatibility with Game Version: 0.0.0" - we never declared a supported game version range. Now set to 1.21.1-f9 and up.
-CHANGELOG_4_2_4_2 Fixed the AutoLineColor color-strategy dropdown showing raw enum names (e.g. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") instead of translated text: the code generated a key with no underscore while the translation file used one. Also reordered the section so the two dependent sliders sit right under the color-strategy dropdown they belong to, instead of after the unrelated naming dropdown.
-CHANGELOG_4_2_4_3 Renamed the tram unbunching modes to match the bus ones (Disabled/Prudent/Realistic) instead of "Light Rail"/"Real Tram", and translated the last bits of English text left in the Portuguese description.
-CHANGELOG_4_2_4_4 Fixed checkbox descriptions never rendering anywhere in the panel whenever no header text was set (which is every checkbox in this mod) - the layout code only positioned the description label if a header label existed too, even though the description was already being created and populated with text.
-CHANGELOG_4_2_4_5 Fixed Options tab captions getting cut off (especially in Portuguese, which runs longer than English) - tabs now wrap to a second line instead of clipping.
-CHANGELOG_4_2_4_6 Fixed the Reset buttons (Unbunching, Ticket Prices) changing the underlying settings immediately but not updating the sliders already on screen, so it looked like nothing happened until reopening Options.
-CHANGELOG_4_2_4_7 Fixed the Delete Lines tool's checkboxes persisting as saved settings instead of resetting after use - they were accidentally wired to ModSetting like a real preference, when this is meant to be a one-shot "pick types, click Delete" action.
-CHANGELOG_4_2_3_1 Fixed every mod translation showing up as the raw key (e.g. "SETTINGS_SPEED:0") in every language: our own translation loader still matched the plugin by the old ImprovedPublicTransportMod type instead of Mod (the class that's actually IUserMod since the CSLModsCommon migration), so it never found the mod folder and never loaded any Translations/*.txt file. Also hardened the vanilla-locale fallback so it no longer mistakes Colossal's "key:0" not-found marker for a real translation.
-CHANGELOG_4_2_3_2 Removed the always-empty "Key Bindings" tab from Options - this mod has no key bindings to configure.
-CHANGELOG_4_2_3_3 Sliders in Options now show their current value again (lost in the CSLModsCommon migration - the new slider control doesn't display it by default).
-CHANGELOG_4_2_3_4 Fixed the AutoLineColor "min color difference" and "max color pick attempts" sliders staying interactive even when the color strategy is set to Disabled or Categorised (neither of which uses those settings).
-CHANGELOG_4_2_0_1 Added Rescue Fullwidth Digits: normalizes fullwidth digits in custom transport line names back to regular ASCII digits, fixing a display/sorting quirk from some non-Latin keyboard inputs.
-CHANGELOG_4_2_0_2 Added a dedicated Ticket Prices tab to the Options panel, so day/night fare multipliers can be tuned without opening the in-game Economy panel.
-CHANGELOG_4_2_0_3 Fixed the Rescue Fullwidth Digits patch only ever being applied once at mod startup while being undone on every level unload, silently disabling it for every save after the first one loaded in a session.
-CHANGELOG_4_2_0_4 Fixed a taxi-fare integer-overflow bug (MileageTaxiServices) that could drain the public transport budget by billions in one step: a taxi with corrupted or uninitialized frame data (e.g. right after spawning) could compute an implausibly large per-frame distance, overflowing the fare's cast to int into a huge garbage value - this matches a known unresolved issue reported upstream (runaway negative taxi income). Now implausible frame distances are discarded instead of being charged.
-CHANGELOG_4_1_5_1 Fixed the real cause of the blank/black Options panel: CSLModsCommon's own UI strings (Version/Changelog/etc.) live in a physical Localization/Common folder next to the DLL that our build never deployed. Without it, the framework's LocalizationManager silently gave up, leaving CurrentLocaleSource null and crashing OptionsPanelBase.Awake() with a NullReferenceException the instant it tried to show the translation-progress label - which Unity swallows silently, aborting the panel mid-build. Now the .csproj deploys that folder, and GetTranslationProgress() no longer throws if it's ever missing again.
-CHANGELOG_4_1_4_1 Fixed the Options panel showing up blank/black: the panel was only ever built when the game toggled the settings container's visibility off and on, but it's usually already visible when the game opens this mod's page, so the panel never got created. Now it also builds immediately if the container is already visible.
-CHANGELOG_4_1_4_2 Fixed every CSLModsCommon UI texture (background, icons, toggles) failing to load and falling back to a placeholder: the project's RootNamespace was still "ImprovedPublicTransport3" from the original IPT3 fork, so embedded resources were compiled under the wrong name and never matched at runtime.
-CHANGELOG_4_1_3_1 Fixed three settings-save bugs left over from the CSLModsCommon migration (What's New dismissal, Options Reset button, per-hour ticket price editor): each wrote the new value to ModSetting correctly but then saved the old, now-dead settings object, so the change never actually persisted to disk.
-CHANGELOG_4_1_3_2 Removed dead code from the pre-CSLModsCommon era: the attribute-based OptionsFramework, the monolithic Settings.cs, and the standalone VehicleEditorPositions enum - all fully superseded by ModSetting and CSLModsCommonOptionsPanel.
-CHANGELOG_4_0_0_1 Forked from Improved Public Transport 3.
-CHANGELOG_4_0_0_2 Ported AutoLineBudget's demand-based fleet sizing to coordinate with IPT's own vehicle-count API instead of writing the line budget directly, fixing a runaway maintenance-cost bug caused by the two mods fighting over the same state.
-CHANGELOG_4_0_0_3 Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).
+CHANGELOG_4_3_3_1 修正了設定保存/載入仍然在某些模組堆疊上中斷的問題，即使在捆綁 Newtonsoft.Json.dll 之後也是如此：前面的解決方案只在一個進入點嘗試 Assembly.LoadFrom，仍然依賴載入順序。IPT4 現在註冊一個全域 AssemblyResolve 掛鉤，並在 CSLModsCommon 觸及 JsonWriter 之前從每個模組/UI 進入點急切地啟動其捆綁的 Newtonsoft.Json，因此新選項 UI 會可靠地持久化，而不是隨機繫結到另一個模組不相容的 Json.NET 副本。
+CHANGELOG_4_3_2_1 修正了只要沒有其他已安裝模組恰好已提供 Newtonsoft.Json 就導致模組完全無法載入（「無法載入模組的 dll 或其其中一個依賴項」）的問題：CSLModsCommon 的設定序列化 (JsonHelper/SerializationContext) 需要它，但我們的建置從未實際在模組旁部署 Newtonsoft.Json.dll——它只是意外地透過另一個模組的副本運作。此問題透過停用每個其他模組進行乾淨測試而發現，這正是今後應該進行測試的方式。
+CHANGELOG_4_3_1_1 修正了選項面板的語言選擇器只重新翻譯框架自有字串（版本、變更日誌...），而此模組的每個字串都保持遊戲語言的問題——我們的翻譯加載器透過遊戲語言進行鍵處理，完全忽略了模組自有的選擇。現在它遵循模組語言選擇器，必要時回退到遊戲語言，然後回退到英文，並在選擇器變更時重新解析。
+CHANGELOG_4_3_1_2 填入了僅存在於英文和葡萄牙文的 38 個翻譯鍵——所有其他語言（阿拉伯語、孟加拉語、德語、西班牙語、法語、印地語、印尼語、義大利語、日語、韓語、波蘭語、俄語、烏爾都語以及所有中文變體）整個列車顯示部分、刪除路線說明和三個快速巴士說明都靜默回退到英文。
+CHANGELOG_4_3_1_3 新增了從每種語言檔案（包括英文）中遺漏的 4 個複製/貼上提示鍵，所以在重新啟用這些按鈕後，這些鍵本應呈現為原始鍵（「COPY_TIP」）。
+CHANGELOG_4_3_0_1 新增列車顯示已更新：在跟隨受支援車輛時顯示的小型螢幕上浮層，顯示路線/目的地/狀態。可在選項中設定：螢幕位置、大小、不透明度、顯示哪些欄位、更新頻率、是否限制於第一人稱攝影機模組，以及簡約/深色/淺色配色主題。
+CHANGELOG_4_3_0_2 修正了新列車顯示整合中的多個建置錯誤：含糊的 Utils 參考、兩個此遊戲版本中不存在的 API（NetInfo.nameLocalized、ItemClass.Service.IntercityBus）以及 Enum.HasFlag 用法——該方法在 .NET Framework 3.5（此模組的目標框架）中不存在，必須更換為手動位元檢查。
+CHANGELOG_4_2_4_1 修正了模組始終顯示「與遊戲版本的相容性：0.0.0」的問題——我們從未聲明支援的遊戲版本範圍。現已設定為 1.21.1-f9 及更高版本。
+CHANGELOG_4_2_4_2 修正了 AutoLineColor 顏色策略下拉式清單顯示原始列舉名稱（例如「AUTOLINECOLOR_STRATEGY_RANDOMHUE」）而非翻譯文字的問題：代碼生成的鍵沒有底線，而翻譯檔案有。同時重新排列了區段，使兩個相依的滑桿位於它們所屬的顏色策略下拉式清單的正下方，而不是在無關的命名下拉式清單之後。
+CHANGELOG_4_2_4_3 將電車疏解模式重新命名以符合巴士模式（停用/謹慎/真實），而非「輕軌」/「真實電車」，並翻譯了葡萄牙文說明中剩餘的最後英文文字。
+CHANGELOG_4_2_4_4 修正了當未設定標題文字時（本模組中的每個核取方塊都是這樣），核取方塊說明在面板中從未呈現的問題——佈局代碼只在標題標籤也存在時才定位說明標籤，即使說明已被建立並填充文字。
+CHANGELOG_4_2_4_5 修正了選項分頁標題被切斷的問題（特別是葡萄牙文，比英文更長）——分頁現在改為換行到第二行，而不是被剪裁。
+CHANGELOG_4_2_4_6 修正了重設按鈕（疏解、票價）立即變更基礎設定但不更新螢幕上已有滑桿的問題，因此看起來什麼都沒有發生，直到重新開啟選項。
+CHANGELOG_4_2_4_7 修正了刪除路線工具的核取方塊持久化為已保存的設定，而非使用後重設的問題——它們意外地被連接到 ModSetting，就像真實偏好設定一樣，而這應該是一次性「選擇類型、點擊刪除」操作。
+CHANGELOG_4_2_3_1 修正了每個模組翻譯在所有語言中顯示為原始鍵（例如「SETTINGS_SPEED:0」）的問題：我們自有的翻譯加載器仍然透過舊的 ImprovedPublicTransportMod 類型而不是實際的 IUserMod 類 (Mod) 比對外掛，因此從未找到模組資料夾，也從未載入任何 Translations/*.txt 檔案。同時強化了原版地區設定回退，使其不再將 Colossal 的「key:0」未找到標記誤認為真實翻譯。
+CHANGELOG_4_2_3_2 從選項中移除了始終為空的「按鍵繫結」分頁——此模組沒有要設定的按鍵繫結。
+CHANGELOG_4_2_3_3 選項中的滑桿現在再次顯示其目前值（在 CSLModsCommon 遷移期間遺失——新滑桿控制項預設不顯示）。
+CHANGELOG_4_2_3_4 修正了 AutoLineColor「最小顏色差異」和「最大顏色挑選嘗試」滑桿在顏色策略設定為「停用」或「分類」時仍保持互動的問題（兩者都不使用這些設定）。
+CHANGELOG_4_2_0_1 新增救援全形數字：將自訂運輸路線名稱中的全形數字正規化回常規 ASCII 數字，修正了某些非拉丁鍵盤輸入導致的顯示/排序怪異現象。
+CHANGELOG_4_2_0_2 在選項面板新增了專用票價分頁，以便可在不開啟遊戲內經濟面板的情況下調整日/夜票價倍率。
+CHANGELOG_4_2_0_3 修正了救援全形數字修補程式只在模組啟動時套用一次，但在每次關卡卸載時被撤銷，因此在工作階段內載入的每個存檔後默默停用的問題。
+CHANGELOG_4_2_0_4 修正了計程車票價整數溢位錯誤 (MileageTaxiServices)，該錯誤可能一步內將公共運輸預算耗盡數十億：損毀或未初始化幀數據的計程車（例如生成後）可能計算出荒謬的逐幀距離，導致票價的 int 轉換溢位成龐大的垃圾值——這與上游報告的已知未解決問題相符（失控的負計程車收入）。現在荒謬的幀距離會被丟棄，而不是被計費。
+CHANGELOG_4_1_5_1 修正了選項面板出現空白/黑屏的真正原因：CSLModsCommon 自有的 UI 字串（版本、變更日誌等）存放在 DLL 旁邊的實體 Localization/Common 資料夾中，我們的建置從未部署該資料夾。沒有它，該框架的 LocalizationManager 會靜默放棄，使 CurrentLocaleSource 為空，導致 OptionsPanelBase.Awake() 在嘗試顯示翻譯進度標籤時拋出 NullReferenceException——Unity 靜默地吞噬該例外，中止面板建置。現在 .csproj 會部署該資料夾，GetTranslationProgress() 在遺漏時也不再拋出。
+CHANGELOG_4_1_4_1 修正了選項面板顯示空白/黑屏的問題：該面板只在遊戲切換設定容器的可見性時建立，但它通常在遊戲開啟此模組頁面時已經可見，因此面板從未被建立。現在如果容器已經可見，它也會立即建立。
+CHANGELOG_4_1_4_2 修正了每個 CSLModsCommon UI 材質（背景、圖示、開關）無法載入並回退到佔位符的問題：該專案的 RootNamespace 仍然是從原始 IPT3 分支遺留下來的「ImprovedPublicTransport3」，因此嵌入的資源以錯誤的名稱編譯，在執行時從未匹配。
+CHANGELOG_4_1_3_1 修正了從 CSLModsCommon 遷移遺留下來的三個設定保存錯誤（新增內容解除、選項重設按鈕、每小時票價編輯器）：每個錯誤都正確將新值寫入 ModSetting，但隨後保存的是舊的已淘汰設定物件，因此變更從未實際持久化到磁碟。
+CHANGELOG_4_1_3_2 移除了 CSLModsCommon 之前的時代遺留下來的無用代碼：基於屬性的 OptionsFramework、龐大的 Settings.cs 和獨立的 VehicleEditorPositions 列舉——全部已被 ModSetting 和 CSLModsCommonOptionsPanel 完全取代。
+CHANGELOG_4_0_0_1 從改進公共運輸 3 分支而來。
+CHANGELOG_4_0_0_2 將 AutoLineBudget 的需求驅動車隊規模調整功能移植為與 IPT 本身的載客量 API 協調，而不是直接寫入路線預算，修正了由兩個模組爭奪同一狀態而導致的失控維護成本錯誤。
+CHANGELOG_4_0_0_3 採用 CSLModsCommon 作為選項 UI 框架（版本徽章、變更日誌、相容性警告、翻譯進度）。
 TRAINDISPLAY_LABEL_NAME 名稱
 TRAINDISPLAY_LABEL_STATUS 狀態
 TRAINDISPLAY_NO_LINE 無路線
@@ -429,13 +429,13 @@ TRAINDISPLAY_STATE_IDLE 閒置
 AUTOLINECOLOR_REFRESH_BUTTON 重新整理名稱/顏色
 AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP 依據目前生效的 AutoLineColor 設定重新指派該路線的名稱與顏色。
 AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP 重新整理此路線前，請先在選項中啟用顏色或命名策略。
-CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
-CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
-CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
-CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
-CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
-CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
-CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
+CHANGELOG_4_3_3_2 強化了捆綁的 Newtonsoft.Json 解析器，使其始終偏好此模組旁邊運送的副本，而不是回傳另一個模組恰好最先載入的任何副本（Real Time 運送 v13 強名稱；CSLModsCommon 需要無符號 v9）。將我們的代碼交給錯誤建置導致 JsonHelper 靜默失敗並回傳空物件，這就是造成框架本身地區設定來源為空以及語言選擇器顯示原始地區設定 ID 的原因。
+CHANGELOG_4_3_3_3 孟加拉語、印地語、印尼語和烏爾都語現在出現在模組的語言選擇器中。它們已經完全翻譯，但框架沒有它們的地區設定檔案，因此除非遊戲本身以該語言執行，否則無法存取。
+CHANGELOG_4_3_3_4 最佳化了停靠乘客限制器：它在每秒執行數千次的迴圈內解析了設定物件（兩次字典查閱）。現在每幀只解析一次。
+CHANGELOG_4_3_3_5 使模組資料夾查閱獨立於哪個類別實作 IUserMod。該耦合已經在非相關重構後靜默中斷了翻譯載入一次，以及票價圖示圖集第二次。
+CHANGELOG_4_3_4_1 修正了 AutoLineColor 在地圖載入前拋出的啟動 ModException（「無法找到 ImprovedPublicTransportMod 組件！」）。第二個輔助類別仍透過 ImprovedPublicTransportMod 類型查閱模組，在 CSLModsCommon 遷移期間停止成為 IUserMod——在其他地方已修正的相同耦合。兩個輔助類別現在都從此組件本身解析模組資料夾，因此未來重構無法再次靜默破壞它。
+CHANGELOG_4_3_5_1 修正了列車顯示浮層在跟隨車輛時從未出現的問題。它透過泛型「target」/「GetTarget」探針查閱攝影機的跟隨例項，但遊戲將其存放在私有 CameraController.m_targetInstance 欄位中，這些探針從未匹配。同時預設關閉「僅在第一人稱攝影機中」：純跟隨模式不是第一人稱，因此保持開啟使浮層看起來開箱即壞，不像原始模組在任何跟隨視圖中顯示它。
+CHANGELOG_4_3_5_2 票價分頁現在顯示每種運輸方式的結果票價，而不是即時乘客數。滑桿只顯示百分比，因此先前無法看到倍率實際產生的結果——在小型或暫停城市上，乘客數只會讀取永久「0」。乘客數移至標籤的提示，旁邊還有原始票價。
 TICKET_PRICE_LABEL_TOOLTIP 目前票價：{0}\n原始票價：{1}\n目前乘客數：{2}
 CHANGELOG_4_8_0_1 新增 SingleTrainTrackAI：單線鐵路區段現在同一時間只會為一個方向保留，因此共用雙向軌道的兩列火車不再有相撞風險。潔室重新實作 - 來源模組（Workshop 949504539）沒有聲明授權條款，因此只重新實作了其公開記錄的概念，基於本專案自有的 Harmony 修補機制，而非原始記憶體劫持。
 CHANGELOG_4_8_0_2 新增 Stop Stacker：當同一路線的多輛車匯聚到同一站點時，只有領頭車輛使用正常停靠位置 - 後續車輛會在車道更靠後的位置取得各自的停靠位，而不是排成單列在其後等候。僅根據來源模組的公開說明進行的潔室重新實作（沒有可用的原始碼）；僅適用於公車和無軌電車，與本專案現有的 BetterBusStopPosition 掛鉤點保持一致。
@@ -444,13 +444,13 @@ CHANGELOG_4_8_0_4 修正了部分總站上「接受城際巴士」核取方塊�
 CHANGELOG_4_8_0_5 修正了子建築標籤頁偶爾在無關建築上顯示過期標籤列的問題：遊戲會在拆除後回收建築 ID，而快取先前會信任被回收的 ID 仍屬於先前的建築群組。現在它會在重用快取中的任何內容之前重新驗證建築的實際父級鏈。
 CHANGELOG_4_8_0_6 對多個整合功能進行了一次全面的錯誤清理：一個方向顛倒的快取過期檢查，會捨棄最新資料而改為提供過期資料；一個差一錯誤的迴圈邊界，會在自動配色和重名檢查中跳過最後一條交通路線；一個錯誤的 ID 比較，破壞了「該路線僅有一輛車」防扎堆繞過邏輯；一個價格查詢會將失敗結果永久快取而不是稍後重試；以及若干在 UI/預製件參照為空時可能拋出例外的 Harmony 修補程式。
 CHANGELOG_4_8_0_7 減少了多個整合功能中重複的反射呼叫和逐幀查找：車輛提示描述、單線區段分類以及城際巴士物品類別查找現在會被快取，而不是每次呼叫都重新計算，UI 重新整理按鈕也不再每一幀都重新賦值其文字，無論內容是否發生變化。
-CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
-CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
-CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
-CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
-CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
-CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
-CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_0_8 新安裝現在使用安全遊戲設定檔：每個可選整合和模式開始時都是關閉的，以最大相容其他模組。使用推薦（IPT 核心）或寫實，或翻轉個別開關。城際巴士控制和子建築標籤頁保持可用，並在上述修正後包含在推薦中。
+CHANGELOG_4_8_0_9 選項 > 整合現在公開進階站點選擇、更好的上車邏輯、里程計費計程車和高架站點——這些已被設定和設定檔把控，但沒有核取方塊，因此只有 JSON/設定檔可以打開它們。
+CHANGELOG_4_8_0_10 為每種說明選擇器語言新增了完整 Steam Workshop 語言套件，包括丹麥語、芬蘭語、挪威語、瑞典語、匈牙利語、羅馬尼亞語、保加利亞語、希臘語、烏克蘭語、越南語和馬來語，加上 pt-br 和 es-419。
+CHANGELOG_4_8_5_1 修正了列車顯示卡頓/凍結：還原了更迅捷的立即重新輪詢路徑，並提高了輪詢基數，使浮層不再在最大性能下與模擬競速。
+CHANGELOG_4_8_5_2 最佳化了列車顯示路線帶和停靠自動命名：每次輪詢最多進行一次繁重名稱掃描，失敗的未命名停靠不會在每個間隔重新掃描，路線名稱清單避免額外清單配置。
+CHANGELOG_4_8_5_3 停放乘客目的地（仍有缺陷）：對所有設定檔/存檔強制關閉，移除選項開關直到稍後重新設計。未來限定的劇透仍在進階下。
+CHANGELOG_4_8_5_4 選項語言套件：完整 Common JSON 集在部署時運送（35+ 框架語言），因此語言下拉式清單不再遺漏清單的一半；區段說明卡保留與其控制項共用的背景。
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 四項新的整合模組：子建築標籤頁（適用於任何多建築複合設施的標籤列，不僅限於機場）、共享站點（允許多種站點類型共用同一路段，預設關閉）、乘客目的地（顯示在站點等候的市民實際要前往的地方）以及計程車招呼站修正（閒置計程車會前往最近的招呼站，而不是四處遊蕩）。各項開關請見 選項 > 整合模組。
 CHANGELOG_4_7_0_2 為城際客運站新增了車輛容量模式（選項 > 整合模組 > 城際客運站容量）：停用會保留本模組先前實際上無限制的容量；適中會套用一個適度的固定上限；真實則會還原客運站本身原版預製件的容量。既有存檔預設使用停用，因此升級不會在不知不覺中縮減客運站容量。
@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 選擇器中的全部 23 種語言現已完全翻譯。捷克�
 CHANGELOG_4_3_7_2 語言選擇器下方顯示的翻譯進度讀取的是一個從未重新生成的靜態狀態檔案，因此對十六種實際上已經完成的語言顯示為 76%。
 CHANGELOG_4_3_6_1 修正了公共運輸約 -2140 萬支出的真正原因：IPT 的每週維護計算會除以為零或不支援的載客量，把 NaN 變成 int.MinValue，然後再把每輛車累加到另一個 int 中。無效數值現在使用安全的原版回退值，路線合計使用 64 位運算，而較大的有效金額僅透過有上限的正向交易扣除。
 CHANGELOG_4_3_6_2 已受影響的存檔在載入時會被修復：僅將此次溢出遺留的公共運輸負數收入或支出項歸零，並修正對應的合計。有效的經濟歷史和所有其他服務保持不變。
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
-SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
-SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
-SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
-SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
-SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
-SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+DEPOT_STATS_FERRIES_IN_USE 渡輪投入使用
+DEPOT_STATS_BLIMPS_IN_USE 飛艇投入使用
+DEPOT_STATS_HELICOPTERS 直升機投入使用
+DEPOT_STATS_TROLLEYBUSES_IN_USE 無軌電車投入使用
+DEPOT_STATS_VEHICLES_IN_USE 車輛投入使用
+SETTINGS_EMPTY_BEFORE_DEPOT 返回停車庫前清空乘客
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP 啟用後，載有乘客的公共運輸車輛不會離開路線返回停車庫，直到全部乘客下車。然後才返回家。預設關閉；寫實設定檔會啟用此項。
+SETTINGS_TRAINDISPLAY_TYPES_GROUP 浮層顯示的車輛類型
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION 選擇在選中時能顯示列車顯示浮層的公共運輸車輛。
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP 選中此車輛類型時顯示浮層。
+SETTINGS_TRAINDISPLAY_TYPE_BUS 巴士
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY 無軌電車
+SETTINGS_TRAINDISPLAY_TYPE_TRAM 電車
+SETTINGS_TRAINDISPLAY_TYPE_METRO 地鐵
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN 火車
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL 單軌鐵路
+SETTINGS_TRAINDISPLAY_TYPE_SHIP 船舶／渡輪
+SETTINGS_TRAINDISPLAY_TYPE_PLANE 飛機／飛艇／直升機
+SETTINGS_TRAINDISPLAY_TYPE_TAXI 計程車
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR 纜車
+SETTINGS_TRAINDISPLAY_TYPE_TOURS 觀光巴士
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI 黑色（半透明）
+SETTINGS_TRAINDISPLAY_SHOW_SPEED 顯示速度（附加列）
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS 顯示乘客（附加列）
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED 顯示經過時間（附加列）
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP 在主面板上方添加一條路線彩色列，顯示這些資訊。預設關閉。
+TRAINDISPLAY_LABEL_SPEED 速度
+TRAINDISPLAY_LABEL_TIME 時間
+SETTINGS_PERFORMANCE_PROFILE 性能設定檔
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP 全局預算配置用於繁重的 UI 和掃描（列車顯示重新整理、乘客目的地地圖/清單、類似工作）。\n輕量：降低卡頓風險 — 減少圖示、減速重新整理。\n均衡：平衡（預設）。\n最大：最詳細的細節和更敏捷的浮層；在較弱的電腦上可能會耗費 FPS。
+SETTINGS_PERFORMANCE_PROFILE_LIGHT 輕量（更順暢）
+SETTINGS_PERFORMANCE_PROFILE_NORMAL 均衡（平衡）
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM 最大（完整細節）
+SETTINGS_TAB_PERFORMANCE 性能
+SETTINGS_PERFORMANCE_TIPS_GROUP 提示
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION 如果 UI 或浮層卡頓，請使用輕量模式；只有在電腦強大時才使用最大模式。變更會立即套用到列車顯示和乘客目的地。某些其他整合功能仍需重新載入地圖。
+SETTINGS_TICKET_PATHFINDING_COST 路徑尋找票價（停靠車道）
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP 實驗性功能。根據平均票價在公共交通停靠車道上寫入小額路徑尋找成本（使用與道路收費相同的欄位）。市民可能會略微傾向於選擇更便宜的路線。需要啟用票價自訂。預設關閉。
+SETTINGS_TAB_COMPATIBILITY 相容性
+SETTINGS_COMPAT_INTRO_GROUP 檢查載入順序
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 會掃描已啟用的 Workshop/本機模組，查找已知衝突（IPT1–3、TLM、ITM、已吸收的獨立模組）和必需的依賴項（Harmony）。訂閱變更後執行檢查。
+SETTINGS_COMPAT_RUN_CHECK 掃描衝突
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP 根據 IPT4 的已知不相容清單（組件名稱 + Workshop ID）和 Harmony 依賴項比較已啟用的外掛。
+SETTINGS_COMPAT_RUN_CHECK_BUTTON 立即檢查
+SETTINGS_COMPAT_STATUS_GROUP 目前結果
+SETTINGS_COMPAT_STATUS_OK 在上次掃描中未偵測到衝突或遺漏的依賴項。
+SETTINGS_COMPAT_STATUS_WARN 發現一個或多個問題 — 停用列出的模組（或訂閱 Harmony）並重新啟動遊戲。
+SETTINGS_COMPAT_MATCHED_GENERIC 此模組與 IPT4 衝突。停用或取消訂閱它。
+SETTINGS_COMPAT_MISSING_DEP 缺少必需的依賴項。訂閱並啟用它，然後重新啟動。
+SETTINGS_COMPAT_NO_ISSUES 目前沒有衝突的模組已啟用。
+SETTINGS_COMPAT_BADGE_CONFLICT 衝突
+SETTINGS_COMPAT_BADGE_MISSING 遺漏
+SETTINGS_COMPAT_BADGE_OK 確定
+SETTINGS_COMPAT_GUIDE_GROUP 不應與 IPT4 一起執行的模組
+SETTINGS_COMPAT_GUIDE_DESCRIPTION 切勿啟用：IPT1 / IPT2 / IPT3、Transport Lines Manager、Improved Transport Manager。\n取消訂閱已內建到 IPT4 的獨立模組（自動路線預算、快速巴士、列車顯示、共享停靠啟用器、乘客目的地等 — 完整清單在 Workshop 討論中）。\n必需：Harmony（CitiesHarmony，Workshop 2040656402）。\n停用衝突後，重新啟動遊戲以便 Harmony 修補程式乾淨地卸載。
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP 將所選車輛送回其停車庫／車庫。降低路線目標計數。
+COMMUTER_STOP_WITH_WAITING {0}（{1} 等候）
+SETTINGS_TAB_FLEET_SHORT 車隊
+SETTINGS_TAB_STOPS_SHORT 站點
+SETTINGS_TAB_OVERLAY_SHORT 浮層
+SETTINGS_TAB_SYSTEM_SHORT 系統
+SETTINGS_SUB_SPACING 間距
+SETTINGS_SUB_SPACING_DESC 保持車輛均勻間距。疏解是經典 IPT 工具；快速巴士/電車是替代風格。
+SETTINGS_SUB_BUDGET 預算
+SETTINGS_SUB_COLOR 顏色
+SETTINGS_SUB_CAPS 上限
+SETTINGS_SUB_NET 網路
+SETTINGS_SUB_NET_DESC 在道路上放置停靠：高架、共享類型、堆疊、進階平台。
+SETTINGS_SUB_VEHICLES 車輛
+SETTINGS_SUB_VEHICLES_DESC 上下車、返回停車庫、單線火車、計程車、卡死修復。
+SETTINGS_SUB_DEPOTS 停車庫
+SETTINGS_SUB_DEPOTS_DESC 停車庫可容納多少車輛的軟性上限（原版通常無上限）。
+SETTINGS_SUB_OUTSIDE 外部
+SETTINGS_SUB_OUTSIDE_DESC 城際客運站和外部連接貨運／乘客等候。
+SETTINGS_SUB_DISPLAY 顯示
+SETTINGS_SUB_INFO 資訊
+SETTINGS_SUB_INFO_DESC 面板和城市資訊工具（非車隊模擬）。
+SETTINGS_SUB_PERF 性能
+SETTINGS_SUB_COMPAT 相容性
+SETTINGS_SUB_KEYS 快捷鍵
+SETTINGS_FUTURE_GROUP 即將推出
+SETTINGS_FUTURE_GROUP_DESCRIPTION 計畫功能預覽。在準備完成前為灰色顯示 — 尚無效果。
+SETTINGS_FUTURE_REVERSIBLE_TRAM 可逆電車 AI（即將推出）
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 計畫：電車在終點站無需迴圈即可反向。尚無法使用。
+SETTINGS_FUTURE_BREAKDOWN 故障排查工具（即將推出）
+SETTINGS_FUTURE_BREAKDOWN_TIP 計畫：用於卡住的運輸的路線／交通診斷。尚無法使用。
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL 地圖細節:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP 性能模式顯示較少地圖圖示，重新整理速度較快。完整地圖顯示更多目的地圖示；面板更新速度較慢，但較弱的電腦也能使用。
+SETTINGS_COMMUTERDESTINATION_MAP_PERF 性能（更快）
+SETTINGS_COMMUTERDESTINATION_MAP_FULL 完整地圖（更多圖示、更慢重新整理）
+SETTINGS_KEYBINDINGS_GROUP 遊戲內快捷鍵
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION 城市載入時的快捷方式。點擊繫結然後按下鍵以重新繫結。
+SETTINGS_HOTKEY_TRAIN_DISPLAY 切換列車顯示
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP 啟用或停用角落車輛浮層。
+SETTINGS_HOTKEY_LINE_COLOR 重新指派路線顏色
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP 選中運輸路線時，為該路線重新執行自動路線顏色（需要啟用顏色策略）。
+LINE_PANEL_COPY 複製
+LINE_PANEL_PASTE 貼上
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ 安全 — 所有選擇性設定保持關閉（最適合使用多個模組）。\n★ 原版 — 最接近基礎遊戲（無 IPT 額外功能）。\n★ 推薦 — 僅 IPT 核心：預算車隊、疏解、城際、子標籤、卡死修復、進階停靠、高架停靠。\n★ 寫實 — 大多數功能開啟（更強的模擬、更高成本）。\n★ 自訂 — 你選擇每個開關；在你選擇其他套件之前，設定檔永遠不會再覆蓋自訂。
+SETTINGS_QUICK_TIPS_GROUP 快速提示
+SETTINGS_QUICK_TIPS_DESC 小提醒 — 沒有額外代碼，只是如何使用你已擁有的功能。
+SETTINGS_QUICK_TIP_1_TITLE 從簡單開始
+SETTINGS_QUICK_TIP_1_BODY 選擇推薦，然後只打開你需要的功能。如果使用許多其他模組，安全模式最佳。
+SETTINGS_QUICK_TIP_2_TITLE 電腦速度慢？
+SETTINGS_QUICK_TIP_2_BODY 系統 → 性能 → 輕量。如果 FPS 下降，避免乘客目的地「完整地圖」。
+SETTINGS_QUICK_TIP_3_TITLE 切換後
+SETTINGS_QUICK_TIP_3_BODY 某些選項需要重新載入城市（提示會說明）。系統 → 相容性會檢查衝突的模組。
+SETTINGS_OOC_RESET_TOOLTIP 將外部連接等候、裝飾性過境交通和相關開關重設為安全預設值。
+SETTINGS_EBS_GROUP_BUS_DESC 快速巴士在乘客很少時可能會提前離開 — 可選的進階間距。
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 額外列
+SETTINGS_SUB_NET_BBSP_NOTE 改進公車站位置僅會改變公車在停靠處的停靠位置。下方的選項是獨立功能（高架、共享停靠等）— 它們刻意保持可點擊。

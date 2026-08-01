@@ -148,11 +148,11 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Turist Otobüsü
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Turist otobüsü durağında bekleyen maksimum yolcu sayısı
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Tramvay
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Tramvay durağında bekleyen maksimum yolcu sayısı
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro istasyonunda bekleyen maksimum yolcu sayısı
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Metro istasyonunda bekleyen maksimum yolcu sayısı
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Tren
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Tren istasyonunda bekleyen maksimum yolcu sayısı
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail durağında bekleyen maksimum yolcu sayısı
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Monorail durağında bekleyen maksimum yolcu sayısı
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Gemi
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Kargo limanında bekleyen maksimum yolcu sayısı
@@ -444,13 +444,13 @@ CHANGELOG_4_8_0_4 Düzeltildi: bazı terminallerde "şehirlerarası otobüsleri 
 CHANGELOG_4_8_0_5 Düzeltildi: Sub-Buildings Tabs bazen ilgisiz bir binada eski bir sekme şeridi gösteriyordu: oyun, bir yıkımdan sonra bina kimliklerini yeniden kullanıyor ve önbellek, yeniden kullanılan bir kimliğin hâlâ önceki bina kümesine ait olduğuna güveniyordu. Artık önbellekten herhangi bir şeyi yeniden kullanmadan önce binanın gerçek üst zincirini yeniden doğruluyor.
 CHANGELOG_4_8_0_6 Birkaç entegrasyonda genel hata temizliği: taze verileri atıp bunun yerine eski verileri sunan ters çevrilmiş bir önbellek geçerlilik süresi kontrolü, otomatik renklendirme ve yinelenen ad kontrollerinde son ulaşım hattını atlayan bire bir hatalı bir döngü sınırı, "bu hatta yalnızca bir araç" yığılma önleme atlamasını bozan yanlış bir kimlik karşılaştırması, bir başarısızlığı yeniden denemek yerine kalıcı olarak önbelleğe alan bir fiyat sorgusu ve boş bir UI/prefab referansında hata verebilen birkaç Harmony yaması.
 CHANGELOG_4_8_0_7 Birkaç entegrasyonda tekrarlanan reflection ve kare başına aramalar azaltıldı: araç ipucu açıklamaları, tek hatlı segment sınıflandırması ve şehirlerarası otobüs öğe sınıfı araması artık her çağrıda yeniden hesaplanmak yerine önbelleğe alınıyor ve bir arayüz yenileme düğmesi artık bir şey değişmiş olsa da olmasa da her karede metnini yeniden atamıyor.
-CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
-CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
-CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
-CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
-CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
-CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
-CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_0_8 Yeni kurulumlar artık Güvenli oynanış profilini kullanıyor: diğer modlarla maksimum uyumluluk için tüm isteğe bağlı entegrasyonlar ve modlar kapalı başlar. Önerilen (IPT çekirdeği) veya Gerçekçi'yi kullanın, ya da tek tek ayarları değiştirin. Şehirlerarası Otobüs Kontrolü ve Alt Binalar Sekmeleri kullanılabilir durumda kalır ve yukarıdaki düzeltmelerden sonra Önerilen'e dahildir.
+CHANGELOG_4_8_0_9 Seçenekler > Entegrasyonlar artik Gelişmiş Durak Seçimi, Gelişmiş Biniş, Kilometre Bazlı Taksi ve Yükseltilmiş Durakları gösterir - bunlar zaten ayarlar ve profiller tarafindan kontrol ediliyordu ama onay kutusu yoktu, bu nedenle sadece JSON/profil onlari açabiliyordu.
+CHANGELOG_4_8_0_10 Tüm açiklama seçicisi dilleri icin tam Steam Workshop dil paketleri eklendi; Danca, Fince, Norvegce, İsveçce, Macarca, Romence, Bulgarca, Yunanca, Ukraynaca, Vietnamca ve Malayca dahil; artı pt-br ve es-419.
+CHANGELOG_4_8_5_1 Tren Gösterimi donması/donmanın düzeltilmesi: daha hizli anlik yeniden yoklama yolu geri alındı ve bindirme artik Maksimum performansta simülasyonla yarişmamasi icin yoklama tabanları yükseltildi.
+CHANGELOG_4_8_5_2 Tren Gösterimi rota şeridi ve durak otomatik adlandırmasi optimize edildi: yoklama başına en fazla bir ağır ad taraması; başarisiz adlandırılmamis duraklar her aralıkta yeniden taranmaz; rota adı listeleri ekstra liste ayırma işlemlerini önler.
+CHANGELOG_4_8_5_3 Yolcu Varış Noktası Park Edildi (hala hatali): tüm profiller/kayitlar icin kapatildi ve bir sonraki yeniden tasarima kadar Seçenekler geçişi kaldirıldı. Gelecek spoiler Gelişmiş altında kaliyor.
+CHANGELOG_4_8_5_4 Seçenekler dil paketleri: tam Common JSON seti dağitimda gönderilir (35+ çerçeve dili), dil açılır menüsü artık listenin yarısını kaçırmaz; bölüm açıklama kartları kontrolleriyle ortak bir arka plan tutar.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 Dört yeni entegrasyon: Alt Bina Sekmeleri (yalnızca havalimanları için değil, birden fazla binadan oluşan her kompleks için sekme çubuğu), Paylaşımlı Durak Etkinleştirici (birden fazla durak türünün aynı yol segmentini paylaşmasına izin verir, varsayılan olarak kapalı), Yolcu Varış Noktası (bir durakta bekleyen vatandaşların gerçekte nereye gittiğini gösterir) ve Taksi Durağı Düzeltmesi (boştaki taksiler amaçsızca dolaşmak yerine en yakın durağa yönelir). Her bir anahtarı Seçenekler > Entegrasyonlar altında bulabilirsiniz.
 CHANGELOG_4_7_0_2 Şehirlerarası otobüs terminalleri için bir araç kapasitesi modu eklendi (Seçenekler > Entegrasyonlar > Şehirlerarası Otobüs Terminali Kapasitesi): Devre dışı, bu modun şimdiye kadarki fiilen sınırsız terminalini korur; Orta, ölçülü sabit bir üst sınır uygular; Gerçekçi, terminalin kendi orijinal (vanilla) prefab kapasitesini geri getirir. Mevcut kayıtlar varsayılan olarak Devre dışı kullanır, böylece bir güncelleme bir terminalin kapasitesini asla sessizce küçültmez.
@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 Seçicideki 23 dilin tamamı artık tamamen çevrildi. Çekçe
 CHANGELOG_4_3_7_2 Dil seçicisinin altında gösterilen çeviri ilerlemesi, yeniden oluşturulmamış statik bir durum dosyasını okuyordu; bu nedenle aslında tamamlanmış on altı dil için %76 bildiriyordu.
 CHANGELOG_4_3_6_1 Toplu taşımada yaklaşık -21,4 milyonluk giderin gerçek nedeni giderildi: IPT'nin haftalık bakım hesabı sıfır veya desteklenmeyen bir araç kapasitesine bölüyor, NaN'ı int.MinValue'ya çeviriyor ve ardından her aracı başka bir int içinde topluyordu. Geçersiz değerler artik oyunun güvenli varsayılan değerini kullanıyor, hat toplamları 64 bit aritmetik kullanıyor ve büyük geçerli tutarlar yalnızca sınırlı pozitif işlemlerle tahsil ediliyor.
 CHANGELOG_4_3_6_2 Zaten etkilenmiş kayıtlar yüklenirken onarılır: yalnızca bu taşmadan kalan negatif toplu taşıma gelir veya gider kalemleri sıfırlanır ve ilgili toplamları düzeltilir. Geçerli ekonomi geçmişi ve diğer tüm hizmetler dokunulmadan kalır.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+DEPOT_STATS_FERRIES_IN_USE Feribotlar Kullanımda
+DEPOT_STATS_BLIMPS_IN_USE Zeplinler Kullanımda
+DEPOT_STATS_HELICOPTERS Helikopterler Kullanımda
+DEPOT_STATS_TROLLEYBUSES_IN_USE Troleybüsler Kullanımda
+DEPOT_STATS_VEHICLES_IN_USE Araçlar Kullanımda
+SETTINGS_EMPTY_BEFORE_DEPOT Depoya dönmeden önce yolcuları boşalt
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Etkinleştirildiğinde, yolcu taşıyan toplu taşıma araçları boş olana kadar hattını bırakmayacak, daha sonra evlerine döner. Varsayılan olarak kapalı; Gerçekçi profili etkinleştirir.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Bindirmede Araç Türleri
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Seçildiğinde Tren Gösterimi panelini gösterebilecek toplu taşıma araçları.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Araç türü seçildiğinde bindirmeyi göster.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
-SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Troleybüs
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tramvay
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Tren
 SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
-TRAINDISPLAY_LABEL_SPEED Speed
-TRAINDISPLAY_LABEL_TIME Time
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
-SETTINGS_TAB_PERFORMANCE Performance
-SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Gemi / Feribot
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Uçak / Zeplin / Helikopter
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taksi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Teleferiği
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Tur Otobüsü
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Siyah (yarı saydam)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Hızı Göster (ekstra şerit)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Yolcuları Göster (ekstra şerit)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Geçen süreyi göster (ekstra şerit)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Ana panelin üzerine bu ekstra öğeleri içeren satır renkli bir şerit ekler. Varsayılan olarak kapalı.
+TRAINDISPLAY_LABEL_SPEED Hız
+TRAINDISPLAY_LABEL_TIME Zaman
+SETTINGS_PERFORMANCE_PROFILE Performans Profili
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Ağır UI ve taramalar için genel bütçe (Tren Ekranı yenileme, Banliyö Hedefi haritası/listesi, benzer işler).\nHafif: takılma riskini en aza indirir — daha az simge, daha yavaş yenileme.\nNormal: dengeli (varsayılan).\nMaksimum: en ayrıntılı ve daha akıcı kaplamalar; zayıf bilgisayarlarda FPS'e mal olabilir.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Açık (daha Düzgün)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (dengeli)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maksimum (tam detay)
+SETTINGS_TAB_PERFORMANCE Performans
+SETTINGS_PERFORMANCE_TIPS_GROUP İpuçları
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION UI veya bindirmeler titreme yapıyorsa Açık kullanın; Maksimum sadece bilgisayarınız güçlüyse. Değişiklikler Tren Gösterimi ve Yolcu Varış Noktasına hemen uygulanır. Bazı diğer entegrasyonlar hala bir harita yeniden yüklemesi gerekir.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY Compatibility
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_TAB_COMPATIBILITY Uyumluluk
+SETTINGS_COMPAT_INTRO_GROUP Yükleme siparişinizi kontrol edin
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4, etkin Workshop/yerel modları bilinen çakışmalar (IPT1–3, TLM, ITM, birleştirilmiş bağımsız modlar) ve gerekli bağımlılıklar (Harmony) için tarar. Abonelikleri değiştirdikten sonra bir kontrol çalıştırın.
+SETTINGS_COMPAT_RUN_CHECK Çatışmalar Icin Tara
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Etkin eklentileri IPT4'ün bilinen uyumsuz listesiyle (derleme adı + Workshop kimliği) ve Harmony bağımlılığıyla karşılaştırır.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Şimdi Kontrol Et
+SETTINGS_COMPAT_STATUS_GROUP Güncel sonuç
+SETTINGS_COMPAT_STATUS_OK Son taramada herhangi bir çakışma veya eksik bağımlılık tespit edilmedi.
+SETTINGS_COMPAT_STATUS_WARN Bir veya daha fazla sorun bulundu — listelenen modları devre dışı bırakın (veya Harmony'ye abone olun) ve oyunu yeniden başlatın.
+SETTINGS_COMPAT_MATCHED_GENERIC Bu mod, IPT4 ile çatışır. Devre dışı bırakın veya abonelikten çıkın.
+SETTINGS_COMPAT_MISSING_DEP Gerekli bağımlılık mevcut değil. Abone olun ve etkinleştirin, ardından yeniden başlatın.
+SETTINGS_COMPAT_NO_ISSUES Şu anda çatışan hiçbir şey etkin değil.
+SETTINGS_COMPAT_BADGE_CONFLICT Çatışma
+SETTINGS_COMPAT_BADGE_MISSING Eksik
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
-SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
-SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
-SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_COMPAT_GUIDE_GROUP IPT4 ile Çalışmayacak Olanlar
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Asla etkinleştirmeyin: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nIPT4'e zaten dahil edilmiş bağımsız modların aboneliğini kaldırın (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, vb. — tam liste Workshop tartışmasındadır).\nGerekli: Harmony (CitiesHarmony, Workshop 2040656402).\nBir çakışmayı devre dışı bıraktıktan sonra, Harmony yamalarının düzgün şekilde kaldırılması için oyunu yeniden başlatın.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Seçili aracı depoya/garaja gönder. Hat hedef sayısını azaltır.
+COMMUTER_STOP_WITH_WAITING {0} ({1} bekliyor)
+SETTINGS_TAB_FLEET_SHORT Filo
+SETTINGS_TAB_STOPS_SHORT Duraklar
+SETTINGS_TAB_OVERLAY_SHORT Bindirme
+SETTINGS_TAB_SYSTEM_SHORT Sistem
+SETTINGS_SUB_SPACING Aralık
+SETTINGS_SUB_SPACING_DESC Araçları eşit aralıklı tutun. Araç Aralığı klasik IPT aracıdır; Ekspres Otobüs/Tramvay alternatif bir stildir.
+SETTINGS_SUB_BUDGET Bütçe
+SETTINGS_SUB_COLOR Renk
+SETTINGS_SUB_CAPS Kapasiteler
+SETTINGS_SUB_NET Ağ
+SETTINGS_SUB_NET_DESC Yollarda durak yerleşimi: yükseltilmiş, paylaşımlı türler, yığınlama, gelişmiş platformlar.
+SETTINGS_SUB_VEHICLES Araçlar
+SETTINGS_SUB_VEHICLES_DESC Biniş, depoya dönüş, tek hatlı trenler, taksiler, serbest bırakıcı.
+SETTINGS_SUB_DEPOTS Depolar
+SETTINGS_SUB_DEPOTS_DESC Bir deponun kaç araç tutabileceğine ilişkin yumuşak kapasiteler (vanilla genellikle sınırsızdır).
+SETTINGS_SUB_OUTSIDE Dış
+SETTINGS_SUB_OUTSIDE_DESC Şehirlerarası terminaller ve dış bağlantı kargo/yolcu bekleme.
+SETTINGS_SUB_DISPLAY Görüntü
+SETTINGS_SUB_INFO Bilgi
+SETTINGS_SUB_INFO_DESC Paneller ve şehir bilgi araçları (filo simülasyonu değil).
 SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
+SETTINGS_SUB_COMPAT Uyum
+SETTINGS_SUB_KEYS Tuşlar
+SETTINGS_FUTURE_GROUP Daha Sonra Geliyor
+SETTINGS_FUTURE_GROUP_DESCRIPTION Planlı özelliklerin önizlemesi. Hazır olana kadar gri - henüz hiçbir etkisi yok.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Ters Çevrilebilir Tramvay Yapay Zekası (yakinda)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planlı: tramvaylar döngü olmadan terminal istasyonlarında ters döner. Henüz mevcut değil.
+SETTINGS_FUTURE_BREAKDOWN Arıza Araçları (yakinda)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planlı: Sıkışan geçişin rota/trafik tanılaması. Henüz mevcut değil.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Harita Detayı:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performans, haritada daha az simge gösterir ve daha hızlı yenilenir. Tam Harita, haritada çok daha fazla hedef simgesi gösterir; panel daha yavaş güncellenir, böylece zayıf bilgisayarlar da kullanabilir.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performans (daha hızlı)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Tam Harita (daha fazla simge, daha yavaş yenileme)
+SETTINGS_KEYBINDINGS_GROUP Oyun İçi Kısayollar
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Bir şehir yüklenirken kısayollar. Bir bağlamaya tıklayın, ardından yeniden bağlamak için bir tuşa basın.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Tren Gösterimini Aç/Kapat
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Köşe araç bindirmesini etkinleştir veya devre dışı bırak.
+SETTINGS_HOTKEY_LINE_COLOR Hat Rengini Yeniden Ata
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Bir ulaşım hattı seçiliyken, o hat için Otomatik Hat Rengi"ni yeniden çalıştırın (renk stratejisi etkinleştirilmesi gerekir).
+LINE_PANEL_COPY Kopyala
+LINE_PANEL_PASTE Yapıştır
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP Hızlı İpuçları
+SETTINGS_QUICK_TIPS_DESC Küçük hatırlatmalar — ekstra kod yok, sadece zaten sahip olanları nasıl kullanacağınız.
+SETTINGS_QUICK_TIP_1_TITLE Basit başla
+SETTINGS_QUICK_TIP_1_BODY Önerilen'i seç, ardından sadece ihtiyacın olanları aç. Diğer birçok mod kullanıyorsan Güvenli en iyisidir.
+SETTINGS_QUICK_TIP_2_TITLE Yavaş Bilgisayar?
+SETTINGS_QUICK_TIP_2_BODY Sistem → Perf → Açık. Ayrıca FPS düşüşü varsa Yolcu "Tam Harita"sından kaçın.
+SETTINGS_QUICK_TIP_3_TITLE Geçişlerden Sonra
+SETTINGS_QUICK_TIP_3_BODY Bazı seçenekler şehir yeniden yüklemesi gerekir (araç ipucu bunu söyler). Sistem → Uyum çatışan modları kontrol eder.
+SETTINGS_OOC_RESET_TOOLTIP Dış bağlantı bekleme, sahte trafik ve ilgili geçişleri Güvenli varsayılanlarına sıfırla.
+SETTINGS_EBS_GROUP_BUS_DESC Ekspres otobüsler, birkaç yolcu bindiyse erken ayrılabilir — isteğe bağlı gelişmiş aralık.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ekstra satırlar
+SETTINGS_SUB_NET_BBSP_NOTE Daha İyi Otobüs Durağı sadece otobüslerin durakta nerede durduğunu değiştirir. Aşağıdaki seçenekler ayrı özelliklerdir (yükseltilmiş, paylaşımlı duraklar, vb.) — amaçlı olarak tıklanabilir kaliyor. only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
