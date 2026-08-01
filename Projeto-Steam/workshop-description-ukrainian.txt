@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
 [b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
+[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Чому це існує[/h1]
 Місто втрачало величезні кошти — витрати на утримання транспорту злетіли приблизно до [b]-42 000 000 000[/b]. Жоден із залучених модів не був зламаним; два працюючі моди незалежно один від одного вирішували, яким має бути розмір автопарку кожної лінії, перезаписуючи один одного. Вирішення в одному місці, в одній системі. Це IPT4.

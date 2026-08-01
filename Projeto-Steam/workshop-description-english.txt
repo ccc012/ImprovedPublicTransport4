@@ -1,11 +1,10 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
 [b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
+[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Why this exists[/h1]
 A city was bleeding money — transit maintenance ran away to roughly [b]-42,000,000,000[/b]. Neither mod involved was broken; two working mods were each deciding, independently, how big every line's fleet should be, overwriting each other. The fix is one place, one system. That is IPT4.
-One assembly, one patch per method, tends to run lighter too: informal testing measured ~50-60 FPS here against ~40-50 FPS as separate mods.
 [hr][/hr]
 [h1]What you can do with it[/h1]
 [h2]Take charge of any line[/h2]

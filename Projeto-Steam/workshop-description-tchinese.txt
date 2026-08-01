@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
 [b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
+[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]為什麼需要這個模組[/h1]
 一個城市的資金在不斷流失 —— 交通維護費失控飆升至約 [b]-42,000,000,000[/b]。涉及的模組本身並沒有壞；而是兩個正常運作的模組各自獨立地決定每條路線的車隊規模，並相互覆蓋。解決之道是集中於一處，使用一個系統。這就是 IPT4。

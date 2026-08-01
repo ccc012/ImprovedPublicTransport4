@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
 [b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
+[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Tại sao mod này tồn tại[/h1]
 Một thành phố đang cạn kiệt tiền — chi phí bảo trì giao thông vọt lên khoảng [b]-42.000.000.000[/b]. Không có mod nào liên quan bị hỏng; hai mod đang hoạt động đều tự quyết định một cách độc lập rằng đội xe của mỗi tuyến phải lớn đến mức nào, dẫn đến việc ghi đè lẫn nhau. Giải pháp là một nơi, một hệ thống. Đó chính là IPT4.
