@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Sebab mod ini wujud[/h1]
-Bandar rugi wang: penyelenggaraan melambung ke [b]-42,000,000,000[/b]. Dua mod berfungsi, masing-masing tentukan saiz armada, saling menimpa. Solusi: satu tempat, satu sistem — IPT4. Satu himpunan (*assembly*), satu tampalan (*patch*) per kaedah, lebih ringan: ujian ~50-60 FPS berbanding ~40-50 FPS mod berasingan.
+Bandar rugi wang: penyelenggaraan melambung ke [b]-42,000,000,000[/b]. Dua mod berfungsi, masing-masing tentukan saiz armada, saling menimpa. Solusi: satu tempat, satu sistem — IPT4.
 [hr][/hr]
 [h1]Apa yang anda boleh lakukan dengannya[/h1]
 [h2]Kawal mana-mana laluan[/h2]

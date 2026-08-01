@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Bu neden var[/h1]
-Bir şehir para kaybediyordu — toplu taşıma bakım masrafları yaklaşık [b]-42.000.000.000[/b] seviyesine ulaştı. Çalışan iki bağımsız mod, her hattın filosu büyüklüğüne karar verirken birbirlerinin verisini üstüne yazıyordu. Çözüm: tek bir sistem. Sonuç: tek derlemede, yöntem başına tek yama, daha hafif (testlerde ~50-60 FPS vs ~40-50 FPS).
+Bir şehir para kaybediyordu — toplu taşıma bakım masrafları yaklaşık [b]-42.000.000.000[/b] seviyesine ulaştı. Çalışan iki bağımsız mod, her hattın filosu büyüklüğüne karar verirken birbirlerinin verisini üstüne yazıyordu. Çözüm: tek bir sistem.
 [hr][/hr]
 [h1]Bununla ne yapabilirsiniz[/h1]
 [h2]Herhangi bir hattın kontrolünü ele alın[/h2]

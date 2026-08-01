@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Miért létezik ez a mod[/h1]
-Egy város fenntartási költségei [b]-42 milliárd[/b]-ra ugrottak — két mod külön döntötte el a flotta méretét, egymást felülírva. Megoldás: egy mod, egy rendszer. Az IPT4 egy assembly-ből futva gyorsabb (~50-60 FPS a ~40-50 helyett).
+Egy város fenntartási költségei [b]-42 milliárd[/b]-ra ugrottak — két mod külön döntötte el a flotta méretét, egymást felülírva. Megoldás: egy mod, egy rendszer.
 [hr][/hr]
 [h1]Mit tehetsz vele[/h1]
 [h2]Vedd át az irányítást bármelyik vonal felett[/h2]

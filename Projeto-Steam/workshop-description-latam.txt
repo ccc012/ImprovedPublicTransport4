@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Por qué existe esto[/h1]
-Una ciudad perdía dinero: mantenimiento en [b]-42,000,000,000[/b]. Dos mods conflictivos sobrescribían mutuamente el tamaño de flota. La solución: un único lugar, un único sistema. Rendimiento: ~50-60 FPS vs ~40-50 FPS con mods separados.
+Una ciudad perdía dinero: mantenimiento en [b]-42,000,000,000[/b]. Dos mods conflictivos sobrescribían mutuamente el tamaño de flota. La solución: un único lugar, un único sistema.
 [hr][/hr]
 [h1]Qué puedes hacer con él[/h1]
 [h2]Toma el control de cualquier línea[/h2]

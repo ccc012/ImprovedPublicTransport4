@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Por que isso existe[/h1]
-Uma cidade perdia muito dinheiro: manutenção de transporte em [b]-42 bilhões[/b]. Dois mods ajustavam a frota independentemente, sobrescrevendo um ao outro. A solução é um só sistema. Testes informais: ~50–60 FPS com IPT4 contra ~40–50 FPS com mods separados.
+Uma cidade perdia muito dinheiro: manutenção de transporte em [b]-42 bilhões[/b]. Dois mods ajustavam a frota independentemente, sobrescrevendo um ao outro. A solução é um só sistema.
 [hr][/hr]
 [h1]O que você pode fazer com ele[/h1]
 [h2]Assuma o controle de qualquer linha[/h2]

@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Pourquoi ce mod existe[/h1]
-Une ville perdait de l'argent — l'entretien grimpait à [b]-42 milliards[/b]. Deux mods s'écrasaient sur la taille des flottes. Un seul système, ça tourne plus léger : ~50-60 FPS contre ~40-50 FPS en mods séparés.
+Une ville perdait de l'argent — l'entretien grimpait à [b]-42 milliards[/b]. Deux mods s'écrasaient sur la taille des flottes. Un seul système résout ce conflit.
 [hr][/hr]
 [h1]Ce que vous pouvez faire avec[/h1]
 [h2]Prenez le contrôle[/h2]

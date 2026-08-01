@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Waarom dit bestaat[/h1]
-Twee mods overschreven elkaar bij vlootgrootte-berekening, tot [b]-42 miljard[/b]. Oplossing: één plek, één systeem. Eén assembly loopt ~50-60 FPS tegenover ~40-50 bij losse mods.
+Twee mods overschreven elkaar bij vlootgrootte-berekening, tot [b]-42 miljard[/b]. Oplossing: één plek, één systeem.
 [hr][/hr]
 [h1]Wat je ermee kunt doen[/h1]
 [h2]Neem de controle over elke lijn[/h2]

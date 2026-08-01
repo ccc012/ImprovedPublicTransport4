@@ -5,7 +5,6 @@
 
 [h1]Perché esiste questa mod[/h1]
 Una città perdeva soldi: manutenzione trasporti a [b]-42.000.000.000[/b]. Due mod decidevano flotta indipendentemente, sovrascrivendosi. Soluzione: un unico sistema. Questo è IPT4.
-Un assembly con patch per metodo gira più leggero: test ~50-60 FPS vs ~40-50 FPS separate.
 [hr][/hr]
 [h1]Cosa puoi fare con questa mod[/h1]
 [h2]Prendi il controllo di qualsiasi linea[/h2]

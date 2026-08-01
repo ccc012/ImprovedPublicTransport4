@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Miksi tämä on olemassa[/h1]
-Kaupunki menetti rahaa — kuluista kasautui [b]-42 mrd[/b]. Kaksi itsenäistä modia päättivät kumpikin linjojen kalustokoot ja korvasivat toistensa muutokset. Ratkaisu: yksi paikka, yksi järjestelmä. Yksi assembly, yksi patch per metodi — kevyempi (~50–60 FPS vs ~40–50 FPS erillisillä).
+Kaupunki menetti rahaa — kuluista kasautui [b]-42 mrd[/b]. Kaksi itsenäistä modia päättivät kumpikin linjojen kalustokoot ja korvasivat toistensa muutokset. Ratkaisu: yksi paikka, yksi järjestelmä.
 [hr][/hr]
 [h1]Mitä voit tehdä sillä[/h1]
 [h2]Ota komento miltä tahansa linjalta[/h2]

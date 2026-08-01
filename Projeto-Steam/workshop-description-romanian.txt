@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]De ce există acest mod[/h1]
-Doi mods funcțional se suprascriau reciproc pe flux, creând haos. IPT4 consolidează—un singur loc, un singur sistem. Performance: ~50-60 FPS vs ~40-50 FPS separate.
+Doi mods funcțional se suprascriau reciproc pe flux, creând haos. IPT4 consolidează—un singur loc, un singur sistem.
 [hr][/hr]
 [h1]Ce poți face cu el[/h1]
 [h2]Preia controlul asupra oricărei linii[/h2]

@@ -5,7 +5,6 @@
 
 [h1]Hvorfor denne eksisterer[/h1]
 En by blødte penge — vedligeholdelse til omkring [b]-42B[/b] fordi to mods patched samme kode uafhængigt og overskrev hinanden. Løsning: ét sted, ét system.
-Samlet assembly og patch pr. metode kører lettere: ~50-60 FPS her mod ~40-50 FPS med separate mods.
 [hr][/hr]
 [h1]Hvad du kan gøre med den[/h1]
 [h2]Tag styringen over enhver linje[/h2]

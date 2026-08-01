@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Hvorfor denne eksisterer[/h1]
-En by tapte penger — vedlikeholdet løp løpsk til [b]-42.000.000.000[/b] da to mods konkurrerte om flåtestørrelse. Løsningen: IPT4, ett system, lettere ytelse (~50-60 FPS vs ~40-50 FPS som separate mods).
+En by tapte penger — vedlikeholdet løp løpsk til [b]-42.000.000.000[/b] da to mods konkurrerte om flåtestørrelse. Løsningen: IPT4, ett samlet system.
 [hr][/hr]
 [h1]Hva du kan gjøre med den[/h1]
 [h2]Ta kontroll over enhver linje[/h2]

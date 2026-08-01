@@ -5,7 +5,6 @@
 
 [h1]Por qué existe esto[/h1]
 Una ciudad perdía dinero: mantenimiento en [b]-42.000.000.000[/b]. Dos mods independientes decidían flota de línea a la vez, sobrescribiéndose. Solución: un solo lugar, un solo sistema.
-Un ensamblado único con un parche por método: ~50-60 FPS vs ~40-50 FPS como mods separados.
 [hr][/hr]
 [h1]Qué puedes hacer con él[/h1]
 [h2]Toma el control de cualquier línea[/h2]

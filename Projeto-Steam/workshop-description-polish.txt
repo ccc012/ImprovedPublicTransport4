@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Dlaczego to istnieje[/h1]
-Miasto traciło miliardy — koszty transportu sięgnęły [b]-42 miliardów[/b]. Niezłożone mody niezależnie decydowały o wielkości floty, nadpisując się. Jedno miejsce, jeden system — IPT4. Zwykle lżej: ~50-60 FPS zamiast ~40-50 FPS.
+Miasto traciło miliardy — koszty transportu sięgnęły [b]-42 miliardów[/b]. Niezłożone mody niezależnie decydowały o wielkości floty, nadpisując się. Jedno miejsce, jeden system — IPT4.
 [hr][/hr]
 [h1]Co możesz z tym zrobić[/h1]
 [h2]Przejmij kontrolę nad dowolną linią[/h2]

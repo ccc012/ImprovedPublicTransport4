@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Warum dies existiert[/h1]
-Eine Stadt verlor massiv Geld — Wartungskosten stiegen auf [b]-42 Mrd.[/b], weil zwei Mods Flottengröße pro Linie unabhängig setzten und sich überschrieben. Die Lösung: ein System. Tests zeigen ~50–60 FPS statt ~40–50 FPS bei separaten Mods.
+Eine Stadt verlor massiv Geld — Wartungskosten stiegen auf [b]-42 Mrd.[/b], weil zwei Mods Flottengröße pro Linie unabhängig setzten und sich überschrieben. Die Lösung: ein System.
 [hr][/hr]
 [h1]Was Sie damit tun können[/h1]
 [h2]Übernehmen Sie die Kontrolle über jede Linie[/h2]

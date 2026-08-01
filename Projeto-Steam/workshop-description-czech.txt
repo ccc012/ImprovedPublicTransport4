@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Proč toto existuje[/h1]
-Město krvácelo [b]-42 miliard[/b] — dva módy si nezávisle určovaly velikost vozového parku a přepisovaly se. Řešení: jeden mód, jedno místo, jeden kód. Zlepšený výkon: ~50–60 FPS oproti ~40–50 FPS u samostatných módů.
+Město krvácelo [b]-42 miliard[/b] — dva módy si nezávisle určovaly velikost vozového parku a přepisovaly se. Řešení: jeden mód, jedno místo, jeden kód.
 [hr][/hr]
 [h1]Co s tím můžete dělat[/h1]
 [h2]Vezměte si na starost jakoukoliv linku[/h2]

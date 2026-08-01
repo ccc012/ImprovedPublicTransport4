@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Tại sao mod này tồn tại[/h1]
-Một thành phố cạn kiệt tiền vì chi phí bảo trì giao thông lên [b]-42.000.000.000[/b] — hai mod độc lập tự quyết định quy mô đội xe và ghi đè lẫn nhau. Giải pháp: một nơi, một hệ thống. Một assembly, một patch cho mỗi phương pháp, chạy nhẹ nhàng hơn (~50-60 FPS so với ~40-50 FPS khi dùng mod riêng lẻ).
+Một thành phố cạn kiệt tiền vì chi phí bảo trì giao thông lên [b]-42.000.000.000[/b] — hai mod độc lập tự quyết định quy mô đội xe và ghi đè lẫn nhau. Giải pháp: một nơi, một hệ thống.
 [hr][/hr]
 [h1]Bạn có thể làm gì với nó[/h1]
 [h2]Nắm quyền kiểm soát bất kỳ tuyến đường nào[/h2]

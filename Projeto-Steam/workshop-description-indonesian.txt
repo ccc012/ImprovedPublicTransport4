@@ -4,7 +4,7 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]Mengapa ini ada[/h1]
-Kota kehilangan uang — pemeliharaan transit melonjak hingga [b]-42.000.000.000[/b]. Dua mod normal atur armada jalur sendiri, lalu saling menimpa. Solusi: satu tempat, satu sistem dalam satu *assembly*, satu *patch* per metode. Biasanya lebih ringan: ~50-60 FPS vs ~40-50 FPS saat mod terpisah.
+Kota kehilangan uang — pemeliharaan transit melonjak hingga [b]-42.000.000.000[/b]. Dua mod normal atur armada jalur sendiri, lalu saling menimpa. Solusi: satu tempat, satu sistem.
 [hr][/hr]
 [h1]Apa yang dapat Anda lakukan dengannya[/h1]
 [h2]Ambil alih jalur apa pun[/h2]
