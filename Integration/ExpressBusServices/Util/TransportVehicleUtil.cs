@@ -17,20 +17,29 @@ namespace ExpressBusServices.Util
                 // no op
                 return;
             }
-            TransportLine theLine = Singleton<TransportManager>.instance.m_lines.m_buffer[data.m_transportLine];
-            theLine.RemoveVehicle(vehicleID, ref data);
-            data.Info.m_vehicleAI.SetTransportLine(vehicleID, ref data, 0);
+
+            // SetTransportLine(0) already unlinks the vehicle from the line.
+            // Do NOT call RemoveVehicle first: EmptyBeforeReturnToDepot may block
+            // SetTransportLine while RemoveVehicle already orphaned the vehicle from
+            // the line list → half-state, repath thrash, U-turn then continue.
+            if (data.Info?.m_vehicleAI != null)
+            {
+                data.Info.m_vehicleAI.SetTransportLine(vehicleID, ref data, 0);
+            }
         }
 
         public static bool VehicleHasProgressPercent(ushort vehicleID, ref Vehicle data)
         {
-            if (data.m_transportLine == 0)
+            if (data.m_transportLine == 0 || data.Info?.m_vehicleAI == null)
             {
                 return false;
             }
-            var lineProgress = VehicleLineProgress.GetTransportLineVehicleProgress(data.m_transportLine);
-            // find where exists self
-            return lineProgress.GetProgressOf(vehicleID).HasValue;
+
+            // Fast path: only query THIS vehicle. The old path rebuilt progress for every
+            // vehicle on the line (GetProgressStatus × N + List/sort) on every bus arrival —
+            // a major hitch with dense fleets (dozens of buses × many lines).
+            data.Info.m_vehicleAI.GetProgressStatus(vehicleID, ref data, out _, out float max);
+            return max != 0f;
         }
 
         public static void FindFirstVehicleOfVehicleSet(ushort vehicleID, ref Vehicle data, out ushort firstVehicleID, out Vehicle firstVehicleData)

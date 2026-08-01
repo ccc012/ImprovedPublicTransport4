@@ -23,22 +23,45 @@ namespace ImprovedPublicTransport
         public enum TrainDisplayModes { Disabled = 0, Enabled = 1 }
         public enum TrainDisplayOverlayPositions { TopLeft = 0, TopRight = 1, BottomLeft = 2, BottomRight = 3 }
         [Flags]
-        public enum TrainDisplayFields { None = 0, Line = 1, Destination = 2, State = 4 }
+        public enum TrainDisplayFields
+        {
+            None = 0,
+            Line = 1,
+            Destination = 2,
+            State = 4,
+            Speed = 8,
+            Passengers = 16,
+            Elapsed = 32,
+            // Extra strip (line-coloured) appears when any of these is on.
+            ExtrasMask = State | Speed | Passengers | Elapsed,
+        }
         // Original replicates the layout of the upstream Train Display - Updated mod (Workshop
         // 3233229958): a header strip with a key/value grid, a big centred speed readout, and a
         // bottom-left route strip coloured to match the vehicle's actual line colour.
-        public enum TrainDisplayColorThemes { Simple = 0, Dark = 1, Light = 2, Original = 3 }
+        // Themes only recolour the same unified layout (no second panel / layout fork).
+        // Simple kept for save compat (maps to Red face). Themes only recolour the single corner panel.
+        // Simple=Red pastel, Dark=solid black, Light=semi white, Original=solid white,
+        // Amber=Yellow pastel, BlackSemi=semi-transparent black.
+        public enum TrainDisplayColorThemes
+        {
+            Simple = 0,
+            Dark = 1,
+            Light = 2,
+            Original = 3,
+            Blue = 4,
+            Green = 5,
+            Amber = 6,
+            BlackSemi = 7,
+        }
         public enum ExpressBusServicesModes { None = 0, Prudential = 1, Aggressive = 2 }
         public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
         public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
         public enum AutoLineColorNamingStrategy { Disabled = 0, Districts = 1, London = 2, Roads = 3, NamedColors = 4 }
         public enum VehicleEditorPositions { Bottom = 0, Right = 1 }
-        // A one-click cascade over the many independent toggles/dropdowns below, so a player doesn't
-        // have to hand-tune a dozen settings just to get "everything vanilla" or "everything on and
-        // tuned for realism". Custom is the no-op state - picking it does not revert anything, it
-        // just means "I'm managing these myself now" and stops being auto-applied. See
-        // SettingsActions.OnGameplayProfileChanged for exactly what each preset touches.
-        public enum GameplayProfiles { Custom = 0, Vanilla = 1, Realistic = 2 }
+        // One-click presets. Numeric values for Custom/Vanilla/Realistic stay stable so older
+        // settings JSON files keep mapping correctly. Safe/Recommended are additive.
+        // Safe = install default (everything off). Recommended = IPT core. Realistic = most on.
+        public enum GameplayProfiles { Custom = 0, Vanilla = 1, Realistic = 2, Safe = 3, Recommended = 4 }
         // Controls the intercity bus terminal vehicle cap IntercityBusControl applies (see
         // Integration/IntercityBusControl/StationPatcher.cs) - Disabled matches the behaviour this
         // mod always had (an effectively uncapped terminal), Realistic leaves the terminal's own
@@ -51,31 +74,58 @@ namespace ImprovedPublicTransport
         // for every citizen in the city, offered as an explicit opt-in rather than silently on.
         public enum PassengerWaitScopes { OutsideConnectionsOnly = 0, CityWide = 1, Disabled = 2 }
 
-        // Not itself read anywhere else in the mod - purely a record of which preset was last
-        // applied, so the dropdown shows the right selection and re-picking the same profile is a
-        // no-op rather than re-cascading identical values every time.
-        public GameplayProfiles GameplayProfile { get; set; } = GameplayProfiles.Custom;
+        // Record of last preset applied (dropdown selection). Fresh installs start on Safe.
+        public GameplayProfiles GameplayProfile { get; set; } = GameplayProfiles.Safe;
+
+        /// <summary>
+        /// Global performance budget for heavy UI / scan / overlay work across integrations.
+        /// One control instead of a slider on every feature.
+        /// Light = minimize hitch risk; Normal = current balance; Maximum = fullest features.
+        /// </summary>
+        public enum PerformanceProfiles
+        {
+            Light = 0,
+            Normal = 1,
+            Maximum = 2,
+        }
+
+        public PerformanceProfiles PerformanceProfile { get; set; } = PerformanceProfiles.Normal;
+
         public VehicleSpeedUnits SpeedUnit { get; set; } = VehicleSpeedUnits.MPH;
         public string SpeedString => SpeedUnit == VehicleSpeedUnits.KPH ? Localization.Get("SETTINGS_SPEED_KPH") : Localization.Get("SETTINGS_SPEED_MPH");
-        // Safety-first defaults (2026-07-30): every integration ported from a standalone Workshop
-        // mod (see the "Absorbed Standalone Mods" list in the Workshop description) now defaults to
-        // OFF/vanilla, not ON. A player who installs IPT4 without first noticing they need to
-        // unsubscribe the original standalone mods would otherwise get both patching the same game
-        // systems at once by default. IPT4's own original features (not ported from anywhere -
-        // budget-control fleet sizing, the core Unbunching behaviour) are unaffected and stay on,
-        // since there's nothing else running by default for those to conflict with.
+        // Safety-first defaults: EVERY integration and optional behaviour starts OFF so a fresh
+        // install cannot double-patch with an undetected Workshop conflict. Players opt in via
+        // Gameplay profile (Recommended / Realistic) or individual toggles. Core Harmony patches
+        // for the line panel still load, but fleet budget / unbunching aggression stay inactive
+        // until a profile or checkbox turns them on.
         public BbspLogicModes BbspLogic { get; set; } = BbspLogicModes.Disabled;
         public WalkingSpeedModes WalkingSpeedMode { get; set; } = WalkingSpeedModes.Vanilla;
-        public bool ShowLineInfo { get; set; } = true;
+        public bool ShowLineInfo { get; set; } = false;
+        // Formerly always-on absorbed mods - now opt-in for Safe-default installs.
+        public bool EnableAdvancedStopSelection { get; set; } = false;
+        public bool EnableBetterBoarding { get; set; } = false;
+        public bool EnableMileageTaxi { get; set; } = false;
+        public bool EnableElevatedStops { get; set; } = false;
 
-        public BudgetControlModes BudgetControl { get; set; } = BudgetControlModes.Enabled;
+        public BudgetControlModes BudgetControl { get; set; } = BudgetControlModes.Disabled;
         public TicketPriceCustomizerModes TicketPriceCustomizerMode { get; set; } = TicketPriceCustomizerModes.Disabled;
+        /// <summary>
+        /// When ticket prices are customized, also write NetLane.m_ticketCost on stop lanes so
+        /// pathfinding slightly prefers cheaper routes (vanilla only does this for road tolls).
+        /// Off by default — experimental / optional “fare as toll” behaviour.
+        /// </summary>
+        public bool EnableTicketPathfindingCost { get; set; } = false;
         public AutoLineBudgetModes AutoLineBudgetMode { get; set; } = AutoLineBudgetModes.Disabled;
         public TrainDisplayModes TrainDisplayMode { get; set; } = TrainDisplayModes.Disabled;
-        public TrainDisplayOverlayPositions TrainDisplayOverlayPosition { get; set; } = TrainDisplayOverlayPositions.TopLeft;
+        // Original Train Display (3233229958) sits bottom-left; one corner panel only.
+        public TrainDisplayOverlayPositions TrainDisplayOverlayPosition { get; set; } = TrainDisplayOverlayPositions.BottomLeft;
+        // Default 200% so the unified overlay is readable at native UI scale; options slider is 100–200%.
+        // User-facing 1.0 = former ~165% (readable at 100% without cranking the slider).
+        // Options clamp 0.5–2.0 (50%–200%).
         public float TrainDisplayOverlayScale { get; set; } = 1.0f;
         public float TrainDisplayOverlayOpacity { get; set; } = 0.85f;
-        public float TrainDisplayUpdateInterval { get; set; } = 0.2f;
+        // 250ms default — snappier sub-200ms defaults contributed to hitch reports in 4.8.
+        public float TrainDisplayUpdateInterval { get; set; } = 0.25f;
         public TrainDisplayFields TrainDisplayVisibleFields { get; set; } = TrainDisplayFields.Line | TrainDisplayFields.Destination | TrainDisplayFields.State;
         // Original matches the source mod's own look (header strip + line-coloured route strip) -
         // that's what screenshots of "the real Train Display" are compared against, so it should be
@@ -84,14 +134,14 @@ namespace ImprovedPublicTransport
 
         public VehicleEditorPositions VehicleEditorPosition { get; set; } = VehicleEditorPositions.Bottom;
         public bool HideVehicleEditor { get; set; }
-        // Default is Disabled (today's behaviour, unchanged for existing players) rather than
-        // Realistic, so upgrading to this version does not silently shrink an existing city's
-        // intercity bus terminal capacity out from under them.
+        // Legacy / save-compat only. Capacity is intentionally not written on TransportStationAI
+        // (stations are not depots; writing m_maxVehicleCount shows a fake "buses in use" line).
+        // Hidden from Options; not applied by Realistic profile. Use Bus/Tram/Taxi/Trolley/Ferry
+        // depot capacity modes for real fleet caps.
         public DepotCapacityModes IntercityTerminalCapacityMode { get; set; } = DepotCapacityModes.Disabled;
-        // Separate from IntercityTerminalCapacityMode above (which only covers line-connected
-        // terminals via TransportStationAI) - vanilla's plain DepotAI, used by ordinary tram and taxi
-        // depots (there is no dedicated TramDepotAI/TaxiDepotAI class; both share DepotAI and are
-        // told apart only by m_transportInfo.m_transportType), defaults m_maxVehicleCount to the same
+        // Vanilla's plain DepotAI, used by ordinary tram and taxi depots (there is no dedicated
+        // TramDepotAI/TaxiDepotAI class; both share DepotAI and are told apart only by
+        // m_transportInfo.m_transportType), defaults m_maxVehicleCount to the same
         // effectively-uncapped 100,000 as everything else built on that base class.
         public DepotCapacityModes TramDepotCapacityMode { get; set; } = DepotCapacityModes.Disabled;
         public DepotCapacityModes TaxiDepotCapacityMode { get; set; } = DepotCapacityModes.Disabled;
@@ -131,21 +181,58 @@ namespace ImprovedPublicTransport
         public ExpressTramServicesModes ExpressTramUnbunchingMode { get; set; } = ExpressTramServicesModes.Disabled;
 
         public bool EnablePublicTransportUnstucker { get; set; } = false;
-        // Confirmed working (root-caused Sunset Harbor DLC detection + checkbox isEnabled fixes) -
-        // remaining known issues (offset polish, rare stale-cache edge case) are minor enough to ship
-        // enabled, with deeper analysis tracked for the next version rather than blocking this one.
-        public bool EnableIntercityBusControl { get; set; } = true;
+        public bool EnableIntercityBusControl { get; set; } = false;
         public bool EnableFlightTracker { get; set; } = false;
-        public bool EnableSubBuildingsTabs { get; set; } = true;
+        public bool EnableSubBuildingsTabs { get; set; } = false;
         public bool EnableTaxiStandFix { get; set; } = false;
-        // Also off by default, same as every other ported integration above (see the safety-first
-        // note by BbspLogic) - this one additionally changes shared, global prefab data rather than
-        // being purely additive/per-instance, which was already reason enough to keep it opt-in
-        // before the wider default sweep.
+        // Off by default - rewrites shared global road-prefab data (higher risk class).
         public bool EnableSharedStopEnabler { get; set; } = false;
+        // PARKED for 4.9 (bugs). Forced off on load / profiles; UI toggle removed until redesign.
         public bool EnableCommuterDestination { get; set; } = false;
 
-        public bool Unbunching { get; set; } = true; // hidden
+        /// <summary>
+        /// Map / scan detail for Commuter Destination.
+        /// Performance = few icons, faster refresh (default).
+        /// FullMap = show as many destination icons as possible; refresh is slower (better for
+        /// weaker PCs that still want full map info, or anyone who prefers completeness over snappiness).
+        /// </summary>
+        public enum CommuterDestinationMapDetails
+        {
+            Performance = 0,
+            FullMap = 1,
+        }
+
+        public CommuterDestinationMapDetails CommuterDestinationMapDetail { get; set; } =
+            CommuterDestinationMapDetails.Performance;
+
+        /// <summary>
+        /// When true, PT vehicles with passengers cannot leave their line for the depot until empty.
+        /// Default off; Realistic profile turns it on.
+        /// </summary>
+        public bool EnableEmptyBeforeReturnToDepot { get; set; } = false;
+
+        // Which public-transport sub-services show the Train Display corner panel.
+        [Flags]
+        public enum TrainDisplayVehicleTypes
+        {
+            None = 0,
+            Bus = 1,
+            Trolleybus = 2,
+            Tram = 4,
+            Metro = 8,
+            Train = 16,
+            Monorail = 32,
+            Ship = 64,
+            Plane = 128,
+            Taxi = 256,
+            CableCar = 512,
+            Tours = 1024,
+            All = Bus | Trolleybus | Tram | Metro | Train | Monorail | Ship | Plane | Taxi | CableCar | Tours,
+        }
+
+        public TrainDisplayVehicleTypes TrainDisplayEnabledVehicleTypes { get; set; } = TrainDisplayVehicleTypes.All;
+
+        public bool Unbunching { get; set; } = false; // hidden; toggled via profiles / advanced
         public int StatisticWeeks { get; set; } = 10; // hidden
 
         public string WhatsNewLastSeenVersion { get; set; } = "0.0.0";

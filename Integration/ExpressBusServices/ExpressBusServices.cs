@@ -27,12 +27,14 @@ namespace ExpressBusServices
             }
 
             // Sync stored settings into runtime config before patches run
-            var settings = ModSetting.Instance;
-            EBSModConfig.CurrentExpressBusMode = (EBSModConfig.ExpressMode)settings.ExpressBusUnbunchingMode;
-            EBSModConfig.UseServiceSelfBalancing = settings.ExpressBusEnableSelfBalancing;
-            EBSModConfig.ServiceSelfBalancingCanDoMiddleStop = settings.ExpressBusAllowMiddleStopBalancing;
-            EBSModConfig.CanUseMinibusMode = settings.ExpressBusEnableMinibusMode;
-            EBSModConfig.CurrentExpressTramMode = (EBSModConfig.ExpressTramMode)settings.ExpressTramUnbunchingMode;
+            EBSModConfig.SyncFromSettings();
+
+            // Safe-default install: do not register any EBS Harmony patches when both bus and tram
+            // express modes are fully off (avoids unnecessary hot-path hooks with other mods).
+            if (EBSModConfig.IsFullyDisabled())
+            {
+                return;
+            }
 
             UnifyHarmonyVersions();
             PatchController.Activate();

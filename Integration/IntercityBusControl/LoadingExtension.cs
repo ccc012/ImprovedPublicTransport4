@@ -31,6 +31,17 @@ namespace IntercityBusControl
                         }
                         return;
                     }
+                    // Safe-default installs leave EnableIntercityBusControl off: do not register Harmony
+                    // at all (CreateVehicle/UpdateBindings prefixes used to load even when the toggle
+                    // was false). StationPatcher still only runs from ImprovedPublicTransportMod when on.
+                    if (!ImprovedPublicTransport.ModSetting.Instance.EnableIntercityBusControl)
+                    {
+                        if (Diagnostics.VerboseRuntimeLogs)
+                        {
+                            Utils.Log("Intercity Bus Control - disabled by settings, skipping patches.");
+                        }
+                        return;
+                    }
                     Patcher.PatchAll();
                 }
             }

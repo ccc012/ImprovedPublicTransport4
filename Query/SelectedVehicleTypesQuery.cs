@@ -11,8 +11,8 @@ namespace ImprovedPublicTransport.Query
         [NotNull]
         public static List<PrefabData> Query(ushort lineID)
         {
-            var prefabs = CachedTransportLineData._lineData[lineID].Prefabs;
-            if (prefabs == null)
+            var prefabs = CachedTransportLineData.GetPrefabs(lineID);
+            if (prefabs == null || VehiclePrefabs.instance == null)
             {
                 return new List<PrefabData>();
             }

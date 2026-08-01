@@ -23,6 +23,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
         
         private static bool Prefix(ref bool __result, ItemClass itemClass, ItemClass otherItemClass)
         {
+            if (itemClass == null || otherItemClass == null)
+            {
+                return true;
+            }
+
             if (itemClass.m_subService == ItemClass.SubService.PublicTransportBus 
                 && (itemClass.m_level == ItemClass.Level.Level1 || itemClass.m_level == ItemClass.Level.Level2))    
             {

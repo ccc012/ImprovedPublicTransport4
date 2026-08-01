@@ -1,0 +1,45 @@
+[img]https://i.imgur.com/8BfNPgj.png[/img]
+[h1]Improved Public Transport 4[/h1]
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
+
+[h1]Varför detta finns[/h1]
+En stad blödde pengar — underhållet för kollektivtrafiken skenade iväg till ungefär [b]-42 000 000 000[/b]. Ingen av de inblandade moddarna var trasig; två fungerande moddar bestämde oberoende av varandra hur stor varje linjes flotta skulle vara, och skrev över varandra. Lösningen är en plats, ett system. Det är IPT4.
+Ett samlat paket (assembly), en patch per metod, tenderar också att köra lättare: inofficiella tester uppmätte ~50-60 FPS här jämfört med ~40-50 FPS som separata moddar.
+[hr][/hr]
+[h1]Vad du kan göra med den[/h1]
+[h2]Ta kontroll över vilken linje som helst[/h2]
+Buss, spårvagn, tunnelbana, tåg, fartyg, flygplan, monorail, linbana, taxi, tur — varje linje får en fullständig kontrollpanel: [b]ställ in fordonsantalet själv[/b] eller låt modden bestämma det utifrån budgeten (skrivs aldrig över i tysthet), [b]välj vilka fordon som kör[/b] på varje linje, [b]redigera fordon individuellt[/b] och [b]välj depå[/b] per linje.
+[h2]Fixa klungkörning (bunching)[/h2]
+Fyra bussar kofångare mot kofångare, sedan ingenting på tio minuter. Tre nivåer, per linje: [b]Inaktiverad (Disabled)[/b] (vanilla), [b]Försiktig (Prudent)[/b] (försiktiga avstånd), [b]Realistisk (Realistic)[/b] (sanna intervall). Eller använd [b]Express[/b]-läget för att hoppa över tomma hållplatser.
+[h2]Sätt dina egna priser[/h2]
+Prissätt varje transporttyp oberoende i fliken [b]Biljettpriser (Ticket Prices)[/b] i Ekonomipanelen, med valfri [b]dag-/nattprissättning[/b]. Priser driver efterfrågan: billig transit fylls upp, dyr transit töms ut.
+[h2]Se vad som händer[/h2]
+[b]Hållplatsinfo-panel[/b] (väntande passagerare, nästa fordon, trängsel), [b]Train Display[/b] (live rutt-overlay när du följer ett fordon, helt konfigurerbart), [b]automatiska linjefärger och namn[/b] för en läsbar transitkarta, och [b]Flight Tracker[/b] för ankomster och avgångar på flygplatsen.
+[h2]Rensa upp i ditt nätverk[/h2]
+[b]Massradering av linjer[/b] (varje linje av en vald typ på en gång, med bekräftelse), [b]bättre placering av hållplatser[/b] inklusive på upphöjda spår, och en [b]upplåsningsfunktion (unstucker)[/b] som släpper fastnade fordon i stället för att låta dem blockera en rutt.
+[h2]Nytt i 4.8[/h2]
+[b]Enkelspårig Tåg-AI (Single Train Track AI)[/b] — ett delat enkelspårigt järnvägssegment är reserverat för en riktning i taget, så två tåg riskerar inte längre att kollidera. [b]Stop Stacker[/b] — en andra buss som anländer till samma hållplats får sin egen plats längre bak i stället för att stå i kö bakom den första. [b]Intercity Bus Control[/b] fixad vid roten — DLC-kontrollen var opålitlig och kunde i tysthet inaktivera den även för ägare av Sunset Harbor; på som standard igen. [b]Flikar för underbyggnader (Sub-Buildings Tabs)[/b] — fixade en sällsynt bugg med föråldrad flik efter rivning/återuppbyggnad; på som standard igen. Plus en bugg- och prestandaresning — se den tekniska ändringsloggen (changelog) för hela listan.
+[hr][/hr]
+[h1]Moddar absorberade i IPT4 — och vem som gjorde dem[/h1]
+[b]Avprenumerera (Unsubscribe) på de fristående versionerna[/b] — att köra båda patchar samma spelkod två gånger, exakt den konflikt som denna mod finns till för att förhindra. Varje enskild mod nedan är någon annans arbete; om den är till nytta för dig, säg det på författarens sida.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b], fortsätter på BloodyPenguins original) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b], från Phil Scotts original) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], fortsätter [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmapes original[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+De flesta har sin egen omkopplare i alternativen; ett fåtal som bara reparerar trasigt vanillabeteende är alltid på. Taxikilometerintäkter kräver [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] och [b]Stop Stacker[/b] finns inte med på den här listan — alla tre är original-/clean-room-kod, inte portar (deras källmoddar har ingen deklarerad licens eller tillgänglig källkod).
+[hr][/hr]
+[h1]Krav & kompatibilitet[/h1]
+[b]Harmony[/b] (ID 2040656402) krävs. [b]Inte kompatibel med:[/b] IPT2, IPT3, Transport Lines Manager, fristående AutoLineBudget eller en fristående kopia av någon mod ovan — varnar dig i spelet om den hittas.
+[hr][/hr]
+[h1]Språk[/h1]
+[b]Alla 23 språk fullständigt översatta[/b] — varje textsträng, inte bara menyerna. Följer ditt spelspråk, eller välj ett i alternativen.
+[hr][/hr]
+[h1]Kom igång[/h1]
+Prenumerera på [b]Harmony[/b], avprenumerera på de fristående moddarna ovan, aktivera IPT4, ladda en stad och klicka på valfri transitlinje. Alternativ finns under [b]Inställningar (Settings) → Mod-inställningar (Mod Settings) → Improved Public Transport 4[/b]; priser finns i [b]Ekonomi[/b]-panelen. [b]Befintliga sparande filer fungerar[/b] — samma sparad data som IPT2/IPT3.
+[hr][/hr]
+[h1]Stabilitet[/h1]
+Stabil kanal. Underhållsbuggen som skenade iväg och motiverade denna fork är fixad vid roten, och skadade sparfiler repareras automatiskt vid inläsning. [b]Behåll en säkerhetskopia (backup)[/b] oavsett vilket. Om något går sönder, berätta [i]vad du gjorde[/i] och bifoga:
+[code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
+"Fungerar inte" utan en loggfil kan inte diagnostiseras.
+[hr][/hr]
+[h1]Källkod och krediter[/h1]
+Källkod och teknisk ändringslogg: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 är [b]GPL-3.0[/b] och bygger på andras arbete: [b]DontCryJustDie[/b] skrev det ursprungliga IPT (2015), [b]BloodyPenguin[/b] skrev [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] skrev [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], vilket detta är en fork av. Absorberade moddar krediteras ovan; UI-ramverk av [b]algernon[/b] och [b]Mbyron26[/b]. Tack till er alla.

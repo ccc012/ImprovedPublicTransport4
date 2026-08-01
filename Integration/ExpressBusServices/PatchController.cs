@@ -1,26 +1,24 @@
 ﻿using ExpressBusServices.PerformanceBoost;
 using ExpressBusServices.Redeployment;
 using HarmonyLib;
-using System.Reflection;
 using ExpressBusServices.DataTypes;
+using ImprovedPublicTransport.Util;
 
 namespace ExpressBusServices
 {
     internal class PatchController
     {
-        public static string HarmonyModID
-        {
-            get
-            {
-                return "com.vectorial1024.cities.ebs";
-            }
-        }
+        // public const so BetterBoarding [HarmonyAfter] can reference the same owner string.
+        public const string HarmonyModID = "com.vectorial1024.cities.ebs";
 
         /*
          * The "singleton" design is pretty straight-forward.
          */
 
         private static Harmony harmony;
+        private static bool _isActive;
+
+        public static bool IsActive => _isActive;
 
         public static Harmony GetHarmonyInstance()
         {
@@ -32,9 +30,21 @@ namespace ExpressBusServices
             return harmony;
         }
 
+        /// <summary>
+        /// Register EBS Harmony patches. Safe to call when already active (no-op): mode and
+        /// self-balancing toggles are live via <see cref="EBSModConfig"/> without re-patching.
+        /// </summary>
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            if (_isActive)
+            {
+                // Still refresh the vehicle-property cache so a mid-session mode change does not
+                // keep stale unbunching assumptions for vehicles already on the road.
+                CachedVehicleProperties.TouchAndResetCache();
+                return;
+            }
+
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "ExpressBusServices");
 
             VehiclePaxDeltaInfo.EnsureTableExists();
             BusStopSkippingLookupTable.EnsureTableExists();
@@ -43,10 +53,17 @@ namespace ExpressBusServices
             TeleportRedeployInstructions.EnsureTableExists();
 
             CachedVehicleProperties.TouchAndResetCache();
+            _isActive = true;
         }
 
+        /// <summary>Unpatch and wipe runtime tables. Safe if already inactive.</summary>
         public static void Deactivate()
         {
+            if (!_isActive)
+            {
+                return;
+            }
+
             GetHarmonyInstance().UnpatchAll(HarmonyModID);
 
             VehiclePaxDeltaInfo.WipeTable();
@@ -56,6 +73,7 @@ namespace ExpressBusServices
             TeleportRedeployInstructions.WipeTable();
 
             CachedVehicleProperties.TouchAndResetCache();
+            _isActive = false;
         }
     }
 }

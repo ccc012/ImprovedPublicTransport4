@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using HarmonyLib;
+﻿using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace SubBuildingsTabs
 {
@@ -13,7 +13,7 @@ namespace SubBuildingsTabs
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "SubBuildingsTabs");
         }
 
         public static void Deactivate()

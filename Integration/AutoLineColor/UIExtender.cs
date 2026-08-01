@@ -165,15 +165,22 @@ namespace AutoLineColor
                 ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
                 if (lineId == 0)
                 {
-                    Utils.LogWarning("AutoLineColor: refresh requested without an active transport line.");
                     return;
                 }
 
-                Utils.Log($"AutoLineColor: manual refresh requested for line {lineId}.");
+                // No Debug.Log on click — logging alone can hitch the UI thread.
                 ColorMonitor.ForceRefreshLineNow(lineId);
             };
 
             _refreshBtn.eventClick += _refreshBtnClick;
+            // Also wire eventClicked — some Colossal skins fire one and not the other.
+            _refreshBtn.eventClicked += _refreshBtnClick;
+            _refreshBtn.isEnabled = true;
+            _refreshBtn.BringToFront();
+            _refreshBtn.zOrder = 999;
+            // Avoid stretch anchors that collapse the button under IPT layout.
+            _refreshBtn.anchor = UIAnchorStyle.Top | UIAnchorStyle.Left;
+            _refreshBtn.autoSize = true;
 
             //Console.Instance.Message("Attached UI");
         }

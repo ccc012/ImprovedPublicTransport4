@@ -11,7 +11,8 @@ namespace ImprovedPublicTransport.ReverseDetours
         [RedirectReverse]
         public static ushort GetActiveVehicle(ref TransportLine thisLine, int index)
         {
-            UnityEngine.Debug.Log("GetActiveVehicle");
+            // RedirectReverse body — replaced at deploy with the real private method.
+            // Never Debug.Log here (would spam every call if redirect failed).
             return 0;
         }
     }

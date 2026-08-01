@@ -14,6 +14,15 @@ namespace ExpressBusServices
 
         private static readonly int STANDARD_BUS_PAX_THRESHOLD = 30;
 
+        // AnalyzeTransportLinePopularity does a citizen-grid scan per stop — very expensive.
+        // Cache per line for a short window so many buses hitting the same terminus don't
+        // each pay full cost in the same second (FPS cliff 40→20).
+        private const float AnalysisCacheSeconds = 2.5f;
+        private static ushort _cachedAnalysisLineId;
+        private static ushort _cachedAnalysisStartStop;
+        private static float _cachedAnalysisRealtime;
+        private static List<TransportLineSegmentAnalysis> _cachedAnalysisList;
+
         private struct TransportLineSegmentAnalysis
         {
             public ushort leadingTerminusStopId;
@@ -60,8 +69,8 @@ namespace ExpressBusServices
                 MarkIsRedeployingToTerminus(vehicleID, false);
                 return false;
             }
-            List<TransportLineSegmentAnalysis> analysisList = AnalyzeTransportLinePopularity(transportLineID, currentTerminusStopId);
-            if (analysisList.Count < 2)
+            List<TransportLineSegmentAnalysis> analysisList = GetCachedOrAnalyze(transportLineID, currentTerminusStopId);
+            if (analysisList == null || analysisList.Count < 2)
             {
                 // less than 2 segments, this means it is circular, and is not eligible for super-skipping
                 MarkIsRedeployingToTerminus(vehicleID, false);
@@ -137,6 +146,25 @@ namespace ExpressBusServices
             return false;
         }
 
+        private static List<TransportLineSegmentAnalysis> GetCachedOrAnalyze(ushort transportLineID, ushort startingTerminusStopId)
+        {
+            float now = Time.realtimeSinceStartup;
+            if (_cachedAnalysisList != null
+                && _cachedAnalysisLineId == transportLineID
+                && _cachedAnalysisStartStop == startingTerminusStopId
+                && (now - _cachedAnalysisRealtime) < AnalysisCacheSeconds)
+            {
+                return _cachedAnalysisList;
+            }
+
+            var list = AnalyzeTransportLinePopularity(transportLineID, startingTerminusStopId);
+            _cachedAnalysisLineId = transportLineID;
+            _cachedAnalysisStartStop = startingTerminusStopId;
+            _cachedAnalysisRealtime = now;
+            _cachedAnalysisList = list;
+            return list;
+        }
+
         private static List<TransportLineSegmentAnalysis> AnalyzeTransportLinePopularity(ushort transportLineID, ushort startingTerminusStopId)
         {
             // checks segment terminus -> segment total waiting pax
@@ -167,18 +195,34 @@ namespace ExpressBusServices
 
                 // next stop
                 ushort nextStopId = TransportLine.GetNextStop(loopingStopID);
+                if (nextStopId == 0 || nextStopId == loopingStopID)
+                {
+                    // Broken or open stop chain — abandon analysis rather than spin / index-OOB.
+                    break;
+                }
                 nextStopLink.Add(loopingStopID, nextStopId);
                 loopingStopID = nextStopId;
 
                 // Utils.Log("Analyze iterating loop.");
             }
 
+            // Broken/open chains never closed the first loop → paxCount/nextStopLink incomplete.
+            // Guard before indexing to avoid KeyNotFoundException on the sim thread.
+            if (paxCount.Count < 2
+                || !paxCount.ContainsKey(startingTerminusStopId)
+                || !nextStopLink.ContainsKey(startingTerminusStopId))
+            {
+                return new List<TransportLineSegmentAnalysis>();
+            }
+
             // all information obtained; we are at the first stop of the line
             // create the list
             List<TransportLineSegmentAnalysis> analysisList = new List<TransportLineSegmentAnalysis>();
-            TransportLineSegmentAnalysis analysis = new TransportLineSegmentAnalysis(startingTerminusStopId, 1, paxCount[startingTerminusStopId], paxCount[startingTerminusStopId] > STANDARD_BUS_PAX_THRESHOLD);
-            analysis.CompareAndUpdateMostWaitingStop(startingTerminusStopId, paxCount[startingTerminusStopId]);
+            int startPax = paxCount[startingTerminusStopId];
+            TransportLineSegmentAnalysis analysis = new TransportLineSegmentAnalysis(startingTerminusStopId, 1, startPax, startPax > STANDARD_BUS_PAX_THRESHOLD);
+            analysis.CompareAndUpdateMostWaitingStop(startingTerminusStopId, startPax);
             loopingStopID = nextStopLink[startingTerminusStopId];
+            var groupGuard = 0;
             while (true)
             {
                 if (terminusCheck.ContainsKey(loopingStopID))
@@ -191,14 +235,25 @@ namespace ExpressBusServices
                     // we got to the start again
                     break;
                 }
+
+                if (!paxCount.TryGetValue(loopingStopID, out var stopPax)
+                    || !nextStopLink.TryGetValue(loopingStopID, out var nextId))
+                {
+                    // Incomplete graph — drop partial analysis rather than throw.
+                    return new List<TransportLineSegmentAnalysis>();
+                }
+
                 // add info
                 analysis.stopCount++;
-                analysis.paxCount += paxCount[loopingStopID];
-                analysis.CompareAndUpdateMostWaitingStop(loopingStopID, paxCount[loopingStopID]);
-                analysis.segmentCanReceiveRedeployment |= paxCount[loopingStopID] > STANDARD_BUS_PAX_THRESHOLD;
+                analysis.paxCount += stopPax;
+                analysis.CompareAndUpdateMostWaitingStop(loopingStopID, stopPax);
+                analysis.segmentCanReceiveRedeployment |= stopPax > STANDARD_BUS_PAX_THRESHOLD;
                 // move to next
-                loopingStopID = nextStopLink[loopingStopID];
-                // Utils.Log("Analyze gouping loop.");
+                loopingStopID = nextId;
+                if (++groupGuard > 32768)
+                {
+                    return new List<TransportLineSegmentAnalysis>();
+                }
             }
 
             // return the list
@@ -258,6 +313,11 @@ namespace ExpressBusServices
 
         public static void MarkRedeployToNewTerminus(ushort vehicleID, ushort targetStopId)
         {
+            // Never store an invalid stop — StartPathFind would IndexOutOfRange on it.
+            if (targetStopId == 0 || !TransportStopSafety.IsLiveStopNode(targetStopId))
+            {
+                return;
+            }
             // mark it here, so that later we can correctly apply this
             redeploymentInstructions[vehicleID] = targetStopId;
         }
@@ -331,6 +391,30 @@ namespace ExpressBusServices
             redeploymentInstructions.Clear();
             vehicleCurrentlyAtStop.Clear();
             redeploymentToTerminus.Clear();
+            _cachedAnalysisList = null;
+            _cachedAnalysisLineId = 0;
+            _cachedAnalysisStartStop = 0;
+            _cachedAnalysisRealtime = 0f;
+        }
+
+        /// <summary>
+        /// Drops per-vehicle redeploy bookkeeping when a vehicle despawns so a recycled
+        /// vehicleID cannot inherit stale skip/redeploy state.
+        /// </summary>
+        public static void ForgetVehicle(ushort vehicleID)
+        {
+            if (redeploymentInstructions != null)
+            {
+                redeploymentInstructions.Remove(vehicleID);
+            }
+            if (vehicleCurrentlyAtStop != null)
+            {
+                vehicleCurrentlyAtStop.Remove(vehicleID);
+            }
+            if (redeploymentToTerminus != null)
+            {
+                redeploymentToTerminus.Remove(vehicleID);
+            }
         }
     }
 }

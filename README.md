@@ -1,6 +1,6 @@
 # Improved Public Transport 4
 
-**Version 4.8.0** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
+**Version 4.8.5** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
 
 IPT4 is a fork of [Improved Public Transport 3](https://github.com/TheMadisonian/ImprovedPublicTransport3)
 that absorbs other public-transport mods into a **single assembly**. The goal is not
@@ -124,7 +124,7 @@ ImprovedPublicTransport4/
 ├── Data/CachedTransportLineData.cs   # per-line coordination point (see above)
 ├── Integration/<ModName>/     # one folder per absorbed mod
 ├── HarmonyPatches/            # patches owned by IPT itself
-├── Translations/*.txt         # mod strings (19 files)
+├── Translations/*.txt         # mod strings (24 files)
 └── CSLModsCommonShared/       # vendored UI framework + its own locales
 ```
 
@@ -166,13 +166,15 @@ missing wiring.
 
 Compiled in; unsubscribe the standalone versions.
 
-**Default configuration policy:** most absorbed integrations ship **off** by
-default (Options > Integrations) - the mod installs with the minimum enabled,
-so nothing changes behind your back on first launch. An integration is
-switched on by default only once it's confirmed working well enough for
-everyday use; as of 4.8.0 that applies to Intercity Bus Control and
-Sub-Buildings Tabs. Commuter Destination and Train Display remain off by
-default pending further work - see `CHANGELOG.md` for what's tracked.
+**Default configuration policy:** fresh installs use the **Safe** gameplay
+profile — every optional integration and mode ships **off** so nothing changes
+behind your back and Workshop conflicts cannot double-patch. Use **Recommended**
+for IPT core only (budget, unbunching, Intercity, Sub-Buildings, unstucker,
+advanced stop selection, elevated stops), **Realistic** for most absorbs, or
+flip individual Options toggles. **Commuter Destination** is opt-in (Options →
+Integrations) and can be live-toggled; map detail has Performance vs Full modes.
+Some integration toggles still need a **map reload** after changing them —
+see `CHANGELOG.md`.
 
 Every author below is credited from the source itself — the Workshop item's
 "Created by" field, or the copyright header in the licence file that shipped
@@ -238,7 +240,7 @@ ports.
 
 ## Localization
 
-24 mod translation files (`Translations/*.txt`, 447 keys each) plus 23 framework
+24 mod translation files (`Translations/*.txt`, 578 keys each) plus 23 framework
 locale files (`CSLModsCommonShared/Localization/Common/*.json`).
 
 Two separate systems, which is easy to trip over:
@@ -253,8 +255,13 @@ mod translation but no framework file is unreachable — that is why Bengali, Hi
 Indonesian and Urdu were invisible until 4.3.3 despite being fully translated.
 
 `FindLanguage` maps long ids to short filenames (`de-DE` → `de.txt`,
-`zh-TW` → `zh-tw.txt`). **All 23** selector entries now have a full mod
-translation - 447 keys each, same key set, verified programmatically.
+`zh-TW` → `zh-tw.txt`). **All 24 files have the same key set** (verified
+programmatically, no missing/extra/duplicate keys) - but same key set is not
+the same as fully translated: `pt.txt`/`pt-br.txt` are the only files at
+genuine 100% translation. Every other language still falls back to English
+for a batch of newer keys (gameplay profiles, performance profile, hotkeys,
+line panel copy/paste, quick tips) added across the 4.8.x cycle - not broken,
+just untranslated, tracked as a known gap.
 
 `Localization/Common/TranslationStatus.json` feeds the percentage shown under the
 language dropdown. It is a static file, not computed at runtime: if you add keys
@@ -279,10 +286,11 @@ do about it; `CHANGELOG.md` states the root cause and the affected class.
 
 ## Repository layout note
 
-Project documentation (phase plans, mod triage, dependency audit, current state) is
-maintained in Portuguese under `Projeto/IPT4/` in the author's notes, outside this
-repository. `06_ESTADO_ATUAL.md` is the living status document;
-`07_AUDITORIA_DEPENDENCIAS.md` covers runtime dependencies.
+Project documentation (architecture, licensing policy, mod catalog, version
+history, current state) is maintained in Portuguese under `Projeto/IPT4/` in
+the author's notes, outside this repository - 7 files, `00_INDICE.md` is the
+entry point. `07_ESTADO_ATUAL.md` is the living status document;
+`04_AUDITORIA_DEPENDENCIAS.md` covers runtime dependencies.
 
 ---
 

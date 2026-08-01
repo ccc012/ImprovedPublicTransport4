@@ -7,7 +7,6 @@ CITY_SERVICE_PANEL_TITLE_STATION_STOPS Zastávky stanice
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Vozidlá v depôte
 CITYSERVICE_ACCEPTINTERCITYBUSES Povoliť medzimiestne autobusy
 CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Umožniť medzimiestnym autobusom používať túto stanicu. Vypnite pre mestné autobusy.
-
 EXPLANATION_BUDGET_CONTROL Kontrola rozpočtu: Počet vozidiel sa riadi rozpočtom.
 EXPLANATION_UNBUNCHING Rozpredenie vozidiel: Hra sa pokúša vytvoriť medzeru medzi vozidlami.
 LINE_PANEL_STOPS Zastávky: {0}
@@ -28,7 +27,6 @@ LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} cestujúcich čaká na tejto linke.
 LINE_PANEL_ADD_VEHICLE Pridať vozidlo
 LINE_PANEL_ADD_VEHICLE_TOOLTIP Pridá nové vozidlo na linku.\nAk je toto tlačidlo vypnuté, vybraté depôte nemá žiadne vozidlá.
 LINE_PANEL_REMOVE_VEHICLE Odstrániť vozidlo
-
 STOP_LIST_BOX_ROW_STOP Zastávka #{0}
 STOP_LIST_BOX_ROW_TOOLTIP {0}\nČakajúci cestujúci: {1}\n\nKliknutím pravého tlačidla prejdite na túto zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Zoznam navrhovaných názvov zastávky.
@@ -58,10 +56,8 @@ STOP_PANEL_DELETE_STOP_TOOLTIP Toto tlačidlo je povolené, ak stlačíte kláve
 STOP_PANEL_NEXT Ďalšia zastávka
 STOP_PANEL_NEXT_TOOLTIP Skočiť na ďalšiu zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.
 STOP_BUTTON_TOOLTIP {0}\n\nKliknutím prejdite na túto zastávku.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.\nKeď stlačíte Alt, počas klikania sa otvorí panel s informáciami o zastávke.
-
 SETTINGS_DELETE Vymazať
 SETTINGS_RESET Obnoviť
-
 SETTINGS_TAB_GENERAL Všeobecné
 SETTINGS_ADVANCED_LINKS_GROUP Odkazy
 SETTINGS_GITHUB_REPO Zdrojový kód na GitHube
@@ -72,14 +68,15 @@ SETTINGS_TAB_DELETE Vymazať linky
 SETTINGS_TAB_FLEET Vozový park a plánovanie
 SETTINGS_TAB_BUDGET Rozpočet a ceny
 SETTINGS_TAB_LINECOLORS Farby liniek
-
 SETTINGS Nastavenia
 SETTINGS_SPEED Zobrazovať rýchlosť v:
 SETTINGS_SPEED_TOOLTIP Vyberte jednotku používanú na zobrazenie rýchlosti v UI.
 SETTINGS_GAMEPLAY_PROFILE Profil hratelnosti
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Pouzije skupinu nastaveni naraz namiesto rucneho ladenia kazdeho zvlast. Vychodzi vypne kazdu pohltenu integraciu a co najviac zodpoveda zakladnej hre; Realisticky ich zapne a pouzije realistickejsiu moznost, kde existuje. Vyber ktorehokolvek prepise jednotlive nastavenia nizsie - vyberte Vlastne pre rucnu spravu bez zmeny tohto menu.
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Použije sadu nastavení naraz. Bezpečný (predvolený) nechá všetko vypnuté pre maximálnu kompatibilitu. Vanilla zodpovedá základnej hre. Odporúčaný zapne len jadro IPT (flotila z rozpočtu, unbunching, intercity, záložky podbudov, unstucker, pokročilý výber zastávok, zvýšené zastávky). Realistický zapne väčšinu integrácií. Vlastný nikdy nekaskáduje - každý prepínač riadite sami.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Vlastne
+SETTINGS_GAMEPLAY_PROFILE_SAFE Bezpečný (všetko vypnuté)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Vychodzi
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Odporúčané (jadro IPT)
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realisticky
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
@@ -92,7 +89,6 @@ SETTINGS_BBSP_TOOLTIP Zakázané: žiadne úpravy umiestnenia.\nPovolené: autob
 SETTINGS_BBSP_MODE_DISABLED Zakázané
 SETTINGS_BBSP_MODE_ORIGINAL Povolené
 SETTINGS_BBSP_MODE_UPDATED Použiť experimentálnu logiku
-
 SETTINGS_BUDGET Rozpočet
 SETTINGS_ENABLE_BUDGET_CONTROL Kontrola rozpočtu linky:
 SETTINGS_BUDGET_CONTROL_DISABLED Zakázané
@@ -106,11 +102,9 @@ SETTINGS_AUTO_LINE_BUDGET Automatická veľkosť flotily:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Zakázané
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Povolené
 SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Ak je povolené, linky v režime Rozpočet automaticky prispôsobia počet vozidiel na základe skutočného dopytu cestujúcich namiesto posúvača rozpočtu vanilky. Linky nastavené na Manuálne sa nikdy nemenia.
-
 SETTINGS_AUTO_LINE Automatická linka
 SETTINGS_AUTOSHOW_LINE_INFO Automaticky otvoriť panel informácií o linke
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Automaticky zobraziť panel informácií o linke po vytvorení novej linky.
-
 AUTOLINECOLOR_STRATEGY_DISABLED Zakázané
 AUTOLINECOLOR_STRATEGY_RANDOM_HUE Náhodný odtieň
 AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Náhodná farba
@@ -129,7 +123,6 @@ AUTOLINECOLOR_MIN_COLOR_DIFF Minimálny rozdiel farieb (%):
 AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimálne percento rozdielu farieb pri výbere náhodných farieb.
 AUTOLINECOLOR_MAX_COLOR_PICK Maximálne pokusy:
 AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximálny počet pokusov na výber rozlišiteľnej farby.
-
 SETTINGS_UI Nastavenia používateľského rozhrania
 SETTINGS_VEHICLE_EDITOR_POSITION Poloha editora vozidiel:
 SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Vyberte, či sa panel editora vozidiel zobrazi v dolnej alebo pravej časti obrazovky.
@@ -137,7 +130,6 @@ SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Nižšie
 SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Vpravo
 SETTINGS_VEHICLE_EDITOR_HIDE Skryť editor vozidiel
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Skryť editor vozidiel z panelov vozidiel.
-
 SETTINGS_STOPS Zastávky verejnej dopravy
 SETTINGS_STOPSANDSTATIONS_DESCRIPTION Kolko cestujucich kazdeho typu dopravy moze cakat na jednej zastavke, nez je povazovana za plnu. Vyssie hodnoty znizuju staznosti na preplnenie na ruchlivych zastavkach na ukor menej realistickej velkosti fronty.
 SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Obnovi vsetky limity cestujucich na zastavkach vyssie na vychodzie hodnoty.
@@ -176,7 +168,6 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Vrtuľník
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke vrtuľníka
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Vzducholoď
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximálny počet cestujúcich čakajúcich na zastávke vzducholode
-
 SETTINGS_UNBUNCHING Rozpredenie
 SETTINGS_UNBUNCHING_AGGRESSION Agresivita rozpredenia:
 SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Ako silné by malo byť rozpredenie vozidiel?\nMožné hodnoty: 0–52. Hodnota 0 zakáže rozpredenie.\nVyššie hodnoty budú silne ovplyvňovať dopravu a môžu spôsobiť zánik vozidiel.
@@ -188,7 +179,6 @@ SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Obnoví všetky posúvače na predvolen
 UNBUNCHING_ENABLED Rozpredenie vozidiel
 UNBUNCHING_DISABLED Rozpredenie je vypnuté.
 UNBUNCHING_TARGET_GAP Cieľová medzera: {0}
-
 SETTINGS_EBS_GROUP_BUS Expresné autobusové služby
 SETTINGS_EBS_GROUP_TRAM Expresné električkové služby
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Expresný autobus:
@@ -210,13 +200,9 @@ SETTINGS_EBS_MODE_PRUDENTIAL Opatrne
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Režim ľahkých železníc
 SETTINGS_EBS_TRAM_MODE_NONE Zakázané
 SETTINGS_EBS_TRAM_MODE_TRAM Režim skutočnej električky
-
-
 SETTINGS_PTU_GROUP Odomykač verejnej dopravy
 SETTINGS_PTU_ENABLE Odstrániť zaseknútych cestujúcich
 SETTINGS_PTU_TOOLTIP Automaticky odstráni cestujúcich, ktorí sa zaseknú pri pokuse nastúpiť do vozidiel verejnej dopravy, čo umožňuje vozidlu odsúpiť normálne a zabráni zamrznutiu pri odchode.
-
-
 SETTINGS_LINE_DELETION_TOOL Nástroj na vymazávanie línok
 SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Skontrolujte nižšie uvedené typy dopravy a potom stlačením tlačidla Vymazať odstránite každú linku týchto typov z aktuálneho mesta. Tento výber je dočasný - vždy sa začína neoznačený a vymaže sa po vymazaní, nie je uložený ako nastavenie.
 SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Vymaže všetky linky vybraných typov. Funguje iba vtedy, keď je mesto načítané.
@@ -236,8 +222,6 @@ SETTINGS_DELETE_HELICOPTER_LABEL Vrtuľníky
 SETTINGS_DELETE_HELICOPTER_TOOLTIP Vymaže všetky vrtuľníkové linky.
 SETTINGS_DELETE_BLIMP_LABEL Vzducholode
 SETTINGS_DELETE_BLIMP_TOOLTIP Vymaže všetky línky vzducholode.
-
-
 VEHICLE_EDITOR_TITLE Editor vozidiel
 VEHICLE_EDITOR_SUB_TITLE {0} vozidiel
 VEHICLE_EDITOR_CAPACITY Kapacita cestujúcich
@@ -274,14 +258,12 @@ VEHICLE_SELECTION_SELECTED_VEHICLES Vybraté vozidlá
 VEHICLE_SELECTION_ANY_VEHICLE Akékoľvek vozidlo
 VEHICLE_BUTTON_TOOLTIP {0}\n\nKliknutím prejdite na toto vozidlo.\nPri kliknutí s stlačeným Shift sa bude aj zväčšovať.\nKeď stlačíte Alt, počas klikania sa neotvorí panel s informáciami o vozidlu.
 TRANSPORT_LINE_VEHICLECOUNT Počet vozidiel: {0}
-
 FLIGHT_TRACKER_NAME Sledovač letov
 FLIGHT_STATUS_NONE Žiadne
 FLIGHT_STATUS_INCOMING Prichádzajúce
 FLIGHT_STATUS_LANDED Pristálo
 FLIGHT_STATUS_AT_GATE Pri brán
 FLIGHT_STATUS_DEPARTED Odletelo
-
 TICKET_PRICE_TAXI_KILOMETER Cena taxíka za kilometer:
 TICKET_PRICE_TAXI_MILE Cena taxíka za míľu:
 TICKET_PRICE_BUS Cena autobusovej letenky:
@@ -300,13 +282,9 @@ TICKET_PRICE_BLIMP Cena vzducholodnej letenky:
 TICKET_PRICE_HELICOPTER Cena vrtuľníkovej letenky:
 ECONOMY_TAB_TICKET_PRICES Ceny lístkov
 ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Celkový počet cestujúcich pre tento typ dopravy.
-
-
 WHATSNEW_3_0_0_1 Aktualizované pre Race Day; teraz kompatibilné s More Vehicles Renewed.
 WHATSNEW_3_0_0_2 Nasledujúce modifikácie boli integrované do IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
-
 WHATSNEW_3_0_1 Odomykač verejnej dopravy je teraz integrovaný do IPT3.\nZkus verziu 3.0 pre všetky ostatné integrované modifikácie. Odhláste sa z originálov, aby ste sa vyhli konfliktom.
-
 SETTINGS_TAB_TRAINDISPLAY Zobrazenie vlaku
 SETTINGS_TAB_INTEGRATIONS Integrácie
 SETTINGS_TRAINDISPLAY_GROUP Prekrytie zobrazenia vlaku
@@ -343,7 +321,9 @@ SETTINGS_TRAINDISPLAY_THEME_SIMPLE Jednoduché
 SETTINGS_TRAINDISPLAY_THEME_DARK Tmavé
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Svetlé
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Pôvodný
-
+SETTINGS_TRAINDISPLAY_THEME_BLUE Modrá
+SETTINGS_TRAINDISPLAY_THEME_GREEN Zelená
+SETTINGS_TRAINDISPLAY_THEME_AMBER Jantárová
 COPY_TIP Kopírujte nastavenia tejto linky.
 PASTE_TIP Vložte skopírované nastavenia linky.
 COPY_BUILDING_TIP Skopírujte tieto nastavenia na všetky linky spolu s touto budovou.
@@ -351,6 +331,14 @@ COPY_DISTRICT_TIP Skopírujte tieto nastavenia na všetky linky v tomto okrese.
 SETTINGS_INTEGRATIONS_GROUP Integrované doplnky
 SETTINGS_INTERCITY_BUS_ENABLE Umožniť kontrolu medzimiestnych autobusov
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Povolí integrovanú vrstvu kompatibility kontroly medzimiestnych autobusov a patching stanice.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Povoliť pokročilý výber zastávok
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Umožňuje umiestniť zastávky na alternatívne nástupištia/koľaje viackoľajných staníc (držte klávesu alternatívneho režimu). Platí po ďalšom načítaní úrovne.
+SETTINGS_BETTERBOARDING_ENABLE Povoliť lepší nástup
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Zlepšuje rozhodnutia o nástupe, aby cestujúci volili vozidlo, ktoré skutočne ide k ich cieľu. Platí po ďalšom načítaní úrovne.
+SETTINGS_MILEAGETAXI_ENABLE Povoliť taxi podľa najazdených km
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Účtuje taxi podľa prejdenej vzdialenosti namiesto pevnej sadzby, dlhšie jazdy zarobia viac. Vyžaduje DLC After Dark. Platí po ďalšom načítaní úrovne.
+SETTINGS_ELEVATEDSTOPS_ENABLE Povoliť zvýšené zastávky
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Umožňuje zastávky MHD na mostoch/zvýšených cestách a zachováva pouličné osvetlenie. Platí po ďalšom načítaní úrovne.
 SETTINGS_INTERCITY_BUS_CAPACITY Kapacita medzimestského terminálu
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Koľko vozidiel môže medzimestský autobusový terminál pojať naraz.
 SETTINGS_TRAM_DEPOT_CAPACITY Kapacita vozovne elektricek
@@ -374,8 +362,8 @@ SETTINGS_TAXISTANDFIX_ENABLE Povoliť opravu stanovišťa taxíkov
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Posiela voľné taxíky k najbližšiemu stanovišťu taxíkov namiesto toho, aby blúdili náhodne. Vyžaduje DLC After Dark.
 SETTINGS_SHAREDSTOPENABLER_ENABLE Povoliť zdieľané zastávky
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Umožňuje viacerým typom dopravy (autobus, električka, trolejbus) zastaviť na rovnakom úseku cesty. V predvolenom nastavení vypnuté - čo táto zjednodušená verzia vynecháva, nájdete na GitHube modu.
-SETTINGS_COMMUTERDESTINATION_ENABLE Povoliť cieľ cestujúcich
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Zobrazí, kam smerujú cestujúci čakajúci na zastávke - malý panel plus prekrytie na mape. Iba na čítanie, žiadna iná závislosť ako Harmony.
+SETTINGS_COMMUTERDESTINATION_ENABLE Povoliť cieľ dochádzajúcich (prepracovanie čaká)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Dočasne nedostupné: skorší panel duplikoval UI info o zastávke a je vynútene vypnutý do prepracovania. Začiarknutie ho znova nezapne.
 SETTINGS_OOC_ENABLE Optimalizovane vonkajsie spojenia
 SETTINGS_OOC_ENABLE_TOOLTIP Nakladne vlaky, lietadla a lode cakaju na vacsi naklad dlhsie, kym odidu z vonkajsich spojeni.
 SETTINGS_OOC_WAIT_MULTIPLIER Nasobitel cakania
@@ -456,7 +444,14 @@ CHANGELOG_4_8_0_4 Opravené: začiarkavacie políčko "prijímať medzimestské 
 CHANGELOG_4_8_0_5 Opravené: Sub-Buildings Tabs občas zobrazovali zastaraný pruh kariet na nesúvisiacej budove: hra po demolácii recykluje ID budov a cache predtým verila, že recyklované ID stále patrí k predchádzajúcemu zhluku budov. Teraz pred opätovným použitím čohokoľvek z cache znova overuje skutočný nadradený reťazec budovy.
 CHANGELOG_4_8_0_6 Všeobecné upratovanie chýb naprieč viacerými integráciami: obrátená kontrola expirácie cache, ktorá zahadzovala čerstvé dáta a namiesto nich servírovala zastarané, chyba o jeden v hranici cyklu, ktorá pri automatickom farbení a kontrole duplicitných názvov vynechávala poslednú dopravnú linku, chybné porovnanie ID, ktoré rozbíjalo obchádzku "len jedno vozidlo na tejto linke" na zamedzenie zhlukovania, vyhľadávanie ceny, ktoré zlyhanie natrvalo ukladalo do cache namiesto neskoršieho nového pokusu, a niekoľko Harmony patchov, ktoré mohli vyhodiť výnimku pri nulovej referencii UI/prefabu.
 CHANGELOG_4_8_0_7 Znížené opakované reflexie a vyhľadávania na snímku naprieč viacerými integráciami: popisy tooltipov vozidiel, klasifikácia jednokoľajných úsekov a vyhľadávanie item-class pre medzimestské autobusy sa teraz ukladajú do cache namiesto prepočítavania pri každom volaní, a tlačidlo obnovenia UI už neprepisuje svoj text v každej jednotlivej snímke bez ohľadu na to, či sa niečo zmenilo.
-CHANGELOG_4_8_0_8 Intercity Bus Control a Sub-Buildings Tabs sú po vyššie uvedených opravách opäť v predvolenom stave zapnuté - obe sú potvrdene funkčné, zostávajú len drobné známe problémy (jemné doladenie pozície karty, zriedkavá zvláštnosť v zobrazení názvu zastávky) ponechané na hlbšiu analýzu v budúcej verzii.
+CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
+CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
+CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
+CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
+CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
+CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
+CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 Štyri nové integrácie: Karty vedľajších budov (lišta kariet pre akýkoľvek komplex viacerých budov, nielen letiská), Zdieľané zastávky (umožňuje viacerým typom zastávok zdieľať rovnaký úsek cesty, predvolene vypnuté), Cieľ cestujúcich (zobrazuje, kam skutočne smerujú obyvatelia čakajúci na zastávke) a Oprava stanovišťa taxíkov (voľné taxíky mieria na najbližšie stanovište namiesto bezcieľneho blúdenia). Jednotlivé prepínače nájdete v Možnosti > Integrácie.
 CHANGELOG_4_7_0_2 Pridaný režim kapacity vozidiel pre medzimestské autobusové terminály (Možnosti > Integrácie > Kapacita medzimestského autobusového terminálu): Vypnuté zachováva doterajší, prakticky neobmedzený terminál tohto modu, Stredné uplatňuje mierny pevný limit, Realistické obnovuje pôvodnú kapacitu prefabu terminálu zo hry. Existujúce uložené hry predvolene používajú Vypnuté, takže aktualizácia nikdy potichu nezmenší kapacitu terminálu.
 CHANGELOG_4_7_0_3 Opravené zaškrtávacie políčko "prijímať medzimestské autobusy" na medzimestskom autobusovom termináli: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged nastavuje acceptsInterCityTrains, čo je len alias pre isEmptying, takže premenované políčko mohlo potichu prepnúť autobusový terminál do herného stavu uzavretia budovy namiesto toho, aby skutočne prepínalo prijímanie autobusov. Prefix Harmony teraz tento prípad zachytáva a presmerováva na stav podľa konkrétnej budovy pri termináloch upravených pre autobusy, zatiaľ čo skutočné vlakové stanice zostávajú nedotknuté.
@@ -470,3 +465,114 @@ CHANGELOG_4_3_7_1 Všetkých 23 jazykov v zozname je teraz kompletne preložený
 CHANGELOG_4_3_7_2 Ukazovateľ postupu prekladu pod výberom jazyka čítal statický súbor so stavom, ktorý nebol znovu vygenerovaný, a preto pri šestnástich jazykoch uvádzal 76 %, hoci boli v skutočnosti hotové.
 CHANGELOG_4_3_6_1 Opravená skutočná príčina výdavku približne -21,4 milióna vo verejnej doprave: týždenný výpočet údržby v IPT delil nulovou alebo nepodporovanou kapacitou vozidla, menil NaN na int.MinValue a potom sčítal každé vozidlo v ďalšom int. Neplatné hodnoty teraz používajú bezpečnú záložnú hodnotu zo základnej hry, súčty liniek používajú 64-bitovú aritmetiku a veľké platné sumy sa účtujú iba obmedzenými kladnými transakciami.
 CHANGELOG_4_3_6_2 Už zasiahnuté uložené pozície sa pri načítaní opravujú: vynulujú sa len záporné položky príjmov alebo výdavkov verejnej dopravy, ktoré zanechalo toto pretečenie, a opravía sa zodpovedajúce súčty. Platná ekonomická história a všetky ostatné služby zostávajú nedotknuté.
+DEPOT_STATS_FERRIES_IN_USE Ferries in use
+DEPOT_STATS_BLIMPS_IN_USE Blimps in use
+DEPOT_STATS_HELICOPTERS Helicopters in use
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
+DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
+SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
+TRAINDISPLAY_LABEL_SPEED Speed
+TRAINDISPLAY_LABEL_TIME Time
+SETTINGS_PERFORMANCE_PROFILE Performance profile
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
+SETTINGS_TAB_PERFORMANCE Performance
+SETTINGS_PERFORMANCE_TIPS_GROUP Tips
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
+SETTINGS_TAB_COMPATIBILITY Compatibility
+SETTINGS_COMPAT_INTRO_GROUP Check your load order
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
+SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
+SETTINGS_COMPAT_STATUS_GROUP Current result
+SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
+SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
+SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
+SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
+SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_COMPAT_BADGE_CONFLICT Conflict
+SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_OK OK
+SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
+COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
+SETTINGS_TAB_FLEET_SHORT Fleet
+SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_TAB_OVERLAY_SHORT Overlay
+SETTINGS_TAB_SYSTEM_SHORT System
+SETTINGS_SUB_SPACING Spacing
+SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_BUDGET Budget
+SETTINGS_SUB_COLOR Color
+SETTINGS_SUB_CAPS Caps
+SETTINGS_SUB_NET Network
+SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
+SETTINGS_SUB_VEHICLES Vehicles
+SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_SUB_DEPOTS Depots
+SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
+SETTINGS_SUB_OUTSIDE Outside
+SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
+SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_INFO Info
+SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_COMPAT Compat
+SETTINGS_SUB_KEYS Keys
+SETTINGS_FUTURE_GROUP Coming later
+SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
+SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
+SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
+SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+LINE_PANEL_COPY Copy
+LINE_PANEL_PASTE Paste
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_QUICK_TIPS_GROUP Quick tips
+SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
+SETTINGS_QUICK_TIP_1_TITLE Start simple
+SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
+SETTINGS_QUICK_TIP_2_TITLE Slow PC?
+SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
+SETTINGS_QUICK_TIP_3_TITLE After toggles
+SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
+SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
+SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.

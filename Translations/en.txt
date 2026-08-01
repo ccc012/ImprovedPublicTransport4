@@ -7,7 +7,6 @@ CITY_SERVICE_PANEL_TITLE_STATION_STOPS Station stops
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Depot vehicles
 CITYSERVICE_ACCEPTINTERCITYBUSES Allow Intercity Buses
 CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Allow intercity buses to use this station. Disable this for local buses only.
-
 EXPLANATION_BUDGET_CONTROL Budget control: The vehicle count is controlled by the budget.
 EXPLANATION_UNBUNCHING Vehicle unbunching: The game tries to create a gap between vehicles.
 LINE_PANEL_STOPS Stops: {0}
@@ -28,7 +27,7 @@ LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} passengers waiting on this line.
 LINE_PANEL_ADD_VEHICLE Add Vehicle
 LINE_PANEL_ADD_VEHICLE_TOOLTIP Adds a new vehicle to the line.\nIf this button is disabled, the selected depot has no vehicles left.
 LINE_PANEL_REMOVE_VEHICLE Remove Vehicle
-
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
 STOP_LIST_BOX_ROW_STOP Stop #{0}
 STOP_LIST_BOX_ROW_TOOLTIP {0}\nWaiting passengers: {1}\n\nRight click to jump to this stop.\nHolding down a shift key when clicking will also zoom in.
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP List of suggested stop names.
@@ -39,7 +38,8 @@ COMMUTER_DESTINATION_HEADER Top destinations:
 COMMUTER_DESTINATION_NONE No passengers waiting here right now.
 COMMUTER_DESTINATION_LOADING Calculating...
 COMMUTER_DESTINATION_BUTTON Destinations
-COMMUTER_DESTINATION_BUTTON_TOOLTIP Show where the passengers waiting at this stop are headed.
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Open the secondary destinations list for this stop. Map icons appear when the stop is selected; the list only opens from this button.
+COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
 STOP_PANEL_BORED_TIMER Time till bored: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Passengers will leaving this stop when this countdown hits zero.
 STOP_PANEL_PASSENGERS_IN Passengers in:
@@ -58,10 +58,8 @@ STOP_PANEL_DELETE_STOP_TOOLTIP This button is enabled while holding down the Alt
 STOP_PANEL_NEXT Next Stop
 STOP_PANEL_NEXT_TOOLTIP Jump to the next stop.\nHolding down a shift key when clicking will also zoom in.
 STOP_BUTTON_TOOLTIP {0}\n\nClick to jump to this stop.\nHolding down a shift key when clicking will also zoom in.\nHolding down an alt key when clicking will prevent opening the stop info panel.
-
 SETTINGS_DELETE Delete
 SETTINGS_RESET Reset
-
 SETTINGS_TAB_GENERAL General
 SETTINGS_ADVANCED_LINKS_GROUP Links
 SETTINGS_GITHUB_REPO Source code on GitHub
@@ -72,15 +70,85 @@ SETTINGS_TAB_DELETE Delete Lines
 SETTINGS_TAB_FLEET Fleet & Scheduling
 SETTINGS_TAB_BUDGET Budget & Prices
 SETTINGS_TAB_LINECOLORS Line Colors
-
 SETTINGS Settings
 SETTINGS_SPEED Show speed in: 
 SETTINGS_SPEED_TOOLTIP Choose the unit used for speed display in the UI.
 SETTINGS_GAMEPLAY_PROFILE Gameplay profile
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Applies a batch of settings at once instead of tuning each one by hand. Vanilla turns every absorbed integration off and matches the base game as closely as possible; Realistic turns them on and applies the more realistic option wherever one exists. Picking either overwrites the individual settings below - pick Custom to manage them yourself without this dropdown changing anything.
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP One click applies a package of toggles. Read each line:
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK * Safe - everything optional OFF (best with many mods).\n* Vanilla - base game feel (no IPT extras).\n* Recommended - IPT core only: budget fleet, unbunching, intercity, tabs, unstucker, advanced/elevated stops.\n* Realistic - most features on (more sim, more cost).\n* Custom - you choose every toggle.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Custom
-SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
-SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistic
+SETTINGS_GAMEPLAY_PROFILE_SAFE Safe — all optional off
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla — base game feel
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Recommended — IPT core
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistic — most features
+SETTINGS_PERFORMANCE_PROFILE Performance profile
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
+SETTINGS_TAB_PERFORMANCE Performance
+SETTINGS_PERFORMANCE_TIPS_GROUP Tips
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TAB_FLEET_SHORT Fleet
+SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_TAB_OVERLAY_SHORT Overlay
+SETTINGS_TAB_SYSTEM_SHORT System
+SETTINGS_SUB_SPACING Spacing
+SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_BUDGET Budget
+SETTINGS_SUB_COLOR Color
+SETTINGS_SUB_CAPS Caps
+SETTINGS_SUB_NET Network
+SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
+SETTINGS_SUB_VEHICLES Vehicles
+SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_SUB_DEPOTS Depots
+SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
+SETTINGS_SUB_OUTSIDE Outside
+SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
+SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_INFO Info
+SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_COMPAT Compat
+SETTINGS_SUB_KEYS Keys
+SETTINGS_FUTURE_GROUP Coming later
+SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
+SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
+SETTINGS_QUICK_TIPS_GROUP Quick tips
+SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
+SETTINGS_QUICK_TIP_1_TITLE Start simple
+SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
+SETTINGS_QUICK_TIP_2_TITLE Slow PC?
+SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
+SETTINGS_QUICK_TIP_3_TITLE After toggles
+SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
+SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
+SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_TAB_COMPATIBILITY Compatibility
+SETTINGS_COMPAT_INTRO_GROUP Check your load order
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
+SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
+SETTINGS_COMPAT_STATUS_GROUP Current result
+SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
+SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
+SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
+SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
+SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_COMPAT_BADGE_CONFLICT Conflict
+SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_OK OK
+SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
+SETTINGS_TICKET_PATHFINDING_COST Prefer cheaper lines (experimental)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP When ticket prices are on, cims may slightly prefer lines that cost less — like choosing a cheaper route. Experimental and subtle. Off by default.
 SETTINGS_SPEED_KPH kph
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED Walking/Cycling Speed: 
@@ -92,7 +160,6 @@ SETTINGS_BBSP_TOOLTIP Disabled: no positioning adjustment.\nEnabled: buses stop 
 SETTINGS_BBSP_MODE_DISABLED Disabled
 SETTINGS_BBSP_MODE_ORIGINAL Enabled
 SETTINGS_BBSP_MODE_UPDATED Use experimental logic
-
 SETTINGS_BUDGET Budget
 SETTINGS_ENABLE_BUDGET_CONTROL Line Budget Control:
 SETTINGS_BUDGET_CONTROL_DISABLED Disabled
@@ -106,11 +173,9 @@ SETTINGS_AUTO_LINE_BUDGET Automatic Fleet Sizing:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Disabled
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Enabled
 SETTINGS_AUTO_LINE_BUDGET_TOOLTIP When enabled, lines in Budget mode automatically adjust their vehicle count based on real passenger demand, instead of the vanilla budget slider. Lines set to Manual are never touched.
-
 SETTINGS_AUTO_LINE Auto Line
 SETTINGS_AUTOSHOW_LINE_INFO Automatically open Line Info Panel
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Automatically show the Line Info Panel after a new line is created.
-
 AUTOLINECOLOR_STRATEGY_DISABLED Disabled
 AUTOLINECOLOR_STRATEGY_RANDOM_HUE Random Hue
 AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Random Color
@@ -129,7 +194,6 @@ AUTOLINECOLOR_MIN_COLOR_DIFF Minimum Color Difference (%):
 AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimum color difference percentage when picking random colors.
 AUTOLINECOLOR_MAX_COLOR_PICK Maximum Attempts:
 AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximum attempts to pick a distinguishable color.
-
 SETTINGS_UI UI Settings
 SETTINGS_VEHICLE_EDITOR_POSITION Vehicle Editor position: 
 SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Choose whether the vehicle editor panel appears at the bottom or the right side of the screen.
@@ -137,7 +201,6 @@ SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Bottom
 SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Right
 SETTINGS_VEHICLE_EDITOR_HIDE Hide Vehicle Editor
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Hide the Vehicle Editor from vehicle panels.
-
 SETTINGS_STOPS Public Transport Stops
 SETTINGS_STOPSANDSTATIONS_DESCRIPTION How many passengers of each transport type can wait at a single stop before it is considered full. Higher values reduce overcrowding-related complaints at busy stops, at the cost of a less realistic queue size.
 SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Reset all stop passenger caps above to their default values.
@@ -176,10 +239,9 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helicopter
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximum passengers waiting at a helicopter stop
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Blimp
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximum passengers waiting at a blimp stop
-
 SETTINGS_UNBUNCHING Unbunching
 SETTINGS_UNBUNCHING_AGGRESSION Unbunching aggression:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP How strong should vehicle unbunching act?\nPossible values: 0–52. A value of 0 disables unbunching.\nHigher values will strongly impact traffic and may cause vehicles to despawn.
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP How strong should vehicle unbunching act?\nPossible values: 0-52. A value of 0 disables unbunching.\nHigher values will strongly impact traffic and may cause vehicles to despawn.
 SETTINGS_VEHICLE_COUNT Vehicles on new lines:
 SETTINGS_VEHICLE_COUNT_TOOLTIP The number of vehicles that will be automatically added to new lines when Line Budget Control is off.
 SETTINGS_SPAWN_TIME_INTERVAL Spawn time interval:
@@ -188,7 +250,6 @@ SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Resets all sliders back to default.
 UNBUNCHING_ENABLED Vehicle unbunching
 UNBUNCHING_DISABLED Unbunching is disabled.
 UNBUNCHING_TARGET_GAP Target gap: {0}
-
 SETTINGS_EBS_GROUP_BUS Express Bus Services
 SETTINGS_EBS_GROUP_TRAM Express Tram Services
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Express Bus: 
@@ -201,22 +262,18 @@ SETTINGS_EBS_DESC_SELFBAL_TARGETMID Allows self-balancing to choose a busy middl
 SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Allow the self-balancer to redeploy vehicles to a busy middle-of-line stop (instead of a terminus).\nConsidered only when the busiest stop has more than 30 waiting passengers, then chosen with ~50% probability and subject to overall redeployment odds.
 SETTINGS_EBS_ENABLE_MINIBUS Enable Minibus Mode
 SETTINGS_EBS_DESC_MINIBUS Makes smaller-capacity buses leave earlier when only a few passengers are boarding or alighting.
-SETTINGS_EBS_TOOLTIP_MINIBUS Buses with capacity ≤20 may depart earlier from a stop when boarding + alighting passengers at that stop ≤5.
-SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Express Tram: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Disabled' = Trams use unbunching settings from above.\n'Light Rail' = Stops at every stop, always waits full timer (enforced discipline).\n'True Tram' = Stops only when passengers are boarding/alighting.
+SETTINGS_EBS_TOOLTIP_MINIBUS Buses with capacity <=20 may depart earlier from a stop when boarding + alighting passengers at that stop <=5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Tram stops:
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING How trams leave stops (not the same as buses):
 SETTINGS_EBS_MODE_NONE Disabled
 SETTINGS_EBS_MODE_AGGRESSIVE Aggressive
 SETTINGS_EBS_MODE_PRUDENTIAL Prudential
-SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Light Rail Mode
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Every stop (realistic)
 SETTINGS_EBS_TRAM_MODE_NONE Disabled
-SETTINGS_EBS_TRAM_MODE_TRAM True Tram Mode 
-
-
+SETTINGS_EBS_TRAM_MODE_TRAM Express skip
 SETTINGS_PTU_GROUP Public Transport Unstucker
 SETTINGS_PTU_ENABLE Despawn stuck passengers
 SETTINGS_PTU_TOOLTIP Auto-despawns passengers that become stuck attempting to board transport vehicles, allowing the vehicle to depart normally and preventing frozen departures.
-
-
 SETTINGS_LINE_DELETION_TOOL Lines Deletion Tool
 SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Check the transport types below, then press Delete to remove every line of those types from the current city. This selection is temporary - it always starts unchecked and clears itself after deleting, it is not saved as a setting.
 SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Deletes all lines of the selected types. Only works while city is loaded.
@@ -236,8 +293,6 @@ SETTINGS_DELETE_HELICOPTER_LABEL Helicopters
 SETTINGS_DELETE_HELICOPTER_TOOLTIP Deletes all helicopter lines.
 SETTINGS_DELETE_BLIMP_LABEL Blimps
 SETTINGS_DELETE_BLIMP_TOOLTIP Deletes all blimp lines.
-
-
 VEHICLE_EDITOR_TITLE Vehicle Editor
 VEHICLE_EDITOR_SUB_TITLE {0} vehicles
 VEHICLE_EDITOR_CAPACITY Passenger capacity
@@ -274,14 +329,12 @@ VEHICLE_SELECTION_SELECTED_VEHICLES Selected vehicles
 VEHICLE_SELECTION_ANY_VEHICLE Any vehicle
 VEHICLE_BUTTON_TOOLTIP {0}\n\nClick to jump to this vehicle.\nHolding down a shift key when clicking will also zoom in.\nHoling down an alt key when clicking will prevent opening the vehicle info panel.
 TRANSPORT_LINE_VEHICLECOUNT Vehicle count: {0}
-
 FLIGHT_TRACKER_NAME Flight Tracker
 FLIGHT_STATUS_NONE None
 FLIGHT_STATUS_INCOMING Incoming
 FLIGHT_STATUS_LANDED Landed
 FLIGHT_STATUS_AT_GATE At gate
 FLIGHT_STATUS_DEPARTED Departed
-
 TICKET_PRICE_TAXI_KILOMETER Taxi price per kilometer: 
 TICKET_PRICE_TAXI_MILE Taxi price per mile: 
 TICKET_PRICE_BUS Bus ticket price: 
@@ -300,13 +353,9 @@ TICKET_PRICE_BLIMP Blimp ticket price:
 TICKET_PRICE_HELICOPTER Helicopter ticket price: 
 ECONOMY_TAB_TICKET_PRICES Ticket Prices
 ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Total current passenger count for this transport type.
-
-
 WHATSNEW_3_0_0_1 Updated for Race Day; now compatible with More Vehicles Renewed.
-WHATSNEW_3_0_0_2 The following mods have been integrated into IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
-
+WHATSNEW_3_0_0_2 The following mods have been integrated into IPT3:\n â€¢ Advanced Stop Selection Revisited\n â€¢ Auto Line Color Redux\n â€¢ Better Bus Stop Position\n â€¢ Better Train Boarding\n â€¢ Elevated Stops Enabler Revisited  \n â€¢ Express Bus Services\n â€¢ Flight Tracker\n â€¢ Intercity Bus Control\n â€¢ Mileage Taxi Services\n â€¢ Public Transport Unstucker\n â€¢ Realistic Walking Speed\n â€¢ Stops and Stations\n â€¢ Ticket Price Customizer
 WHATSNEW_3_0_1 Public Transport Unstucker now integrated into IPT3.\nSee version 3.0 for all other integrated mods. Unsubscribe from originals to avoid conflicts.
-
 SETTINGS_TAB_TRAINDISPLAY Train Display
 SETTINGS_TAB_INTEGRATIONS Integrations
 SETTINGS_TRAINDISPLAY_GROUP Train Display Overlay
@@ -322,7 +371,7 @@ SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Top right
 SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Bottom left
 SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Bottom right
 SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Overlay scale:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Scale the overlay size.
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Panel size. 100% matches the recommended size; range 50–200%.
 SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Overlay opacity:
 SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Adjust how transparent the overlay is.
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Update interval:
@@ -331,19 +380,21 @@ SETTINGS_TRAINDISPLAY_SHOW_LINE Show line name
 SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Include the line name in the overlay.
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Show destination
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Include the destination in the overlay.
-SETTINGS_TRAINDISPLAY_SHOW_STATE Show state
-SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Include the vehicle state in the overlay.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Show status strip
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Adds an extra strip with vehicle status (loading, moving, waiting…).
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Only while following
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Hide the overlay unless the camera is actually following a supported vehicle.
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Only in first-person camera
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Only show the overlay while using a first-person camera mod (e.g. First Person Camera - Continued). If off, it shows whenever following a supported vehicle in any camera mode.
 SETTINGS_TRAINDISPLAY_THEME Color theme:
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Choose the overlay's background/text colors.
-SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simple
-SETTINGS_TRAINDISPLAY_THEME_DARK Dark
-SETTINGS_TRAINDISPLAY_THEME_LIGHT Light
-SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
-
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE Red (pastel)
+SETTINGS_TRAINDISPLAY_THEME_DARK Black (solid)
+SETTINGS_TRAINDISPLAY_THEME_LIGHT White (semi-transparent)
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original (white)
+SETTINGS_TRAINDISPLAY_THEME_BLUE Blue (pastel)
+SETTINGS_TRAINDISPLAY_THEME_GREEN Green (pastel)
+SETTINGS_TRAINDISPLAY_THEME_AMBER Yellow (pastel)
 COPY_TIP Copy this line's settings.
 PASTE_TIP Paste the copied line settings.
 COPY_BUILDING_TIP Copy these settings to all lines serving this building.
@@ -351,6 +402,14 @@ COPY_DISTRICT_TIP Copy these settings to all lines in this district.
 SETTINGS_INTEGRATIONS_GROUP Integrated Add-ons
 SETTINGS_INTERCITY_BUS_ENABLE Enable Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Enables the integrated Intercity Bus Control compatibility layer and station patching.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Enable Advanced Stop Selection
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Lets you place stops on alternate platforms/tracks of multi-track stations (hold the alternate-mode key while placing). Takes effect on next level load.
+SETTINGS_BETTERBOARDING_ENABLE Enable Better Boarding
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Improves passenger boarding decisions so riders prefer the vehicle that actually serves their destination. Takes effect on next level load.
+SETTINGS_MILEAGETAXI_ENABLE Enable Mileage Taxi Services
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Charges taxi fares from distance driven instead of a flat rate, so longer rides earn more. Requires the After Dark DLC. Takes effect on next level load.
+SETTINGS_ELEVATEDSTOPS_ENABLE Enable Elevated Stops
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Allows public-transport stops on elevated roads/bridges and keeps street lights on those elevated stop segments. Takes effect on next level load.
 SETTINGS_INTERCITY_BUS_CAPACITY Intercity Terminal Capacity
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP How many vehicles an intercity bus terminal can hold at once.
 SETTINGS_TRAM_DEPOT_CAPACITY Tram depot capacity
@@ -373,9 +432,21 @@ SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Shows a tab strip on a building's info 
 SETTINGS_TAXISTANDFIX_ENABLE Enable Taxi Stand Fix
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sends idle taxis toward the nearest taxi stand instead of leaving them to wander at random. Requires the After Dark DLC.
 SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared Stop Enabler
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) to stop on the same road segment. Off by default - see the mod's GitHub for what this reduced version leaves out.
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) on the same road segment, including elevated/bridge roads. Includes PathManager stop-lane nudge and TransportTool multi-type placement. Prefab flag changes may need a map reload for full effect.
 SETTINGS_COMMUTERDESTINATION_ENABLE Enable Commuter Destination
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Read-only, no dependency other than Harmony.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Parked pending a redesign: the previous side panel duplicated the vanilla stop panel. Not available yet.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
+SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
+SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+LINE_PANEL_COPY Copy
+LINE_PANEL_PASTE Paste
 SETTINGS_OOC_ENABLE Optimised outside connections
 SETTINGS_OOC_ENABLE_TOOLTIP Cargo trains, planes and ships wait longer for a fuller load before departing at outside connections.
 SETTINGS_OOC_WAIT_MULTIPLIER Wait multiplier
@@ -394,9 +465,9 @@ SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Outside connections normally spawn extra deco
 SETTINGS_UOC_ENABLE Unlimited outside connections
 SETTINGS_UOC_ENABLE_TOOLTIP Removes the vanilla 4-connection limit for roads, train tracks, ship paths and flight paths, and retroactively wires up transport lines when a new connection is built near an existing station. Takes effect on next level load.
 SETTINGS_STTAI_ENABLE Single-track train collision avoidance
-SETTINGS_STTAI_ENABLE_TOOLTIP Reserves a single-track segment for one train at a time, holding an opposing train at the entrance until the segment is clear. Original IPT4 feature, not present in vanilla or any absorbed mod.
+SETTINGS_STTAI_ENABLE_TOOLTIP Reserves a single-track segment for one train at a time, holding an opposing train at the entrance until the segment is clear. Clean-room reimplementation of the SingleTrainTrackAI Workshop concept (no source license) — unsubscribe the standalone mod if you still have it. Live-applicable mid-session.
 SETTINGS_STOPSTACKER_ENABLE Bus stop berth stacking
-SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Lets a second/third bus already approaching the same stop use its own berth further back along the stop lane instead of queueing single-file behind the lead bus, so more than one bus can load/unload at once. Original IPT4 feature (simplified clean-room reimplementation), not present in vanilla or any absorbed mod.
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Lets a second/third bus already approaching the same stop use its own berth further back along the stop lane instead of queueing single-file behind the lead bus, so more than one bus can load/unload at once. Clean-room reimplementation of the Stop Stacker Workshop concept — bus and trolleybus only. Live-applicable mid-session.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -456,8 +527,15 @@ CHANGELOG_4_8_0_4 Fixed the "accept intercity buses" checkbox getting stuck unre
 CHANGELOG_4_8_0_5 Fixed Sub-Buildings Tabs occasionally showing a stale tab strip on an unrelated building: the game recycles building IDs after a demolition, and the cache used to trust a recycled ID as still belonging to the previous building cluster. It now re-validates the building's actual parent chain before reusing anything from the cache.
 CHANGELOG_4_8_0_6 General bug sweep across several integrations: an inverted cache-expiry check that discarded fresh data and served stale data instead, an off-by-one loop bound that skipped the last transport line for automatic coloring and duplicate-name checks, a wrong ID comparison that broke the "only one vehicle on this line" unbunching bypass, a price lookup that permanently cached a failure instead of retrying later, and several Harmony patches that could throw on a null UI/prefab reference.
 CHANGELOG_4_8_0_7 Reduced repeated reflection and per-frame lookups across several integrations: vehicle tooltip descriptions, single-track segment classification, and the intercity-bus item-class lookup are now cached instead of recomputed on every call, and a UI refresh button no longer reassigns its text every single frame regardless of whether anything changed.
-CHANGELOG_4_8_0_8 Intercity Bus Control and Sub-Buildings Tabs are on by default again after the fixes above - both are confirmed working, with only minor known issues (fine-tuning tab position, a rare stop-name display quirk) left for deeper analysis in a future version.
-CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (shows where the citizens waiting at a stop are actually headed) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
+CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
+CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
+CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
+CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
+CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
+CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
+CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms–1000ms range in Options.
+CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (destination display - currently forced off pending redesign) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
 CHANGELOG_4_7_0_2 Added a vehicle capacity mode for intercity bus terminals (Options > Integrations > Intercity Bus Terminal Capacity): Disabled keeps this mod's existing effectively-uncapped terminal, Intermediate applies a moderate fixed cap, Realistic restores the terminal's own vanilla prefab capacity. Existing saves default to Disabled so upgrading never silently shrinks a terminal's capacity.
 CHANGELOG_4_7_0_3 Fixed the intercity bus terminal's "accept intercity buses" checkbox: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged sets acceptsInterCityTrains, which is a pure alias for isEmptying, so the relabeled checkbox was able to silently put a bus terminal into the game's building-shutdown state instead of actually toggling bus acceptance. A Harmony prefix now intercepts and redirects it to per-building state for bus-patched terminals, leaving real train stations untouched.
 CHANGELOG_4_7_0_4 Added an "Original" color theme to Train Display (Options > Train Display > Color Theme) that reproduces the layout of the source Train Display - Updated mod: a header strip with speed and status, plus a route strip colored to match the vehicle's actual line color.
@@ -470,3 +548,31 @@ CHANGELOG_4_3_7_1 All 23 languages in the selector are now fully translated. Cze
 CHANGELOG_4_3_7_2 The translation progress shown under the language selector was reading a static status file that had not been regenerated, so it reported 76% for sixteen languages that were in fact complete.
 CHANGELOG_4_3_6_1 Fixed the real source of the approximately -21.4 million public-transport expense: IPT's weekly maintenance replacement divided by a zero or unsupported vehicle capacity, turning NaN into int.MinValue, and then summed every vehicle in another int. Maintenance inputs now use a safe vanilla fallback, line totals use 64-bit arithmetic, and large valid totals are charged only through bounded positive transactions.
 CHANGELOG_4_3_6_2 Existing saves are repaired on load by clearing only negative public-transport income or expense buckets left by this overflow and correcting their matching totals. Valid economy history and every non-transport service remain untouched.
+DEPOT_STATS_HELICOPTERS Helicopters in use
+DEPOT_STATS_FERRIES_IN_USE Ferries in use
+DEPOT_STATS_BLIMPS_IN_USE Blimps in use
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
+DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
+SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
+TRAINDISPLAY_LABEL_SPEED Speed
+TRAINDISPLAY_LABEL_TIME Time

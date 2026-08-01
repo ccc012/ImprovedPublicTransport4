@@ -73,10 +73,12 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
 
                 if (transportStationAi.m_transportLineInfo == null)
                 {
-                    var lineInfo = PrefabCollection<NetInfo>.FindLoaded(Mod.IntercityBusLine);
+                    // NetInfo often is not ready while BuildingInfo.InitializePrefab runs early.
+                    // Skip this prefab silently; StationPatcher.PatchStations (OnLevelLoaded) and/or
+                    // NetInfoPatches.InitializePrefabPatch re-apply once the line NetInfo exists.
+                    var lineInfo = StationPatcher.TryGetIntercityBusLine(logIfMissing: false);
                     if (lineInfo == null)
                     {
-                        Utils.LogWarning($"Intercity Bus Control - {Mod.IntercityBusLine} NetInfo not found!");
                         return;
                     }
                     transportStationAi.m_transportLineInfo = lineInfo;
@@ -93,7 +95,8 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                     {
                         transportStationAi.m_transportInfo = _transportInfo;
                     }
-                    transportStationAi.m_maxVehicleCount = StationPatcher.GetCapacityForCurrentMode();
+                    // Do not overwrite m_maxVehicleCount — stations are not depots; writing a cap
+                    // makes the City Service panel show "buses in use X/Y".
                     if (Diagnostics.VerboseRuntimeLogs)
                     {
                         Utils.Log($"Intercity Bus Control - patched {__instance.name} primary transport with intercity bus support");
@@ -109,7 +112,6 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                     {
                         transportStationAi.m_secondaryTransportInfo = _transportInfo;
                     }
-                    transportStationAi.m_maxVehicleCount2 = StationPatcher.GetCapacityForCurrentMode();
                     if (Diagnostics.VerboseRuntimeLogs)
                     {
                         Utils.Log($"Intercity Bus Control - patched {__instance.name} secondary transport with intercity bus support");
@@ -117,6 +119,10 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                 }
 
                 StationPatcher.PatchedBuildingNames.Add(__instance.name);
+                if (!StationPatcher.IsNativeIntercityBusStation(__instance, transportStationAi))
+                {
+                    StationPatcher.PrefabsDefaultReject.Add(__instance.name);
+                }
                 if (Diagnostics.VerboseRuntimeLogs)
                 {
                     Utils.Log($"Intercity Bus Control - {__instance.name} was successfully patched");

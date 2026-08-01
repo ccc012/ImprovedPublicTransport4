@@ -37,6 +37,11 @@ namespace ImprovedPublicTransport.Util
         {
             var instance = VehicleManager.instance;
             var data = instance.m_vehicles.m_buffer[vehicleID];
+            if (data.Info?.m_vehicleAI == null)
+            {
+                return 0;
+            }
+
             return data.Info.m_vehicleAI.GetTicketPrice(vehicleID, ref data);
         }
 

@@ -14,13 +14,162 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.5] Stability release, Train Display redesign, Commuter parked
+
+Intermediate build for players who will not wait for a full 4.9. Started as a
+stability/frame-time pass but grew a real Train Display redesign along the
+way - documented in full below rather than left as an undisclosed side effect
+of a "bugfix" release.
+
+### Redesigned - Train Display: single corner panel, terminus destination, correct speed
+
+The overlay's draw path was replaced outright (`DrawUnifiedOverlay` →
+`DrawSingleCornerPanel`): a single corner LCD-style panel with rotated stop
+labels and a new "extras" strip, plus new colour themes (`BlackSemi` and a
+set of pastel hues) alongside the existing ones. Two behaviour changes ride
+along with the visual rewrite:
+
+- **Destination now shows the line's terminus, not the next stop** - the
+  next-stop resolver (`ResolveNextStopName`) is no longer called from the
+  main data-build path; `ResolveTerminalStopName` replaces it. Players who
+  relied on "next stop" at a glance will see the route's end point instead.
+- **Speed readout fixed**: the conversion was `* 3.6f * 8f`, showing
+  230-300 km/h for perfectly normal vehicle speeds. The stray `* 8f` is
+  removed; only the correct m/s-to-km/h `* 3.6f` conversion remains.
+
+### Fixed - Train Display hitching after the "snappier panel" change
+
+- Reverted immediate re-poll on vehicle change and sub-100ms Maximum floors that
+  could freeze/hitch the game while the overlay was active.
+- Hard 100ms floor on poll interval (code + Options slider); defaults raised to
+  250ms. Performance profile floors are conservative again (Light 0.40s /
+  Normal 0.20s / Maximum 0.15s).
+
+### Deep sweep (same build stream)
+
+- **PassengerCountLimiter**: no more full 65k citizen scan every sim tick;
+  counts rebuild across 16 frames; lazy manager resolve.
+- **EBS**: stop counting no longer zeros `m_maxWaitTime` (broke boredom timers).
+- **BetterBoarding + IPT LoadPassengers**: double passenger/income accounting fixed.
+- **CanLeave**: bounds-safe cache; unbunching uses live target stop.
+- **Empty-before-depot**: forget pending on every vehicle release (not only EBS).
+- **ServiceBalancer**: broken stop chains return empty analysis (no KeyNotFound).
+- **StartTransfer / GetLineVehicle / SelectedVehicleTypesQuery**: cache-ready
+  guards; null prefab falls back to vanilla spawn.
+- **LineWatcher**: always scan buffer (delete+create same window).
+- **EBS ExtraSkip**: cache MethodInfo (no AccessTools every skip).
+- **Localization missing keys**: log once; RefreshVehicleButtons tooltips 0.5s;
+  StopListBoxRow name/passenger throttle; MovingAverage without LINQ.
+
+### Root-to-leaf sweep (docs + languages + more fixes)
+
+- Version stamps: README / Steam `VERSION.txt` / Options date → **4.8.5**.
+- Framework `pt-BR.json`: fixed wrong BETA/Fatal strings; full `Language_*` set
+  filled across Common JSON packs from en-US.
+- IPT packs: pt/pt-br Commuter map labels PT; en tooltip mojibake cleaned;
+  deploy skips `*.fixed.txt`. **Correction (2026-08-01, independent audit
+  before publishing):** the "578 keys complete all locales" claim originally
+  written here was false - pt.txt/pt-br.txt are the only files at full
+  parity (579/579 keys). Every other language is missing translations for
+  113-179 of 578 keys (falls back to English at runtime, not broken, just
+  untranslated) - newer keys added across the 4.8.0/4.8.5 cycle (gameplay
+  profiles, performance profile, hotkeys, line panel copy/paste, quick tips)
+  were never actually translated for most of the 34 language files. Tracked
+  as a known gap, not blocking this release (English fallback works fine),
+  fix planned for a follow-up pass. Separately, `SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK`
+  had a real parsing bug in en.txt/pt.txt/pt-br.txt specifically (a literal
+  multi-line value instead of `\n`-escaped, corrupting the line-based
+  parser) - fixed in this same audit; the other 33 languages already had it
+  right.
+- Removed unused `TransportLineReverseDetour` Deploy; reverse-detour stubs no longer log.
+- `VehiclePrefabs` multi-level merge cache; `BuildingExtension.GetDepots` without LINQ;
+  vehicle/stop panels bounds-safe on IPT caches; WhatsNew logs IPT4 + Verbose-only.
+
+### Optimized - Train Display route strip + stop auto-name
+
+- At most one `StopAutoNamer.EnsureNamed` spatial scan per poll.
+- Failed unnamed stops are remembered so FindBuilding is not re-run every interval.
+- Route strip avoids intermediate `List` growth churn on the hot path.
+
+### Updated - Commuter Destination parked; languages complete on deploy
+
+- Commuter Destination forced off (profiles, load, live-apply) and Options toggle
+  removed until a redesign; Advanced spoiler documents the park.
+- Deploy always ships the full CSLModsCommon `Localization/Common` JSON set so
+  the Options language dropdown is complete.
+- Section description cards share the rounded group background with their rows.
+
+### Optimized - quieter depot redirect logs
+
+- Depot `StartTransfer` redirect messages are Verbose-only (was every redirect).
+
+---
+
 ## [4.8.0] Two clean-room integrations, Intercity Bus Control root-caused, bug/perf sweep
 
 Module bumps from 7 to 8 for two newly absorbed integrations (`SingleTrainTrackAI`,
 `StopStacker`); everything else below is a `build`-level fix/optimization pass on
 existing modules, not a new absorption. Reversible Tram AI and a Breakdown
 Revisited port were both scoped this cycle and explicitly deferred to a future
-version rather than shipped half-finished.
+version rather than shipped half-finished (no source / high risk for a half
+port).
+
+### Updated - Compatibility tab + deeper conflict detection
+
+- Options → **Compatibility** tab: one-click scan, live status of conflicts/missing
+  deps, short player guide (IPT1–3 / TLM / ITM / absorbed standalones / Harmony).
+- Detector matches **assembly name + alternate names + Steam Workshop IDs** so
+  renames still flag.
+- Expanded ban list (IPT original, TLM alt listing, Train Display original,
+  AutoLineColor originals, Taxi Stand Fix, Rescue Fullwidth Digits, Vehicle
+  Unbuncher alts, Automatic Vehicle Numbers Adjuster, etc.).
+- Declares **CitiesHarmony** as a required dependency.
+
+### Updated - SharedStop full port + Options depth + pathfinding fares
+
+- **Shared Stop Enabler** is no longer a reduced-only port: elevated/bridge stop
+  enablement, RoadBridgeAI flag refresh, RoadAI.UpdateSegmentFlags transpiler,
+  PathManager.FindPathPosition car-platform nudge, NetSegment bridge
+  GetClosestLanePosition, and TransportTool.GetStopPosition multi-type placement
+  (IL soft-fail safe). LICENSE/tooltips updated.
+- **Options → Performance** tab for the global Light/Normal/Maximum profile.
+- **Budget → Pathfinding fares**: optional write of `NetLane.m_ticketCost` on stop
+  lanes from average ticket prices (experimental; off by default).
+
+### Updated - 4.8 leftover UX / Options parity (post-playtest)
+
+- **Line panel Copy/Paste** buttons restored on `PanelExtenderLine` (plus PrefabPanel
+  icons); tooltip keys `COPY_TIP` / `PASTE_TIP` / `LINE_PANEL_COPY` / `LINE_PANEL_PASTE`.
+- **Options → Key bindings** tab: Train Display toggle and Auto Line Color refresh
+  (`IptHotkeys` + `KeyBindingManager`).
+- **City Service depot side panel**: live fleet list for pure depots (not only
+  station stops); robust prefab match via `FindByName` / `FindByIndex` so custom
+  assets still appear.
+- **Remove vehicle → garage**: `TransportLineUtil.RemoveVehicle` clears the line
+  and ensures a return-to-depot (`GoingBack` + `SetTarget` fallback).
+- **Commuter Destination**: opt-in, live-apply; secondary destinations list (no
+  auto-open); map icons by colour band; older “forced off” docs removed.
+- **Shared Stop Enabler honesty** in Options tooltips: reduced port (no elevated
+  stop / PathManager IL) called out explicitly.
+- **STTAI / Stop Stacker**: live `Activate`/`Deactivate` mid-session (idempotent
+  controllers), including Realistic profile cascade.
+- **Global Performance profile** (Light / Normal / Maximum) for Train Display
+  poll floor and Commuter scan caps.
+
+### Updated - Safe-by-default installs and Options completeness (pre-playtest)
+
+- Fresh installs default to gameplay profile **Safe**: every optional integration
+  and mode starts **off** so an undetected Workshop conflict cannot double-patch.
+  Profiles: Safe / Vanilla / Recommended (IPT core) / Realistic / Custom.
+- Options → Integrations now exposes **Advanced Stop Selection**, **Better
+  Boarding**, **Mileage Taxi Services**, and **Elevated Stops** (were already
+  gated by `ModSetting` + profiles but had no checkbox).
+- Commuter Destination is **opt-in and live-applicable** (panel + map icons;
+  Performance / Full map detail modes). Older docs that said “forced off” are
+  obsolete.
+- Player-facing changelog keys `CHANGELOG_4_8_0_8`…`_10` document Safe defaults,
+  the four new toggles, and full Steam language pack coverage.
+
 
 ### Added - SingleTrainTrackAI, Stop Stacker
 
@@ -181,14 +330,19 @@ A dedicated read-only review pass (not tied to any specific bug report) found:
   consolidated into one `static readonly FieldInfo` behind
   `Mod.GetItemClassDict()`.
 
-### Changed - Intercity Bus Control and Sub-Buildings Tabs default to on
+### Changed - Safe-by-default installs (profiles)
 
-Both are confirmed working after the fixes above and are enabled by default
-again (`ModSetting.EnableIntercityBusControl`, `EnableSubBuildingsTabs`).
-Remaining known issues (Sub-Buildings Tabs' tab-strip vertical offset could
-still use fine-tuning; an unconfirmed stop-name display report) are minor
-enough to ship rather than block on, and are tracked for deeper analysis in a
-future version rather than left silently unresolved.
+Fresh installs use gameplay profile **Safe**: every optional integration and
+mode starts **off** for maximum Workshop compatibility. **Recommended** turns
+on IPT core only (budget fleet control, unbunching, Intercity Bus Control,
+Sub-Buildings Tabs, unstucker, advanced stop selection, elevated stops).
+**Realistic** enables most absorbed integrations; SharedStop / Commuter /
+UnlimitedOutside stay off as higher risk. Custom never cascades.
+
+Intercity Bus Control and Sub-Buildings Tabs remain available and are included
+in Recommended after the fixes above. Remaining known issues (Sub-Buildings
+Tabs' tab-strip vertical offset; an unconfirmed stop-name display report) are
+minor and tracked for a future version.
 
 ---
 
@@ -680,8 +834,8 @@ descriptions — every other language silently fell back to English.
 ### Translation — added 4 copy/paste tooltip keys missing from every file
 
 `COPY_TIP`, `PASTE_TIP`, `COPY_BUILDING_TIP`, `COPY_DISTRICT_TIP` were absent even
-from `en.txt`, so they would have rendered as raw keys. Currently unreachable —
-those buttons are `Hide()`-ed with a `//TODO: restore`.
+from `en.txt`, so they would have rendered as raw keys. Restored on the line panel
+and PrefabPanel (see 4.8 leftover UX section above).
 
 ---
 

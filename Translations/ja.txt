@@ -7,7 +7,6 @@ CITY_SERVICE_PANEL_TITLE_STATION_STOPS 駅や停留所
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES 車庫の車両数
 CITYSERVICE_ACCEPTINTERCITYBUSES 都市間バスを許可
 CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP この駅の都市間バスの使用を許可します。ローカルバスのみの場合は無効にしてください。
-
 EXPLANATION_BUDGET_CONTROL 予算管理モード: 車両数は予算ベースで制御中。
 EXPLANATION_UNBUNCHING 運行間隔を調整中: 運行間隔の時間を調整中。
 LINE_PANEL_STOPS 停車場: {0}
@@ -28,7 +27,6 @@ LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} 人の乗客が路線で待機中。
 LINE_PANEL_ADD_VEHICLE 車両を追加
 LINE_PANEL_ADD_VEHICLE_TOOLTIP 路線に新たな車両を追加します。\nボタンが無効の場合は、最初に車庫を選択＆指定して下さい。
 LINE_PANEL_REMOVE_VEHICLE 車両を撤去
-
 STOP_LIST_BOX_ROW_STOP 停車場: #{0}
 STOP_LIST_BOX_ROW_TOOLTIP {0}\n待機中の乗客数: {1}\n\n右クリックでこのストップにジャンプ\nShiftキーを押しながらクリックでズームインします。
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP 自動生成した命名候補のリスト。
@@ -58,10 +56,8 @@ STOP_PANEL_DELETE_STOP_TOOLTIP Altキーを押している間だけ、ボタン�
 STOP_PANEL_NEXT 次の停車場
 STOP_PANEL_NEXT_TOOLTIP 次の停車場にジャンプ\nもしくは、Shiftキーを押しながらクリックでズームインします。
 STOP_BUTTON_TOOLTIP {0}\n\nこの停留所にジャンプするためにクリック\nShiftキーを押しながらクリックでズームインします。\nAltキーを押しながらクリックすると、停留所情報パネルが開きません。
-
 SETTINGS_DELETE 削除
 SETTINGS_RESET リセット
-
 SETTINGS_TAB_GENERAL 一般
 SETTINGS_ADVANCED_LINKS_GROUP リンク
 SETTINGS_GITHUB_REPO GitHubのソースコード
@@ -72,14 +68,15 @@ SETTINGS_TAB_DELETE 路線削除
 SETTINGS_TAB_FLEET 車両と運行間隔
 SETTINGS_TAB_BUDGET 予算と料金
 SETTINGS_TAB_LINECOLORS 路線カラー
-
 SETTINGS 設定
 SETTINGS_SPEED 速度: 
 SETTINGS_SPEED_TOOLTIP UIで速度表示に使用する単位を選択します。
 SETTINGS_GAMEPLAY_PROFILE ゲームプレイプロファイル
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP 各設定を個別に調整する代わりに、一括で設定を適用します。バニラはすべての吸収済み統合機能をオフにし、可能な限りベースゲームに近づけます。リアルはそれらをオンにし、存在する場合はよりリアルな選択肢を適用します。どちらかを選ぶと下の個別設定が上書きされます - このドロップダウンが何も変更しないようにするにはカスタムを選んでください。
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP 設定をまとめて適用します。安全（既定）は他Modとの互換性のためすべてオフ。Vanillaは本編準拠。推奨はIPTコアのみ（予算フリート、間隔制御、都市間バス、サブ建物タブ、unstucker、高度な停留所選択、高架停留所）。リアルはほとんどの統合をオン。カスタムは一括変更せず、各項目を自分で管理します。
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM カスタム
+SETTINGS_GAMEPLAY_PROFILE_SAFE セーフ（すべてオフ）
 SETTINGS_GAMEPLAY_PROFILE_VANILLA バニラ
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED 推奨（IPTコア）
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC リアル
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
@@ -92,7 +89,6 @@ SETTINGS_BBSP_TOOLTIP 無効: 位置調整なし。\n有効: バスは停留所�
 SETTINGS_BBSP_MODE_DISABLED 無効
 SETTINGS_BBSP_MODE_ORIGINAL 有効
 SETTINGS_BBSP_MODE_UPDATED 実験的ロジックを使用
-
 SETTINGS_BUDGET 予算
 SETTINGS_ENABLE_BUDGET_CONTROL 予算管理モードの有効化
 SETTINGS_BUDGET_CONTROL_DISABLED 無効
@@ -102,7 +98,6 @@ SETTINGS_BUDGET_TICKET_PRICES チケット価格カスタマイザー:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED 無効
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED 有効
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP 有効にすると、経済パネルに新しいタブが追加され、各交通手段のチケット価格を調整するスライダーが表示されます。
-
 SETTINGS_AUTO_LINE_BUDGET 需要ベースの自動車両数:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED 無効
 SETTINGS_AUTO_LINE_BUDGET_ENABLED 有効
@@ -110,7 +105,6 @@ SETTINGS_AUTO_LINE_BUDGET_TOOLTIP 有効にすると、予算モードの路線�
 SETTINGS_AUTO_LINE 自動路線
 SETTINGS_AUTOSHOW_LINE_INFO 路線情報パネルを自動で開く
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP 新しい路線が作成された後に路線情報パネルを自動的に表示します。
-
 AUTOLINECOLOR_STRATEGY_DISABLED 無効
 AUTOLINECOLOR_STRATEGY_RANDOM_HUE ランダム色相
 AUTOLINECOLOR_STRATEGY_RANDOM_COLOR ランダムカラー
@@ -129,7 +123,6 @@ AUTOLINECOLOR_MIN_COLOR_DIFF 最小色差 (%):
 AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP ランダムな色を選ぶ際の最小色差パーセンテージ。
 AUTOLINECOLOR_MAX_COLOR_PICK 最大試行回数:
 AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP 区別可能な色を選ぶための最大試行回数。
-
 SETTINGS_UI UIの設定
 SETTINGS_VEHICLE_EDITOR_POSITION 車両エディタ: 
 SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP 車両エディタパネルが画面の下部または右側に表示されるかを選択します。
@@ -137,7 +130,6 @@ SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM 下部
 SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT 右側
 SETTINGS_VEHICLE_EDITOR_HIDE 車両エディタを隠す
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP 車両パネルから車両エディタを非表示にします。
-
 SETTINGS_STOPS 公共交通停留所
 SETTINGS_STOPSANDSTATIONS_DESCRIPTION 各交通機関の乗客が満員とみなされるまでに1つの停留所で何人待てるか。値を高くすると混雑した停留所での過密の苦情は減りますが、行列の長さの現実感は下がります。
 SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP 上記のすべての停留所別乗客上限をデフォルト値に戻します。
@@ -176,7 +168,6 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER ヘリコプター
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP ヘリコプター停での最大待機乗客数
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP 飛行船
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP 飛行船停での最大待機乗客数
-
 SETTINGS_UNBUNCHING 運行間隔を調整中
 SETTINGS_UNBUNCHING_AGGRESSION 運行間隔の強度:
 SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP 運行間隔の強度はどの程度にすべきか?\n0～52の間で、0は運行間隔の調整を無効にします。\n高い値は運行に大きな影響を与え、恐らく車両が消滅します。
@@ -188,16 +179,18 @@ SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP すべてのスライダーをデフォ
 UNBUNCHING_ENABLED 運行間隔を調整中
 UNBUNCHING_DISABLED 運行間隔の調整は無効。
 UNBUNCHING_TARGET_GAP 閾値: {0}
-
 SETTINGS_EBS_GROUP_BUS エクスプレスバスサービス
 SETTINGS_EBS_GROUP_TRAM エクスプレス路面電車サービス
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE エクスプレスバスの分離: 
 SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE '無効' = バスは上記の運行間隔設定を使用します。\n'Prudential' = 短時間停車し、乗客を確認、空なら発車します。\n'Aggressive' = 乗客がいなければ停留所をスキップします。
 SETTINGS_EBS_ENABLE_SELFBAL サービス自己バランスを有効にする
+SETTINGS_EBS_DESC_SELFBAL 急行バスサービスが路線全体で車両を再配分し、混雑区間を優先して待ち時間を短縮できるようにします。
 SETTINGS_EBS_TOOLTIP_SELFBAL ラインセグメントを分析し、サービスのバランスを取り、待機時間を短縮するために、より忙しいセグメントまたはターミナル停留所に車両を再配置できます。\n意思決定は確率的であり、乗客数と再配置の確率に依存します。
 SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID ラインの中央停留所の自己バランスを有効にする
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID 車両を再配置する際、終点だけでなく路線中間の混雑した停留所も選べるようにします。
 SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID 自動バランサーが忙しい中線停留所(ターミナルの代わりに)に車両を再配置できるようにします。\n最も忙しい停留所に30人を超える乗客がいる場合にのみ考慮され、約50%の確率で選択され、全体的な再配置確率の対象となります。
 SETTINGS_EBS_ENABLE_MINIBUS ミニバスモードを有効にする
+SETTINGS_EBS_DESC_MINIBUS 乗降する乗客が少ない場合、小型バスを早めに出発させます。
 SETTINGS_EBS_TOOLTIP_MINIBUS 容量が20以下のバスは、その停留所での乗客数+下車人数が5以下の場合、停留所から早期に出発できます。
 SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE エクスプレス路面電車の分離: 
 SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING '無効' = 路面電車は上記の運行間隔設定を使用します。\n'ライトレール' = 毎停留所に停車し、常にタイマー完了を待ちます。\n'真の路面電車' = 乗降がある場合のみ停車します。
@@ -207,14 +200,11 @@ SETTINGS_EBS_MODE_PRUDENTIAL 慎重
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL ライトレール モード
 SETTINGS_EBS_TRAM_MODE_NONE 無効
 SETTINGS_EBS_TRAM_MODE_TRAM 真の路面電車モード
-
-
 SETTINGS_PTU_GROUP 公共交通の復旧ツール
 SETTINGS_PTU_ENABLE 乗車時に固まった乗客を自動的に削除
 SETTINGS_PTU_TOOLTIP 乗車時に乗り込めずに固まった乗客を自動的に削除し、車両が正常に出発できるようにして出発のフリーズを防ぎます。
-
-
 SETTINGS_LINE_DELETION_TOOL 路線削除ツール
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION 下の交通機関の種類にチェックを入れ、削除を押すと現在の都市からその種類のすべての路線が削除されます。この選択は一時的なもので、常に未選択で始まり削除後にリセットされます。設定として保存されません。
 SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP 選択した路線タイプを全て削除。
 SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE 路線削除を確認
 SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG 全ての路線を削除します!\n続行しますか?
@@ -232,8 +222,6 @@ SETTINGS_DELETE_HELICOPTER_LABEL ヘリコプター
 SETTINGS_DELETE_HELICOPTER_TOOLTIP すべてのヘリコプター路線を削除します。
 SETTINGS_DELETE_BLIMP_LABEL 飛行船
 SETTINGS_DELETE_BLIMP_TOOLTIP すべての飛行船路線を削除します。
-
-
 VEHICLE_EDITOR_TITLE 車両エディタ
 VEHICLE_EDITOR_SUB_TITLE {0} 台
 VEHICLE_EDITOR_CAPACITY 乗客数
@@ -270,14 +258,12 @@ VEHICLE_SELECTION_SELECTED_VEHICLES 選択されたビークル
 VEHICLE_SELECTION_ANY_VEHICLE 任意のビークル
 VEHICLE_BUTTON_TOOLTIP {0}\n\nこのビークルにジャンプするためにクリック\nShiftキーを押しながらクリックでズームインします。\nAltキーを押しながらクリックすると、ビークル情報パネルが開きません。
 TRANSPORT_LINE_VEHICLECOUNT 車両数: {0}
-
 FLIGHT_TRACKER_NAME フライトトラッカー
 FLIGHT_STATUS_NONE なし
 FLIGHT_STATUS_INCOMING 到着中
 FLIGHT_STATUS_LANDED 着陸
 FLIGHT_STATUS_AT_GATE ゲートで
 FLIGHT_STATUS_DEPARTED 出発済み
-
 TICKET_PRICE_TAXI_KILOMETER タクシー1km当たりの価格: 
 TICKET_PRICE_TAXI_MILE タクシー1マイル当たりの価格: 
 TICKET_PRICE_BUS バスチケット価格: 
@@ -296,62 +282,63 @@ TICKET_PRICE_BLIMP 飛行船チケット価格:
 TICKET_PRICE_HELICOPTER ヘリコプターチケット価格: 
 ECONOMY_TAB_TICKET_PRICES チケット価格
 ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT このトランスポートタイプの現在の乗客の総数。
-
 WHATSNEW_3_0_0_1 Race Day向けに更新; More Vehicles Renewedと互換性あり。
 WHATSNEW_3_0_0_2 以下のmodがIPT3に統合されました:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
-
 WHATSNEW_3_0_1 Public Transport Unstucker は IPT3 に統合されました。\n他の統合済みモッドはバージョン3.0を参照してください。競合を避けるため、元のモッドの購読を解除してください。
-SETTINGS_EBS_DESC_MINIBUS 乗降する乗客が少ない場合、小型バスを早めに出発させます。
-SETTINGS_EBS_DESC_SELFBAL 急行バスサービスが路線全体で車両を再配分し、混雑区間を優先して待ち時間を短縮できるようにします。
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID 車両を再配置する際、終点だけでなく路線中間の混雑した停留所も選べるようにします。
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION 下の交通機関の種類にチェックを入れ、削除を押すと現在の都市からその種類のすべての路線が削除されます。この選択は一時的なもので、常に未選択で始まり削除後にリセットされます。設定として保存されません。
 SETTINGS_TAB_TRAINDISPLAY 列車ディスプレイ
 SETTINGS_TAB_INTEGRATIONS 連携機能
-SETTINGS_TRAINDISPLAY_ENABLE 列車ディスプレイを有効化
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP 統合された列車ディスプレイのオーバーレイをオン/オフします。
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 一人称視点のみ
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP 一人称視点カメラMod（例: First Person Camera - Continued）使用中のみオーバーレイを表示します。オフの場合、どのカメラモードでも対応車両を追跡中は常に表示されます。
 SETTINGS_TRAINDISPLAY_GROUP 列車ディスプレイ・オーバーレイ
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION 対応する交通車両を追跡中に表示される統合オーバーレイを設定します。
+SETTINGS_TRAINDISPLAY_ENABLE 列車ディスプレイを有効化
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP 統合された列車ディスプレイのオーバーレイをオン/オフします。
 SETTINGS_TRAINDISPLAY_MODE_DISABLED 無効
 SETTINGS_TRAINDISPLAY_MODE_ENABLED 有効
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING 追跡中のみ
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP カメラが実際に対応車両を追跡していない限り、オーバーレイを非表示にします。
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY オーバーレイの不透明度:
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP オーバーレイの透明度を調整します。
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION オーバーレイの位置:
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP オーバーレイを画面のどこに表示するかを選択します。
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE オーバーレイのサイズ:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP オーバーレイの大きさを調整します。
-SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT 左下
-SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT 右下
 SETTINGS_TRAINDISPLAY_POS_TOPLEFT 左上
 SETTINGS_TRAINDISPLAY_POS_TOPRIGHT 右上
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION 行き先を表示
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP オーバーレイに行き先を含めます。
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT 左下
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT 右下
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE オーバーレイのサイズ:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP オーバーレイの大きさを調整します。
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY オーバーレイの不透明度:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP オーバーレイの透明度を調整します。
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL 更新間隔:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP 車両の追跡中にオーバーレイを更新する頻度です。
 SETTINGS_TRAINDISPLAY_SHOW_LINE 路線名を表示
 SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP オーバーレイに路線名を含めます。
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION 行き先を表示
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP オーバーレイに行き先を含めます。
 SETTINGS_TRAINDISPLAY_SHOW_STATE 状態を表示
 SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP オーバーレイに車両の状態を含めます。
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING 追跡中のみ
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP カメラが実際に対応車両を追跡していない限り、オーバーレイを非表示にします。
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 一人称視点のみ
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP 一人称視点カメラMod（例: First Person Camera - Continued）使用中のみオーバーレイを表示します。オフの場合、どのカメラモードでも対応車両を追跡中は常に表示されます。
 SETTINGS_TRAINDISPLAY_THEME カラーテーマ:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP オーバーレイの背景色/文字色を選択します。
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE シンプル
 SETTINGS_TRAINDISPLAY_THEME_DARK ダーク
 SETTINGS_TRAINDISPLAY_THEME_LIGHT ライト
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL オリジナル
-SETTINGS_TRAINDISPLAY_THEME_SIMPLE シンプル
-SETTINGS_TRAINDISPLAY_THEME_TOOLTIP オーバーレイの背景色/文字色を選択します。
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL 更新間隔:
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP 車両の追跡中にオーバーレイを更新する頻度です。
+SETTINGS_TRAINDISPLAY_THEME_BLUE 青
+SETTINGS_TRAINDISPLAY_THEME_GREEN 緑
+SETTINGS_TRAINDISPLAY_THEME_AMBER アンバー
 COPY_TIP この路線の設定をコピーします。
 PASTE_TIP コピーした路線設定を貼り付けます。
 COPY_BUILDING_TIP この設定をこの建物を経由する全路線にコピーします。
 COPY_DISTRICT_TIP この設定をこの地区の全路線にコピーします。
-CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
-CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
-CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
-CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
 SETTINGS_INTEGRATIONS_GROUP 統合アドオン
 SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control を有効化
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP 統合された Intercity Bus Control の互換レイヤーと駅のパッチ適用を有効にします。
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE 高度な停留所選択を有効化
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP 複線駅の別ホーム／番線に停留所を配置できます（配置時に代替モードキーを押し続けてください）。次のレベル読み込みで有効になります。
+SETTINGS_BETTERBOARDING_ENABLE より良い乗車判定を有効化
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP 乗客が本当に目的地へ向かう車両を優先するよう乗車判定を改善します。次のレベル読み込みで有効になります。
+SETTINGS_MILEAGETAXI_ENABLE 走行距離ベースのタクシー料金を有効化
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP 定額ではなく走行距離に応じてタクシー料金を課金し、長距離ほど収入が増えます。After Dark DLCが必要です。次のレベル読み込みで有効になります。
+SETTINGS_ELEVATEDSTOPS_ENABLE 高架停留所を有効化
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP 高架道路／橋に公共交通の停留所を置け、その区間の街灯も維持します。次のレベル読み込みで有効になります。
 SETTINGS_INTERCITY_BUS_CAPACITY 都市間バスターミナルの収容台数
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP 都市間バスターミナルが一度に収容できる車両数です。
 SETTINGS_TRAM_DEPOT_CAPACITY 路面電車車庫の収容数
@@ -375,8 +362,8 @@ SETTINGS_TAXISTANDFIX_ENABLE タクシー乗り場修正を有効化
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP 空車タクシーを無作為にさまよわせる代わりに、最寄りのタクシー乗り場へ向かわせます。After Dark DLCが必要です。
 SETTINGS_SHAREDSTOPENABLER_ENABLE 共有停留所を有効化
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP バス、路面電車、トロリーバスなど複数の交通機関が同じ道路区間で停車できるようにします。デフォルトでは無効 - この簡略版で省略されている内容はMODのGitHubを参照してください。
-SETTINGS_COMMUTERDESTINATION_ENABLE 通勤先表示を有効化
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 停留所で待っている乗客がどこへ向かっているかを表示します - 小さなパネルとマップオーバーレイです。読み取り専用で、Harmony以外の依存関係はありません。
+SETTINGS_COMMUTERDESTINATION_ENABLE 通勤者の行き先を有効化（再設計待ち）
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 一時利用不可：以前のパネルは停留所情報UIを重複させており、再設計まで強制オフです。チェックボックスでは再有効化できません。
 SETTINGS_OOC_ENABLE 都市間接続の最適化
 SETTINGS_OOC_ENABLE_TOOLTIP 貨物列車、飛行機、船は都市間接続で出発する前に、より満載になるまで長く待機します。
 SETTINGS_OOC_WAIT_MULTIPLIER 待機倍率
@@ -442,11 +429,14 @@ TRAINDISPLAY_STATE_IDLE 待機中
 AUTOLINECOLOR_REFRESH_BUTTON 名前/色を更新
 AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP 有効な AutoLineColor 設定に従って、この路線の名前と色を再割り当てします。
 AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP この路線を更新する前に、オプションで色または命名の方式を有効にしてください。
+CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
+CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
+CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
+CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
 CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
 CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP 現在の運賃: {0}\n元の運賃: {1}\n現在の乗客数: {2}
-
 CHANGELOG_4_8_0_1 SingleTrainTrackAIを追加: 単線区間は常に一方向のみに予約されるようになり、双方向の単線を共有する2本の列車が衝突する危険がなくなりました。クリーンルーム再実装 - 元modのWorkshop 949504539にはライセンスが明記されていないため、公開されているコンセプトのみを、生のメモリデトアではなくこのプロジェクト独自のHarmonyベースのパッチ機構の上で再実装しました。
 CHANGELOG_4_8_0_2 Stop Stackerを追加: 同じ路線の複数の車両が同じ停留所に集まった場合、先頭車両のみが通常の停車位置を使用し、後続車両はその後ろに一列で並ぶ代わりに、車線のさらに後方に自分専用の停車スペースを確保します。ソースコードが入手できなかったため、元modの公開説明のみに基づくクリーンルーム再実装です。バスとトロリーバスのみ対応し、このプロジェクト既存のBetterBusStopPositionフック位置に合わせています。
 CHANGELOG_4_8_0_3 修正: 都市間バスターミナル連携が、Sunset Harbor DLCを所有するプレイヤーに対して気付かれないまま一度も有効化されない問題を修正しました。これはこのプロジェクトの他の箇所で既に使われているSteamのDLCチェックの代わりに、ゲームのプライベートフィールドへのリフレクションでDLCを検出していたためで、このリフレクションベースのチェックはDLCが実際にインストールされていてもfalseを返すことがありました。
@@ -454,7 +444,14 @@ CHANGELOG_4_8_0_4 修正: 一部のターミナルで「都市間バスを受け
 CHANGELOG_4_8_0_5 修正: Sub-Buildings Tabsが無関係の建物に古いタブバーを表示することがある問題を修正しました。ゲームは解体後に建物IDを再利用しますが、キャッシュは再利用されたIDが依然として以前の建物クラスターに属していると信じていました。キャッシュから何かを再利用する前に、建物の実際の親チェーンを再検証するようになりました。
 CHANGELOG_4_8_0_6 複数の連携機能にわたる全般的なバグ修正: 新しいデータを破棄して古いデータを提供してしまう反転したキャッシュ有効期限チェック、自動着色と重複名チェックで最後の交通路線をスキップしてしまうoff-by-oneのループ境界、「この路線には車両が1台のみ」という団子運転回避策を壊していた誤ったID比較、失敗を永続的にキャッシュしてしまい後で再試行しない価格検索、そしてnullのUI/プレハブ参照で例外を投げることがあった複数のHarmonyパッチを修正しました。
 CHANGELOG_4_8_0_7 複数の連携機能で繰り返されるリフレクションとフレームごとのルックアップを削減しました: 車両ツールチップの説明、単線区間の分類、都市間バスのアイテムクラス検索は、呼び出しのたびに再計算するのではなくキャッシュされるようになり、UI更新ボタンも何か変わったかどうかに関わらず毎フレームテキストを再割り当てすることがなくなりました。
-CHANGELOG_4_8_0_8 上記の修正により、Intercity Bus ControlとSub-Buildings Tabsは再びデフォルトで有効になりました - どちらも動作確認済みで、残っている既知の問題はわずか(タブ位置の微調整、まれに発生する停留所名表示の不具合)で、今後のバージョンでさらに詳しく分析される予定です。
+CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
+CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
+CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
+CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
+CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
+CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
+CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 4つの新しい連携機能を追加: サブ建物タブ(空港に限らず、複数の建物からなる複合施設向けのタブバー)、共有停留所(複数の停留所タイプが同じ道路区間を共有できるようにする機能、デフォルトでは無効)、通勤先表示(停留所で待っている市民の実際の行き先を表示)、タクシー乗り場修正(空車のタクシーがさまよう代わりに最寄りの乗り場へ向かう)。それぞれの切り替えはオプション > 連携機能から行えます。
 CHANGELOG_4_7_0_2 都市間バスターミナル向けの車両収容台数モードを追加(オプション > 連携機能 > 都市間バスターミナルの収容台数): 無効はこれまでの実質無制限のターミナルを維持し、中間は適度な固定上限を適用し、リアルはターミナル本来のプレハブ収容台数を復元します。既存のセーブデータはデフォルトで無効になるため、アップデートによってターミナルの収容台数が気づかないうちに縮小することはありません。
 CHANGELOG_4_7_0_3 都市間バスターミナルの「都市間バスを受け入れる」チェックボックスを修正: CityServiceWorldInfoPanel.OnAcceptsIntercityChangedはacceptsInterCityTrainsを設定しますが、これはisEmptyingの単なるエイリアスであるため、ラベルを変更したこのチェックボックスは、実際にはバスの受け入れを切り替えず、バスターミナルをゲームの建物閉鎖状態に気づかないうちに移行させてしまうことがありました。現在はHarmonyのprefixがこれを横取りし、バス対応にパッチ済みのターミナルでは建物ごとの状態にリダイレクトする一方、本物の鉄道駅には影響しません。
@@ -468,3 +465,114 @@ CHANGELOG_4_3_7_1 選択可能な 23 言語すべての翻訳が完了しまし�
 CHANGELOG_4_3_7_2 言語選択の下に表示される翻訳進捗は、再生成されていない静的なステータスファイルを読んでいたため、実際には完了している 16 言語について 76% と表示していました。
 CHANGELOG_4_3_6_1 公共交通の約 -2,140万 の支出の真の原因を修正しました。IPT の週単位の維持費計算が、定員ゼロまたは未対応の輪送量で除算し、NaN を int.MinValue に変え、さらに全車両分を別の int で合計していました。不正な値には安全なバニラの代替値を使い、路線合計は 64 ビット演算で行い、大きな正当な金額は上限付きの正の取引としてのみ課金されます。
 CHANGELOG_4_3_6_2 すでに影響を受けたセーブは読み込み時に修復されます。このオーバーフローが残した公共交通の負の収入・支出項目だけをゼロにし、対応する合計を修正します。正常な経済履歴と他のすべてのサービスには手をつけません。
+DEPOT_STATS_FERRIES_IN_USE Ferries in use
+DEPOT_STATS_BLIMPS_IN_USE Blimps in use
+DEPOT_STATS_HELICOPTERS Helicopters in use
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
+DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
+SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
+TRAINDISPLAY_LABEL_SPEED Speed
+TRAINDISPLAY_LABEL_TIME Time
+SETTINGS_PERFORMANCE_PROFILE Performance profile
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
+SETTINGS_TAB_PERFORMANCE Performance
+SETTINGS_PERFORMANCE_TIPS_GROUP Tips
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
+SETTINGS_TAB_COMPATIBILITY Compatibility
+SETTINGS_COMPAT_INTRO_GROUP Check your load order
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
+SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
+SETTINGS_COMPAT_STATUS_GROUP Current result
+SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
+SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
+SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
+SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
+SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_COMPAT_BADGE_CONFLICT Conflict
+SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_OK OK
+SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
+COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
+SETTINGS_TAB_FLEET_SHORT Fleet
+SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_TAB_OVERLAY_SHORT Overlay
+SETTINGS_TAB_SYSTEM_SHORT System
+SETTINGS_SUB_SPACING Spacing
+SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_BUDGET Budget
+SETTINGS_SUB_COLOR Color
+SETTINGS_SUB_CAPS Caps
+SETTINGS_SUB_NET Network
+SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
+SETTINGS_SUB_VEHICLES Vehicles
+SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_SUB_DEPOTS Depots
+SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
+SETTINGS_SUB_OUTSIDE Outside
+SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
+SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_INFO Info
+SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_COMPAT Compat
+SETTINGS_SUB_KEYS Keys
+SETTINGS_FUTURE_GROUP Coming later
+SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
+SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
+SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
+SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+LINE_PANEL_COPY Copy
+LINE_PANEL_PASTE Paste
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_QUICK_TIPS_GROUP Quick tips
+SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
+SETTINGS_QUICK_TIP_1_TITLE Start simple
+SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
+SETTINGS_QUICK_TIP_2_TITLE Slow PC?
+SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
+SETTINGS_QUICK_TIP_3_TITLE After toggles
+SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
+SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
+SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.

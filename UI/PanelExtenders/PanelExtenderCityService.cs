@@ -30,6 +30,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private UILabel _titleLabel;
     private StopListBox _stopsListBox;
     private VehicleListBox _vehicleListBox;
+    private float _nextBindingsRealtime;
 
     private void Update()
     {
@@ -45,8 +46,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       {
         if (!this._initialized || !this._cityServiceWorldInfoPanel.component.isVisible)
           return;
+        // 4 Hz is enough; GetPrivate used to re-reflect every frame here.
+        float now = Time.unscaledTime;
+        if (now < this._nextBindingsRealtime)
+          return;
+        this._nextBindingsRealtime = now + 0.25f;
+
         BuildingManager instance1 = Singleton<BuildingManager>.instance;
         ushort building = Utils.GetPrivate<InstanceID>((object) this._cityServiceWorldInfoPanel, "m_InstanceID").Building;
+        if (building == 0)
+          return;
         ItemClass.SubService subService = instance1.m_buildings.m_buffer[(int) building].Info.GetSubService();
         ItemClass.Service service = instance1.m_buildings.m_buffer[(int) building].Info.GetService();
         ItemClass.Level level = instance1.m_buildings.m_buffer[(int) building].Info.GetClassLevel();
@@ -61,86 +70,86 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           case ItemClass.SubService.PublicTransportPlane:
           case ItemClass.SubService.PublicTransportMonorail:
           case ItemClass.SubService.PublicTransportTrolleybus:
-            this._vehicleListBox.Hide(); //TODO(): display depot's vehicles? Also, maybe it makes sense to display list of lines served by depot?
-            this._stopsListBox.Show();
-            ushort originalBuilding = building;
-            if (this._cachedOriginalBuilding != originalBuilding)
+          case ItemClass.SubService.PublicTransportTaxi:
+          case ItemClass.SubService.PublicTransportCableCar:
+          case ItemClass.SubService.PublicTransportTram:
+          {
+            // Stations → stop list. Depots (or stations with no stop nodes but own fleet) → vehicle list.
+            ushort[] stationStops = CollectStationStops(building, instance1);
+            bool hasStops = stationStops != null && stationStops.Length > 0;
+            int ownVehicleCount = CountOwnVehicles(building, instance1);
+
+            if (hasStops)
             {
-              ushort[] numArray = PanelExtenderCityService.GetStationStops(building);
-              BuildingInfo.SubInfo[] subBuildings = instance1.m_buildings.m_buffer[(int) building].Info.m_subBuildings;
-              if (subBuildings != null && subBuildings.Length != 0)
+              this._vehicleListBox.Hide();
+              this._stopsListBox.Show();
+              if (this._cachedOriginalBuilding != building || this._cachedStopCount != stationStops.Length)
               {
-                Vector3 position = instance1.m_buildings.m_buffer[(int) building].m_position;
-                ushort subBuilding = instance1.FindBuilding(position, 100f, ItemClass.Service.PublicTransport, ItemClass.SubService.None, Building.Flags.Untouchable, Building.Flags.None);
-                if ((int) subBuilding != 0)
-                {
-                  ushort[] stationStops = PanelExtenderCityService.GetStationStops(subBuilding);
-                  if (stationStops.Length != 0)
-                  {
-                    ushort[] combined = new ushort[numArray.Length + stationStops.Length];
-                    numArray.CopyTo(combined, 0);
-                    stationStops.CopyTo(combined, numArray.Length);
-                    numArray = combined;
-                  }
-                }
-              }
-              this._cachedStopArray = numArray;
-              this._cachedOriginalBuilding = originalBuilding;
-              int length = numArray.Length;
-              if (length > 0)
-              {
+                this._cachedStopArray = stationStops;
+                this._cachedOriginalBuilding = building;
                 this._titleLabel.text = Localization.Get("CITY_SERVICE_PANEL_TITLE_STATION_STOPS");
                 this._listBoxPanel.relativePosition = new Vector3(this._listBoxPanel.parent.width + 1f, VerticalOffset);
                 this._listBoxPanel.Show();
                 this._stopsListBox.ClearItems();
-                for (int index = 0; index < length; ++index)
-                  this._stopsListBox.AddItem(numArray[index], -1);
+                for (int index = 0; index < stationStops.Length; ++index)
+                  this._stopsListBox.AddItem(stationStops[index], -1);
+                this._cachedStopCount = stationStops.Length;
               }
               else
-                this._listBoxPanel.Hide();
-              this._cachedStopCount = length;
+              {
+                this._listBoxPanel.Show();
+              }
             }
-            break;
-          case ItemClass.SubService.PublicTransportTaxi:
-          case ItemClass.SubService.PublicTransportCableCar:
-            this._vehicleListBox.Show();
-            this._stopsListBox.Hide();
-            UIPanel uiPanel = this._cityServiceWorldInfoPanel.Find<UIPanel>("SvsVehicleTypes");
-            if ((UnityEngine.Object) uiPanel != (UnityEngine.Object) null)
-              this._listBoxPanel.relativePosition = new Vector3((float) ((double) this._listBoxPanel.parent.width + (double) uiPanel.width + 2.0), VerticalOffset);
-            VehicleManager vm = Singleton<VehicleManager>.instance;
-            int newCount = 0;
-            for (ushort idx = instance1.m_buildings.m_buffer[(int) building].m_ownVehicles; idx != 0; idx = vm.m_vehicles.m_buffer[(int) idx].m_nextOwnVehicle)
-              newCount++;
-            if (newCount > 0)
+            else if (ownVehicleCount > 0)
             {
+              // Pure depot / shed: show live fleet (was TODO-hidden for bus/train/etc.).
+              this._vehicleListBox.Show();
+              this._stopsListBox.Hide();
+              UIPanel uiPanel = this._cityServiceWorldInfoPanel.Find<UIPanel>("SvsVehicleTypes");
+              if ((UnityEngine.Object) uiPanel != (UnityEngine.Object) null)
+                this._listBoxPanel.relativePosition = new Vector3((float) ((double) this._listBoxPanel.parent.width + (double) uiPanel.width + 2.0), VerticalOffset);
+              else
+                this._listBoxPanel.relativePosition = new Vector3(this._listBoxPanel.parent.width + 1f, VerticalOffset);
+
               this._titleLabel.text = Localization.Get("CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES");
               this._listBoxPanel.Show();
-              if ((int) this._cachedBuildingID != (int) building || this._cachedVehicleCount != newCount)
+              if ((int) this._cachedBuildingID != (int) building || this._cachedVehicleCount != ownVehicleCount)
               {
                 List<ushort> depotVehicles = PanelExtenderCityService.GetDepotVehicles(building);
                 this._vehicleListBox.ClearItems();
-                PrefabData[] prefabs = VehiclePrefabs.instance.GetPrefabs(service, subService, level);
                 VehicleManager instance2 = Singleton<VehicleManager>.instance;
                 foreach (ushort vehicleID in depotVehicles)
                 {
                   VehicleInfo info = instance2.m_vehicles.m_buffer[(int) vehicleID].Info;
-                  for (int index = 0; index < prefabs.Length; ++index)
+                  if (info == null)
+                    continue;
+
+                  // Prefer the registry match; fall back so custom/asset vehicles still appear.
+                  PrefabData data = null;
+                  if (VehiclePrefabs.instance != null)
                   {
-                    PrefabData data = prefabs[index];
-                    if (info.name == data.Name)
-                    {
-                      this._vehicleListBox.AddItem(data, vehicleID);
-                      break;
-                    }
+                    data = VehiclePrefabs.instance.FindByName(info.name);
+                    if (data == null)
+                      data = VehiclePrefabs.instance.FindByIndex(info.m_prefabDataIndex);
                   }
+
+                  if (data == null)
+                    data = new PrefabData(info);
+
+                  this._vehicleListBox.AddItem(data, vehicleID);
                 }
               }
+
+              this._cachedVehicleCount = ownVehicleCount;
+              this._cachedOriginalBuilding = building;
             }
             else
+            {
               this._listBoxPanel.Hide();
-            this._cachedVehicleCount = newCount;
+            }
+
             break;
+          }
           default:
             this._listBoxPanel.Hide();
             break;
@@ -267,9 +276,56 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       for (ushort index = Singleton<BuildingManager>.instance.m_buildings.m_buffer[(int) buildingID].m_ownVehicles; (int) index != 0; index = (ushort) nextOwnVehicle)
       {
         nextOwnVehicle = (int) instance.m_vehicles.m_buffer[(int) index].m_nextOwnVehicle;
-        ushortList.Add(index);
+        // Skip trailer tails — list only the leading unit.
+        if (instance.m_vehicles.m_buffer[(int) index].m_leadingVehicle == 0)
+        {
+          ushortList.Add(index);
+        }
       }
       return ushortList;
+    }
+
+    private static int CountOwnVehicles(ushort buildingID, BuildingManager bm)
+    {
+      VehicleManager vm = Singleton<VehicleManager>.instance;
+      int n = 0;
+      int guard = 0;
+      for (ushort idx = bm.m_buildings.m_buffer[(int) buildingID].m_ownVehicles;
+           idx != 0 && guard++ < 4096;
+           idx = vm.m_vehicles.m_buffer[(int) idx].m_nextOwnVehicle)
+      {
+        if (vm.m_vehicles.m_buffer[(int) idx].m_leadingVehicle == 0)
+        {
+          n++;
+        }
+      }
+
+      return n;
+    }
+
+    private static ushort[] CollectStationStops(ushort building, BuildingManager bm)
+    {
+      ushort[] numArray = GetStationStops(building);
+      BuildingInfo.SubInfo[] subBuildings = bm.m_buildings.m_buffer[(int) building].Info.m_subBuildings;
+      if (subBuildings != null && subBuildings.Length != 0)
+      {
+        Vector3 position = bm.m_buildings.m_buffer[(int) building].m_position;
+        ushort subBuilding = bm.FindBuilding(position, 100f, ItemClass.Service.PublicTransport,
+          ItemClass.SubService.None, Building.Flags.Untouchable, Building.Flags.None);
+        if (subBuilding != 0)
+        {
+          ushort[] stationStops = GetStationStops(subBuilding);
+          if (stationStops.Length != 0)
+          {
+            ushort[] combined = new ushort[numArray.Length + stationStops.Length];
+            numArray.CopyTo(combined, 0);
+            stationStops.CopyTo(combined, numArray.Length);
+            numArray = combined;
+          }
+        }
+      }
+
+      return numArray;
     }
   }
 }

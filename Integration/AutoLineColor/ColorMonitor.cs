@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using ImprovedPublicTransport.Integration.TicketPriceCustomizer;
 using ImprovedPublicTransport;
+using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace AutoLineColor
 {
@@ -107,16 +108,12 @@ namespace AutoLineColor
             }
         }
 
-        // TODO: make this whole thing a coroutine?
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
         {
             TransportManager theTransportManager;
             SimulationManager theSimulationManager;
             TransportLine[] lines;
 
-            // Refresh ticket prices tab passenger counts (throttled internally).
-            // This runs every frame, so an empty catch here would hide a recurring failure forever
-            // while still paying the exception cost 60x/second. Log it once, then stop calling it.
             if (!_ticketPricesTabFailed)
             {
                 try
@@ -132,7 +129,6 @@ namespace AutoLineColor
 
             try
             {
-                //Check for settings changes
                 var settings = ModSetting.Instance;
                 if (_lastColorStrategy != (int)settings.AutoLineColorColorStrategy ||
                     _lastNamingStrategy != (int)settings.AutoLineColorNamingStrategyMode)
@@ -147,7 +143,10 @@ namespace AutoLineColor
                 if (_initialized == false)
                     return;
 
-                // try and limit how often we are scanning for lines. this ain't that important
+                // Both strategies off — nothing to do this frame (skip manager lookups / locks).
+                if (_colorStrategy == null && _namingStrategy is NoNamingStrategy)
+                    return;
+
                 if (_nextUpdateTime >= DateTimeOffset.Now)
                     return;
 
@@ -178,6 +177,21 @@ namespace AutoLineColor
                 if (!locked)
                     return;
 
+                // Cheap pre-pass: only build UsedColors + process when at least one line needs work.
+                // Avoids allocating a full colour histogram every 10s on a finished transit map.
+                var anyWork = false;
+                for (ushort i = 0; i < lines.Length; i++)
+                {
+                    if (LineNeedsProcess(lines[i], theTransportManager, i))
+                    {
+                        anyWork = true;
+                        break;
+                    }
+                }
+
+                if (!anyWork)
+                    return;
+
                 _usedColors = UsedColors.FromLines(lines);
 
                 for (ushort i = 0; i < lines.Length; i++)
@@ -198,85 +212,89 @@ namespace AutoLineColor
             }
         }
 
+        private bool LineNeedsProcess(in TransportLine transportLine, TransportManager tm, ushort lineId)
+        {
+            if (transportLine.m_flags == TransportLine.Flags.None)
+                return false;
+            if (!transportLine.IsComplete() || !transportLine.IsActive())
+                return false;
+            if (_colorStrategy == null && _namingStrategy is NoNamingStrategy)
+                return false;
+
+            if (_colorStrategy != null && !transportLine.HasCustomColor())
+                return true;
+
+            if (!(_namingStrategy is NoNamingStrategy)
+                && !transportLine.HasCustomName()
+                && string.IsNullOrEmpty(tm.GetLineName(lineId)))
+                return true;
+
+            return false;
+        }
+
         public void ForceRefreshLine(ushort lineId)
         {
             ForceRefreshLineNow(lineId);
         }
 
+        /// <summary>
+        /// Manual "reatribui cor/nome" button.
+        /// Always reassigns colour when a colour strategy is enabled.
+        /// Only assigns a name when the line currently has no name (empty / whitespace).
+        /// </summary>
         public static void ForceRefreshLineNow(ushort lineId)
         {
-            Logger.Message($"Force refresh for line {lineId}");
-
             if (lineId == 0)
             {
-                Logger.Error("Skipping force refresh because lineId is 0");
                 return;
             }
 
             if (!Singleton<TransportManager>.exists || !Singleton<SimulationManager>.exists)
             {
-                Logger.Error($"Skipping force refresh for line {lineId} because managers are missing");
                 return;
             }
 
             try
             {
-                var theTransportManager = Singleton<TransportManager>.instance;
-                var theSimulationManager = Singleton<SimulationManager>.instance;
-                var lines = theTransportManager.m_lines.m_buffer;
-                var colorStrategy = Instance?._colorStrategy ?? SetColorStrategy((int)ModSetting.Instance.AutoLineColorColorStrategy);
-                var namingStrategy = Instance?._namingStrategy ?? SetNamingStrategy((int)ModSetting.Instance.AutoLineColorNamingStrategyMode);
-                var usedColors = UsedColors.FromLines(lines);
+                var settings = ModSetting.Instance;
+                // Reuse live strategies when settings unchanged — avoids realloc on every click.
+                IColorStrategy colorStrategy;
+                INamingStrategy namingStrategy;
+                if (Instance != null
+                    && Instance._lastColorStrategy == (int)settings.AutoLineColorColorStrategy
+                    && Instance._lastNamingStrategy == (int)settings.AutoLineColorNamingStrategyMode)
+                {
+                    colorStrategy = Instance._colorStrategy;
+                    namingStrategy = Instance._namingStrategy;
+                }
+                else
+                {
+                    colorStrategy = SetColorStrategy((int)settings.AutoLineColorColorStrategy);
+                    namingStrategy = SetNamingStrategy((int)settings.AutoLineColorNamingStrategyMode);
+                    if (Instance != null)
+                    {
+                        Instance._colorStrategy = colorStrategy;
+                        Instance._namingStrategy = namingStrategy;
+                        Instance._lastColorStrategy = (int)settings.AutoLineColorColorStrategy;
+                        Instance._lastNamingStrategy = (int)settings.AutoLineColorNamingStrategyMode;
+                    }
+                }
 
                 if (colorStrategy == null && namingStrategy is NoNamingStrategy)
                 {
-                    Logger.Error($"Skipping force refresh for line {lineId} because both color and naming strategies are disabled");
                     return;
                 }
+
+                var theTransportManager = Singleton<TransportManager>.instance;
+                var theSimulationManager = Singleton<SimulationManager>.instance;
+                var colorStrat = colorStrategy;
+                var nameStrat = namingStrategy;
 
                 theSimulationManager.AddAction(() =>
                 {
                     try
                     {
-                        ref var line = ref lines[lineId];
-                        if (line.m_flags == TransportLine.Flags.None || !line.IsComplete() || !line.IsActive())
-                        {
-                            return;
-                        }
-
-                        var updateColor = colorStrategy != null;
-                        var updateName = !(namingStrategy is NoNamingStrategy);
-                        if (!updateColor && !updateName)
-                        {
-                            return;
-                        }
-
-                        if (updateColor && updateName && colorStrategy is ICombinedStrategy combinedStrategy && colorStrategy.GetType() == namingStrategy.GetType())
-                        {
-                            combinedStrategy.GetColorAndName(line, usedColors, out var combinedColor, out var combinedName);
-                            theTransportManager.SetLineColor(lineId, combinedColor);
-                            if (!string.IsNullOrEmpty(combinedName))
-                            {
-                                theTransportManager.SetLineName(lineId, combinedName);
-                            }
-
-                            return;
-                        }
-
-                        if (updateColor)
-                        {
-                            var newColor = colorStrategy.GetColor(line, usedColors);
-                            theTransportManager.SetLineColor(lineId, newColor);
-                        }
-
-                        if (updateName)
-                        {
-                            var newName = namingStrategy.GetName(line, lineId);
-                            if (!string.IsNullOrEmpty(newName))
-                            {
-                                theTransportManager.SetLineName(lineId, newName);
-                            }
-                        }
+                        ApplyManualRefresh(lineId, colorStrat, nameStrat, theTransportManager);
                     }
                     catch (Exception ex)
                     {
@@ -289,46 +307,100 @@ namespace AutoLineColor
                 Logger.Error(ex.ToString());
             }
         }
+
+        private static void ApplyManualRefresh(
+            ushort lineId,
+            IColorStrategy colorStrategy,
+            INamingStrategy namingStrategy,
+            TransportManager tm)
+        {
+            ref var line = ref tm.m_lines.m_buffer[lineId];
+            if ((line.m_flags & TransportLine.Flags.Created) == 0)
+            {
+                return;
+            }
+
+            // Complete is preferred but some edge lines still need a recolor — only require Created.
+            var currentName = tm.GetLineName(lineId) ?? string.Empty;
+            var hasExistingName = !string.IsNullOrEmpty(currentName.Trim());
+
+            // Used colours excluding this line so we can pick a different colour for a re-roll.
+            var usedColors = UsedColors.FromLinesExcluding(tm.m_lines.m_buffer, lineId);
+
+            if (colorStrategy != null)
+            {
+                Color32 newColor;
+                if (colorStrategy is ICombinedStrategy combined
+                    && namingStrategy != null
+                    && !(namingStrategy is NoNamingStrategy)
+                    && colorStrategy.GetType() == namingStrategy.GetType()
+                    && !hasExistingName)
+                {
+                    // Combined path only when we will also name.
+                    combined.GetColorAndName(line, usedColors, out newColor, out var combinedName);
+                    tm.SetLineColor(lineId, newColor);
+                    if (!string.IsNullOrEmpty(combinedName))
+                    {
+                        tm.SetLineName(lineId, combinedName);
+                    }
+
+                    return;
+                }
+
+                newColor = colorStrategy.GetColor(line, usedColors);
+                tm.SetLineColor(lineId, newColor);
+                // Ensure CustomColor flag sticks even if SetLineColor path is quirky.
+                line.m_flags |= TransportLine.Flags.CustomColor;
+                line.m_color = newColor;
+            }
+
+            // Only name when the line has no name yet.
+            if (!hasExistingName
+                && namingStrategy != null
+                && !(namingStrategy is NoNamingStrategy))
+            {
+                var newName = namingStrategy.GetName(line, lineId);
+                if (!string.IsNullOrEmpty(newName))
+                {
+                    tm.SetLineName(lineId, newName);
+                }
+            }
+        }
+
         private void ProcessLine(ushort lineId, in TransportLine transportLine, bool forceUpdate, SimulationManager theSimulationManager,
             TransportManager theTransportManager)
         {
-            //logger.Message(string.Format("Starting on line {0}", num));
-
             if (transportLine.m_flags == TransportLine.Flags.None)
                 return;
 
             if (!transportLine.IsComplete())
                 return;
 
-            // only worry about fully created lines
             if (!transportLine.IsActive())
                 return;
 
-            // If both color and naming are disabled, skip processing
             if (_colorStrategy == null && _namingStrategy is NoNamingStrategy)
                 return;
 
-            // only worry about newly created lines, unless forcing the update
             var updateColor = (forceUpdate || !transportLine.HasCustomColor()) && _colorStrategy != null;
-            var updateName = (forceUpdate || !transportLine.HasCustomName()) && !(_namingStrategy is NoNamingStrategy);
+            // Automatic path: only name brand-new lines without a name.
+            var updateName = (forceUpdate || !transportLine.HasCustomName())
+                             && !(_namingStrategy is NoNamingStrategy)
+                             && (forceUpdate || string.IsNullOrEmpty(theTransportManager.GetLineName(lineId)));
 
             if (!updateColor && !updateName)
                 return;
 
-            Logger.Message($"Working on line {lineId} (m_flags={transportLine.m_flags} m_color={transportLine.m_color})");
-
-            var currentColor = (Color32)theTransportManager.GetLineColor(lineId);
-            var currentName = theTransportManager.GetLineName(lineId);
             Color32 newColor;
             string newName;
 
-            if (_colorStrategy is ICombinedStrategy combinedStrategy && _colorStrategy.GetType() == _namingStrategy.GetType())  //XXX ugly
+            if (_colorStrategy is ICombinedStrategy combinedStrategy && _colorStrategy.GetType() == _namingStrategy.GetType())
             {
                 combinedStrategy.GetColorAndName(transportLine, _usedColors, out newColor, out newName);
 
                 theSimulationManager.AddAction(theTransportManager.SetLineColor(lineId, newColor));
 
-                if (!string.IsNullOrEmpty(newName))
+                if (updateName && !string.IsNullOrEmpty(newName))
                     theSimulationManager.AddAction(theTransportManager.SetLineName(lineId, newName));
 
                 return;
@@ -337,9 +409,6 @@ namespace AutoLineColor
             if (updateColor && _colorStrategy != null)
             {
                 newColor = _colorStrategy.GetColor(transportLine, _usedColors);
-
-                Logger.Message($"Changing line {lineId} color from {currentColor} to {newColor}");
-
                 theSimulationManager.AddAction(theTransportManager.SetLineColor(lineId, newColor));
             }
 
@@ -351,34 +420,17 @@ namespace AutoLineColor
             if (string.IsNullOrEmpty(newName))
                 return;
 
-            Logger.Message($"Changing line {lineId} name from '{currentName}' to '{newName}'");
-
             theSimulationManager.AddAction(theTransportManager.SetLineName(lineId, newName));
         }
     }
 
     internal static class LineExtensions
     {
-        //// TODO: check default colors for other line types? is there a better way to do this?
-        //private static readonly Color32 BlackColor = new Color32(0, 0, 0, 0);
-        //private static readonly Color32 DefaultBusColor = new Color32(44, 142, 191, 255);
-        //private static readonly Color32 DefaultMetroColor = new Color32(0, 184, 0, 255);
-        //private static readonly Color32 DefaultTrainColor = new Color32(219, 86, 0, 255);
-
-        //public static bool IsDefaultColor(this Color32 color)
-        //{
-        //    return color.IsColorEqual(BlackColor) ||
-        //           color.IsColorEqual(DefaultBusColor) ||
-        //           color.IsColorEqual(DefaultMetroColor) ||
-        //           color.IsColorEqual(DefaultTrainColor);
-        //}
-
         public static bool IsActive(in this TransportLine transportLine)
         {
             if ((transportLine.m_flags & (TransportLine.Flags.Created | TransportLine.Flags.Hidden)) == 0)
                 return false;
 
-            // stations are marked with this flag
             return (transportLine.m_flags & TransportLine.Flags.Temporary) == 0;
         }
 
@@ -407,70 +459,11 @@ namespace AutoLineColor
             Func<TSource, TAccumulate, TResult> resultSelector)
         {
             var accumulator = seed;
-
             foreach (var item in source)
             {
                 accumulator = updater(accumulator, item);
                 yield return resultSelector(item, accumulator);
             }
         }
-
-        public static TItem MinBy<TItem, TKey>([NotNull] this IEnumerable<TItem> source, [NotNull] Func<TItem, TKey> selector)
-            where TKey : IComparable<TKey>
-        {
-            using (var enumerator = source.GetEnumerator())
-            {
-                if (!enumerator.MoveNext())
-                    throw new ArgumentException("Sequence is empty", nameof(source));
-
-                var best = enumerator.Current;
-                var bestScore = selector(best);
-
-                while (enumerator.MoveNext())
-                {
-                    var next = enumerator.Current;
-                    var nextScore = selector(next);
-
-                    if (nextScore.CompareTo(bestScore) >= 0)
-                        continue;
-
-                    best = next;
-                    bestScore = nextScore;
-                }
-
-                return best;
-            }
-        }
-
-        public static TItem MaxBy<TItem, TKey>([NotNull] this IEnumerable<TItem> source, [NotNull] Func<TItem, TKey> selector)
-            where TKey : IComparable<TKey>
-        {
-            using (var enumerator = source.GetEnumerator())
-            {
-                if (!enumerator.MoveNext())
-                    throw new ArgumentException("Sequence is empty", nameof(source));
-
-                var best = enumerator.Current;
-                var bestScore = selector(best);
-
-                while (enumerator.MoveNext())
-                {
-                    var next = enumerator.Current;
-                    var nextScore = selector(next);
-
-                    if (nextScore.CompareTo(bestScore) <= 0)
-                        continue;
-
-                    best = next;
-                    bestScore = nextScore;
-                }
-
-                return best;
-            }
-        }
     }
 }
-
-
-
-

@@ -1,6 +1,5 @@
-using System;
-using System.Reflection;
 using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace FlightTracker
 {
@@ -24,7 +23,7 @@ namespace FlightTracker
 
             _patched = true;
             var harmony = new Harmony(HarmonyID);
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(harmony, "FlightTracker");
         }
 
         /// <summary>

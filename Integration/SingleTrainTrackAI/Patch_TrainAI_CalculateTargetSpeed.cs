@@ -1,6 +1,7 @@
 using ColossalFramework;
 using HarmonyLib;
 using ImprovedPublicTransport;
+using UnityEngine;
 
 namespace SingleTrainTrackAI
 {
@@ -18,6 +19,13 @@ namespace SingleTrainTrackAI
         public static void Postfix(ushort vehicleID, ref Vehicle data, ref float __result)
         {
             if (!ModSetting.Instance.EnableSingleTrainTrackAI || data.m_path == 0)
+            {
+                return;
+            }
+
+            // Only the lead car of a multi-unit train owns reservations / brake decisions.
+            var leadId = data.GetFirstVehicle(vehicleID);
+            if (leadId != 0 && leadId != vehicleID)
             {
                 return;
             }
@@ -41,7 +49,7 @@ namespace SingleTrainTrackAI
             }
 
             // Not on a shared segment yet - if the very next one is single-track and held by a
-            // different train, brake to a stop rather than enter it.
+            // different train, brake rather than enter it.
             if (!pathManager.m_pathUnits.m_buffer[data.m_path].GetNextPosition(pathIndex, out var nextPos))
             {
                 return;
@@ -49,7 +57,10 @@ namespace SingleTrainTrackAI
 
             if (SegmentClassifier.IsSingleTrainTrack(nextPos.m_segment) && TrackReservation.IsHeldByOther(nextPos.m_segment, vehicleID))
             {
-                __result = 0f;
+                // Soft brake: hard 0 froze trains for long periods when reservations went stale or
+                // when same-direction followers queued behind a slow train still on the segment.
+                // Cap speed so the train creeps up and only fully stops when already nearly stopped.
+                __result = Mathf.Min(__result, 8f);
             }
         }
     }

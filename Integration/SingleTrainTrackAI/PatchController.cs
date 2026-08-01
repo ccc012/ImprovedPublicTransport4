@@ -1,5 +1,5 @@
-using System.Reflection;
 using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace SingleTrainTrackAI
 {
@@ -8,17 +8,29 @@ namespace SingleTrainTrackAI
         public const string HarmonyModID = "IPT4.SingleTrainTrackAI";
 
         private static Harmony _harmony;
+        private static bool _active;
 
         private static Harmony GetHarmonyInstance() => _harmony ??= new Harmony(HarmonyModID);
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            if (_active)
+            {
+                return;
+            }
+
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "SingleTrainTrackAI");
+            _active = true;
         }
 
         public static void Deactivate()
         {
-            GetHarmonyInstance().UnpatchAll(HarmonyModID);
+            if (_active)
+            {
+                GetHarmonyInstance().UnpatchAll(HarmonyModID);
+                _active = false;
+            }
+
             TrackReservation.Clear();
             SegmentClassifier.Clear();
         }

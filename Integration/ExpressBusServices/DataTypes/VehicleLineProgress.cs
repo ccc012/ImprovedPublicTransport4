@@ -24,10 +24,11 @@ namespace ExpressBusServices.DataTypes
         {
             TransportLine theLine = Singleton<TransportManager>.instance.m_lines.m_buffer[transportLineID];
             VehicleManager instance = Singleton<VehicleManager>.instance;
+            var vBuffer = instance.m_vehicles.m_buffer;
             // assume valid list, so no "exceeded size", etc.
             // we will iterate the list until it reads 0, which indicates "no more vehicles in the line"
             ushort iteratingVehicleID = theLine.m_vehicles;
-            List<VehicleLineProgress> progressList = new List<VehicleLineProgress>();
+            List<VehicleLineProgress> progressList = new List<VehicleLineProgress>(16);
             int loopGuard = 0;
             int maxIterations = (int)instance.m_vehicles.m_size;
             while (iteratingVehicleID != 0)
@@ -37,18 +38,18 @@ namespace ExpressBusServices.DataTypes
                     IPTUtils.LogError("ExpressBusServices: Invalid vehicle list detected!");
                     break;
                 }
-                VehicleInfo info = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[iteratingVehicleID].Info;
-                info.m_vehicleAI.GetProgressStatus(iteratingVehicleID, ref Singleton<VehicleManager>.instance.m_vehicles.m_buffer[iteratingVehicleID], out float current, out float max);
-                // the bool return is simply to indicate whether the bus is stopping at a stop.
-                // (true indicates "is moving", so false indicates "is at stop")
-                // not useful right now, but it will be useful later
-                if (max != 0)
+                ref Vehicle veh = ref vBuffer[iteratingVehicleID];
+                VehicleInfo info = veh.Info;
+                if (info?.m_vehicleAI != null)
                 {
-                    // a valid bus; invalid bus (eg is despawning) will get max = 0
-                    VehicleLineProgress progress = new VehicleLineProgress(iteratingVehicleID, current / max);
-                    progressList.Add(progress);
+                    info.m_vehicleAI.GetProgressStatus(iteratingVehicleID, ref veh, out float current, out float max);
+                    // invalid bus (eg is despawning) will get max = 0
+                    if (max != 0)
+                    {
+                        progressList.Add(new VehicleLineProgress(iteratingVehicleID, current / max));
+                    }
                 }
-                iteratingVehicleID = instance.m_vehicles.m_buffer[iteratingVehicleID].m_nextLineVehicle;
+                iteratingVehicleID = veh.m_nextLineVehicle;
             }
             // all vehicles found
             // give to dedicated object

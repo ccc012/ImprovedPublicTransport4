@@ -1,0 +1,45 @@
+[img]https://i.imgur.com/8BfNPgj.png[/img]
+[h1]Improved Public Transport 4[/h1]
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.0[/b] · Built for game version 1.21.1-f9
+
+[h1]Miért létezik ez a mod[/h1]
+Egy városnak rohamosan fogyott a pénze — a fenntartási költségek [b]-42 000 000 000[/b]-ra ugrottak. Egyik mod sem volt hibás; két mod egymástól függetlenül döntötte el, mekkora legyen a flotta, és felülírták egymást. A megoldás: egy hely, egy rendszer. Ez az IPT4.
+Egy assembly, metódusonként egy patch általában könnyebben is fut: a nem hivatalos tesztek ~50-60 FPS-t mértek itt, a különálló modok ~40-50 FPS-ével szemben.
+[hr][/hr]
+[h1]Mit tehetsz vele[/h1]
+[h2]Vedd át az irányítást bármelyik vonal felett[/h2]
+Busz, villamos, metró, vonat, hajó, repülő, egysínű vasút, libegő, taxi, túra — minden vonal teljes vezérlőpultot kap: [b]állítsd be magad a flotta méretét[/b] vagy hagyd, hogy a mod a költségvetésből méretezze (soha nem felülírva csendben), [b]válaszd ki, mely járművek fussanak[/b], [b]szerkeszd egyenként[/b], és [b]válassz kocsiszínt[/b] vonalanként.
+[h2]Javítsd ki a feltorlódást (bunching)[/h2]
+Négy busz szorosan egymás mögött, majd tíz percig semmi. Vonalanként három szint: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (enyhe térköz), [b]Realistic[/b] (valós időközök). Vagy az [b]Express[/b] mód az üres megállók átugrásához.
+[h2]Állítsd be a saját viteldíjaidat[/h2]
+Árazz be minden típust a Gazdaság panel [b]Jegyárak (Ticket Prices)[/b] lapján, opcionális [b]nappali/éjszakai árazással[/b]. Az árak befolyásolják a keresletet: az olcsó megtelik, a drága kiürül.
+[h2]Lásd, mi történik[/h2]
+[b]Megálló infópanel[/b] (várakozó utasok, következő jármű, zsúfoltság), [b]Train Display[/b] (élő útvonal-átfedés jármű követésekor, teljesen konfigurálható), [b]automatikus vonalszínek és -nevek[/b] az olvasható térképért, és [b]Flight Tracker[/b] a repülőtéri érkezésekhez/indulásokhoz.
+[h2]Tedd rendbe a hálózatodat[/h2]
+[b]Tömeges vonaltörlés[/b] (kiválasztott típus összes vonala egyszerre, megerősítéssel), [b]jobb megálló-elhelyezés[/b], beleértve magasított pályákat, és egy [b]unstucker[/b] eszköz, ami kiszabadítja a beragadt járműveket, ahelyett hogy blokkolnák az útvonalat.
+[h2]Újdonságok a 4.8-ban[/h2]
+[b]Single Train Track AI[/b] — egy megosztott egyvágányú szakasz egyszerre csak egy irányba fenntartott, így két vonat nem kockáztat ütközést. [b]Stop Stacker[/b] — az ugyanoda érkező második busz saját helyet kap hátrébb, nem áll sorba az első mögött. [b]Intercity Bus Control[/b] gyökeresen javítva — a DLC-ellenőrzés megbízhatatlan volt, csendben letilthatta Sunset Harbor tulajdonosoknál is; alapból újra bekapcsolva. [b]Sub-Buildings Tabs[/b] — elavult lap hiba javítva bontás/újjáépítés után; alapból újra bekapcsolva. Plusz hibajavítási és teljesítményhullám — teljes lista a changelogban.
+[hr][/hr]
+[h1]Az IPT4-be integrált modok — és azok készítői[/h1]
+[b]Iratkozz le az önálló verziókról[/b] — mindkettő futtatása kétszer foltozza ugyanazt a kódot, pontosan azt a konfliktust okozva, amit e mod el akar kerülni. Az alábbiak mindegyike mások munkája; ha hasznos, köszönd meg a szerző oldalán.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b], BloodyPenguin eredetije alapján) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b], Phil Scott eredetije alapján) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], folytatva [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape eredetijét[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+A legtöbbnek saját kapcsolója van; a csak hibás vanilla viselkedést javítók mindig be vannak kapcsolva. A taxi bevételhez [b]After Dark[/b] kell. A [b]Taxi Stand Fix[/b], a [b]Single Train Track AI[/b] és a [b]Stop Stacker[/b] nem szerepel a listában — mindhárom eredeti/clean-room kód, nem portolás (a forrásmodoknak nincs licencük vagy elérhető forrásuk).
+[hr][/hr]
+[h1]Követelmények és kompatibilitás[/h1]
+[b]Harmony[/b] (ID 2040656402) szükséges. [b]Nem kompatibilis:[/b] IPT2, IPT3, Transport Lines Manager, önálló AutoLineBudget, vagy bármely fenti mod önálló másolata — a játék figyelmeztet, ha megtalálja.
+[hr][/hr]
+[h1]Nyelvek[/h1]
+[b]Mind a 23 nyelv teljesen lefordítva[/b] — minden szöveg, nem csak a menük. Követi a játék nyelvét, vagy válassz a beállításokban.
+[hr][/hr]
+[h1]Kezdés[/h1]
+Iratkozz fel a [b]Harmony[/b]-ra, iratkozz le a fenti modokról, engedélyezd az IPT4-et, tölts be egy várost, és kattints bármelyik vonalra. Az opciók a [b]Beállítások → Mod Beállítások → Improved Public Transport 4[/b] alatt; a viteldíjak a [b]Gazdaság[/b] panelen. [b]A meglévő mentések működnek[/b] — ugyanaz az adat, mint az IPT2/IPT3-nál.
+[hr][/hr]
+[h1]Stabilitás[/h1]
+Stabil csatorna. Az elszabadult karbantartási hiba, ami ezt a fork-ot motiválta, gyökeresen javítva, a sérült mentéseket a rendszer betöltéskor automatikusan kijavítja. Azért [b]tarts biztonsági mentést[/b]. Ha valami elromlik, mondd el, [i]mit csináltál[/i], és csatold ezt:
+[code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
+Napló nélküli „Nem működik” bejelentést nem lehet diagnosztizálni.
+[hr][/hr]
+[h1]Forráskód és köszönetnyilvánítás[/h1]
+Forráskód és changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+Az IPT4 [b]GPL-3.0[/b] licencű, mások munkáján alapul: [b]DontCryJustDie[/b] írta az eredeti IPT-t (2015), [b]BloodyPenguin[/b] írta az [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]-t, [b]Madisonian[/b] írta az [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]-at, amiből ez a fork származik. A beépített modok fentebb feltüntetve; az UI keretrendszerek [b]algernon[/b] és [b]Mbyron26[/b] munkái. Köszönöm mindenkinek.

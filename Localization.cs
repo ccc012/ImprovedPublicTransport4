@@ -1,4 +1,6 @@
-﻿using ImprovedPublicTransport.LanguageFormat;
+﻿using System;
+using System.Collections.Generic;
+using ImprovedPublicTransport.LanguageFormat;
 using ImprovedPublicTransport.TranslationFramework;
 
 namespace ImprovedPublicTransport
@@ -13,6 +15,9 @@ namespace ImprovedPublicTransport
         private static readonly LocalizationManager LocalizationManager =
             new LocalizationManager(typeof(Mod), new PlainTextLanguageDeserializer());
 
+        // Missing keys used to LogWarning (+ file IO) on every UI bind (~4 Hz). Log once per key.
+        private static readonly HashSet<string> LoggedMissingKeys = new HashSet<string>();
+
         public static string Get(string translationId)
         {
                 // First try the mod's localization manager (most reliable for mod keys)
@@ -23,7 +28,11 @@ namespace ImprovedPublicTransport
                 if (translated != translationId)
                     return translated;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                if (LoggedMissingKeys.Add("err:" + translationId))
+                    ImprovedPublicTransport.Util.Utils.LogWarning($"Localization.Get primary failed for '{translationId}': {ex.Message}");
+            }
 
             // Then try Colossal's built-in locale. Colossal's Locale.Get returns "{id}:0" (not an
             // exception) when the identifier isn't a recognized vanilla-game key - that string is
@@ -35,7 +44,10 @@ namespace ImprovedPublicTransport
                 if (c != translationId && c != translationId + ":0")
                     return c;
             }
-            catch { }
+            catch
+            {
+                // ignore — fall through
+            }
 
             // Last-resort: try reading directly from Locale/en.txt
             try
@@ -43,13 +55,16 @@ namespace ImprovedPublicTransport
                 var fileTranslated = LocalizationManager.TryGetTranslationFromLocaleFile(translationId);
                 if (!string.IsNullOrEmpty(fileTranslated))
                 {
-                    ImprovedPublicTransport.Util.Utils.LogWarning($"Loaded fallback translation for '{translationId}' from en.txt");
                     return fileTranslated;
                 }
             }
-            catch { }
+            catch
+            {
+                // ignore
+            }
 
-            ImprovedPublicTransport.Util.Utils.LogWarning($"Missing translation for '{translationId}'");
+            if (LoggedMissingKeys.Add(translationId))
+                ImprovedPublicTransport.Util.Utils.LogWarning($"Missing translation for '{translationId}'");
             return translationId;
         }
     }

@@ -24,6 +24,77 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         private static readonly List<TicketPriceSliderRow> s_sliderRows = new List<TicketPriceSliderRow>();
         private static readonly Dictionary<string, UITextureAtlas> s_customIconAtlases = new Dictionary<string, UITextureAtlas>();
 
+        // BudgetItem field names (CS1 1.21+ ships night slider as "m_NightSlidermalan" — typo in
+        // the game binary — so looking only for "m_NightSlider" NRE'd every row). Resolved once.
+        private static readonly FieldInfo BudgetItemDaySliderField =
+            ResolveBudgetItemField("m_DaySlider");
+        private static readonly FieldInfo BudgetItemNightSliderField =
+            ResolveBudgetItemField("m_NightSlider", "m_NightSlidermalan");
+        private static readonly FieldInfo BudgetItemDayLabelField =
+            ResolveBudgetItemField("m_DayPercentageLabel");
+        private static readonly FieldInfo BudgetItemNightLabelField =
+            ResolveBudgetItemField("m_NightPercentageLabel");
+        private static readonly FieldInfo BudgetItemTotalLabelField =
+            ResolveBudgetItemField("m_TotalLabel");
+
+        private static FieldInfo ResolveBudgetItemField(params string[] names)
+        {
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
+            var type = typeof(BudgetItem);
+            foreach (var name in names)
+            {
+                var field = type.GetField(name, flags);
+                if (field != null)
+                {
+                    return field;
+                }
+            }
+
+            return null;
+        }
+
+        private static T GetBudgetItemField<T>(object budgetItem, FieldInfo field, string debugName)
+            where T : class
+        {
+            if (field == null || budgetItem == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                return field.GetValue(budgetItem) as T;
+            }
+            catch (Exception ex)
+            {
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"TicketPricesTab: GetValue failed for {debugName}: {ex.Message}");
+                }
+
+                return null;
+            }
+        }
+
+        private static UISlider FindChildSlider(UIComponent root, int index)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            var n = 0;
+            foreach (var child in root.GetComponentsInChildren<UISlider>(true))
+            {
+                if (n++ == index)
+                {
+                    return child;
+                }
+            }
+
+            return null;
+        }
+
         // This tab's tab-button text, headers, tooltips and per-row transport labels are all set
         // once at build time via Localization.Get(...) - unlike the mod's own Options panel (which
         // CSLModsCommon fully rebuilds on a locale change), nothing ever told this tab to redraw
@@ -727,9 +798,6 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 return null;
             }
 
-            var biType       = typeof(BudgetItem);
-            var flags        = BindingFlags.Instance | BindingFlags.NonPublic;
-            
             UISlider daySlider = null;
             UISlider nightSlider = null;
             UILabel dayLabel = null;
@@ -738,11 +806,21 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             
             try
             {
-                daySlider    = (UISlider)biType.GetField("m_DaySlider",           flags).GetValue(budgetItem);
-                nightSlider  = (UISlider)biType.GetField("m_NightSlider",          flags).GetValue(budgetItem);
-                dayLabel     = (UILabel) biType.GetField("m_DayPercentageLabel",  flags).GetValue(budgetItem);
-                nightLabel   = (UILabel) biType.GetField("m_NightPercentageLabel",flags).GetValue(budgetItem);
-                totalLabel   = (UILabel) biType.GetField("m_TotalLabel",          flags).GetValue(budgetItem);
+                // Cache FieldInfo once: repeated GetField per row was wasteful, and a missing
+                // field name used to NRE on .GetValue(null) for every transport type (seen in
+                // output_log: "BudgetItem reflection failed for Bus/Metro/..." x15).
+                daySlider    = GetBudgetItemField<UISlider>(budgetItem, BudgetItemDaySliderField, "m_DaySlider");
+                nightSlider  = GetBudgetItemField<UISlider>(budgetItem, BudgetItemNightSliderField, "m_NightSlider");
+                dayLabel     = GetBudgetItemField<UILabel>(budgetItem, BudgetItemDayLabelField, "m_DayPercentageLabel");
+                nightLabel   = GetBudgetItemField<UILabel>(budgetItem, BudgetItemNightLabelField, "m_NightPercentageLabel");
+                totalLabel   = GetBudgetItemField<UILabel>(budgetItem, BudgetItemTotalLabelField, "m_TotalLabel");
+
+                // Name-based fallback when field names differ across game builds.
+                daySlider    ??= rowComponent.Find<UISlider>("DaySlider") ?? FindChildSlider(rowComponent, 0);
+                nightSlider  ??= rowComponent.Find<UISlider>("NightSlider") ?? FindChildSlider(rowComponent, 1);
+                dayLabel     ??= rowComponent.Find<UILabel>("DayPercentage") ?? rowComponent.Find<UILabel>("DayPercentageLabel");
+                nightLabel   ??= rowComponent.Find<UILabel>("NightPercentage") ?? rowComponent.Find<UILabel>("NightPercentageLabel");
+                totalLabel   ??= rowComponent.Find<UILabel>("Total") ?? rowComponent.Find<UILabel>("TotalLabel");
             }
             catch (Exception ex)
             {
@@ -753,7 +831,12 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
             if (daySlider == null || dayLabel == null || totalLabel == null)
             {
-                Utils.LogError($"TicketPricesTab: BudgetItem reflection returned nulls for {transportType.Name} — daySlider={daySlider}, dayLabel={dayLabel}, totalLabel={totalLabel}");
+                // Soft fail: let CreateSliderRow use the custom fallback layout instead of
+                // spamming one hard error per transport type when the template layout changed.
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"TicketPricesTab: BudgetItem template incomplete for {transportType.Name} — daySlider={daySlider != null}, dayLabel={dayLabel != null}, totalLabel={totalLabel != null}; using fallback row.");
+                }
                 UnityEngine.Object.Destroy(rowComponent.gameObject);
                 return null;
             }

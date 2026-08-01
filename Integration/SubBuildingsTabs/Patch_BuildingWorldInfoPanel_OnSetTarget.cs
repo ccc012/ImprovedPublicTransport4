@@ -57,11 +57,9 @@ namespace SubBuildingsTabs
                 // offset on every panel visibility-change event rather than trusting a one-time
                 // Start() to have already run).
                 //
-                // UNCONFIRMED (2026-07-30): with the Start()-vs-postfix race fixed, live tests went
-                // -50 (wrong direction - moved further from the panel's top edge, not closer) -> 0
-                // (still a visible gap, not flush). Negative was wrong and zero undershoots, so the
-                // correct value is a small positive offset - trying +10 next.
-                tabstrip.relativePosition = new Vector2(13, 10);
+                // Live tests: -50 (wrong) → 0 (gap) → +10 (still short). Bump +5 more → +15.
+                // Sub-Buildings Tabs only — not related to Intercity checkbox / depot UI.
+                tabstrip.relativePosition = new Vector2(13, 15);
                 tabstrip.UpdateInfoPanelTabs(___m_InstanceID.Building);
             }
             catch (Exception ex)

@@ -11,6 +11,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches
     /// </summary>
     internal static class EconomyPanelAwakePatch
     {
+        private static readonly System.Reflection.MethodInfo EconomyAwakeMethod =
+            typeof(EconomyPanel).GetMethod("Awake",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+
         public static void Apply()
         {
             if (Diagnostics.VerboseTranspileLogs)
@@ -19,7 +23,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches
             }
 
             // Log if someone else already patched EconomyPanel.Awake
-            var economyAwakeMethod = typeof(EconomyPanel).GetMethod("Awake", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+            var economyAwakeMethod = EconomyAwakeMethod;
             if (economyAwakeMethod == null)
             {
                 Utils.LogWarning("EconomyPanelAwakePatch: Could not find EconomyPanel.Awake method for patching.");

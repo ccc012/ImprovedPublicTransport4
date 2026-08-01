@@ -59,8 +59,11 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
             var lineCount = transportManager.m_lines.m_buffer.Length;
             for (ushort lineID = 1; lineID < lineCount; ++lineID)
             {
+                // Incomplete / released slots recycle lineIDs - drop any stale demand
+                // samples so a brand-new line on that slot does not inherit old hour-flow data.
                 if (!transportManager.m_lines.m_buffer[lineID].Complete)
                 {
+                    ForgetLine(lineID);
                     continue;
                 }
 
@@ -84,6 +87,14 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
 
                 ProcessLine(lineID);
             }
+        }
+
+        private void ForgetLine(ushort lineID)
+        {
+            _managedLines.Remove(lineID);
+            _lineHourFlow.Remove(lineID);
+            _avgIntervalByVehCount.Remove(lineID);
+            _avgIntervalCountByVehCount.Remove(lineID);
         }
 
         private void ProcessLine(ushort lineID)

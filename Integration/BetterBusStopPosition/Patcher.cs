@@ -1,4 +1,5 @@
 using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace BetterBusStopPosition
 {
@@ -13,7 +14,9 @@ public static class Patcher
         if( patched )
             return;
         var harmony = new Harmony( harmonyId );
-        harmony.PatchAll( typeof( Patcher ).Assembly );
+        // Scope to this integration only - full-assembly PatchAll would re-apply every
+        // other Integration/* [HarmonyPatch] under this Harmony ID.
+        HarmonyScope.PatchNamespace( harmony, "BetterBusStopPosition" );
         patched = true;
     }
 

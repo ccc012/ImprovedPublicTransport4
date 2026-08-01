@@ -1,11 +1,11 @@
 ﻿using HarmonyLib;
-using System.Reflection;
+using ImprovedPublicTransport.Util;
 
 namespace PublicTransportUnstucker
 {
     internal static class PatchController
     {
-        public static string HarmonyModID => "com.vectorial1024.cities.ptu";
+        public const string HarmonyModID = "com.vectorial1024.cities.ptu";
 
         /*
          * The "singleton" design is pretty straight-forward.
@@ -32,7 +32,7 @@ namespace PublicTransportUnstucker
                 return;
             }
 
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "PublicTransportUnstucker");
             RoguePassengerTable.EnsureTableExists();
             _isActive = true;
         }

@@ -13,6 +13,7 @@ using ImprovedPublicTransport.Query;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.UI.DontCryJustDieCommons;
 using ImprovedPublicTransport.Util;
+using ImprovedPublicTransport.UI;
 using UnityEngine;
 using static ImprovedPublicTransport.ImprovedPublicTransportMod;
 using UIUtils = ImprovedPublicTransport.Util.UIUtils;
@@ -22,6 +23,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 {
     public class PanelExtenderLine : MonoBehaviour
     {
+        private static readonly MethodInfo OnColorChangedMethod =
+            typeof(PublicTransportWorldInfoPanel).GetMethod("OnColorChanged",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+
         private bool _initialized;
         private ushort _cachedLineID;
         private ItemClass.Level _cachedLevel = ItemClass.Level.None;
@@ -56,6 +61,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         private UIComponent _vehicleLabel;
 
         private UITextField _colorTextField;
+        private UIButton _autoColorRefreshBtn;
 
         public PanelExtenderLine()
         {
@@ -102,6 +108,33 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             _updateDepots = dictionary;
         }
 
+        // Full UpdateBindings every frame is expensive (depot dropdown, vehicle list, localization).
+        // 4 Hz is enough for spawn timer / counts while the line panel is open.
+        private float _nextBindingsRealtime;
+        private string _locVehicleCount;
+        private string _locStops;
+        private string _locUnbunchDisabled;
+        private string _locUnbunchEnabled;
+        private string _locUnbunchGap;
+        private string _locSpawnTimer;
+        private string _locDepotWarning;
+
+        private void EnsureLocaleCache()
+        {
+            if (_locVehicleCount != null)
+            {
+                return;
+            }
+
+            _locVehicleCount = Localization.Get("TRANSPORT_LINE_VEHICLECOUNT");
+            _locStops = Localization.Get("LINE_PANEL_STOPS");
+            _locUnbunchDisabled = Localization.Get("UNBUNCHING_DISABLED");
+            _locUnbunchEnabled = Localization.Get("UNBUNCHING_ENABLED");
+            _locUnbunchGap = Localization.Get("UNBUNCHING_TARGET_GAP");
+            _locSpawnTimer = Localization.Get("LINE_PANEL_SPAWNTIMER");
+            _locDepotWarning = Localization.Get("LINE_PANEL_DEPOT_WARNING");
+        }
+
         private void Update()
         {
             if (!_initialized)
@@ -112,26 +145,33 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             {
                 if (!_initialized || !_publicTransportWorldInfoPanel.component.isVisible)
                     return;
-                UpdateBindings();
 
-                if (_vehicleLabel == null)
+                var now = Time.unscaledTime;
+                if (now >= _nextBindingsRealtime)
                 {
-                    Debug.LogError($"{ShortModName}: Vehicle label not found!");
+                    _nextBindingsRealtime = now + 0.25f;
+                    UpdateBindings();
+
+                    // Layout only when bindings refresh — AlignTo every frame was pure UI thrash.
+                    if (_vehicleLabel == null)
+                    {
+                        Utils.LogError($"{ShortModName}: Vehicle label not found!");
+                    }
+                    else
+                    {
+                        _budgetButton.AlignTo(_vehicleLabel.parent, UIAlignAnchor.TopLeft);
+                        _budgetButton.relativePosition = _vehicleLabel.relativePosition + new Vector3(0f, _vehicleLabel.height, 0f);
+                        _vehicleLabel.isVisible = false;
+                    }
+
+                    _lineLengthLabel.AlignTo(_vehicleAmountParent, UIAlignAnchor.TopLeft);
+                    _lineLengthLabel.relativePosition = new Vector3(0, 45f, 0f);
+                    _stopCountLabel.AlignTo(_vehicleAmountParent, UIAlignAnchor.TopLeft);
+                    _stopCountLabel.relativePosition = new Vector3(_lineLengthLabel.width + 16f, 45f, 0f);
+                    _vehicleAmount.AlignTo(_vehicleAmountParent, UIAlignAnchor.TopLeft);
+                    _vehicleAmount.relativePosition =
+                        new Vector3(_lineLengthLabel.width + 16f + _stopCountLabel.width + 16f, 45f, 0f);
                 }
-                else
-                {
-                    _budgetButton.AlignTo(_vehicleLabel.parent, UIAlignAnchor.TopLeft);
-                    _budgetButton.relativePosition = _vehicleLabel.relativePosition + new Vector3(0f, _vehicleLabel.height, 0f);
-                    _vehicleLabel.isVisible = false;
-                }
-                
-                _lineLengthLabel.AlignTo(_vehicleAmountParent, UIAlignAnchor.TopLeft);
-                _lineLengthLabel.relativePosition = new Vector3(0, 45f, 0f);
-                _stopCountLabel.AlignTo(_vehicleAmountParent, UIAlignAnchor.TopLeft);
-                _stopCountLabel.relativePosition = new Vector3(_lineLengthLabel.width + 16f, 45f, 0f);
-                _vehicleAmount.AlignTo(_vehicleAmountParent, UIAlignAnchor.TopLeft);
-                _vehicleAmount.relativePosition =
-                    new Vector3(_lineLengthLabel.width + 16f + _stopCountLabel.width + 16f, 45f, 0f);
             }
         }
 
@@ -231,6 +271,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                             uiTextField.relativePosition = new Vector3(135f, 0.0f);
                             _colorTextField = uiTextField;
                             _colorField.eventSelectedColorReleased += OnColorChanged;
+                            CreateAutoColorRefreshButton();
                             CreateSpawnTimerPanel();
                             CreateBudgetControlPanel();
                             CreateUnbunchingPanel();
@@ -251,6 +292,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
         private void UpdateBindings()
         {
+            EnsureLocaleCache();
             ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
             if (lineId != 0)
             {
@@ -258,16 +300,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 int targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineId);
                 var tm = Singleton<TransportManager>.instance;
                 int num1 = tm.m_lines.m_buffer[lineId].CountStops(lineId);
-                _vehicleAmount.text = string.Format(Localization.Get("TRANSPORT_LINE_VEHICLECOUNT"),
+                _vehicleAmount.text = string.Format(_locVehicleCount,
                     lineVehicleCount + " / " + targetVehicleCount);
-                _stopCountLabel.text = string.Format(Localization.Get("LINE_PANEL_STOPS"), num1);
+                _stopCountLabel.text = string.Format(_locStops, num1);
                 _budgetControl.isChecked = CachedTransportLineData.GetBudgetControlState(lineId);
 
                 if (ModSetting.Instance.IntervalAggressionFactor == 0)
                 {
                     _unbunching.Disable();
                     _unbunching.isChecked = false;
-                    _unbunching.label.text = Localization.Get("UNBUNCHING_DISABLED");
+                    _unbunching.label.text = _locUnbunchDisabled;
                 }
                 else
                 {
@@ -278,12 +320,12 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                     {
                         _unbunching.label.text =
                             string.Format(
-                                Localization.Get("UNBUNCHING_ENABLED") + " - " +
-                                Localization.Get("UNBUNCHING_TARGET_GAP"),
+                                _locUnbunchEnabled + " - " +
+                                _locUnbunchGap,
                                 tm.m_lines.m_buffer[lineId].m_averageInterval);
                     }
                     else
-                        _unbunching.label.text = Localization.Get("UNBUNCHING_ENABLED");
+                        _unbunching.label.text = _locUnbunchEnabled;
                 }
 
                 bool depotNotValid = false;
@@ -308,18 +350,18 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
                     if (currentlyDisabled || lineVehicleCount >= targetVehicleCount)
                     {
-                        _spawnTimer.text = string.Format(Localization.Get("LINE_PANEL_SPAWNTIMER"), "8");
+                        _spawnTimer.text = string.Format(_locSpawnTimer, "8");
                     }
                     else
                     {
                         var timeToNext = Mathf.Max(0,
                             Mathf.CeilToInt(CachedTransportLineData.GetNextSpawnTime(lineId) -
                                             SimHelper.SimulationTime));
-                        _spawnTimer.text = string.Format(Localization.Get("LINE_PANEL_SPAWNTIMER"), "=" + timeToNext);
+                        _spawnTimer.text = string.Format(_locSpawnTimer, "=" + timeToNext);
                     }
                 }
                 else
-                    _spawnTimer.text = Localization.Get("LINE_PANEL_DEPOT_WARNING");
+                    _spawnTimer.text = _locDepotWarning;
 
                 _selectTypes.isEnabled = !depotNotValid;
                 _addVehicle.isEnabled = !depotNotValid & depotCanAddVehicle;
@@ -605,6 +647,144 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             uiButton.tooltip = str8;
             MouseEventHandler mouseEventHandler = OnDepotMarkerClicked;
             uiButton.eventClick += mouseEventHandler;
+        }
+
+        /// <summary>
+        /// Reliable AutoLineColor recolor/rename button next to the colour field (not on the
+        /// crowded LinesOverview row where clicks were often lost).
+        /// </summary>
+        private void CreateAutoColorRefreshButton()
+        {
+            if (_colorField == null || _colorField.parent == null)
+            {
+                return;
+            }
+
+            var parent = _colorField.parent as UIPanel ?? _colorField.parent.GetComponent<UIPanel>();
+            if (parent == null)
+            {
+                return;
+            }
+
+            // Remove prior instance if re-init.
+            var existing = parent.Find<UIButton>("IptAutoColorRefresh");
+            if (existing != null)
+            {
+                parent.RemoveUIComponent(existing);
+                UnityEngine.Object.Destroy(existing.gameObject);
+            }
+
+            var btn = UIUtils.CreateButton(parent);
+            btn.name = "IptAutoColorRefresh";
+            btn.textScale = 0.7f;
+            btn.textPadding = new RectOffset(6, 6, 4, 0);
+            btn.autoSize = true;
+            btn.height = 23f;
+            btn.relativePosition = new Vector3(190f, 0f);
+            btn.tooltip = Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP");
+            btn.text = Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON");
+            btn.eventClick += (_, __) => OnAutoColorRefreshClick();
+            _autoColorRefreshBtn = btn;
+
+            // Copy / Paste line settings (was only on PrefabPanel; CHANGELOG noted unreachable UI).
+            CreateCopyPasteButtons(parent);
+        }
+
+        private void CreateCopyPasteButtons(UIComponent parent)
+        {
+            if (parent == null)
+            {
+                return;
+            }
+
+            void EnsureButton(string name, string textKey, string tipKey, float x, MouseEventHandler onClick)
+            {
+                var old = parent.Find<UIButton>(name);
+                if (old != null)
+                {
+                    parent.RemoveUIComponent(old);
+                    UnityEngine.Object.Destroy(old.gameObject);
+                }
+
+                var b = UIUtils.CreateButton(parent);
+                b.name = name;
+                b.textScale = 0.65f;
+                b.textPadding = new RectOffset(4, 4, 3, 0);
+                b.autoSize = true;
+                b.height = 22f;
+                b.relativePosition = new Vector3(x, 0f);
+                b.text = Localization.Get(textKey);
+                b.tooltip = Localization.Get(tipKey);
+                b.eventClick += onClick;
+            }
+
+            EnsureButton("IptLineCopy", "LINE_PANEL_COPY", "COPY_TIP", 280f, (c, p) =>
+            {
+                ushort vehicleId;
+                var lineId = WorldInfoCurrentLineIDQuery.Query(out vehicleId);
+                if (lineId == 0)
+                {
+                    return;
+                }
+
+                CopyPaste.Instance.Copy(lineId);
+            });
+
+            EnsureButton("IptLinePaste", "LINE_PANEL_PASTE", "PASTE_TIP", 340f, (c, p) =>
+            {
+                ushort vehicleId;
+                var lineId = WorldInfoCurrentLineIDQuery.Query(out vehicleId);
+                if (lineId == 0 || !CopyPaste.Instance.HasData)
+                {
+                    return;
+                }
+
+                CopyPaste.Instance.Paste(lineId);
+            });
+        }
+
+        private void OnAutoColorRefreshClick()
+        {
+            var lineId = _cachedLineID;
+            if (lineId == 0)
+            {
+                lineId = WorldInfoCurrentLineIDQuery.Query(out _);
+            }
+
+            if (lineId == 0)
+            {
+                Utils.LogWarning("AutoLineColor: IPT panel refresh — no line id.");
+                return;
+            }
+
+            Utils.Log($"AutoLineColor: IPT panel refresh for line {lineId}.");
+            AutoLineColor.ColorMonitor.ForceRefreshLineNow(lineId);
+
+            // Refresh colour field on next frames after simulation applies the colour.
+            StartCoroutine(RefreshColorFieldNextFrames(lineId));
+        }
+
+        private System.Collections.IEnumerator RefreshColorFieldNextFrames(ushort lineId)
+        {
+            // Wait a couple of frames for SimulationManager.AddAction to run.
+            yield return null;
+            yield return null;
+            try
+            {
+                if (_colorField != null && lineId != 0)
+                {
+                    var c = Singleton<TransportManager>.instance.GetLineColor(lineId);
+                    _colorField.selectedColor = c;
+                    if (_colorTextField != null)
+                    {
+                        _colorTextField.text = ColorUtility.ToHtmlStringRGB(c);
+                    }
+                }
+            }
+            catch
+            {
+                // non-fatal
+            }
         }
 
         private void CreateButtonPanel1()
@@ -949,13 +1129,22 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             if (!ColorUtility.TryParseHtmlString("#" + text, out color))
                 return;
             _colorField.selectedColor = color;
-            _publicTransportWorldInfoPanel.GetType()
-                .GetMethod("OnColorChanged", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(
-                    _publicTransportWorldInfoPanel, new object[2]
-                    {
-                        component,
-                        color
-                    });
+            if (OnColorChangedMethod == null || _publicTransportWorldInfoPanel == null)
+            {
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.LogWarning("PanelExtenderLine: OnColorChanged method missing; colour text submit ignored.");
+                }
+
+                return;
+            }
+
+            OnColorChangedMethod.Invoke(
+                _publicTransportWorldInfoPanel, new object[2]
+                {
+                    component,
+                    color
+                });
         }
 
         private void OnDepotChanged(ItemClass.Service service, ItemClass.SubService subService, ItemClass.Level level)

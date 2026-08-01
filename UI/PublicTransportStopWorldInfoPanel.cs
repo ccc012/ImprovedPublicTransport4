@@ -474,16 +474,33 @@ namespace ImprovedPublicTransport.UI
 
         private void OnUnbunchingClick(UIComponent component, UIMouseEventParameter p)
         {
-            CachedNodeData.m_cachedNodeData[(int) this.m_InstanceID.NetNode].Unbunching = !CachedNodeData
-                .m_cachedNodeData[(int) this.m_InstanceID.NetNode]
-                .Unbunching;
+            var cache = CachedNodeData.m_cachedNodeData;
+            var node = this.m_InstanceID.NetNode;
+            if (cache == null || node == 0 || node >= cache.Length)
+            {
+                return;
+            }
+
+            cache[node].Unbunching = !cache[node].Unbunching;
         }
 
         private void OnUpdateCloseStopsClick(UIComponent component, UIMouseEventParameter eventParam)
         {
-            this.ProcessNodes(
-                (System.Action<ushort>) (nodeID => CachedNodeData.m_cachedNodeData[(int) nodeID].Unbunching =
-                    CachedNodeData.m_cachedNodeData[(int) this.m_InstanceID.NetNode].Unbunching));
+            var cache = CachedNodeData.m_cachedNodeData;
+            var node = this.m_InstanceID.NetNode;
+            if (cache == null || node == 0 || node >= cache.Length)
+            {
+                return;
+            }
+
+            var value = cache[node].Unbunching;
+            this.ProcessNodes(nodeID =>
+            {
+                if (nodeID != 0 && nodeID < cache.Length)
+                {
+                    cache[nodeID].Unbunching = value;
+                }
+            });
         }
 
         private void OnModifyLineClick(UIComponent component, UIMouseEventParameter eventParam)
@@ -549,7 +566,7 @@ namespace ImprovedPublicTransport.UI
             if (flag)
                 return;
             // Use NetManager's spatial node grid instead of scanning all 32768 nodes.
-            // Grid: 64-unit cells, world spans [-8640..8640], offset 135 ? 270×270 cells.
+            // Grid: 64-unit cells, world spans [-8640..8640], offset 135 ? 270ï¿½270 cells.
             int gridX = Mathf.Clamp((int)(position.x / 64f + 135f), 0, 269);
             int gridZ = Mathf.Clamp((int)(position.z / 64f + 135f), 0, 269);
             for (int gz = Mathf.Max(0, gridZ - 1); gz <= Mathf.Min(269, gridZ + 1); gz++)
@@ -612,14 +629,28 @@ namespace ImprovedPublicTransport.UI
             if (Input.GetKey(KeyCode.Escape))
             {
                 this.Hide();
+                return;
             }
-            else
+
+            // Commuter Destination / other IPT buttons: never close the stop panel on the same
+            // click that hits any Colossal UI control (old Raycast-only test missed buttons that
+            // overflow the panel bounds, so the Destinations button "vanished" on click).
+            if (!Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0) && !this.Raycast(this.GetCamera().ScreenPointToRay(Input.mousePosition)))
-                {
-                    this.Hide();
-                }
+                return;
             }
+
+            if (UIView.IsInsideUI())
+            {
+                return;
+            }
+
+            if (this.Raycast(this.GetCamera().ScreenPointToRay(Input.mousePosition)))
+            {
+                return;
+            }
+
+            this.Hide();
         }
 
         private void CreateButton()
@@ -693,22 +724,20 @@ namespace ImprovedPublicTransport.UI
             this.m_PassengerCount.text = string.Format(Localization.Get("STOP_PANEL_WAITING_PEOPLE"), (object) num1);
             this.m_BoredCountdown.text = string.Format(Localization.Get("STOP_PANEL_BORED_TIMER"),
                 (object) ColorUtility.ToHtmlStringRGB(this.GetColor(num2)), (object) num2);
-            this.m_passengersInCurrent.text = CachedNodeData.m_cachedNodeData[(int) netNode].PassengersIn.ToString();
-            this.m_passengersInLast.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .LastWeekPassengersIn.ToString();
-            this.m_passengersInAverage.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .AveragePassengersIn.ToString();
-            this.m_passengersOutCurrent.text = CachedNodeData.m_cachedNodeData[(int) netNode].PassengersOut.ToString();
-            this.m_passengersOutLast.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .LastWeekPassengersOut.ToString();
-            this.m_passengersOutAverage.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .AveragePassengersOut.ToString();
-            this.m_passengersTotalCurrent.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .PassengersTotal.ToString();
-            this.m_passengersTotalLast.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .LastWeekPassengersTotal.ToString();
-            this.m_passengersTotalAverage.text = CachedNodeData.m_cachedNodeData[(int) netNode]
-                .AveragePassengersTotal.ToString();
+            var nodeCache = CachedNodeData.m_cachedNodeData;
+            if (nodeCache != null && netNode != 0 && netNode < nodeCache.Length)
+            {
+                ref var n = ref nodeCache[netNode];
+                this.m_passengersInCurrent.text = n.PassengersIn.ToString();
+                this.m_passengersInLast.text = n.LastWeekPassengersIn.ToString();
+                this.m_passengersInAverage.text = n.AveragePassengersIn.ToString();
+                this.m_passengersOutCurrent.text = n.PassengersOut.ToString();
+                this.m_passengersOutLast.text = n.LastWeekPassengersOut.ToString();
+                this.m_passengersOutAverage.text = n.AveragePassengersOut.ToString();
+                this.m_passengersTotalCurrent.text = n.PassengersTotal.ToString();
+                this.m_passengersTotalLast.text = n.LastWeekPassengersTotal.ToString();
+                this.m_passengersTotalAverage.text = n.AveragePassengersTotal.ToString();
+            }
             if ((int) ModSetting.Instance.IntervalAggressionFactor == 0)
             {
                 this.m_unbunching.Disable();
@@ -747,19 +776,9 @@ namespace ImprovedPublicTransport.UI
 
         private ushort[] FindBuildings(Vector3 position)
         {
-            BuildingManager instance = Singleton<BuildingManager>.instance;
-            HashSet<ushort> source = new HashSet<ushort>();
-            foreach (ItemClass.Service service in Enum.GetValues(typeof(ItemClass.Service)))
-            {
-                foreach (ItemClass.SubService subService in Enum.GetValues(typeof(ItemClass.SubService)))
-                {
-                    ushort building = instance.FindBuilding(position, 100f, service, subService, Building.Flags.Active,
-                        Building.Flags.Untouchable);
-                    if ((int) building != 0)
-                        source.Add(building);
-                }
-            }
-            return source.ToArray<ushort>();
+            // Shared fast path with StopAutoNamer (priority services + SubService.None).
+            // Old code did ServiceÃ—SubService FindBuilding on every stop click (~hundreds of queries).
+            return StopAutoNamer.FindNearbyNamedBuildings(position, 100f);
         }
 
         private string IDToName(ushort ID)

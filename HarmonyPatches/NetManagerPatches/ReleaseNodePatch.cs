@@ -23,12 +23,13 @@ namespace ImprovedPublicTransport.HarmonyPatches.NetManagerPatches
 
         public static void ReleaseNodePost(ushort node)
         {
-            if (CachedNodeData.m_cachedNodeData[node].IsEmpty)
+            var cache = CachedNodeData.m_cachedNodeData;
+            if (cache == null || node == 0 || node >= cache.Length || cache[node].IsEmpty)
             {
                 return;
             }
 
-            CachedNodeData.m_cachedNodeData[node] = new NodeData();
+            cache[node] = new NodeData();
         }
     }
 }

@@ -84,8 +84,16 @@ namespace ImprovedPublicTransport.TranslationFramework
                 return null;
             }
 
-            var lower = localeId.ToLowerInvariant();
-            var match = _languages.Find(l => string.Equals(l.LocaleName(), lower, StringComparison.OrdinalIgnoreCase));
+            // Canonicalise Steam/game codes (pt-BR, zh-CN, koreana, …) onto Translations/*.txt stems.
+            var canonical = LanguageFormat.PlainTextLanguageDeserializer.NormalizeLocaleName(localeId);
+            var match = _languages.Find(l => string.Equals(l.LocaleName(), canonical, StringComparison.OrdinalIgnoreCase));
+            if (match != null)
+            {
+                return match;
+            }
+
+            var lower = localeId.ToLowerInvariant().Replace('_', '-');
+            match = _languages.Find(l => string.Equals(l.LocaleName(), lower, StringComparison.OrdinalIgnoreCase));
             if (match != null)
             {
                 return match;
@@ -95,7 +103,10 @@ namespace ImprovedPublicTransport.TranslationFramework
             if (dash > 0)
             {
                 var shortId = lower.Substring(0, dash);
-                return _languages.Find(l => string.Equals(l.LocaleName(), shortId, StringComparison.OrdinalIgnoreCase));
+                var shortCanonical = LanguageFormat.PlainTextLanguageDeserializer.NormalizeLocaleName(shortId);
+                return _languages.Find(l =>
+                    string.Equals(l.LocaleName(), shortCanonical, StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(l.LocaleName(), shortId, StringComparison.OrdinalIgnoreCase));
             }
 
             return null;
@@ -148,7 +159,10 @@ namespace ImprovedPublicTransport.TranslationFramework
 
                 if (Directory.Exists(languagePath))
                 {
-                    string[] languageFiles = Directory.GetFiles(languagePath, "*.txt", SearchOption.AllDirectories)
+                    // TopDirectoryOnly: full IPT packs live at Translations/*.txt. Nested leftovers
+                    // (e.g. stale Translations/Core/*.txt from older deploys) must not win first and
+                    // shadow the root packs — GetFiles(AllDirectories)+OrderBy path loaded Core first.
+                    string[] languageFiles = Directory.GetFiles(languagePath, "*.txt", SearchOption.TopDirectoryOnly)
                         .OrderBy(path => path, StringComparer.OrdinalIgnoreCase)
                         .ToArray();
                     var loadedLocales = new HashSet<string>(StringComparer.OrdinalIgnoreCase);

@@ -62,6 +62,19 @@ namespace ImprovedPublicTransport.Data
           {
             double num = (double) SerializableDataExtension.ReadFloat(data1, ref index1);
           }
+          if (index2 < 0 || index2 >= data.Length)
+          {
+            // Out-of-range node ID (corrupt save) — consume fields without writing.
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadFloatArray(data1, ref index1);
+            SerializableDataExtension.ReadFloatArray(data1, ref index1);
+            if (!(str == "v001" || str == "v002"))
+              SerializableDataExtension.ReadBool(data1, ref index1);
+            continue;
+          }
           data[index2].PassengersIn = SerializableDataExtension.ReadInt32(data1, ref index1);
           data[index2].PassengersOut = SerializableDataExtension.ReadInt32(data1, ref index1);
           data[index2].LastWeekPassengersIn = SerializableDataExtension.ReadInt32(data1, ref index1);

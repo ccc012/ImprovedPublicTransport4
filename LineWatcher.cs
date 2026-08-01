@@ -17,6 +17,8 @@ namespace ImprovedPublicTransport
     private HashSet<ushort> _knownLines = new HashSet<ushort>();
     public static LineWatcher instance;
     private bool _initialized;
+    // Full line-buffer scan every frame was wasteful; 2 Hz is plenty for new-line detection.
+    private float _nextScanRealtime;
 
     public int KnownLineCount
     {
@@ -43,15 +45,22 @@ namespace ImprovedPublicTransport
     {
       if (!this._initialized)
         return;
-      if (this.SimulationLineCount > this.KnownLineCount)
+      float now = Time.unscaledTime;
+      if (now < this._nextScanRealtime)
+        return;
+      this._nextScanRealtime = now + 0.5f;
+
+      // Always scan the line buffer. Count-only detection missed the case where one line
+      // is deleted and another created in the same window (counts stay equal).
+      Array16<TransportLine> lines = Singleton<TransportManager>.instance.m_lines;
+      for (ushort lineID = 0; (uint) lineID < lines.m_size; ++lineID)
       {
-        Array16<TransportLine> lines = Singleton<TransportManager>.instance.m_lines;
-        for (ushort lineID = 0; (uint) lineID < lines.m_size; ++lineID)
+        if (LineWatcher.IsValid(ref lines.m_buffer[(int) lineID]))
         {
-          if (LineWatcher.IsValid(ref lines.m_buffer[(int) lineID]) && this._knownLines.Add(lineID))
+          if (this._knownLines.Add(lineID))
           {
             CachedTransportLineData.SetLineDefaults(lineID);
-            DepotUtil.AutoAssignLineDepot( lineID, out var position);
+            DepotUtil.AutoAssignLineDepot(lineID, out var position);
             if (ModSetting.Instance.ShowLineInfo &&
                 lines.m_buffer[(int) lineID].Info?.m_class?.m_service != ItemClass.Service.Disaster)
               WorldInfoPanel.Show<PublicTransportWorldInfoPanel>(position, new InstanceID()
@@ -60,16 +69,14 @@ namespace ImprovedPublicTransport
               });
           }
         }
-      }
-      else
-      {
-        if (this.SimulationLineCount >= this.KnownLineCount)
-          return;
-        Array16<TransportLine> lines = Singleton<TransportManager>.instance.m_lines;
-        for (ushort lineID = 0; (uint) lineID < lines.m_size; ++lineID)
+        else if (this._knownLines.Remove(lineID))
         {
-          if (!LineWatcher.IsValid(ref lines.m_buffer[(int) lineID]))
-            this._knownLines.Remove(lineID);
+          // Line IDs are recycled - wipe cached IPT state so a new line on this slot
+          // does not inherit target vehicle count / depot / prefab filters from the old one.
+          if (CachedTransportLineData._init)
+          {
+            CachedTransportLineData.SetLineDefaults(lineID);
+          }
         }
       }
     }

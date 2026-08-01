@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using ImprovedPublicTransport;
 using ImprovedPublicTransport.Util;
 
@@ -10,54 +9,126 @@ namespace IntercityBusControl
     {
         public static readonly HashSet<string> PatchedBuildingNames = new HashSet<string>();
 
+        /// <summary>
+        /// Prefab names that default the accept-intercity checkbox to OFF (simple/converted
+        /// stations). Native Intercity Bus Stations are not in this set (default ON).
+        /// </summary>
+        public static readonly HashSet<string> PrefabsDefaultReject = new HashSet<string>();
+
+        private static bool _netInfoNotFoundLogged;
+
         public static void Reset()
         {
             PatchedBuildingNames.Clear();
+            PrefabsDefaultReject.Clear();
+            _netInfoNotFoundLogged = false;
+        }
+
+        internal static NetInfo TryGetIntercityBusLine(bool logIfMissing = false)
+        {
+            var intercityBusLine = PrefabCollection<NetInfo>.FindLoaded(Mod.IntercityBusLine);
+            if (intercityBusLine != null)
+            {
+                return intercityBusLine;
+            }
+
+            if (logIfMissing && !_netInfoNotFoundLogged)
+            {
+                _netInfoNotFoundLogged = true;
+                Utils.LogWarning(
+                    "Intercity Bus Control - '" + Mod.IntercityBusLine +
+                    "' NetInfo not found; station patching will retry when NetInfos are loaded.");
+            }
+
+            return null;
         }
 
         public static void PatchStations()
         {
             try
             {
-                var intercityBusLine = PrefabCollection<NetInfo>.FindLoaded(Mod.IntercityBusLine);
+                var intercityBusLine = TryGetIntercityBusLine(logIfMissing: true);
                 if (intercityBusLine == null)
                 {
-                    Utils.LogWarning("Intercity Bus Control - '" + Mod.IntercityBusLine + "' NetInfo not found; skipping station patching.");
                     return;
                 }
 
                 var classDict = Mod.GetItemClassDict();
                 if (classDict == null || !classDict.ContainsKey("Intercity Bus"))
                 {
-                    Utils.LogWarning("Intercity Bus Control - 'Intercity Bus' item class not found; Sunset Harbor DLC may not be active.");
+                    Utils.LogWarning(
+                        "Intercity Bus Control - 'Intercity Bus' item class not found; Sunset Harbor DLC may not be active.");
                     return;
                 }
+
                 var intercityBusClass = classDict["Intercity Bus"];
                 var intercityBusTransport = PrefabCollection<TransportInfo>.FindLoaded("Intercity Bus");
 
                 int patched = 0;
+                int registered = 0;
                 uint count = (uint)PrefabCollection<BuildingInfo>.LoadedCount();
                 for (uint i = 0; i < count; i++)
                 {
                     var info = PrefabCollection<BuildingInfo>.GetLoaded(i);
-                    if (info?.m_buildingAI is TransportStationAI ai)
+                    if (info?.m_buildingAI is not TransportStationAI ai)
                     {
-                        if (TryPatchStation(info, ai, intercityBusLine, intercityBusClass, intercityBusTransport))
+                        continue;
+                    }
+
+                    // Always register native SH intercity stations for the UI toggle (IPT3 wrongly
+                    // skipped them so PatchedBuildingNames never contained "Intercity Bus Station *").
+                    if (IsNativeIntercityBusStation(info, ai))
+                    {
+                        if (PatchedBuildingNames.Add(info.name))
                         {
-                            patched++;
+                            registered++;
                         }
+
+                        // Do NOT force m_maxVehicleCount on natives: TransportStationAI is a DepotAI
+                        // subclass, so writing capacity makes the City Service panel show
+                        // "ônibus em uso X/Y" like a bus garage. Leave prefab spawn caps alone.
+                        continue;
+                    }
+
+                    if (TryPatchStation(info, ai, intercityBusLine, intercityBusClass, intercityBusTransport))
+                    {
+                        patched++;
                     }
                 }
 
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    Utils.Log($"Intercity Bus Control - PatchStations complete: {patched} newly patched this sweep, {PatchedBuildingNames.Count} total eligible station(s): [{string.Join(", ", new List<string>(PatchedBuildingNames).ToArray())}].");
-                }
+                // Always log summary (not verbose-only) so playtests can confirm coverage.
+                Utils.Log(
+                    $"Intercity Bus Control - PatchStations complete: {patched} converted, " +
+                    $"{registered} native registered, {PatchedBuildingNames.Count} total for UI toggle: " +
+                    $"[{string.Join(", ", new List<string>(PatchedBuildingNames).ToArray())}].");
             }
             catch (Exception e)
             {
                 Utils.LogError($"Intercity Bus Control - PatchStations error: {e.Message}");
             }
+        }
+
+        /// <summary>
+        /// Sunset Harbor native intermunicipal terminals only (default accept ON).
+        /// Converted simple stations must NOT match: after convert they also get Intercity Bus
+        /// Line/transport, so we only trust the English prefab name (or PrefabsDefaultReject).
+        /// </summary>
+        internal static bool IsNativeIntercityBusStation(BuildingInfo info, TransportStationAI ai)
+        {
+            if (info == null)
+            {
+                return false;
+            }
+
+            var name = info.name ?? string.Empty;
+            if (PrefabsDefaultReject.Contains(name))
+            {
+                return false;
+            }
+
+            // Official Sunset Harbor asset ids only.
+            return name.IndexOf("Intercity Bus Station", StringComparison.OrdinalIgnoreCase) >= 0
+                   || name.IndexOf("IntercityBusStation", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         private static bool TryPatchStation(
@@ -70,43 +141,36 @@ namespace IntercityBusControl
             var ti1 = ai.m_transportInfo;
             var ti2 = ai.m_secondaryTransportInfo;
 
-            bool isBusPrimary = IsBusSubService(ti1, ItemClass.SubService.PublicTransportBus);
-            bool isBusSecondary = IsBusSubService(ti2, ItemClass.SubService.PublicTransportBus);
+            bool isBusPrimary = IsBusSubService(ti1);
+            bool isBusSecondary = IsBusSubService(ti2);
 
+            // Exactly one bus slot (original RegionalBuses / IPT3 XOR).
             if (!(isBusPrimary ^ isBusSecondary))
             {
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    Utils.Log($"Intercity Bus Control - skipped {info.name}: not exactly one of primary/secondary transport is Bus (primary={isBusPrimary}, secondary={isBusSecondary}).");
-                }
                 return false;
             }
 
-            bool alreadyHasIntercityLine = ai.m_transportLineInfo?.name == Mod.IntercityBusLine;
+            bool alreadyHasIntercityLine = ai.m_transportLineInfo != null
+                && string.Equals(ai.m_transportLineInfo.name, Mod.IntercityBusLine, StringComparison.Ordinal);
+
             int curMax = isBusPrimary ? ai.m_maxVehicleCount : ai.m_maxVehicleCount2;
-            // Bails only if the cap already matches what the CURRENT mode wants - comparing against
-            // "> 0" instead let a terminal patched under an earlier mode (e.g. still carrying the old
-            // effectively-unlimited 100,000) survive forever: this guard would see a positive number,
-            // consider the station "already patched" and never re-apply ApplyCapacity again, so
-            // switching modes in Options had no visible effect on any terminal patched before the
-            // switch.
-            if (alreadyHasIntercityLine && curMax == GetCapacityForCurrentMode())
+            var desiredCap = GetCapacityForCurrentMode();
+
+            if (alreadyHasIntercityLine)
             {
-                // Already patched (by an earlier call this same session, e.g. InitializePrefabPatch
-                // catching a late-loaded asset before this retroactive sweep ran) - still register it
-                // so the UI toggle keeps showing. Without this, a station that was already correctly
-                // patched would silently lose its entry in PatchedBuildingNames on the next sweep,
-                // hiding the toggle for a station that is, in fact, fully functional.
+                // Do not force capacity on stations (shows "buses in use X/Y" like a depot).
                 PatchedBuildingNames.Add(info.name);
+                if (!IsNativeIntercityBusStation(info, ai))
+                {
+                    PrefabsDefaultReject.Add(info.name);
+                }
+
                 return false;
             }
 
-            if (isBusPrimary && ai.m_transportLineInfo != null && !alreadyHasIntercityLine)
+            // Do not steal a station that already has a different line type (city bus line etc.).
+            if (isBusPrimary && ai.m_transportLineInfo != null)
             {
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    Utils.Log($"Intercity Bus Control - skipped {info.name}: primary transport already has a non-intercity line assigned ({ai.m_transportLineInfo.name}).");
-                }
                 return false;
             }
 
@@ -119,11 +183,8 @@ namespace IntercityBusControl
                 {
                     ai.m_transportInfo = intercityBusTransport;
                 }
-                ApplyCapacity(ai, primary: true);
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    Utils.Log($"Intercity Bus Control - StationPatcher: patched {info.name} (primary bus)");
-                }
+                // Keep prefab m_maxVehicleCount (do not write 40/100000) so the City Service
+                // panel does not gain a fake "buses in use" depot line on a station.
             }
             else
             {
@@ -131,31 +192,15 @@ namespace IntercityBusControl
                 {
                     ai.m_secondaryTransportInfo = intercityBusTransport;
                 }
-                ApplyCapacity(ai, primary: false);
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    Utils.Log($"Intercity Bus Control - StationPatcher: patched {info.name} (secondary bus)");
-                }
             }
 
             PatchedBuildingNames.Add(info.name);
+            // Simple/converted stations: checkbox visible but default OFF (player must opt in).
+            PrefabsDefaultReject.Add(info.name);
+            Utils.Log($"Intercity Bus Control - StationPatcher: converted '{info.name}' to intercity bus terminal (default reject).");
             return true;
         }
 
-        /// <summary>
-        /// Vehicle cap for a patched intercity bus terminal, per
-        /// <see cref="ModSetting.IntercityTerminalCapacityMode"/>. Shared with
-        /// <see cref="HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch"/>, which applies the
-        /// same patch to prefabs that finish loading after level load (custom assets, editor) - both
-        /// call sites must agree, or a terminal's cap would depend on which code path happened to
-        /// patch it first.
-        /// </summary>
-        /// <remarks>
-        /// A single intercity bus terminal typically serves several intercity lines at once (unlike
-        /// a normal depot, which usually serves one), so even "Realistic" leaves headroom rather
-        /// than adopting whatever a plain bus depot's own default happens to be - it just drops the
-        /// effectively-unlimited 100,000 down to something a player could plausibly hit and notice.
-        /// </remarks>
         internal static int GetCapacityForCurrentMode()
         {
             switch (ModSetting.Instance.IntercityTerminalCapacityMode)
@@ -164,8 +209,24 @@ namespace IntercityBusControl
                     return 40;
                 case ModSetting.DepotCapacityModes.Intermediate:
                     return 200;
-                default: // Disabled - preserves the behaviour every existing save already has.
+                default:
                     return 100000;
+            }
+        }
+
+        private static void ApplyCapacityIfBus(TransportStationAI ai)
+        {
+            if (IsBusSubService(ai.m_transportInfo)
+                || (ai.m_transportInfo != null
+                    && string.Equals(ai.m_transportInfo.name, "Intercity Bus", StringComparison.Ordinal)))
+            {
+                ApplyCapacity(ai, primary: true);
+            }
+            else if (IsBusSubService(ai.m_secondaryTransportInfo)
+                     || (ai.m_secondaryTransportInfo != null
+                         && string.Equals(ai.m_secondaryTransportInfo.name, "Intercity Bus", StringComparison.Ordinal)))
+            {
+                ApplyCapacity(ai, primary: false);
             }
         }
 
@@ -182,9 +243,8 @@ namespace IntercityBusControl
             }
         }
 
-        private static bool IsBusSubService(TransportInfo ti, ItemClass.SubService subService)
-        {
-            return ti != null && ti.m_class != null && ti.m_class.m_subService == subService;
-        }
+        private static bool IsBusSubService(TransportInfo ti) =>
+            ti?.m_class != null
+            && ti.m_class.m_subService == ItemClass.SubService.PublicTransportBus;
     }
 }

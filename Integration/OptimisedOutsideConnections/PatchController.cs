@@ -1,4 +1,3 @@
-using System.Reflection;
 using HarmonyLib;
 using ImprovedPublicTransport;
 using ImprovedPublicTransport.Util;
@@ -16,7 +15,7 @@ namespace OptimisedOutsideConnections
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "OptimisedOutsideConnections");
             ApplyDummyTrafficSetting();
         }
 

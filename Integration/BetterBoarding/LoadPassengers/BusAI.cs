@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using ImprovedPublicTransport.Data;
+using ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches;
 using ImprovedPublicTransport.Util;
 
 namespace BetterBoarding
@@ -33,7 +34,9 @@ namespace BetterBoarding
                     CachedNodeData.m_cachedNodeData[currentStop].PassengersIn += passengersBoarded;
                 }
             }
-            
+
+            // IPT LoadPassengersPost also runs after this prefix — skip its delta accounting.
+            LoadPassengersPatch.SkipPostAccounting = true;
             return false;
         }
     }

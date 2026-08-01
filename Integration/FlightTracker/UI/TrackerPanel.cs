@@ -34,6 +34,7 @@ namespace FlightTracker
 
         // Selected target.
         private ushort _buildingID;
+        private float _nextListRebuild;
 
         // (positioning follows the CityServiceWorldInfoPanel directly)
 
@@ -118,10 +119,17 @@ namespace FlightTracker
                 }
             }
 
+            // Rebuild flight list at most a few times per second (was every frame).
+            if (Time.unscaledTime < _nextListRebuild)
+            {
+                return;
+            }
+
+            _nextListRebuild = Time.unscaledTime + 0.35f;
+
             // Local references.
             Building[] buildingBuffer = Singleton<BuildingManager>.instance.m_buildings.m_buffer;
             Vehicle[] vehicleBuffer = Singleton<VehicleManager>.instance.m_vehicles.m_buffer;
-            NetNode[] nodeBuffer = Singleton<NetManager>.instance.m_nodes.m_buffer;
 
             // Regenerate vehicle list.
             _tempList.Clear();
@@ -149,12 +157,13 @@ namespace FlightTracker
 
                 // Determine flight status for this vehicle.
                 FlightRowData.FlightStatus flightStatus = FlightRowData.FlightStatus.Incoming;
+                // m_targetBuilding is a building ID (outside connection / gate), not a NetNode index.
+                // Indexing nodeBuffer with it was reading unrelated node data and mis-classifying flights.
                 ushort vehicleTarget = thisVehicle.m_targetBuilding;
                 if (vehicleTarget != 0)
                 {
-                    // If vehicle target node is near map edge, then it's departing.
-                    Vector3 nodePos = nodeBuffer[vehicleTarget].m_position;
-                    if (nodePos.x < -8500 || nodePos.x > 8500 || nodePos.z < -8500 || nodePos.z > 8500)
+                    Vector3 targetPos = buildingBuffer[vehicleTarget].m_position;
+                    if (targetPos.x < -8500 || targetPos.x > 8500 || targetPos.z < -8500 || targetPos.z > 8500)
                     {
                         // Check to see if it's still at the gate.
                         if ((vehicleBuffer[vehicleID].m_flags & Vehicle.Flags.Stopped) != 0)

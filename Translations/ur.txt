@@ -7,7 +7,6 @@ CITY_SERVICE_PANEL_TITLE_STATION_STOPS اسٹیشن اسٹاپس
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES ڈپو گاڑیاں
 CITYSERVICE_ACCEPTINTERCITYBUSES بین شہری بسوں کی اجازت دیں
 CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP اس اسٹیشن کو استعمال کرنے کے لیے بین شہری بسوں کی اجازت دیں۔ صرف مقامی بسوں کے لیے اسے غیر فعال کریں۔
-
 EXPLANATION_BUDGET_CONTROL بجٹ کنٹرول: گاڑیوں کی تعداد بجٹ کے ذریعے کنٹرول کی جاتی ہے۔
 EXPLANATION_UNBUNCHING گاڑیوں کی غیر ہجومیت: گیم گاڑیوں کے درمیان فاصلہ پیدا کرنے کی کوشش کرتا ہے۔
 LINE_PANEL_STOPS اسٹاپس: {0}
@@ -28,7 +27,6 @@ LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP اس لائن پر {0} مسافر انت
 LINE_PANEL_ADD_VEHICLE گاڑی شامل کریں
 LINE_PANEL_ADD_VEHICLE_TOOLTIP لائن میں ایک نئی گاڑی شامل کرتا ہے۔\nاگر یہ بٹن غیر فعال ہے تو منتخب کردہ ڈپو میں کوئی گاڑی باقی نہیں ہے۔
 LINE_PANEL_REMOVE_VEHICLE گاڑی ہٹائیں
-
 STOP_LIST_BOX_ROW_STOP اسٹاپ #{0}
 STOP_LIST_BOX_ROW_TOOLTIP {0}\nانتظار کرنے والے مسافر: {1}\n\nاس اسٹاپ پر جانے کے لیے دائیں کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP تجویز کردہ اسٹاپ ناموں کی فہرست۔
@@ -58,10 +56,8 @@ STOP_PANEL_DELETE_STOP_TOOLTIP یہ بٹن Alt کی دبائے رکھنے کے �
 STOP_PANEL_NEXT اگلا اسٹاپ
 STOP_PANEL_NEXT_TOOLTIP اگلے اسٹاپ پر جائیں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔
 STOP_BUTTON_TOOLTIP {0}\n\nاس اسٹاپ پر جانے کے لیے کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔\nکلک کرتے وقت Alt کی دبائے رکھنے سے اسٹاپ کی معلومات کا پینل کھلنے سے رک جائے گا۔
-
 SETTINGS_DELETE حذف کریں
 SETTINGS_RESET ری سیٹ
-
 SETTINGS_TAB_GENERAL عمومی
 SETTINGS_ADVANCED_LINKS_GROUP لنکس
 SETTINGS_GITHUB_REPO GitHub پر سورس کوڈ
@@ -72,14 +68,15 @@ SETTINGS_TAB_DELETE لائنیں حذف کریں
 SETTINGS_TAB_FLEET بیڑا اور شیڈولنگ
 SETTINGS_TAB_BUDGET بجٹ اور قیمتیں
 SETTINGS_TAB_LINECOLORS لائن کے رنگ
-
 SETTINGS ترتیبات
 SETTINGS_SPEED رفتار دکھائیں:
 SETTINGS_SPEED_TOOLTIP UI میں رفتار دکھانے کے لیے استعمال ہونے والی اکائی منتخب کریں۔
 SETTINGS_GAMEPLAY_PROFILE گیم پلے پروفائل
 SETTINGS_GAMEPLAY_PROFILE_TOOLTIP ہر ایک کو ہاتھ سے ایڈجسٹ کرنے کے بجائے ایک ساتھ سیٹنگز کا ایک گروپ لاگو کرتا ہے۔ ونیلا ہر جذب شدہ انضمام کو بند کر دیتا ہے اور بنیادی گیم سے زیادہ سے زیادہ مماثل ہوتا ہے؛ حقیقت پسندانہ انہیں آن کر دیتا ہے اور جہاں بھی موجود ہو زیادہ حقیقت پسندانہ آپشن لاگو کرتا ہے۔ کسی کا بھی انتخاب نیچے دی گئی انفرادی سیٹنگز کو اوور رائٹ کر دیتا ہے - اس ڈراپ ڈاؤن کو کچھ بھی تبدیل کیے بغیر خود انتظام کرنے کے لیے حسب ضرورت منتخب کریں۔
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM حسب ضرورت
+SETTINGS_GAMEPLAY_PROFILE_SAFE محفوظ (سب بند)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA ونیلا
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED تجویز کردہ (IPT کور)
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC حقیقت پسندانہ
 SETTINGS_SPEED_KPH کلومیٹر فی گھنٹہ
 SETTINGS_SPEED_MPH میل فی گھنٹہ
@@ -92,7 +89,6 @@ SETTINGS_BBSP_TOOLTIP غیر فعال: کوئی پوزیشن ایڈجسٹمنٹ 
 SETTINGS_BBSP_MODE_DISABLED غیر فعال
 SETTINGS_BBSP_MODE_ORIGINAL فعال
 SETTINGS_BBSP_MODE_UPDATED تجرباتی منطق استعمال کریں
-
 SETTINGS_BUDGET بجٹ
 SETTINGS_ENABLE_BUDGET_CONTROL لائن بجٹ کنٹرول:
 SETTINGS_BUDGET_CONTROL_DISABLED غیر فعال
@@ -106,11 +102,9 @@ SETTINGS_AUTO_LINE_BUDGET خودکار بیڑے کا سائز:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED غیر فعال
 SETTINGS_AUTO_LINE_BUDGET_ENABLED فعال
 SETTINGS_AUTO_LINE_BUDGET_TOOLTIP فعال ہونے پر، بجٹ موڈ میں لائنیں معیاری بجٹ سلائیڈر کے بجائے حقیقی مسافروں کی طلب کی بنیاد پر اپنی گاڑیوں کی تعداد خود بخود ایڈجسٹ کرتی ہیں۔ دستی پر مقرر لائنوں کو کبھی نہیں چھیڑا جاتا۔
-
 SETTINGS_AUTO_LINE خودکار لائن
 SETTINGS_AUTOSHOW_LINE_INFO لائن معلومات کا پینل خود بخود کھولیں
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP نئی لائن بننے کے بعد لائن معلومات کا پینل خود بخود دکھائیں۔
-
 AUTOLINECOLOR_STRATEGY_DISABLED غیر فعال
 AUTOLINECOLOR_STRATEGY_RANDOM_HUE بے ترتیب رنگت
 AUTOLINECOLOR_STRATEGY_RANDOM_COLOR بے ترتیب رنگ
@@ -129,7 +123,6 @@ AUTOLINECOLOR_MIN_COLOR_DIFF کم از کم رنگ کا فرق (%):
 AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP بے ترتیب رنگ منتخب کرتے وقت کم از کم رنگ کے فرق کی فیصد۔
 AUTOLINECOLOR_MAX_COLOR_PICK زیادہ سے زیادہ کوششیں:
 AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP الگ پہچانے جانے والا رنگ منتخب کرنے کی زیادہ سے زیادہ کوششیں۔
-
 SETTINGS_UI UI ترتیبات
 SETTINGS_VEHICLE_EDITOR_POSITION گاڑی ایڈیٹر کی پوزیشن:
 SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP منتخب کریں کہ گاڑی ایڈیٹر پینل اسکرین کے نیچے ظاہر ہو یا دائیں جانب۔
@@ -137,7 +130,6 @@ SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM نیچے
 SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT دائیں
 SETTINGS_VEHICLE_EDITOR_HIDE گاڑی ایڈیٹر چھپائیں
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP گاڑی ایڈیٹر کو گاڑی کے پینلز سے چھپائیں۔
-
 SETTINGS_STOPS عوامی نقل و حمل کے اسٹاپس
 SETTINGS_STOPSANDSTATIONS_DESCRIPTION ہر نقل و حمل کی قسم کے کتنے مسافر ایک اسٹاپ کو بھرا ہوا سمجھے جانے سے پہلے وہاں انتظار کر سکتے ہیں۔ زیادہ اقدار مصروف اسٹاپس پر بھیڑ کی شکایات کو کم کرتی ہیں، کم حقیقت پسندانہ قطار کے سائز کی قیمت پر۔
 SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP اوپر دی گئی تمام اسٹاپ مسافر حدود کو ان کی ڈیفالٹ اقدار پر ری سیٹ کریں۔
@@ -176,7 +168,6 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER ہیلی کاپٹر
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP ہیلی کاپٹر اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP بلمپ
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP بلمپ اسٹاپ پر انتظار کرنے والے زیادہ سے زیادہ مسافر
-
 SETTINGS_UNBUNCHING غیر ہجومیت
 SETTINGS_UNBUNCHING_AGGRESSION غیر ہجومیت کی جارحیت:
 SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP گاڑیوں کی غیر ہجومیت کتنی شدت سے کام کرے؟\nممکنہ قدریں: 0–52۔ قدر 0 غیر ہجومیت کو غیر فعال کر دیتی ہے۔\nزیادہ قدریں ٹریفک کو شدید متاثر کریں گی اور گاڑیوں کے غائب ہونے کا سبب بن سکتی ہیں۔
@@ -188,16 +179,18 @@ SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP تمام سلائیڈرز کو ڈیفا
 UNBUNCHING_ENABLED گاڑیوں کی غیر ہجومیت
 UNBUNCHING_DISABLED غیر ہجومیت غیر فعال ہے۔
 UNBUNCHING_TARGET_GAP ہدف فاصلہ: {0}
-
 SETTINGS_EBS_GROUP_BUS ایکسپریس بس خدمات
 SETTINGS_EBS_GROUP_TRAM ایکسپریس ٹرام خدمات
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE ایکسپریس بس:
 SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'غیر فعال' = بسیں اوپر دی گئی غیر ہجومیت کی ترتیبات استعمال کرتی ہیں۔\n'احتیاطی' = مختصر طور پر رکتی ہے، مسافروں کی جانچ کرتی ہے، اگر خالی ہو تو روانہ ہو سکتی ہے۔\n'جارحانہ' = اگر کوئی مسافر انتظار میں نہ ہو تو اسٹاپس مکمل طور پر چھوڑ دیتی ہے۔
 SETTINGS_EBS_ENABLE_SELFBAL سروس خود توازن فعال کریں
+SETTINGS_EBS_DESC_SELFBAL ایکسپریس بس سروس کو لائن بھر میں گاڑیاں دوبارہ تقسیم کرنے دیتا ہے تاکہ مصروف حصوں کو ترجیح ملے اور انتظار کا وقت کم ہو۔
 SETTINGS_EBS_TOOLTIP_SELFBAL لائن کے حصوں کا تجزیہ کرتا ہے اور خدمت کو یکساں بنانے اور انتظار کا وقت کم کرنے کے لیے گاڑیوں کو زیادہ مصروف حصوں یا آخری اسٹاپس پر دوبارہ تعینات کر سکتا ہے۔\nفیصلے احتمالی ہوتے ہیں اور مسافروں کی تعداد اور دوبارہ تعیناتی کے امکانات پر منحصر ہوتے ہیں۔
 SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID لائن کے درمیانی اسٹاپس کے لیے خود توازن فعال کریں
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID گاڑیوں کی دوبارہ تعیناتی کے وقت خودکار توازن کو صرف ٹرمینل کے بجائے لائن کے وسط کا مصروف اسٹاپ منتخب کرنے دیتا ہے۔
 SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID خود توازن کو گاڑیاں (آخری اسٹاپ کے بجائے) لائن کے مصروف درمیانی اسٹاپ پر دوبارہ تعینات کرنے کی اجازت دیں۔\nصرف اس وقت غور کیا جاتا ہے جب سب سے مصروف اسٹاپ پر 30 سے زیادہ مسافر انتظار میں ہوں، پھر تقریباً 50% امکان سے منتخب کیا جاتا ہے اور مجموعی دوبارہ تعیناتی کے امکانات سے مشروط ہوتا ہے۔
 SETTINGS_EBS_ENABLE_MINIBUS منی بس موڈ فعال کریں
+SETTINGS_EBS_DESC_MINIBUS جب صرف چند مسافر سوار یا اترتے ہوں تو کم گنجائش والی بسوں کو جلد روانہ کرتا ہے۔
 SETTINGS_EBS_TOOLTIP_MINIBUS ≤20 گنجائش والی بسیں کسی اسٹاپ سے جلدی روانہ ہو سکتی ہیں اگر اس اسٹاپ پر سوار ہونے + اترنے والے مسافر ≤5 ہوں۔
 SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE ایکسپریس ٹرام:
 SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'غیر فعال' = ٹرامیں اوپر دی گئی غیر ہجومیت کی ترتیبات استعمال کرتی ہیں۔\n'لائٹ ریل' = ہر اسٹاپ پر رکتی ہے، ہمیشہ مکمل ٹائمر کا انتظار کرتی ہے (سخت نظم و ضبط)۔\n'حقیقی ٹرام' = صرف اس وقت رکتی ہے جب مسافر سوار یا اتر رہے ہوں۔
@@ -207,14 +200,11 @@ SETTINGS_EBS_MODE_PRUDENTIAL احتیاطی
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL لائٹ ریل موڈ
 SETTINGS_EBS_TRAM_MODE_NONE غیر فعال
 SETTINGS_EBS_TRAM_MODE_TRAM حقیقی ٹرام موڈ
-
-
 SETTINGS_PTU_GROUP عوامی نقل و حمل ان اسٹکر
 SETTINGS_PTU_ENABLE پھنسے ہوئے مسافروں کو ہٹا دیں
 SETTINGS_PTU_TOOLTIP خود بخود ان مسافروں کو ہٹا دیتا ہے جو نقل و حمل کی گاڑیوں میں سوار ہوتے وقت پھنس جاتے ہیں، جس سے گاڑی معمول کے مطابق روانہ ہو سکے اور روانگی کے رک جانے سے بچا جا سکے۔
-
-
 SETTINGS_LINE_DELETION_TOOL لائنیں حذف کرنے کا آلہ
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION نیچے نقل و حمل کی اقسام منتخب کریں، پھر موجودہ شہر سے ان اقسام کی تمام لائنیں ہٹانے کے لیے حذف دبائیں۔ یہ انتخاب عارضی ہے - یہ ہمیشہ غیر منتخب شروع ہوتا ہے اور حذف کرنے کے بعد خود صاف ہو جاتا ہے، اسے ترتیب کے طور پر محفوظ نہیں کیا جاتا۔
 SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP منتخب کردہ اقسام کی تمام لائنیں حذف کرتا ہے۔ صرف اس وقت کام کرتا ہے جب شہر لوڈ ہو۔
 SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE لائن حذف کرنے کی تصدیق کریں
 SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG آپ تمام لائنیں حذف کرنے والے ہیں۔\nکیا آپ آگے بڑھنا چاہتے ہیں؟
@@ -232,8 +222,6 @@ SETTINGS_DELETE_HELICOPTER_LABEL ہیلی کاپٹر
 SETTINGS_DELETE_HELICOPTER_TOOLTIP تمام ہیلی کاپٹر لائنیں حذف کرتا ہے۔
 SETTINGS_DELETE_BLIMP_LABEL بلمپس
 SETTINGS_DELETE_BLIMP_TOOLTIP تمام بلمپ لائنیں حذف کرتا ہے۔
-
-
 VEHICLE_EDITOR_TITLE گاڑی ایڈیٹر
 VEHICLE_EDITOR_SUB_TITLE {0} گاڑیاں
 VEHICLE_EDITOR_CAPACITY مسافروں کی گنجائش
@@ -270,14 +258,12 @@ VEHICLE_SELECTION_SELECTED_VEHICLES منتخب کردہ گاڑیاں
 VEHICLE_SELECTION_ANY_VEHICLE کوئی بھی گاڑی
 VEHICLE_BUTTON_TOOLTIP {0}\n\nاس گاڑی پر جانے کے لیے کلک کریں۔\nکلک کرتے وقت شفٹ کی دبائے رکھنے سے زوم بھی ہو جائے گا۔\nکلک کرتے وقت Alt کی دبائے رکھنے سے گاڑی کی معلومات کا پینل کھلنے سے رک جائے گا۔
 TRANSPORT_LINE_VEHICLECOUNT گاڑیوں کی تعداد: {0}
-
 FLIGHT_TRACKER_NAME فلائٹ ٹریکر
 FLIGHT_STATUS_NONE کوئی نہیں
 FLIGHT_STATUS_INCOMING آنے والی
 FLIGHT_STATUS_LANDED اتر چکی ہے
 FLIGHT_STATUS_AT_GATE گیٹ پر
 FLIGHT_STATUS_DEPARTED روانہ ہو چکی ہے
-
 TICKET_PRICE_TAXI_KILOMETER ٹیکسی کی قیمت فی کلومیٹر:
 TICKET_PRICE_TAXI_MILE ٹیکسی کی قیمت فی میل:
 TICKET_PRICE_BUS بس ٹکٹ کی قیمت:
@@ -296,63 +282,63 @@ TICKET_PRICE_BLIMP بلمپ ٹکٹ کی قیمت:
 TICKET_PRICE_HELICOPTER ہیلی کاپٹر ٹکٹ کی قیمت:
 ECONOMY_TAB_TICKET_PRICES ٹکٹ کی قیمتیں
 ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT اس نقل و حمل کی قسم کے لیے موجودہ کل مسافروں کی تعداد۔
-
-
 WHATSNEW_3_0_0_1 Race Day کے لیے اپ ڈیٹ کیا گیا؛ اب More Vehicles Renewed کے ساتھ ہم آہنگ ہے۔
 WHATSNEW_3_0_0_2 درج ذیل موڈز کو IPT3 میں ضم کر دیا گیا ہے:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
-
 WHATSNEW_3_0_1 Public Transport Unstucker اب IPT3 میں ضم کر دیا گیا ہے۔\nدیگر تمام ضم شدہ موڈز کے لیے ورژن 3.0 دیکھیں۔ تنازعات سے بچنے کے لیے اصل موڈز سے سبسکرپشن ختم کریں۔
-SETTINGS_EBS_DESC_MINIBUS جب صرف چند مسافر سوار یا اترتے ہوں تو کم گنجائش والی بسوں کو جلد روانہ کرتا ہے۔
-SETTINGS_EBS_DESC_SELFBAL ایکسپریس بس سروس کو لائن بھر میں گاڑیاں دوبارہ تقسیم کرنے دیتا ہے تاکہ مصروف حصوں کو ترجیح ملے اور انتظار کا وقت کم ہو۔
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID گاڑیوں کی دوبارہ تعیناتی کے وقت خودکار توازن کو صرف ٹرمینل کے بجائے لائن کے وسط کا مصروف اسٹاپ منتخب کرنے دیتا ہے۔
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION نیچے نقل و حمل کی اقسام منتخب کریں، پھر موجودہ شہر سے ان اقسام کی تمام لائنیں ہٹانے کے لیے حذف دبائیں۔ یہ انتخاب عارضی ہے - یہ ہمیشہ غیر منتخب شروع ہوتا ہے اور حذف کرنے کے بعد خود صاف ہو جاتا ہے، اسے ترتیب کے طور پر محفوظ نہیں کیا جاتا۔
 SETTINGS_TAB_TRAINDISPLAY ٹرین ڈسپلے
 SETTINGS_TAB_INTEGRATIONS انضمامات
-SETTINGS_TRAINDISPLAY_ENABLE ٹرین ڈسپلے فعال کریں
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP مربوط ٹرین ڈسپلے اوورلے کو آن یا آف کریں۔
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY صرف فرسٹ پرسن کیمرے میں
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP اوورلے صرف اس وقت دکھائیں جب فرسٹ پرسن کیمرا موڈ (مثلاً First Person Camera - Continued) استعمال ہو رہا ہو۔ بند ہونے پر، کسی بھی کیمرا موڈ میں معاون گاڑی کا تعاقب کرتے وقت یہ دکھائی دیتا ہے۔
 SETTINGS_TRAINDISPLAY_GROUP ٹرین ڈسپلے اوورلے
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION معاون نقل و حمل کی گاڑیوں کا تعاقب کرتے وقت دکھائے جانے والے مربوط اوورلے کو ترتیب دیں۔
+SETTINGS_TRAINDISPLAY_ENABLE ٹرین ڈسپلے فعال کریں
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP مربوط ٹرین ڈسپلے اوورلے کو آن یا آف کریں۔
 SETTINGS_TRAINDISPLAY_MODE_DISABLED غیر فعال
 SETTINGS_TRAINDISPLAY_MODE_ENABLED فعال
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING صرف تعاقب کے دوران
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP جب تک کیمرا واقعی کسی معاون گاڑی کا تعاقب نہ کر رہا ہو، اوورلے چھپائیں۔
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY اوورلے دھندلاپن:
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP اوورلے کتنا شفاف ہے، ایڈجسٹ کریں۔
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION اوورلے مقام:
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP منتخب کریں کہ اوورلے اسکرین پر کہاں ظاہر ہو۔
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE اوورلے سائز:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP اوورلے کا سائز ایڈجسٹ کریں۔
-SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT نیچے بائیں
-SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT نیچے دائیں
 SETTINGS_TRAINDISPLAY_POS_TOPLEFT اوپر بائیں
 SETTINGS_TRAINDISPLAY_POS_TOPRIGHT اوپر دائیں
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION منزل دکھائیں
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP اوورلے میں منزل شامل کریں۔
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT نیچے بائیں
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT نیچے دائیں
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE اوورلے سائز:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP اوورلے کا سائز ایڈجسٹ کریں۔
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY اوورلے دھندلاپن:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP اوورلے کتنا شفاف ہے، ایڈجسٹ کریں۔
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL اپ ڈیٹ وقفہ:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP گاڑی کا تعاقب کرتے وقت اوورلے کتنی بار تازہ ہوتا ہے۔
 SETTINGS_TRAINDISPLAY_SHOW_LINE لائن کا نام دکھائیں
 SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP اوورلے میں لائن کا نام شامل کریں۔
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION منزل دکھائیں
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP اوورلے میں منزل شامل کریں۔
 SETTINGS_TRAINDISPLAY_SHOW_STATE حالت دکھائیں
 SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP اوورلے میں گاڑی کی حالت شامل کریں۔
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING صرف تعاقب کے دوران
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP جب تک کیمرا واقعی کسی معاون گاڑی کا تعاقب نہ کر رہا ہو، اوورلے چھپائیں۔
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY صرف فرسٹ پرسن کیمرے میں
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP اوورلے صرف اس وقت دکھائیں جب فرسٹ پرسن کیمرا موڈ (مثلاً First Person Camera - Continued) استعمال ہو رہا ہو۔ بند ہونے پر، کسی بھی کیمرا موڈ میں معاون گاڑی کا تعاقب کرتے وقت یہ دکھائی دیتا ہے۔
 SETTINGS_TRAINDISPLAY_THEME رنگ تھیم:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP اوورلے کے پس منظر/متن کے رنگ منتخب کریں۔
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE سادہ
 SETTINGS_TRAINDISPLAY_THEME_DARK گہرا
 SETTINGS_TRAINDISPLAY_THEME_LIGHT ہلکا
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL اصل
-SETTINGS_TRAINDISPLAY_THEME_SIMPLE سادہ
-SETTINGS_TRAINDISPLAY_THEME_TOOLTIP اوورلے کے پس منظر/متن کے رنگ منتخب کریں۔
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL اپ ڈیٹ وقفہ:
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP گاڑی کا تعاقب کرتے وقت اوورلے کتنی بار تازہ ہوتا ہے۔
+SETTINGS_TRAINDISPLAY_THEME_BLUE نیلا
+SETTINGS_TRAINDISPLAY_THEME_GREEN سبز
+SETTINGS_TRAINDISPLAY_THEME_AMBER عنبری
 COPY_TIP اس لائن کی ترتیبات کاپی کریں۔
 PASTE_TIP کاپی کی گئی لائن ترتیبات پیسٹ کریں۔
 COPY_BUILDING_TIP یہ ترتیبات اس عمارت کو سروس دینے والی تمام لائنوں پر کاپی کریں۔
 COPY_DISTRICT_TIP یہ ترتیبات اس ضلع کی تمام لائنوں پر کاپی کریں۔
-CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
-CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
-CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
-CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
 SETTINGS_INTEGRATIONS_GROUP مربوط ایڈ آنز
 SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control فعال کریں
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP مربوط Intercity Bus Control مطابقت پرت اور اسٹیشن پیچنگ فعال کرتا ہے۔
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE اعلیٰ سٹاپ انتخاب فعال کریں
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP ملٹی ٹریک اسٹیشنوں کے متبادل پلیٹ فارم/ٹریک پر اسٹاپ رکھنے دیتا ہے (رکھتے وقت متبادل موڈ کلید دبائے رکھیں)۔ اگلے لیول لوڈ پر مؤثر۔
+SETTINGS_BETTERBOARDING_ENABLE بہتر بورڈنگ فعال کریں
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP بورڈنگ فیصلے بہتر بناتا ہے تاکہ مسافر وہی گاڑی چنیں جو واقعی ان کی منزل پر جاتی ہے۔ اگلے لیول لوڈ پر مؤثر۔
+SETTINGS_MILEAGETAXI_ENABLE مائلیج ٹیکسی سروس فعال کریں
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP فلیٹ ریٹ کی بجائے طے شدہ فاصلے سے ٹیکسی کرایہ لیتا ہے، لمبی سواری زیادہ کماتی ہے۔ After Dark DLC درکار۔ اگلے لیول لوڈ پر مؤثر۔
+SETTINGS_ELEVATEDSTOPS_ENABLE اونچے اسٹاپ فعال کریں
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP اونچی سڑک/پل پر عوامی ٹرانسپورٹ اسٹاپ کی اجازت دیتا ہے اور ان حصوں پر اسٹریٹ لائٹ رکھتا ہے۔ اگلے لیول لوڈ پر مؤثر۔
 SETTINGS_INTERCITY_BUS_CAPACITY بین شہری ٹرمینل گنجائش
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP ایک بین شہری بس ٹرمینل ایک ہی وقت میں کتنی گاڑیاں رکھ سکتا ہے۔
 SETTINGS_TRAM_DEPOT_CAPACITY ٹرام ڈپو کی گنجائش
@@ -376,8 +362,8 @@ SETTINGS_TAXISTANDFIX_ENABLE ٹیکسی اسٹینڈ فکس فعال کریں
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP خالی ٹیکسیوں کو بے ترتیب گھومنے دینے کے بجائے قریب ترین ٹیکسی اسٹینڈ کی طرف بھیجتا ہے۔ After Dark DLC درکار ہے۔
 SETTINGS_SHAREDSTOPENABLER_ENABLE مشترکہ اسٹاپ فعال کریں
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP ایک سے زیادہ ٹرانسپورٹ اقسام (بس، ٹرام، ٹرالی بس) کو ایک ہی سڑک کے حصے پر رکنے کی اجازت دیتا ہے۔ پہلے سے غیر فعال - یہ مختصر ورژن کیا چھوڑتا ہے یہ جاننے کے لیے ماڈ کا GitHub دیکھیں۔
-SETTINGS_COMMUTERDESTINATION_ENABLE مسافر منزل فعال کریں
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP دکھاتا ہے کہ اسٹاپ پر انتظار کرنے والے مسافر کہاں جا رہے ہیں - ایک چھوٹا پینل اور نقشے پر اوورلے۔ صرف پڑھنے کے لیے، Harmony کے علاوہ کوئی انحصار نہیں۔
+SETTINGS_COMMUTERDESTINATION_ENABLE مسافر منزل فعال کریں (ری ڈیزائن زیر التواء)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP عارضی طور پر دستیاب نہیں: پرانا پینل اسٹاپ-info UI دہراتا تھا اور ری ڈیزائن تک زبردستی بند ہے۔ چیک باکس اسے دوبارہ آن نہیں کرتا۔
 SETTINGS_OOC_ENABLE بہتر بیرونی رابطے
 SETTINGS_OOC_ENABLE_TOOLTIP کارگو ٹرینیں، ہوائی جہاز اور بحری جہاز بیرونی رابطوں پر روانہ ہونے سے پہلے زیادہ بھرے ہوئے لوڈ کے لیے زیادہ دیر انتظار کرتے ہیں۔
 SETTINGS_OOC_WAIT_MULTIPLIER انتظار ضارب
@@ -443,11 +429,14 @@ TRAINDISPLAY_STATE_IDLE غیر فعال
 AUTOLINECOLOR_REFRESH_BUTTON نام/رنگ تازہ کریں
 AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP فعال AutoLineColor ترتیبات کے مطابق اس لائن کا نام اور رنگ دوبارہ تفویض کرتا ہے۔
 AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP اس لائن کو تازہ کرنے سے پہلے اختیارات میں رنگ یا نام کی حکمت عملی فعال کریں۔
+CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
+CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
+CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
+CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
 CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
 CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
 CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
 TICKET_PRICE_LABEL_TOOLTIP موجودہ کرایہ: {0}\nاصل کرایہ: {1}\nابھی سوار مسافر: {2}
-
 CHANGELOG_4_8_0_1 SingleTrainTrackAI شامل کیا گیا: سنگل ٹریک ریل حصے اب ایک وقت میں صرف ایک سمت کے لیے محفوظ ہوتے ہیں، اس لیے دو طرفہ ٹریک شیئر کرنے والی دو ٹرینوں کے ٹکرانے کا خطرہ اب باقی نہیں رہا۔ کلین روم دوبارہ نفاذ - سورس موڈ (Workshop 949504539) کا کوئی اعلان شدہ لائسنس نہیں ہے، اس لیے صرف اس کے عوامی طور پر دستاویزی تصور کو دوبارہ نافذ کیا گیا، خام میموری ڈیٹور کے بجائے اس پروجیکٹ کے اپنے Harmony پر مبنی پیچنگ نظام پر۔
 CHANGELOG_4_8_0_2 Stop Stacker شامل کیا گیا: جب ایک ہی لائن کی ایک سے زیادہ گاڑیاں کسی اسٹاپ پر جمع ہوتی ہیں، تو صرف آگے والی گاڑی معمول کی اسٹاپ پوزیشن استعمال کرتی ہے - پیچھے آنے والی گاڑیاں اس کے پیچھے ایک قطار میں لگنے کے بجائے لین میں مزید پیچھے اپنی الگ جگہ حاصل کرتی ہیں۔ صرف سورس موڈ کی عوامی تفصیل پر مبنی کلین روم دوبارہ نفاذ (کوئی سورس کوڈ دستیاب نہیں تھا)؛ صرف بس اور ٹرالی بس کے لیے، اس پروجیکٹ کے موجودہ BetterBusStopPosition ہک پوائنٹ سے مطابقت رکھتے ہوئے۔
 CHANGELOG_4_8_0_3 درست کیا گیا: Sunset Harbor DLC رکھنے والے کھلاڑیوں کے لیے انٹرسٹی بس ٹرمینل انضمام خاموشی سے کبھی فعال نہیں ہوتا تھا: یہ اس پروجیکٹ میں دیگر جگہوں پر پہلے سے استعمال ہونے والے Steam DLC چیک کے بجائے گیم کے ایک نجی فیلڈ میں ریفلیکشن کے ذریعے DLC کا پتہ لگاتا تھا، اور یہ ریفلیکشن پر مبنی چیک DLC حقیقتاً انسٹال ہونے کے باوجود false واپس کر سکتا تھا۔
@@ -455,7 +444,14 @@ CHANGELOG_4_8_0_4 درست کیا گیا: کچھ ٹرمینلز پر "انٹرس
 CHANGELOG_4_8_0_5 درست کیا گیا: ذیلی عمارتوں کے ٹیبز کبھی کبھار غیر متعلقہ عمارت پر پرانی ٹیب پٹی دکھاتے تھے: گیم انہدام کے بعد عمارت کی آئی ڈیز کو دوبارہ استعمال کرتا ہے، اور کیش پہلے یہ سمجھتا تھا کہ دوبارہ استعمال ہونے والی آئی ڈی اب بھی پچھلے عمارتی کلسٹر سے تعلق رکھتی ہے۔ اب یہ کیش سے کچھ بھی دوبارہ استعمال کرنے سے پہلے عمارت کی اصل والدین چین کی دوبارہ تصدیق کرتا ہے۔
 CHANGELOG_4_8_0_6 متعدد انضمامات میں عمومی بگ صفائی: ایک الٹی کیش میعاد ختم ہونے کی جانچ جو تازہ ڈیٹا کو رد کر کے اس کے بجائے پرانا ڈیٹا فراہم کرتی تھی، ایک آف بائی ون لوپ حد جو خودکار رنگ کاری اور ڈپلیکیٹ نام کی جانچ کے لیے آخری ٹرانسپورٹ لائن کو چھوڑ دیتی تھی، ایک غلط آئی ڈی موازنہ جو "اس لائن پر صرف ایک گاڑی" کے ہجوم مخالف بائی پاس کو خراب کرتا تھا، ایک قیمت کی تلاش جو بعد میں دوبارہ کوشش کرنے کے بجائے ناکامی کو مستقل طور پر کیش کر لیتی تھی، اور کئی Harmony پیچز جو null UI/prefab حوالے پر استثنا پھینک سکتے تھے۔
 CHANGELOG_4_8_0_7 متعدد انضمامات میں بار بار ہونے والی ریفلیکشن اور فی فریم تلاش کو کم کیا گیا: گاڑی کے ٹول ٹپ کی تفصیلات، سنگل ٹریک حصے کی درجہ بندی، اور انٹرسٹی بس آئٹم کلاس تلاش اب ہر کال پر دوبارہ شمار کرنے کے بجائے کیش کی جاتی ہیں، اور ایک UI ریفریش بٹن اب ہر فریم میں اپنا متن دوبارہ تفویض نہیں کرتا چاہے کچھ بدلا ہو یا نہیں۔
-CHANGELOG_4_8_0_8 مندرجہ بالا اصلاحات کے بعد Intercity Bus Control اور ذیلی عمارتوں کے ٹیبز دوبارہ ڈیفالٹ کے طور پر فعال ہیں - دونوں کی کارکردگی کی تصدیق ہو چکی ہے، صرف چند معمولی معلوم مسائل (ٹیب پوزیشن کی باریک ایڈجسٹمنٹ، اسٹاپ کے نام کی نمائش میں ایک نایاب خامی) مستقبل کے ورژن میں گہرے تجزیے کے لیے باقی ہیں۔
+CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
+CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
+CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
+CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
+CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
+CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
+CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 چار نئے انضمامات: ذیلی عمارتوں کے ٹیبز (کسی بھی کثیر عمارتی مرکز کے لیے ٹیب بار، نہ صرف ہوائی اڈوں کے لیے)، مشترکہ اسٹاپ فعال کار (ایک سے زیادہ اسٹاپ اقسام کو ایک ہی سڑک کے حصے میں شریک ہونے دیتا ہے، ڈیفالٹ طور پر غیر فعال)، مسافر منزل (دکھاتا ہے کہ اسٹاپ پر انتظار کرنے والے شہری اصل میں کہاں جا رہے ہیں) اور ٹیکسی اسٹینڈ فکس (خالی ٹیکسیاں بھٹکنے کے بجائے قریب ترین اسٹینڈ کی طرف جاتی ہیں)۔ ہر ٹوگل کے لیے اختیارات > انضمامات دیکھیں۔
 CHANGELOG_4_7_0_2 بین شہری بس ٹرمینلز کے لیے ایک گاڑی گنجائش موڈ شامل کیا گیا (اختیارات > انضمامات > بین شہری بس ٹرمینل گنجائش): غیر فعال اس مانع کے موجودہ، عملی طور پر لامحدود ٹرمینل کو برقرار رکھتا ہے، درمیانہ ایک معتدل مقررہ حد لاگو کرتا ہے، حقیقت پسندانہ ٹرمینل کی اپنی اصل گیم پریفیب گنجائش بحال کرتا ہے۔ موجودہ سیوز ڈیفالٹ طور پر غیر فعال استعمال کرتے ہیں، تاکہ اپ ڈیٹ کبھی بھی خاموشی سے کسی ٹرمینل کی گنجائش کم نہ کرے۔
 CHANGELOG_4_7_0_3 بین شہری بس ٹرمینل کے "بین شہری بسیں قبول کریں" چیک باکس کو ٹھیک کیا گیا: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged، acceptsInterCityTrains سیٹ کرتا ہے، جو محض isEmptying کا ایک عرفی نام (alias) ہے، اس لیے دوبارہ لیبل کیا گیا یہ چیک باکس اصل میں بس کی قبولیت تبدیل کرنے کے بجائے خاموشی سے کسی بس ٹرمینل کو گیم کی عمارت بند کرنے کی حالت میں ڈال سکتا تھا۔ اب ایک Harmony prefix اسے روک کر بس کے لیے پیچ شدہ ٹرمینلز کے لیے فی عمارت حالت کی طرف موڑ دیتا ہے، جبکہ اصل ٹرین اسٹیشنز کو چھوڑ دیتا ہے۔
@@ -469,3 +465,114 @@ CHANGELOG_4_3_7_1 سیلیکٹر میں موجود تمام 23 زبانیں اب
 CHANGELOG_4_3_7_2 زبان کے انتخاب کے نیچے دکھایا جانے والا ترجمے کا تناسب ایک سٹیٹک اسٹیٹس فائل سے آتا تھا جو دوبارہ نہیں بنائی گئی تھی، اس لیے وہ سولہ زبانوں کے لیے 76% دکھا رہا تھا جو دراصل مکمل تھیں۔
 CHANGELOG_4_3_6_1 عوامی ترانسپورٹ میں تقریباً -21.4 ملین کے خرچ کی اصل وجہ درست کر دی گئی: IPT کا ہفتہ وار دیکھ بھال کا حساب صفر یا غیر معاون گاڑی کی گنجائش پر تقسیم کرتا تھا، NaN کو int.MinValue بنا دیتا تھا اور پھر ہر گاڑی کو ایک اور int میں جمع کرتا تھا۔ غیر درست اقدار اب محفوظ وینلا متبادل استعمال کرتی ہیں، لائن کے کل اعداد 64-بٹ حساب سے ہوتے ہیں، اور بڑی درست رقوم صرف محدود مثبت لین دین کے ذریعے وصول کی جاتی ہیں۔
 CHANGELOG_4_3_6_2 متاثر ہونے والے سیو لود ہوتے وقت درست کر دیے جاتے ہیں: صرف اس اوورفلو سے باقی رہ گئے عوامی ترانسپورٹ کی منفی آمدنی یا اخراجات کے خانے صفر کر دیے جاتے ہیں اور ان کے متعلق مجموعے درست کئے جاتے ہیں۔ درست معاشی تاریخ اور دیگر تمام خدمات جوں کی توں رہتی ہیں۔
+DEPOT_STATS_FERRIES_IN_USE Ferries in use
+DEPOT_STATS_BLIMPS_IN_USE Blimps in use
+DEPOT_STATS_HELICOPTERS Helicopters in use
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
+DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
+SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
+TRAINDISPLAY_LABEL_SPEED Speed
+TRAINDISPLAY_LABEL_TIME Time
+SETTINGS_PERFORMANCE_PROFILE Performance profile
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
+SETTINGS_TAB_PERFORMANCE Performance
+SETTINGS_PERFORMANCE_TIPS_GROUP Tips
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
+SETTINGS_TAB_COMPATIBILITY Compatibility
+SETTINGS_COMPAT_INTRO_GROUP Check your load order
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
+SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
+SETTINGS_COMPAT_STATUS_GROUP Current result
+SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
+SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
+SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
+SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
+SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_COMPAT_BADGE_CONFLICT Conflict
+SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_OK OK
+SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
+COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
+SETTINGS_TAB_FLEET_SHORT Fleet
+SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_TAB_OVERLAY_SHORT Overlay
+SETTINGS_TAB_SYSTEM_SHORT System
+SETTINGS_SUB_SPACING Spacing
+SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_BUDGET Budget
+SETTINGS_SUB_COLOR Color
+SETTINGS_SUB_CAPS Caps
+SETTINGS_SUB_NET Network
+SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
+SETTINGS_SUB_VEHICLES Vehicles
+SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_SUB_DEPOTS Depots
+SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
+SETTINGS_SUB_OUTSIDE Outside
+SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
+SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_INFO Info
+SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_COMPAT Compat
+SETTINGS_SUB_KEYS Keys
+SETTINGS_FUTURE_GROUP Coming later
+SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
+SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
+SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
+SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+LINE_PANEL_COPY Copy
+LINE_PANEL_PASTE Paste
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_QUICK_TIPS_GROUP Quick tips
+SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
+SETTINGS_QUICK_TIP_1_TITLE Start simple
+SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
+SETTINGS_QUICK_TIP_2_TITLE Slow PC?
+SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
+SETTINGS_QUICK_TIP_3_TITLE After toggles
+SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
+SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
+SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.

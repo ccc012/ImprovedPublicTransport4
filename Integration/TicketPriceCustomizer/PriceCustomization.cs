@@ -1,6 +1,5 @@
 using System;
 using ColossalFramework;
-using ColossalFramework.IO;
 using UnityEngine;
 using ImprovedPublicTransport.Util;
 using IPTUtils = ImprovedPublicTransport.Util.Utils;
@@ -150,8 +149,11 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         // Keep track of original base prices to avoid compounding multipliers
         private static readonly System.Collections.Generic.Dictionary<string, int> s_basePrices = new System.Collections.Generic.Dictionary<string, int>();
 
-        // Cache of resolved transport Info objects for safer simulation-thread operations.
-        private static readonly System.Collections.Generic.Dictionary<string, TransportInfo> s_cachedTransportInfos = new System.Collections.Generic.Dictionary<string, TransportInfo>();
+        // Cache of resolved TransportInfo objects (primary key + successful aliases).
+        private static readonly System.Collections.Generic.Dictionary<string, TransportInfo> s_cachedTransportInfos = new System.Collections.Generic.Dictionary<string, TransportInfo>(StringComparer.OrdinalIgnoreCase);
+
+        // Missing TransportInfo is expected for unowned DLC / not-yet-loaded prefabs — warn once per logical type.
+        private static readonly System.Collections.Generic.HashSet<string> s_missingTransportInfoWarned = new System.Collections.Generic.HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         /// <summary>
         /// Gets the ticket price currently in effect for a transport type, as the game charges it.
@@ -181,8 +183,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             {
                 if (!TryGetTransportInfo(kvp.Key, out var info))
                 {
-                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
-                        IPTUtils.LogWarning($"TicketPriceCustomizer: ResetToVanilla skipping '{kvp.Key}' - TransportInfo not found.");
+                    // Already warned once (if ever) from TryGetTransportInfo / SetPrice path.
                     continue;
                 }
 
@@ -207,10 +208,9 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         {
             try
             {
-                // Prefer already-resolved TransportInfo objects (from existing lines) and avoid PrefabCollection lookups on simulation thread.
                 if (!TryGetTransportInfo(type, out var info))
                 {
-                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) IPTUtils.LogWarning($"TicketPriceCustomizer: TransportInfo for '{type}' not found; skipping type.");
+                    LogMissingTransportInfoOnce(type);
                     return;
                 }
 
@@ -225,26 +225,30 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 int finalPriceInt = Mathf.RoundToInt(basePrice * multiplier);
                 finalPriceInt = Math.Max(0, finalPriceInt);
                 ushort finalPrice = (ushort)Mathf.Clamp(finalPriceInt, 0, UInt16.MaxValue);
-                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) IPTUtils.Log($"TicketPriceCustomizer: Setting '{type}' multiplier to {multiplier:F1}x (base={basePrice}, final={finalPrice})");
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) IPTUtils.Log($"TicketPriceCustomizer: Setting '{type}' multiplier to {multiplier:F1}x (base={basePrice}, final={finalPrice}, prefab='{info.name}')");
 
                 SetInfoPrice(info, finalPrice);
 
                 int modifiedLines = 0;
                 int checkedLines = 0;
-                for (ushort i = 0; i < TransportManager.instance.m_lines.m_size; i++)
+                var transportManager = TransportManager.instance;
+                if (transportManager != null)
                 {
-                    var line = TransportManager.instance.m_lines.m_buffer[i];
-                    checkedLines++;
-                    if ((line.m_flags & TransportLine.Flags.Created) == TransportLine.Flags.None || line.Info != info)
+                    for (ushort i = 0; i < transportManager.m_lines.m_size; i++)
                     {
-                        continue;
-                    }
+                        var line = transportManager.m_lines.m_buffer[i];
+                        checkedLines++;
+                        if ((line.m_flags & TransportLine.Flags.Created) == TransportLine.Flags.None || line.Info != info)
+                        {
+                            continue;
+                        }
 
-                    var oldPrice = line.m_ticketPrice;
-                    SetLinePrice(i, info, ref TransportManager.instance.m_lines.m_buffer[i], finalPrice);
-                    if (oldPrice != TransportManager.instance.m_lines.m_buffer[i].m_ticketPrice)
-                    {
-                        modifiedLines++;
+                        var oldPrice = line.m_ticketPrice;
+                        SetLinePrice(i, info, ref transportManager.m_lines.m_buffer[i], finalPrice);
+                        if (oldPrice != transportManager.m_lines.m_buffer[i].m_ticketPrice)
+                        {
+                            modifiedLines++;
+                        }
                     }
                 }
                 if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
@@ -279,42 +283,322 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             line.m_ticketPrice = price;
         }
 
+        private static void LogMissingTransportInfoOnce(string transportType)
+        {
+            if (string.IsNullOrEmpty(transportType) || !s_missingTransportInfoWarned.Add(transportType))
+            {
+                return;
+            }
+
+            IPTUtils.LogWarning(
+                $"TicketPriceCustomizer: TransportInfo for '{transportType}' not found " +
+                "(DLC missing, prefab not loaded yet, or name mismatch). Further misses for this type are suppressed.");
+        }
+
+        /// <summary>
+        /// Resolves a TransportInfo for a logical ticket-price key (e.g. "CableCar", "Airplane").
+        /// Order: cache → live lines (name/aliases/type) → PrefabCollection.FindLoaded aliases →
+        /// PrefabCollection type/vehicle/subservice scan. Successful hits (including alias names)
+        /// are cached under the primary key and the alias that found them.
+        /// </summary>
         private static bool TryGetTransportInfo(string transportType, out TransportInfo info)
         {
+            info = null;
+            if (string.IsNullOrEmpty(transportType))
+            {
+                return false;
+            }
+
             if (s_cachedTransportInfos.TryGetValue(transportType, out info))
             {
                 return info != null;
             }
 
-            info = null;
-            var transportManager = TransportManager.instance;
-            if (transportManager != null)
+            var aliases = GetTransportInfoNameAliases(transportType);
+
+            // 1) Existing lines — works without PrefabCollection and is safe on the sim thread.
+            info = FindTransportInfoFromLines(transportType, aliases);
+            if (info != null)
             {
-                for (ushort i = 0; i < transportManager.m_lines.m_size; i++)
+                CacheTransportInfo(transportType, info, matchedName: info.name);
+                return true;
+            }
+
+            // 2) PrefabCollection by name / aliases. Wrapped — some loading mods can throw if
+            // PrefabCollection is touched from unexpected threads; miss is better than a hard crash.
+            info = FindTransportInfoByPrefabName(aliases);
+            if (info != null)
+            {
+                CacheTransportInfo(transportType, info, matchedName: info.name);
+                return true;
+            }
+
+            // 3) Scan loaded TransportInfos by transport type / vehicle type / class.
+            info = FindTransportInfoByScan(transportType);
+            if (info != null)
+            {
+                CacheTransportInfo(transportType, info, matchedName: info.name);
+                return true;
+            }
+
+            // Do not cache misses — a type queried before its DLC prefabs load must remain resolvable later.
+            return false;
+        }
+
+        private static void CacheTransportInfo(string primaryKey, TransportInfo info, string matchedName)
+        {
+            if (info == null || string.IsNullOrEmpty(primaryKey))
+            {
+                return;
+            }
+
+            s_cachedTransportInfos[primaryKey] = info;
+            if (!string.IsNullOrEmpty(matchedName)
+                && !matchedName.Equals(primaryKey, StringComparison.OrdinalIgnoreCase))
+            {
+                s_cachedTransportInfos[matchedName] = info;
+            }
+
+            // Also cache every known alias that equals the matched prefab name so later lookups hit cache.
+            foreach (var alias in GetTransportInfoNameAliases(primaryKey))
+            {
+                if (alias.Equals(matchedName, StringComparison.OrdinalIgnoreCase)
+                    || alias.Equals(info.name, StringComparison.OrdinalIgnoreCase))
                 {
-                    var line = transportManager.m_lines.m_buffer[i];
-                    if ((line.m_flags & TransportLine.Flags.Created) == TransportLine.Flags.None || line.Info == null)
-                        continue;
-                    if (line.Info.name.Equals(transportType, StringComparison.OrdinalIgnoreCase))
-                    {
-                        info = line.Info;
-                        break;
-                    }
+                    s_cachedTransportInfos[alias] = info;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Canonical + alternate prefab names used across vanilla, localised assets, and common renames.
+        /// First entry is the logical key used by Set*Price callers.
+        /// </summary>
+        private static string[] GetTransportInfoNameAliases(string transportType)
+        {
+            switch (transportType)
+            {
+                case "Bus":
+                    return new[] { "Bus" };
+                case "Intercity Bus":
+                    return new[] { "Intercity Bus", "IntercityBus", "Intercity bus" };
+                case "Metro":
+                    return new[] { "Metro", "Metro Train", "Subway" };
+                case "Train":
+                    return new[] { "Train", "Passenger Train" };
+                case "Ship":
+                    return new[] { "Ship", "Passenger Ship", "PassengerShip" };
+                case "Airplane":
+                    return new[] { "Airplane", "Passenger Plane", "PassengerPlane", "Plane" };
+                case "Taxi":
+                    return new[] { "Taxi" };
+                case "Tram":
+                    return new[] { "Tram" };
+                case "Blimp":
+                    return new[] { "Blimp", "Passenger Blimp" };
+                case "Ferry":
+                    return new[] { "Ferry", "Passenger Ferry", "PassengerFerry" };
+                case "CableCar":
+                    return new[] { "CableCar", "Cable Car", "Cablecar" };
+                case "Monorail":
+                    return new[] { "Monorail" };
+                case "Sightseeing Bus":
+                    return new[] { "Sightseeing Bus", "Tourist Bus", "TouristBus", "SightseeingBus" };
+                case "Passenger Helicopter":
+                    return new[] { "Passenger Helicopter", "Helicopter", "PassengerHelicopter" };
+                case "Trolleybus":
+                    return new[] { "Trolleybus", "Trolley Bus" };
+                default:
+                    return new[] { transportType };
+            }
+        }
+
+        private static bool NameMatchesAnyAlias(string prefabName, string[] aliases)
+        {
+            if (string.IsNullOrEmpty(prefabName) || aliases == null)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < aliases.Length; i++)
+            {
+                if (prefabName.Equals(aliases[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
                 }
             }
 
-            // We purposely skip PrefabCollection lookups here in the simulation thread path because some external
-            // mods (e.g. LoadingScreenModRevisited custom asset deserializer) can crash when called from worker threads.
-            // Use line snapshot data only.
-            // Only cache a successful lookup - caching a miss would stick forever (e.g. a transport
-            // type queried before any line of that type exists yet, such as before an airport is
-            // built), permanently disabling price customization for that type for the rest of the
-            // session even after a matching line is created.
-            if (info != null)
+            return false;
+        }
+
+        private static TransportInfo FindTransportInfoFromLines(string transportType, string[] aliases)
+        {
+            var transportManager = TransportManager.instance;
+            if (transportManager == null)
             {
-                s_cachedTransportInfos[transportType] = info;
+                return null;
             }
-            return info != null;
+
+            for (ushort i = 0; i < transportManager.m_lines.m_size; i++)
+            {
+                var line = transportManager.m_lines.m_buffer[i];
+                if ((line.m_flags & TransportLine.Flags.Created) == TransportLine.Flags.None || line.Info == null)
+                {
+                    continue;
+                }
+
+                var candidate = line.Info;
+                if (NameMatchesAnyAlias(candidate.name, aliases) || TransportInfoMatchesLogicalType(candidate, transportType))
+                {
+                    return candidate;
+                }
+            }
+
+            return null;
+        }
+
+        private static TransportInfo FindTransportInfoByPrefabName(string[] aliases)
+        {
+            if (aliases == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                for (int i = 0; i < aliases.Length; i++)
+                {
+                    var loaded = PrefabCollection<TransportInfo>.FindLoaded(aliases[i]);
+                    if (loaded != null)
+                    {
+                        return loaded;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                {
+                    IPTUtils.LogWarning($"TicketPriceCustomizer: PrefabCollection.FindLoaded failed: {e.Message}");
+                }
+            }
+
+            return null;
+        }
+
+        private static TransportInfo FindTransportInfoByScan(string transportType)
+        {
+            try
+            {
+                int count = PrefabCollection<TransportInfo>.LoadedCount();
+                for (uint i = 0; i < count; i++)
+                {
+                    var candidate = PrefabCollection<TransportInfo>.GetLoaded(i);
+                    if (candidate == null)
+                    {
+                        continue;
+                    }
+
+                    if (TransportInfoMatchesLogicalType(candidate, transportType))
+                    {
+                        return candidate;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                {
+                    IPTUtils.LogWarning($"TicketPriceCustomizer: PrefabCollection scan failed: {e.Message}");
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Matches a loaded TransportInfo to a logical ticket-price key using transport type,
+        /// vehicle type, and ItemClass level/subservice — independent of localised prefab names.
+        /// </summary>
+        private static bool TransportInfoMatchesLogicalType(TransportInfo info, string transportType)
+        {
+            if (info == null || string.IsNullOrEmpty(transportType))
+            {
+                return false;
+            }
+
+            var t = info.m_transportType;
+            var vehicle = info.m_vehicleType;
+            var itemClass = info.m_class;
+            var sub = itemClass != null ? itemClass.m_subService : ItemClass.SubService.None;
+            var level = itemClass != null ? itemClass.m_level : ItemClass.Level.None;
+            var name = info.name ?? string.Empty;
+
+            switch (transportType)
+            {
+                case "Bus":
+                    // City bus only — intercity is Level3 on the same Bus transport type
+                    // (mirrors TransportStationAI.IsIntercity / TicketPricesTab).
+                    return t == TransportInfo.TransportType.Bus
+                           && (sub == ItemClass.SubService.PublicTransportBus || sub == ItemClass.SubService.None)
+                           && level != ItemClass.Level.Level3
+                           && name.IndexOf("Intercity", StringComparison.OrdinalIgnoreCase) < 0;
+                case "Intercity Bus":
+                    return t == TransportInfo.TransportType.Bus
+                           && (level == ItemClass.Level.Level3
+                               || name.IndexOf("Intercity", StringComparison.OrdinalIgnoreCase) >= 0);
+                case "Metro":
+                    return t == TransportInfo.TransportType.Metro
+                           || sub == ItemClass.SubService.PublicTransportMetro;
+                case "Train":
+                    return t == TransportInfo.TransportType.Train
+                           || (sub == ItemClass.SubService.PublicTransportTrain
+                               && t != TransportInfo.TransportType.Metro
+                               && t != TransportInfo.TransportType.Monorail);
+                case "Ship":
+                    // Passenger ship harbour traffic — not ferry lines (Ferry vehicle type / "Ferry" name).
+                    return t == TransportInfo.TransportType.Ship
+                           && vehicle != VehicleInfo.VehicleType.Ferry
+                           && name.IndexOf("Ferry", StringComparison.OrdinalIgnoreCase) < 0;
+                case "Ferry":
+                    return t == TransportInfo.TransportType.Ship
+                           && (vehicle == VehicleInfo.VehicleType.Ferry
+                               || name.IndexOf("Ferry", StringComparison.OrdinalIgnoreCase) >= 0
+                               || sub == ItemClass.SubService.PublicTransportShip && level == ItemClass.Level.Level2);
+                case "Airplane":
+                    // Intercity planes — not blimps (Blimp vehicle type / "Blimp" name).
+                    return t == TransportInfo.TransportType.Airplane
+                           && vehicle != VehicleInfo.VehicleType.Blimp
+                           && name.IndexOf("Blimp", StringComparison.OrdinalIgnoreCase) < 0;
+                case "Blimp":
+                    return t == TransportInfo.TransportType.Airplane
+                           && (vehicle == VehicleInfo.VehicleType.Blimp
+                               || name.IndexOf("Blimp", StringComparison.OrdinalIgnoreCase) >= 0);
+                case "Taxi":
+                    return t == TransportInfo.TransportType.Taxi
+                           || sub == ItemClass.SubService.PublicTransportTaxi;
+                case "Tram":
+                    return t == TransportInfo.TransportType.Tram
+                           || sub == ItemClass.SubService.PublicTransportTram;
+                case "CableCar":
+                    return t == TransportInfo.TransportType.CableCar
+                           || sub == ItemClass.SubService.PublicTransportCableCar;
+                case "Monorail":
+                    return t == TransportInfo.TransportType.Monorail
+                           || sub == ItemClass.SubService.PublicTransportMonorail;
+                case "Sightseeing Bus":
+                    return t == TransportInfo.TransportType.TouristBus
+                           || sub == ItemClass.SubService.PublicTransportTours;
+                case "Passenger Helicopter":
+                    return t == TransportInfo.TransportType.Helicopter
+                           || vehicle == VehicleInfo.VehicleType.Helicopter
+                           || name.IndexOf("Helicopter", StringComparison.OrdinalIgnoreCase) >= 0;
+                case "Trolleybus":
+                    return t == TransportInfo.TransportType.Trolleybus
+                           || sub == ItemClass.SubService.PublicTransportTrolleybus;
+                default:
+                    return name.Equals(transportType, StringComparison.OrdinalIgnoreCase);
+            }
         }
     }
 }

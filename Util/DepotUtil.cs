@@ -1,8 +1,10 @@
+using System;
 using ColossalFramework;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.ReverseDetours;
 using UnityEngine;
 using static ImprovedPublicTransport.ImprovedPublicTransportMod;
+using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace ImprovedPublicTransport.Util
 {
@@ -33,6 +35,160 @@ namespace ImprovedPublicTransport.Util
             }
         }
 
+        /// <summary>
+        /// Whether a line's TransportInfo is served by a depot slot's TransportInfo.
+        /// Exact vehicle-type match for the common case; ferry/blimp/heli also accept the
+        /// DLC-shared aliases (Ferry↔Ship depot, Blimp↔Airplane hangar with Blimp vehicle, etc.).
+        /// </summary>
+        public static bool MatchesTransportSlot(TransportInfo lineInfo, TransportInfo depotSlotInfo)
+        {
+            if (lineInfo == null || depotSlotInfo == null)
+            {
+                return false;
+            }
+
+            if (lineInfo.m_vehicleType != VehicleInfo.VehicleType.None
+                && lineInfo.m_vehicleType == depotSlotInfo.m_vehicleType)
+            {
+                return true;
+            }
+
+            if (IsFerryLike(lineInfo) && IsFerryLike(depotSlotInfo))
+            {
+                return true;
+            }
+
+            if (IsBlimpLike(lineInfo) && IsBlimpLike(depotSlotInfo))
+            {
+                return true;
+            }
+
+            if (IsHelicopterLike(lineInfo) && IsHelicopterLike(depotSlotInfo))
+            {
+                return true;
+            }
+
+            if (lineInfo.m_transportType == TransportInfo.TransportType.Trolleybus
+                && depotSlotInfo.m_transportType == TransportInfo.TransportType.Trolleybus)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool IsFerryLike(TransportInfo info)
+        {
+            if (info == null)
+            {
+                return false;
+            }
+
+            if (info.m_vehicleType == VehicleInfo.VehicleType.Ferry)
+            {
+                return true;
+            }
+
+            // Some ferry assets keep Ship transport type but are named Ferry.
+            if (info.m_transportType == TransportInfo.TransportType.Ship
+                && !string.IsNullOrEmpty(info.name)
+                && info.name.IndexOf("Ferry", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return true;
+            }
+
+            return !string.IsNullOrEmpty(info.name)
+                   && info.name.IndexOf("Ferry", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        public static bool IsBlimpLike(TransportInfo info)
+        {
+            if (info == null)
+            {
+                return false;
+            }
+
+            if (info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
+            {
+                return true;
+            }
+
+            if (info.m_transportType == TransportInfo.TransportType.HotAirBalloon)
+            {
+                return true;
+            }
+
+            // Vanilla blimp lines often use Airplane transport type + Blimp vehicle type.
+            if (info.m_transportType == TransportInfo.TransportType.Airplane
+                && info.m_vehicleType == VehicleInfo.VehicleType.Blimp)
+            {
+                return true;
+            }
+
+            return !string.IsNullOrEmpty(info.name)
+                   && info.name.IndexOf("Blimp", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        public static bool IsHelicopterLike(TransportInfo info)
+        {
+            if (info == null)
+            {
+                return false;
+            }
+
+            return info.m_vehicleType == VehicleInfo.VehicleType.Helicopter
+                   || info.m_transportType == TransportInfo.TransportType.Helicopter
+                   || (!string.IsNullOrEmpty(info.name)
+                       && info.name.IndexOf("Helicopter", StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        /// <summary>
+        /// Resolves which depot vehicle-count field applies for <paramref name="transportInfo"/>
+        /// (primary <c>m_maxVehicleCount</c> vs secondary <c>m_maxVehicleCount2</c>).
+        /// </summary>
+        public static bool TryResolveDepotMaxVehicles(
+            DepotAI buildingAi,
+            TransportInfo transportInfo,
+            out int maxVehicles)
+        {
+            maxVehicles = 0;
+            if (buildingAi == null || transportInfo == null)
+            {
+                return false;
+            }
+
+            if (MatchesTransportSlot(transportInfo, buildingAi.m_transportInfo))
+            {
+                maxVehicles = buildingAi.m_maxVehicleCount;
+                return true;
+            }
+
+            if (buildingAi.m_secondaryTransportInfo != null
+                && MatchesTransportSlot(transportInfo, buildingAi.m_secondaryTransportInfo)
+                && transportInfo.m_vehicleType != VehicleInfo.VehicleType.None)
+            {
+                maxVehicles = buildingAi.m_maxVehicleCount2;
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Budget-adjusted max vehicles for a depot slot (same formula vanilla/DepotAI uses).
+        /// </summary>
+        public static int GetBudgetAdjustedMax(DepotAI buildingAi, int maxVehicles)
+        {
+            if (buildingAi?.m_info?.m_class == null || maxVehicles <= 0)
+            {
+                return 0;
+            }
+
+            int budget = Singleton<EconomyManager>.instance.GetBudget(buildingAi.m_info.m_class);
+            int productionRate = PlayerBuildingAI.GetProductionRate(100, budget);
+            return (productionRate * maxVehicles + 99) / 100;
+        }
+
         public static bool IsValidDepot(ushort depotID, TransportInfo transportInfo)
         {
             if (transportInfo == null || depotID == 0)
@@ -51,13 +207,14 @@ namespace ImprovedPublicTransport.Util
             ItemClass.Service service;
             ItemClass.SubService subService;
             ItemClass.Level level;
-            if (transportInfo.m_vehicleType == primaryInfo?.m_vehicleType)
+            if (MatchesTransportSlot(transportInfo, primaryInfo))
             {
                 service = primaryInfo.GetService();
                 subService = primaryInfo.GetSubService();
                 level = primaryInfo.GetClassLevel();
             }
-            else if (transportInfo.m_vehicleType == secondaryInfo?.m_vehicleType && transportInfo.m_vehicleType != VehicleInfo.VehicleType.Car)
+            else if (MatchesTransportSlot(transportInfo, secondaryInfo)
+                     && transportInfo.m_vehicleType != VehicleInfo.VehicleType.Car)
             {
                 service = secondaryInfo.GetService();
                 subService = secondaryInfo.GetSubService();
@@ -157,7 +314,10 @@ namespace ImprovedPublicTransport.Util
             if ((int)closestDepot != 0)
             {
                 CachedTransportLineData.SetDepot(lineID, closestDepot);
-                UnityEngine.Debug.LogWarning($"{ShortModName}: auto assigned depot {closestDepot} to line {lineID}");
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.Log($"auto assigned depot {closestDepot} to line {lineID}");
+                }
             }
 
             return closestDepot;
@@ -217,14 +377,18 @@ namespace ImprovedPublicTransport.Util
             if (depot.Info.m_buildingAI is DepotAI)
             {
                 DepotAI buildingAi = depot.Info.m_buildingAI as DepotAI;
-                if (transportInfo.m_vehicleType == buildingAi.m_transportInfo?.m_vehicleType ||
-                    transportInfo.m_vehicleType == buildingAi.m_secondaryTransportInfo?.m_vehicleType)
+                // Use the vehicle counter that matches the line's transport slot. Dual-purpose
+                // depots keep primary on m_maxVehicleCount and secondary on m_maxVehicleCount2;
+                // always reading the primary counter left ferry/blimp-on-secondary (etc.) looking
+                // uncapped even after DepotCapacityPatch wrote a realistic m_maxVehicleCount2.
+                // Ferry/blimp/heli also match DLC-shared type aliases (see MatchesTransportSlot).
+                if (!TryResolveDepotMaxVehicles(buildingAi, transportInfo, out int maxVehicles))
                 {
-                    int num = (PlayerBuildingAI.GetProductionRate(100,
-                            Singleton<EconomyManager>.instance.GetBudget(buildingAi.m_info.m_class)) *
-                        buildingAi.m_maxVehicleCount + 99) / 100;
-                    return buildingAi.GetVehicleCount(depotID, ref depot) < num;
+                    return false;
                 }
+
+                int num = GetBudgetAdjustedMax(buildingAi, maxVehicles);
+                return buildingAi.GetVehicleCount(depotID, ref depot) < num;
             }
             if (depot.Info.m_buildingAI is ShelterAI)
             {

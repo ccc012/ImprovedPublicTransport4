@@ -39,4 +39,39 @@ foreach ($directoryName in @("Localization", "Resources", "Translations")) {
     }
 }
 
+# Framework languages (CSLModsCommon): always publish the full Common JSON set from source.
+# bin\ may only contain a partial copy when Content/CopyToOutput was incomplete — that made
+# half the language dropdown vanish in Options (max-priority for 4.9 prep).
+$commonSource = Join-Path $projectRoot "CSLModsCommonShared\Localization\Common"
+$commonDest = Join-Path $destination "Localization\Common"
+if (Test-Path -LiteralPath $commonSource -PathType Container) {
+    New-Item -ItemType Directory -Path $commonDest -Force | Out-Null
+    Copy-Item -LiteralPath (Join-Path $commonSource "*") -Destination $commonDest -Force
+    $jsonCount = (Get-ChildItem -LiteralPath $commonDest -Filter "*.json" -File).Count
+    Write-Host "Localization/Common: deployed $jsonCount JSON locale file(s) from CSLModsCommonShared"
+}
+else {
+    Write-Warning "CSLModsCommon locale folder missing: $commonSource"
+}
+
+# IPT UI strings: ensure root Translations packs are complete from project source.
+$translationsSource = Join-Path $projectRoot "Translations"
+$translationsDest = Join-Path $destination "Translations"
+if (Test-Path -LiteralPath $translationsSource -PathType Container) {
+    New-Item -ItemType Directory -Path $translationsDest -Force | Out-Null
+    Get-ChildItem -LiteralPath $translationsSource -File | ForEach-Object {
+        # Skip backup / non-live packs that must not ship into the mod folder.
+        if ($_.Name -like "*.fixed.txt" -or $_.Name -like "*.bak" -or $_.Name -like "*.backup") {
+            return
+        }
+        Copy-Item -LiteralPath $_.FullName -Destination $translationsDest -Force
+    }
+    # bin\ copy may have left *.fixed.txt / backups; strip them so only live packs remain.
+    Get-ChildItem -LiteralPath $translationsDest -File -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -like "*.fixed.txt" -or $_.Name -like "*.bak" -or $_.Name -like "*.backup" } |
+        Remove-Item -Force
+    $txtCount = (Get-ChildItem -LiteralPath $translationsDest -Filter "*.txt" -File).Count
+    Write-Host "Translations: deployed $txtCount .txt pack(s) from project source"
+}
+
 Write-Host "Installed clean local build to: $destination"

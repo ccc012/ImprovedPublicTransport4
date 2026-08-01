@@ -107,6 +107,11 @@
       <Link>Translations/Core/%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <!-- Full CSLModsCommon language set into bin so Deploy-Local / AutoDeploy never ship a partial list. -->
+    <None Include="CSLModsCommonShared/Localization/Common/*.json">
+      <Link>Localization\Common\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Import Project="AlgernonCommons/AlgernonCommonsPatchingShared.projitems" Label="Shared" />
@@ -134,10 +139,12 @@
     </ItemGroup>
     <MakeDir Directories="$(ModDirectory)" />
     <MakeDir Directories="$(ModDirectory)Translations\" />
-    <MakeDir Directories="$(ModDirectory)Translations\Core\" />
     <MakeDir Directories="$(ModDirectory)Resources\" />
     <MakeDir Directories="$(ModDirectory)Localization\" />
     <MakeDir Directories="$(ModDirectory)Localization\Common\" />
+    <!-- Purge stale nested language packs from older deploys (Core/*.txt used to shadow root packs).
+         FlightTracker CSVs are deployed to Translations/ root, not Core. -->
+    <RemoveDir Directories="$(ModDirectory)Translations\Core\" Condition="Exists('$(ModDirectory)Translations\Core\')" />
     <Copy SourceFiles="C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\System.Runtime.Serialization.dll" DestinationFiles="$(TargetDir)System.Runtime.Serialization.dll" Condition="Exists('C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\System.Runtime.Serialization.dll')" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModDirectory)" />
     <Copy SourceFiles="$(ProjectDir)README.md" DestinationFolder="$(ModDirectory)" Condition="Exists('$(ProjectDir)README.md')" />
@@ -145,7 +152,8 @@
     <Copy SourceFiles="$(TargetDir)SkyTools.Common.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)SkyTools.Common.dll')" />
     <Copy SourceFiles="$(TargetDir)Newtonsoft.Json.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)Newtonsoft.Json.dll')" />
     <Copy SourceFiles="$(TargetDir)System.Runtime.Serialization.dll" DestinationFolder="$(ModDirectory)" Condition="Exists('$(TargetDir)System.Runtime.Serialization.dll')" />
-    <Copy SourceFiles="@(LocaleFiles)" DestinationFolder="$(ModDirectory)Translations/Core/" />
+    <!-- IPT UI strings: Translations/*.txt at root only (LocalizationManager uses TopDirectoryOnly). -->
+    <Copy SourceFiles="@(LocaleFiles)" DestinationFolder="$(ModDirectory)Translations/" />
     <Copy SourceFiles="@(TranslationFiles)" DestinationFolder="$(ModDirectory)Translations/" />
     <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(ModDirectory)Resources/" />
     <Copy SourceFiles="@(IconFiles)" DestinationFolder="$(ModDirectory)Resources/" />

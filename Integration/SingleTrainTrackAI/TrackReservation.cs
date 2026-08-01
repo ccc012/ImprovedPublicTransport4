@@ -27,7 +27,49 @@ namespace SingleTrainTrackAI
 
         internal static bool IsHeldByOther(ushort segmentId, ushort vehicleId)
         {
-            return _reservations.TryGetValue(segmentId, out var existing) && existing.VehicleId != vehicleId;
+            if (!_reservations.TryGetValue(segmentId, out var existing))
+            {
+                return false;
+            }
+
+            var frame = CurrentFrame;
+            // Must expire here too - only Occupy() used to check staleness, so a despawned
+            // holder left the segment "held forever" and every following train braked to 0
+            // before the single track with no one actually on it.
+            if (frame - existing.LastRenewedFrame > StaleAfterFrames)
+            {
+                _reservations.Remove(segmentId);
+                if (_vehicleHeldSegment.TryGetValue(existing.VehicleId, out var held) && held == segmentId)
+                {
+                    _vehicleHeldSegment.Remove(existing.VehicleId);
+                }
+
+                return false;
+            }
+
+            if (existing.VehicleId == vehicleId)
+            {
+                return false;
+            }
+
+            // Trailers share the lead vehicle's reservation - do not block a car of the same train.
+            var vehicles = Singleton<VehicleManager>.instance.m_vehicles.m_buffer;
+            var leadSelf = vehicles[vehicleId].GetFirstVehicle(vehicleId);
+            var leadOther = vehicles[existing.VehicleId].GetFirstVehicle(existing.VehicleId);
+            if (leadSelf != 0 && leadSelf == leadOther)
+            {
+                return false;
+            }
+
+            // Holder no longer exists / not spawned - free the slot.
+            var otherFlags = vehicles[existing.VehicleId].m_flags;
+            if ((otherFlags & Vehicle.Flags.Created) == 0 || (otherFlags & Vehicle.Flags.Spawned) == 0)
+            {
+                ReleaseInternal(segmentId, existing.VehicleId);
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>Claims or renews the calling vehicle's hold on <paramref name="segmentId"/>, and

@@ -42,13 +42,10 @@ namespace ImprovedPublicTransport.Settings
         // CSLModsCommonOptionsPanel's AddSlider call) - toggling isEnabled alone re-renders it correctly.
         public static CSLModsCommon.UI.Sliders.Slider VehicleCountSlider { get; set; }
 
-        // One-click cascade: sets a batch of independent settings at once to match a named preset,
-        // instead of the player having to hand-tune every dropdown/checkbox individually to reach
-        // "everything vanilla" or "everything on, tuned for realism". Deliberately does NOT touch
-        // ModSetting.EnableSharedStopEnabler (opt-in even under Realistic - it rewrites shared,
-        // global road-prefab data, a different risk class from the rest) or numeric fine-tuning
-        // values (MaxWaitingPassengers*, TicketPriceCustomizer multipliers) that don't have an
-        // objectively "more realistic" value - only the higher-level on/off and mode choices.
+        // One-click cascade: sets a batch of independent settings at once to match a named preset.
+        // Safe/Vanilla leave everything off (max compatibility). Recommended turns on IPT core only.
+        // Realistic enables most absorbed integrations. SharedStop stays opt-in even on Realistic
+        // (rewrites global prefab data). Commuter Destination stays off until redesign.
         public static void OnGameplayProfileChanged(ModSetting.GameplayProfiles profile)
         {
             var settings = ModSetting.Instance;
@@ -61,38 +58,43 @@ namespace ImprovedPublicTransport.Settings
 
             switch (profile)
             {
+                case ModSetting.GameplayProfiles.Safe:
                 case ModSetting.GameplayProfiles.Vanilla:
-                    settings.WalkingSpeedMode = ModSetting.WalkingSpeedModes.Vanilla;
-                    settings.BbspLogic = ModSetting.BbspLogicModes.Disabled;
-                    settings.BudgetControl = ModSetting.BudgetControlModes.Disabled;
-                    settings.TicketPriceCustomizerMode = ModSetting.TicketPriceCustomizerModes.Disabled;
-                    settings.AutoLineBudgetMode = ModSetting.AutoLineBudgetModes.Disabled;
-                    settings.TrainDisplayMode = ModSetting.TrainDisplayModes.Disabled;
-                    settings.IntercityTerminalCapacityMode = ModSetting.DepotCapacityModes.Disabled;
-                    settings.TramDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
-                    settings.TaxiDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
-                    settings.BusDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
-                    settings.TrolleybusDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
-                    settings.FerryDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
-                    settings.EnableOptimisedOutsideConnections = false;
-                    settings.EnableUnlimitedOutsideConnections = false;
-                    settings.EnablePublicTransportUnstucker = false;
-                    settings.EnableIntercityBusControl = false;
-                    settings.EnableFlightTracker = false;
-                    settings.EnableSubBuildingsTabs = false;
-                    settings.EnableTaxiStandFix = false;
-                    settings.EnableCommuterDestination = false;
-                    settings.ExpressBusUnbunchingMode = ModSetting.ExpressBusServicesModes.None;
-                    settings.ExpressTramUnbunchingMode = ModSetting.ExpressTramServicesModes.Disabled;
+                    ApplyAllIntegrationsOff(settings);
+                    if (profile == ModSetting.GameplayProfiles.Vanilla)
+                    {
+                        // Extra: match base game UX (no auto-open line info either).
+                        settings.ShowLineInfo = false;
+                    }
+                    break;
+
+                case ModSetting.GameplayProfiles.Recommended:
+                    ApplyAllIntegrationsOff(settings);
+                    // IPT original / low-conflict core only.
+                    settings.BudgetControl = ModSetting.BudgetControlModes.Enabled;
+                    settings.Unbunching = true;
+                    settings.ShowLineInfo = true;
+                    settings.EnableSubBuildingsTabs = true;
+                    settings.EnableIntercityBusControl = true;
+                    settings.EnablePublicTransportUnstucker = true;
+                    settings.EnableAdvancedStopSelection = true;
+                    settings.EnableElevatedStops = true;
                     break;
 
                 case ModSetting.GameplayProfiles.Realistic:
+                    ApplyAllIntegrationsOff(settings);
                     settings.WalkingSpeedMode = ModSetting.WalkingSpeedModes.Realistic;
                     settings.BbspLogic = ModSetting.BbspLogicModes.OriginalLogic;
                     settings.BudgetControl = ModSetting.BudgetControlModes.Enabled;
+                    settings.Unbunching = true;
+                    settings.ShowLineInfo = true;
+                    settings.TicketPriceCustomizerMode = ModSetting.TicketPriceCustomizerModes.Enabled;
+                    settings.AutoLineBudgetMode = ModSetting.AutoLineBudgetModes.Enabled;
                     settings.TrainDisplayMode = ModSetting.TrainDisplayModes.Enabled;
                     settings.TrainDisplayColorTheme = ModSetting.TrainDisplayColorThemes.Original;
-                    settings.IntercityTerminalCapacityMode = ModSetting.DepotCapacityModes.Realistic;
+                    settings.TrainDisplayOverlayScale = 1.0f;
+                    // IntercityTerminalCapacityMode is legacy/save-compat only (not written on
+                    // TransportStationAI) — leave default; real caps are depot modes below.
                     settings.TramDepotCapacityMode = ModSetting.DepotCapacityModes.Realistic;
                     settings.TaxiDepotCapacityMode = ModSetting.DepotCapacityModes.Realistic;
                     settings.BusDepotCapacityMode = ModSetting.DepotCapacityModes.Realistic;
@@ -104,12 +106,25 @@ namespace ImprovedPublicTransport.Settings
                     settings.EnableFlightTracker = true;
                     settings.EnableSubBuildingsTabs = true;
                     settings.EnableTaxiStandFix = true;
-                    settings.EnableCommuterDestination = true;
+                    settings.EnableStopStacker = true;
+                    settings.EnableSingleTrainTrackAI = true;
+                    settings.EnableAdvancedStopSelection = true;
+                    settings.EnableBetterBoarding = true;
+                    settings.EnableMileageTaxi = true;
+                    settings.EnableElevatedStops = true;
+                    settings.ExpressBusUnbunchingMode = ModSetting.ExpressBusServicesModes.Prudential;
+                    settings.ExpressTramUnbunchingMode = ModSetting.ExpressTramServicesModes.LightRail;
+                    settings.AutoLineColorColorStrategy = ModSetting.AutoLineColorStrategy.RandomColor;
+                    settings.AutoLineColorNamingStrategyMode = ModSetting.AutoLineColorNamingStrategy.Roads;
+                    settings.EnableEmptyBeforeReturnToDepot = true;
+                    // Commuter Destination: parked for 4.9 (bugs). Never auto-enable via profiles.
+                    settings.EnableCommuterDestination = false;
+                    // SharedStop / UnlimitedOutside stay opt-in (higher risk / prefab rewrites).
                     break;
 
                 case ModSetting.GameplayProfiles.Custom:
                 default:
-                    // No-op by design - see the enum's own doc comment.
+                    // No-op by design - player owns every toggle.
                     break;
             }
 
@@ -119,14 +134,11 @@ namespace ImprovedPublicTransport.Settings
             // the next time the Options panel happens to be reopened.
             CSLModsCommon.Manager.OptionsPanelManager.Refresh();
 
-            // Re-run the same per-setting live-apply handlers each individual control already calls
-            // on its own eventChanged, for every value the cascade just touched that has one - so
-            // flipping a profile applies as much immediately as flipping each control by hand would,
-            // rather than only on the next level load. Toggles with no existing live-apply handler
-            // (e.g. EnableIntercityBusControl, EnableCommuterDestination) keep behaving exactly like
-            // they already did when changed by hand - next level load, not a new limitation.
+            // Live-apply whatever handlers exist so the cascade matches flipping each control by hand.
+            OnBudgetModeChanged((int)settings.BudgetControl);
             OnDepotCapacityModeChanged();
             OnRealisticWalkingSpeedChanged((int)settings.WalkingSpeedMode);
+            OnExpressBusSettingsChanged();
             if (profile != ModSetting.GameplayProfiles.Custom)
             {
                 OnTicketPriceCustomizerChanged((int)settings.TicketPriceCustomizerMode);
@@ -134,7 +146,65 @@ namespace ImprovedPublicTransport.Settings
                 OnFlightTrackerChanged(settings.EnableFlightTracker);
                 OnSubBuildingsTabsChanged(settings.EnableSubBuildingsTabs);
                 OnTaxiStandFixChanged(settings.EnableTaxiStandFix);
+                OnIntercityBusControlChanged(settings.EnableIntercityBusControl);
+                // Force Commuter Destination off for 4.9 prep (feature parked).
+                settings.EnableCommuterDestination = false;
+                OnCommuterDestinationChanged(false);
+                OnSingleTrainTrackAIChanged(settings.EnableSingleTrainTrackAI);
+                OnStopStackerChanged(settings.EnableStopStacker);
+
+                // Profile cascades can flip several load-time-only integrations at once.
+                if (ImprovedPublicTransportMod.InGame)
+                {
+                    NotifyReloadRequired("Gameplay profile integrations");
+                }
             }
+        }
+
+        /// <summary>Baseline: every optional integration and mode off (Safe install / profile reset).</summary>
+        private static void ApplyAllIntegrationsOff(ModSetting settings)
+        {
+            settings.WalkingSpeedMode = ModSetting.WalkingSpeedModes.Vanilla;
+            settings.BbspLogic = ModSetting.BbspLogicModes.Disabled;
+            settings.BudgetControl = ModSetting.BudgetControlModes.Disabled;
+            settings.Unbunching = false;
+            settings.ShowLineInfo = false;
+            settings.TicketPriceCustomizerMode = ModSetting.TicketPriceCustomizerModes.Disabled;
+            settings.AutoLineBudgetMode = ModSetting.AutoLineBudgetModes.Disabled;
+            settings.TrainDisplayMode = ModSetting.TrainDisplayModes.Disabled;
+            // Keep clearing the legacy field on full reset so saves do not rehydrate a value
+            // that no longer does anything in Options / Realistic profile.
+            settings.IntercityTerminalCapacityMode = ModSetting.DepotCapacityModes.Disabled;
+            settings.TramDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
+            settings.TaxiDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
+            settings.BusDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
+            settings.TrolleybusDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
+            settings.FerryDepotCapacityMode = ModSetting.DepotCapacityModes.Disabled;
+            settings.EnableOptimisedOutsideConnections = false;
+            settings.EnableUnlimitedOutsideConnections = false;
+            settings.EnablePublicTransportUnstucker = false;
+            settings.EnableIntercityBusControl = false;
+            settings.EnableFlightTracker = false;
+            settings.EnableSubBuildingsTabs = false;
+            settings.EnableTaxiStandFix = false;
+            settings.EnableCommuterDestination = false;
+            settings.EnableSharedStopEnabler = false;
+            settings.EnableEmptyBeforeReturnToDepot = false;
+            settings.TrainDisplayEnabledVehicleTypes = ModSetting.TrainDisplayVehicleTypes.All;
+            settings.EnableSingleTrainTrackAI = false;
+            settings.EnableStopStacker = false;
+            settings.EnableAdvancedStopSelection = false;
+            settings.EnableBetterBoarding = false;
+            settings.EnableMileageTaxi = false;
+            settings.EnableElevatedStops = false;
+            settings.ExpressBusUnbunchingMode = ModSetting.ExpressBusServicesModes.None;
+            settings.ExpressTramUnbunchingMode = ModSetting.ExpressTramServicesModes.Disabled;
+            settings.AutoLineColorColorStrategy = ModSetting.AutoLineColorStrategy.Disabled;
+            settings.AutoLineColorNamingStrategyMode = ModSetting.AutoLineColorNamingStrategy.Disabled;
+            settings.DisableRoadDummyTraffic = false;
+            settings.DisableTrainDummyTraffic = false;
+            settings.DisablePlaneDummyTraffic = false;
+            settings.DisableShipDummyTraffic = false;
         }
 
         public static void OnBudgetModeChanged(int mode)
@@ -210,12 +280,14 @@ namespace ImprovedPublicTransport.Settings
                     if (enabled)
                     {
                         ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(ModSetting.Instance.TicketPriceCustomizer);
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.ApplyFromSettings();
                         if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: TicketPriceCustomizer enabled.");
                     }
                     else
                     {
                         // Revert to vanilla prices when disabling
                         ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.ResetToVanilla();
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.ClearAllStopLaneCosts();
                         if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: TicketPriceCustomizer disabled and prices reset to vanilla.");
                     }
                 }
@@ -225,6 +297,33 @@ namespace ImprovedPublicTransport.Settings
                 }
             });
 
+        }
+
+        public static void OnTicketPathfindingCostChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            SimulationManager.instance.AddAction(() =>
+            {
+                try
+                {
+                    if (enabled)
+                    {
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.ApplyFromSettings();
+                    }
+                    else
+                    {
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.ClearAllStopLaneCosts();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError($"SettingsActions: OnTicketPathfindingCostChanged failed: {ex.Message}");
+                }
+            });
         }
 
         public static void OnPublicTransportUnstuckerChanged(int value)
@@ -265,6 +364,14 @@ namespace ImprovedPublicTransport.Settings
                 try
                 {
                     ImprovedPublicTransport.HarmonyPatches.DepotAIPatches.DepotCapacityPatch.PatchAllLoaded();
+                    // Intercity bus terminals use TransportStationAI + StationPatcher, not DepotCapacityPatch.
+                    // Without this, changing "Intercity terminal capacity" in Options looked like a no-op
+                    // until the next full level load.
+                    if (ModSetting.Instance.EnableIntercityBusControl &&
+                        IntercityBusControl.Mod.IsSunsetHarborInstalled())
+                    {
+                        IntercityBusControl.StationPatcher.PatchStations();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -370,6 +477,198 @@ namespace ImprovedPublicTransport.Settings
             }
         }
 
+        /// <summary>Live-apply Single Train Track AI Harmony patches (toggle mid-session).</summary>
+        public static void OnSingleTrainTrackAIChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    SingleTrainTrackAI.PatchController.Activate();
+                }
+                else
+                {
+                    SingleTrainTrackAI.PatchController.Deactivate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update SingleTrainTrackAI: {ex.Message}");
+            }
+        }
+
+        /// <summary>Live-apply Stop Stacker Harmony patches (toggle mid-session).</summary>
+        public static void OnStopStackerChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    StopStacker.PatchController.Activate();
+                }
+                else
+                {
+                    StopStacker.PatchController.Deactivate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update StopStacker: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Hot-apply Express Bus / Express Tram options: sync runtime config, then activate or
+        /// deactivate Harmony patches depending on whether any express mode is still on.
+        /// Safe when already active (mode/self-bal changes are live via EBSModConfig).
+        /// </summary>
+        public static void OnExpressBusSettingsChanged()
+        {
+            try
+            {
+                var settings = ModSetting.Instance;
+                ExpressBusServices.EBSModConfig.SyncFromSettings(settings);
+
+                if (!ImprovedPublicTransportMod.InGame)
+                {
+                    return;
+                }
+
+                if (ExpressBusServices.EBSModConfig.IsFullyDisabled(settings))
+                {
+                    ExpressBusServices.PatchController.Deactivate();
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log("SettingsActions: Express Bus Services fully disabled; patches deactivated.");
+                    }
+                }
+                else
+                {
+                    ExpressBusServices.PatchController.Activate();
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log(
+                            $"SettingsActions: Express Bus Services active " +
+                            $"(bus={settings.ExpressBusUnbunchingMode}, tram={settings.ExpressTramUnbunchingMode}).");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: OnExpressBusSettingsChanged failed: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Mid-session toggle for Intercity Bus Control: patch/unpatch Harmony and (re)init
+        /// per-building acceptance state. Requires Sunset Harbor when enabling.
+        /// </summary>
+        public static void OnIntercityBusControlChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    if (!IntercityBusControl.Mod.IsSunsetHarborInstalled())
+                    {
+                        Utils.LogWarning("SettingsActions: IntercityBusControl enable skipped - Sunset Harbor DLC not found.");
+                        return;
+                    }
+
+                    IntercityBusControl.Patcher.PatchAll();
+                    IntercityBusControl.StationPatcher.PatchStations();
+                    IntercityBusControl.IntercityAcceptanceState.Init();
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log("SettingsActions: IntercityBusControl enabled mid-session.");
+                    }
+                }
+                else
+                {
+                    IntercityBusControl.Patcher.UnpatchAll();
+                    // Safe: Deinit is idempotent and only clears sparse sets / event hooks.
+                    IntercityBusControl.IntercityAcceptanceState.Deinit();
+                    if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    {
+                        Utils.Log("SettingsActions: IntercityBusControl disabled mid-session.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: OnIntercityBusControlChanged failed: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Commuter Destination is parked for 4.9. Always deactivates; activation is a no-op.
+        /// </summary>
+        public static void OnCommuterDestinationChanged(bool enabled)
+        {
+            // Ignore enable requests until redesign ships.
+            if (ModSetting.Instance != null)
+                ModSetting.Instance.EnableCommuterDestination = false;
+
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                CommuterDestination.PatchController.Deactivate();
+                CommuterDestination.CommuterDestinationPanel.CloseIfOpen();
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to park CommuterDestination: {ex.Message}");
+            }
+        }
+
+        // Features whose Harmony/prefab work only fully lands on level load. Log once per feature
+        // name per session so mid-game option flips do not spam the log.
+        private static readonly System.Collections.Generic.HashSet<string> ReloadNoticesLogged =
+            new System.Collections.Generic.HashSet<string>();
+
+        /// <summary>
+        /// When a load-time-only integration is toggled mid-session, log once that a city reload
+        /// is needed for the change to take full effect.
+        /// </summary>
+        public static void NotifyReloadRequired(string featureName)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            if (string.IsNullOrEmpty(featureName))
+            {
+                featureName = "This setting";
+            }
+
+            if (!ReloadNoticesLogged.Add(featureName))
+            {
+                return;
+            }
+
+            Utils.Log($"{featureName}: Reload the city for this change to take full effect.");
+        }
+
         public static void OnRealisticWalkingSpeedChanged(int walkingSpeedMode)
         {
             if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log($"SettingsActions: OnRealisticWalkingSpeedChanged called with mode {walkingSpeedMode}");
@@ -451,33 +750,44 @@ namespace ImprovedPublicTransport.Settings
 
         public static void OnResetButtonClick()
         {
-            if (!ImprovedPublicTransportMod.InGame)
-            {
-                return;
-            }
-            SimulationManager.instance.AddAction(() =>
-            {
-                // Reset options to their defaults
-                var options = ModSetting.Instance;
-                options.IntervalAggressionFactor = 52;
-                options.DefaultVehicleCount = 0;
-                options.SpawnTimeInterval = 10;
-                CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
+            // Settings must reset even from the main-menu Options panel (before a city is loaded).
+            var options = ModSetting.Instance;
+            options.IntervalAggressionFactor = 52;
+            options.DefaultVehicleCount = 0;
+            options.SpawnTimeInterval = 10;
+            SaveSettings();
 
-                // Apply immediate effects to existing lines
-                int length = Singleton<TransportManager>.instance.m_lines.m_buffer.Length;
-                for (int index = 0; index < length; ++index)
+            if (ImprovedPublicTransportMod.InGame)
+            {
+                SimulationManager.instance.AddAction(() =>
                 {
-                    CachedTransportLineData.SetNextSpawnTime((ushort) index, 0.0f);
-                    CachedTransportLineData.SetTargetVehicleCount((ushort) index, options.DefaultVehicleCount);
-                }
+                    int length = Singleton<TransportManager>.instance.m_lines.m_buffer.Length;
+                    for (int index = 0; index < length; ++index)
+                    {
+                        CachedTransportLineData.SetNextSpawnTime((ushort)index, 0.0f);
+                        CachedTransportLineData.SetTargetVehicleCount((ushort)index, options.DefaultVehicleCount);
+                    }
+                });
+            }
 
-                // Rebuild the Options panel so its sliders show the new values immediately,
-                // instead of only picking them up the next time the panel is opened.
-                CSLModsCommon.Manager.OptionsPanelManager.Refresh();
+            // Rebuild the Options panel so its sliders show the new values immediately.
+            CSLModsCommon.Manager.OptionsPanelManager.Refresh();
+        }
 
-
-            });
+        /// <summary>Reset outside-connection related options to Safe defaults.</summary>
+        public static void OnResetOutsideConnectionsClick()
+        {
+            var s = ModSetting.Instance;
+            s.EnableOptimisedOutsideConnections = false;
+            s.OutsideConnectionWaitMultiplier = 4;
+            s.OutsideConnectionPassengerWaitScope = ModSetting.PassengerWaitScopes.OutsideConnectionsOnly;
+            s.DisableRoadDummyTraffic = false;
+            s.DisableTrainDummyTraffic = false;
+            s.DisablePlaneDummyTraffic = false;
+            s.DisableShipDummyTraffic = false;
+            s.EnableUnlimitedOutsideConnections = false;
+            SaveSettings();
+            CSLModsCommon.Manager.OptionsPanelManager.Refresh();
         }
 
 

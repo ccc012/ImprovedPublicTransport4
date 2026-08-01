@@ -1,11 +1,11 @@
 ﻿using HarmonyLib;
-using System.Reflection;
+using ImprovedPublicTransport.Util;
 
 namespace BetterBoarding
 {
     internal static class PatchController
     {
-        public static string HarmonyModID => "IPT3.BetterBoarding";
+        public const string HarmonyModID = "IPT3.BetterBoarding";
 
         /*
          * The "singleton" design is pretty straight-forward.
@@ -25,7 +25,7 @@ namespace BetterBoarding
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "BetterBoarding");
         }
 
         public static void Deactivate()
@@ -33,6 +33,9 @@ namespace BetterBoarding
             GetHarmonyInstance().UnpatchAll(HarmonyModID);
         }
 
-        public const string ExpressBusServicesHarmonyID = "IPT3.ExpressBusServices";
-    }   
+        // Must match ExpressBusServices.PatchController.HarmonyModID so [HarmonyAfter] orders
+        // LoadPassengers correctly. The old "IPT3.ExpressBusServices" string never existed as a
+        // live Harmony owner after the EBS port kept the upstream ID.
+        public const string ExpressBusServicesHarmonyID = ExpressBusServices.PatchController.HarmonyModID;
+    }
 }

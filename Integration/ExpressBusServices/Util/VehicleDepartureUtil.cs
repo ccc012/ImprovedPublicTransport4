@@ -20,7 +20,9 @@ namespace ExpressBusServices.Util
         {
             if (EBSModConfig.CurrentExpressBusMode == EBSModConfig.ExpressMode.NONE)
             {
-                // None mode: vanilla departure, no EBS intervention
+                // None mode: vanilla departure timing.
+                // Redeploy instructions are consumed in StartPathFind / on arrive at target —
+                // do NOT clear them here (CanLeave runs before StartPathFind on leave).
                 return;
             }
 
@@ -77,14 +79,9 @@ namespace ExpressBusServices.Util
                 }
             }
 
-            // status is finalized
-            if (__result)
-            {
-                // allowed to depart
-
-                // remove the redeployment instructions to avoid contaminating with arriving at other stops
-                ServiceBalancerUtil.ReadRedeploymentInstructions(vehicleID, out _, removeEntry: true);
-            }
+            // Redeploy instructions are consumed when StartPathFind applies them (and again
+            // on arrive at that stop). Do not clear on CanLeave — that races ahead of pathfind
+            // and either drops the redeploy or, if sticky, causes reverse-then-continue thrash.
         }
     }
 }

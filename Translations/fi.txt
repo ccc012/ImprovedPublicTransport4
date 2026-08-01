@@ -1,0 +1,578 @@
+MOD_DESCRIPTION Parannettu joukkoliikenne: linjanhallinta, kalusto, integraatiot ja muuta.
+CURRENT_WEEK Kuluva viikko
+LAST_WEEK Viime viikko
+AVERAGE Keskiarvo
+AVERAGE_TOOLTIP Viimeisten {0} viikon keskiarvo.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS Asemapysäkit
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Varikkoajoneuvot
+CITYSERVICE_ACCEPTINTERCITYBUSES Salli kaukobussit
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Salli kaukobussien käyttää tätä asemaa. Poista käytöstä vain paikallisbusseille.
+EXPLANATION_BUDGET_CONTROL Budjettiohjaus: Ajoneuvojen määrä määräytyy budjetin mukaan.
+EXPLANATION_UNBUNCHING Ruuhkautumisen estäminen: Peli yrittää luoda välin ajoneuvojen välille.
+LINE_PANEL_STOPS Pysäkit: {0}
+LINE_PANEL_SPAWNTIMER Seuraava ajoneuvo {0} sekunnin kuluttua.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Valitulla varikolla ei ole enää ajoneuvoja.</color>
+LINE_PANEL_BUDGET_CONTROL Budjettiohjaus
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Ottaa budjettiohjauksen käyttöön tai pois tältä linjalta.
+LINE_PANEL_UNBUNCHING_TOOLTIP Ottaa ruuhkautumisen eston käyttöön tai pois tältä linjalta.\nEsto on pois käytöstä, jos aggressiivisuus on 0.
+LINE_PANEL_DEPOT Varikko:
+LINE_PANEL_NO_DEPOT_FOUND Varikkoa ei löytynyt.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Siirry valittuun varikkoon.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+LINE_PANEL_SELECT_TYPES Valitse tyypit
+LINE_PANEL_SELECT_TYPES_TOOLTIP Vaihtaa 'Valitse tyypit' -paneelin.\nJos painike on pois käytöstä, valitse ensin varikko.
+LINE_PANEL_LINE_STOPS Linjan pysäkit
+LINE_PANEL_LINE_VEHICLES Ajoneuvot tällä linjalla
+LINE_PANEL_ENQUEUED Ajoneuvot jonossa
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} matkustajaa odottaa tällä linjalla.
+LINE_PANEL_ADD_VEHICLE Lisää ajoneuvo
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Lisää uuden ajoneuvon linjalle.\nJos painike on pois käytöstä, valitulla varikolla ei ole enää ajoneuvoja.
+LINE_PANEL_REMOVE_VEHICLE Poista ajoneuvo
+STOP_LIST_BOX_ROW_STOP Pysäkki #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nOdottavat matkustajat: {1}\nNapsauta oikealla siirtyäksesi tälle pysäkille.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Ehdotettujen pysäkkinimien luettelo.
+STOP_PANEL_REUSE_NAME_TOOLTIP Aseta tämä nimi kaikille muille pysäkeille tällä asemalla/sijainnilla.
+STOP_PANEL_WAITING_PEOPLE Odottavat matkustajat: {0}
+COMMUTER_DESTINATION_PANEL_TITLE Matkustajien määränpää
+COMMUTER_DESTINATION_HEADER Suosituimmat määränpäät:
+COMMUTER_DESTINATION_NONE Kukaan ei odota täällä juuri nyt.
+COMMUTER_DESTINATION_LOADING Lasketaan...
+COMMUTER_DESTINATION_BUTTON Määränpäät
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Näytä, minne tällä pysäkillä odottavat matkustajat ovat menossa.
+STOP_PANEL_BORED_TIMER Aikaa kyllästymiseen: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Matkustajat lähtevät pysäkiltä, kun lähtölaskenta saavuttaa nollan.
+STOP_PANEL_PASSENGERS_IN Matkustajat sisään:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Matkustajat, jotka nousevat täällä.
+STOP_PANEL_PASSENGERS_OUT Matkustajat ulos:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Matkustajat, jotka poistuvat täällä.
+STOP_PANEL_PASSENGERS_TOTAL Yhteensä:
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Täällä palveltujen matkustajien kokonaismäärä.
+STOP_PANEL_UNBUNCHING_TOOLTIP Ottaa ruuhkautumisen eston käyttöön tai pois tällä pysäkillä.\nEsto on pois käytöstä, jos aggressiivisuus on 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS Päivitä lähipysäkit
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Aseta ruuhkautumisen eston tila kaikille muille pysäkeille tällä asemalla/sijainnilla.
+STOP_PANEL_PREVIOUS Edellinen pysäkki
+STOP_PANEL_PREVIOUS_TOOLTIP Siirry edelliselle pysäkille.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+STOP_PANEL_DELETE_STOP Poista pysäkki
+STOP_PANEL_DELETE_STOP_TOOLTIP Tämä painike on aktiivinen, kun pidät Alt-näppäintä pohjassa.\nKäytä omalla vastuulla!!!
+STOP_PANEL_NEXT Seuraava pysäkki
+STOP_PANEL_NEXT_TOOLTIP Siirry seuraavalle pysäkille.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+STOP_BUTTON_TOOLTIP {0}\nNapsauta siirtyäksesi tälle pysäkille.\nPidä Shift pohjassa klikatessa zoomataksesi myös.\nPidä Alt pohjassa klikatessa estääksesi pysäkkitietopaneelin avautumisen.
+SETTINGS_DELETE Poista
+SETTINGS_RESET Nollaa
+SETTINGS_TAB_GENERAL Yleiset
+SETTINGS_ADVANCED_LINKS_GROUP Linkit
+SETTINGS_GITHUB_REPO Lähdekoodi GitHubissa
+SETTINGS_TAB_AUTOLINE Automaattilinja
+SETTINGS_TAB_STOPS Pysäkit ja asemat
+SETTINGS_TAB_UNBUNCHING Ruuhkautumisen estäminen
+SETTINGS_TAB_DELETE Poista linjoja
+SETTINGS_TAB_FLEET Kalusto ja aikataulut
+SETTINGS_TAB_BUDGET Budjetti ja hinnat
+SETTINGS_TAB_LINECOLORS Linjavärit
+SETTINGS Asetukset
+SETTINGS_SPEED Näytä nopeus: 
+SETTINGS_SPEED_TOOLTIP Valitse käyttöliittymän nopeusyksikkö.
+SETTINGS_GAMEPLAY_PROFILE Pelaamisprofiili
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Soveltaa asetuserän kerralla. Turvallinen (oletus) jättää kaiken pois maksimaalisen yhteensopivuuden vuoksi. Vanilla vastaa peruspeliä. Suositeltu ottaa käyttöön vain IPT-ytimen (budjettikalusto, ruuhkautumisen esto, kaukobussi, alirakennusvälilehdet, unstucker, edistynyt pysäkkivalinta, korotetut pysäkit). Realistinen ottaa useimmat integraatiot käyttöön. Mukautettu ei kaskadoi - hallitset jokaisen kytkimen itse.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM Mukautettu
+SETTINGS_GAMEPLAY_PROFILE_SAFE Turvallinen (kaikki pois)
+SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Suositeltu (IPT-ydin)
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistinen
+SETTINGS_SPEED_KPH km/h
+SETTINGS_SPEED_MPH mph
+SETTINGS_WALKING_SPEED Kävely-/pyöräilynopeus: 
+SETTINGS_WALKING_SPEED_TOOLTIP Vakio: peruspelin nopeudet.\nRealistinen: laskee kävelynopeuden realistisiin, ikäpohjaisiin arvoihin.\nRealistinen vähentää myös pyöräilynopeutta After Dark -lisäosalla.
+SETTINGS_WALKING_SPEED_MODE_VANILLA Vakio
+SETTINGS_WALKING_SPEED_MODE_REALISTIC Realistinen
+SETTINGS_BBSP Parempi bussipysäkin sijainti: 
+SETTINGS_BBSP_TOOLTIP Pois käytöstä: ei sijaintisäätöä.\nKäytössä: bussit pysähtyvät pysäkin etuosaan keskiosan sijaan.
+SETTINGS_BBSP_MODE_DISABLED Pois käytöstä
+SETTINGS_BBSP_MODE_ORIGINAL Käytössä
+SETTINGS_BBSP_MODE_UPDATED Käytä kokeellista logiikkaa
+SETTINGS_BUDGET Budjetti
+SETTINGS_ENABLE_BUDGET_CONTROL Linjan budjettiohjaus:
+SETTINGS_BUDGET_CONTROL_DISABLED Pois käytöstä
+SETTINGS_BUDGET_CONTROL_ENABLED Käytössä
+SETTINGS_BUDGET_CONTROL_TOOLTIP Kun käytössä, liikennelinjojen ajoneuvomäärää ohjaa budjetti; päivittää kaikki olemassa olevat linjat ja tyhjentää jonossa olevat ajoneuvot.
+SETTINGS_BUDGET_TICKET_PRICES Lipunhinnan muokkaus:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED Pois käytöstä
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED Käytössä
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Kun käytössä, lisää Talous-paneeliin uuden välilehden liukusäätimillä kunkin liikennemuodon lipunhinnoille.
+SETTINGS_AUTO_LINE_BUDGET Automaattinen kalustomäärä:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED Pois käytöstä
+SETTINGS_AUTO_LINE_BUDGET_ENABLED Käytössä
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Kun käytössä, budjettitilan linjat säätävät ajoneuvomäärää automaattisesti todellisen matkustajakysynnän mukaan vanilja-budjettiliuskan sijaan. Manuaaliseen asetettuja linjoja ei koskaan kosketa.
+SETTINGS_AUTO_LINE Automaattilinja
+SETTINGS_AUTOSHOW_LINE_INFO Avaa linjatietopaneeli automaattisesti
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Näytä linjatietopaneeli automaattisesti uuden linjan luonnin jälkeen.
+AUTOLINECOLOR_STRATEGY_DISABLED Pois käytöstä
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Satunnainen sävy
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Satunnainen väri
+AUTOLINECOLOR_STRATEGY_CATEGORISED Luokiteltu
+AUTOLINECOLOR_STRATEGY_NAMED Nimetyt värit
+AUTOLINECOLOR_NAMING_DISABLED Pois käytöstä
+AUTOLINECOLOR_NAMING_DISTRICTS Kaupunginosat
+AUTOLINECOLOR_NAMING_LONDON Lontoo
+AUTOLINECOLOR_NAMING_ROADS Tiet
+AUTOLINECOLOR_NAMING_COLORS Nimetyt värit
+AUTOLINECOLOR_COLOR_STRATEGY Väristrategia:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Miten värit annetaan uusille linjoille:\n'Satunnainen sävy' = sama kylläisyys/kirkkaus, eri sävyt;\n'Satunnainen väri' = täysin satunnainen RGB;\n'Luokiteltu' = värit ajoneuvotyypin mukaan;\n'Nimetyt värit' = ennalta määritetty väripaletti.
+AUTOLINECOLOR_NAMING_STRATEGY Nimeämisstrategia:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Miten nimet annetaan uusille linjoille:\n'Ei mitään' = ei automaattista nimeämistä;\n'Kaupunginosat' = palveltujen kaupunginosien mukaan;\n'Lontoo' = numeroidut reitit (London Buses -tyyli);\n'Tiet' = katunimien mukaan;\n'Nimetyt värit' = värinimien mukaan.
+AUTOLINECOLOR_MIN_COLOR_DIFF Vähimmäisväriero (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Vähimmäisväriero prosentteina satunnaisia värejä valittaessa.
+AUTOLINECOLOR_MAX_COLOR_PICK Enimmäisyritykset:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Enimmäismäärä yrityksiä erotettavan värin valitsemiseksi.
+SETTINGS_UI Käyttöliittymäasetukset
+SETTINGS_VEHICLE_EDITOR_POSITION Ajoneuvoeditorin sijainti: 
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Valitse, näkyykö ajoneuvoeditori alareunassa vai oikealla.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Alhaalla
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Oikealla
+SETTINGS_VEHICLE_EDITOR_HIDE Piilota ajoneuvoeditori
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Piilota ajoneuvoeditori ajoneuvopaneeleista.
+SETTINGS_STOPS Joukkoliikennepysäkit
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Kuinka monta matkustajaa kutakin liikennemuotoa voi odottaa yhdellä pysäkillä ennen kuin se katsotaan täydeksi. Suuremmat arvot vähentävät ruuhkavalituksia vilkkailla pysäkeillä vähemmän realistisen jonokoon kustannuksella.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Palauta kaikki matkustajakatot yllä oletusarvoihin.
+SETTINGS_ENABLE_STOPS_AND_STATIONS Ota pysäkit ja asemat käyttöön
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Säädä enimmäismäärä asukkaita, jotka voivat odottaa joukkoliikennettä pysäkeillä ja asemilla. Määritä Pysäkit-välilehdellä.
+SETTINGS_STOPSANDSTATIONS_ENABLE Ota pysäkit ja asemat käyttöön
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Ota matkustajarajojen valvonta käyttöön tai pois pysäkeillä.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Enimmäismäärä odottavia matkustajia linjapysäkillä:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Linja-auto
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Enimmäismäärä odottavia matkustajia linja-autopysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Johdinauto
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Enimmäismäärä odottavia matkustajia johdinautopysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Evakuointibussi
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Enimmäismäärä odottavia matkustajia evakuointibussipysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Turistibussi
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Enimmäismäärä odottavia matkustajia turistibussipysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Raitiovaunu
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Enimmäismäärä odottavia matkustajia raitiovaunupysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metro
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Enimmäismäärä odottavia matkustajia metroasemalla
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Juna
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Enimmäismäärä odottavia matkustajia rautatieasemalla
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Enimmäismäärä odottavia matkustajia monorail-pysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Laiva
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Enimmäismäärä odottavia matkustajia rahtilaivasatamassa
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Lautta
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Enimmäismäärä odottavia matkustajia lautapysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Lentokone
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Enimmäismäärä odottavia matkustajia lentoterminaalissa
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Köysirata
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Enimmäismäärä odottavia matkustajia köysiratapysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Kuumailmapallo
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Enimmäismäärä odottavia matkustajia pallopysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopteri
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Enimmäismäärä odottavia matkustajia helikopteripysäkillä
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Ilmalaiva
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Enimmäismäärä odottavia matkustajia ilmalaivapysäkillä
+SETTINGS_UNBUNCHING Ruuhkautumisen estäminen
+SETTINGS_UNBUNCHING_AGGRESSION Ruuhkautumisen eston aggressiivisuus:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Kuinka voimakkaasti ruuhkautumisen eston tulisi toimia?\nMahdolliset arvot: 0–52. Arvo 0 poistaa eston käytöstä.\nKorkeammat arvot vaikuttavat voimakkaasti liikenteeseen ja voivat aiheuttaa ajoneuvojen katoamisen.
+SETTINGS_VEHICLE_COUNT Ajoneuvot uusilla linjoilla:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Ajoneuvojen määrä, joka lisätään automaattisesti uusille linjoille, kun linjan budjettiohjaus on pois päältä.
+SETTINGS_SPAWN_TIME_INTERVAL Syntymisaikaväli:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Aika sekunteina ajoneuvojen syntymien välillä.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Palauttaa kaikki liukusäätimet oletukseen.
+UNBUNCHING_ENABLED Ajoneuvojen ruuhkautumisen estäminen
+UNBUNCHING_DISABLED Ruuhkautumisen estäminen on pois käytöstä.
+UNBUNCHING_TARGET_GAP Tavoiteväli: {0}
+SETTINGS_EBS_GROUP_BUS Pikabussipalvelut
+SETTINGS_EBS_GROUP_TRAM Pikaraitiovaunupalvelut
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Pikabussi: 
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Pois käytöstä' = Bussit käyttävät yllä olevaa ruuhkautumisen estoa.\n'Varovainen' = Pysähtyy hetkeksi, tarkistaa matkustajat, voi lähteä tyhjänä.\n'Aggressiivinen' = Ohittaa pysäkit kokonaan, jos kukaan ei odota.
+SETTINGS_EBS_ENABLE_SELFBAL Ota palvelun itsebalansointi käyttöön
+SETTINGS_EBS_DESC_SELFBAL Antaa pikabussipalvelun jakaa ajoneuvoja linjalla uudelleen vilkkaampien osien hyväksi ja lyhentää odotusaikoja.
+SETTINGS_EBS_TOOLTIP_SELFBAL Analysoi linjan osia ja voi siirtää ajoneuvoja vilkkaampiin osiin tai päätepysäkeille tasaisemman palvelun ja lyhyemmän odotusajan vuoksi.\nPäätökset ovat todennäköisyyspohjaisia ja riippuvat matkustajamääristä sekä uudelleensijoituksen todennäköisyyksistä.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Ota itsebalansointi linjan keskipysäkeille käyttöön
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Sallii itsebalansoinnin valita vilkkaan linjan keskipysäkin vain päätepysäkin sijaan ajoneuvoja uudelleensijoitettaessa.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Salli itsebalansoinnin siirtää ajoneuvoja vilkkaalle linjan keskipysäkille (päätepysäkin sijaan).\nOtetaan huomioon vain, kun vilkkaimmalla pysäkillä on yli 30 odottavaa matkustajaa, sitten valitaan ~50 % todennäköisyydellä ja kokonaisuudelleensijoituksen todennäköisyyksien alaisena.
+SETTINGS_EBS_ENABLE_MINIBUS Ota minibussitila käyttöön
+SETTINGS_EBS_DESC_MINIBUS Saa pienemmät bussit lähtemään aiemmin, kun vain muutama matkustaja nousee tai poistuu.
+SETTINGS_EBS_TOOLTIP_MINIBUS Bussit, joiden kapasiteetti ≤20, voivat lähteä aiemmin pysäkiltä, kun nousevat + poistuvat matkustajat ≤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Pikaraitiovaunu: 
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Pois käytöstä' = Raitiovaunut käyttävät yllä olevaa ruuhkautumisen estoa.\n'Kevytraide' = Pysähtyy jokaisella pysäkillä, odottaa aina täyden ajan (tiukka kuri).\n'Todellinen raitiovaunu' = Pysähtyy vain kun matkustajia nousee/poistuu.
+SETTINGS_EBS_MODE_NONE Pois käytöstä
+SETTINGS_EBS_MODE_AGGRESSIVE Aggressiivinen
+SETTINGS_EBS_MODE_PRUDENTIAL Varovainen
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Kevytraidetila
+SETTINGS_EBS_TRAM_MODE_NONE Pois käytöstä
+SETTINGS_EBS_TRAM_MODE_TRAM Todellinen raitiovaunutila
+SETTINGS_PTU_GROUP Jumissa olevien matkustajien vapautus
+SETTINGS_PTU_ENABLE Poista jumissa olevat matkustajat
+SETTINGS_PTU_TOOLTIP Poistaa automaattisesti matkustajat, jotka juuttuvat yrittäessään nousta ajoneuvoon, jotta ajoneuvo voi lähteä normaalisti ja estää jäätyneet lähdöt.
+SETTINGS_LINE_DELETION_TOOL Linjojen poistotyökalu
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Valitse alla olevat liikennemuodot ja paina Poista poistaaksesi kaikki kyseisten tyyppien linjat nykyisestä kaupungista. Valinta on tilapäinen - se alkaa aina tyhjänä ja tyhjenee poiston jälkeen; sitä ei tallenneta asetukseksi.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Poistaa kaikki valittujen tyyppien linjat. Toimii vain kun kaupunki on ladattu.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE VAHVISTA LINJOJEN POISTO
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Olet poistamassa kaikki linjat.\nHaluatko jatkaa?
+SETTINGS_DELETE_BUS_TOOLTIP Poistaa kaikki tavalliset bussilinjat.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Turistibussit
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Poistaa kaikki turistibussilinjat.
+SETTINGS_DELETE_TRAM_TOOLTIP Poistaa kaikki raitiovaunulinjat.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Poistaa kaikki johdinautolinjat.
+SETTINGS_DELETE_TRAIN_TOOLTIP Poistaa kaikki junalinjat.
+SETTINGS_DELETE_METRO_TOOLTIP Poistaa kaikki maanalaiset metrolinjat.
+SETTINGS_DELETE_MONORAIL_TOOLTIP Poistaa kaikki monorail-linjat.
+SETTINGS_DELETE_FERRY_LABEL Lautat
+SETTINGS_DELETE_SHIP_TOOLTIP Poistaa kaikki lauttareitit.
+SETTINGS_DELETE_HELICOPTER_LABEL Helikopterit
+SETTINGS_DELETE_HELICOPTER_TOOLTIP Poistaa kaikki helikopterilinjat.
+SETTINGS_DELETE_BLIMP_LABEL Ilmalaivat
+SETTINGS_DELETE_BLIMP_TOOLTIP Poistaa kaikki ilmalaivalinjat.
+VEHICLE_EDITOR_TITLE Ajoneuvoeditori
+VEHICLE_EDITOR_SUB_TITLE {0} ajoneuvoa
+VEHICLE_EDITOR_CAPACITY Matkustajakapasiteetti
+VEHICLE_EDITOR_CAPACITY_TAXI Matkakapasiteetti
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Matkustajien määrä työvuoroa kohti.
+VEHICLE_EDITOR_MAINTENANCE Ylläpitokustannus
+VEHICLE_EDITOR_MAX_SPEED Enimmäisnopeus
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Junamoottori molemmissa päissä
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Ottaa junamoottorit käyttöön tai pois junan molemmissa päissä.
+VEHICLE_EDITOR_APPLY Käytä
+VEHICLE_EDITOR_DEFAULT Oletus
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Napsauta oikealla seurataksesi tätä ajoneuvoa.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + napsautus jonottaa tämän ajoneuvon.
+VEHICLE_PANEL_EDIT_TYPE Muokkaa ajoneuvotyyppiä
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Muokkaa tätä ajoneuvotyyppiä ajoneuvoeditorilla.
+VEHICLE_PANEL_STATUS_NEXT_STOP Seuraava pysäkki:
+VEHICLE_PANEL_STATUS_UNBUNCHING Ruuhkautumisen esto käynnissä
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Matkustajavaihto viimeisellä pysäkillä: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS Matkustajat:
+VEHICLE_PANEL_EARNINGS Tuotot:
+VEHICLE_PANEL_EARNINGS_TOOLTIP Lipunmyynnin tulos miinus ajoneuvon ylläpitokustannus.
+VEHICLE_PANEL_PREVIOUS Edellinen ajoneuvo
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Siirry edelliseen ajoneuvoon.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+VEHICLE_PANEL_REMOVE_VEHICLE Poista ajoneuvo
+VEHICLE_PANEL_NEXT Seuraava ajoneuvo
+VEHICLE_PANEL_NEXT_TOOLTIP Siirry seuraavaan ajoneuvoon.\nPidä Shift pohjassa klikatessa zoomataksesi myös.
+VEHICLE_SELECTION_CAPACITY Kapasiteetti
+VEHICLE_SELECTION_ADD_VEHICLE Lisää tämä ajoneuvo sallittujen ajoneuvojen luetteloon
+VEHICLE_SELECTION_ADD_ALL Lisää kaikki kelvolliset ajoneuvot sallittujen ajoneuvojen luetteloon
+VEHICLE_SELECTION_REMOVE_VEHICLE Poista tämä ajoneuvo sallittujen ajoneuvojen luettelosta
+VEHICLE_SELECTION_REMOVE_ALL Poista kaikki ajoneuvot sallittujen ajoneuvojen luettelosta
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Saatavilla olevat ajoneuvot
+VEHICLE_SELECTION_SELECTED_VEHICLES Valitut ajoneuvot
+VEHICLE_SELECTION_ANY_VEHICLE Mikä tahansa ajoneuvo
+VEHICLE_BUTTON_TOOLTIP {0}\nNapsauta siirtyäksesi tähän ajoneuvoon.\nPidä Shift pohjassa klikatessa zoomataksesi myös.\nPidä Alt pohjassa klikatessa estääksesi ajoneuvotietopaneelin avautumisen.
+TRANSPORT_LINE_VEHICLECOUNT Ajoneuvojen määrä: {0}
+FLIGHT_TRACKER_NAME Lentoseuranta
+FLIGHT_STATUS_NONE Ei mitään
+FLIGHT_STATUS_INCOMING Saapuva
+FLIGHT_STATUS_LANDED Laskeutunut
+FLIGHT_STATUS_AT_GATE Portilla
+FLIGHT_STATUS_DEPARTED Lähtenyt
+TICKET_PRICE_TAXI_KILOMETER Taksin hinta kilometriä kohti: 
+TICKET_PRICE_TAXI_MILE Taksin hinta mailia kohti: 
+TICKET_PRICE_BUS Bussilipun hinta: 
+TICKET_PRICE_INTERCITY_BUS Kaukobussilipun hinta: 
+TICKET_PRICE_METRO Metrolipun hinta: 
+TICKET_PRICE_TRAIN Junalipun hinta: 
+TICKET_PRICE_TRAM Raitiovaunulipun hinta: 
+TICKET_PRICE_MONORAIL Monorail-lipun hinta: 
+TICKET_PRICE_SHIP Laivalipun hinta: 
+TICKET_PRICE_FERRY Lauttalipun hinta: 
+TICKET_PRICE_PLANE Lentolipun hinta: 
+TICKET_PRICE_CABLECAR Köysiratalipun hinta: 
+TICKET_PRICE_SIGHTSEEING_BUS Turistibussilipun hinta: 
+TICKET_PRICE_TROLLEYBUS Johdinautolipun hinta: 
+TICKET_PRICE_BLIMP Ilmalaivalipun hinta: 
+TICKET_PRICE_HELICOPTER Helikopterilipun hinta: 
+ECONOMY_TAB_TICKET_PRICES Lipunhinnat
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Nykyinen matkustajamäärä tälle liikennemuodolle yhteensä.
+WHATSNEW_3_0_0_1 Päivitetty Race Daylle; nyt yhteensopiva More Vehicles Renewed -modin kanssa.
+WHATSNEW_3_0_0_2 Seuraavat modit on integroitu IPT3:een:\n• Advanced Stop Selection Revisited\n• Auto Line Color Redux\n• Better Bus Stop Position\n• Better Train Boarding\n• Elevated Stops Enabler Revisited\n• Express Bus Services\n• Flight Tracker\n• Intercity Bus Control\n• Mileage Taxi Services\n• Public Transport Unstucker\n• Realistic Walking Speed\n• Stops and Stations\n• Ticket Price Customizer
+WHATSNEW_3_0_1 Public Transport Unstucker on nyt integroitu IPT3:een.\nKatso versio 3.0 kaikista muista integroiduista modeista. Peruuta alkuperäisten tilaus konfliktien välttämiseksi.
+SETTINGS_TAB_TRAINDISPLAY Junanäyttö
+SETTINGS_TAB_INTEGRATIONS Integraatiot
+SETTINGS_TRAINDISPLAY_GROUP Junanäytön peittokuva
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Määritä integroitu peittokuva, joka näytetään seurattaessa tuettuja kulkuneuvoja.
+SETTINGS_TRAINDISPLAY_ENABLE Ota junanäyttö käyttöön
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Kytke integroitu junanäytön peittokuva päälle tai pois.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED Pois käytöstä
+SETTINGS_TRAINDISPLAY_MODE_ENABLED Käytössä
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Peittokuvan sijainti:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Valitse, missä peittokuva näkyy näytöllä.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Ylävasen
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Yläoikea
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Alavasen
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Alaoikea
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Peittokuvan mittakaava:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Skaalaa peittokuvan kokoa.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Peittokuvan peittävyys:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Säädä peittokuvan läpinäkyvyyttä.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Päivitysväli:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Kuinka usein peittokuva päivittyy ajoneuvoa seuratessa.
+SETTINGS_TRAINDISPLAY_SHOW_LINE Näytä linjan nimi
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Sisällytä linjan nimi peittokuvaan.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Näytä määränpää
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Sisällytä määränpää peittokuvaan.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Näytä tila
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Sisällytä ajoneuvon tila peittokuvaan.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Vain seuratessa
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Piilota peittokuva, ellei kamera todella seuraa tuettua ajoneuvoa.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Vain ensimmäisen persoonan kamerassa
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Näytä peittokuva vain käytettäessä ensimmäisen persoonan kameramodia (esim. First Person Camera - Continued). Jos pois päältä, se näkyy seuratessa tuettua ajoneuvoa missä tahansa kameratilassa.
+SETTINGS_TRAINDISPLAY_THEME Väriteema:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Valitse peittokuvan tausta-/tekstivärit.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE Yksinkertainen
+SETTINGS_TRAINDISPLAY_THEME_DARK Tumma
+SETTINGS_TRAINDISPLAY_THEME_LIGHT Vaalea
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Alkuperäinen
+SETTINGS_TRAINDISPLAY_THEME_BLUE Sininen
+SETTINGS_TRAINDISPLAY_THEME_GREEN Vihreä
+SETTINGS_TRAINDISPLAY_THEME_AMBER Meripihka
+COPY_TIP Kopioi tämän linjan asetukset.
+PASTE_TIP Liitä kopioidut linja-asetukset.
+COPY_BUILDING_TIP Kopioi nämä asetukset kaikille tätä rakennusta palveleville linjoille.
+COPY_DISTRICT_TIP Kopioi nämä asetukset kaikille linjoille tässä kaupunginosassa.
+SETTINGS_INTEGRATIONS_GROUP Integroidut lisäosat
+SETTINGS_INTERCITY_BUS_ENABLE Ota kaukobussiohjaus käyttöön
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Ottaa käyttöön integroidun kaukobussiyhteensopivuuskerroksen ja asemapaikkaukset.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Ota käyttöön edistynyt pysäkkivalinta
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Antaa sijoittaa pysäkkejä moniraiteisten asemien vaihtoehtoisille laitureille/raiteille (pidä vaihtoehtotilan näppäintä sijoittaessa). Voimaan seuraavalla tason latauksella.
+SETTINGS_BETTERBOARDING_ENABLE Ota parempi nousu käyttöön
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Parantaa matkustajien nousupäätöksiä niin, että he suosivat ajoneuvoa, joka todella palvelee heidän määränpäätään. Voimaan seuraavalla tason latauksella.
+SETTINGS_MILEAGETAXI_ENABLE Ota kilometritaksi käyttöön
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Veloittaa taksista ajetun matkan mukaan kiinteän hinnan sijaan, joten pidemmät matkat tuottavat enemmän. Vaatii After Dark -lisäosan. Voimaan seuraavalla tason latauksella.
+SETTINGS_ELEVATEDSTOPS_ENABLE Ota korotetut pysäkit käyttöön
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Sallii joukkoliikennepysäkit korotetuilla teillä/silloilla ja säilyttää katuvalot niillä osilla. Voimaan seuraavalla tason latauksella.
+SETTINGS_INTERCITY_BUS_CAPACITY Kaukoterminaalin kapasiteetti
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Kuinka monta ajoneuvoa kaukobussiterminaali voi pitää kerralla.
+SETTINGS_TRAM_DEPOT_CAPACITY Raitiovaunuvarikon kapasiteetti
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Vanilja antaa jokaiselle raitiovaunuvarikolle käytännössä rajattoman 100 000 ajoneuvon rajan. Realistinen ja Keskitaso käyttävät sen sijaan kohtuullista kiinteää kattoa; Pois käytöstä säilyttää nykyisen käyttäytymisen.
+SETTINGS_TAXI_DEPOT_CAPACITY Taksivarikon kapasiteetti
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Vanilja antaa jokaiselle taksivarikolle käytännössä rajattoman 100 000 ajoneuvon rajan. Realistinen ja Keskitaso käyttävät sen sijaan kohtuullista kiinteää kattoa; Pois käytöstä säilyttää nykyisen käyttäytymisen.
+SETTINGS_BUS_DEPOT_CAPACITY Bussivarikon kapasiteetti
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Vanilja antaa jokaiselle bussivarikolle (tavalliset, biopolttoaine ja turistibussitallit) käytännössä rajattoman 100 000 ajoneuvon rajan. Realistinen ja Keskitaso käyttävät sen sijaan kohtuullista kiinteää kattoa; Pois käytöstä säilyttää nykyisen käyttäytymisen.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Johdinautovarikon kapasiteetti
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Vanilja antaa jokaiselle johdinautovarikolle käytännössä rajattoman 100 000 ajoneuvon rajan. Realistinen ja Keskitaso käyttävät sen sijaan kohtuullista kiinteää kattoa; Pois käytöstä säilyttää nykyisen käyttäytymisen.
+SETTINGS_FERRY_DEPOT_CAPACITY Lauttavarikon kapasiteetti
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vanilja antaa jokaiselle lauttavarikolle käytännössä rajattoman 100 000 ajoneuvon rajan. Realistinen ja Keskitaso käyttävät sen sijaan kohtuullista kiinteää kattoa; Pois käytöstä säilyttää nykyisen käyttäytymisen.
+SETTINGS_DEPOT_CAPACITY_DISABLED Pois käytöstä (rajoittamaton)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Keskitaso
+SETTINGS_DEPOT_CAPACITY_REALISTIC Realistinen
+SETTINGS_FLIGHTTRACKER_ENABLE Ota lentoseuranta käyttöön
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Ottaa käyttöön integroidut lentoseurantapaikkaukset ja käyttöliittymätuen.
+SETTINGS_SUBBUILDINGSTABS_ENABLE Ota alirakennusvälilehdet käyttöön
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Näyttää välilehtinauhan rakennuksen tietopaneelissa, kun sillä on alirakennuksia (esim. lentokenttä sisäänrakennetulla metroasemalla), jotta voit vaihtaa niiden välillä.
+SETTINGS_TAXISTANDFIX_ENABLE Ota taksitolppakorjaus käyttöön
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Lähettää joutilaat taksit lähimmälle taksitolpalle satunnaisen harhailun sijaan. Vaatii After Dark -lisäosan.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Ota jaetut pysäkit käyttöön
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Sallii useamman kuin yhden liikennemuodon (bussi, raitiovaunu, johdinauto) pysähtyä samalla tieosuudella. Oletuksena pois - katso modin GitHubista, mitä tämä karsittu versio jättää pois.
+SETTINGS_COMMUTERDESTINATION_ENABLE Ota matkustajien määränpää käyttöön (uudelleensuunnittelu odottaa)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Tilapäisesti poissa käytöstä: aiempi paneeli monisti pysäkkitieto-UI:n ja on pakotettu pois kunnes uudelleensuunnittelu valmistuu. Valintaruutu ei voi ottaa sitä uudelleen käyttöön.
+SETTINGS_OOC_ENABLE Optimoidut ulkoyhteydet
+SETTINGS_OOC_ENABLE_TOOLTIP Rahtijunat, lentokoneet ja laivat odottavat pidempään täydempää lastia ennen lähtöä ulkoyhteyksillä.
+SETTINGS_OOC_WAIT_MULTIPLIER Odotuskerroin
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Kuinka paljon pidempään kuin vaniljassa odotetaan täydempää lastia. Suuremmat arvot tarkoittavat harvempia mutta täydempiä matkoja.
+SETTINGS_OOC_PASSENGER_SCOPE Matkustajien odotuksen laajuus
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Missä yllä oleva odotuskerroin koskee joukkoliikennettä odottavia asukkaita. Vain ulkoyhteydet vaikuttaa vain ulkoyhteydellä odottaviin; koko kaupunki hidastaa myös tavallista kotimaista odotusta jokaiselle asukkaalle (vastaa lähdemodinin todellista käyttäytymistä).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Vain ulkoyhteydet
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Koko kaupunki
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Pois käytöstä (vanilja)
+SETTINGS_OOC_DISABLE_DUMMY Poista koristeellinen läpikulkuliikenne
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Poista koristeellinen tieliikenne
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Poista koristeellinen junaliikenne
+SETTINGS_OOC_DISABLE_DUMMY_PLANE Poista koristeellinen lentoliikenne
+SETTINGS_OOC_DISABLE_DUMMY_SHIP Poista koristeellinen laivaliikenne
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Ulkoyhteydet synnyttävät normaalisti ylimääräistä koristeellista liikennettä, joka ei koskaan todella tule kaupunkiin tai poistu sieltä, vain visuaalisen tunnelman vuoksi. Poistaminen poistaa sen liikenteen vaikuttamatta todelliseen tuonti/vienti/matkustajavirtaan.
+SETTINGS_UOC_ENABLE Rajoittamattomat ulkoyhteydet
+SETTINGS_UOC_ENABLE_TOOLTIP Poistaa vaniljan 4 yhteyden rajan teille, raiteille, laiva- ja lentoreiteille, ja kytkee liikennelinjoja takautuvasti, kun uusi yhteys rakennetaan lähelle olemassa olevaa asemaa. Voimaan seuraavalla tason latauksella.
+SETTINGS_STTAI_ENABLE Yksiraiteisen junan törmäyksen välttäminen
+SETTINGS_STTAI_ENABLE_TOOLTIP Varaa yksiraiteisen osuuden yhdelle junalle kerrallaan ja pitää vastakkaisen junan sisäänkäynnillä, kunnes osuus on vapaa. Alkuperäinen IPT4-ominaisuus, ei vaniljassa eikä missään absorboidussa modissa.
+SETTINGS_STOPSTACKER_ENABLE Bussipysäkin paikkojen pinoaminen
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Antaa toisen/kolmannen samaan pysäkkiin saapuvan bussin käyttää omaa paikkaansa kauempana takana pysäkkikaistalla jonottamisen sijaan etummaisen bussin takana, jotta useampi bussi voi lastata/purkaa samanaikaisesti. Alkuperäinen IPT4-ominaisuus (yksinkertaistettu clean-room-uudelleentoteutus), ei vaniljassa eikä missään absorboidussa modissa.
+CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
+CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
+CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
+CHANGELOG_4_3_1_2 Filled in 38 translation keys that existed only in English and Portuguese - every other language (Arabic, Bengali, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Russian, Urdu and all Chinese variants) was silently falling back to English for the whole Train Display section, the Delete Lines description and the three Express Bus descriptions.
+CHANGELOG_4_3_1_3 Added 4 copy/paste tooltip keys that were missing from every language file including English, so they would have rendered as raw keys ("COPY_TIP") once those buttons are re-enabled.
+CHANGELOG_4_3_0_1 Added Train Display Updated: a small on-screen overlay showing line/destination/state while following a supported vehicle. Configurable in Options: screen position, size, opacity, which fields show, update frequency, whether it's restricted to first-person camera mods, and a Simple/Dark/Light color theme.
+CHANGELOG_4_3_0_2 Fixed several build errors in the new Train Display integration: an ambiguous Utils reference, two APIs that don't exist on this game version (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), and Enum.HasFlag usage - which doesn't exist on .NET Framework 3.5, this mod's target framework, and had to be replaced with manual bitwise checks.
+CHANGELOG_4_2_4_1 Fixed the mod always showing "Compatibility with Game Version: 0.0.0" - we never declared a supported game version range. Now set to 1.21.1-f9 and up.
+CHANGELOG_4_2_4_2 Fixed the AutoLineColor color-strategy dropdown showing raw enum names (e.g. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") instead of translated text: the code generated a key with no underscore while the translation file used one. Also reordered the section so the two dependent sliders sit right under the color-strategy dropdown they belong to, instead of after the unrelated naming dropdown.
+CHANGELOG_4_2_4_3 Renamed the tram unbunching modes to match the bus ones (Disabled/Prudent/Realistic) instead of "Light Rail"/"Real Tram", and translated the last bits of English text left in the Portuguese description.
+CHANGELOG_4_2_4_4 Fixed checkbox descriptions never rendering anywhere in the panel whenever no header text was set (which is every checkbox in this mod) - the layout code only positioned the description label if a header label existed too, even though the description was already being created and populated with text.
+CHANGELOG_4_2_4_5 Fixed Options tab captions getting cut off (especially in Portuguese, which runs longer than English) - tabs now wrap to a second line instead of clipping.
+CHANGELOG_4_2_4_6 Fixed the Reset buttons (Unbunching, Ticket Prices) changing the underlying settings immediately but not updating the sliders already on screen, so it looked like nothing happened until reopening Options.
+CHANGELOG_4_2_4_7 Fixed the Delete Lines tool's checkboxes persisting as saved settings instead of resetting after use - they were accidentally wired to ModSetting like a real preference, when this is meant to be a one-shot "pick types, click Delete" action.
+CHANGELOG_4_2_3_1 Fixed every mod translation showing up as the raw key (e.g. "SETTINGS_SPEED:0") in every language: our own translation loader still matched the plugin by the old ImprovedPublicTransportMod type instead of Mod (the class that's actually IUserMod since the CSLModsCommon migration), so it never found the mod folder and never loaded any Translations/*.txt file. Also hardened the vanilla-locale fallback so it no longer mistakes Colossal's "key:0" not-found marker for a real translation.
+CHANGELOG_4_2_3_2 Removed the always-empty "Key Bindings" tab from Options - this mod has no key bindings to configure.
+CHANGELOG_4_2_3_3 Sliders in Options now show their current value again (lost in the CSLModsCommon migration - the new slider control doesn't display it by default).
+CHANGELOG_4_2_3_4 Fixed the AutoLineColor "min color difference" and "max color pick attempts" sliders staying interactive even when the color strategy is set to Disabled or Categorised (neither of which uses those settings).
+CHANGELOG_4_2_0_1 Added Rescue Fullwidth Digits: normalizes fullwidth digits in custom transport line names back to regular ASCII digits, fixing a display/sorting quirk from some non-Latin keyboard inputs.
+CHANGELOG_4_2_0_2 Added a dedicated Ticket Prices tab to the Options panel, so day/night fare multipliers can be tuned without opening the in-game Economy panel.
+CHANGELOG_4_2_0_3 Fixed the Rescue Fullwidth Digits patch only ever being applied once at mod startup while being undone on every level unload, silently disabling it for every save after the first one loaded in a session.
+CHANGELOG_4_2_0_4 Fixed a taxi-fare integer-overflow bug (MileageTaxiServices) that could drain the public transport budget by billions in one step: a taxi with corrupted or uninitialized frame data (e.g. right after spawning) could compute an implausibly large per-frame distance, overflowing the fare's cast to int into a huge garbage value - this matches a known unresolved issue reported upstream (runaway negative taxi income). Now implausible frame distances are discarded instead of being charged.
+CHANGELOG_4_1_5_1 Fixed the real cause of the blank/black Options panel: CSLModsCommon's own UI strings (Version/Changelog/etc.) live in a physical Localization/Common folder next to the DLL that our build never deployed. Without it, the framework's LocalizationManager silently gave up, leaving CurrentLocaleSource null and crashing OptionsPanelBase.Awake() with a NullReferenceException the instant it tried to show the translation-progress label - which Unity swallows silently, aborting the panel mid-build. Now the .csproj deploys that folder, and GetTranslationProgress() no longer throws if it's ever missing again.
+CHANGELOG_4_1_4_1 Fixed the Options panel showing up blank/black: the panel was only ever built when the game toggled the settings container's visibility off and on, but it's usually already visible when the game opens this mod's page, so the panel never got created. Now it also builds immediately if the container is already visible.
+CHANGELOG_4_1_4_2 Fixed every CSLModsCommon UI texture (background, icons, toggles) failing to load and falling back to a placeholder: the project's RootNamespace was still "ImprovedPublicTransport3" from the original IPT3 fork, so embedded resources were compiled under the wrong name and never matched at runtime.
+CHANGELOG_4_1_3_1 Fixed three settings-save bugs left over from the CSLModsCommon migration (What's New dismissal, Options Reset button, per-hour ticket price editor): each wrote the new value to ModSetting correctly but then saved the old, now-dead settings object, so the change never actually persisted to disk.
+CHANGELOG_4_1_3_2 Removed dead code from the pre-CSLModsCommon era: the attribute-based OptionsFramework, the monolithic Settings.cs, and the standalone VehicleEditorPositions enum - all fully superseded by ModSetting and CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Forked from Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Ported AutoLineBudget's demand-based fleet sizing to coordinate with IPT's own vehicle-count API instead of writing the line budget directly, fixing a runaway maintenance-cost bug caused by the two mods fighting over the same state.
+CHANGELOG_4_0_0_3 Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).
+TRAINDISPLAY_LABEL_NAME Nimi
+TRAINDISPLAY_LABEL_STATUS Tila
+TRAINDISPLAY_NO_LINE Ei linjaa
+TRAINDISPLAY_NO_DESTINATION Ei määränpäätä
+TRAINDISPLAY_HIDDEN Piilotettu
+TRAINDISPLAY_VEHICLE Ajoneuvo
+TRAINDISPLAY_STATE_RETURNING Palaa
+TRAINDISPLAY_STATE_STOPPED Pysäkillä
+TRAINDISPLAY_STATE_EN_ROUTE Matkalla
+TRAINDISPLAY_STATE_ON_LINE Linjalla
+TRAINDISPLAY_STATE_IDLE Jouten
+AUTOLINECOLOR_REFRESH_BUTTON Päivitä nimi/väri
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Määritä nykyinen linjan nimi ja väri uudelleen aktiivisten AutoLineColor-asetusten mukaan.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Ota väri- tai nimeämisstrategia käyttöön Asetuksissa ennen tämän linjan päivittämistä.
+CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
+CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
+CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
+CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
+CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
+CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
+CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
+TICKET_PRICE_LABEL_TOOLTIP Nykyinen hinta: {0}\nAlkuperäinen hinta: {1}\nMatkustajia nyt: {2}
+CHANGELOG_4_8_0_1 Added SingleTrainTrackAI: single-track rail segments are now reserved for one direction at a time, so two trains sharing a bidirectional track no longer risk colliding. Clean-room reimplementation - the source mod (Workshop 949504539) has no declared license, so only its publicly documented concept was reimplemented, on this project's own Harmony-based patching instead of raw memory detours.
+CHANGELOG_4_8_0_2 Added Stop Stacker: when more than one vehicle on the same line converges on a stop, only the lead vehicle uses the normal stop position - following vehicles get their own berth further back along the lane instead of queuing single-file behind it. Clean-room reimplementation from the source mod's public description only (no source code was available); bus and trolleybus only, matching this project's existing BetterBusStopPosition hook point.
+CHANGELOG_4_8_0_3 Fixed the intercity bus terminal integration silently never activating for players who own the Sunset Harbor DLC: it detected the DLC via reflection into a private game field instead of the Steam DLC check already used elsewhere in this project, and that reflection-based check could return false even when the DLC was genuinely installed.
+CHANGELOG_4_8_0_4 Fixed the "accept intercity buses" checkbox getting stuck unresponsive on some terminals: vanilla can leave the checkbox non-interactive under conditions this mod's relabeled use of it never accounted for. It is now forced interactive whenever this mod controls it. Also fixed a related bug where a terminal that was already correctly set up could silently lose its toggle on a later check.
+CHANGELOG_4_8_0_5 Fixed Sub-Buildings Tabs occasionally showing a stale tab strip on an unrelated building: the game recycles building IDs after a demolition, and the cache used to trust a recycled ID as still belonging to the previous building cluster. It now re-validates the building's actual parent chain before reusing anything from the cache.
+CHANGELOG_4_8_0_6 General bug sweep across several integrations: an inverted cache-expiry check that discarded fresh data and served stale data instead, an off-by-one loop bound that skipped the last transport line for automatic coloring and duplicate-name checks, a wrong ID comparison that broke the "only one vehicle on this line" unbunching bypass, a price lookup that permanently cached a failure instead of retrying later, and several Harmony patches that could throw on a null UI/prefab reference.
+CHANGELOG_4_8_0_7 Reduced repeated reflection and per-frame lookups across several integrations: vehicle tooltip descriptions, single-track segment classification, and the intercity-bus item-class lookup are now cached instead of recomputed on every call, and a UI refresh button no longer reassigns its text every single frame regardless of whether anything changed.
+CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
+CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
+CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
+CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
+CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
+CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
+CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
+CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (destination display - currently forced off pending redesign) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
+CHANGELOG_4_7_0_2 Added a vehicle capacity mode for intercity bus terminals (Options > Integrations > Intercity Bus Terminal Capacity): Disabled keeps this mod's existing effectively-uncapped terminal, Intermediate applies a moderate fixed cap, Realistic restores the terminal's own vanilla prefab capacity. Existing saves default to Disabled so upgrading never silently shrinks a terminal's capacity.
+CHANGELOG_4_7_0_3 Fixed the intercity bus terminal's "accept intercity buses" checkbox: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged sets acceptsInterCityTrains, which is a pure alias for isEmptying, so the relabeled checkbox was able to silently put a bus terminal into the game's building-shutdown state instead of actually toggling bus acceptance. A Harmony prefix now intercepts and redirects it to per-building state for bus-patched terminals, leaving real train stations untouched.
+CHANGELOG_4_7_0_4 Added an "Original" color theme to Train Display (Options > Train Display > Color Theme) that reproduces the layout of the source Train Display - Updated mod: a header strip with speed and status, plus a route strip colored to match the vehicle's actual line color.
+CHANGELOG_4_7_0_5 Fixed the Simple, Dark and Light Train Display themes rendering the wrong colors: GUI.Box tinted via GUI.backgroundColor does not produce a flat color, because Unity's default skin box texture is not pure white. The overlay now draws onto a cached solid white texture with GUI.DrawTexture and GUI.color instead.
+CHANGELOG_4_7_0_6 Fixed the Ticket Prices tab always falling back to its plain custom slider row instead of the vanilla BudgetItem visual: a reflection lookup for BudgetItem's night-price slider field had a typo, so it always threw and was silently caught.
+CHANGELOG_4_7_0_7 Reduced repeated per-frame UI tree lookups in two Harmony patches that run for every visible transport panel (the intercity-bus checkbox on city-service panels, and each stop's passenger-count label on the line panel) by caching the resolved UI references instead of re-searching for them every frame.
+CHANGELOG_4_7_0_8 Reorganized the entire Options menu into tabs that match what they actually contain (Fleet & Scheduling, Budget & Prices, Line Colors, Integrations, and more) instead of the old Auto Line tab holding seven unrelated settings groups. Restored the Shortcuts tab removed in an earlier version, ready for future integrations that need one, and added a GitHub project link under Options > Advanced.
+CHANGELOG_4_3_8_1 No longer marked BETA. The maintenance overflow that this fork exists to fix is resolved at the root and repairs saves it already damaged, and all 23 languages are complete.
+CHANGELOG_4_3_7_1 All 23 languages in the selector are now fully translated. Czech, Dutch, Slovak, Thai and Turkish were selectable but had no translation file, so they silently fell back to English.
+CHANGELOG_4_3_7_2 The translation progress shown under the language selector was reading a static status file that had not been regenerated, so it reported 76% for sixteen languages that were in fact complete.
+CHANGELOG_4_3_6_1 Fixed the real source of the approximately -21.4 million public-transport expense: IPT's weekly maintenance replacement divided by a zero or unsupported vehicle capacity, turning NaN into int.MinValue, and then summed every vehicle in another int. Maintenance inputs now use a safe vanilla fallback, line totals use 64-bit arithmetic, and large valid totals are charged only through bounded positive transactions.
+CHANGELOG_4_3_6_2 Existing saves are repaired on load by clearing only negative public-transport income or expense buckets left by this overflow and correcting their matching totals. Valid economy history and every non-transport service remain untouched.
+DEPOT_STATS_FERRIES_IN_USE Ferries in use
+DEPOT_STATS_BLIMPS_IN_USE Blimps in use
+DEPOT_STATS_HELICOPTERS Helicopters in use
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
+DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
+SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trolleybus
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Tram
+SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Train
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
+TRAINDISPLAY_LABEL_SPEED Speed
+TRAINDISPLAY_LABEL_TIME Time
+SETTINGS_PERFORMANCE_PROFILE Performance profile
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
+SETTINGS_TAB_PERFORMANCE Performance
+SETTINGS_PERFORMANCE_TIPS_GROUP Tips
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
+SETTINGS_TAB_COMPATIBILITY Compatibility
+SETTINGS_COMPAT_INTRO_GROUP Check your load order
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
+SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
+SETTINGS_COMPAT_STATUS_GROUP Current result
+SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
+SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
+SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
+SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
+SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_COMPAT_BADGE_CONFLICT Conflict
+SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_OK OK
+SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
+COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
+SETTINGS_TAB_FLEET_SHORT Fleet
+SETTINGS_TAB_STOPS_SHORT Stops
+SETTINGS_TAB_OVERLAY_SHORT Overlay
+SETTINGS_TAB_SYSTEM_SHORT System
+SETTINGS_SUB_SPACING Spacing
+SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_BUDGET Budget
+SETTINGS_SUB_COLOR Color
+SETTINGS_SUB_CAPS Caps
+SETTINGS_SUB_NET Network
+SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
+SETTINGS_SUB_VEHICLES Vehicles
+SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_SUB_DEPOTS Depots
+SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
+SETTINGS_SUB_OUTSIDE Outside
+SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
+SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_INFO Info
+SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_COMPAT Compat
+SETTINGS_SUB_KEYS Keys
+SETTINGS_FUTURE_GROUP Coming later
+SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
+SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
+SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
+SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+LINE_PANEL_COPY Copy
+LINE_PANEL_PASTE Paste
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_QUICK_TIPS_GROUP Quick tips
+SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
+SETTINGS_QUICK_TIP_1_TITLE Start simple
+SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
+SETTINGS_QUICK_TIP_2_TITLE Slow PC?
+SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
+SETTINGS_QUICK_TIP_3_TITLE After toggles
+SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
+SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
+SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.

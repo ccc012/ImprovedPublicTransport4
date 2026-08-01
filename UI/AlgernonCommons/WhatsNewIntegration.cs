@@ -30,7 +30,8 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
         public override void LoadSettings()
         {
             string savedVersion = ModSetting.Instance.WhatsNewLastSeenVersion ?? "0.0.0";
-            UnityEngine.Debug.Log($"[IPT3] LoadSettings: saved version = {savedVersion}");
+            if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                UnityEngine.Debug.Log($"[IPT4] LoadSettings: saved version = {savedVersion}");
             
             // Normalize version format to always have at least 3 parts (Major.Minor.Build)
             var versionParts = savedVersion.Split('.');
@@ -52,15 +53,19 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
                     if (setter != null)
                     {
                         setter.Invoke(null, new object[] { new Version(savedVersion) });
-                        UnityEngine.Debug.Log($"[IPT3] SUCCESS: Set LastNotifiedVersion to {savedVersion}");
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                            UnityEngine.Debug.Log($"[IPT4] SUCCESS: Set LastNotifiedVersion to {savedVersion}");
                     }
-                    else UnityEngine.Debug.LogError("[IPT3] ERROR: No setter on LastNotifiedVersion");
+                    else if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                        UnityEngine.Debug.LogError("[IPT4] ERROR: No setter on LastNotifiedVersion");
                 }
-                else UnityEngine.Debug.LogError("[IPT3] ERROR: LastNotifiedVersion property not found");
+                else if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    UnityEngine.Debug.LogError("[IPT4] ERROR: LastNotifiedVersion property not found");
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(ex);
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    UnityEngine.Debug.LogException(ex);
             }
         }
 
@@ -75,11 +80,13 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
                     ? $"{currentVersion.Major}.{currentVersion.Minor}.{currentVersion.Build}"
                     : "0.0.0";
                 ModSetting.Instance.WhatsNewLastSeenVersion = versionString;
-                UnityEngine.Debug.Log($"[IPT3 WhatsNewIntegration.SaveSettings] Saved version: {versionString}");
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    UnityEngine.Debug.Log($"[IPT4 WhatsNewIntegration.SaveSettings] Saved version: {versionString}");
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(new Exception($"[IPT3] SaveSettings failed: {ex.Message}", ex));
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                    UnityEngine.Debug.LogException(new Exception($"[IPT4] SaveSettings failed: {ex.Message}", ex));
                 // Fallback: use whats new message version
                 if (WhatsNewMessages != null && WhatsNewMessages.Length > 0)
                 {

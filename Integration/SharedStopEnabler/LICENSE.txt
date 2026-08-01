@@ -8,14 +8,18 @@ Source origin, credits, and licensing notes:
 - The upstream mod is GPL-3.0 licensed - see the repository's own LICENSE for the
   full text (also reproduced at the root of this repository, since IPT4 as a whole
   is GPL-3.0).
-- This is a REDUCED port, not a full one. Left out deliberately, after reviewing
-  the full upstream source: the RoadBridgeAI/elevated-stop patch, the
-  PathManager.FindPathPosition patch, and the IL-transpiler patch on
-  TransportTool.GetStopPosition. Those touch either a very hot vanilla method
-  (PathManager) or match IL by string content, which is fragile across game
-  updates - out of proportion with what this integration is meant to add. Only
-  the core mechanism (allow more than one transit stop type on the same road
-  segment) was ported.
+- Full port of the core shared-stop mechanism plus elevated/bridge support:
+  - TransportLineAI Add/RemoveLaneConnection bookkeeping
+  - NetTool segment rename after splits
+  - Prefab InitSegments (Stop*2 flag coexistence)
+  - Elevated/bridge stop enablement + middle-lane Car stop types
+  - RoadBridgeAI stop-flag refresh
+  - RoadAI.UpdateSegmentFlags transpiler (secondary stop flags)
+  - PathManager.FindPathPosition postfix (car platform lane nudge)
+  - NetSegment.GetClosestLanePosition for bridges
+  - TransportTool.GetStopPosition transpiler (allow multi-type placement)
+- IL-based transpilers (RoadAI / GetStopPosition) soft-fail if a game update moves
+  the matched patterns — the registry + elevated prefab work still applies.
 - `SharedStopsTool`'s MonoBehaviour/Singleton pattern was replaced with a static
   class (`SharedStopRegistry`), matching how IPT4 already tracks per-line/per-
   segment state elsewhere (see Data/CachedTransportLineData.cs) rather than

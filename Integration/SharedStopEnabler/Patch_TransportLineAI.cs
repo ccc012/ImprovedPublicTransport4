@@ -1,6 +1,4 @@
 // Adapted from SharedStopEnabler (GPL-3.0, Workshop 2096382380, github.com/CodeBardian/SharedStopEnabler) - see LICENSE.txt.
-// The RoadBridgeAI branch from the upstream patches (elevated/bridge stop flag updates) was
-// removed - this reduced port does not touch elevated stops, see LICENSE.txt for why.
 using System;
 using ColossalFramework;
 using HarmonyLib;
@@ -12,10 +10,51 @@ namespace SharedStopEnabler
     /// <summary>
     /// Tracks which road segments have more than one transit line's stop wired to them, so
     /// <see cref="SharedStopRegistry"/> stays in sync as lines are built, edited and deleted.
+    /// Also refreshes elevated/bridge stop flags via <see cref="RoadBridgeAIExt"/>.
     /// </summary>
     [HarmonyPatch(typeof(TransportLineAI), "AddLaneConnection")]
     internal static class Patch_TransportLineAI_AddLaneConnection
     {
+        [HarmonyPrefix]
+        public static void Prefix(
+            NetLane.Flags ___m_stopFlag,
+            VehicleInfo.VehicleType ___m_vehicleType,
+            ushort nodeID,
+            uint laneID)
+        {
+            try
+            {
+                if (!ModSetting.Instance.EnableSharedStopEnabler || nodeID == 0
+                                                                || !___m_vehicleType.IsSharedStopTransport()
+                                                                || laneID == 0)
+                {
+                    return;
+                }
+
+                var netManager = Singleton<NetManager>.instance;
+                var segment = netManager.m_lanes.m_buffer[laneID].m_segment;
+                if (segment == 0)
+                {
+                    return;
+                }
+
+                // Elevated/bridge: force stop flag on the lane then recompute segment flags.
+                if (netManager.m_segments.m_buffer[segment].Info?.m_netAI is RoadBridgeAI roadBridgeAI)
+                {
+                    var flags = (NetLane.Flags)netManager.m_lanes.m_buffer[laneID].m_flags;
+                    flags |= ___m_stopFlag;
+                    netManager.m_lanes.m_buffer[laneID].m_flags = (ushort)flags;
+                    roadBridgeAI.UpdateSegmentStopFlags(
+                        segment,
+                        ref netManager.m_segments.m_buffer[segment]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SharedStopEnabler: failed in AddLaneConnection prefix: {ex.Message}");
+            }
+        }
+
         [HarmonyPostfix]
         public static void Postfix(VehicleInfo.VehicleType ___m_vehicleType, ushort nodeID, uint laneID)
         {
@@ -35,6 +74,13 @@ namespace SharedStopEnabler
                 }
 
                 SharedStopRegistry.AddSharedStop(segment, lineID, laneID);
+
+                if (netManager.m_segments.m_buffer[segment].Info?.m_netAI is RoadBridgeAI roadBridgeAI)
+                {
+                    roadBridgeAI.UpdateSegmentStopFlags(
+                        segment,
+                        ref netManager.m_segments.m_buffer[segment]);
+                }
             }
             catch (Exception ex)
             {
@@ -103,10 +149,16 @@ namespace SharedStopEnabler
                 }
 
                 var flags = (NetLane.Flags)netManager.m_lanes.m_buffer[lane].m_flags;
+                var lineBuffer = Singleton<TransportManager>.instance.m_lines.m_buffer;
                 foreach (var line in stillSharing)
                 {
-                    var stopFlag = Singleton<TransportManager>.instance.m_lines.m_buffer[line].Info.m_stopFlag;
-                    flags |= stopFlag;
+                    var stopInfo = lineBuffer[line].Info;
+                    if (stopInfo == null)
+                    {
+                        continue;
+                    }
+
+                    flags |= stopInfo.m_stopFlag;
                 }
 
                 netManager.m_lanes.m_buffer[lane].m_flags = (ushort)flags;

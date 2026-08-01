@@ -5,6 +5,7 @@
 
 namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
 {
+    using ImprovedPublicTransport.Util;
     using UnityEngine;
 
     internal sealed class TrainDisplayWatcher : MonoBehaviour
@@ -22,12 +23,18 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                 return;
             }
 
+            // Stable throttle only — the 4.8 "snappier" path (immediate re-poll on vehicle change +
+            // sub-0.1s floors on Maximum) caused hitching/freezes for some players. Keep a hard
+            // 0.1s floor and honour the Options update-interval slider above that.
             if (Time.realtimeSinceStartup < _nextPollTime)
             {
                 return;
             }
 
-            _nextPollTime = Time.realtimeSinceStartup + TrainDisplayIntegration.GetUpdateInterval();
+            var interval = Mathf.Max(0.1f, TrainDisplayIntegration.GetUpdateInterval());
+            // Performance profile still softens Light installs without racing Max.
+            interval = Mathf.Max(interval, PerformanceProfile.TrainDisplayMinPollSeconds);
+            _nextPollTime = Time.realtimeSinceStartup + interval;
 
             if (!TrainDisplayIntegration.TryGetSelectedVehicle(out ushort vehicleId))
             {

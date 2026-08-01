@@ -10,6 +10,13 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
     {
         private const string LoadPassengersMethod = "LoadPassengers";
 
+        /// <summary>
+        /// Set by BetterBoarding when it already wrote BoardPassengers / PassengersIn so this
+        /// postfix does not double-count the same boarding event.
+        /// </summary>
+        [ThreadStatic]
+        public static bool SkipPostAccounting;
+
         public static void Apply()
         {
             PatchLoadPassengers(typeof(BusAI));
@@ -39,6 +46,12 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
 
         public static bool LoadPassengersPre(ushort vehicleID, ushort currentStop, out State __state)
         {
+            if (vehicleID == 0 || CachedVehicleData.m_cachedVehicleData == null)
+            {
+                __state = new State { vehicleID = 0 };
+                return true;
+            }
+
             var data = VehicleManager.instance.m_vehicles.m_buffer[vehicleID];
             if (data.m_leadingVehicle != 0)
             {
@@ -57,8 +70,21 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
 
         public static void LoadPassengersPost(State __state)
         {
+            if (SkipPostAccounting)
+            {
+                SkipPostAccounting = false;
+                return;
+            }
+
             // Skip if this was a trailer (vehicleID == 0 from pre-function's marker)
             if (__state.vehicleID == 0)
+            {
+                return;
+            }
+
+            var vehicleCache = CachedVehicleData.m_cachedVehicleData;
+            var nodeCache = CachedNodeData.m_cachedNodeData;
+            if (vehicleCache == null || __state.vehicleID >= vehicleCache.Length)
             {
                 return;
             }
@@ -72,9 +98,17 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             var currentPassengers =
                 VehicleUtil.GetTotalPassengerCount(__state.vehicleID, CachedVehicleData.MaxVehicleCount);
             var passengersIn = Mathf.Max(0, currentPassengers - __state.currentPassengers);
-            CachedVehicleData.m_cachedVehicleData[__state.vehicleID]
+            if (passengersIn <= 0)
+            {
+                return;
+            }
+
+            vehicleCache[__state.vehicleID]
                 .BoardPassengers(passengersIn, VehicleUtil.GetTicketPrice(__state.vehicleID), __state.currentStop);
-            CachedNodeData.m_cachedNodeData[__state.currentStop].PassengersIn += passengersIn;
+            if (nodeCache != null && __state.currentStop != 0 && __state.currentStop < nodeCache.Length)
+            {
+                nodeCache[__state.currentStop].PassengersIn += passengersIn;
+            }
         }
 
         public struct State

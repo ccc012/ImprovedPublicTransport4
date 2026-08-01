@@ -27,6 +27,8 @@ public sealed class HarmonyPatcher {
         _patchTimer.Reset();
         _patchTimer.Start();
         try {
+            // WARNING: PatchAll() with no filter scans the entire executing assembly. Prefer an
+            // explicit patchAction (or a namespace-scoped helper) when multiple integrations share one DLL.
             if (patchAll) HarmonyInstance.PatchAll();
             patchAction?.Invoke(this);
             _patchTimer.Stop();
@@ -45,7 +47,12 @@ public sealed class HarmonyPatcher {
         _patchTimer.Reset();
         _patchTimer.Start();
         try {
-            HarmonyInstance.UnpatchAll();
+            // Unpatch only this owner. Bare UnpatchAll() removes every mod's Harmony patches in the process.
+            var id = HarmonyInstance.Id;
+            if (!string.IsNullOrEmpty(id))
+                HarmonyInstance.UnpatchAll(id);
+            else
+                HarmonyInstance.UnpatchAll();
             IsEnabled = false;
             _patchTimer.Stop();
             Logger.Info($"Disabled patch in {_patchTimer.ElapsedMilliseconds}ms");

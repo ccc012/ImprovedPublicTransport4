@@ -108,6 +108,11 @@ namespace PublicTransportUnstucker
             // we correct
             // determine the "runaway range": any CIMs who went
             int checkRunawayRange;
+            // Info can be null for a frame around despawn/release - bail rather than NRE mid-CanLeave.
+            if (vehicleData.Info?.m_class == null)
+            {
+                return;
+            }
             ItemClass itemClass = vehicleData.Info.m_class;
             if (itemClass.m_service != ItemClass.Service.PublicTransport)
             {

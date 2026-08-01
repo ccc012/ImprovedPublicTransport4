@@ -43,6 +43,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private FieldInfo _cachedTotalProgress;
     private FieldInfo _cachedProgressVehicle;
 
+    private float _nextBindingsRealtime;
+
     public void LateUpdate()
     {
       if (!this._initialized)
@@ -53,6 +55,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       {
         if (!this._initialized || !this._publicTransportVehicleWorldInfoPanel.component.isVisible)
           return;
+        // Throttle panel refresh while open (click path feels snappier; less per-frame work).
+        var now = UnityEngine.Time.unscaledTime;
+        if (now < this._nextBindingsRealtime)
+          return;
+        this._nextBindingsRealtime = now + 0.2f;
         this.UpdateBindings();
       }
     }
@@ -123,23 +130,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           case ItemClass.SubService.PublicTransportCableCar:
           case ItemClass.SubService.PublicTransportTrolleybus:
             this._passengerPanel.Show();
-            if ((int) vehicleID != 0)
-            {
-              this._lastStopExchange.text = string.Format(Localization.Get("VEHICLE_PANEL_LAST_STOP_EXCHANGE"),
-                  (object) CachedVehicleData.m_cachedVehicleData[(int) vehicleID].LastStopGonePassengers, 
-                  (object) CachedVehicleData.m_cachedVehicleData[(int) vehicleID].LastStopNewPassengers);
-            }
+            SetLastStopExchangeText(vehicleID);
             break;
          case ItemClass.SubService.None:
              if (service == ItemClass.Service.Disaster && level == ItemClass.Level.Level4)
              {
                  this._passengerPanel.Show();
-                 if ((int) vehicleID != 0)
-                 {
-                     this._lastStopExchange.text = string.Format(Localization.Get("VEHICLE_PANEL_LAST_STOP_EXCHANGE"),
-                         (object) CachedVehicleData.m_cachedVehicleData[(int) vehicleID].LastStopGonePassengers,
-                         (object) CachedVehicleData.m_cachedVehicleData[(int) vehicleID].LastStopNewPassengers);
-                 }
+                 SetLastStopExchangeText(vehicleID);
              }
              else
              {
@@ -158,7 +155,9 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         if (vehicle.Info == null) return;
         if ((vehicle.m_flags & Vehicle.Flags.Stopped) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
         {
-          if (CachedVehicleData.m_cachedVehicleData[(int) vehicleID].IsUnbunchingInProgress)
+          var vehicleCache = CachedVehicleData.m_cachedVehicleData;
+          if (vehicleCache != null && vehicleID < vehicleCache.Length
+              && vehicleCache[(int)vehicleID].IsUnbunchingInProgress)
             this._status.text = Localization.Get("VEHICLE_PANEL_STATUS_UNBUNCHING");
           this._distance.text = this._status.text;
           var boardingTime = vehicle.Info.m_vehicleType == VehicleInfo.VehicleType.Plane
@@ -214,24 +213,31 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
         }
         this._statsPanel.Show();
-        this._passengersCurrentWeek.text = CachedVehicleData.m_cachedVehicleData[(int) vehicleID].PassengersThisWeek.ToString();
-        this._passengersLastWeek.text = CachedVehicleData.m_cachedVehicleData[(int) vehicleID].PassengersLastWeek.ToString();
-        this._passengersAverage.text = CachedVehicleData.m_cachedVehicleData[(int) vehicleID].PassengersAverage.ToString();
+        var vCache = CachedVehicleData.m_cachedVehicleData;
+        if (vCache == null || vehicleID == 0 || vehicleID >= vCache.Length)
+        {
+          return;
+        }
+
+        ref var vData = ref vCache[(int)vehicleID];
+        this._passengersCurrentWeek.text = vData.PassengersThisWeek.ToString();
+        this._passengersLastWeek.text = vData.PassengersLastWeek.ToString();
+        this._passengersAverage.text = vData.PassengersAverage.ToString();
         PrefabData prefabData = VehiclePrefabs.instance.FindByIndex(vehicle.Info.m_prefabDataIndex);
         if (prefabData == null) return;
-        int num1 = CachedVehicleData.m_cachedVehicleData[(int) vehicleID].IncomeThisWeek - prefabData.MaintenanceCost;
+        int num1 = vData.IncomeThisWeek - prefabData.MaintenanceCost;
         UILabel earningsCurrentWeek = this._earningsCurrentWeek;
         float num2 = (float) num1 * 0.01f;
         string str1 = num2.ToString(ColossalFramework.Globalization.Locale.Get("MONEY_FORMAT"), (IFormatProvider) LocaleManager.cultureInfo);
         earningsCurrentWeek.text = str1;
         this._earningsCurrentWeek.textColor = (Color32) this.GetColor((float) num1);
-        int incomeLastWeek = CachedVehicleData.m_cachedVehicleData[(int) vehicleID].IncomeLastWeek;
+        int incomeLastWeek = vData.IncomeLastWeek;
         UILabel earningsLastWeek = this._earningsLastWeek;
         num2 = (float) incomeLastWeek * 0.01f;
         string str2 = num2.ToString(ColossalFramework.Globalization.Locale.Get("MONEY_FORMAT"), (IFormatProvider) LocaleManager.cultureInfo);
         earningsLastWeek.text = str2;
         this._earningsLastWeek.textColor = (Color32) this.GetColor((float) incomeLastWeek);
-        int incomeAverage = CachedVehicleData.m_cachedVehicleData[(int) vehicleID].IncomeAverage;
+        int incomeAverage = vData.IncomeAverage;
         UILabel earningsAverage = this._earningsAverage;
         num2 = (float) incomeAverage * 0.01f;
         string str3 = num2.ToString(ColossalFramework.Globalization.Locale.Get("MONEY_FORMAT"), (IFormatProvider) LocaleManager.cultureInfo);
@@ -239,6 +245,20 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this._earningsAverage.textColor = (Color32) this.GetColor((float) incomeAverage);
         this._buttonPanel.Show();
       }
+    }
+
+    private void SetLastStopExchangeText(ushort vehicleID)
+    {
+      var cache = CachedVehicleData.m_cachedVehicleData;
+      if (cache == null || vehicleID == 0 || vehicleID >= cache.Length || this._lastStopExchange == null)
+      {
+        return;
+      }
+
+      this._lastStopExchange.text = string.Format(
+          Localization.Get("VEHICLE_PANEL_LAST_STOP_EXCHANGE"),
+          cache[vehicleID].LastStopGonePassengers,
+          cache[vehicleID].LastStopNewPassengers);
     }
 
     private void OnDestroy()

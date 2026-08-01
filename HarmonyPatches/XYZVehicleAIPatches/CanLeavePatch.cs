@@ -64,18 +64,37 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             PatchUtil.Unpatch(new PatchUtil.MethodDefinition(type, CanLeaveMethod));
         }
         
-        public static void Prefix(ushort vehicleID)
+        public static void Prefix(ushort vehicleID, ref Vehicle data)
         {
             currentVehicleID = vehicleID;
-            currentStop = CachedVehicleData.m_cachedVehicleData[currentVehicleID].CurrentStop;
+            currentStop = 0;
+
+            // Prefer the live stop the vehicle is leaving (target building). Cached CurrentStop
+            // was only set on passenger exchange and went stale on empty stop visits, so unbunching
+            // used the wrong stop flag or was skipped entirely.
+            if (data.m_targetBuilding != 0)
+            {
+                currentStop = data.m_targetBuilding;
+            }
+
+            var cache = CachedVehicleData.m_cachedVehicleData;
+            if (cache != null && vehicleID != 0 && vehicleID < cache.Length)
+            {
+                if (currentStop == 0)
+                {
+                    currentStop = cache[vehicleID].CurrentStop;
+                }
+            }
         }
 
 
         public static void Postfix(ushort vehicleID, ref bool __result)
         {
-            if (__result) //we don't know whether it was unbunching or just a traffic light or something else
+            var cache = CachedVehicleData.m_cachedVehicleData;
+            if (__result && cache != null && vehicleID != 0 && vehicleID < cache.Length)
             {
-                CachedVehicleData.m_cachedVehicleData[vehicleID].IsUnbunchingInProgress = false;
+                // we don't know whether it was unbunching or just a traffic light or something else
+                cache[vehicleID].IsUnbunchingInProgress = false;
             }
 
             currentVehicleID = 0;
@@ -118,6 +137,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
 
         public static bool TransportLineCanLeaveStopWrapper(ref TransportLine transportLine, ushort nextStop, int waitTime) //the args are for the same signature
         {
+            if (currentVehicleID == 0)
+            {
+                return true;
+            }
+
             // no unbunching for evac buses or if only 1 bus on line!
             var vehicleData = VehicleManager.instance.m_vehicles.m_buffer[currentVehicleID];
             if (vehicleData.Info?.m_class?.m_service == ItemClass.Service.Disaster ||
@@ -126,20 +150,29 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             {
                 return true;
             }
-            
-            if (currentStop == 0 || !CachedNodeData.m_cachedNodeData[currentStop].Unbunching ||
-                !CachedTransportLineData.GetUnbunchingState(vehicleData.m_transportLine))
+
+            var nodeCache = CachedNodeData.m_cachedNodeData;
+            var vehicleCache = CachedVehicleData.m_cachedVehicleData;
+            if (currentStop == 0
+                || nodeCache == null
+                || currentStop >= nodeCache.Length
+                || !nodeCache[currentStop].Unbunching
+                || !CachedTransportLineData.GetUnbunchingState(vehicleData.m_transportLine))
             {
                 return true;
             }
+
             // ignore the provided waitTime as it's divided.
             // Don't divide m_waitCounter by 2^4! Because the call goes to our CanLeaveStop patch too where it expects a non-divided value..
             var canLeaveStop = Singleton<TransportManager>.instance.m_lines
                 .m_buffer[vehicleData.m_transportLine]
-                .CanLeaveStop(vehicleData.m_targetBuilding, vehicleData.m_waitCounter); 
-            CachedVehicleData.m_cachedVehicleData[currentVehicleID].IsUnbunchingInProgress = !canLeaveStop;
-            return canLeaveStop;
+                .CanLeaveStop(vehicleData.m_targetBuilding, vehicleData.m_waitCounter);
+            if (vehicleCache != null && currentVehicleID < vehicleCache.Length)
+            {
+                vehicleCache[currentVehicleID].IsUnbunchingInProgress = !canLeaveStop;
+            }
 
+            return canLeaveStop;
         }
     }
 }

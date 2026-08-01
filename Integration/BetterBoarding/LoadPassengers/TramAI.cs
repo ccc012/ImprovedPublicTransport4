@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ImprovedPublicTransport.Data;
+using ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches;
 using ImprovedPublicTransport.Util;
 
 namespace BetterBoarding
@@ -36,7 +37,8 @@ namespace BetterBoarding
                     CachedNodeData.m_cachedNodeData[currentStop].PassengersIn += passengersBoarded;
                 }
             }
-            
+
+            LoadPassengersPatch.SkipPostAccounting = true;
             return false;
         }
     }

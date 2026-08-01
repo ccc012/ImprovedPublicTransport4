@@ -12,22 +12,35 @@ namespace ImprovedPublicTransport
     public class SimHelper : MonoBehaviour
     {
         private static float _simulationTime;
-        
-        public static void Awake()
+
+        // Was static Awake() - Unity never invokes static lifecycle methods on MonoBehaviours,
+        // so SimulationTime never reset on attach (only on destroy). Instance Awake is required.
+        private void Awake()
         {
-            _simulationTime = 0;
+            _simulationTime = 0f;
         }
 
         public static float SimulationTime => _simulationTime;
 
         private void Update()
         {
-            _simulationTime = _simulationTime + Singleton<SimulationManager>.instance.m_simulationTimeDelta;
+            if (!Singleton<SimulationManager>.exists)
+            {
+                return;
+            }
+
+            var sim = Singleton<SimulationManager>.instance;
+            if (sim.SimulationPaused)
+            {
+                return;
+            }
+
+            _simulationTime += sim.m_simulationTimeDelta;
         }
 
         private void OnDestroy()
         {
-            _simulationTime = 0;
+            _simulationTime = 0f;
         }
     }
 }

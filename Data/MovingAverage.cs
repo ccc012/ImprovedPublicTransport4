@@ -5,7 +5,6 @@
 // Assembly location: C:\Games\Steam\steamapps\workshop\content\255710\424106600\ImprovedPublicTransport.dll
 
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ImprovedPublicTransport.Data
 {
@@ -35,7 +34,17 @@ namespace ImprovedPublicTransport.Data
         if (this._items.Count == 0)
           return 0.0f;
         lock (this._items)
-          return this._items.Average();
+        {
+          // Manual average — LINQ enumerator alloc on every weekly/stats read.
+          float sum = 0f;
+          int n = 0;
+          foreach (var v in this._items)
+          {
+            sum += v;
+            n++;
+          }
+          return n == 0 ? 0f : sum / n;
+        }
       }
     }
 

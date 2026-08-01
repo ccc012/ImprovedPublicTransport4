@@ -38,9 +38,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
 
         public static bool UnloadPassengersPre(ushort vehicleID, ushort currentStop, out State __state)
         {
-            if (VehicleManager.instance.m_vehicles.m_buffer[vehicleID].m_leadingVehicle != 0)
+            if (vehicleID == 0 || CachedVehicleData.m_cachedVehicleData == null ||
+                VehicleManager.instance.m_vehicles.m_buffer[vehicleID].m_leadingVehicle != 0)
             {
-                __state = new State { vehicleID = 0 };  // Mark as trailer with 0
+                __state = new State { vehicleID = 0 };  // Mark as trailer / invalid with 0
                 return true;
             }
 
@@ -61,17 +62,43 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
                 return;
             }
 
+            var vehicleCache = CachedVehicleData.m_cachedVehicleData;
+            var nodeCache = CachedNodeData.m_cachedNodeData;
+            if (vehicleCache == null || __state.vehicleID >= vehicleCache.Length)
+            {
+                return;
+            }
+
             if (VehicleManager.instance.m_vehicles.m_buffer[__state.vehicleID].m_leadingVehicle != 0)
             {
                 return;
             }
 
+            // Empty-before-depot: if this vehicle was waiting to go home, complete it now that unload ran.
+            try
+            {
+                ref var v = ref VehicleManager.instance.m_vehicles.m_buffer[__state.vehicleID];
+                VehicleAIPatches.EmptyBeforeDepotPatch.TryCompletePendingReturn(__state.vehicleID, ref v);
+            }
+            catch
+            {
+                // non-fatal
+            }
+
             var currentPassengers =
                 VehicleUtil.GetTotalPassengerCount(__state.vehicleID, CachedVehicleData.MaxVehicleCount);
             var passengersOut = Mathf.Max(0, __state.currentPassengers - currentPassengers);
-            CachedVehicleData.m_cachedVehicleData[__state.vehicleID]
+            if (passengersOut <= 0)
+            {
+                return;
+            }
+
+            vehicleCache[__state.vehicleID]
                 .DisembarkPassengers(passengersOut, __state.currentStop);
-            CachedNodeData.m_cachedNodeData[__state.currentStop].PassengersOut += passengersOut;
+            if (nodeCache != null && __state.currentStop != 0 && __state.currentStop < nodeCache.Length)
+            {
+                nodeCache[__state.currentStop].PassengersOut += passengersOut;
+            }
         }
 
         public struct State

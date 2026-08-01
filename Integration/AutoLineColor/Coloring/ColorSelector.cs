@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using ImprovedPublicTransport;
+using CSLModsCommon.Extension;
 
 namespace AutoLineColor.Coloring
 {

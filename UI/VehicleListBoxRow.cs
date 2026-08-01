@@ -57,7 +57,8 @@ namespace ImprovedPublicTransport.UI
     protected override void OnMouseEnter(UIMouseEventParameter p)
     {
       StringBuilder stringBuilder = new StringBuilder();
-      stringBuilder.Append(_prefab.GetDescription());
+      if (_prefab != null)
+        stringBuilder.Append(_prefab.GetDescription());
       stringBuilder.AppendLine();
       if ((int) this.VehicleID != 0)
         stringBuilder.AppendLine(Localization.Get("VEHICLE_LIST_BOX_ROW_TOOLTIP1"));
@@ -76,11 +77,18 @@ namespace ImprovedPublicTransport.UI
       base.OnMouseLeave(p);
     }
 
+    private float _nextNameCheck;
+
     public override void Update()
     {
       base.Update();
       if (!this.isVisible || (int) this.VehicleID == 0)
         return;
+      // Many rows visible at once — do not poll vehicle names every frame.
+      float now = Time.unscaledTime;
+      if (now < this._nextNameCheck)
+        return;
+      this._nextNameCheck = now + 0.5f;
       string vehicleName = Singleton<VehicleManager>.instance.GetVehicleName(this.VehicleID);
       if (!(this._cachedName != vehicleName))
         return;
@@ -104,7 +112,8 @@ namespace ImprovedPublicTransport.UI
       this._label.height = this.height;
       this._label.width = this.width - (float) this.autoLayoutPadding.left;
       this._label.verticalAlignment = UIVerticalAlignment.Middle;
-      Utils.Truncate(this._label, this._prefab.DisplayName, "…");
+      var display = this._prefab != null ? this._prefab.DisplayName : ("#" + this.VehicleID);
+      Utils.Truncate(this._label, display, "…");
     }
 
     public override void OnDestroy()

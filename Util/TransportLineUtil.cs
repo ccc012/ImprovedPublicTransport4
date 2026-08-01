@@ -84,18 +84,8 @@ namespace ImprovedPublicTransport.Util
                     {
                         ushort nextLineVehicle = instance3.m_vehicles.m_buffer[(int) num4].m_nextLineVehicle;
                         ++num2;
-                        if ((instance3.m_vehicles.m_buffer[(int) num4].m_flags & Vehicle.Flags.GoingBack) ==
-                            ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned |
-                              Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource |
-                              Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath |
-                              Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving |
-                              Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying |
-                              Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo |
-                              Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing |
-                              Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName |
-                              Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion |
-                              Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition |
-                              Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
+                        // Decompiler soup for "(flags & GoingBack) == 0" — use a real bit test.
+                        if ((instance3.m_vehicles.m_buffer[(int) num4].m_flags & Vehicle.Flags.GoingBack) == 0)
                         {
                             //begin mod(+): callback
                             callback?.Invoke(num4);
@@ -142,28 +132,45 @@ namespace ImprovedPublicTransport.Util
         }
 
         //based off code in TransportLine.SimulationStep
+        /// <summary>
+        /// Detach a vehicle from its line so it returns to the depot/garage (not despawned mid-route).
+        /// </summary>
         public static void RemoveVehicle(ushort lineID, ushort vehicleID, bool descreaseTargetVehicleCount)
         {
             VehicleManager instance = Singleton<VehicleManager>.instance;
-            if ((instance.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.GoingBack) ==
-                ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted |
-                  Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 |
-                  Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving |
-                  Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying |
-                  Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo |
-                  Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing |
-                  Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel |
-                  Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic |
-                  Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding |
-                  Vehicle.Flags.LeftHandDrive))
+            ref var vehicle = ref instance.m_vehicles.m_buffer[(int)vehicleID];
+            if ((vehicle.m_flags & Vehicle.Flags.GoingBack) != 0)
             {
-                if (descreaseTargetVehicleCount)
-                {
-                    CachedTransportLineData.DecreaseTargetVehicleCount(lineID);
-                }
+                return;
+            }
 
-                instance.m_vehicles.m_buffer[(int) vehicleID].Info.m_vehicleAI.SetTransportLine(vehicleID,
-                    ref instance.m_vehicles.m_buffer[(int) vehicleID], (ushort) 0);
+            if (descreaseTargetVehicleCount)
+            {
+                CachedTransportLineData.DecreaseTargetVehicleCount(lineID);
+            }
+
+            var info = vehicle.Info;
+            if (info?.m_vehicleAI == null)
+            {
+                return;
+            }
+
+            // Clear line assignment — vehicle AI then heads home to its depot/garage.
+            info.m_vehicleAI.SetTransportLine(vehicleID, ref vehicle, (ushort)0);
+
+            // If the AI did not set GoingBack (some custom vehicle AIs), force a home return.
+            if ((vehicle.m_flags & Vehicle.Flags.GoingBack) == 0
+                && (vehicle.m_flags & Vehicle.Flags.Deleted) == 0)
+            {
+                vehicle.m_flags |= Vehicle.Flags.GoingBack;
+                try
+                {
+                    info.m_vehicleAI.SetTarget(vehicleID, ref vehicle, vehicle.m_sourceBuilding);
+                }
+                catch
+                {
+                    // Non-fatal: SetTransportLine alone is enough for vanilla public-transport AIs.
+                }
             }
         }
     }

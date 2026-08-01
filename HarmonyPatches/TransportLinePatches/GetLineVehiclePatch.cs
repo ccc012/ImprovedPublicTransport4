@@ -32,9 +32,25 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
                 return true; //if it's not a proper transport line, let's not modify the behavior
             }
 
+            if (!CachedTransportLineData._init)
+            {
+                return true; // fall back to vanilla until line cache is ready
+            }
+
             var dequeuedVehicle = CachedTransportLineData.Dequeue(lineID);
-            var name =  dequeuedVehicle ?? CachedTransportLineData.GetRandomPrefab(lineID);
-            __result = string.IsNullOrEmpty(name) ? null : PrefabCollection<VehicleInfo>.FindLoaded(name);
+            var name = dequeuedVehicle ?? CachedTransportLineData.GetRandomPrefab(lineID);
+            if (string.IsNullOrEmpty(name))
+            {
+                // No prefab filter / empty queue — do not force null (breaks spawn).
+                return true;
+            }
+
+            __result = PrefabCollection<VehicleInfo>.FindLoaded(name);
+            if (__result == null)
+            {
+                return true; // missing asset — vanilla may still pick a default
+            }
+
             return false;
         }
     }

@@ -21,34 +21,21 @@ namespace StopsAndStations
         private const CitizenInstance.Flags InstanceUsingTransport = CitizenInstance.Flags.OnPath | CitizenInstance.Flags.WaitingTransport;
 
         private readonly ushort[] passengerCount = new ushort[NetManager.MAX_NODE_COUNT];
-        private readonly NetSegment[] segments;
-        private readonly CitizenInstance[] instances;
-        private readonly PathUnit[] pathUnits;
-        private readonly NetNode[] nodes;
-        private readonly TransportLine[] transportLines;
+        private NetSegment[] segments;
+        private CitizenInstance[] instances;
+        private PathUnit[] pathUnits;
+        private NetNode[] nodes;
+        private TransportLine[] transportLines;
+        // Counts are rebuilt over 16 frames (same StepMask as the enforce pass) instead of a full
+        // 65k citizen scan every simulation tick — that full scan was a major FPS sink in big cities.
+        private int _countRebuildStep = -1;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PassengerCountLimiter"/> class.
         /// </summary>
         public PassengerCountLimiter()
         {
-            if (NetManager.instance == null || CitizenManager.instance == null || 
-                PathManager.instance == null || TransportManager.instance == null)
-            {
-                Utils.LogError("PassengerCountLimiter: One or more game managers not initialized yet");
-                segments = null;
-                instances = null;
-                pathUnits = null;
-                nodes = null;
-                transportLines = null;
-                return;
-            }
-
-            segments = NetManager.instance.m_segments.m_buffer;
-            instances = CitizenManager.instance.m_instances.m_buffer;
-            pathUnits = PathManager.instance.m_pathUnits.m_buffer;
-            nodes = NetManager.instance.m_nodes.m_buffer;
-            transportLines = TransportManager.instance.m_lines.m_buffer;
+            // Managers may not exist at ThreadingExtension construction — resolve lazily in-game.
         }
 
         /// <summary>
@@ -56,40 +43,57 @@ namespace StopsAndStations
         /// </summary>
         private ModSetting Settings => ModSetting.Instance;
 
+        private bool EnsureBuffers()
+        {
+            if (instances != null && segments != null && pathUnits != null && nodes != null && transportLines != null)
+            {
+                return true;
+            }
+
+            try
+            {
+                if (NetManager.instance == null || CitizenManager.instance == null
+                    || PathManager.instance == null || TransportManager.instance == null)
+                {
+                    return false;
+                }
+
+                segments = NetManager.instance.m_segments.m_buffer;
+                instances = CitizenManager.instance.m_instances.m_buffer;
+                pathUnits = PathManager.instance.m_pathUnits.m_buffer;
+                nodes = NetManager.instance.m_nodes.m_buffer;
+                transportLines = TransportManager.instance.m_lines.m_buffer;
+                return instances != null && segments != null && pathUnits != null;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// A method that is called by the game after this instance is created.
         /// </summary>
         /// <param name="threading">A reference to the game's <see cref="IThreading"/> implementation.</param>
         public override void OnCreated(IThreading threading)
         {
-            // Instance will be populated later by IPT's OnLevelLoaded
+            // Buffers resolved lazily once the level is loaded.
         }
 
         /// <summary>
         /// A method that is called by the game before each simulation tick.
         /// Each tick contains multiple frames.
-        /// Calculates the passenger count for every transport line stop.
+        /// Starts a spread count rebuild (completed across the next 16 frames).
         /// </summary>
         public override void OnBeforeSimulationTick()
         {
-            if (Settings == null || segments == null || instances == null || pathUnits == null)
+            if (!EnsureBuffers() || Settings == null)
             {
                 return;
             }
 
             Array.Clear(passengerCount, 0, passengerCount.Length);
-
-            for (int i = 0; i < instances.Length; ++i)
-            {
-                ref var instance = ref instances[i];
-                uint pathId = instance.m_path;
-                if (pathId != 0 && (instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport)
-                {
-                    var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
-                    ushort nodeId = segments[pathPosition.m_segment].m_startNode;
-                    ++passengerCount[nodeId];
-                }
-            }
+            _countRebuildStep = 0;
         }
 
         /// <summary>
@@ -101,16 +105,43 @@ namespace StopsAndStations
             // dictionaries (manager lookup + setting lookup) on every access, and this loop runs
             // thousands of iterations per frame.
             var settings = Settings;
-            if (settings == null || segments == null || instances == null || pathUnits == null || nodes == null || transportLines == null)
+            if (settings == null || !EnsureBuffers())
             {
                 return;
             }
 
-            uint step = SimulationManager.instance.m_currentFrameIndex & StepMask;
-            uint startIndex = step * StepSize;
-            uint endIndex = (step + 1) * StepSize;
+            // Spread the count rebuild across the same 16 frame buckets as enforcement.
+            if (_countRebuildStep >= 0 && _countRebuildStep <= StepMask)
+            {
+                uint startIndex = (uint)_countRebuildStep * StepSize;
+                uint endIndex = (uint)(_countRebuildStep + 1) * StepSize;
+                for (uint i = startIndex; i < endIndex; ++i)
+                {
+                    ref var instance = ref instances[i];
+                    uint pathId = instance.m_path;
+                    if (pathId != 0 && (instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport)
+                    {
+                        var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
+                        ushort nodeId = segments[pathPosition.m_segment].m_startNode;
+                        if (nodeId < passengerCount.Length)
+                        {
+                            ++passengerCount[nodeId];
+                        }
+                    }
+                }
 
-            for (uint i = startIndex; i < endIndex; ++i)
+                _countRebuildStep++;
+                if (_countRebuildStep > StepMask)
+                {
+                    _countRebuildStep = -1;
+                }
+            }
+
+            uint step = SimulationManager.instance.m_currentFrameIndex & StepMask;
+            uint enforceStart = step * StepSize;
+            uint enforceEnd = (step + 1) * StepSize;
+
+            for (uint i = enforceStart; i < enforceEnd; ++i)
             {
                 ref var instance = ref instances[i];
                 uint pathId = instance.m_path;
@@ -120,7 +151,8 @@ namespace StopsAndStations
                 {
                     var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
                     ushort nodeId = segments[pathPosition.m_segment].m_startNode;
-                    if (passengerCount[nodeId] > GetMaximumAllowedPassengers(nodeId, settings))
+                    if (nodeId < passengerCount.Length
+                        && passengerCount[nodeId] > GetMaximumAllowedPassengers(nodeId, settings))
                     {
                         --passengerCount[nodeId];
                         instance.m_flags |= CitizenInstance.Flags.BoredOfWaiting;

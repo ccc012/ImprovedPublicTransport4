@@ -10,6 +10,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
         public const byte BoardingTime = 12; //from the original TransportLine time
         public const byte AirplaneBoardingTime = 200;
         public const byte MaxUnbunchingTime = byte.MaxValue - BoardingTime;
+
+        // Verbose logs used to fire every CanLeaveStop call (many times per vehicle per second)
+        // and flooded output_log when Log Level = Verbose. Sample at most once every 64 sim frames.
+        private const uint VerboseLogFrameMask = 63u;
         
         public static void Apply()
         {
@@ -36,11 +40,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             if (nextStop == 0)
             {
                 __result = true;
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    var lineName = TransportManager.instance.GetLineName(lineId);
-                    ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop=0 => allow leave");
-                }
+                LogVerbose(lineId, $"nextStop=0 => allow leave");
                 return false;
             }
 
@@ -50,24 +50,32 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             if (lowTrafficState)
             {
                 __result = true;
-                if (Diagnostics.VerboseRuntimeLogs)
-                {
-                    var lineName = TransportManager.instance.GetLineName(lineId);
-                    ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) prevSegment={prevSegment} lowTrafficState={lowTrafficState} => allow leave");
-                }
+                LogVerbose(lineId, $"prevSegment={prevSegment} lowTrafficState=true => allow leave");
                 return false;
             }
 
             //begin mod(*): compare with interval aggression setup instead of default 64
             var targetWaitTime = BoardingTime + Mathf.Min(ModSetting.Instance.IntervalAggressionFactor, MaxUnbunchingTime);
             __result = waitTime >= targetWaitTime; //4 * 16 = 64 is max waiting time in vanilla, 12 is min waiting time
-            if (Diagnostics.VerboseRuntimeLogs)
-            {
-                var lineName = TransportManager.instance.GetLineName(lineId);
-                ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) nextStop={nextStop} waitTime={waitTime} avgInterval={__instance.m_averageInterval} targetWaitTime={targetWaitTime} result={__result}");
-            }
+            LogVerbose(lineId, $"nextStop={nextStop} waitTime={waitTime} avgInterval={__instance.m_averageInterval} targetWaitTime={targetWaitTime} result={__result}");
             //end mod
             return false;
+        }
+
+        private static void LogVerbose(ushort lineId, string detail)
+        {
+            if (!Diagnostics.VerboseRuntimeLogs)
+            {
+                return;
+            }
+
+            if ((Singleton<SimulationManager>.instance.m_currentFrameIndex & VerboseLogFrameMask) != 0)
+            {
+                return;
+            }
+
+            var lineName = TransportManager.instance.GetLineName(lineId);
+            ImprovedPublicTransport.Util.Utils.Log($"CanLeaveStopPatch: line {lineId} ({lineName}) {detail}");
         }
     }
 }

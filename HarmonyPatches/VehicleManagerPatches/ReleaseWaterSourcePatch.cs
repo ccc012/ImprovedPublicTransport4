@@ -1,4 +1,5 @@
 using ImprovedPublicTransport.Data;
+using ImprovedPublicTransport.HarmonyPatches.VehicleAIPatches;
 using ImprovedPublicTransport.Util;
 
 namespace ImprovedPublicTransport.HarmonyPatches.VehicleManagerPatches
@@ -25,10 +26,18 @@ namespace ImprovedPublicTransport.HarmonyPatches.VehicleManagerPatches
         //the method is called from within ReleaseVehicle method. Patching it leads to the least chance of conflict
         public static void ReleaseWaterSourcePost(ushort vehicle, ref Vehicle data)
         {
-            if (!CachedVehicleData.m_cachedVehicleData[vehicle].IsEmpty)
+            // Always drop empty-before-depot pending state — previously only Express Bus unspawn
+            // forgot IDs, so recycled vehicle slots could inherit "return when empty".
+            EmptyBeforeDepotPatch.ForgetVehicle(vehicle);
+
+            var cache = CachedVehicleData.m_cachedVehicleData;
+            if (cache == null || vehicle == 0 || vehicle >= cache.Length)
             {
-                CachedVehicleData.m_cachedVehicleData[vehicle] = new VehicleData();
+                return;
             }
+
+            // Always clear IPT vehicle cache on release (flags-only slots used to keep CurrentStop).
+            cache[vehicle] = new VehicleData();
         }
     }
 }

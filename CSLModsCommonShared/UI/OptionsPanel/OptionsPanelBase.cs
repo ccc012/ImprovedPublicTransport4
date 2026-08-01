@@ -214,6 +214,9 @@ public abstract partial class OptionsPanelBase : LiteContainer {
 
         modInfoSection.AddLabel($"{SharedTranslations.ModReleaseDate}", isDebugBuild ? debugBuildDate : $"{_modManagerBase.VersionDate:yyyy-MM-dd}");
 
+        // Ensure framework locales are loaded before painting labels (avoids raw keys Version/ModInfo).
+        try { _localizationManager.EnsureSourcesLoaded(); } catch { /* best-effort */ }
+
         modInfoSection.AddDropDown(SharedTranslations.Language, $"{SharedTranslations.TranslationProgress}: {_localizationManager.GetTranslationProgress()}", _localizationManager.LanguageOptions, i => ModSettingBase.LocaleId == LocalizationManager.UseGameLanguage ? i.Value == LocalizationManager.UseGameLanguage : i.Value == ModSettingBase.LocaleId, OnLanguageSelectedChanged, 310);
 
         FillGeneralPage(_generalPage);

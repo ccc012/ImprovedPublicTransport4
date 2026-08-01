@@ -59,9 +59,31 @@ namespace ImprovedPublicTransport.Data
           return false;
         }
         Utils.Log((object) ("Found vehicle data version: " + str));
-        while (index1 < Math.Min(data1.Length, CachedVehicleData.MaxVehicleCount))
+        // index1 is a *byte* offset into the blob, not a vehicle count. Comparing it to
+        // MaxVehicleCount truncated the save after ~16KB of data and silently dropped the rest.
+        while (index1 < data1.Length)
         {
           int index2 = SerializableDataExtension.ReadInt32(data1, ref index1);
+          if (index2 < 0 || index2 >= CachedVehicleData.MaxVehicleCount)
+          {
+            // Stale index from a save made with a higher vehicle cap (or corrupt data) —
+            // skip the record payload so one bad entry does not abort the whole load.
+            if (str == "v001")
+            {
+              SerializableDataExtension.ReadByte(data1, ref index1);
+            }
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadInt32(data1, ref index1);
+            SerializableDataExtension.ReadFloatArray(data1, ref index1);
+            SerializableDataExtension.ReadFloatArray(data1, ref index1);
+            if (str != "v001" && str != "v002")
+              SerializableDataExtension.ReadUInt16(data1, ref index1);
+            continue;
+          }
           if (str == "v001")
           {
             int num = (int) SerializableDataExtension.ReadByte(data1, ref index1);

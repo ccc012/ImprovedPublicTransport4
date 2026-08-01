@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ColossalFramework;
 using ImprovedPublicTransport.Data;
 using ImprovedPublicTransport.UI.AlgernonCommons;
+using ImprovedPublicTransport.Util;
 using UnityEngine;
 
 namespace ImprovedPublicTransport.UI
@@ -330,18 +331,16 @@ namespace ImprovedPublicTransport.UI
 
         private static void AddNearbyBuildings(Vector3 position, HashSet<ushort> result)
         {
-            BuildingManager manager = Singleton<BuildingManager>.instance;
-            foreach (ItemClass.Service service in System.Enum.GetValues(typeof(ItemClass.Service)))
+            // Shared fast path with StopAutoNamer (priority services only — not Service×SubService).
+            var nearby = StopAutoNamer.FindNearbyNamedBuildings(position, NearbyBuildingSearchRadius);
+            if (nearby == null)
             {
-                foreach (ItemClass.SubService subService in System.Enum.GetValues(typeof(ItemClass.SubService)))
-                {
-                    ushort building = manager.FindBuilding(position, NearbyBuildingSearchRadius, service, subService,
-                        Building.Flags.Active, Building.Flags.Untouchable);
-                    if (building != 0)
-                    {
-                        result.Add(building);
-                    }
-                }
+                return;
+            }
+
+            for (var i = 0; i < nearby.Length; i++)
+            {
+                result.Add(nearby[i]);
             }
         }
     }

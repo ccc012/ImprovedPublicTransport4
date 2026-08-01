@@ -66,6 +66,11 @@ namespace MileageTaxiServices
                 return;
             }
 
+            if (__instance.m_transportInfo == null || __instance.m_info?.m_class == null)
+            {
+                return;
+            }
+
             var standardInstantFare = __instance.m_transportInfo.m_ticketPrice * distance * TaxiMileageFareRate;
             var instantFare = (int)standardInstantFare + 1;
             Singleton<EconomyManager>.instance.AddResource(EconomyManager.Resource.PublicIncome, instantFare, __instance.m_info.m_class);

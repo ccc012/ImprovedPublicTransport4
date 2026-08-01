@@ -133,6 +133,11 @@ public class LocaleEntry : CSLModsCommon.Collections.IReadOnlyDictionary<string,
             total += CommonTranslationStatus.TotalStrings;
         }
 
-        TranslationPercent = total == 0 ? 0 : (int)((decimal)translated / total * 100);
+        // No TranslationStatus.json → if this locale has strings loaded, show 100 rather than a
+        // confusing "0%" (the Options header used to always show TranslationProgress: 0%).
+        if (total == 0)
+            TranslationPercent = _source != null && _source.Count > 0 ? 100 : 0;
+        else
+            TranslationPercent = (int)((decimal)translated / total * 100);
     }
 }

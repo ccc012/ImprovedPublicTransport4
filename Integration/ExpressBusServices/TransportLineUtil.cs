@@ -36,7 +36,9 @@ namespace ExpressBusServices
             NetManager nm = Singleton<NetManager>.instance;
             Vector3 position = nm.m_nodes.m_buffer[currentStop].m_position;
             Vector3 position2 = nm.m_nodes.m_buffer[nextStop].m_position;
-            nm.m_nodes.m_buffer[currentStop].m_maxWaitTime = 0;
+            // Do NOT zero m_maxWaitTime here — this path is also used as a dry-run counter
+            // (EBS popularity analysis). Clearing wait timers city-wide made passengers at
+            // every analysed stop lose boredom progress and look like a random unstuck bug.
             int minX = Mathf.Max((int)((position.x - 72) / 8f + 1080f), 0);
             int minZ = Mathf.Max((int)((position.z - 72) / 8f + 1080f), 0);
             int maxX = Mathf.Min((int)((position.x + 72) / 8f + 1080f), 2159);

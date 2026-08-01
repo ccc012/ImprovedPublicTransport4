@@ -1,5 +1,5 @@
-using System.Reflection;
 using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace TaxiStandFix
 {
@@ -13,7 +13,7 @@ namespace TaxiStandFix
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "TaxiStandFix");
         }
 
         public static void Deactivate()

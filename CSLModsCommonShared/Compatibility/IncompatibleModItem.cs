@@ -11,6 +11,10 @@ public class IncompatibleModItem {
     private readonly ILog _logger = LogManager.GetLogger();
 
     public string AssemblyName { get; set; }
+    /// <summary>Optional alternate assembly names (forks/renames of the same mod).</summary>
+    public string[] AlternateAssemblyNames { get; set; }
+    /// <summary>Steam Workshop file IDs used as a fallback when the DLL name differs.</summary>
+    public ulong[] WorkshopIds { get; set; }
     public IncompatibilityModLevel IncompatibilityLevel { get; set; }
     public PluginManager.PluginInfo Plugin { get; private set; }
     public PublishedFileId PublishedId => Plugin?.publishedFileID ?? PublishedFileId.invalid;
@@ -37,6 +41,34 @@ public class IncompatibleModItem {
         IsDuplicateFunctionality = isDuplicateFunctionality;
         AlternativeModName = alternativeModName;
         CustomWarningMessage = customWarningMessage;
+    }
+
+    public IncompatibleModItem WithWorkshopIds(params ulong[] workshopIds) {
+        WorkshopIds = workshopIds;
+        return this;
+    }
+
+    public IncompatibleModItem WithAlternateAssemblies(params string[] alternateNames) {
+        AlternateAssemblyNames = alternateNames;
+        return this;
+    }
+
+    public bool MatchesAssemblyName(string assemblyName) {
+        if (string.IsNullOrEmpty(assemblyName)) return false;
+        if (string.Equals(AssemblyName, assemblyName, StringComparison.OrdinalIgnoreCase)) return true;
+        if (AlternateAssemblyNames == null) return false;
+        foreach (var alt in AlternateAssemblyNames) {
+            if (string.Equals(alt, assemblyName, StringComparison.OrdinalIgnoreCase)) return true;
+        }
+        return false;
+    }
+
+    public bool MatchesWorkshopId(ulong workshopId) {
+        if (workshopId == 0 || WorkshopIds == null) return false;
+        foreach (var id in WorkshopIds) {
+            if (id == workshopId) return true;
+        }
+        return false;
     }
 
     public override string ToString() => $"{nameof(IncompatibleModItem)}: Assembly name: '{AssemblyName}', path: '{ModPath}', isEnabled: '{IsEnabled}', incompatibility level: '{IncompatibilityLevel}', isBuiltin: '{IsBuiltin}', isPublished: '{IsPublished}', PublishedId: '{PublishedId}'";

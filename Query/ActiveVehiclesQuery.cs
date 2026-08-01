@@ -12,10 +12,29 @@ namespace ImprovedPublicTransport.Query
         public static List<VehicleQueryResult> Query(ushort lineID, ItemClassTriplet classTriplet)
         {
             var results = new List<VehicleQueryResult>();
+            if (lineID == 0 || VehiclePrefabs.instance == null)
+            {
+                return results;
+            }
+
             var transportLine = Singleton<TransportManager>.instance.m_lines.m_buffer[lineID];
             var activeVehicleCount = TransportLineUtil.CountLineActiveVehicles(lineID, out _);
             var prefabs =
                 VehiclePrefabs.instance.GetPrefabs(classTriplet.Service, classTriplet.SubService, classTriplet.Level);
+            if (prefabs == null || prefabs.Length == 0)
+            {
+                return results;
+            }
+
+            // O(1) name lookup instead of nested linear scan over prefabs per vehicle.
+            var prefabByName = new Dictionary<string, PrefabData>(prefabs.Length);
+            foreach (var data in prefabs)
+            {
+                if (data?.Name != null)
+                {
+                    prefabByName[data.Name] = data;
+                }
+            }
 
             for (var index1 = 0; index1 < activeVehicleCount; ++index1)
             {
@@ -24,33 +43,16 @@ namespace ImprovedPublicTransport.Query
                 {
                     continue;
                 }
-                //based on beginning of TransportLine.SimulationStep
-                if ((VehicleManager.instance.m_vehicles.m_buffer[vehicle].m_flags & Vehicle.Flags.GoingBack) !=
-                    ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned |
-                      Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource |
-                      Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath |
-                      Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving |
-                      Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying |
-                      Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo |
-                      Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing |
-                      Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName |
-                      Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion |
-                      Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition |
-                      Vehicle.Flags.InsideBuilding |
-                      Vehicle.Flags.LeftHandDrive))
+                // Skip vehicles that are heading back to depot (vanilla SimulationStep filter).
+                if ((VehicleManager.instance.m_vehicles.m_buffer[vehicle].m_flags & Vehicle.Flags.GoingBack) != 0)
                 {
                     continue;
                 }
                 var info = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[vehicle].Info;
-                if (info == null) continue;
-                foreach (var data in prefabs)
+                if (info?.name == null) continue;
+                if (prefabByName.TryGetValue(info.name, out var matched))
                 {
-                    if (info.name != data.Name)
-                    {
-                        continue;
-                    }
-                    results.Add(new VehicleQueryResult {PrefabData = data, VehicleID = vehicle});
-                    break;
+                    results.Add(new VehicleQueryResult { PrefabData = matched, VehicleID = vehicle });
                 }
             }
 

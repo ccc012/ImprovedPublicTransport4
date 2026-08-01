@@ -1,5 +1,6 @@
 using HarmonyLib;
 using ImprovedPublicTransport.Util;
+using UnityEngine;
 
 namespace IntercityBusControl.HarmonyPatches.TransportStationAIPatches
 {
@@ -26,6 +27,11 @@ namespace IntercityBusControl.HarmonyPatches.TransportStationAIPatches
     [HarmonyPatch(typeof(TransportStationAI), "CreateIncomingVehicle")]
     internal static class Patch_CreateIncomingVehicle
     {
+        // Rate-limit: Debug.Log is expensive. Old logic logged every different building every
+        // tick → multi-station cities spammed Unity log and dropped FPS 40→20.
+        private static float _lastLogRealtime;
+        private const float LogIntervalSeconds = 30f;
+
         [HarmonyPrefix]
         public static bool Prefix(ushort buildingID, ref bool __result)
         {
@@ -34,13 +40,28 @@ namespace IntercityBusControl.HarmonyPatches.TransportStationAIPatches
                 return true;
             }
 
-            if (Diagnostics.VerboseRuntimeLogs)
-            {
-                Utils.Log($"IntercityBusControl: blocked vehicle spawn for disabled building {buildingID}.");
-            }
-
+            LogBlockedOnce(buildingID, "incoming");
             __result = false;
             return false;
+        }
+
+        internal static void LogBlockedOnce(ushort buildingID, string direction)
+        {
+            if (!Diagnostics.VerboseRuntimeLogs)
+            {
+                return;
+            }
+
+            var now = Time.realtimeSinceStartup;
+            // Global throttle — at most one line every 30s across all buildings/directions.
+            if (now - _lastLogRealtime < LogIntervalSeconds)
+            {
+                return;
+            }
+
+            _lastLogRealtime = now;
+            Utils.Log(
+                $"IntercityBusControl: blocked {direction} vehicle spawn for disabled building {buildingID}.");
         }
     }
 
@@ -55,11 +76,7 @@ namespace IntercityBusControl.HarmonyPatches.TransportStationAIPatches
                 return true;
             }
 
-            if (Diagnostics.VerboseRuntimeLogs)
-            {
-                Utils.Log($"IntercityBusControl: blocked vehicle spawn for disabled building {buildingID}.");
-            }
-
+            Patch_CreateIncomingVehicle.LogBlockedOnce(buildingID, "outgoing");
             __result = false;
             return false;
         }

@@ -26,13 +26,18 @@ public abstract partial class OptionsPanelBase {
             _direction = FlexDirection.Column;
             _textElementGap = _rowGap = 4;
             _itemCards = ReusableList<ISettingsCard>.Rent();
+            // Paint the rounded card on the whole section so header + description sit inside the
+            // same background as the item rows (previously only Control had a fill, so section
+            // descriptions floated on transparent space and looked "broken").
+            BgAtlas = Atlases.Shared;
+            BgSprites.SetValues(SharedAtlasKeys.RoundRect12);
+            BgColors.SetValues(UIColors.GroupBg1);
             Control = AddUIComponent<LiteContainer>();
             Control.width = width;
             Control.AutoLayout = true;
             Control.AutoFitChildrenVertically = true;
-            Control.BgAtlas = Atlases.Shared;
-            Control.BgSprites.SetValues(SharedAtlasKeys.RoundRect12);
-            Control.BgColors.SetValues(UIColors.GroupBg1);
+            // Inner host is layout-only — outer section already provides the group background.
+            Control.BgAtlas = null;
         }
 
         public override void OnDestroy() {

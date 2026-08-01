@@ -24,7 +24,8 @@ namespace ExpressBusServices
             {
                 return;
             }
-            if (TeleportRedeployInstructions.TransportLineReadFutureDeployment(transportLineID, out ushort targetStopID))
+            if (TeleportRedeployInstructions.TransportLineReadFutureDeployment(transportLineID, out ushort targetStopID)
+                && TransportStopSafety.IsLiveStopNode(targetStopID))
             {
                 data.m_targetBuilding = targetStopID;
                 // Utils.Log($"New vehicle of transport line ${transportLineID} now redeploying to stop {targetStopID} as per future instructions.");

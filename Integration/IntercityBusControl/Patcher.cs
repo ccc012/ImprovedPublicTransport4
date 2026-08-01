@@ -1,5 +1,6 @@
 using CitiesHarmony.API;
 using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace IntercityBusControl
 {
@@ -27,9 +28,36 @@ namespace IntercityBusControl
                 // Ensure Harmony is ready before patching.
                 if (HarmonyHelper.IsHarmonyInstalled)
                 {
-                    // Apply all annotated patches and update flag.
+                    // Only IntercityBusControl.* types - full-assembly PatchAll would register
+                    // every other Integration/* [HarmonyPatch] under this Harmony ID.
                     Harmony harmonyInstance = new Harmony(HarmonyId);
-                    harmonyInstance.PatchAll();
+                    HarmonyScope.PatchNamespace(harmonyInstance, "IntercityBusControl");
+
+                    // Belt-and-suspenders: attribute Prefix on UpdateBindings was not reliably
+                    // blocking OnAccepts echos in playtest (both False and True logged as player
+                    // click). Re-assert Prefix/Finalizer via explicit Method patch.
+                    var updateBindings = AccessTools.Method(typeof(CityServiceWorldInfoPanel), "UpdateBindings");
+                    if (updateBindings != null)
+                    {
+                        var prefix = AccessTools.Method(
+                            typeof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch),
+                            nameof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch.Prefix));
+                        var finalizer = AccessTools.Method(
+                            typeof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch),
+                            nameof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch.Finalizer));
+                        if (prefix != null)
+                        {
+                            harmonyInstance.Patch(updateBindings, prefix: new HarmonyMethod(prefix));
+                        }
+
+                        if (finalizer != null)
+                        {
+                            harmonyInstance.Patch(updateBindings, finalizer: new HarmonyMethod(finalizer));
+                        }
+
+                        Utils.Log("IntercityBusControl: UpdateBindings Prefix/Finalizer explicitly patched for checkbox lock.");
+                    }
+
                     _patched = true;
                 }
             }

@@ -39,7 +39,11 @@ namespace ImprovedPublicTransport.UI
     private UIPanel _containerPanel;
     private UIPanel _rightSidePanel;
     private UISprite _vehicleSprite;
-    
+    private UILabel _maintenanceCostLabel;
+    private UILabel _maxSpeedLabel;
+    private UITextField _maintenanceCostField;
+    private UITextField _maxSpeedField;
+    private float _nextEditorLabelRefresh;
 
     public override void Update()
     {
@@ -74,8 +78,22 @@ namespace ImprovedPublicTransport.UI
       {
         if (!this._initialized || !this.isVisible)
           return;
-        this._rightSidePanel.Find<UILabel>("MaintenanceCostLabel").text = (Utils.ToSingle(this._rightSidePanel.Find<UITextField>("MaintenanceCost").text) * 0.01f).ToString(ColossalFramework.Globalization.Locale.Get("MONEY_FORMAT"), (IFormatProvider) LocaleManager.cultureInfo);
-        this._rightSidePanel.Find<UILabel>("MaxSpeedLabel").text = (Utils.ToInt32(this._rightSidePanel.Find<UITextField>("MaxSpeed").text) * 5).ToString() + " " + ModSetting.Instance.SpeedString;
+        // Find<> every frame was wasteful; cache + 5 Hz label refresh.
+        float now = Time.unscaledTime;
+        if (now < this._nextEditorLabelRefresh)
+          return;
+        this._nextEditorLabelRefresh = now + 0.2f;
+        if (this._maintenanceCostLabel == null && this._rightSidePanel != null)
+        {
+          this._maintenanceCostLabel = this._rightSidePanel.Find<UILabel>("MaintenanceCostLabel");
+          this._maxSpeedLabel = this._rightSidePanel.Find<UILabel>("MaxSpeedLabel");
+          this._maintenanceCostField = this._rightSidePanel.Find<UITextField>("MaintenanceCost");
+          this._maxSpeedField = this._rightSidePanel.Find<UITextField>("MaxSpeed");
+        }
+        if (this._maintenanceCostLabel != null && this._maintenanceCostField != null)
+          this._maintenanceCostLabel.text = (Utils.ToSingle(this._maintenanceCostField.text) * 0.01f).ToString(ColossalFramework.Globalization.Locale.Get("MONEY_FORMAT"), (IFormatProvider) LocaleManager.cultureInfo);
+        if (this._maxSpeedLabel != null && this._maxSpeedField != null)
+          this._maxSpeedLabel.text = (Utils.ToInt32(this._maxSpeedField.text) * 5).ToString() + " " + ModSetting.Instance.SpeedString;
       }
     }
 
@@ -702,7 +720,10 @@ namespace ImprovedPublicTransport.UI
       FieldInfo field = ai.GetType().GetField("m_transportInfo");
       if (field == null)
         return;
-      TransportInfo.TransportType transportType = (field.GetValue((object) ai) as TransportInfo).m_transportType;
+      var transportInfo = field.GetValue((object) ai) as TransportInfo;
+      if (transportInfo == null)
+        return;
+      TransportInfo.TransportType transportType = transportInfo.m_transportType;
       var finalTransportType = transportType == TransportInfo.TransportType.TouristBus
         ? TransportInfo.TransportType.Bus
         : transportType; //that's because tourist buses are displayed alongside regular buses

@@ -41,6 +41,9 @@ public class CompatibilityManager : ManagerBase {
         ShowCompatibilityDialog();
     }
 
+    /// <summary>Re-scan plugins without showing a dialog (for Options status panels).</summary>
+    public void RefreshQuiet() => CheckCompatibility();
+
     internal void CheckAndShowDialogIfNeeded() {
         CheckCompatibility();
         if (_currentStatus.HasStatus(CompatibilityStatus.IncompatibleMods))

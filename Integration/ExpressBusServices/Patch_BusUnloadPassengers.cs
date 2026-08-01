@@ -44,12 +44,23 @@ namespace ExpressBusServices
             // not yet target the next stop
             ushort currentTerminusStopId = data.m_targetBuilding;
             ServiceBalancerUtil.MarkVehicleIsAtStopId(vehicleID, currentTerminusStopId);
+
+            // Completed a prior redeploy leg — drop sticky instruction so the next leave
+            // pathfinds to the normal next stop (otherwise U-turn thrash mid-street).
+            if (ServiceBalancerUtil.ReadRedeploymentInstructions(vehicleID, out ushort priorRedeploy)
+                && priorRedeploy != 0
+                && priorRedeploy == currentTerminusStopId)
+            {
+                ServiceBalancerUtil.ReadRedeploymentInstructions(vehicleID, out _, removeEntry: true);
+            }
+
             if (ServiceBalancerUtil.FindRedeployToTerminus(vehicleID, transportLineId, currentTerminusStopId, out redeploymentTarget))
             {
                 // set destination to somewhere else
                 // it is basically a "super skip"
                 ServiceBalancerUtil.MarkRedeployToNewTerminus(vehicleID, redeploymentTarget);
-                // data.m_targetBuilding = redeploymentTarget;
+                // Pin target now so CanLeave cleanup cannot race ahead of StartPathFind.
+                data.m_targetBuilding = redeploymentTarget;
                 BusStopSkippingLookupTable.Notify_BusShouldSkipLoading(vehicleID);
                 // force everyone to get dropped off for redeployment; they aren't supposed to travel around the bus line through termini anyways
                 forceUnload = true;

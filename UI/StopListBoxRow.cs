@@ -16,6 +16,7 @@ namespace ImprovedPublicTransport.UI
   public class StopListBoxRow : UIPanel
   {
     private float _delta = 1f;
+    private int _passengerTick;
     private string _cachedName = "";
     private UILabel _stopName;
     private UILabel _stopCount;
@@ -102,18 +103,24 @@ namespace ImprovedPublicTransport.UI
       base.Update();
       if (!this.isVisible || (int) this.StopID == 0)
         return;
+      // Throttle name + passenger queries — many rows visible at once on long lines.
+      this._delta = this._delta + Time.unscaledDeltaTime;
+      if ((double) this._delta < 0.5)
+        return;
+      this._delta = 0.0f;
+
       string name = Singleton<InstanceManager>.instance.GetName(this._instanceID);
       if (this._cachedName != name)
       {
         this._cachedName = name;
-        Utils.Truncate(this._stopName, GenerateStopName(name, this._instanceID.NetNode, this.StopIndex));
+        Utils.Truncate(this._stopName, GenerateStopName(name, this._instanceID.NetNode, this.StopIndex), "…");
       }
-      if ((double) this._delta >= 1.0)
+      // Passenger grid scan every 1.5s effective (3 name ticks).
+      if (++this._passengerTick >= 3)
       {
-        this._delta = 0.0f;
+        this._passengerTick = 0;
         this._stopCount.text = WaitingPassengerCountQuery.Query(this.StopID, out _, out _).ToString();
       }
-      this._delta = this._delta + Singleton<SimulationManager>.instance.m_simulationTimeDelta;
     }
 
     public override void Start()

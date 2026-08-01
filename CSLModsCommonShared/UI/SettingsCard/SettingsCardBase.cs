@@ -289,20 +289,24 @@ public abstract class SettingsCardBase<TControl> : UIStateElement, ISettingsCard
     private void ArrangeColumn() {
         float currentY = LayoutPadding.Top;
 
+        // Header and description are independent (same rule as ArrangeRow): a description-only
+        // section must still layout and size its text block.
         if (HeaderElement is not null) {
             HeaderElement.width = width - LayoutPadding.Horizontal;
             HeaderElement.relativePosition = new Vector3(LayoutPadding.Left, currentY);
             currentY += HeaderElement.height;
-
-            if (DescriptionElement is not null) {
-                currentY += _textElementGap;
-                DescriptionElement.width = width - LayoutPadding.Horizontal;
-                DescriptionElement.relativePosition = new Vector3(LayoutPadding.Left, currentY);
-                currentY += DescriptionElement.height;
-            }
-
-            currentY += _rowGap;
         }
+
+        if (DescriptionElement is not null) {
+            if (HeaderElement is not null)
+                currentY += _textElementGap;
+            DescriptionElement.width = width - LayoutPadding.Horizontal;
+            DescriptionElement.relativePosition = new Vector3(LayoutPadding.Left, currentY);
+            currentY += DescriptionElement.height;
+        }
+
+        if (HeaderElement is not null || DescriptionElement is not null)
+            currentY += _rowGap;
 
         if (Control is not null) {
             Control.relativePosition = new Vector3(LayoutPadding.Left, currentY);

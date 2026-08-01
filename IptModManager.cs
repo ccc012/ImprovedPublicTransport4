@@ -20,7 +20,7 @@ namespace ImprovedPublicTransport
 
         public override string ModName => "Improved Public Transport 4 (local fork)";
         public override string RowDescription => "Unified public transport management: fleet sizing, budgets, ticket prices, stops, unbunching and more.";
-        public override DateTime VersionDate { get; } = new(2026, 7, 31);
+        public override DateTime VersionDate { get; } = new(2026, 8, 1);
 
         // Declared here rather than via a compile constant so the channel is explicit in code and
         // does not depend on how the project happens to be built. The framework's default is Alpha,
@@ -52,106 +52,159 @@ namespace ImprovedPublicTransport
             rule.Set(new GameVersionCompatibility(new GameVersion(1, 21, 1, 9), new GameVersion(1, 99, 9, 99)));
         }
 
+        /// <summary>CitiesHarmony is required for every Harmony patch in IPT4.</summary>
+        protected override void AddDependencyModRule(IDependencyModRule rule)
+        {
+            base.AddDependencyModRule(rule);
+            rule.Add("CitiesHarmony.Harmony", "Harmony (CitiesHarmony) — Workshop 2040656402");
+        }
+
         protected override void AddIncompatibleModRule(IIncompatibleModRule rule)
         {
             base.AddIncompatibleModRule(rule);
-            rule.Add("ImprovedPublicTransport3", IncompatibilityModLevel.EnableNotAllowed, "Improved Public Transport 3",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "IPT4 is a local fork of IPT3 that replaces it entirely - running both patches the same game systems twice.")
-                .Add("TransportLinesManager", IncompatibilityModLevel.EnableNotAllowed, "Transport Lines Manager",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "TLM and IPT manage the same per-line vehicle count/budget state - running both caused the original budget glitch this project set out to fix.")
-                .Add("AutoLineBudget", IncompatibilityModLevel.EnableNotAllowed, "Auto Line Budget 21",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "AutoLineBudget's fleet-sizing logic is now built into IPT4 (Options > Auto Line > Automatic Fleet Sizing) - running the standalone mod alongside it caused runaway maintenance costs by both writing the line budget at once.")
 
-                // --- Critical incompatibilities: other IPT-family / line-management mods ---
-                .Add("ImprovedPublicTransport2", IncompatibilityModLevel.EnableNotAllowed, "Improved Public Transport 2 (IPT2)",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "IPT2 is an earlier generation of the same mod family that IPT4 replaces - running both patches the same public transport systems twice.")
-                .Add("ImprovedTransportManager", IncompatibilityModLevel.EnableNotAllowed, "Improved Transport Manager",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Improved Transport Manager is klyte45's successor to Transport Lines Manager and manages the same per-line vehicle count/budget state as IPT4.")
-                .Add("TransportLineColorMod", IncompatibilityModLevel.EnableNotAllowed, "TransportLineColorMod",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "TransportLineColorMod's line-coloring functionality overlaps with IPT4's own line color tools and can fight over the same line data.")
-                .Add("VehicleUnbuncher", IncompatibilityModLevel.EnableNotAllowed, "Vehicle Unbuncher",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Vehicle Unbuncher's vehicle-spacing logic overlaps with IPT4's own unbunching/spawn-delay features and can fight over the same vehicles.")
+            const string Alt = "Improved Public Transport 4";
+            const IncompatibilityModLevel Ban = IncompatibilityModLevel.EnableNotAllowed;
 
-                // --- Absorbed standalone mods (functionality already built into IPT4) ---
-                .Add("AdvancedStopSelection", IncompatibilityModLevel.EnableNotAllowed, "Advanced Stop Selection Revisited",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Advanced Stop Selection's stop-selection logic is now built into IPT4 - running both patches the same stop-assignment behaviour twice.")
-                .Add("AutoLineColor", IncompatibilityModLevel.EnableNotAllowed, "AutoLineColor / AutoLineColor Redux",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "AutoLineColor's automatic line-coloring is now built into IPT4 - running the standalone mod alongside it causes both to write line colors at once.")
-                .Add("BetterTrainBoarding", IncompatibilityModLevel.EnableNotAllowed, "Better Train Boarding",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Better Train Boarding's passenger-loading logic is now built into IPT4 - running both patches the same boarding behaviour twice.")
-                .Add("BetterBusStopPosition", IncompatibilityModLevel.EnableNotAllowed, "Better Bus Stop Position",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Better Bus Stop Position's stop-placement adjustments are now built into IPT4 - running both patches the same stop geometry twice.")
-                .Add("CommuterDestination.CS1", IncompatibilityModLevel.EnableNotAllowed, "Commuter Destination",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Commuter Destination's citizen-destination display is now built into IPT4 - running both reads/patches the same panel twice.")
-                .Add("ElevatedStopsEnabler", IncompatibilityModLevel.EnableNotAllowed, "Elevated Stops Enabler (Original & Revisited)",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Elevated Stops Enabler's elevated-stop support is now built into IPT4 - running both patches the same road/bridge stop logic twice.")
-                .Add("ExpressBusServices", IncompatibilityModLevel.EnableNotAllowed, "Express Bus Services",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Express Bus Services' express-line behaviour is now built into IPT4 - running both patches the same bus AI twice.")
-                .Add("FlightTracker", IncompatibilityModLevel.EnableNotAllowed, "Flight Tracker",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Flight Tracker's flight-tracking panel is now built into IPT4 - running both patches the same building info panel twice.")
-                .Add("RegionalBuses", IncompatibilityModLevel.EnableNotAllowed, "Intercity Bus Control",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Intercity Bus Control's regional/intercity bus management is now built into IPT4 - running both patches the same bus line behaviour twice.")
-                .Add("MileageTaxiServices", IncompatibilityModLevel.EnableNotAllowed, "Mileage Taxi Services",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Mileage Taxi Services' taxi fare-by-distance logic is now built into IPT4 - running both patches the same taxi AI twice.")
-                .Add("PublicTransportUnstucker", IncompatibilityModLevel.EnableNotAllowed, "Public Transport Unstucker",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Public Transport Unstucker's anti-rogue-vehicle patches are now built into IPT4 - running both patches the same vehicle AI twice.")
-                .Add("RealisticWalkingSpeed", IncompatibilityModLevel.EnableNotAllowed, "Realistic Walking Speed",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Realistic Walking Speed's citizen walking-speed adjustments are now built into IPT4 - running both patches the same citizen AI twice.")
-                .Add("SharedStopEnabler", IncompatibilityModLevel.EnableNotAllowed, "Shared Stop Enabler",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Shared Stop Enabler's shared-stop support is now built into IPT4 (as a reduced port) - running both patches the same stop-sharing logic twice.")
-                .Add("StopsAndStations", IncompatibilityModLevel.EnableNotAllowed, "Stops & Stations",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Stops & Stations' stop/station management is now built into IPT4 - running both patches the same stop systems twice.")
-                .Add("SubBuildingsTabBar", IncompatibilityModLevel.EnableNotAllowed, "Sub-Buildings Tabs",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Sub-Buildings Tabs' sub-building tab UI is now built into IPT4 - running both patches the same world info panel twice.")
-                .Add("TicketPriceCustomizer", IncompatibilityModLevel.EnableNotAllowed, "Ticket Price Customizer",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Ticket Price Customizer's fare customization is now built into IPT4 - running both patches the same ticket-price logic twice.")
-                .Add("TransitVehicleSpawnDelay", IncompatibilityModLevel.EnableNotAllowed, "Transit Vehicle Spawn Delay",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Transit Vehicle Spawn Delay's spawn-timing adjustments are now built into IPT4 - running both patches the same vehicle-spawning logic twice.")
-                .Add("TrainDisplay", IncompatibilityModLevel.EnableNotAllowed, "Train Display (Original & Updated)",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Train Display's train-info readout is now built into IPT4 - running both patches the same vehicle display logic twice.")
-                .Add("CargoHoldFix", IncompatibilityModLevel.EnableNotAllowed, "Optimised Outside Connections",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Optimised Outside Connections' outside-connection cargo/pathing fixes are now built into IPT4 - running both patches the same outside-connection logic twice.")
-                .Add("UnlimitedOutsideConnectionsRevisited", IncompatibilityModLevel.EnableNotAllowed, "Unlimited Outside Connections Revisited",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Unlimited Outside Connections Revisited's outside-connection limit removal is now built into IPT4 - running both patches the same outside-connection logic twice.")
+            // ---- IPT family / line managers (must never run with IPT4) ----
+            rule.AddWithWorkshop("ImprovedPublicTransport", Ban, "Improved Public Transport (original)",
+                    "IPT1 is replaced entirely by IPT4 — both patch the same transit systems.",
+                    424106600u)
+                .AddWithWorkshop("ImprovedPublicTransport2", Ban, "Improved Public Transport 2 (IPT2)",
+                    "IPT2 is an earlier generation IPT4 replaces — double-patching breaks fleet/budget control.",
+                    928128676u)
+                .AddWithWorkshop("ImprovedPublicTransport3", Ban, "Improved Public Transport 3 (IPT3)",
+                    "IPT4 is a local fork of IPT3 that replaces it entirely — never run both.",
+                    3690061052u)
+                .AddWithWorkshop("TransportLinesManager", Ban, "Transport Lines Manager",
+                    "TLM and IPT both own per-line vehicle count/budget — together they cause budget glitches and fight over fleets.",
+                    1312767991u, 3007903394u)
+                .AddWithWorkshop("ImprovedTransportManager", Ban, "Improved Transport Manager (ITM)",
+                    "Klyte45's unfinished TLM/IPT2 successor — same per-line budget/fleet domain as IPT4.",
+                    2888964436u);
 
-                // --- Obsolete & legacy originals (superseded, should also warn) ---
-                .Add("MultiTrackStationEnabler", IncompatibilityModLevel.EnableNotAllowed, "Advanced Stop Selection (Original by BloodyPenguin)",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "This is the original Multi-Track Station Enabler-based stop selection mod that Advanced Stop Selection Revisited superseded, and whose functionality is now built into IPT4.")
-                .Add("ExtendedPublicTransportUI", IncompatibilityModLevel.EnableNotAllowed, "Extended Public Transport UI (+400)",
-                    true, "Improved Public Transport 4 (local fork)",
-                    "Extended Public Transport UI's line-count-limit removal and extended UI are now built into IPT4 - running both patches the same public transport UI twice.");
+            // ---- Overlapping unbunching / colour tools ----
+            rule.AddWithWorkshop("VehicleUnbuncher", Ban, "Vehicle Unbuncher",
+                    "Unbunching/spawn spacing is built into IPT4 — running both fights over the same vehicles.",
+                    508703774u)
+                .AddWithWorkshop("VehicleUnbuncher2", Ban, "Vehicle Unbuncher (Overhatted / alt)",
+                    "Same unbunching domain as IPT4's built-in spacing.",
+                    531401164u)
+                .AddWithWorkshop("TransportLineColorMod", Ban, "Transport Line Color Mod",
+                    "Line colour tools overlap IPT4 Auto Line Color — both write the same line colours.",
+                    409865621u)
+                .AddWithWorkshop("AutomaticVehicleNumbersAdjuster", Ban, "Automatic Vehicle Numbers Adjuster",
+                    "Same job as IPT4 Auto Line Budget (fleet sizing from demand).",
+                    1218121337u)
+                .AddWithWorkshop("ExtendedPublicTransportUI", Ban, "Extended Public Transport UI (+400)",
+                    "Line-limit / extended PT UI covered by base game + IPT4.",
+                    411164732u);
+
+            // ---- Absorbed integrations (unsubscribe standalones) ----
+            rule.AddWithWorkshop("AdvancedStopSelection", Ban, "Advanced Stop Selection Revisited",
+                    "Stop platform selection is built into IPT4 — unsubscribe the standalone.",
+                    2862973068u)
+                .AddWithWorkshop("MultiTrackStationEnabler", Ban, "Advanced Stop Selection (original)",
+                    "Superseded original; functionality is in IPT4.",
+                    1394468624u)
+                .AddWithWorkshop("AutoLineBudget", Ban, "Auto Line Budget 21",
+                    "Fleet sizing is in IPT4 Options — both writing budgets caused runaway costs.",
+                    2349240408u)
+                .AddWithWorkshop("AutoLineColor", Ban, "AutoLineColor Redux",
+                    "Automatic line colouring is built into IPT4.",
+                    1415090282u)
+                .AddWithWorkshop("AutoLineColorOriginal", Ban, "AutoLineColor (Phil Scott original)",
+                    "Original AutoLineColor — IPT4 includes Redux-class colour/naming.",
+                    408706691u)
+                .AddWithWorkshop("AutoLineColorEnkafan", Ban, "Auto Line Color (enkafan)",
+                    "Legacy colour mod overlaps IPT4 Auto Line Color.",
+                    408760323u)
+                .AddWithWorkshop("BetterTrainBoarding", Ban, "Better Train Boarding",
+                    "Boarding logic is built into IPT4 Better Boarding.",
+                    2773460744u)
+                .AddWithWorkshop("BetterBusStopPosition", Ban, "Better Bus Stop Position",
+                    "Stop positioning is built into IPT4.",
+                    3491515535u)
+                .AddWithWorkshop("CommuterDestination.CS1", Ban, "Commuter Destination",
+                    "Commuter Destination UI/icons are built into IPT4.",
+                    2475986859u)
+                .AddWithWorkshop("ElevatedStopsEnabler", Ban, "Elevated Stops Enabler (Revisited)",
+                    "Elevated stop support is built into IPT4.",
+                    2862992091u, 634913093u)
+                .AddWithWorkshop("ExpressBusServices", Ban, "Express Bus Services",
+                    "Express bus/tram AI is built into IPT4.",
+                    2262054175u)
+                .AddWithWorkshop("FlightTracker", Ban, "Flight Tracker",
+                    "Flight Tracker panel is built into IPT4.",
+                    3033809468u)
+                .AddWithWorkshop("RegionalBuses", Ban, "Intercity Bus Control",
+                    "Intercity bus terminal control is built into IPT4.",
+                    2499771767u)
+                .AddWithWorkshop("MileageTaxiServices", Ban, "Mileage Taxi Services",
+                    "Taxi fare-by-distance is built into IPT4.",
+                    3492156582u)
+                .AddWithWorkshop("PublicTransportUnstucker", Ban, "Public Transport Unstucker",
+                    "Unstucker patches are built into IPT4.",
+                    2774427140u)
+                .AddWithWorkshop("RealisticWalkingSpeed", Ban, "Realistic Walking Speed",
+                    "Walking/cycling speed modes are built into IPT4.",
+                    1412844620u)
+                .AddWithWorkshop("SharedStopEnabler", Ban, "Shared Stop Enabler",
+                    "Shared stops (including elevated) are built into IPT4 — do not run the standalone.",
+                    2096382380u)
+                .AddWithWorkshop("StopsAndStations", Ban, "Stops & Stations",
+                    "Waiting-passenger caps are built into IPT4.",
+                    1776052533u)
+                .AddWithWorkshop("SubBuildingsTabBar", Ban, "Sub-Buildings Tabs",
+                    "Sub-building tab strip is built into IPT4.",
+                    608517757u)
+                .AddWithWorkshop("TicketPriceCustomizer", Ban, "Ticket Price Customizer",
+                    "Ticket price UI/multipliers are built into IPT4.",
+                    1393820309u)
+                .AddWithWorkshop("TransitVehicleSpawnDelay", Ban, "Transit Vehicle Spawn Delay",
+                    "Spawn timing is covered by IPT4 unbunching/spawn settings.",
+                    2654110611u)
+                .AddWithWorkshop("TrainDisplay", Ban, "Train Display (Updated)",
+                    "Train Display overlay is built into IPT4.",
+                    3233229958u)
+                .AddWithWorkshop("TrainDisplayMod", Ban, "Train Display (original Asmape)",
+                    "Original Train Display — use IPT4's integrated overlay instead.",
+                    2380878816u)
+                .AddWithWorkshop("CargoHoldFix", Ban, "Optimised Outside Connections",
+                    "Outside-connection cargo wait tuning is built into IPT4.",
+                    1721492498u)
+                .AddWithWorkshop("UnlimitedOutsideConnectionsRevisited", Ban, "Unlimited Outside Connections Revisited",
+                    "Unlimited outside connections is built into IPT4.",
+                    2367735356u)
+                .AddWithWorkshop("TaxiStandFix", Ban, "Taxi Stand Fix",
+                    "Taxi stand idle routing is built into IPT4.",
+                    3712889232u)
+                .AddWithWorkshop("SingleTrainTrackAI", Ban, "SingleTrainTrackAI",
+                    "Single-track reservation is built into IPT4 (clean-room) — both can double-brake trains.",
+                    949504539u)
+                .AddWithWorkshop("StopStacker", Ban, "Stop Stacker",
+                    "Multi-berth stop stacking is built into IPT4 (clean-room).",
+                    3751418194u)
+                .AddWithWorkshop("RescueFullwidthDigits", Ban, "Rescue Fullwidth Digits",
+                    "Fullwidth digit normalisation for line names is built into IPT4.",
+                    1174585364u);
+
+            // Known alternate assembly names for absorbed mods (forks / renames).
+            rule.Add(new IncompatibleModItem("CommuterDestination", Ban, "Commuter Destination (alt assembly)",
+                    true, Alt, "Commuter Destination is built into IPT4.")
+                .WithAlternateAssemblies("CSL-ShowCommuterDestination", "ShowCommuterDestination")
+                .WithWorkshopIds(2475986859u));
         }
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 8, 5), new DateTime(2026, 8, 1), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_5_1"))
+                .AddEntry(ChangelogFlag.Optimized, L("CHANGELOG_4_8_5_2"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_5_3"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_5_4"))
+                .AddEntry(ChangelogFlag.Optimized, L("CHANGELOG_4_8_5_5"))
+            ,
             new ChangelogCollection(new Version(4, 8, 0), new DateTime(2026, 7, 31), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_0_1"))
                 .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_0_2"))
@@ -161,6 +214,8 @@ namespace ImprovedPublicTransport
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_0_6"))
                 .AddEntry(ChangelogFlag.Optimized, L("CHANGELOG_4_8_0_7"))
                 .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_0_8"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_0_9"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_0_10"))
             ,
             new ChangelogCollection(new Version(4, 7, 0), new DateTime(2026, 7, 30), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_7_0_1"))

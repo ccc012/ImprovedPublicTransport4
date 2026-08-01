@@ -114,5 +114,18 @@
   "Warn": "Avertissement",
   "Warning": "Avertissement",
   "Website": "Site web",
-  "Yes": "Oui"
+  "Yes": "Oui",
+  "Language_da-DK": "Danish",
+  "Language_fi-FI": "Finnish",
+  "Language_no-NO": "Norwegian",
+  "Language_sv-SE": "Swedish",
+  "Language_hu-HU": "Hungarian",
+  "Language_ro-RO": "Romanian",
+  "Language_bg-BG": "Bulgarian",
+  "Language_el-GR": "Greek",
+  "Language_uk-UA": "Ukrainian",
+  "Language_vi-VN": "Vietnamese",
+  "Language_ms-MY": "Malay",
+  "Language_es-MX": "Spanish (Latin America)",
+  "Language_es-419": "Spanish (Latin America)"
 }

@@ -205,5 +205,113 @@
     "TranslatedStrings": 116,
     "TranslationProgress": 100,
     "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "da",
+    "LanguageName": "Danish",
+    "Locale": "da-DK",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "fi",
+    "LanguageName": "Finnish",
+    "Locale": "fi-FI",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "no",
+    "LanguageName": "Norwegian",
+    "Locale": "no-NO",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "sv",
+    "LanguageName": "Swedish",
+    "Locale": "sv-SE",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "hu",
+    "LanguageName": "Hungarian",
+    "Locale": "hu-HU",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "ro",
+    "LanguageName": "Romanian",
+    "Locale": "ro-RO",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "bg",
+    "LanguageName": "Bulgarian",
+    "Locale": "bg-BG",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "el",
+    "LanguageName": "Greek",
+    "Locale": "el-GR",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "uk",
+    "LanguageName": "Ukrainian",
+    "Locale": "uk-UA",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "vi",
+    "LanguageName": "Vietnamese",
+    "Locale": "vi-VN",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "ms",
+    "LanguageName": "Malay",
+    "Locale": "ms-MY",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
+  },
+  {
+    "LanguageId": "es-MX",
+    "LanguageName": "Spanish (Latin America)",
+    "Locale": "es-MX",
+    "TotalStrings": 116,
+    "TranslatedStrings": 116,
+    "TranslationProgress": 100,
+    "ApprovalProgress": 100
   }
 ]

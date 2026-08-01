@@ -133,30 +133,60 @@ namespace ImprovedPublicTransport.Util
       switch (type)
       {
         case PluginManager.MessageType.Error:
+          // Errors always hit Unity log (and dual file via LogToTxt for support).
           Debug.LogError((object) str);
+          try { LogToTxt(str); } catch { /* ignore IO */ }
           break;
         case PluginManager.MessageType.Warning:
           Debug.LogWarning((object) str);
+          try { LogToTxt(str); } catch { /* ignore IO */ }
           break;
         case PluginManager.MessageType.Message:
-          Debug.Log((object) str);
+          // Info spam via Debug.Log is the #1 FPS killer when Verbose is on.
+          // Always keep a file copy for support; only mirror to Unity console when Verbose.
+          try { LogToTxt(str); } catch { /* ignore IO */ }
+          if (Diagnostics.VerboseRuntimeLogs)
+          {
+            Debug.Log((object) str);
+          }
           break;
       }
     }
 
+    // Hot UI paths used to re-list every FieldInfo every frame (CityService panel, etc.).
+    private static readonly Dictionary<string, FieldInfo> PrivateFieldCache =
+      new Dictionary<string, FieldInfo>(32);
+
     public static Q GetPrivate<Q>(object o, string fieldName)
     {
-      FieldInfo[] fields = o.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-      FieldInfo fieldInfo1 = (FieldInfo) null;
-      foreach (FieldInfo fieldInfo2 in fields)
+      if (o == null || string.IsNullOrEmpty(fieldName))
       {
-        if (fieldInfo2.Name == fieldName)
-        {
-          fieldInfo1 = fieldInfo2;
-          break;
-        }
+        return default(Q);
       }
-      return (Q) fieldInfo1.GetValue(o);
+
+      var type = o.GetType();
+      var key = type.FullName + "\0" + fieldName;
+      if (!PrivateFieldCache.TryGetValue(key, out var fieldInfo) || fieldInfo == null)
+      {
+        fieldInfo = type.GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        if (fieldInfo == null)
+        {
+          // Fallback: walk hierarchy once, then cache null to avoid repeating.
+          for (var t = type; t != null && fieldInfo == null; t = t.BaseType)
+          {
+            fieldInfo = t.GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+          }
+        }
+
+        PrivateFieldCache[key] = fieldInfo;
+      }
+
+      if (fieldInfo == null)
+      {
+        return default(Q);
+      }
+
+      return (Q) fieldInfo.GetValue(o);
     }
 
     public static float ToSingle(string value)
@@ -180,7 +210,9 @@ namespace ImprovedPublicTransport.Util
       return result;
     }
 
-    public static bool Truncate(UILabel label, string text, string suffix = "�")
+    // Default was a corrupted replacement character (U+FFFD / "♦") from an old decompile of an
+    // ellipsis. Callers that omit suffix (StopListBoxRow) painted "Estação de ♦" for long PT names.
+    public static bool Truncate(UILabel label, string text, string suffix = "…")
     {
       bool flag = false;
       try
@@ -197,7 +229,10 @@ namespace ImprovedPublicTransport.Util
             if ((double) num1 > (double) num2)
             {
               flag = true;
-              text = text.Substring(0, index - 3) + suffix;
+              int cut = index - 3;
+              if (cut < 1)
+                cut = Math.Max(1, index);
+              text = text.Substring(0, cut) + suffix;
               break;
             }
           }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using ICities;
 using ImprovedPublicTransport.Util;
 
@@ -39,18 +38,21 @@ namespace ImprovedPublicTransport
         public override void OnBuildingReleased(ushort id)
         {
             base.OnBuildingReleased(id);
-            if (!ImprovedPublicTransportMod.InGame)
+            if (!ImprovedPublicTransportMod.InGame || _depotMap == null)
             {
                 return;
             }
+
+            // Snapshot transport infos before the buffer slot is fully wiped / reused.
+            DepotUtil.GetStats(ref BuildingManager.instance.m_buildings.m_buffer[id],
+                out TransportInfo primaryInfo, out TransportInfo secondaryInfo);
+
             foreach (var depots in _depotMap)
             {
                 if (!depots.Value.Remove(id))
                 {
                     continue;
                 }
-                DepotUtil.GetStats(ref BuildingManager.instance.m_buildings.m_buffer[id],
-                    out TransportInfo primaryInfo, out TransportInfo secondaryInfo);
                 OnReleasedForInfo(id, primaryInfo);
                 OnReleasedForInfo(id, secondaryInfo);
             }
@@ -67,6 +69,11 @@ namespace ImprovedPublicTransport
 
         private static void ObserveBuilding(ushort buildingId)
         {
+            if (_depotMap == null)
+            {
+                return;
+            }
+
             DepotUtil.GetStats(ref BuildingManager.instance.m_buildings.m_buffer[buildingId],
                 out TransportInfo primaryInfo, out TransportInfo secondaryInfo);
 
@@ -76,7 +83,7 @@ namespace ImprovedPublicTransport
 
         private static void ObserveForInfo(ushort buildingId, TransportInfo transportInfo)
         {
-            if (transportInfo == null || !DepotUtil.IsValidDepot(buildingId, transportInfo))
+            if (_depotMap == null || transportInfo == null || !DepotUtil.IsValidDepot(buildingId, transportInfo))
             {
                 return;
             }
@@ -97,18 +104,45 @@ namespace ImprovedPublicTransport
 
         public static ushort[] GetDepots(TransportInfo transportInfo)
         {
-            if (transportInfo == null)
+            if (transportInfo == null || _depotMap == null)
             {
                 return new ushort[0];
             }
 
-            return _depotMap.TryGetValue(
-                new ItemClassTriplet(transportInfo.GetService(), transportInfo.GetSubService(),
-                    transportInfo.GetClassLevel()),
-                out HashSet<ushort> source)
-                ? source.Where(d => DepotUtil.IsValidDepot(d, transportInfo))
-                    .ToArray()
-                : new ushort [0];
+            if (!_depotMap.TryGetValue(
+                    new ItemClassTriplet(transportInfo.GetService(), transportInfo.GetSubService(),
+                        transportInfo.GetClassLevel()),
+                    out HashSet<ushort> source)
+                || source == null
+                || source.Count == 0)
+            {
+                return new ushort[0];
+            }
+
+            // Manual filter — LINQ Where/ToArray allocated every GetClosestDepot / StartTransfer path.
+            var scratch = new ushort[source.Count];
+            var n = 0;
+            foreach (var d in source)
+            {
+                if (DepotUtil.IsValidDepot(d, transportInfo))
+                {
+                    scratch[n++] = d;
+                }
+            }
+
+            if (n == 0)
+            {
+                return new ushort[0];
+            }
+
+            if (n == scratch.Length)
+            {
+                return scratch;
+            }
+
+            var result = new ushort[n];
+            System.Array.Copy(scratch, result, n);
+            return result;
             //we validate here to be compatible with MOM (if MOM sets max vehicle count later than this mod loads)
         }
 

@@ -10,11 +10,24 @@ namespace AutoLineColor.Coloring
 
         public static IUsedColors FromLines(TransportLine[] lines)
         {
+            return FromLinesExcluding(lines, 0);
+        }
+
+        /// <summary>
+        /// Like <see cref="FromLines"/> but skips <paramref name="excludeLineId"/> so a manual
+        /// recolor can pick a colour different from the line's current one.
+        /// </summary>
+        public static IUsedColors FromLinesExcluding(TransportLine[] lines, ushort excludeLineId)
+        {
             var result = new UsedColors(lines.Length);
             var dict = result._dict;
 
-            foreach (var l in lines)
+            for (ushort i = 0; i < lines.Length; i++)
             {
+                if (excludeLineId != 0 && i == excludeLineId)
+                    continue;
+
+                ref var l = ref lines[i];
                 if (!l.IsActive())
                     continue;
 

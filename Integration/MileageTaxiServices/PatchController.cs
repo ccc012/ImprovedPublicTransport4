@@ -1,19 +1,11 @@
 ﻿using HarmonyLib;
-using System.Reflection;
+using ImprovedPublicTransport.Util;
 
 namespace MileageTaxiServices
 {
     internal class PatchController
     {
-        public static string HarmonyModID
-        {
-            get
-            {
-                // Use a concise Harmony ID tied to IPT3 and the mileage taxi integration
-                // to avoid clashes and make ownership obvious when inspecting Harmony patches.
-                return "com.ipt3.mileagetaxi";
-            }
-        }
+        public const string HarmonyModID = "com.ipt3.mileagetaxi";
 
         /*
          * The "singleton" design is pretty straight-forward.
@@ -33,7 +25,7 @@ namespace MileageTaxiServices
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "MileageTaxiServices");
         }
 
         public static void Deactivate()

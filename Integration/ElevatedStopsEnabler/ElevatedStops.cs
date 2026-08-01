@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using ImprovedPublicTransport.Util;
+using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace ElevatedStopsEnabler
 {
@@ -12,13 +12,16 @@ namespace ElevatedStopsEnabler
             var networks = UnityEngine.Resources.FindObjectsOfTypeAll<NetInfo>();
             foreach (var network in networks)
             {
-                if (!network.m_hasPedestrianLanes)
+                if (network == null || !network.m_hasPedestrianLanes)
                     continue;
 
                 if (network.m_netAI is not RoadAI ai)
                     continue;
 
-                bool hasStops = network.m_lanes.Any(lane => lane.m_stopType != VehicleInfo.VehicleType.None);
+                if (network.m_lanes == null || network.m_sortedLanes == null || network.m_sortedLanes.Length == 0)
+                    continue;
+
+                bool hasStops = network.m_lanes.Any(lane => lane != null && lane.m_stopType != VehicleInfo.VehicleType.None);
                 if (!hasStops)
                     continue;
 
@@ -49,7 +52,7 @@ namespace ElevatedStopsEnabler
                 if (info == null)
                     return;
 
-                if (info.m_lanes.Length == 0 || info.m_sortedLanes.Length == 0)
+                if (info.m_lanes == null || info.m_sortedLanes == null || info.m_lanes.Length == 0 || info.m_sortedLanes.Length == 0)
                     return;
 
                 for (int i = 1; i < info.m_sortedLanes.Length - 2; i++)
@@ -65,7 +68,13 @@ namespace ElevatedStopsEnabler
                 info.m_lanes[info.m_sortedLanes[info.m_sortedLanes.Length - 1]].m_stopType = secondStopType;
                 info.m_lanes[info.m_sortedLanes[info.m_sortedLanes.Length - 1]].m_stopOffset = 0f;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Utils.LogWarning($"ElevatedStopsEnabler: EnableStops failed for '{info?.name}': {ex.Message}");
+                }
+            }
         }
 
         public static void AllowStreetLightsOnElevatedStops()

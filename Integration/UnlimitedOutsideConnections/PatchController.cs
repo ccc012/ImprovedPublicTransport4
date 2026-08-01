@@ -1,5 +1,5 @@
-using System.Reflection;
 using HarmonyLib;
+using ImprovedPublicTransport.Util;
 
 namespace UnlimitedOutsideConnections
 {
@@ -13,7 +13,7 @@ namespace UnlimitedOutsideConnections
 
         public static void Activate()
         {
-            GetHarmonyInstance().PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyScope.PatchNamespace(GetHarmonyInstance(), "UnlimitedOutsideConnections");
             BuildingManagerHooks.Deploy();
         }
 

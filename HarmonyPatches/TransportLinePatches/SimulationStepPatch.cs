@@ -112,19 +112,43 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
                 return;
             }
 
+            var nodeCache = CachedNodeData.m_cachedNodeData;
+            var vehicleCache = CachedVehicleData.m_cachedVehicleData;
+            if (nodeCache == null || vehicleCache == null)
+            {
+                return;
+            }
+
             var stops1 = TransportManager.instance.m_lines.m_buffer[__state].m_stops;
             var stop1 = stops1;
+            var nodeGuard = 0;
             do
             {
-                CachedNodeData.m_cachedNodeData[stop1].StartNewWeek();
+                if (stop1 != 0 && stop1 < nodeCache.Length)
+                {
+                    nodeCache[stop1].StartNewWeek();
+                }
+
                 stop1 = TransportLine.GetNextStop(stop1);
+                if (++nodeGuard > 32768)
+                {
+                    ImprovedPublicTransport.Util.Utils.LogError(
+                        $"SimulationStepPatch: stop loop guard tripped for line {__state}");
+                    break;
+                }
             } while (stops1 != stop1 && stop1 != 0);
 
             long amount = 0;
             var activeVehicles = TransportLineUtil.CountLineActiveVehicles(__state, out _, (num3) =>
             {
+                if (num3 == 0 || num3 >= vehicleCache.Length)
+                {
+                    return;
+                }
+
                 var vInfo = VehicleManager.instance.m_vehicles.m_buffer[num3].Info;
                 if (vInfo == null) return;
+                if (VehiclePrefabs.instance == null) return;
                 var prefabData = VehiclePrefabs.instance.FindByIndex(vInfo.m_prefabDataIndex);
                 if (prefabData == null) return;
                 var maintenanceCost = prefabData.MaintenanceCost;
@@ -137,16 +161,18 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
                 }
 
                 amount += maintenanceCost;
-                CachedVehicleData.m_cachedVehicleData[num3].StartNewWeek(maintenanceCost);
+                vehicleCache[num3].StartNewWeek(maintenanceCost);
             });
             if (amount > 0)
             {
                 var line = TransportManager.instance.m_lines.m_buffer[__state];
-                if (Diagnostics.VerboseRuntimeLogs)
+                if (line.Info?.m_class == null)
                 {
-                    var lineName = TransportManager.instance.GetLineName(__state);
-                    ImprovedPublicTransport.Util.Utils.Log($"SimulationStepPatch: line {__state} ({lineName}) maintenance cost {amount}, activeVehicles={activeVehicles}");
+                    return;
                 }
+
+                // Never log per-line weekly maintenance — this runs for every PT line on the
+                // week-rollover path and Debug.Log hitchs the main thread hard under Verbose.
 
                 ChargeMaintenance(amount, line.Info.m_class);
             }
@@ -169,9 +195,16 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
         public static int CalculateTargetVehicleCount(ushort lineID)
         {
             var instance = TransportManager.instance;
+            if (!CachedTransportLineData._init)
+            {
+                // Never report 0 while cache is still loading — that despawns the whole fleet.
+                return instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount();
+            }
+
+            var lineInfo = instance.m_lines.m_buffer[lineID].Info;
             int targetVehicleCount;
-            if (CachedTransportLineData._lineData[lineID].BudgetControl ||
-                instance.m_lines.m_buffer[lineID].Info.m_class.m_service == ItemClass.Service.Disaster)
+            if (CachedTransportLineData.GetBudgetControlState(lineID) ||
+                (lineInfo?.m_class != null && lineInfo.m_class.m_service == ItemClass.Service.Disaster))
             {
                 targetVehicleCount = instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount();
                 CachedTransportLineData.SetTargetVehicleCount(lineID, targetVehicleCount);
@@ -182,9 +215,17 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             }
 
             var activeVehicles = TransportLineUtil.CountLineActiveVehicles(lineID, out _);
-            for (var i = activeVehicles; i < targetVehicleCount - CachedTransportLineData.EnqueuedVehiclesCount(lineID); i++)
+            var enqueued = CachedTransportLineData.EnqueuedVehiclesCount(lineID);
+            var need = targetVehicleCount - enqueued - activeVehicles;
+            for (var i = 0; i < need; i++)
             {
-                CachedTransportLineData.EnqueueVehicle(lineID, CachedTransportLineData.GetRandomPrefab(lineID));
+                var prefab = CachedTransportLineData.GetRandomPrefab(lineID);
+                if (prefab == null)
+                {
+                    break;
+                }
+
+                CachedTransportLineData.EnqueueVehicle(lineID, prefab);
             }
             return targetVehicleCount;
         }

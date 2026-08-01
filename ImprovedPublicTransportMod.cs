@@ -25,6 +25,7 @@ using MileageTaxiServices;
 using RealisticWalkingSpeed;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
 using AlgernonCommons.Patching;
 
@@ -45,7 +46,9 @@ namespace ImprovedPublicTransport
         public static bool InGame;
         public static GameObject IptGameObject;
         private GameObject _worldInfoPanel;
-        private const string Version = "4.0.0-dev";
+        // Keep in sync with AssemblyInfo / Workshop so log "Begin init version" matches the
+        // assembly Version cities reports on load (was still "4.0.0-dev" long after 4.8.0).
+        private const string Version = "4.8.5"; // deep bug/perf sweep applied on this build
 
         public override void OnCreated(ICities.ILoading loading)
         {
@@ -139,8 +142,12 @@ namespace ImprovedPublicTransport
 
                     LoadPassengersPatch.Apply();
                     UnloadPassengersPatch.Apply();
+                    HarmonyPatches.VehicleAIPatches.EmptyBeforeDepotPatch.Apply();
                     StartTransferPatch.Apply();
                     DepotCapacityPatch.Apply();
+                    DepotCapacityEnforcePatch.Apply();
+                    IptGameObject.AddComponent<DepotCapacityEnforcer>();
+                    ImprovedPublicTransport.HarmonyPatches.DepotAIPatches.DepotStatsDisplayPatch.Apply();
                     ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPanelPatches.AutoNameStopPatch.Apply();
                     // Same reason IntercityBusControl needs its own retroactive PatchStations() sweep
                     // just below: prefabs are already loaded by the time OnLevelLoaded fires, so the
@@ -158,13 +165,19 @@ namespace ImprovedPublicTransport
                     // Rescue corrupt saves that contain fullwidth digits in transport line custom names.
                     NormalizeFullwidthLineNamesPatch.Apply();
 
-                    // BetterBusStopPosition integration
+                    // BetterBusStopPosition integration (runtime-gated by BbspLogic; patches are light postfixes)
                     try
                     {
-                        Utils.Log("BetterBusStopPosition: Attempting to apply patches...");
-                        BetterBusStopPosition.Patcher.PatchAll();
-                        Utils.Log("BetterBusStopPosition: Patches applied successfully!");
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("BetterBusStopPosition: integration applied.");
+                        if (ModSetting.Instance.BbspLogic != ModSetting.BbspLogicModes.Disabled)
+                        {
+                            Utils.Log("BetterBusStopPosition: Attempting to apply patches...");
+                            BetterBusStopPosition.Patcher.PatchAll();
+                            Utils.Log("BetterBusStopPosition: Patches applied successfully!");
+                        }
+                        else if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
+                        {
+                            Utils.Log("BetterBusStopPosition: disabled (BbspLogic=Disabled), skipping patches.");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -172,6 +185,7 @@ namespace ImprovedPublicTransport
                     }
 
                     Redirector<CommonBuildingAIReverseDetour>.Deploy();
+                    // TransportLineReverseDetour.GetActiveVehicle is unused (no call sites) — do not Deploy.
                     HarmonyPatches.PublicTransportStopButtonPatches.OnMouseDownPatch.Apply();
                     HarmonyPatches.PublicTransportVehicleButtonPatches.OnMouseDownPatch.Apply();
                     RefreshVehicleButtonsPatch.Apply();
@@ -180,10 +194,12 @@ namespace ImprovedPublicTransport
                     LineWatcher.instance.Init();
 
                     CachedTransportLineData.Init();
-                    Redirector<TransportLineReverseDetour>.Deploy();
                     SimulationStepPatch.Apply();
                     GetLineVehiclePatch.Apply();
                     CanLeaveStopPatch.Apply();
+                    // Must stay early: blocks GetNextStop/GetPrevStop IndexOutOfRange simulation popups
+                    // from bad stop/building IDs (Express Bus redeploy, broken stop chains, etc.).
+                    TransportLineStopSafetyPatch.Apply();
 
                     EconomyPanelAwakePatch.Apply();
 
@@ -193,12 +209,19 @@ namespace ImprovedPublicTransport
                     SerializableDataExtension.instance.Loaded = true;
                     LocaleModifier.Init();
 
-                    // Integration: enable elevated stops and street lights on elevated bridges
+                    // Integration: elevated stops and street lights on elevated bridges
                     try
                     {
-                        ElevatedStops.AddElevatedStoptypes();
-                        ElevatedStops.AllowStreetLightsOnElevatedStops();
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("ElevatedStopsEnabler: integration applied.");
+                        if (ModSetting.Instance.EnableElevatedStops)
+                        {
+                            ElevatedStops.AddElevatedStoptypes();
+                            ElevatedStops.AllowStreetLightsOnElevatedStops();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("ElevatedStopsEnabler: integration applied.");
+                        }
+                        else if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
+                        {
+                            Utils.Log("ElevatedStopsEnabler: disabled by settings.");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -223,14 +246,32 @@ namespace ImprovedPublicTransport
                     }
 
                     Utils.Log("Loading done!");
-                    // Activate integration patches
-                    ImprovedPublicTransport.Integration.AdvancedStopSelection.PatchController.Activate();
+                    // Activate optional integration patches (all off by default - Safe profile)
+                    try
+                    {
+                        if (ModSetting.Instance.EnableAdvancedStopSelection)
+                        {
+                            ImprovedPublicTransport.Integration.AdvancedStopSelection.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("AdvancedStopSelection: integration applied.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"AdvancedStopSelection: failed to apply integration: {ex.Message}");
+                    }
 
                     // BetterBoarding integration (enhanced boarding decisions)
                     try
                     {
-                        BetterBoarding.PatchController.Activate();
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("BetterBoarding: integration applied.");
+                        if (ModSetting.Instance.EnableBetterBoarding)
+                        {
+                            BetterBoarding.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("BetterBoarding: integration applied.");
+                        }
+                        else if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
+                        {
+                            Utils.Log("BetterBoarding: disabled by settings.");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -239,7 +280,7 @@ namespace ImprovedPublicTransport
 
                     // MileageTaxiServices integration (generate fare income from taxi mileage)
                     // Requires After Dark DLC (taxis are an After Dark feature)
-                    if (SteamHelper.IsDLCOwned(SteamHelper.DLC.AfterDarkDLC))
+                    if (SteamHelper.IsDLCOwned(SteamHelper.DLC.AfterDarkDLC) && ModSetting.Instance.EnableMileageTaxi)
                     {
                         try
                         {
@@ -251,9 +292,9 @@ namespace ImprovedPublicTransport
                             Utils.LogError($"MileageTaxiServices: failed to apply integration: {ex.Message}");
                         }
                     }
-                    else
+                    else if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
                     {
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("MileageTaxiServices: After Dark DLC not detected, skipping integration.");
+                        Utils.Log("MileageTaxiServices: skipped (disabled or After Dark DLC missing).");
                     }
 
                     // RealisticWalkingSpeed integration
@@ -427,22 +468,32 @@ namespace ImprovedPublicTransport
                         Utils.LogError($"SharedStopEnabler: failed to apply integration: {ex.Message}");
                     }
 
-                    // CommuterDestination integration (shows where waiting passengers are headed)
+                    // CommuterDestination: PARKED for 4.8.5 stability (still buggy). Always force off
+                    // and keep patches/panel deactivated so old saves cannot re-enable it via JSON.
                     try
                     {
-                        if (ModSetting.Instance.EnableCommuterDestination)
+                        if (ModSetting.Instance != null)
+                            ModSetting.Instance.EnableCommuterDestination = false;
+                        CommuterDestination.PatchController.Deactivate();
+                        CommuterDestination.CommuterDestinationPanel.CloseIfOpen();
+                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
                         {
-                            CommuterDestination.PatchController.Activate();
-                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration applied.");
-                        }
-                        else
-                        {
-                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration disabled (toggle is off).");
+                            Utils.Log("CommuterDestination: parked (disabled for 4.9).");
                         }
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"CommuterDestination: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"CommuterDestination: failed to park integration: {ex.Message}");
+                    }
+
+                    // In-game hotkeys (Options → Key bindings).
+                    try
+                    {
+                        Settings.IptHotkeys.Register();
+                    }
+                    catch (Exception ex)
+                    {
+                        Utils.LogError($"IptHotkeys: failed to register: {ex.Message}");
                     }
 
                     // OptimisedOutsideConnections integration (cargo trains/planes/ships wait longer
@@ -549,6 +600,23 @@ namespace ImprovedPublicTransport
             if (!InGame)
                 return;
             InGame = false;
+            try
+            {
+                Settings.IptHotkeys.Unregister();
+            }
+            catch
+            {
+                // non-fatal
+            }
+
+            try
+            {
+                StopAutoNamer.ClearSessionCaches();
+            }
+            catch
+            {
+                // non-fatal
+            }
             // Reset ticket prices to defaults on unload (only if feature enabled)
             try
             {
@@ -673,8 +741,10 @@ namespace ImprovedPublicTransport
         {
             LoadPassengersPatch.Undo();
             UnloadPassengersPatch.Undo();
+            HarmonyPatches.VehicleAIPatches.EmptyBeforeDepotPatch.Undo();
             StartTransferPatch.Undo();
             DepotCapacityPatch.Undo();
+            DepotCapacityEnforcePatch.Undo();
             ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPanelPatches.AutoNameStopPatch.Undo();
             ReleaseNodePatch.Undo();
             ReleaseWaterSourcePatch.Undo();
@@ -693,10 +763,10 @@ namespace ImprovedPublicTransport
             RefreshVehicleButtonsPatch.Undo();
             UpdateStopButtonsPatch.Undo();
 
-            Redirector<TransportLineReverseDetour>.Revert();
             SimulationStepPatch.Undo();
             GetLineVehiclePatch.Undo();
             CanLeaveStopPatch.Undo();
+            TransportLineStopSafetyPatch.Undo();
             CachedTransportLineData.Deinit();
 
             BuildingExtension.Deinit();

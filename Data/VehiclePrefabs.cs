@@ -31,6 +31,9 @@ namespace ImprovedPublicTransport.Data
 
         private Dictionary<string, PrefabData> _allPrefabData;
         private Dictionary<int, PrefabData> _prefabDataByIndex;
+        // Merged multi-level arrays (service, subService) — rebuilt only when RegisterPrefabs runs.
+        private readonly Dictionary<long, PrefabData[]> _mergedByServiceSub =
+            new Dictionary<long, PrefabData[]>();
 
         public static void Init()
         {
@@ -84,16 +87,31 @@ namespace ImprovedPublicTransport.Data
         private PrefabData[] GetPrefabsNoLogging(ItemClass.Service service,
             ItemClass.SubService subService)
         {
+            var key = ((long)(int)service << 32) | (uint)(int)subService;
+            if (_mergedByServiceSub.TryGetValue(key, out var cached))
+            {
+                return cached;
+            }
+
             var l1 = instance.GetPrefabsNoLogging(service, subService, ItemClass.Level.Level1);
             var l2 = instance.GetPrefabsNoLogging(service, subService, ItemClass.Level.Level2);
             var l3 = instance.GetPrefabsNoLogging(service, subService, ItemClass.Level.Level3);
             var l4 = instance.GetPrefabsNoLogging(service, subService, ItemClass.Level.Level4);
-            if (l2.Length == 0 && l3.Length == 0 && l4.Length == 0) return l1;
-            var result = new PrefabData[l1.Length + l2.Length + l3.Length + l4.Length];
-            l1.CopyTo(result, 0);
-            l2.CopyTo(result, l1.Length);
-            l3.CopyTo(result, l1.Length + l2.Length);
-            l4.CopyTo(result, l1.Length + l2.Length + l3.Length);
+            PrefabData[] result;
+            if (l2.Length == 0 && l3.Length == 0 && l4.Length == 0)
+            {
+                result = l1;
+            }
+            else
+            {
+                result = new PrefabData[l1.Length + l2.Length + l3.Length + l4.Length];
+                l1.CopyTo(result, 0);
+                l2.CopyTo(result, l1.Length);
+                l3.CopyTo(result, l1.Length + l2.Length);
+                l4.CopyTo(result, l1.Length + l2.Length + l3.Length);
+            }
+
+            _mergedByServiceSub[key] = result;
             return result;
         }
 
@@ -169,6 +187,7 @@ namespace ImprovedPublicTransport.Data
         {
             _allPrefabData = new Dictionary<string, PrefabData>();
             _prefabDataByIndex = new Dictionary<int, PrefabData>();
+            _mergedByServiceSub.Clear();
             var busList = new List<PrefabData>();
             var biofuelBusList = new List<PrefabData>();
             var metroList = new List<PrefabData>();

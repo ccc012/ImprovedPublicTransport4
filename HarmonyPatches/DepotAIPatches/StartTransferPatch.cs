@@ -40,7 +40,12 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                 return true; //if it's not a proper transport line, let's not modify the behavior
             }
 
-            var depot = CachedTransportLineData._lineData[lineID].Depot;
+            if (!CachedTransportLineData._init)
+            {
+                return true; // cache not ready — leave vanilla spawn path alone
+            }
+
+            var depot = CachedTransportLineData.GetDepot(lineID);
             if (!DepotUtil.ValidateDepotAndFindNewIfNeeded(lineID, ref depot, info))
             {
                 if (depot == 0)
@@ -81,7 +86,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                     return false;
                 }
 
-                Debug.Log($"{ShortModName}: Redirecting from {buildingID} to {depot}");
+                if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
+                {
+                    Debug.Log($"{ShortModName}: Redirecting from {buildingID} to {depot}");
+                }
+
                 __instance.StartTransfer(depot, ref BuildingManager.instance.m_buildings.m_buffer[depot], reason,
                     offer);
                 return false;

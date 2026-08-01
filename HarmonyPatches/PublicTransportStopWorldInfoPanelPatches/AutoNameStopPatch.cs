@@ -18,10 +18,9 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPan
     /// </summary>
     // Deliberately no [HarmonyPatch]/[HarmonyPostfix] attributes here - this is applied manually via
     // PatchUtil (see Apply()/Undo() below), the same convention every other native (non-Integration)
-    // patch in HarmonyPatches/ uses. Attribute-based discovery would ALSO get picked up by every
-    // Integration's own harmony.PatchAll(Assembly.GetExecutingAssembly()) call, which scans the whole
-    // assembly rather than just its own namespace - that would apply this same postfix a second time
-    // under an unrelated Harmony ID, running it twice per stop click.
+    // patch in HarmonyPatches/ uses. Integrations now scope discovery with HarmonyScope.PatchNamespace,
+    // so they no longer re-apply every [HarmonyPatch] in the assembly; keeping core patches attribute-
+    // free still avoids accidental double-registration and keeps ownership under PatchUtil's Harmony ID.
     internal static class AutoNameStopPatch
     {
         private static readonly Type[] ShowArgumentTypes = { typeof(Vector3), typeof(InstanceID) };

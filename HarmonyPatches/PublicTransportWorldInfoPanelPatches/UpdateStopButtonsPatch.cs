@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using ColossalFramework;
 using ColossalFramework.UI;
 using ImprovedPublicTransport.UI;
 using ImprovedPublicTransport.Util;
+using UnityEngine;
 
 namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPatches
 {
@@ -11,7 +12,15 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
         // ___m_stopButtons.items reuses the same pooled UIButton instances across frames, so the
         // "PassengerCount" child lookup below is stable per button - cache it instead of walking
         // the UI tree for every stop button on every frame the line panel is open.
-        private static readonly Dictionary<UIComponent, UILabel> PassengerLabelCache = new Dictionary<UIComponent, UILabel>();
+        private static readonly Dictionary<UIComponent, UILabel> PassengerLabelCache =
+            new Dictionary<UIComponent, UILabel>();
+
+        private static float _nextFullRefreshRealtime;
+        private static ushort _cachedLineId;
+        private static readonly Dictionary<UIComponent, string> TooltipCache =
+            new Dictionary<UIComponent, string>();
+
+        private const float FullRefreshInterval = 0.4f;
 
         public static void Apply()
         {
@@ -27,11 +36,35 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
             PatchUtil.Unpatch(
                 new PatchUtil.MethodDefinition(typeof(PublicTransportWorldInfoPanel), "UpdateStopButtons")
             );
+            PassengerLabelCache.Clear();
+            TooltipCache.Clear();
         }
-        
+
         public static bool Prefix(UITemplateList<UIButton> ___m_stopButtons, ushort lineID)
         {
-            ushort stop = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].m_stops;
+            if (___m_stopButtons?.items == null || lineID == 0)
+            {
+                return false;
+            }
+
+            float now = Time.unscaledTime;
+            // Passenger counts do not need 60 Hz; tooltips even less so.
+            bool doFull = lineID != _cachedLineId || now >= _nextFullRefreshRealtime;
+            if (doFull)
+            {
+                _nextFullRefreshRealtime = now + FullRefreshInterval;
+                _cachedLineId = lineID;
+            }
+            else
+            {
+                // Still run, but skip expensive name/tooltip rebuilds when possible.
+            }
+
+            var tm = Singleton<TransportManager>.instance;
+            ref var line = ref tm.m_lines.m_buffer[lineID];
+            ushort stop = line.m_stops;
+            var instanceManager = Singleton<InstanceManager>.instance;
+
             foreach (UIComponent uiComponent in ___m_stopButtons.items)
             {
                 if (!PassengerLabelCache.TryGetValue(uiComponent, out var passengerLabel) || passengerLabel == null)
@@ -39,20 +72,29 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
                     passengerLabel = uiComponent.Find<UILabel>("PassengerCount");
                     PassengerLabelCache[uiComponent] = passengerLabel;
                 }
-                if (passengerLabel != null)
+
+                if (passengerLabel != null && doFull)
                 {
-                    passengerLabel.text = Singleton<TransportManager>.instance.m_lines.m_buffer[(int)lineID].CalculatePassengerCount(stop).ToString();
+                    passengerLabel.text = line.CalculatePassengerCount(stop).ToString();
                 }
-                //begin mod(+): add tooltip with stop name
-                var id = InstanceID.Empty;
-                id.NetNode = stop;
-                var name = Singleton<InstanceManager>.instance.GetName(id) ?? string.Empty;
-                if (string.Empty == name)
+
+                if (doFull)
                 {
-                    name = StopListBoxRow.GenerateStopName(name, stop, -1);
+                    var id = InstanceID.Empty;
+                    id.NetNode = stop;
+                    var name = instanceManager.GetName(id) ?? string.Empty;
+                    if (string.Empty == name)
+                    {
+                        name = StopListBoxRow.GenerateStopName(name, stop, -1);
+                    }
+
+                    var tip = string.Format(Localization.Get("STOP_BUTTON_TOOLTIP"), name);
+                    if (!TooltipCache.TryGetValue(uiComponent, out var old) || old != tip)
+                    {
+                        TooltipCache[uiComponent] = tip;
+                        uiComponent.tooltip = tip;
+                    }
                 }
-                uiComponent.tooltip = string.Format(Localization.Get("STOP_BUTTON_TOOLTIP"), name);
-                //end mod
 
                 stop = TransportLine.GetNextStop(stop);
             }

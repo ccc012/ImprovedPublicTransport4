@@ -215,10 +215,12 @@ namespace AutoLineColor.Naming
 
         private static bool GetSegmentsBetweenStops(ushort stop1, ushort stop2, List<ushort> segments)
         {
-            var theTransportManager = Singleton<TransportManager>.instance;
             var theNetManager = Singleton<NetManager>.instance;
 
-            theTransportManager.UpdateLinesNow();
+            // Do NOT call TransportManager.UpdateLinesNow() here.
+            // It recalculates paths for every line in the city and was invoked once per stop pair
+            // during AnalyzeLine — a single "refresh color/name" click could freeze for seconds.
+            // Complete lines already have segment paths; if a path is missing we just skip roads.
 
             while (stop1 != stop2)
             {

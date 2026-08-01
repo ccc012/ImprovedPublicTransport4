@@ -89,7 +89,7 @@ namespace ExpressBusServices.DataTypes
         /// Removes the pax-delta info object from the static table, which frees some memory back to the system.
         /// </summary>
         /// <param name="vehicleID">The ID of the vehicle in question.</param>
-        public static void Remove(ushort vehicleID) => paxDeltaTable.Remove(vehicleID);
+        public static void Remove(ushort vehicleID) => paxDeltaTable?.Remove(vehicleID);
 
         public static void Notify_VehicleFinishedUnloadingPax(ushort vehicleID, int serviceCounter)
         {
