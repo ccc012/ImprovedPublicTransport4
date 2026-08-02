@@ -6,7 +6,7 @@ namespace CSLModsCommon.UI.Buttons.RadioButtons;
 public class RadioGroupLogic<T> {
     private readonly List<RadioButtonItem<T>> _items = new();
     public RadioButtonItem<T> SelectedButton { get; private set; }
-    public T SelectedItem => SelectedButton.Value;
+    public T SelectedItem => SelectedButton != null ? SelectedButton.Value : default;
 
     public event Action<RadioButtonItem<T>> SelectionChanged;
 
