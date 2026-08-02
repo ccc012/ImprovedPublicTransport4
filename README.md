@@ -1,6 +1,6 @@
 # Improved Public Transport 4
 
-**Version 4.8.5** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
+**Version 4.8.6** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
 
 IPT4 is a fork of [Improved Public Transport 3](https://github.com/TheMadisonian/ImprovedPublicTransport3)
 that absorbs other public-transport mods into a **single assembly**. The goal is not
@@ -343,6 +343,7 @@ Modify the stats of any public transport vehicle type directly in-game:
 Clicking a stop node opens the IPT Stop Info Panel, which extends the vanilla stop window:
 
 - **Stop Name** — Rename any stop; suggested names sourced from nearby streets and districts.
+- **Auto-Name Stops** *(Options → Advanced, on by default)* — the first time you select an unnamed stop, it's given the same nearby-building name the dropdown would have suggested, without needing to open it. Never touches a name you (or this feature) already set.
 - **Passenger Statistics** — Current, last, and average boarding/alighting counts per stop visit.
 - **Waiting Passengers** — Live count of citizens waiting at the stop.
 - **Unbunching Toggle** — Enable or disable unbunching for this specific stop independently.
