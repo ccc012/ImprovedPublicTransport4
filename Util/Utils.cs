@@ -88,28 +88,26 @@ namespace ImprovedPublicTransport.Util
           }
       }
 
+        /// <summary>
+        /// Was a manual File.AppendAllText/WriteAllText pair targeting Logs/ImprovedPublicTransport4.log
+        /// on every single Log/LogError/LogWarning call (hundreds of call sites across this mod).
+        /// CSLModsCommon.Logging.LogManager's own Logger opens that exact same path with a
+        /// StreamWriter it keeps open for the entire session (see Logger.cs) - every one of our
+        /// calls was therefore guaranteed to hit a file-sharing violation, caught and silently
+        /// turned into an extra "Error while writing to log file" Debug.LogWarning on top of the
+        /// message we actually meant to log. That happened on effectively every Utils.Log* call in
+        /// the mod, all session, every session - real, if modest, wasted CPU (a failed file open +
+        /// exception + an extra Debug.LogWarning call) for zero benefit, since Debug.Log/LogWarning/
+        /// LogError already land reliably in Unity's own output_log.txt regardless. Removed; this
+        /// class no longer touches the filesystem for logging at all.
+        /// </summary>
         public static void ClearLogFile()
     {
-      try
-      {
-        File.WriteAllText(Utils.LogFilePath, string.Empty);
-      }
-      catch
-      {
-        Debug.LogWarning((object) ("Error while clearing log file: " + Utils.LogFilePath));
-      }
     }
 
     public static void LogToTxt(object o)
     {
-      try
-      {
-        File.AppendAllText(Utils.LogFilePath, DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy ") + o + Environment.NewLine);
-      }
-      catch
-      {
-        Debug.LogWarning((object) ("Error while writing to log file: " + Utils.LogFilePath));
-      }
+      Utils.Log(o);
     }
 
     public static void Log(object o)
@@ -133,18 +131,14 @@ namespace ImprovedPublicTransport.Util
       switch (type)
       {
         case PluginManager.MessageType.Error:
-          // Errors always hit Unity log (and dual file via LogToTxt for support).
           Debug.LogError((object) str);
-          try { LogToTxt(str); } catch { /* ignore IO */ }
           break;
         case PluginManager.MessageType.Warning:
           Debug.LogWarning((object) str);
-          try { LogToTxt(str); } catch { /* ignore IO */ }
           break;
         case PluginManager.MessageType.Message:
-          // Info spam via Debug.Log is the #1 FPS killer when Verbose is on.
-          // Always keep a file copy for support; only mirror to Unity console when Verbose.
-          try { LogToTxt(str); } catch { /* ignore IO */ }
+          // Info spam via Debug.Log is the #1 FPS killer when Verbose is on - only mirror to the
+          // Unity console when Verbose, matching the pre-existing behaviour for this level.
           if (Diagnostics.VerboseRuntimeLogs)
           {
             Debug.Log((object) str);

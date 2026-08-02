@@ -66,11 +66,14 @@ namespace ImprovedPublicTransport.Util
                 return baseCap;
             }
 
-            // Full map wants more icons but Light still stays modest.
+            // Full map wants more icons but Light still stays modest. Maximum's branch used to be
+            // Math.Min(baseCap, 2500) - since baseCap (2000) is already below that ceiling, FullMap
+            // multiplied by nothing and Maximum-profile players got zero benefit from the toggle,
+            // unlike every other profile which genuinely scales up here.
             return Current switch
             {
                 ModSetting.PerformanceProfiles.Light => System.Math.Min(baseCap * 2, 160),
-                ModSetting.PerformanceProfiles.Maximum => System.Math.Min(baseCap, 2500),
+                ModSetting.PerformanceProfiles.Maximum => System.Math.Min(baseCap * 2, 4000),
                 _ => System.Math.Min(baseCap * 4, 1200),
             };
         }
@@ -83,10 +86,13 @@ namespace ImprovedPublicTransport.Util
                 return baseCap;
             }
 
+            // Same issue as CommuterMaxCitizensEffective above: Maximum's Math.Max(baseCap, 64) was
+            // a no-op since baseCap (80) already exceeds the 64 floor - FullMap did nothing for
+            // Maximum-profile players here either.
             return Current switch
             {
                 ModSetting.PerformanceProfiles.Light => System.Math.Min(baseCap * 2, 12),
-                ModSetting.PerformanceProfiles.Maximum => System.Math.Max(baseCap, 64),
+                ModSetting.PerformanceProfiles.Maximum => System.Math.Min(baseCap * 2, 160),
                 _ => System.Math.Min(baseCap * 3, 48),
             };
         }

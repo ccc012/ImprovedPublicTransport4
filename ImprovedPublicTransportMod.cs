@@ -742,8 +742,6 @@ namespace ImprovedPublicTransport
                     ++num;
                     instance.m_units.m_buffer[index] = new CitizenUnit();
                     instance.m_units.ReleaseItem((uint)index);
-                    Utils.LogToTxt(
-                        $"CitizenUnit #{index} - Flags: {citizenUnit.m_flags} - Citizens: #{citizenUnit.m_citizen0} | #{citizenUnit.m_citizen1} | #{citizenUnit.m_citizen2} | #{citizenUnit.m_citizen3} | #{citizenUnit.m_citizen4}");
                 }
             }
 
