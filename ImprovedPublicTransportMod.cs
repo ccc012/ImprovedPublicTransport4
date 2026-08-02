@@ -128,7 +128,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"AutoLineBudget: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"AutoLineBudget: failed to apply integration: {ex}");
                     }
 
                     _worldInfoPanel = new GameObject("PublicTransportStopWorldInfoPanel");
@@ -234,7 +234,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"ElevatedStopsEnabler: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"ElevatedStopsEnabler: failed to apply integration: {ex}");
                     }
 
                     IptGameObject.AddComponent<VehicleEditor>();
@@ -266,7 +266,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"AdvancedStopSelection: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"AdvancedStopSelection: failed to apply integration: {ex}");
                     }
 
                     // BetterBoarding integration (enhanced boarding decisions)
@@ -284,7 +284,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"BetterBoarding: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"BetterBoarding: failed to apply integration: {ex}");
                     }
 
                     // MileageTaxiServices integration (generate fare income from taxi mileage)
@@ -298,7 +298,7 @@ namespace ImprovedPublicTransport
                         }
                         catch (Exception ex)
                         {
-                            Utils.LogError($"MileageTaxiServices: failed to apply integration: {ex.Message}");
+                            Utils.LogError($"MileageTaxiServices: failed to apply integration: {ex}");
                         }
                     }
                     else if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
@@ -317,7 +317,7 @@ namespace ImprovedPublicTransport
                         }
                         catch (Exception ex)
                         {
-                            Utils.LogError($"RealisticWalkingSpeed: failed to apply integration: {ex.Message}");
+                            Utils.LogError($"RealisticWalkingSpeed: failed to apply integration: {ex}");
                         }
                     }
                     else
@@ -340,7 +340,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"PublicTransportUnstucker: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"PublicTransportUnstucker: failed to apply integration: {ex}");
                     }
 
                     // TicketPriceCustomizer: apply configured ticket multipliers on load (only if enabled)
@@ -392,7 +392,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"IntercityBusControl: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"IntercityBusControl: failed to apply integration: {ex}");
                     }
 
                     // FlightTracker integration (patches)
@@ -410,7 +410,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"FlightTracker: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"FlightTracker: failed to apply integration: {ex}");
                     }
 
                     // SubBuildingsTabs integration (UI-only: tab strip on buildings with sub-buildings)
@@ -428,7 +428,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"SubBuildingsTabs: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"SubBuildingsTabs: failed to apply integration: {ex}");
                     }
 
                     // TaxiStandFix integration (sends idle taxis toward taxi stands)
@@ -449,7 +449,7 @@ namespace ImprovedPublicTransport
                         }
                         catch (Exception ex)
                         {
-                            Utils.LogError($"TaxiStandFix: failed to apply integration: {ex.Message}");
+                            Utils.LogError($"TaxiStandFix: failed to apply integration: {ex}");
                         }
                     }
                     else
@@ -474,7 +474,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"SharedStopEnabler: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"SharedStopEnabler: failed to apply integration: {ex}");
                     }
 
                     try
@@ -492,7 +492,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"CommuterDestination: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"CommuterDestination: failed to apply integration: {ex}");
                     }
 
                     // In-game hotkeys (Options → Key bindings).
@@ -521,7 +521,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"OptimisedOutsideConnections: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"OptimisedOutsideConnections: failed to apply integration: {ex}");
                     }
 
                     // UnlimitedOutsideConnections integration (removes the vanilla 4-connection cap)
@@ -539,7 +539,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"UnlimitedOutsideConnections: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"UnlimitedOutsideConnections: failed to apply integration: {ex}");
                     }
 
                     // SingleTrainTrackAI integration (reserves single-track segments for one train at a time)
@@ -557,7 +557,7 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"SingleTrainTrackAI: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"SingleTrainTrackAI: failed to apply integration: {ex}");
                     }
 
                     // StopStacker integration (multi-berth stop stacking for buses/trolleybuses)
@@ -575,11 +575,15 @@ namespace ImprovedPublicTransport
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"StopStacker: failed to apply integration: {ex.Message}");
+                        Utils.LogError($"StopStacker: failed to apply integration: {ex}");
                     }
 
                     // Show What's New notification now that the in-game UI is fully initialized.
                     AlgernonCommons.Notifications.WhatsNew.ShowWhatsNew();
+
+                    // One unmissable line if any Harmony patch above silently failed to apply -
+                    // see PatchUtil.LogPatchFailureSummary for why this exists.
+                    Util.PatchUtil.LogPatchFailureSummary();
                 }
                 else
                     Utils.LogError("UIView not found, aborting!");
@@ -801,7 +805,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"BetterBusStopPosition: failed to remove integration: {ex.Message}");
+                Utils.LogError($"BetterBusStopPosition: failed to remove integration: {ex}");
             }
 
             // BetterBoarding cleanup
@@ -812,7 +816,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"BetterBoarding: failed to remove integration: {ex.Message}");
+                Utils.LogError($"BetterBoarding: failed to remove integration: {ex}");
             }
 
             // MileageTaxiServices cleanup (only if After Dark DLC present)
@@ -825,7 +829,7 @@ namespace ImprovedPublicTransport
                 }
                 catch (Exception ex)
                 {
-                    Utils.LogError($"MileageTaxiServices: failed to remove integration: {ex.Message}");
+                    Utils.LogError($"MileageTaxiServices: failed to remove integration: {ex}");
                 }
             }
 
@@ -839,7 +843,7 @@ namespace ImprovedPublicTransport
                 }
                 catch (Exception ex)
                 {
-                    Utils.LogError($"RealisticWalkingSpeed: failed to remove integration: {ex.Message}");
+                    Utils.LogError($"RealisticWalkingSpeed: failed to remove integration: {ex}");
                 }
             }
 
@@ -855,7 +859,7 @@ namespace ImprovedPublicTransport
                 }
                 catch (Exception ex)
                 {
-                    Utils.LogError($"IntercityBusControl: failed to remove integration: {ex.Message}");
+                    Utils.LogError($"IntercityBusControl: failed to remove integration: {ex}");
                 }
             }
 
@@ -867,7 +871,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"FlightTracker: failed to remove integration: {ex.Message}");
+                Utils.LogError($"FlightTracker: failed to remove integration: {ex}");
             }
 
             // SubBuildingsTabs cleanup
@@ -878,7 +882,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"SubBuildingsTabs: failed to remove integration: {ex.Message}");
+                Utils.LogError($"SubBuildingsTabs: failed to remove integration: {ex}");
             }
 
             // TaxiStandFix cleanup (only if After Dark DLC present)
@@ -891,7 +895,7 @@ namespace ImprovedPublicTransport
                 }
                 catch (Exception ex)
                 {
-                    Utils.LogError($"TaxiStandFix: failed to remove integration: {ex.Message}");
+                    Utils.LogError($"TaxiStandFix: failed to remove integration: {ex}");
                 }
             }
 
@@ -903,7 +907,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"SharedStopEnabler: failed to remove integration: {ex.Message}");
+                Utils.LogError($"SharedStopEnabler: failed to remove integration: {ex}");
             }
 
             // CommuterDestination cleanup
@@ -914,7 +918,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"CommuterDestination: failed to remove integration: {ex.Message}");
+                Utils.LogError($"CommuterDestination: failed to remove integration: {ex}");
             }
 
             // OptimisedOutsideConnections cleanup
@@ -925,7 +929,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"OptimisedOutsideConnections: failed to remove integration: {ex.Message}");
+                Utils.LogError($"OptimisedOutsideConnections: failed to remove integration: {ex}");
             }
 
             // UnlimitedOutsideConnections cleanup
@@ -936,7 +940,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"UnlimitedOutsideConnections: failed to remove integration: {ex.Message}");
+                Utils.LogError($"UnlimitedOutsideConnections: failed to remove integration: {ex}");
             }
 
             // SingleTrainTrackAI cleanup
@@ -947,7 +951,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"SingleTrainTrackAI: failed to remove integration: {ex.Message}");
+                Utils.LogError($"SingleTrainTrackAI: failed to remove integration: {ex}");
             }
 
             // StopStacker cleanup
@@ -958,7 +962,7 @@ namespace ImprovedPublicTransport
             }
             catch (Exception ex)
             {
-                Utils.LogError($"StopStacker: failed to remove integration: {ex.Message}");
+                Utils.LogError($"StopStacker: failed to remove integration: {ex}");
             }
 
         }

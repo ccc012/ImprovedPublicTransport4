@@ -15,6 +15,15 @@ namespace ImprovedPublicTransport.Util
         private static Harmony HarmonyInstance =>
             _harmonyInstance ??= new Harmony(HarmonyId.Value);
 
+        // A patch failure here is silent by design (Patch() swallows the exception so one broken
+        // patch can't take the whole mod down) - but silent also means it can sit broken for
+        // multiple releases with nobody noticing, which is exactly what happened to the
+        // unbunching CanLeave and depot-cap patches (parameter name mismatches, both fixed in
+        // 4.8.7 - found only by reading a full verbose log end to end, not by looking for a
+        // specific symptom). Collecting failures here and emitting one unmissable summary line
+        // after all patches are applied means the *next* one doesn't need that same manual sweep.
+        private static readonly System.Collections.Generic.List<string> _failedPatches
+            = new System.Collections.Generic.List<string>();
 
         public static void Patch(
             MethodDefinition original,
@@ -44,9 +53,34 @@ namespace ImprovedPublicTransport.Util
             }
             catch (Exception e)
             {
-                Debug.LogError($"{ShortModName}: Failed to patch method {original.Type.FullName}.{original.MethodName}");
+                var target = $"{original.Type.FullName}.{original.MethodName}";
+                Debug.LogError($"{ShortModName}: Failed to patch method {target}");
                 Debug.LogException(e);
+                _failedPatches.Add($"{target} ({e.Message})");
             }
+        }
+
+        /// <summary>
+        /// Call once after every Apply() in the startup sequence has run. Logs one ERROR line
+        /// listing every patch that failed this session, so a regression like a renamed vanilla
+        /// parameter shows up immediately instead of needing someone to grep hundreds of
+        /// "Patching method" lines for the one that has no matching success.
+        /// </summary>
+        public static void LogPatchFailureSummary()
+        {
+            if (_failedPatches.Count == 0)
+            {
+                if (Diagnostics.VerboseRuntimeLogs)
+                {
+                    Debug.Log($"{ShortModName}: all Harmony patches applied cleanly this session.");
+                }
+                return;
+            }
+
+            Debug.LogError(
+                $"{ShortModName}: {_failedPatches.Count} Harmony patch(es) FAILED to apply this session "
+                + "- the affected feature(s) are silently doing nothing:\n  "
+                + string.Join("\n  ", _failedPatches.ToArray()));
         }
 
         internal static void LogExistingPatches(MethodInfo methodInfo)
