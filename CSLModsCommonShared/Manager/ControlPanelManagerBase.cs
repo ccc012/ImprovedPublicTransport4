@@ -76,7 +76,14 @@ public abstract class ControlPanelManagerBase : PanelManagerBase {
     }
 
     public override void EnsurePanelOpen() {
-        if (!IsVisible) CreatePanel();
+        if (IsVisible) return;
+        // HidePanel() leaves _panelGameObject alive, and CreatePanel() early-returns without
+        // calling ShowPanel() when it's already set - so a previously-hidden panel needs an
+        // explicit ShowPanel() here, not another CreatePanel() call.
+        if (_panelGameObject is not null)
+            ShowPanel();
+        else
+            CreatePanel();
     }
 
     public override void ReloadPanelIfOpen() {

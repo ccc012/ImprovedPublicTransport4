@@ -85,7 +85,6 @@ public abstract class ModManagerBase : ManagerBase {
         _updateManager.UpdateAt<DialogManager>(UpdatePhase.Default);
         var compatibilityManager = _updateManager.UpdateAt<CompatibilityManager>(UpdatePhase.Default);
         _updateManager.UpdateAt<KeyBindingManager>(UpdatePhase.Default);
-        _updateManager.UpdateAt<KeyBindingManager>(UpdatePhase.Default);
         OnUpdateMangers(_updateManager);
 
         if (!_isInitialized) {
