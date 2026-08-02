@@ -23,7 +23,12 @@ namespace ImprovedPublicTransport.Data
                 Utils.Log("Loading default transport line data.");
                 NetManager instance1 = Singleton<NetManager>.instance;
                 TransportManager instance2 = Singleton<TransportManager>.instance;
-                int length = instance2.m_lines.m_buffer.Length;
+                // _lineData is fixed at 256 slots everywhere else (TryLoadData/OnSaveData both
+                // hardcode it) - vanilla TransportManager.m_lines is also 256, but bounding this
+                // loop by the array's own length instead of the live buffer's is what actually
+                // guarantees no IndexOutOfRangeException here if that assumption ever breaks (a
+                // mod expanding the line cap, a future game update, etc.).
+                int length = Mathf.Min(instance2.m_lines.m_buffer.Length, _lineData.Length);
                 for (ushort index = 0; index < length; ++index)
                 {
                     if (instance2.m_lines.m_buffer[index].Complete)
