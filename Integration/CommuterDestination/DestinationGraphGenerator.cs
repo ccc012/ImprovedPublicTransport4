@@ -9,7 +9,10 @@ namespace CommuterDestination
 {
     internal static class DestinationGraphGenerator
     {
-        private const float StopRange = 64f;
+        // TEMP (testing): widened from 64f so we're not also fighting a too-narrow search radius
+        // while confirming whether the feature produces any entries at all. Narrow back down once
+        // confirmed working.
+        private const float StopRange = 300f;
         private const float StopRangeSq = StopRange * StopRange;
 
         private static readonly Dictionary<ushort, int> s_buildingCounts = new Dictionary<ushort, int>(64);
@@ -81,13 +84,19 @@ namespace CommuterDestination
                             continue;
                         }
 
-                        if (Vector3.SqrMagnitude((Vector3)citizen.m_targetPos - stopPosition) >= StopRangeSq)
-                        {
-                            citizenInstanceId = nextGridInstance;
-                            continue;
-                        }
+                        // NOTE: used to also reject here when citizen.m_targetPos was outside
+                        // StopRange of the stop - but m_targetPos is the citizen's CURRENT PATH
+                        // SEGMENT target (the next waypoint), not their present position, and once
+                        // WaitingTransport is set that waypoint has typically already advanced past
+                        // the stop toward wherever the transport leg goes next - often far outside
+                        // StopRange. That silently rejected nearly every legitimately-waiting
+                        // citizen with no error ever logged, which is consistent with destination
+                        // icons never appearing. The citizen grid iteration above (lowerX/upperX/
+                        // lowerZ/upperZ, all derived from stopPosition +/- StopRange) already does
+                        // the real proximity filtering by cell - this was a redundant, and wrong,
+                        // second check.
 
-                        // Light profile: skip expensive AI gate (distance + WaitingTransport is enough).
+                        // Light profile: skip expensive AI gate (WaitingTransport + grid cell is enough).
                         if (!PerformanceProfile.IsLight
                             && nextStop != 0
                             && citizen.Info?.m_citizenAI != null)

@@ -14,6 +14,86 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [Unreleased] Post-4.8.7 fixes (not yet built into a published version)
+
+### Fixed - CommuterDestination LateUpdate patch, for real this time
+
+The `[HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "LateUpdate")]`
+patch (decaying the suppress-hide counter) had already been removed once this
+session, but a later `git reset --hard` to an earlier commit silently
+undid that removal because it was still uncommitted — see the new
+"Known engine/runtime gotchas" note in the README. Removed again. Functionality
+is unaffected: `PatchController.IsSuppressHideActive()` already self-heals via
+a 30-frame timeout with no dependency on this patch ever running.
+
+### Fixed - CommuterDestination graph generation rejecting nearly all waiting citizens
+
+`DestinationGraphGenerator.GenerateGraph` filtered candidate citizens by the
+distance from `citizen.m_targetPos` (their current path-segment waypoint, which
+has typically already advanced past the stop once `WaitingTransport` is set) to
+the stop, instead of their actual position — silently rejecting almost every
+legitimately-waiting citizen with no error ever logged. The citizen-grid
+iteration bounds (already derived from `stopPosition ± StopRange`) already do
+the real proximity filtering by grid cell; this was a redundant and incorrect
+second check. Removed.
+
+Also (temporary, for testing while confirming the fix works end to end -
+**revert before any release**): `PerformanceProfile.CommuterMaxCitizens`/
+`CommuterMaxDestinations` bumped way up across all three profiles, and
+`DestinationGraphGenerator.StopRange` widened from 64f to 300f, so results are
+easy to spot rather than possibly capped down to near-nothing.
+
+Icon set changed from a 3-tier Low/Mid/High colour ramp
+(`NoCustomers`/`Noise`/`Death+MajorProblem`) to a single consistent
+`MajorProblem` icon (vanilla's plain red circle-with-"!" problem badge) — easier
+to visually confirm during testing, may revisit once confirmed working.
+
+### Fixed - vehicle panel text flicker, root cause was LateUpdate ordering
+
+`PanelExtenderVehicle`'s "reapply cached text every `LateUpdate`" pattern
+(added to win the race against the vanilla vehicle panel's own `Update`)
+still flickered — confirmed via user report that it alternated between real
+text and **blank**, not between two different real values, ruling out a stale-
+cache issue. Root cause: Unity does not guarantee `LateUpdate` order between
+different `MonoBehaviour`s, so if vanilla's panel (or another mod) also has its
+own `LateUpdate` touching the same labels, whoever runs later that frame wins,
+non-deterministically — see the README gotcha. Fixed in two layers:
+`[DefaultExecutionOrder(32000)]` on `PanelExtenderVehicle`/`PanelExtenderLine`
+to run as late as possible, and a `WaitForEndOfFrame` coroutine
+(`EndOfFrameReapplyLoop`) that reapplies the same cached fields again after
+*every* `Update`/`LateUpdate` in the scene has run for the frame — later than
+execution order alone can push a `LateUpdate`.
+
+### Fixed - line panel button overlap, this time by removing the overflow instead of hiding it
+
+Two earlier attempts (bumping `_iptContainer.height`, then repositioning the
+vanilla sibling below it) both failed to fix the "Visão geral das linhas" /
+"Excluir linha" row overlapping vanilla's own line-length/stop-count text
+below it — `autoLayout` positions children by their own sizes regardless of a
+parent's declared height (see README gotcha), so there was no height value
+that fixed it. Root-fixed instead by removing the row entirely
+(`CreateButtonPanel2` deleted) and moving both buttons into the existing
+"Atualizar Nome/Cor · Copiar · Colar" row, stacked vertically next to Copy/
+Paste (`CreateLineOverviewDeleteStack`) — that row has no vanilla sibling below
+it to collide with.
+
+### Changed - IntercityBusControl no longer auto-disables Stop Stacker
+
+`IptModManager`'s incompatible-mods list still had a `Ban`-level entry for the
+standalone Stop Stacker mod from before it became a locked/legacy feature (see
+4.8.7 below) — meaning IPT4 was still silently force-disabling a mod whose
+author had just asked us to stop interfering with it. Removed the entry.
+
+### Optimised - one redundant dictionary lookup + one LINQ allocation
+
+`TeleportRedeployInstructions.NotifyTransportLineAddFutureDeployment`/
+`TransportLineReadFutureDeployment` did `ContainsKey` followed by the indexer
+(two hashes); `TransportLineReadFutureDeployment` also used `.First()` to read
+element 0 of a `List<ushort>`, allocating a LINQ enumerator for no reason.
+Replaced with `TryGetValue` and `list[0]`.
+
+---
+
 ## [4.8.7] Bus stop berth stacking: locked legacy toggle, naming cleanup
 
 Out-of-cycle release, prompted by a Workshop comment from ScratchyBald

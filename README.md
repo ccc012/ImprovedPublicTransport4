@@ -144,6 +144,65 @@ fix.
 > coupling broke three separate features across releases as the entry class moved.
 > Use `PluginManager.FindPluginInfo(Assembly.GetExecutingAssembly())`.
 
+### Known engine/runtime gotchas
+
+Hard-won lessons from real debugging sessions — read before assuming a fix works
+just because the reasoning sounds right, or reaching for the "obvious" API.
+
+- **`AccessTools.Method`/`AccessTools.DeclaredMethod` can silently return `null`
+  in this game's embedded Mono runtime for a method that resolves perfectly via
+  plain `Type.GetMethod` outside the game** (verified by loading the built DLL in
+  a standalone process with the game's own `Managed/*.dll` assemblies for
+  dependency resolution — zero ambiguity, single clean match). Whatever causes
+  this is Mono-build-specific, not a real ambiguity or a missing method. Also:
+  **`TargetMethod()` returning `null` does NOT make Harmony skip the patch
+  quietly** — `PatchClassProcessor` still throws `"Undefined target method"`
+  either way. If a `[HarmonyPatch]` target keeps failing this way despite the
+  target method genuinely existing, don't keep swapping reflection APIs —
+  remove the patch and lean on whatever fallback/self-healing the feature
+  already has, or find a different method to hook.
+- **`UIPanel.autoLayout` only positions a container's own children by *their*
+  sizes — a parent's own declared `.height` is cosmetic metadata, not something
+  that pushes sibling components elsewhere in the panel.** Bumping a container's
+  height to "fit" overflowing content does nothing if the sibling rendering
+  underneath it is positioned independently (e.g. a vanilla-owned label found via
+  reflection, not created by us). Trace where the *colliding* element's own
+  position actually comes from before touching height values.
+- **Unity does not guarantee `LateUpdate` execution order between different
+  `MonoBehaviour`s on the same GameObject hierarchy tree unless told to.** A
+  "reapply our value every `LateUpdate` so we always win the race against
+  vanilla's `Update`" pattern only reliably wins if vanilla (or another mod)
+  never *also* has a competing `LateUpdate` — if it does, whoever runs later
+  that frame wins, non-deterministically. Fix: `[DefaultExecutionOrder(32000)]`
+  (exists in this Unity 5.6 build) on our class to run as late as possible, and
+  if that still isn't enough, reapply again inside a
+  `WaitForEndOfFrame` coroutine — that runs after **every** `Update`/`LateUpdate`
+  in the scene for the frame, later than execution order can push a `LateUpdate`.
+- **A `git reset --hard` to an older commit silently discards *any* uncommitted
+  fix made after that commit, even ones unrelated to why you're resetting.**
+  If a revert is done to isolate one change (e.g. "did commit X break
+  something?"), explicitly re-check for other uncommitted work that predates
+  the revert target before assuming it's still there — it isn't, and nothing
+  will tell you it's gone until the bug it fixed reappears.
+- **Auto-detecting and disabling *other authors'* standalone mods (via the
+  incompatible-mods system) is a real community-relations decision, not just a
+  technical one** — do it only for mods this project has fully absorbed and
+  intends to keep absorbing going forward, and remove the entry if the
+  absorbed feature becomes legacy-only/opt-out. An author complaint about
+  their mod being silently disabled is a legitimate bug report, not just
+  friction to route around.
+- **.NET 3.5 / Mono hot-path costs that don't show up in review:** string
+  interpolation (`$"..."`) compiles to `string.Format`, which boxes every value
+  type argument even if the resulting string is never used — always guard
+  interpolated log calls with the verbose-logging check *before* building the
+  string, not after. LINQ (`.Any`, `.Where().ToList()`, `.OrderBy().First()`,
+  `.Sum()`) allocates an enumerator (and often more) per call — replace with a
+  manual `foreach` in anything called per-vehicle or per-simulation-tick.
+  `dict.ContainsKey(k)` followed by `dict[k]` is two hashes where
+  `dict.TryGetValue(k, out v)` is one. A lambda passed to `Array.Sort` allocates
+  a delegate (and a closure, if it captures anything) per call — a `struct`
+  implementing `IComparer<T>` does not.
+
 ### Adding an integration
 
 1. Check the licence (`Projeto/IPT4/03_LICENCIAMENTO_MODS_FONTE.md`) — GPL-3.0

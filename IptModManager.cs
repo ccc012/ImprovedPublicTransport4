@@ -182,9 +182,6 @@ namespace ImprovedPublicTransport
                 .AddWithWorkshop("SingleTrainTrackAI", Ban, "SingleTrainTrackAI",
                     "Single-track reservation is built into IPT4 (clean-room) — both can double-brake trains.",
                     949504539u)
-                .AddWithWorkshop("StopStacker", Ban, "Stop Stacker",
-                    "Multi-berth stop stacking is built into IPT4 (clean-room).",
-                    3751418194u)
                 .AddWithWorkshop("RescueFullwidthDigits", Ban, "Rescue Fullwidth Digits",
                     "Fullwidth digit normalisation for line names is built into IPT4.",
                     1174585364u);

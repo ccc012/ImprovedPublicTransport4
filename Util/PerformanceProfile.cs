@@ -25,20 +25,24 @@ namespace ImprovedPublicTransport.Util
             _ => 0.20f,
         };
 
+        // TEMP (testing): all three profiles bumped way up so destination icons/entries are easy to
+        // spot the moment the feature actually produces any, instead of possibly getting capped
+        // down to near-nothing before we've even confirmed it works end to end. Revisit down to
+        // sane defaults once confirmed working in-game.
         /// <summary>Commuter citizen-grid scan hard cap.</summary>
         public static int CommuterMaxCitizens => Current switch
         {
-            ModSetting.PerformanceProfiles.Light => 80,
-            ModSetting.PerformanceProfiles.Maximum => 2000,
-            _ => 200,
+            ModSetting.PerformanceProfiles.Light => 2000,
+            ModSetting.PerformanceProfiles.Maximum => 5000,
+            _ => 3000,
         };
 
         /// <summary>Commuter map icons + destinations kept.</summary>
         public static int CommuterMaxDestinations => Current switch
         {
-            ModSetting.PerformanceProfiles.Light => 6,
-            ModSetting.PerformanceProfiles.Maximum => 80,
-            _ => 12,
+            ModSetting.PerformanceProfiles.Light => 500,
+            ModSetting.PerformanceProfiles.Maximum => 500,
+            _ => 500,
         };
 
         /// <summary>Commuter panel destination list rows.</summary>

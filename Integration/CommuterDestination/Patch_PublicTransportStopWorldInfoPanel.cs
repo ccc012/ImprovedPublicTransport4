@@ -148,14 +148,17 @@ namespace CommuterDestination
         }
     }
 
-    /// <summary>Decay the suppress-hide counter each frame the stop panel updates.</summary>
-    [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "LateUpdate")]
-    internal static class Patch_PublicTransportStopWorldInfoPanel_LateUpdate
-    {
-        [HarmonyPrefix]
-        public static void Prefix()
-        {
-            PatchController.TickSuppressHide();
-        }
-    }
+    // A Harmony patch on this type's LateUpdate used to live here, to decay the suppress-hide
+    // counter every frame. Removed (again - a git reset earlier in this session silently undid the
+    // first removal, since it was still uncommitted at the time): Type.GetMethod("LateUpdate", ...)
+    // for this exact override reliably resolves outside the game (verified via a standalone
+    // reflection probe against the built DLL, with the game's own Managed assemblies loaded for
+    // dependency resolution - found cleanly, zero ambiguity, single DeclaredOnly match) but returns
+    // null every time inside the game's own Mono runtime, through AccessTools.Method,
+    // AccessTools.DeclaredMethod, and raw Type.GetMethod alike - all three logged the exact same
+    // failure in-game. Whatever causes this is specific to this old embedded Mono build, not to how
+    // we're looking the method up. Not worth continuing to fight: PatchController.IsSuppressHideActive()
+    // (see PatchController.cs) already self-heals via Time.frameCount - _suppressArmedFrame > 30
+    // without needing this patch to ever run - TickSuppressHide() was only an early-decay nicety,
+    // never load-bearing.
 }

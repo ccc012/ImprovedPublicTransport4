@@ -15,14 +15,12 @@ namespace CommuterDestination
     {
         private static readonly Vector3 HeightOffset = new Vector3(0f, 40f, 0f);
 
-        // Different Notification problem bits → distinct colours in CS1 (same size always).
-        // Low ≈ blue/info, mid ≈ yellow/warn, high ≈ red/major.
+        // Single consistent icon (was a 3-tier Low/Mid/High colour ramp) - MajorProblem alone
+        // renders as vanilla's plain red circle-with-"!" problem badge, easiest to spot on the map.
         private static readonly Notification.ProblemStruct IconLow =
-            new Notification.ProblemStruct(Notification.Problem1.NoCustomers);
-        private static readonly Notification.ProblemStruct IconMid =
-            new Notification.ProblemStruct(Notification.Problem1.Noise);
-        private static readonly Notification.ProblemStruct IconHigh =
-            new Notification.ProblemStruct(Notification.Problem1.Death | Notification.Problem1.MajorProblem);
+            new Notification.ProblemStruct(Notification.Problem1.MajorProblem);
+        private static readonly Notification.ProblemStruct IconMid = IconLow;
+        private static readonly Notification.ProblemStruct IconHigh = IconLow;
 
         private static bool _registered;
 

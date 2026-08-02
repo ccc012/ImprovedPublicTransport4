@@ -19,6 +19,13 @@ using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace ImprovedPublicTransport.UI.PanelExtenders
 {
+  // Unity does not guarantee LateUpdate ordering between different MonoBehaviours unless told to -
+  // "LateUpdate always runs after every Update" (see the comment on our own LateUpdate below) is
+  // only true for OUR LateUpdate vs vanilla's Update. If the vanilla vehicle panel (or another mod)
+  // also has its own LateUpdate touching these same labels, whichever LateUpdate happens to run
+  // later that frame wins, and text kept flickering even with the reapply-cache pattern in place.
+  // Forcing this about as late as the execution order range allows makes us win deterministically.
+  [DefaultExecutionOrder(32000)]
   public class PanelExtenderVehicle : MonoBehaviour
   {
     private bool _initialized;
@@ -50,6 +57,24 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private string _cachedDistanceText;
     private float _nextBindingsRealtime;
 
+    // Same race as _cachedStatusText/_cachedDistanceText above, but for the progress bar - vanilla
+    // writes m_DistanceTraveled's value/color every frame too, and our own writes only happen on
+    // the 0.2s UpdateBindings throttle, so most frames showed vanilla's own progress/colour with
+    // ours flashing in only on the throttled frames (worst while boarding/stopped: vanilla and our
+    // green boarding-progress bar fight every frame). Null/unset means "we don't own this field in
+    // the current state" - LateUpdate only reapplies when a value is actually cached.
+    private float? _cachedProgressValue;
+    private Color32? _cachedProgressColor;
+    private string _cachedProgressText;
+
+    // Same race again, for the "Target" button (next-stop name) - vanilla writes this button's text
+    // every frame too, and we only touch it ourselves inside the "moving between stops" branch of
+    // UpdateBindings, on the 0.2s throttle. Null means we don't own it this tick (boarding/stopped
+    // state, or the Plane takeoff/landing edge case) - vanilla stays in control and LateUpdate must
+    // not force stale text onto it.
+    private string _cachedTargetText;
+    private bool _endOfFrameLoopRunning;
+
     public void LateUpdate()
     {
       if (!this._initialized)
@@ -71,17 +96,49 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this.UpdateBindings();
       }
 
+      this.ReapplyCachedFields();
+
+      if (!this._endOfFrameLoopRunning)
+      {
+        this._endOfFrameLoopRunning = true;
+        this.StartCoroutine(this.EndOfFrameReapplyLoop());
+      }
+    }
+
+    // [DefaultExecutionOrder] on this class forces our LateUpdate to run after every other
+    // MonoBehaviour's LateUpdate this frame - but the vanilla panel's own field-clearing turned out
+    // to still win sometimes even so (confirmed: text flickers between real value and BLANK, not
+    // between two different real values - so this was never a stale-cache issue, always a "who
+    // wrote last" issue). WaitForEndOfFrame runs after Unity has finished ALL Update/LateUpdate
+    // calls for every object in the scene for that frame, which is later than LateUpdate can ever
+    // be pushed via execution order alone - the only later point before the frame actually renders.
+    private System.Collections.IEnumerator EndOfFrameReapplyLoop()
+    {
+      while (this._initialized)
+      {
+        yield return new UnityEngine.WaitForEndOfFrame();
+        if (this._publicTransportVehicleWorldInfoPanel != null
+            && this._publicTransportVehicleWorldInfoPanel.component.isVisible)
+        {
+          this.ReapplyCachedFields();
+        }
+      }
+
+      this._endOfFrameLoopRunning = false;
+    }
+
+    private void ReapplyCachedFields()
+    {
       // The vanilla panel's own Update() writes the Status/Distance labels every frame with its
       // own text (e.g. it can decide a vehicle is "not on route" the instant it isn't strictly
-      // between two stops) - nothing patches or disables that native refresh. LateUpdate always
-      // runs after every Update in the same frame, so re-applying the LAST text UpdateBindings
-      // computed - a couple of string assignments, not a recompute - is enough to always win that
-      // race every single frame, without re-running the expensive parts on every frame too. The
-      // previous "no throttle at all" version fixed the flicker but paid for a full
-      // FindObjectsOfType scan every frame just to keep two labels current; this keeps the win
-      // without the cost. Most visible while paused, since vanilla's Update() keeps running under
-      // pause but a throttle timer built on unscaledTime also keeps advancing, so the two were
-      // never in sync at any fixed interval.
+      // between two stops) - nothing patches or disables that native refresh. Re-applying the LAST
+      // text UpdateBindings computed - a couple of string assignments, not a recompute - is enough
+      // to win that race, without re-running the expensive parts on every frame too. The previous
+      // "no throttle at all" version fixed the flicker but paid for a full FindObjectsOfType scan
+      // every frame just to keep two labels current; this keeps the win without the cost. Most
+      // visible while paused, since vanilla's Update() keeps running under pause but a throttle
+      // timer built on unscaledTime also keeps advancing, so the two were never in sync at any
+      // fixed interval.
       if (this._status != null && this._cachedStatusText != null)
       {
         this._status.text = this._cachedStatusText;
@@ -90,6 +147,29 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       if (this._distance != null && this._cachedDistanceText != null)
       {
         this._distance.text = this._cachedDistanceText;
+      }
+
+      if (this._distanceTraveled != null)
+      {
+        if (this._cachedProgressValue.HasValue)
+        {
+          this._distanceTraveled.value = this._cachedProgressValue.Value;
+        }
+
+        if (this._cachedProgressColor.HasValue)
+        {
+          this._distanceTraveled.progressColor = this._cachedProgressColor.Value;
+        }
+      }
+
+      if (this._distanceProgress != null && this._cachedProgressText != null)
+      {
+        this._distanceProgress.text = this._cachedProgressText;
+      }
+
+      if (this._target != null && this._cachedTargetText != null)
+      {
+        this._target.text = this._cachedTargetText;
       }
     }
 
@@ -140,6 +220,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         // panel every frame.
         this._cachedStatusText = null;
         this._cachedDistanceText = null;
+        this._cachedProgressValue = null;
+        this._cachedProgressColor = null;
+        this._cachedProgressText = null;
+        this._cachedTargetText = null;
       }
       else
       {
@@ -217,7 +301,12 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           this._distanceTraveled.progressColor = Color.green;
           this._distanceTraveled.value = progress;
           this._distanceProgress.text = LocaleFormatter.FormatPercentage( Mathf.RoundToInt(progress * 100f));
-          
+          this._cachedProgressValue = progress;
+          this._cachedProgressColor = Color.green;
+          this._cachedProgressText = this._distanceProgress.text;
+          // Boarding/stopped: we never touch _target here, vanilla stays in control of it - don't
+          // let a stale next-stop name from before this vehicle stopped keep getting reapplied.
+          this._cachedTargetText = null;
         }
         else
         {
@@ -234,6 +323,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             }
             this.UpdateProgress();
           }
+          else
+          {
+            // Only Ship/Plane call UpdateProgress() above (it caches value/text itself) - every
+            // other subService's progress %/fill stays fully vanilla-controlled while moving, so
+            // there is nothing of ours to reapply in LateUpdate. Clearing here (rather than
+            // leaving a stale boarding-phase or previous-vehicle value cached) stops LateUpdate
+            // from forcing a stale number back onto vanilla's own live progress display.
+            this._cachedProgressValue = null;
+            this._cachedProgressText = null;
+          }
           this._status.text = text;
           if (flag)
           {
@@ -245,9 +344,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             this._target.text = name == null ? string.Format(Localization.Get("STOP_LIST_BOX_ROW_STOP"), (object) (TransportLineUtil.GetStopIndex(lineId, targetBuilding) + 1)) : name;
             this._target.Enable();
             this._target.Show();
+            this._cachedTargetText = this._target.text;
+          }
+          else
+          {
+            // Plane taking off/landing: we don't touch _target this tick either, same as above.
+            this._cachedTargetText = null;
           }
           this._distance.text = ColossalFramework.Globalization.Locale.Get(this._distance.localeID);
           this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+          this._cachedProgressColor = this._distanceTraveled.progressColor;
           this._cachedStatusText = this._status.text;
           this._cachedDistanceText = this._distance.text;
         }
@@ -530,6 +636,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       int p = Mathf.RoundToInt(num * 100f);
       this._distanceTraveled.value = num;
       this._distanceProgress.text = LocaleFormatter.FormatPercentage(p);
+      this._cachedProgressValue = num;
+      this._cachedProgressText = this._distanceProgress.text;
     }
 
     public static bool GetProgressStatus(ushort vehicleID, ref Vehicle data, out float current, out float max)

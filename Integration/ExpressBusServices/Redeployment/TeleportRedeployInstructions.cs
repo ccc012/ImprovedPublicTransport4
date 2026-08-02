@@ -1,7 +1,6 @@
 ﻿using ColossalFramework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -32,26 +31,26 @@ namespace ExpressBusServices.Redeployment
 
         public static void NotifyTransportLineAddFutureDeployment(ushort transportLineID, ushort targetStopID)
         {
-            if (!transportLineDepotInstructions.ContainsKey(transportLineID))
+            if (!transportLineDepotInstructions.TryGetValue(transportLineID, out var pending))
             {
-                transportLineDepotInstructions[transportLineID] = new List<ushort>();
+                pending = new List<ushort>();
+                transportLineDepotInstructions[transportLineID] = pending;
             }
-            transportLineDepotInstructions[transportLineID].Add(targetStopID);
+            pending.Add(targetStopID);
         }
 
         public static bool TransportLineReadFutureDeployment(ushort transportLineID, out ushort targetStopID)
         {
             targetStopID = 0;
-            if (!transportLineDepotInstructions.ContainsKey(transportLineID))
+            if (!transportLineDepotInstructions.TryGetValue(transportLineID, out var pendingInstructions))
             {
                 return false;
             }
-            List<ushort> pendingInstructions = transportLineDepotInstructions[transportLineID];
             if (pendingInstructions.Count == 0)
             {
                 return false;
             }
-            targetStopID = pendingInstructions.First();
+            targetStopID = pendingInstructions[0];
             pendingInstructions.RemoveAt(0);
             if (pendingInstructions.Count == 0)
             {

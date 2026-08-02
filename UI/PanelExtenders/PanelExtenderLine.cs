@@ -21,6 +21,10 @@ using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace ImprovedPublicTransport.UI.PanelExtenders
 {
+    // See the same attribute on PanelExtenderVehicle - Unity does not guarantee LateUpdate order
+    // between different MonoBehaviours, so without this our reapply-cache pattern for
+    // m_VehicleAmount could still lose to vanilla's LateUpdate (if it has one) on some frames.
+    [DefaultExecutionOrder(32000)]
     public class PanelExtenderLine : MonoBehaviour
     {
         private static readonly MethodInfo OnColorChangedMethod =
@@ -296,7 +300,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                             CreateUnbunchingPanel();
                             CreateDropDownPanel();
                             CreateButtonPanel1();
-                            CreateButtonPanel2();
                             _publicTransportWorldInfoPanel.component.height = 515f;
                             CreateVehiclesOnLinePanel();
                             CreateVehiclesInQueuePanel();
@@ -697,7 +700,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             var panel = _iptContainer.AddUIComponent<UIPanel>();
             panel.name = "IptLineActions";
             panel.width = panel.parent.width;
-            panel.height = 23f;
+            // Tall enough for the stacked Lines-overview/Delete pair added below (2x18f + 2f gap).
+            panel.height = 38f;
             panel.autoLayoutDirection = LayoutDirection.Horizontal;
             panel.autoLayoutStart = LayoutStart.TopLeft;
             panel.autoLayoutPadding = new RectOffset(0, 6, 0, 0);
@@ -717,6 +721,45 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
             // Copy / Paste line settings (was only on PrefabPanel; CHANGELOG noted unreachable UI).
             CreateCopyPasteButtons(panel);
+
+            // "Visão geral das linhas" / "Excluir linha" - moved here (stacked, top/bottom) instead
+            // of their own row at the bottom of _iptContainer: that row's content always overflowed
+            // the space vanilla actually left below it (see removed CreateButtonPanel2), and the
+            // overflow rendered on top of vanilla's own line-length/stop-count text no matter what
+            // height was declared - autoLayout positions children by their own sizes, not by a
+            // parent's declared height, so there was no safe height to pick. This row has no vanilla
+            // sibling below it to collide with.
+            CreateLineOverviewDeleteStack(panel);
+        }
+
+        private void CreateLineOverviewDeleteStack(UIComponent parent)
+        {
+            var stack = parent.AddUIComponent<UIPanel>();
+            stack.name = "IptLineOverviewDeleteStack";
+            stack.width = 110f;
+            stack.height = 38f;
+            stack.autoLayoutDirection = LayoutDirection.Vertical;
+            stack.autoLayoutStart = LayoutStart.TopLeft;
+            stack.autoLayoutPadding = new RectOffset(0, 0, 0, 2);
+            stack.autoLayout = true;
+
+            var overviewButton = UIUtils.CreateButton(stack);
+            overviewButton.name = "VehicleLinesOverview";
+            overviewButton.localeID = "VEHICLE_LINESOVERVIEW";
+            overviewButton.textScale = 0.65f;
+            overviewButton.textPadding = new RectOffset(4, 4, 2, 0);
+            overviewButton.width = 110f;
+            overviewButton.height = 18f;
+            overviewButton.eventClick += (c, p) => _publicTransportWorldInfoPanel.OnLinesOverviewClicked();
+
+            var deleteButton = UIUtils.CreateButton(stack);
+            deleteButton.name = "LineDelete";
+            deleteButton.localeID = "LINE_DELETE";
+            deleteButton.textScale = 0.65f;
+            deleteButton.textPadding = new RectOffset(4, 4, 2, 0);
+            deleteButton.width = 110f;
+            deleteButton.height = 18f;
+            deleteButton.eventClick += OnDeleteLineClick;
         }
 
         private void CreateCopyPasteButtons(UIComponent parent)
@@ -872,45 +915,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             button3.eventClick += OnRemoveVehicleClick;
         }
 
-        private void CreateButtonPanel2()
-        {
-            UIPanel uiPanel = _iptContainer.AddUIComponent<UIPanel>();
-            double width = uiPanel.parent.width;
-            uiPanel.width = (float)width;
-            double num1 = 22.0;
-            uiPanel.height = (float)num1;
-            int num2 = 0;
-            uiPanel.autoLayoutDirection = (LayoutDirection)num2;
-            int num3 = 0;
-            uiPanel.autoLayoutStart = (LayoutStart)num3;
-            RectOffset rectOffset = new RectOffset(0, 6, 0, 0);
-            uiPanel.autoLayoutPadding = rectOffset;
-            int num4 = 1;
-            uiPanel.autoLayout = num4 != 0;
-            float num5 = (float)((uiPanel.parent.width - 4.0) / 2.0);
-            UIButton button1 = UIUtils.CreateButton(uiPanel);
-            string str1 = "VEHICLE_LINESOVERVIEW";
-            button1.localeID = str1;
-            double num6 = 0.800000011920929;
-            button1.textScale = (float)num6;
-            double num7 = num5;
-            button1.width = (float)num7;
-            double num8 = 22.0;
-            button1.height = (float)num8;
-            MouseEventHandler mouseEventHandler1 = (c, p) => _publicTransportWorldInfoPanel.OnLinesOverviewClicked();
-            button1.eventClick += mouseEventHandler1;
-            UIButton button2 = UIUtils.CreateButton(uiPanel);
-            string str2 = "LINE_DELETE";
-            button2.localeID = str2;
-            double num9 = 0.800000011920929;
-            button2.textScale = (float)num9;
-            double num10 = num5;
-            button2.width = (float)num10;
-            double num11 = 22.0;
-            button2.height = (float)num11;
-            MouseEventHandler mouseEventHandler2 = OnDeleteLineClick;
-            button2.eventClick += mouseEventHandler2;
-        }
 
         private void CreateVehiclesOnLinePanel()
         {
