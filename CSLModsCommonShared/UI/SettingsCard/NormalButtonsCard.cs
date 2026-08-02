@@ -23,7 +23,7 @@ public class NormalButtonsCard : SettingsCardBase<LiteContainer>, INormalButtons
         Buttons = _buttons.AsReadOnly();
     }
 
-    public NormalButton RegisterButton(string text, Action onClicked = null, Action<NormalButton> onRender = null) => RegisterButton(text, (_) => onClicked?.Invoke(), null);
+    public NormalButton RegisterButton(string text, Action onClicked = null, Action<NormalButton> onRender = null) => RegisterButton(text, (_) => onClicked?.Invoke(), onRender);
 
     public NormalButton RegisterButton(string text, Action<NormalButton> onClicked = null, Action<NormalButton> onRender = null) {
         var button = _control.AddUIComponent<NormalButton>();

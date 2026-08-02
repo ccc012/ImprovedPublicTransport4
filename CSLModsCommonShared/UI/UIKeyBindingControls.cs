@@ -115,12 +115,18 @@ public class UIKeyBindingControls : LiteContainer {
             _ => KeyCode.None
         };
 
-        if (keyCode != KeyCode.None)
+        if (keyCode != KeyCode.None) {
             ApplyKey(new KeyCombination(
                 keyCode,
                 ModifierFlagsExtensions.IsControlDown(),
                 ModifierFlagsExtensions.IsShiftDown(),
                 ModifierFlagsExtensions.IsAltDown()));
+            // Unlike OnBindingKeyDown's keyboard path, this used to leave _bindingPhase stuck at
+            // WaitingForKey and the modal capture (UIView.PushModal in OnBindingMouseDown) never
+            // popped - binding a shortcut to a mouse button left the control stuck capturing input
+            // until the user separately pressed Escape or another key.
+            EndBinding();
+        }
     }
 
     private void OnBindingKeyDown(UIComponent component, UIKeyEventParameter e) {
