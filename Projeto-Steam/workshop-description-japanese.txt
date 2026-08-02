@@ -4,41 +4,40 @@
 [b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
 
 [h1]このMODが存在する理由[/h1]
-都市の資金が枯渇していました — 交通維持費が約 [b]-42,000,000,000[/b] まで暴走したのです。関係するMODが壊れていたわけではありません。2つの正常に機能するMODが、それぞれの路線の車両数を個別に決定し、互いに上書きし合っていたのが原因でした。解決策は、1つの場所、1つのシステムにまとめること。それがIPT4です。
+交通維持費が約 [b]-42,000,000,000[/b] まで暴走——2つのMODがそれぞれ独立して車両数を決定し、互いに上書きしていたのが原因。解決策は1つのシステムにまとめること。それがIPT4です。
 [hr][/hr]
 [h1]このMODでできること[/h1]
 [h2]すべての路線を管理[/h2]
-バス、路面電車、地下鉄、列車、船、飛行機、モノレール、ケーブルカー、タクシー、ツアー — すべての路線に完全なコントロールパネルが追加されます。[b]車両数を自分で設定する[/b]か、予算からMODに自動調整させる（勝手に上書きされることはありません）、各路線で[b]運行する車両を選択する[/b]、[b]車両を個別に編集する[/b]、そして路線ごとに[b]車庫を選択する[/b]ことができます。
+すべての路線に完全なコントロールパネル：[b]車両数を自分で設定[/b]または予算から自動調整、[b]運行車両を選択[/b]、[b]車両を個別編集[/b]、路線ごとに[b]車庫を選択[/b]。
 [h2]団子運転の解消[/h2]
-4台のバスが数珠つなぎになり、その後10分間何も来ない。そんな状況を防ぐため、路線ごとに3つのレベルを用意しました：[b]無効 (Disabled)[/b]（バニラ）、[b]慎重 (Prudent)[/b]（緩やかな間隔）、[b]リアル (Realistic)[/b]（実際の間隔）。または、空の停留所をスキップする[b]エクスプレス (Express)[/b]モードを使用できます。
+路線ごとに3レベル：[b]無効[/b]（バニラ）、[b]慎重[/b]（緩やかな間隔）、[b]リアル[/b]（実際の間隔）。または空の停留所をスキップする[b]エクスプレス[/b]モード。
 [h2]独自の運賃を設定[/h2]
-経済パネルの[b]チケット価格 (Ticket Prices)[/b]タブで、各交通機関の価格を個別に設定できます。オプションで[b]昼/夜の価格設定[/b]も可能です。価格は需要に影響します：安い交通機関は満員になり、高い交通機関は空になります。
+[b]チケット価格[/b]タブで各交通機関の価格を個別設定、オプションで[b]昼/夜の価格設定[/b]も可能。価格は需要に影響します。
 [h2]状況の把握[/h2]
-[b]停留所情報パネル[/b]（待機中の乗客、次の車両、混雑度）、[b]Train Display[/b]（車両追跡時のリアルタイム路線オーバーレイ、完全カスタマイズ可能）、見やすい交通マップのための[b]自動路線カラーと名前[/b]、そして空港の到着と出発を表示する[b]Flight Tracker[/b]。
+[b]停留所情報パネル[/b]、[b]Train Display[/b]（リアルタイム路線オーバーレイ）、[b]自動路線カラーと名前[/b]、[b]Flight Tracker[/b]。
 [h2]ネットワークの整理[/h2]
-[b]路線の一括削除[/b]（選択したタイプのすべての路線を一度に削除、確認画面あり）、高架線路を含む[b]停留所配置の改善[/b]、そして立ち往生した車両が路線を塞ぐ代わりに解放する[b]スタック解除ツール (unstucker)[/b]。
+[b]路線の一括削除[/b]、高架線路を含む[b]停留所配置の改善[/b]、立ち往生した車両を解放する[b]スタック解除ツール[/b]。
 [h2]4.8 の新機能[/h2]
-[b]単線列車 AI (Single Train Track AI)[/b] — 共有の単線区間を一度に一方向だけ予約し、2つの列車が衝突する危険を無くします。[b]Stop Stacker[/b] — 同じ停留所に集中する2台目のバスが、1台目の後ろに並ぶのではなく、少し後ろに専用の停車位置を確保します。[b]Intercity Bus Control[/b] を根本から修正 — DLCのチェックが不安定で、Sunset Harborの所有者でも気付かずに無効になることがありました。デフォルトで再びオンになりました。[b]Sub-Buildings Tabs[/b] — 破壊/再建後の稀なタブのバグを修正。デフォルトで再びオンになりました。さらに、バグ修正とパフォーマンスの向上 — 完全なリストは技術的な変更履歴をご覧ください。
+[b]単線列車 AI[/b] — 共有単線区間を一方向だけ予約し衝突を防止。[b]Stop Stacker[/b] — 2台目のバスに専用停車位置。[b]Intercity Bus Control[/b] のDLCチェック修正。[b]Sub-Buildings Tabs[/b] の稀なタブバグ修正。さらにバグ修正とパフォーマンス向上 — 詳細は技術的な変更履歴をご覧ください。
 [hr][/hr]
-[h1]IPT4 に吸収された MOD — とその作成者[/h1]
-[b]単体バージョンのサブスクリプションを解除してください[/b] — 両方を実行すると、同じゲームコードに2回パッチを当てることになり、まさにこのMODが防ごうとしている競合が発生します。以下のものはすべて他の方々の作品です。もし役立ったなら、作者のページでお礼を言ってください。
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]、BloodyPenguin のオリジナルを引き継ぎ) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]、Phil Scott のオリジナルから) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]、[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape のオリジナル[/url]を引き継ぎ) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-ほとんどのものはオプションに独自のスイッチがあります。壊れたバニラの挙動を修正するだけのいくつかの機能は常にオンになっています。タクシーのマイレージ収入には [b]After Dark[/b] が必要です。[b]Taxi Stand Fix[/b]、[b]Single Train Track AI[/b]、および [b]Stop Stacker[/b] はこのリストにはありません — これら3つはすべてオリジナル/クリーンルームコードであり、移植ではありません（ソースMODには宣言されたライセンスや利用可能なソースがありません）。
+[h1]IPT4 に吸収された MOD[/h1]
+[b]単体版のサブスクリプションを解除してください[/b] — 両方実行すると同じコードに二重パッチが当たります。以下は他の方々の作品です。役立ったら作者のページでお礼を。
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+ほとんどがオプションで個別にオンオフ可能。タクシーのマイレージ収入には [b]After Dark[/b] が必要。[b]Taxi Stand Fix[/b]、[b]Single Train Track AI[/b]、[b]Stop Stacker[/b] はオリジナルコード（ソースMODにライセンスなし）。
 [hr][/hr]
 [h1]要件と互換性[/h1]
-[b]Harmony[/b] (ID 2040656402) が必要です。[b]以下とは互換性がありません：[/b] IPT2、IPT3、Transport Lines Manager、単体の AutoLineBudget、または上記のMODの単体コピー — 見つかった場合はゲーム内で警告が表示されます。
+[b]Harmony[/b] (ID 2040656402) が必要。[b]非互換：[/b] IPT2、IPT3、Transport Lines Manager、または上記MODの単体コピー — 検出時はゲーム内で警告。
 [hr][/hr]
 [h1]言語[/h1]
-[b]全23言語が完全に翻訳されています[/b] — メニューだけでなく、すべての文字列が対象です。ゲームの言語に従うか、オプションで選択してください。
+[b]全23言語が完全に翻訳[/b] — メニューだけでなく全文字列対象。ゲーム言語に従うか、オプションで選択。
 [hr][/hr]
 [h1]はじめに[/h1]
-[b]Harmony[/b] をサブスクライブし、上記の単体MODのサブスクリプションを解除し、IPT4を有効にして、都市をロードし、任意の交通路線をクリックします。オプションは [b]オプション → MOD設定 → Improved Public Transport 4[/b] にあります。運賃は [b]経済[/b] パネルにあります。[b]既存のセーブデータは機能します[/b] — IPT2/IPT3 と同じセーブデータです。
+[b]Harmony[/b] をサブスクライブ、単体MODを解除、IPT4を有効化、路線をクリック。オプションは [b]オプション → MOD設定 → IPT4[/b]、運賃は [b]経済[/b] パネル。[b]既存セーブデータ対応[/b]。
 [hr][/hr]
 [h1]安定性[/h1]
-安定版チャンネル。このフォークのきっかけとなった維持費暴走のバグは根本から修正されており、破損したセーブデータはロード時に自動的に修復されます。それでも、[b]バックアップセーブを保持[/b]してください。何かが壊れた場合は、[i]何をしていたか[/i]を説明し、以下を添付してください：
+安定版チャンネル。維持費暴走バグは根本修正済み、破損セーブは自動修復。[b]バックアップは保持[/b]してください。問題があれば[i]何をしていたか[/i]を説明し添付：
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-ログなしの「機能しない」という報告は診断できません。
+ログなしでは診断できません。
 [hr][/hr]
 [h1]ソースとクレジット[/h1]
-ソースと技術的な変更履歴：[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-IPT4は [b]GPL-3.0[/b] であり、他の方々の作品の上に成り立っています：[b]DontCryJustDie[/b] がオリジナルの IPT (2015) を書き、[b]BloodyPenguin[/b] が [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url] を書き、[b]Madisonian[/b] が [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] を書き、これをフォークしたものです。吸収されたMODは上記でクレジットされています。UIフレームワークは [b]algernon[/b] と [b]Mbyron26[/b] によるものです。皆様、本当にありがとうございました。
+[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]。IPT4は [b]GPL-3.0[/b]：[b]DontCryJustDie[/b] がオリジナル IPT (2015)、[b]BloodyPenguin[/b] が [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]、[b]Madisonian[/b] が [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]。UIフレームワーク：[b]algernon[/b]、[b]Mbyron26[/b]。皆様、ありがとうございました。
