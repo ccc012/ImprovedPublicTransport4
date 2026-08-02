@@ -166,7 +166,7 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Heteluchtballon
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximaal aantal passagiers dat op een ballonhalte wacht
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximaal aantal passagiers dat op een helikopterhalte wacht
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Blimp
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Zeppelin
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximaal aantal passagiers dat op een blimphalte wacht
 SETTINGS_UNBUNCHING Spreiding
 SETTINGS_UNBUNCHING_AGGRESSION Spreidingsaggressiviteit:
@@ -220,7 +220,7 @@ SETTINGS_DELETE_FERRY_LABEL Veerboten
 SETTINGS_DELETE_SHIP_TOOLTIP Verwijdert alle veerbootlijnen.
 SETTINGS_DELETE_HELICOPTER_LABEL Helikopters
 SETTINGS_DELETE_HELICOPTER_TOOLTIP Verwijdert alle helikopterlijnen.
-SETTINGS_DELETE_BLIMP_LABEL Blimps
+SETTINGS_DELETE_BLIMP_LABEL Zeppelins
 SETTINGS_DELETE_BLIMP_TOOLTIP Verwijdert alle blimplijnen.
 VEHICLE_EDITOR_TITLE Voertuigeditor
 VEHICLE_EDITOR_SUB_TITLE {0} voertuigen
@@ -444,13 +444,13 @@ CHANGELOG_4_8_0_4 Opgelost: het selectievakje "interlokale bussen accepteren" bl
 CHANGELOG_4_8_0_5 Opgelost: Sub-Buildings Tabs toonde af en toe een verouderde tabbladenbalk op een niet-gerelateerd gebouw: het spel hergebruikt gebouw-ID's na een sloop, en de cache vertrouwde erop dat een hergebruikte ID nog steeds bij de vorige gebouwcluster hoorde. Nu wordt de daadwerkelijke bovenliggende keten van het gebouw opnieuw gevalideerd voordat er iets uit de cache wordt hergebruikt.
 CHANGELOG_4_8_0_6 Algemene bugronde over meerdere integraties: een omgekeerde cache-vervalcontrole die verse data verwierp en in plaats daarvan verouderde data leverde, een off-by-one lusgrens die de laatste vervoerslijn oversloeg bij automatische kleuring en controles op dubbele namen, een verkeerde ID-vergelijking die de "slechts één voertuig op deze lijn"-omzeiling voor samenklontering brak, een prijsopzoeking die een mislukking permanent cachete in plaats van later opnieuw te proberen, en verschillende Harmony-patches die konden vastlopen op een lege UI/prefab-referentie.
 CHANGELOG_4_8_0_7 Minder herhaalde reflection- en per-frame-opzoekingen bij meerdere integraties: voertuig-tooltipbeschrijvingen, classificatie van enkelsporige segmenten en de item-class-opzoeking voor interlokale bussen worden nu gecachet in plaats van bij elke aanroep opnieuw berekend, en een UI-vernieuwingsknop wijst zijn tekst niet meer elk frame opnieuw toe, ongeacht of er iets veranderd is.
-CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
-CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
-CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
-CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
-CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
-CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
-CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_0_8 Nieuwe installaties gebruiken nu het Veilige gameplayprofiel: elke optionele integratie en modus begint uitgeschakeld voor maximale compatibiliteit met andere mods. Gebruik Aanbevolen (IPT-kern) of Realistisch, of schakel afzonderlijke opties om. Intercity Bus Control en Subgebouw-tabbladen blijven beschikbaar en zijn na bovenstaande fixes opgenomen in Aanbevolen.
+CHANGELOG_4_8_0_9 Opties > Integraties toont nu Geavanceerde Haltekeuze, Beter Instappen, Kilometrage Taxidiensten en Verhoogde Haltes — deze werden al geregeld via instellingen en profielen, maar hadden geen selectievakje, dus konden alleen via JSON/profiel worden ingeschakeld.
+CHANGELOG_4_8_0_10 Volledige Steam Workshop-taalpakketten toegevoegd voor elke taal van de beschrijvingskiezer, waaronder Deens, Fins, Noors, Zweeds, Hongaars, Roemeens, Bulgaars, Grieks, Oekraïens, Vietnamees en Maleis, plus pt-br en es-419.
+CHANGELOG_4_8_5_1 Haperingen/bevriezingen in Trein Display opgelost: het snellere, directe herpeilpad is teruggedraaid en de peilminima zijn verhoogd, zodat de overlay niet meer wedijvert met de simulatie bij Maximale prestatie.
+CHANGELOG_4_8_5_2 Route-strook en automatische haltenaamgeving van Trein Display geoptimaliseerd: hoogstens één zware naamscan per peiling, mislukte naamloze haltes worden niet elk interval opnieuw gescand, en routenaamlijsten vermijden extra lijsttoewijzingen.
+CHANGELOG_4_8_5_3 Forensenbestemming gepauzeerd (nog steeds buggy): geforceerd uitgeschakeld voor alle profielen/saves en de Opties-schakelaar verwijderd tot een latere herontwerp. Alleen-toekomstige spoiler blijft onder Geavanceerd.
+CHANGELOG_4_8_5_4 Taalpakketten in Opties: volledige Common JSON-set wordt bij implementatie meegeleverd (35+ frameworktalen), zodat de taalkeuzelijst niet langer de helft van de lijst mist; beschrijvingskaarten van secties behouden een gedeelde achtergrond met hun besturingselementen.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 Vier nieuwe integraties: Subgebouwtabbladen (tabbalk voor elk complex met meerdere gebouwen, niet alleen luchthavens), Gedeelde haltes (laat meer dan één haltetype hetzelfde wegsegment delen, standaard uitgeschakeld), Bestemming forensen (toont waar de wachtende inwoners bij een halte daadwerkelijk naartoe gaan) en Taxistandplaatscorrectie (vrije taxi's rijden naar de dichtstbijzijnde standplaats in plaats van doelloos rond te rijden). Zie Opties > Integraties voor elke schakelaar.
 CHANGELOG_4_7_0_2 Een voertuigcapaciteitsmodus toegevoegd voor intercitybusterminals (Opties > Integraties > Capaciteit intercitybusterminal): Uitgeschakeld behoudt de bestaande, feitelijk onbeperkte terminal van deze mod, Gemiddeld past een gematigd vast maximum toe, Realistisch herstelt de eigen vanille-prefabcapaciteit van de terminal. Bestaande spellen gebruiken standaard Uitgeschakeld, zodat een update de capaciteit van een terminal nooit stilzwijgend verkleint.
@@ -521,58 +521,67 @@ SETTINGS_COMPAT_BADGE_OK OK
 SETTINGS_COMPAT_GUIDE_GROUP Wat niet te gebruiken met IPT4
 SETTINGS_COMPAT_GUIDE_DESCRIPTION Nooit inschakelen: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nMeld je af van standalones die al in IPT4 zijn ingebouwd (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, enz. - volledige lijst staat in het Workshop-discussie).\nVereist: Harmony (CitiesHarmony, Workshop 2040656402).\nStart het spel opnieuw nadat u een conflict hebt uitgeschakeld, zodat Harmony-patches netjes ontladen.
 LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Stuur het geselecteerde voertuig terug naar zijn depot/garage. Verlaagt het doel aantal lijnen.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
-SETTINGS_TAB_FLEET_SHORT Fleet
-SETTINGS_TAB_STOPS_SHORT Stops
+COMMUTER_STOP_WITH_WAITING {0} ({1} wachtend)
+SETTINGS_TAB_FLEET_SHORT Wagenpark
+SETTINGS_TAB_STOPS_SHORT Haltes
 SETTINGS_TAB_OVERLAY_SHORT Overlay
-SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING Spacing
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
-SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR Color
-SETTINGS_SUB_CAPS Caps
-SETTINGS_SUB_NET Network
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
-SETTINGS_SUB_VEHICLES Vehicles
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_TAB_SYSTEM_SHORT Systeem
+SETTINGS_SUB_SPACING Spreiding
+SETTINGS_SUB_SPACING_DESC Houd voertuigen gelijkmatig gespreid. Spreiding is het klassieke IPT-hulpmiddel; Express Bus/Tram is een alternatieve stijl.
+SETTINGS_SUB_BUDGET Begroting
+SETTINGS_SUB_COLOR Kleur
+SETTINGS_SUB_CAPS Limieten
+SETTINGS_SUB_NET Netwerk
+SETTINGS_SUB_NET_DESC Halteplaatsing op wegen: verhoogd, gedeelde types, stapelen, geavanceerde perrons.
+SETTINGS_SUB_VEHICLES Voertuigen
+SETTINGS_SUB_VEHICLES_DESC Instappen, terugkeer naar depot, enkelspoortreinen, taxi's, vastloper-oplosser.
 SETTINGS_SUB_DEPOTS Depots
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
-SETTINGS_SUB_OUTSIDE Outside
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
-SETTINGS_SUB_DISPLAY Display
+SETTINGS_SUB_DEPOTS_DESC Zachte limieten voor hoeveel voertuigen een depot kan bevatten (standaard vaak onbeperkt).
+SETTINGS_SUB_OUTSIDE Buiten
+SETTINGS_SUB_OUTSIDE_DESC Intercity-terminals en wachttijd voor vracht/passagiers bij buitenverbindingen.
+SETTINGS_SUB_DISPLAY Weergave
 SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-LINE_PANEL_COPY Copy
-LINE_PANEL_PASTE Paste
+SETTINGS_SUB_INFO_DESC Panelen en stadsinfo-hulpmiddelen (geen wagenparksimulatie).
+SETTINGS_SUB_PERF Prestatie
+SETTINGS_SUB_COMPAT Compat.
+SETTINGS_SUB_KEYS Toetsen
+SETTINGS_FUTURE_GROUP Binnenkort
+SETTINGS_FUTURE_GROUP_DESCRIPTION Voorbeeld van geplande functies. Grijs weergegeven tot ze klaar zijn — nog geen effect.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Omkeerbare tram-AI (binnenkort)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Gepland: trams keren op eindpunten zonder lus. Nog niet beschikbaar.
+SETTINGS_FUTURE_BREAKDOWN Storingshulpmiddelen (binnenkort)
+SETTINGS_FUTURE_BREAKDOWN_TIP Gepland: route-/verkeersdiagnose voor vastgelopen vervoer. Nog niet beschikbaar.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Kaartdetail:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Prestatie toont minder kaartpictogrammen en ververst sneller. Volledige kaart toont veel meer bestemmingspictogrammen op de kaart; het paneel werkt langzamer bij, zodat zwakkere pc's het nog kunnen gebruiken.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Prestatie (sneller)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Volledige kaart (meer pictogrammen, tragere verversing)
+SETTINGS_KEYBINDINGS_GROUP Sneltoetsen in het spel
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Sneltoetsen terwijl een stad geladen is. Klik op een toewijzing en druk daarna op een toets om opnieuw toe te wijzen.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Trein Display in-/uitschakelen
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Schakel de voertuigoverlay in de hoek in of uit.
+SETTINGS_HOTKEY_LINE_COLOR Lijnkleur opnieuw toewijzen
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Voer Automatische Lijnkleur opnieuw uit voor de geselecteerde lijn terwijl een vervoerslijn geselecteerd is (vereist een ingeschakelde kleurstrategie).
+LINE_PANEL_COPY Kopiëren
+LINE_PANEL_PASTE Plakken
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP Snelle tips
+SETTINGS_QUICK_TIPS_DESC Kleine herinneringen — geen extra code, gewoon hoe je gebruikt wat je al hebt.
+SETTINGS_QUICK_TIP_1_TITLE Begin simpel
+SETTINGS_QUICK_TIP_1_BODY Kies Aanbevolen en schakel alleen in wat je nodig hebt. Veilig is het beste als je veel andere mods gebruikt.
+SETTINGS_QUICK_TIP_2_TITLE Trage pc?
+SETTINGS_QUICK_TIP_2_BODY Systeem → Prestatie → Licht. Vermijd ook forensen-'Volledige kaart' als de FPS daalt.
+SETTINGS_QUICK_TIP_3_TITLE Na schakelaars
+SETTINGS_QUICK_TIP_3_BODY Sommige opties vereisen het herladen van de stad (tooltip vermeldt dit). Systeem → Compat. controleert conflicterende mods.
+SETTINGS_OOC_RESET_TOOLTIP Zet wachttijd voor buitenverbindingen, dummyverkeer en gerelateerde schakelaars terug naar de veilige standaardwaarden.
+SETTINGS_EBS_GROUP_BUS_DESC Expresbussen kunnen vroeg vertrekken wanneer er weinig passagiers instappen — optionele geavanceerde spreiding.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rijen
+SETTINGS_SUB_NET_BBSP_NOTE Betere bushalte positie verandert alleen waar bussen bij de halte parkeren. Onderstaande opties zijn aparte functies (verhoogd, gedeelde haltes, enz.) — ze blijven bewust klikbaar.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Altijd actief gedrag
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Twee kleine gedragingen die tot nu toe altijd actief waren zonder mogelijkheid om ze uit te zetten. Standaard ingeschakeld, zodat bestaande installaties geen verandering zien - schakel uit als je een losstaande mod gebruikt die hetzelfde doet, of gewoon liever handmatige controle hebt.
+SETTINGS_AUTONAMESTOPS_ENABLE Naamloze haltes automatisch benoemen
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP De eerste keer dat je een halte zonder naam selecteert, krijgt deze dezelfde naam van een nabijgelegen gebouw die de eigen vervolgkeuzelijst van het haltepaneel zou voorstellen - zonder dat je die vervolgkeuzelijst hoeft te openen. Raakt nooit een naam aan die jij (of deze functie) al hebt ingesteld.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Overgenomen van de losstaande Rescue Fullwidth Digits-mod. Herstelt namen van vervoerslijnen die met dubbelbrede cijfers (１２３ in plaats van 123) zijn opgeslagen door bepaalde IME/invoerinstellingen, wat anders voor altijd verkeerd wordt weergegeven.
+CHANGELOG_4_8_6_1 Bestemming forensen opnieuw ingeschakeld: de schakelaar in Opties is terug en werkt live, geen herladen nodig.
+CHANGELOG_4_8_6_2 Elke optionele integratie gecontroleerd op een echte "uit betekent uit": Elevated Stops Enabler herschreef permanent weg-prefabgegevens zonder manier om dit ongedaan te maken, en Auto Line Budget bleef lijnen op de achtergrond beheren nadat het midden in een sessie was uitgeschakeld. Beide keren nu volledig terug naar standaardgedrag wanneer uitgeschakeld.
+CHANGELOG_4_8_6_3 Twee gedragingen gevonden die altijd actief waren zonder mogelijkheid om ze uit te zetten - automatisch benoemen van naamloze haltes, en Rescue Fullwidth Digits (Gansaku) - en voor beide schakelaars toegevoegd onder Opties → Geavanceerd. Standaard ingeschakeld, dus er verandert niets tenzij je ze uitzet.

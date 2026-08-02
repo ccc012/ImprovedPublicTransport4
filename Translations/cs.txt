@@ -1,4 +1,4 @@
-﻿MOD_DESCRIPTION Vylepšená kontrola veřejné dopravy.
+MOD_DESCRIPTION Vylepšená kontrola veřejné dopravy.
 CURRENT_WEEK Aktuální týden
 LAST_WEEK Poslední týden
 AVERAGE Průměr
@@ -444,13 +444,13 @@ CHANGELOG_4_8_0_4 Opraveno: zaškrtávací políčko "přijímat meziměstské a
 CHANGELOG_4_8_0_5 Opraveno: Sub-Buildings Tabs občas zobrazovaly zastaralý pruh karet na nesouvisející budově: hra po demolici recykluje ID budov a cache dříve věřila, že recyklované ID stále patří k předchozímu shluku budov. Nyní před opětovným použitím čehokoli z cache znovu ověřuje skutečný nadřazený řetězec budovy.
 CHANGELOG_4_8_0_6 Obecný úklid chyb napříč několika integracemi: obrácená kontrola expirace cache, která zahazovala čerstvá data a místo nich servírovala zastaralá, chyba o jedna v hranici smyčky, která u automatického barvení a kontroly duplicitních názvů vynechávala poslední dopravní linku, chybné porovnání ID, které rozbíjelo obchvat "jen jedno vozidlo na této lince" pro zamezení shlukování, vyhledávání ceny, které selhání trvale ukládalo do cache místo pozdějšího nového pokusu, a několik Harmony patchů, které mohly vyhodit výjimku při nulové referenci UI/prefabu.
 CHANGELOG_4_8_0_7 Sníženy opakované reflexe a vyhledávání na snímek napříč několika integracemi: popisy tooltipů vozidel, klasifikace jednokolejných úseků a vyhledávání item-class pro meziměstské autobusy se nyní ukládají do cache místo přepočítávání při každém volání, a tlačítko obnovení UI už nepřepisuje svůj text v každém jednotlivém snímku bez ohledu na to, zda se něco změnilo.
-CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
-CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
-CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
-CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
-CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
-CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
-CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_0_8 Nové instalace nyní používají bezpečný (Safe) herní profil: každá volitelná integrace a režim jsou ve výchozím stavu vypnuté pro maximální kompatibilitu s ostatními mody. Použijte Doporučený (jádro IPT) nebo Realistický, nebo přepněte jednotlivé přepínače. Intercity Bus Control a Sub-Buildings Tabs zůstávají dostupné a jsou po výše uvedených opravách zahrnuty v Doporučeném profilu.
+CHANGELOG_4_8_0_9 Možnosti > Integrace nyní zpřístupňují Pokročilý výběr zastávek, Lepší nastupování, Mileage Taxi Services a Elevated Stops - tyto funkce již byly řízeny nastaveními a profily, ale neměly zaškrtávací políčko, takže je bylo možné zapnout pouze přes JSON/profil.
+CHANGELOG_4_8_0_10 Přidány kompletní jazykové balíčky Steam Workshopu pro každý jazyk volby popisu, včetně dánštiny, finštiny, norštiny, švédštiny, maďarštiny, rumunštiny, bulharštiny, řečtiny, ukrajinštiny, vietnamštiny a malajštiny, plus pt-br a es-419.
+CHANGELOG_4_8_5_1 Opraveno trhání/zamrzání Train Display: byla vrácena rychlejší okamžitá cesta opětovného dotazování a zvýšeny spodní hranice frekvence dotazování, takže overlay již nesoupeří se simulací při maximálním výkonu.
+CHANGELOG_4_8_5_2 Optimalizován pruh trasy a automatické pojmenovávání zastávek v Train Display: nejvýše jedno náročné skenování názvu na dotaz, nepojmenované zastávky, u kterých skenování selhalo, se neskenují znovu při každém intervalu, a seznamy názvů tras se vyhýbají zbytečným alokacím seznamů.
+CHANGELOG_4_8_5_3 Commuter Destination pozastaveno (stále chybové): vynuceně vypnuto pro všechny profily/uložené hry a odstraněn přepínač v Možnostech až do pozdějšího přepracování. Náhled do budoucna zůstává pod Pokročilé.
+CHANGELOG_4_8_5_4 Jazykové balíčky Možností: kompletní sdílená sada Common JSON se nasazuje při vydání (35+ jazyků frameworku), takže rozbalovací nabídka jazyků už nepostrádá polovinu seznamu; karty popisu sekcí sdílejí pozadí se svými ovládacími prvky.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 Čtyři nové integrace: Karty vedlejších budov (lišta karet pro jakýkoli komplex více budov, nejen letiště), Sdílené zastávky (umožňuje více typům zastávek sdílet stejný úsek silnice, ve výchozím nastavení vypnuto), Cíl cestujících (zobrazuje, kam skutečně směřují obyvatelé čekající na zastávce) a Oprava stanoviště taxíků (volné taxíky míří na nejbližší stanoviště místo bezcílného bloudění). Jednotlivé přepínače najdete v Možnosti > Integrace.
 CHANGELOG_4_7_0_2 Přidán režim kapacity vozidel pro meziměstské autobusové terminály (Možnosti > Integrace > Kapacita meziměstského autobusového terminálu): Vypnuto zachovává dosavadní, prakticky neomezený terminál tohoto modu, Střední uplatňuje mírný pevný limit, Realistické obnovuje původní kapacitu prefabu terminálu ze hry. Existující uložené hry ve výchozím nastavení používají Vypnuto, takže aktualizace nikdy tiše nezmenší kapacitu terminálu.
@@ -543,7 +543,7 @@ SETTINGS_SUB_DISPLAY Zobrazení
 SETTINGS_SUB_INFO Info
 SETTINGS_SUB_INFO_DESC Panely a nástroje informací o městě (ne simulace flotily).
 SETTINGS_SUB_PERF Výkon
-SETTINGS_SUB_COMPAT Compat
+SETTINGS_SUB_COMPAT Kompatibilita
 SETTINGS_SUB_KEYS Klávesy
 SETTINGS_FUTURE_GROUP Chystá se později
 SETTINGS_FUTURE_GROUP_DESCRIPTION Náhled plánovaných funkcí. Zašednuté, dokud nejsou připraveny — zatím bez efektu.
@@ -576,3 +576,12 @@ SETTINGS_OOC_RESET_TOOLTIP Obnoví čekání na vně, fiktivní provoz a souvise
 SETTINGS_EBS_GROUP_BUS_DESC Expresní autobusy mohou odjet brzy, když nastoupí jen pár cestujících — volitelný pokročilý rozestup.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra řady
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop pouze změní, kde se autobusy zastaví na zastávce. Možnosti níže jsou oddělené funkce (zvýšené, sdílené zastávky atd.) — zůstávají úmyslně klikatelné.
+CHANGELOG_4_8_6_1 Znovu povoleno Commuter Destination: přepínač v Možnostech je zpět a funguje okamžitě, bez nutnosti restartu.
+CHANGELOG_4_8_6_2 Prověřena každá volitelná integrace, zda vypnutí skutečně znamená vypnuto: Elevated Stops Enabler trvale přepisoval data prefabu silnice bez možnosti vrácení zpět a Auto Line Budget pokračoval ve správě linek na pozadí i po vypnutí uprostřed hry. Obě nyní po vypnutí plně obnoví vanilla chování.
+CHANGELOG_4_8_6_3 Nalezeny dvě funkce, které běžely vždy bez možnosti vypnutí - automatické pojmenování nepojmenovaných zastávek a Rescue Fullwidth Digits (Gansaku) - a byly pro obě přidány přepínače v Možnosti → Pokročilé. Ve výchozím stavu zapnuté, takže se nic nezmění, pokud je sami nevypnete.
+SETTINGS_AUTONAMESTOPS_ENABLE Automaticky pojmenovat nepojmenované zastávky
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Při prvním výběru zastávky bez názvu jí přiřadí stejný název podle blízké budovy, jaký by navrhla vlastní rozbalovací nabídka panelu zastávky - aniž byste ji museli otevírat. Nikdy se nedotkne názvu, který jste (nebo tato funkce) již nastavili.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Vždy aktivní chování
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Dvě drobná chování, která dosud běžela vždy bez možnosti vypnutí. Ve výchozím stavu zapnuté, takže stávající instalace nezaznamenají žádnou změnu - vypněte je, pokud používáte samostatný mod dělající totéž, nebo prostě preferujete ruční ovládání.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Přeneseno ze samostatného modu Rescue Fullwidth Digits. Opravuje názvy dopravních linek uložené s fullwidth číslicemi (１２３ místo 123) kvůli některým nastavením IME/vstupu, které by se jinak navždy zobrazovaly nesprávně.

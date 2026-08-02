@@ -82,7 +82,7 @@ SETTINGS_SPEED_KPH km/j
 SETTINGS_SPEED_MPH mph
 SETTINGS_WALKING_SPEED Kelajuan Jalan/Berbasikal:
 SETTINGS_WALKING_SPEED_TOOLTIP Standard: kelajuan permainan dasar.\nRealistik: mengurangi kelajuan jalan ke nilai realistik berbasis usia.\nRealistik juga mengurangi kelajuan berbasikal dengan DLC After Dark.
-SETTINGS_WALKING_SPEED_MODE_VANILLA Standard
+SETTINGS_WALKING_SPEED_MODE_VANILLA Piawai
 SETTINGS_WALKING_SPEED_MODE_REALISTIC Realistik
 SETTINGS_BBSP Posisi Perhentian Bas Lebih Baik:
 SETTINGS_BBSP_TOOLTIP Dilumpuhkan: tanpa penyesuaian posisi.\nAktif: bas berhenti di depan perhentian, bukan di tengah.
@@ -576,3 +576,12 @@ SETTINGS_OOC_RESET_TOOLTIP Tetapkan semula menunggu sambungan luar, trafik hias,
 SETTINGS_EBS_GROUP_BUS_DESC Bas ekspres boleh berangkat awal apabila beberapa penumpang naik — jarak jauh lanjutan pilihan.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Baris tambahan
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop hanya mengubah di mana bas berhenti di perhentian. Pilihan di bawah adalah ciri-ciri berasingan (perhentian layang, perhentian bersama, dll.) — mereka tetap boleh diklik dengan sengaja.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Tingkah laku sentiasa hidup
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Dua tingkah laku kecil yang sentiasa berjalan tanpa cara untuk mematikannya sehingga kini. Hidup secara lalai supaya pemasangan sedia ada tidak melihat sebarang perubahan - matikan jika anda menggunakan mod berasingan yang melakukan perkara yang sama, atau hanya lebih suka kawalan manual.
+SETTINGS_AUTONAMESTOPS_ENABLE Namakan automatik perhentian tanpa nama
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Kali pertama anda memilih perhentian tanpa nama, ia diberikan nama bangunan berdekatan yang sama seperti yang akan dicadangkan oleh menu lungsur panel perhentian - tanpa perlu membuka menu lungsur itu. Tidak pernah menyentuh nama yang telah anda (atau ciri ini) tetapkan.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Dipindahkan daripada mod Rescue Fullwidth Digits yang berasingan. Membetulkan nama laluan pengangkutan yang disimpan dengan digit lebar penuh (１２３ dan bukannya 123) oleh sesetengah persediaan IME/input, yang jika tidak akan dipaparkan secara salah selama-lamanya.
+CHANGELOG_4_8_6_1 Destinasi Komuter diaktifkan semula: togol Pilihan kembali dan berfungsi secara langsung, tiada muat semula diperlukan.
+CHANGELOG_4_8_6_2 Mengaudit setiap integrasi pilihan untuk "mati bermakna mati" yang sebenar: Elevated Stops Enabler menulis semula data prafabrikasi jalan secara kekal tanpa cara untuk membatalkannya, dan Auto Line Budget terus menguruskan laluan di latar belakang selepas dimatikan pada pertengahan sesi. Kedua-duanya kini kembali sepenuhnya kepada tingkah laku asal apabila dimatikan.
+CHANGELOG_4_8_6_3 Menemui dua tingkah laku yang sentiasa berjalan tanpa cara untuk mematikannya - penamaan automatik perhentian tanpa nama, dan Rescue Fullwidth Digits (Gansaku) - dan menambah togol untuk kedua-duanya di bawah Pilihan → Lanjutan. Hidup secara lalai, jadi tiada apa yang berubah melainkan anda mematikannya.

@@ -1,4 +1,4 @@
-﻿MOD_DESCRIPTION Miglioramento del controllo dei trasporti pubblici.
+MOD_DESCRIPTION Miglioramento del controllo dei trasporti pubblici.
 CURRENT_WEEK Settimana corrente
 LAST_WEEK Ultima settimana
 AVERAGE Media
@@ -576,3 +576,12 @@ SETTINGS_OOC_RESET_TOOLTIP Ripristina l'attesa delle connessioni esterne, il tra
 SETTINGS_EBS_GROUP_BUS_DESC Gli autobus express possono partire presto quando pochi passeggeri salgono – spaziatura avanzata opzionale.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Righe extra
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop cambia solo dove gli autobus si fermano alla fermata. Le opzioni sottostanti sono funzioni separate (fermate elevate, fermate condivise, ecc.) – rimangono cliccabili di proposito.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Comportamenti sempre attivi
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Due piccoli comportamenti che finora erano sempre attivi senza possibilità di disattivarli. Attivi per impostazione predefinita, così le installazioni esistenti non notano cambiamenti - disattivali se usi una mod a sé stante che fa la stessa cosa, o se preferisci semplicemente il controllo manuale.
+SETTINGS_AUTONAMESTOPS_ENABLE Assegna automaticamente nome alle fermate senza nome
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP La prima volta che selezioni una fermata senza nome, le assegna lo stesso nome dell'edificio vicino che suggerirebbe il menu a tendina del pannello fermata - senza doverlo aprire. Non tocca mai un nome già impostato (da te o da questa funzione).
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portato dalla mod standalone Rescue Fullwidth Digits. Corregge i nomi delle linee di trasporto salvati con cifre a larghezza intera (１２３ invece di 123) da alcune configurazioni IME/input, che altrimenti verrebbero visualizzati in modo errato per sempre.
+CHANGELOG_4_8_6_1 Riattivata Destinazione Pendolari: l'interruttore nelle Opzioni è tornato e funziona in tempo reale, senza bisogno di ricaricare.
+CHANGELOG_4_8_6_2 Verificato ogni integrazione opzionale per un vero "off significa off": Elevated Stops Enabler riscriveva permanentemente i dati dei prefabbricati stradali senza modo di annullarli, e Auto Line Budget continuava a gestire le linee in background dopo essere stato disattivato a metà sessione. Entrambi ora ripristinano completamente il comportamento vanilla quando disattivati.
+CHANGELOG_4_8_6_3 Trovati due comportamenti sempre attivi senza possibilità di disattivarli - assegnazione automatica del nome alle fermate senza nome e Rescue Fullwidth Digits (Gansaku) - e aggiunti interruttori per entrambi in Opzioni → Avanzate. Attivi per impostazione predefinita, quindi nulla cambia a meno che tu non li disattivi.

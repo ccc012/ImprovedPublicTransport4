@@ -478,14 +478,14 @@ SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP जब इस वाहन प्रकार
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY ट्रॉलीबस
 SETTINGS_TRAINDISPLAY_TYPE_TRAM ट्राम
-SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
+SETTINGS_TRAINDISPLAY_TYPE_METRO मेट्रो
 SETTINGS_TRAINDISPLAY_TYPE_TRAIN ट्रेन
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
-SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL मोनोरेल
+SETTINGS_TRAINDISPLAY_TYPE_SHIP जहाज़ / फेरी
+SETTINGS_TRAINDISPLAY_TYPE_PLANE विमान / ब्लिम्प / हेली
+SETTINGS_TRAINDISPLAY_TYPE_TAXI टैक्सी
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR केबल कार
+SETTINGS_TRAINDISPLAY_TYPE_TOURS पर्यटक बस
 SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI काला (semi-transparent)
 SETTINGS_TRAINDISPLAY_SHOW_SPEED गति दिखाएँ (extras strip)
 SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS यात्री दिखाएँ (extras strip)
@@ -515,8 +515,8 @@ SETTINGS_COMPAT_STATUS_WARN एक या अधिक समस्याएँ 
 SETTINGS_COMPAT_MATCHED_GENERIC यह mod IPT4 के साथ conflict करता है। इसे disable या unsubscribe करें।
 SETTINGS_COMPAT_MISSING_DEP Required dependency मौजूद नहीं है। Subscribe करें और enable करें, फिर restart करें।
 SETTINGS_COMPAT_NO_ISSUES अभी कुछ भी conflicting enabled नहीं है।
-SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Missing
+SETTINGS_COMPAT_BADGE_CONFLICT टकराव
+SETTINGS_COMPAT_BADGE_MISSING गुम
 SETTINGS_COMPAT_BADGE_OK OK
 SETTINGS_COMPAT_GUIDE_GROUP IPT4 के साथ क्या न चलाएँ
 SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
@@ -524,13 +524,13 @@ LINE_PANEL_REMOVE_VEHICLE_TOOLTIP चयनित वाहन को इसक�
 COMMUTER_STOP_WITH_WAITING {0} ({1} प्रतीक्षा कर रहा है)
 SETTINGS_TAB_FLEET_SHORT बेड़ा
 SETTINGS_TAB_STOPS_SHORT स्टॉप
-SETTINGS_TAB_OVERLAY_SHORT Overlay
+SETTINGS_TAB_OVERLAY_SHORT ओवरले
 SETTINGS_TAB_SYSTEM_SHORT सिस्टम
 SETTINGS_SUB_SPACING स्पेसिंग
 SETTINGS_SUB_SPACING_DESC वाहनों को evenly spaced रखें। Unbunching classic IPT tool है।
 SETTINGS_SUB_BUDGET बजट
 SETTINGS_SUB_COLOR रंग
-SETTINGS_SUB_CAPS Caps
+SETTINGS_SUB_CAPS कैप्स
 SETTINGS_SUB_NET नेटवर्क
 SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms।
 SETTINGS_SUB_VEHICLES वाहन
@@ -542,9 +542,9 @@ SETTINGS_SUB_OUTSIDE_DESC Intercity terminals और outside-connection cargo/pa
 SETTINGS_SUB_DISPLAY प्रदर्शन
 SETTINGS_SUB_INFO जानकारी
 SETTINGS_SUB_INFO_DESC Panels और city info tools (fleet simulation नहीं)।
-SETTINGS_SUB_PERF Perf
-SETTINGS_SUB_COMPAT Compat
-SETTINGS_SUB_KEYS Keys
+SETTINGS_SUB_PERF पर्फ़
+SETTINGS_SUB_COMPAT संगत
+SETTINGS_SUB_KEYS कुंजियाँ
 SETTINGS_FUTURE_GROUP बाद में आ रहा है
 SETTINGS_FUTURE_GROUP_DESCRIPTION Planned features की preview। Greyed out तब तक ready न हो।
 SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (जल्द ही)
@@ -555,7 +555,7 @@ SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map विवरण:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance कम map icons दिखाता है और तेजी से refresh करता है। Full map map पर कई अधिक destination icons दिखाता है।
 SETTINGS_COMMUTERDESTINATION_MAP_PERF प्रदर्शन (तेज)
 SETTINGS_COMMUTERDESTINATION_MAP_FULL पूरा map (अधिक icons, धीमा refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
+SETTINGS_KEYBINDINGS_GROUP गेम में हॉटकीज़
 SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION City लोड होने पर shortcuts। एक binding पर क्लिक करें फिर एक key दबाएँ rebind करने के लिए।
 SETTINGS_HOTKEY_TRAIN_DISPLAY Train Display को toggle करें
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Corner vehicle overlay को enable या disable करें।

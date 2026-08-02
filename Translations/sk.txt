@@ -576,3 +576,12 @@ SETTINGS_OOC_RESET_TOOLTIP Obnoví čakanie vonkajších spojení, fiktívnu dop
 SETTINGS_EBS_GROUP_BUS_DESC Expresné autobusy sa môžu odísť skôr, keď nastúpi len málo cestujúcich — voliteľný pokročilý rozstup.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ďalšie riadky
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop len zmení, kde sa autobusy zastavujú na zastávke. Možnosti nižšie sú samostatné funkcie (zvýšené, zdieľané zastávky atď.) — zostávajú kliknuteľné zámerne.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Vždy aktívne správanie
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Dve malé funkcie, ktoré doteraz bežali vždy bez možnosti ich vypnúť. V predvolenom nastavení zapnuté, takže existujúce inštalácie nezaznamenajú žiadnu zmenu — vypnite, ak používate samostatný mod, ktorý robí to isté, alebo jednoducho uprednostňujete manuálnu kontrolu.
+SETTINGS_AUTONAMESTOPS_ENABLE Automaticky pomenovať nepomenované zastávky
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Pri prvom výbere zastávky bez názvu jej priradí rovnaký názov podľa blízkej budovy, aký by navrhol vlastný rozbaľovací zoznam panela zastávky — bez toho, aby ste museli tento zoznam otvárať. Nikdy sa nedotkne názvu, ktorý ste (alebo táto funkcia) už nastavili.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Záchrana širokých číslic (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Prenesené zo samostatného modu Rescue Fullwidth Digits. Opravuje názvy dopravných liniek, ktoré boli uložené so širokými číslicami (１２３ namiesto 123) niektorými IME/vstupnými nastaveniami, ktoré by sa inak navždy zobrazovali nesprávne.
+CHANGELOG_4_8_6_1 Znovu aktivovaná Cieľová destinácia cestujúcich: prepínač v Možnostiach je späť a funguje naživo, bez potreby opätovného načítania.
+CHANGELOG_4_8_6_2 Preverená každá voliteľná integrácia kvôli skutočnému „vypnuté znamená vypnuté": Zvýšené zastávky trvalo prepisovali dáta prefabu cesty bez možnosti to vrátiť späť a Automatická veľkosť flotily pokračovala v riadení liniek na pozadí aj po deaktivácii uprostred relácie. Obe sa teraz po vypnutí úplne vrátia k vanilla správaniu.
+CHANGELOG_4_8_6_3 Nájdené dve správania, ktoré vždy bežali bez možnosti ich vypnúť — automatické pomenovanie nepomenovaných zastávok a Záchrana širokých číslic (Gansaku) — a pridané prepínače pre obe pod Options → Rozšírené. V predvolenom nastavení zapnuté, takže sa nič nezmení, pokiaľ ich nevypnete.

@@ -385,36 +385,36 @@ SETTINGS_STTAI_ENABLE Penghindaran tabrakan kereta jalur tunggal
 SETTINGS_STTAI_ENABLE_TOOLTIP Mereservasi segmen jalur tunggal untuk satu kereta pada satu waktu, menahan kereta berlawanan arah di pintu masuk sampai segmen bersih. Fitur asli IPT4, tidak ada di vanilla atau mod yang diserap.
 SETTINGS_STOPSTACKER_ENABLE Penumpukan jalur halte bus
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Memungkinkan bus kedua/ketiga yang mendekati halte yang sama menggunakan jalur sendiri lebih jauh ke belakang di jalur halte alih-alih mengantre satu per satu di belakang bus terdepan, sehingga lebih dari satu bus dapat menaikkan/menurunkan penumpang sekaligus. Fitur asli IPT4 (implementasi ulang yang disederhanakan), tidak ada di vanilla atau mod yang diserap.
-CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
-CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
-CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
-CHANGELOG_4_3_1_2 Filled in 38 translation keys that existed only in English and Portuguese - every other language (Arabic, Bengali, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Russian, Urdu and all Chinese variants) was silently falling back to English for the whole Train Display section, the Delete Lines description and the three Express Bus descriptions.
-CHANGELOG_4_3_1_3 Added 4 copy/paste tooltip keys that were missing from every language file including English, so they would have rendered as raw keys ("COPY_TIP") once those buttons are re-enabled.
-CHANGELOG_4_3_0_1 Added Train Display Updated: a small on-screen overlay showing line/destination/state while following a supported vehicle. Configurable in Options: screen position, size, opacity, which fields show, update frequency, whether it's restricted to first-person camera mods, and a Simple/Dark/Light color theme.
-CHANGELOG_4_3_0_2 Fixed several build errors in the new Train Display integration: an ambiguous Utils reference, two APIs that don't exist on this game version (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), and Enum.HasFlag usage - which doesn't exist on .NET Framework 3.5, this mod's target framework, and had to be replaced with manual bitwise checks.
-CHANGELOG_4_2_4_1 Fixed the mod always showing "Compatibility with Game Version: 0.0.0" - we never declared a supported game version range. Now set to 1.21.1-f9 and up.
-CHANGELOG_4_2_4_2 Fixed the AutoLineColor color-strategy dropdown showing raw enum names (e.g. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") instead of translated text: the code generated a key with no underscore while the translation file used one. Also reordered the section so the two dependent sliders sit right under the color-strategy dropdown they belong to, instead of after the unrelated naming dropdown.
-CHANGELOG_4_2_4_3 Renamed the tram unbunching modes to match the bus ones (Disabled/Prudent/Realistic) instead of "Light Rail"/"Real Tram", and translated the last bits of English text left in the Portuguese description.
-CHANGELOG_4_2_4_4 Fixed checkbox descriptions never rendering anywhere in the panel whenever no header text was set (which is every checkbox in this mod) - the layout code only positioned the description label if a header label existed too, even though the description was already being created and populated with text.
-CHANGELOG_4_2_4_5 Fixed Options tab captions getting cut off (especially in Portuguese, which runs longer than English) - tabs now wrap to a second line instead of clipping.
-CHANGELOG_4_2_4_6 Fixed the Reset buttons (Unbunching, Ticket Prices) changing the underlying settings immediately but not updating the sliders already on screen, so it looked like nothing happened until reopening Options.
-CHANGELOG_4_2_4_7 Fixed the Delete Lines tool's checkboxes persisting as saved settings instead of resetting after use - they were accidentally wired to ModSetting like a real preference, when this is meant to be a one-shot "pick types, click Delete" action.
-CHANGELOG_4_2_3_1 Fixed every mod translation showing up as the raw key (e.g. "SETTINGS_SPEED:0") in every language: our own translation loader still matched the plugin by the old ImprovedPublicTransportMod type instead of Mod (the class that's actually IUserMod since the CSLModsCommon migration), so it never found the mod folder and never loaded any Translations/*.txt file. Also hardened the vanilla-locale fallback so it no longer mistakes Colossal's "key:0" not-found marker for a real translation.
-CHANGELOG_4_2_3_2 Removed the always-empty "Key Bindings" tab from Options - this mod has no key bindings to configure.
-CHANGELOG_4_2_3_3 Sliders in Options now show their current value again (lost in the CSLModsCommon migration - the new slider control doesn't display it by default).
-CHANGELOG_4_2_3_4 Fixed the AutoLineColor "min color difference" and "max color pick attempts" sliders staying interactive even when the color strategy is set to Disabled or Categorised (neither of which uses those settings).
-CHANGELOG_4_2_0_1 Added Rescue Fullwidth Digits: normalizes fullwidth digits in custom transport line names back to regular ASCII digits, fixing a display/sorting quirk from some non-Latin keyboard inputs.
-CHANGELOG_4_2_0_2 Added a dedicated Ticket Prices tab to the Options panel, so day/night fare multipliers can be tuned without opening the in-game Economy panel.
-CHANGELOG_4_2_0_3 Fixed the Rescue Fullwidth Digits patch only ever being applied once at mod startup while being undone on every level unload, silently disabling it for every save after the first one loaded in a session.
-CHANGELOG_4_2_0_4 Fixed a taxi-fare integer-overflow bug (MileageTaxiServices) that could drain the public transport budget by billions in one step: a taxi with corrupted or uninitialized frame data (e.g. right after spawning) could compute an implausibly large per-frame distance, overflowing the fare's cast to int into a huge garbage value - this matches a known unresolved issue reported upstream (runaway negative taxi income). Now implausible frame distances are discarded instead of being charged.
-CHANGELOG_4_1_5_1 Fixed the real cause of the blank/black Options panel: CSLModsCommon's own UI strings (Version/Changelog/etc.) live in a physical Localization/Common folder next to the DLL that our build never deployed. Without it, the framework's LocalizationManager silently gave up, leaving CurrentLocaleSource null and crashing OptionsPanelBase.Awake() with a NullReferenceException the instant it tried to show the translation-progress label - which Unity swallows silently, aborting the panel mid-build. Now the .csproj deploys that folder, and GetTranslationProgress() no longer throws if it's ever missing again.
-CHANGELOG_4_1_4_1 Fixed the Options panel showing up blank/black: the panel was only ever built when the game toggled the settings container's visibility off and on, but it's usually already visible when the game opens this mod's page, so the panel never got created. Now it also builds immediately if the container is already visible.
-CHANGELOG_4_1_4_2 Fixed every CSLModsCommon UI texture (background, icons, toggles) failing to load and falling back to a placeholder: the project's RootNamespace was still "ImprovedPublicTransport3" from the original IPT3 fork, so embedded resources were compiled under the wrong name and never matched at runtime.
-CHANGELOG_4_1_3_1 Fixed three settings-save bugs left over from the CSLModsCommon migration (What's New dismissal, Options Reset button, per-hour ticket price editor): each wrote the new value to ModSetting correctly but then saved the old, now-dead settings object, so the change never actually persisted to disk.
-CHANGELOG_4_1_3_2 Removed dead code from the pre-CSLModsCommon era: the attribute-based OptionsFramework, the monolithic Settings.cs, and the standalone VehicleEditorPositions enum - all fully superseded by ModSetting and CSLModsCommonOptionsPanel.
-CHANGELOG_4_0_0_1 Forked from Improved Public Transport 3.
-CHANGELOG_4_0_0_2 Ported AutoLineBudget's demand-based fleet sizing to coordinate with IPT's own vehicle-count API instead of writing the line budget directly, fixing a runaway maintenance-cost bug caused by the two mods fighting over the same state.
-CHANGELOG_4_0_0_3 Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).
+CHANGELOG_4_3_3_1 Memperbaiki penyimpanan/pemuatan pengaturan yang masih rusak pada beberapa tumpukan mod bahkan setelah menyertakan Newtonsoft.Json.dll: solusi sebelumnya hanya mencoba Assembly.LoadFrom di satu entrypoint dan masih bergantung pada urutan pemuatan. IPT4 kini mendaftarkan hook AssemblyResolve global dan secara aktif memuat Newtonsoft.Json bawaannya dari setiap entrypoint mod/UI sebelum CSLModsCommon menyentuh JsonWriter, sehingga UI Options yang baru tersimpan dengan andal, bukan secara acak terikat ke salinan Json.NET mod lain yang tidak kompatibel.
+CHANGELOG_4_3_2_1 Memperbaiki mod yang gagal dimuat sama sekali ("failed to load the mod's dll or one of its dependencies") setiap kali kebetulan tidak ada mod lain yang sudah menyediakan Newtonsoft.Json: serialisasi pengaturan CSLModsCommon (JsonHelper/SerializationContext) membutuhkannya, tetapi build kami sebenarnya tidak pernah menyertakan Newtonsoft.Json.dll bersama mod - selama ini hanya berhasil secara kebetulan, menumpang salinan mod lain. Ditemukan dengan menonaktifkan semua mod lain untuk pengujian bersih, yang memang seharusnya menjadi cara pengujian ke depannya.
+CHANGELOG_4_3_1_1 Memperbaiki pemilih bahasa di panel Options yang hanya menerjemahkan ulang string milik framework sendiri (Version/Changelog/...) sementara setiap string mod ini tetap dalam bahasa game - pemuat terjemahan kami mengacu pada bahasa game dan sepenuhnya mengabaikan pilihan mod sendiri. Kini mengikuti pemilih bahasa mod, dengan fallback ke bahasa game lalu bahasa Inggris, dan diselesaikan ulang setiap kali pemilih berubah.
+CHANGELOG_4_3_1_2 Melengkapi 38 kunci terjemahan yang hanya ada dalam bahasa Inggris dan Portugis - setiap bahasa lain (Arab, Bengali, Jerman, Spanyol, Prancis, Hindi, Indonesia, Italia, Jepang, Korea, Polandia, Rusia, Urdu, dan semua varian Tionghoa) secara diam-diam jatuh ke bahasa Inggris untuk seluruh bagian Train Display, deskripsi Delete Lines, dan tiga deskripsi Express Bus.
+CHANGELOG_4_3_1_3 Menambahkan 4 kunci tooltip copy/paste yang hilang dari setiap berkas bahasa termasuk bahasa Inggris, sehingga akan tampil sebagai kunci mentah ("COPY_TIP") begitu tombol-tombol tersebut diaktifkan kembali.
+CHANGELOG_4_3_0_1 Menambahkan Train Display Updated: overlay kecil di layar yang menampilkan rute/tujuan/status saat mengikuti kendaraan yang didukung. Dapat dikonfigurasi di Options: posisi layar, ukuran, opasitas, kolom yang ditampilkan, frekuensi pembaruan, apakah dibatasi pada mod kamera orang pertama, dan tema warna Simple/Dark/Light.
+CHANGELOG_4_3_0_2 Memperbaiki beberapa kesalahan build pada integrasi Train Display yang baru: referensi Utils yang ambigu, dua API yang tidak ada di versi game ini (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), dan penggunaan Enum.HasFlag - yang tidak ada di .NET Framework 3.5, framework target mod ini, dan harus diganti dengan pemeriksaan bitwise manual.
+CHANGELOG_4_2_4_1 Memperbaiki mod yang selalu menampilkan "Compatibility with Game Version: 0.0.0" - kami tidak pernah mendeklarasikan rentang versi game yang didukung. Kini diatur ke 1.21.1-f9 ke atas.
+CHANGELOG_4_2_4_2 Memperbaiki dropdown strategi warna AutoLineColor yang menampilkan nama enum mentah (mis. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") alih-alih teks terjemahan: kode menghasilkan kunci tanpa garis bawah sementara berkas terjemahan menggunakannya. Juga menyusun ulang bagian tersebut sehingga dua slider yang bergantung berada tepat di bawah dropdown strategi warna yang menjadi induknya, bukan setelah dropdown penamaan yang tidak terkait.
+CHANGELOG_4_2_4_3 Mengganti nama mode unbunching trem agar sesuai dengan bus (Disabled/Prudent/Realistic) alih-alih "Light Rail"/"Real Tram", dan menerjemahkan sisa teks bahasa Inggris yang tertinggal dalam deskripsi Portugis.
+CHANGELOG_4_2_4_4 Memperbaiki deskripsi checkbox yang tidak pernah tampil di mana pun pada panel ketika tidak ada teks header yang diatur (yaitu setiap checkbox di mod ini) - kode tata letak hanya memposisikan label deskripsi jika label header juga ada, padahal deskripsi sudah dibuat dan diisi teks.
+CHANGELOG_4_2_4_5 Memperbaiki judul tab Options yang terpotong (terutama dalam bahasa Portugis, yang lebih panjang daripada bahasa Inggris) - tab kini melipat ke baris kedua alih-alih terpotong.
+CHANGELOG_4_2_4_6 Memperbaiki tombol Reset (Unbunching, Ticket Prices) yang langsung mengubah pengaturan tetapi tidak memperbarui slider yang sudah tampil di layar, sehingga terlihat seolah tidak terjadi apa-apa hingga Options dibuka ulang.
+CHANGELOG_4_2_4_7 Memperbaiki checkbox alat Delete Lines yang tersimpan sebagai pengaturan permanen alih-alih direset setelah dipakai - secara tidak sengaja terhubung ke ModSetting seolah preferensi sungguhan, padahal ini seharusnya aksi sekali pakai "pilih tipe, klik Delete".
+CHANGELOG_4_2_3_1 Memperbaiki setiap terjemahan mod yang muncul sebagai kunci mentah (mis. "SETTINGS_SPEED:0") di semua bahasa: pemuat terjemahan kami masih mencocokkan plugin dengan tipe ImprovedPublicTransportMod lama alih-alih Mod (kelas yang sebenarnya menjadi IUserMod sejak migrasi CSLModsCommon), sehingga tidak pernah menemukan folder mod dan tidak pernah memuat berkas Translations/*.txt mana pun. Juga memperkuat fallback locale vanilla agar tidak lagi salah mengira penanda 'key:0' tidak-ditemukan milik Colossal sebagai terjemahan sungguhan.
+CHANGELOG_4_2_3_2 Menghapus tab "Key Bindings" yang selalu kosong dari Options - mod ini tidak memiliki key binding untuk dikonfigurasi.
+CHANGELOG_4_2_3_3 Slider di Options kini kembali menampilkan nilai saat ini (hilang saat migrasi CSLModsCommon - kontrol slider baru tidak menampilkannya secara bawaan).
+CHANGELOG_4_2_3_4 Memperbaiki slider "min color difference" dan "max color pick attempts" AutoLineColor yang tetap dapat diinteraksi meski strategi warna diatur ke Disabled atau Categorised (keduanya tidak memakai pengaturan tersebut).
+CHANGELOG_4_2_0_1 Menambahkan Rescue Fullwidth Digits: menormalkan digit fullwidth pada nama rute transportasi khusus kembali ke digit ASCII biasa, memperbaiki keanehan tampilan/pengurutan akibat beberapa input keyboard non-Latin.
+CHANGELOG_4_2_0_2 Menambahkan tab Ticket Prices khusus pada panel Options, sehingga pengganda tarif siang/malam dapat diatur tanpa membuka panel Economy bawaan game.
+CHANGELOG_4_2_0_3 Memperbaiki patch Rescue Fullwidth Digits yang hanya diterapkan sekali saat mod dimulai tetapi dibatalkan setiap kali level dibongkar, secara diam-diam menonaktifkannya untuk setiap save setelah yang pertama dimuat dalam satu sesi.
+CHANGELOG_4_2_0_4 Memperbaiki bug integer-overflow tarif taksi (MileageTaxiServices) yang dapat menguras anggaran transportasi umum hingga miliaran dalam satu langkah: taksi dengan data frame yang rusak atau belum diinisialisasi (mis. tepat setelah muncul) dapat menghitung jarak per-frame yang tidak masuk akal besarnya, membuat cast tarif ke int meluap menjadi nilai sampah raksasa - ini cocok dengan isu belum terselesaikan yang dilaporkan di hulu (pendapatan taksi negatif yang tak terkendali). Kini jarak frame yang tidak masuk akal dibuang alih-alih dikenakan tarif.
+CHANGELOG_4_1_5_1 Memperbaiki penyebab sesungguhnya dari panel Options yang kosong/hitam: string UI milik CSLModsCommon sendiri (Version/Changelog/dll.) berada di folder fisik Localization/Common di sebelah DLL yang tidak pernah disertakan build kami. Tanpanya, LocalizationManager milik framework diam-diam menyerah, membiarkan CurrentLocaleSource null dan membuat OptionsPanelBase.Awake() crash dengan NullReferenceException saat mencoba menampilkan label progres terjemahan - yang ditelan diam-diam oleh Unity, menggagalkan pembuatan panel di tengah jalan. Kini .csproj menyertakan folder tersebut, dan GetTranslationProgress() tidak lagi melempar error jika suatu saat hilang lagi.
+CHANGELOG_4_1_4_1 Memperbaiki panel Options yang muncul kosong/hitam: panel hanya dibuat saat game mengubah visibilitas kontainer pengaturan dari nonaktif ke aktif, tetapi biasanya sudah terlihat saat game membuka halaman mod ini, sehingga panel tidak pernah dibuat. Kini juga dibuat langsung jika kontainer sudah terlihat.
+CHANGELOG_4_1_4_2 Memperbaiki setiap tekstur UI CSLModsCommon (latar belakang, ikon, toggle) yang gagal dimuat dan jatuh ke placeholder: RootNamespace proyek masih "ImprovedPublicTransport3" dari fork IPT3 asli, sehingga resource yang disematkan dikompilasi dengan nama yang salah dan tidak pernah cocok saat runtime.
+CHANGELOG_4_1_3_1 Memperbaiki tiga bug penyimpanan pengaturan sisa migrasi CSLModsCommon (penutupan What's New, tombol Reset Options, editor tarif tiket per jam): masing-masing menulis nilai baru ke ModSetting dengan benar tetapi kemudian menyimpan objek pengaturan lama yang sudah tidak dipakai, sehingga perubahan tidak pernah benar-benar tersimpan ke disk.
+CHANGELOG_4_1_3_2 Menghapus kode mati dari era pra-CSLModsCommon: OptionsFramework berbasis atribut, Settings.cs yang monolitik, dan enum VehicleEditorPositions yang berdiri sendiri - semuanya sepenuhnya digantikan oleh ModSetting dan CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Di-fork dari Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Mem-porting penentuan ukuran armada berbasis permintaan milik AutoLineBudget agar berkoordinasi dengan API jumlah kendaraan milik IPT sendiri alih-alih menulis langsung ke anggaran rute, memperbaiki bug biaya perawatan yang tak terkendali akibat kedua mod memperebutkan state yang sama.
+CHANGELOG_4_0_0_3 Mengadopsi CSLModsCommon untuk UI Options (lencana versi, changelog, peringatan kompatibilitas, progres terjemahan).
 TRAINDISPLAY_LABEL_NAME Nama
 TRAINDISPLAY_LABEL_STATUS Status
 TRAINDISPLAY_NO_LINE Tidak ada jalur
@@ -429,13 +429,13 @@ TRAINDISPLAY_STATE_IDLE Menganggur
 AUTOLINECOLOR_REFRESH_BUTTON Segarkan nama/warna
 AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Menetapkan ulang nama dan warna jalur ini sesuai pengaturan AutoLineColor yang aktif.
 AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Aktifkan strategi warna atau penamaan di Opsi sebelum menyegarkan jalur ini.
-CHANGELOG_4_3_3_2 Hardened the bundled Newtonsoft.Json resolver so it always prefers the copy shipped next to this mod instead of returning whichever copy another mod happened to load first (Real Time ships a strong-named v13; CSLModsCommon needs the unsigned v9). Handing our code the wrong build made JsonHelper fail silently and return empty objects, which is what left the framework's own locale sources empty and the language selector showing raw locale ids.
-CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian and Urdu now appear in the mod's language selector. They were already fully translated, but the framework had no locale file for them, so they were unreachable unless the game itself ran in that language.
-CHANGELOG_4_3_3_4 Optimized the stop passenger limiter: it resolved the settings object (two dictionary lookups) once per citizen instance inside a loop that runs thousands of times per frame. It is now resolved once per frame.
-CHANGELOG_4_3_3_5 Made the mod folder lookup independent of which class implements IUserMod. That coupling had already silently broken translation loading once and the ticket-price icon atlases a second time, each after an unrelated refactor.
-CHANGELOG_4_3_4_1 Fixed a startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") thrown by AutoLineColor before the map even loaded. A second helper class still looked the mod up by the ImprovedPublicTransportMod type, which stopped being the IUserMod during the CSLModsCommon migration - the same coupling already fixed elsewhere. Both helpers now resolve the mod folder from this assembly itself, so a future refactor cannot silently break it again.
-CHANGELOG_4_3_5_1 Fixed the Train Display overlay never appearing while following a vehicle. It looked up the camera's followed instance through generic "target"/"GetTarget" probes, but the game stores it in a private CameraController.m_targetInstance field that those probes never matched. Also switched "Only in first-person camera" off by default: plain follow mode is not first-person, so leaving it on made the overlay look broken out of the box, unlike the original mod which showed it in any follow view.
-CHANGELOG_4_3_5_2 The Ticket Prices tab now shows the resulting fare for each transport type instead of the live passenger count. The sliders only show a percentage, so there was previously no way to see what a multiplier actually produced - and on a small or paused city the passenger count just read a permanent "0". The passenger count moved to the label's tooltip, alongside the original fare.
+CHANGELOG_4_3_3_2 Memperkuat resolver Newtonsoft.Json bawaan agar selalu mengutamakan salinan yang disertakan bersama mod ini alih-alih mengembalikan salinan mana pun yang kebetulan lebih dulu dimuat mod lain (Real Time menyertakan v13 dengan strong-name; CSLModsCommon membutuhkan v9 tanpa signature). Memberikan build yang salah ke kode kami membuat JsonHelper gagal diam-diam dan mengembalikan objek kosong, yang membuat sumber locale milik framework sendiri kosong dan pemilih bahasa menampilkan id locale mentah.
+CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesia, dan Urdu kini muncul di pemilih bahasa mod. Bahasa-bahasa ini sudah diterjemahkan sepenuhnya, tetapi framework tidak memiliki berkas locale untuknya, sehingga tidak dapat dijangkau kecuali game itu sendiri berjalan dalam bahasa tersebut.
+CHANGELOG_4_3_3_4 Mengoptimalkan pembatas penumpang halte: sebelumnya objek pengaturan diselesaikan (dua pencarian dictionary) sekali per instance warga di dalam loop yang berjalan ribuan kali per frame. Kini diselesaikan sekali per frame.
+CHANGELOG_4_3_3_5 Membuat pencarian folder mod tidak lagi bergantung pada kelas mana yang mengimplementasikan IUserMod. Keterkaitan tersebut sebelumnya diam-diam pernah merusak pemuatan terjemahan sekali, dan atlas ikon harga tiket kedua kalinya, masing-masing setelah refactor yang tidak berkaitan.
+CHANGELOG_4_3_4_1 Memperbaiki ModException saat startup ("Failed to find ImprovedPublicTransportMod assembly!") yang dilempar AutoLineColor bahkan sebelum peta dimuat. Sebuah kelas helper kedua masih mencari mod berdasarkan tipe ImprovedPublicTransportMod, yang berhenti menjadi IUserMod sejak migrasi CSLModsCommon - keterkaitan yang sama yang sudah diperbaiki di tempat lain. Kedua helper kini menyelesaikan folder mod dari assembly ini sendiri, sehingga refactor di masa depan tidak dapat diam-diam merusaknya lagi.
+CHANGELOG_4_3_5_1 Memperbaiki overlay Train Display yang tidak pernah muncul saat mengikuti kendaraan. Overlay mencari instance yang diikuti kamera lewat probe generik "target"/"GetTarget", tetapi game menyimpannya di field privat CameraController.m_targetInstance yang tidak pernah cocok dengan probe tersebut. Juga mengubah "Only in first-person camera" menjadi nonaktif secara bawaan: mode follow biasa bukan orang pertama, sehingga membiarkannya aktif membuat overlay tampak rusak sejak awal, berbeda dengan mod aslinya yang menampilkannya di tampilan follow apa pun.
+CHANGELOG_4_3_5_2 Tab Ticket Prices kini menampilkan tarif hasil untuk setiap tipe transportasi alih-alih jumlah penumpang langsung. Slider hanya menampilkan persentase, sehingga sebelumnya tidak ada cara melihat hasil sebenarnya dari sebuah pengganda - dan pada kota kecil atau yang dijeda, jumlah penumpang hanya menampilkan "0" permanen. Jumlah penumpang dipindahkan ke tooltip label, di samping tarif aslinya.
 TICKET_PRICE_LABEL_TOOLTIP Tarif saat ini: {0}\nTarif asli: {1}\nPenumpang saat ini: {2}
 CHANGELOG_4_8_0_1 Menambahkan SingleTrainTrackAI: segmen rel tunggal kini dicadangkan untuk satu arah saja pada satu waktu, sehingga dua kereta yang berbagi jalur dua arah tidak lagi berisiko bertabrakan. Implementasi ulang clean-room - mod sumber (Workshop 949504539) tidak memiliki lisensi yang dinyatakan, jadi hanya konsepnya yang didokumentasikan secara publik yang diimplementasikan ulang, menggunakan sistem patch berbasis Harmony milik proyek ini sendiri, bukan pengalihan memori mentah.
 CHANGELOG_4_8_0_2 Menambahkan Stop Stacker: ketika lebih dari satu kendaraan pada jalur yang sama bertemu di sebuah halte, hanya kendaraan terdepan yang menggunakan posisi halte normal - kendaraan berikutnya mendapatkan tempat sendiri lebih jauh di sepanjang jalur, alih-alih mengantre satu per satu di belakangnya. Implementasi ulang clean-room hanya berdasarkan deskripsi publik mod sumber (tidak ada kode sumber yang tersedia); hanya untuk bus dan trolibus, sesuai dengan titik hook BetterBusStopPosition yang sudah ada di proyek ini.
@@ -444,13 +444,13 @@ CHANGELOG_4_8_0_4 Memperbaiki kotak centang "terima bus antarkota" yang macet da
 CHANGELOG_4_8_0_5 Memperbaiki Tab Sub-Bangunan yang sesekali menampilkan strip tab usang pada bangunan yang tidak terkait: game mendaur ulang ID bangunan setelah pembongkaran, dan cache sebelumnya mempercayai bahwa ID yang didaur ulang masih milik klaster bangunan sebelumnya. Kini validasi ulang rantai induk bangunan yang sebenarnya dilakukan sebelum menggunakan kembali apa pun dari cache.
 CHANGELOG_4_8_0_6 Pembersihan bug umum di beberapa integrasi: pemeriksaan kedaluwarsa cache yang terbalik sehingga membuang data baru dan menyajikan data usang, batas loop off-by-one yang melewatkan jalur transportasi terakhir pada pewarnaan otomatis dan pemeriksaan nama duplikat, perbandingan ID yang salah yang merusak bypass anti-penggerombolan "hanya satu kendaraan di jalur ini", pencarian harga yang menyimpan kegagalan secara permanen di cache alih-alih mencoba lagi nanti, dan beberapa patch Harmony yang bisa melempar exception pada referensi UI/prefab null.
 CHANGELOG_4_8_0_7 Mengurangi reflection berulang dan pencarian per-frame di beberapa integrasi: deskripsi tooltip kendaraan, klasifikasi segmen rel tunggal, dan pencarian item-class bus antarkota kini di-cache alih-alih dihitung ulang setiap kali dipanggil, dan tombol refresh UI tidak lagi menetapkan ulang teksnya setiap frame terlepas dari ada tidaknya perubahan.
-CHANGELOG_4_8_0_8 Fresh installs now use the Safe gameplay profile: every optional integration and mode starts off for maximum compatibility with other mods. Use Recommended (IPT core) or Realistic, or flip individual toggles. Intercity Bus Control and Sub-Buildings Tabs remain available and are included in Recommended after the fixes above.
-CHANGELOG_4_8_0_9 Options > Integrations now exposes Advanced Stop Selection, Better Boarding, Mileage Taxi Services and Elevated Stops - these were already gated by settings and profiles but had no checkbox, so only JSON/profile could turn them on.
-CHANGELOG_4_8_0_10 Added full Steam Workshop language packs for every description-selector language, including Danish, Finnish, Norwegian, Swedish, Hungarian, Romanian, Bulgarian, Greek, Ukrainian, Vietnamese and Malay, plus pt-br and es-419.
-CHANGELOG_4_8_5_1 Fixed Train Display hitching/freezes: reverted the snappier immediate re-poll path and raised poll floors so the overlay no longer races the simulation on Maximum performance.
-CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at most one heavy name scan per poll, failed unnamed stops are not re-scanned every interval, and route name lists avoid extra list allocations.
-CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
-CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
+CHANGELOG_4_8_0_8 Instalasi baru kini memakai profil gameplay Safe: setiap integrasi dan mode opsional dinonaktifkan secara bawaan demi kompatibilitas maksimal dengan mod lain. Gunakan Recommended (inti IPT) atau Realistic, atau ubah opsi satu per satu. Intercity Bus Control dan Sub-Buildings Tabs tetap tersedia dan disertakan dalam Recommended setelah perbaikan di atas.
+CHANGELOG_4_8_0_9 Options > Integrations kini menampilkan Advanced Stop Selection, Better Boarding, Mileage Taxi Services, dan Elevated Stops - fitur-fitur ini sebelumnya sudah dikontrol oleh pengaturan dan profil tetapi tidak memiliki checkbox, sehingga hanya JSON/profil yang dapat mengaktifkannya.
+CHANGELOG_4_8_0_10 Menambahkan paket bahasa Steam Workshop lengkap untuk setiap bahasa pemilih deskripsi, termasuk Denmark, Finlandia, Norwegia, Swedia, Hungaria, Rumania, Bulgaria, Yunani, Ukraina, Vietnam, dan Melayu, ditambah pt-br dan es-419.
+CHANGELOG_4_8_5_1 Memperbaiki Train Display yang tersendat/macet: mengembalikan jalur re-poll langsung yang lebih responsif dan menaikkan batas bawah poll agar overlay tidak lagi berlomba dengan simulasi pada performa Maximum.
+CHANGELOG_4_8_5_2 Mengoptimalkan strip rute dan penamaan otomatis halte pada Train Display: maksimal satu pemindaian nama berat per poll, halte tanpa nama yang gagal tidak dipindai ulang setiap interval, dan daftar nama rute menghindari alokasi list tambahan.
+CHANGELOG_4_8_5_3 Menghentikan sementara Commuter Destination (masih bermasalah): dipaksa nonaktif untuk semua profil/save dan opsi toggle di Options dihapus hingga perancangan ulang berikutnya. Spoiler khusus masa depan tetap ada di bagian Advanced.
+CHANGELOG_4_8_5_4 Paket bahasa Options: kumpulan JSON Common lengkap disertakan saat deploy (35+ bahasa framework) sehingga dropdown bahasa tidak lagi kehilangan separuh daftar; kartu deskripsi bagian tetap memiliki latar belakang bersama dengan kontrolnya.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
 CHANGELOG_4_7_0_1 Empat integrasi baru: Tab Sub-Bangunan (bilah tab untuk kompleks bangunan mana pun dengan banyak bangunan, tidak hanya bandara), Pemberdaya Halte Bersama (memungkinkan lebih dari satu jenis halte berbagi segmen jalan yang sama, nonaktif secara default), Tujuan Komuter (menampilkan tujuan sebenarnya dari warga yang menunggu di sebuah halte), dan Perbaikan Pangkalan Taksi (taksi yang menganggur menuju pangkalan terdekat, bukannya berkeliaran tanpa tujuan). Lihat Opsi > Integrasi untuk setiap sakelarnya.
 CHANGELOG_4_7_0_2 Menambahkan mode kapasitas kendaraan untuk terminal bus antarkota (Opsi > Integrasi > Kapasitas Terminal Bus Antarkota): Nonaktif mempertahankan terminal mod ini yang sebelumnya nyaris tanpa batas, Menengah menerapkan batas tetap yang moderat, Realistis memulihkan kapasitas prefab bawaan asli terminal tersebut. Save yang sudah ada menggunakan Nonaktif secara default, sehingga pembaruan tidak akan pernah diam-diam mengecilkan kapasitas sebuah terminal.
@@ -465,114 +465,114 @@ CHANGELOG_4_3_7_1 Ke-23 bahasa di pemilih sekarang diterjemahkan sepenuhnya. Cek
 CHANGELOG_4_3_7_2 Indikator kemajuan terjemahan di bawah pemilih bahasa membaca berkas status statis yang belum pernah dibuat ulang, sehingga menampilkan 76% untuk enam belas bahasa yang sebenarnya sudah lengkap.
 CHANGELOG_4_3_6_1 Memperbaiki penyebab sebenarnya dari pengeluaran transportasi umum sekitar -21,4 juta: perhitungan pemeliharaan mingguan IPT membagi dengan kapasitas kendaraan nol atau yang tidak didukung, mengubah NaN menjadi int.MinValue, lalu menjumlahkan setiap kendaraan dalam int lain. Nilai tidak valid sekarang memakai nilai cadangan vanilla yang aman, total per jalur memakai aritmetika 64-bit, dan jumlah besar yang valid hanya ditagih melalui transaksi positif yang dibatasi.
 CHANGELOG_4_3_6_2 Save yang sudah terkena diperbaiki saat dimuat: hanya periode pendapatan atau pengeluaran transportasi umum yang negatif akibat overflow ini yang dinolkan, dan total terkaitnya dikoreksi. Riwayat ekonomi yang valid dan semua layanan lain tetap utuh.
-DEPOT_STATS_FERRIES_IN_USE Ferries in use
-DEPOT_STATS_BLIMPS_IN_USE Blimps in use
-DEPOT_STATS_HELICOPTERS Helicopters in use
-DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybuses in use
-DEPOT_STATS_VEHICLES_IN_USE Vehicles in use
-SETTINGS_EMPTY_BEFORE_DEPOT Empty passengers before returning to depot
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP When enabled, public transport vehicles with passengers will not leave their line for the depot until empty. Then they return home. Off by default; Realistic profile enables it.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Vehicle types on overlay
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Which public transport vehicles can show the Train Display panel when selected.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Show the overlay when this vehicle type is selected.
+DEPOT_STATS_FERRIES_IN_USE Feri yang digunakan
+DEPOT_STATS_BLIMPS_IN_USE Blimp yang digunakan
+DEPOT_STATS_HELICOPTERS Helikopter yang digunakan
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trolleybus yang digunakan
+DEPOT_STATS_VEHICLES_IN_USE Kendaraan yang digunakan
+SETTINGS_EMPTY_BEFORE_DEPOT Kosongkan penumpang sebelum kembali ke depo
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Jika diaktifkan, kendaraan transportasi umum yang membawa penumpang tidak akan meninggalkan rutenya menuju depo hingga kosong. Setelah itu baru kembali. Nonaktif secara bawaan; profil Realistic mengaktifkannya.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Tipe kendaraan pada overlay
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Kendaraan transportasi umum mana yang dapat menampilkan panel Train Display saat dipilih.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Tampilkan overlay saat tipe kendaraan ini dipilih.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Bus Listrik
 SETTINGS_TRAINDISPLAY_TYPE_TRAM Trem
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
 SETTINGS_TRAINDISPLAY_TYPE_TRAIN Kereta
 SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorel
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Ship / ferry
-SETTINGS_TRAINDISPLAY_TYPE_PLANE Plane / blimp / heli
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Kapal / feri
+SETTINGS_TRAINDISPLAY_TYPE_PLANE Pesawat / blimp / heli
 SETTINGS_TRAINDISPLAY_TYPE_TAXI Taksi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Cable car
-SETTINGS_TRAINDISPLAY_TYPE_TOURS Tour bus
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Show speed (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Show passengers (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Kereta gantung
+SETTINGS_TRAINDISPLAY_TYPE_TOURS Bus wisata
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Hitam (semi-transparan)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED Tampilkan kecepatan (strip tambahan)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Tampilkan penumpang (strip tambahan)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Tampilkan waktu berlalu (strip tambahan)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Menambahkan strip berwarna sesuai rute di atas panel utama berisi item tambahan ini. Nonaktif secara bawaan.
 TRAINDISPLAY_LABEL_SPEED Kecepatan
 TRAINDISPLAY_LABEL_TIME Waktu
-SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
+SETTINGS_PERFORMANCE_PROFILE Profil performa
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Anggaran global untuk UI berat dan pemindaian (penyegaran Train Display, peta/daftar Commuter Destination, dan pekerjaan serupa).\nLight: meminimalkan risiko hitch — ikon lebih sedikit, penyegaran lebih lambat.\nNormal: seimbang (bawaan).\nMaximum: detail terlengkap dan overlay lebih responsif; dapat mengurangi FPS pada PC yang lebih lemah.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (lebih halus)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (seimbang)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (detail penuh)
 SETTINGS_TAB_PERFORMANCE Kinerja
 SETTINGS_PERFORMANCE_TIPS_GROUP Kiat
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Gunakan Light jika UI atau overlay tersendat; Maximum hanya jika PC Anda cukup kuat. Perubahan langsung berlaku pada Train Display dan Commuter Destination. Beberapa integrasi lain masih memerlukan pemuatan ulang peta.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
 SETTINGS_TAB_COMPATIBILITY Kompatibilitas
-SETTINGS_COMPAT_INTRO_GROUP Check your load order
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scans enabled Workshop/local mods for known conflicts (IPT1–3, TLM, ITM, absorbed standalones) and required dependencies (Harmony). Run a check after changing subscriptions.
-SETTINGS_COMPAT_RUN_CHECK Scan for conflicts
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compares enabled plugins against IPT4's known-incompatible list (assembly name + Workshop ID) and Harmony dependency.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON Check now
-SETTINGS_COMPAT_STATUS_GROUP Current result
-SETTINGS_COMPAT_STATUS_OK No conflicts or missing dependencies detected on the last scan.
-SETTINGS_COMPAT_STATUS_WARN One or more problems were found — disable the listed mods (or subscribe Harmony) and restart the game.
-SETTINGS_COMPAT_MATCHED_GENERIC This mod conflicts with IPT4. Disable or unsubscribe it.
-SETTINGS_COMPAT_MISSING_DEP Required dependency is not present. Subscribe and enable it, then restart.
-SETTINGS_COMPAT_NO_ISSUES Nothing conflicting is enabled right now.
+SETTINGS_COMPAT_INTRO_GROUP Periksa urutan pemuatan Anda
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 memindai mod Workshop/lokal yang aktif untuk mencari konflik yang diketahui (IPT1–3, TLM, ITM, standalone yang sudah diserap) dan dependensi yang diperlukan (Harmony). Jalankan pemeriksaan setelah mengubah langganan.
+SETTINGS_COMPAT_RUN_CHECK Pindai konflik
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Membandingkan plugin yang aktif dengan daftar ketidakcocokan IPT4 yang diketahui (nama assembly + ID Workshop) dan dependensi Harmony.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON Periksa sekarang
+SETTINGS_COMPAT_STATUS_GROUP Hasil saat ini
+SETTINGS_COMPAT_STATUS_OK Tidak ada konflik atau dependensi yang hilang terdeteksi pada pemindaian terakhir.
+SETTINGS_COMPAT_STATUS_WARN Satu atau lebih masalah ditemukan — nonaktifkan mod yang tercantum (atau berlangganan Harmony) lalu mulai ulang game.
+SETTINGS_COMPAT_MATCHED_GENERIC Mod ini berkonflik dengan IPT4. Nonaktifkan atau berhenti berlangganan.
+SETTINGS_COMPAT_MISSING_DEP Dependensi yang diperlukan tidak ada. Berlangganan dan aktifkan, lalu mulai ulang.
+SETTINGS_COMPAT_NO_ISSUES Saat ini tidak ada yang berkonflik yang aktif.
 SETTINGS_COMPAT_BADGE_CONFLICT Konflik
 SETTINGS_COMPAT_BADGE_MISSING Hilang
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Send the selected vehicle back to its depot/garage. Decreases the line target count.
-COMMUTER_STOP_WITH_WAITING {0} ({1} waiting)
+SETTINGS_COMPAT_GUIDE_GROUP Apa yang tidak boleh dijalankan bersama IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Jangan pernah aktifkan: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nBerhenti berlangganan standalone yang sudah tertanam di IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, dll. — daftar lengkap ada di diskusi Workshop).\nDiperlukan: Harmony (CitiesHarmony, Workshop 2040656402).\nSetelah menonaktifkan sebuah konflik, mulai ulang game agar patch Harmony dilepas dengan bersih.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Kirim kendaraan yang dipilih kembali ke depo/garasinya. Mengurangi jumlah target rute.
+COMMUTER_STOP_WITH_WAITING {0} ({1} menunggu)
 SETTINGS_TAB_FLEET_SHORT Armada
 SETTINGS_TAB_STOPS_SHORT Pemberhentian
 SETTINGS_TAB_OVERLAY_SHORT Hamparan
 SETTINGS_TAB_SYSTEM_SHORT Sistem
 SETTINGS_SUB_SPACING Jarak
-SETTINGS_SUB_SPACING_DESC Keep vehicles evenly spaced. Unbunching is the classic IPT tool; Express Bus/Tram is an alternate style.
+SETTINGS_SUB_SPACING_DESC Jaga jarak kendaraan tetap merata. Unbunching adalah alat IPT klasik; Express Bus/Tram adalah gaya alternatif.
 SETTINGS_SUB_BUDGET Anggaran
 SETTINGS_SUB_COLOR Warna
 SETTINGS_SUB_CAPS Batas
 SETTINGS_SUB_NET Jaringan
-SETTINGS_SUB_NET_DESC Stop placement on roads: elevated, shared types, stacking, advanced platforms.
+SETTINGS_SUB_NET_DESC Penempatan halte di jalan: elevated, tipe bersama, penumpukan, platform tingkat lanjut.
 SETTINGS_SUB_VEHICLES Kendaraan
-SETTINGS_SUB_VEHICLES_DESC Boarding, return-to-depot, single-track trains, taxis, unstucker.
+SETTINGS_SUB_VEHICLES_DESC Menaikkan penumpang, kembali ke depo, kereta jalur tunggal, taksi, unstucker.
 SETTINGS_SUB_DEPOTS Depo
-SETTINGS_SUB_DEPOTS_DESC Soft caps for how many vehicles a depot can hold (vanilla is often uncapped).
+SETTINGS_SUB_DEPOTS_DESC Batas lunak jumlah kendaraan yang dapat ditampung sebuah depo (vanilla sering kali tanpa batas).
 SETTINGS_SUB_OUTSIDE Luar
-SETTINGS_SUB_OUTSIDE_DESC Intercity terminals and outside-connection cargo/passenger wait.
+SETTINGS_SUB_OUTSIDE_DESC Terminal antarkota serta waktu tunggu kargo/penumpang koneksi luar kota.
 SETTINGS_SUB_DISPLAY Tampilan
 SETTINGS_SUB_INFO Informasi
-SETTINGS_SUB_INFO_DESC Panels and city info tools (not fleet simulation).
+SETTINGS_SUB_INFO_DESC Panel dan alat info kota (bukan simulasi armada).
 SETTINGS_SUB_PERF Kinerja
 SETTINGS_SUB_COMPAT Kompatibilitas
 SETTINGS_SUB_KEYS Pintasan
-SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
-SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
-SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
-SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
-SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+SETTINGS_FUTURE_GROUP Akan datang
+SETTINGS_FUTURE_GROUP_DESCRIPTION Pratinjau fitur yang direncanakan. Berwarna abu-abu hingga siap — belum berpengaruh apa pun.
+SETTINGS_FUTURE_REVERSIBLE_TRAM AI trem reversibel (segera)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Direncanakan: trem berbalik arah di ujung rute tanpa loop. Belum tersedia.
+SETTINGS_FUTURE_BREAKDOWN Alat breakdown (segera)
+SETTINGS_FUTURE_BREAKDOWN_TIP Direncanakan: diagnostik rute/lalu lintas untuk transit yang macet. Belum tersedia.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detail peta:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance menampilkan lebih sedikit ikon peta dan menyegarkan lebih cepat. Full map menampilkan jauh lebih banyak ikon tujuan di peta; panel diperbarui lebih lambat agar PC yang lebih lemah tetap dapat memakainya.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (lebih cepat)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (lebih banyak ikon, penyegaran lebih lambat)
+SETTINGS_KEYBINDINGS_GROUP Hotkey dalam game
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Pintasan saat kota sedang dimuat. Klik sebuah binding lalu tekan tombol untuk mengikat ulang.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Aktifkan/nonaktifkan Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Mengaktifkan atau menonaktifkan overlay kendaraan di sudut layar.
+SETTINGS_HOTKEY_LINE_COLOR Tetapkan ulang warna rute
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Saat sebuah rute transportasi dipilih, jalankan ulang Auto Line Color untuk rute tersebut (memerlukan strategi warna yang aktif).
 LINE_PANEL_COPY Salin
 LINE_PANEL_PASTE Tempel
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP Quick tips
-SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
-SETTINGS_QUICK_TIP_1_TITLE Start simple
-SETTINGS_QUICK_TIP_1_BODY Pick Recommended, then turn on only what you need. Safe is best if you use many other mods.
-SETTINGS_QUICK_TIP_2_TITLE Slow PC?
-SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Also avoid Commuter “Full map” if FPS drops.
-SETTINGS_QUICK_TIP_3_TITLE After toggles
-SETTINGS_QUICK_TIP_3_BODY Some options need reload city (tooltip says so). System → Compat checks conflicting mods.
-SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and related toggles to Safe defaults.
-SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
+SETTINGS_QUICK_TIPS_GROUP Tips singkat
+SETTINGS_QUICK_TIPS_DESC Pengingat kecil — tanpa kode tambahan, hanya cara memakai fitur yang sudah Anda miliki.
+SETTINGS_QUICK_TIP_1_TITLE Mulai dari yang sederhana
+SETTINGS_QUICK_TIP_1_BODY Pilih Recommended, lalu aktifkan hanya yang Anda butuhkan. Safe adalah pilihan terbaik jika Anda memakai banyak mod lain.
+SETTINGS_QUICK_TIP_2_TITLE PC lambat?
+SETTINGS_QUICK_TIP_2_BODY System → Perf → Light. Hindari juga Commuter “Full map” jika FPS menurun.
+SETTINGS_QUICK_TIP_3_TITLE Setelah mengubah opsi
+SETTINGS_QUICK_TIP_3_BODY Beberapa opsi memerlukan reload city (tertulis pada tooltip). System → Compat memeriksa mod yang berkonflik.
+SETTINGS_OOC_RESET_TOOLTIP Mengatur ulang waktu tunggu koneksi luar kota, lalu lintas dummy, dan opsi terkait ke bawaan Safe.
+SETTINGS_EBS_GROUP_BUS_DESC Bus ekspres bisa berangkat lebih awal jika penumpang yang naik sedikit — pengaturan jarak lanjutan opsional.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Baris tambahan
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop hanya mengubah tempat bus parkir di halte. Opsi di bawah adalah fitur terpisah (elevated, halte bersama, dll.) — sengaja tetap dapat diklik.
