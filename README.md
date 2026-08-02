@@ -157,7 +157,10 @@ just because the reasoning sounds right, or reaching for the "obvious" API.
   this is Mono-build-specific, not a real ambiguity or a missing method. Also:
   **`TargetMethod()` returning `null` does NOT make Harmony skip the patch
   quietly** — `PatchClassProcessor` still throws `"Undefined target method"`
-  either way. If a `[HarmonyPatch]` target keeps failing this way despite the
+  either way; this is documented Harmony behaviour, not a bug in our usage
+  (its own docs: *"the return value cannot be null [...] conditional skipping
+  of patching should be handled by a `Prepare()` method"* instead). If a
+  `[HarmonyPatch]` target keeps failing this way despite the
   target method genuinely existing, don't keep swapping reflection APIs —
   remove the patch and lean on whatever fallback/self-healing the feature
   already has, or find a different method to hook.
