@@ -43,8 +43,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private FieldInfo _cachedTotalProgress;
     private FieldInfo _cachedProgressVehicle;
 
-    private float _nextBindingsRealtime;
-
     public void LateUpdate()
     {
       if (!this._initialized)
@@ -55,11 +53,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       {
         if (!this._initialized || !this._publicTransportVehicleWorldInfoPanel.component.isVisible)
           return;
-        // Throttle panel refresh while open (click path feels snappier; less per-frame work).
-        var now = UnityEngine.Time.unscaledTime;
-        if (now < this._nextBindingsRealtime)
-          return;
-        this._nextBindingsRealtime = now + 0.2f;
+        // Deliberately every LateUpdate, not throttled like the other panel extenders
+        // (PanelExtenderLine/CityService run on a 0.25s Update timer). The vanilla panel's own
+        // Update() writes the Status/Type labels every frame with its own text (e.g. it can decide
+        // a vehicle is "not on route" the instant it isn't strictly between two stops). LateUpdate
+        // always runs after every Update in the same frame, so as long as we also run every frame
+        // we are guaranteed to overwrite vanilla's value last. The previous 0.2s throttle left a
+        // window each cycle where vanilla's text was the last one drawn, which read as the label
+        // flickering between two different values - most visible while paused, since vanilla's
+        // Update() keeps running under pause but our old throttle timer (unscaledTime) also kept
+        // advancing, so the two were never in sync.
         this.UpdateBindings();
       }
     }
