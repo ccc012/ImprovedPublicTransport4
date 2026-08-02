@@ -831,7 +831,10 @@ namespace ImprovedPublicTransport.Data
     public static bool operator !=(PrefabData obj1, PrefabData obj2) => !(obj1 == obj2);
     public bool Equals(PrefabData other)
     {
-      return Equals(Info, other.Info);
+      // No live call site passes null today, but this is a public method any future caller
+      // (LINQ, a collection's Contains/IndexOf, ...) could call directly with one - the ==
+      // operator above already guards this, this method on its own did not.
+      return other != null && Equals(Info, other.Info);
     }
 
     public override bool Equals(object obj)
