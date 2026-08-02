@@ -92,6 +92,7 @@ namespace ImprovedPublicTransport
                     IptGameObject = new GameObject("IptGameObject");
                     IptGameObject.transform.parent = objectOfType.transform;
                     IptGameObject.AddComponent<SimHelper>();
+                    IptGameObject.AddComponent<Util.SessionWatchdog>();
                     IptGameObject.AddComponent<LineWatcher>();
                     if (ModSetting.Instance.TicketPriceCustomizerMode == ModSetting.TicketPriceCustomizerModes.Enabled)
                     {
