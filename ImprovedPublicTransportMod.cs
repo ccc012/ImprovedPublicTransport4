@@ -166,6 +166,10 @@ namespace ImprovedPublicTransport
                     CheckTransportLineVehiclesPatch.Apply();
                     ClassMatchesPatch.Apply();
                     CanLeavePatch.Apply();
+                    // Deinit() already calls GetDepotLevelsPatch.Undo() - Apply() was missing here,
+                    // so this patch (Level1 PublicTransportBus lines also accepting Level2 depots)
+                    // never actually activated.
+                    GetDepotLevelsPatch.Apply();
                     // Rescue Fullwidth Digits (Gansaku) - normalizes corrupt saves with fullwidth digits
                     // in transport line custom names.
                     if (ModSetting.Instance.EnableRescueFullwidthDigits)
