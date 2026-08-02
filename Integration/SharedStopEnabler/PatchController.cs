@@ -21,6 +21,7 @@ namespace SharedStopEnabler
             {
                 SharedStopRegistry.InitSegments();
                 SharedStopElevated.Apply();
+                SharedStopRegistry.RecalculateSharedStopSegments();
                 return;
             }
 
@@ -29,6 +30,7 @@ namespace SharedStopEnabler
             HarmonyScope.PatchNamespace(GetHarmonyInstance(), "SharedStopEnabler");
             PatchTransportToolGetStopPosition();
             _active = true;
+            SharedStopRegistry.RecalculateSharedStopSegments();
         }
 
         public static void Deactivate()

@@ -54,7 +54,7 @@ namespace ImprovedPublicTransport
             BlackSemi = 7,
         }
         public enum ExpressBusServicesModes { None = 0, Prudential = 1, Aggressive = 2 }
-        public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
+        public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2, StreetCar = 3 }
         public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
         public enum AutoLineColorNamingStrategy { Disabled = 0, Districts = 1, London = 2, Roads = 3, NamedColors = 4 }
         public enum VehicleEditorPositions { Bottom = 0, Right = 1 }

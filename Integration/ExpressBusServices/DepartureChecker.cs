@@ -72,6 +72,12 @@ namespace ExpressBusServices
             return itemClass.m_service == ItemClass.Service.PublicTransport && itemClass.m_subService == ItemClass.SubService.PublicTransportTram;
         }
 
+        public static bool VehicleIsMetro(Vehicle vehicleData)
+        {
+            ItemClass itemClass = vehicleData.Info.m_class;
+            return itemClass.m_service == ItemClass.Service.PublicTransport && itemClass.m_subService == ItemClass.SubService.PublicTransportMetro;
+        }
+
         public static bool VehicleIsNotBus(Vehicle vehicleData)
         {
             ItemClass itemClass = vehicleData.Info.m_class;
@@ -115,11 +121,12 @@ namespace ExpressBusServices
             // class-specific checking
             if (VehicleIsTram(vehicleData))
             {
-                // special handling for trams
-                if (EBSModConfig.CurrentExpressTramMode == EBSModConfig.ExpressTramMode.TRAM)
+                // special handling for trams and streetcars
+                if (EBSModConfig.CurrentExpressTramMode == EBSModConfig.ExpressTramMode.TRAM || EBSModConfig.CurrentExpressTramMode == EBSModConfig.ExpressTramMode.STREET_CAR)
                 {
                     // brief stop and go
-                    // prototype is Hong Kong Tram
+                    // tram prototype is Hong Kong Tram
+                    // streetcar prototype is Toronto Streetcar
                     if (!VehiclePaxDeltaInfo.VehicleSetHasPaxDelta(vehicleID, ref vehicleData))
                     {
                         // no pax delta; go now!
@@ -204,7 +211,7 @@ namespace ExpressBusServices
             // ---
             // begin checking!
 
-            if (VehicleHasEnoughUnbunchingSpacing(selfProgress.Value, lineProgress, out float currentSpacing, out float idealSpacing))
+            if (VehicleHasEnoughUnbunchingSpacing(selfProgress.Value, lineProgress, ref vehicleData, out float currentSpacing, out float idealSpacing))
             {
                 // enough spacing already; go and catch up!
                 return vehicleData.m_waitCounter >= targetWaitCounter ? DepartureIntention.Go : DepartureIntention.Hold;
@@ -303,18 +310,27 @@ namespace ExpressBusServices
         /// </summary>
         /// <param name="vehicleProgress">The vehicle progress of the vehicle V.</param>
         /// <param name="lineProgress"></param>
+        /// <param name="vehicleData">The vehicle data instance to check for unbunching spacing, in case it actually influences other params</param>
         /// <param name="currentSpacing">The current unbunching spacing (same unit as vehicle progress) as calculated by this method.</param>
         /// <param name="idealSpacing">The idea unbunching spacing (same unit as vehicle progress) as recommended by this method.</param>
         /// <returns></returns>
         private static bool VehicleHasEnoughUnbunchingSpacing(
             VehicleLineProgress vehicleProgress,
             TransportLineVehicleProgress lineProgress,
+            ref Vehicle vehicleData,
             out float currentSpacing,
             out float idealSpacing)
         {
             // determine ideal spacing first
             // this can potentially be exposed as a config for unbunch strength
-            float unbunchingBuffer = 0.2f;
+            // note that for buses etc., because they are highly sensitive to (road) traffic, we need a high unbunching buffer to offset the traffic influence.
+            float unbunchingBuffer = 0.1f;
+            if (VehicleIsMetro(vehicleData))
+            {
+                // metros, on the other hand, are generally grade-separated.
+                // with almost zero outside influence, there is simply no need to maintain artificially high unbunching buffer.
+                unbunchingBuffer = 0;
+            }
             idealSpacing = (1 + unbunchingBuffer) / lineProgress.VehiclesCount;
 
             // then, check current spacing

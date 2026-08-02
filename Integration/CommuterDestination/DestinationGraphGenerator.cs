@@ -84,19 +84,21 @@ namespace CommuterDestination
                             continue;
                         }
 
-                        // NOTE: used to also reject here when citizen.m_targetPos was outside
-                        // StopRange of the stop - but m_targetPos is the citizen's CURRENT PATH
-                        // SEGMENT target (the next waypoint), not their present position, and once
-                        // WaitingTransport is set that waypoint has typically already advanced past
-                        // the stop toward wherever the transport leg goes next - often far outside
-                        // StopRange. That silently rejected nearly every legitimately-waiting
-                        // citizen with no error ever logged, which is consistent with destination
-                        // icons never appearing. The citizen grid iteration above (lowerX/upperX/
-                        // lowerZ/upperZ, all derived from stopPosition +/- StopRange) already does
-                        // the real proximity filtering by cell - this was a redundant, and wrong,
-                        // second check.
+                        // Restored after checking the original mod's actual source
+                        // (Jameskmonger/CSL-ShowCommuterDestination, Bridge.cs::IsCitizenInRangeOfStop)
+                        // - it does exactly this m_targetPos-vs-stopPosition check, unconditionally,
+                        // as its ONLY distance gate (the grid-cell bounds are just a coarse
+                        // pre-filter in both implementations, not a substitute). An earlier pass
+                        // here removed this on the theory that m_targetPos always advances past the
+                        // stop once WaitingTransport is set - that theory was wrong; the original
+                        // mod relies on the opposite being true and is a working, shipped mod.
+                        if (Vector3.SqrMagnitude((Vector3)citizen.m_targetPos - stopPosition) >= StopRangeSq)
+                        {
+                            citizenInstanceId = nextGridInstance;
+                            continue;
+                        }
 
-                        // Light profile: skip expensive AI gate (WaitingTransport + grid cell is enough).
+                        // Light profile: skip expensive AI gate (WaitingTransport + distance is enough).
                         if (!PerformanceProfile.IsLight
                             && nextStop != 0
                             && citizen.Info?.m_citizenAI != null)
@@ -109,9 +111,14 @@ namespace CommuterDestination
                             }
                         }
 
+                        // The original mod reads m_targetBuilding exactly like this, unconditionally
+                        // - no TargetIsNode check. An earlier pass here added one on the theory that
+                        // a transit-boarding citizen's immediate path target is usually the next stop
+                        // NODE rather than their final building, which would make TargetIsNode true
+                        // for nearly every legitimately-waiting citizen and reject almost all of
+                        // them - removed to match the original's proven-working behaviour.
                         var buildingId = citizen.m_targetBuilding;
-                        if (buildingId == 0
-                            || (citizen.m_flags & CitizenInstance.Flags.TargetIsNode) != 0)
+                        if (buildingId == 0)
                         {
                             citizenInstanceId = nextGridInstance;
                             continue;

@@ -20,7 +20,16 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
     {
         private const float UpdateFrequencySeconds = 5f;
         private const float Inertia = 0.625f;
-        private const float TargetOccupancy = 0.5f;
+
+        // Original: `float newOccupancy = 43.75f / lnBudget;` where lnBudget is
+        // Singleton<EconomyManager>.instance.GetBudget(line.Info.m_class) - the player's
+        // Budget% slider (vanilla Economy panel, per-service). Lower Budget% -> higher
+        // target occupancy -> fewer vehicles kept on the line; higher Budget% -> more
+        // vehicles. The original does not guard lnBudget <= 0; we clamp to a sane
+        // minimum to avoid a divide-by-zero/negative-occupancy blowup if a service's
+        // budget is ever driven to 0 or below.
+        private const float TargetOccupancyNumerator = 43.75f;
+        private const float MinBudgetPercent = 1f;
 
         private float _timeSinceUpdate;
         private int _prevHour = -1;
@@ -142,6 +151,23 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
                 return;
             }
 
+            // Original: `if (vehCount != line.CalculateTargetVehicleCount()) continue;` -
+            // skip recomputing demand until the line has actually caught up to the last
+            // target it was given, to avoid re-issuing a new target every hour mid-adjustment
+            // (a plausible source of oscillation). The original drove TransportLine.m_budget
+            // directly, so vanilla CalculateTargetVehicleCount() was itself the "last computed
+            // target". We drive CachedTransportLineData instead (see class doc), and
+            // SimulationStepPatch.CalculateTargetVehicleCount uses exactly
+            // CachedTransportLineData.GetTargetVehicleCount(lineID) as the effective spawn
+            // target whenever BudgetControl is off (i.e. once we've taken the line over) -
+            // and keeps that cache mirroring the vanilla calculation while BudgetControl is
+            // still on. So GetTargetVehicleCount(lineID) is the faithful equivalent of the
+            // original's line.CalculateTargetVehicleCount() in both cases.
+            if (vehCount != CachedTransportLineData.GetTargetVehicleCount(lineID))
+            {
+                return;
+            }
+
             var avgOccupancy = occupiedWeighted / capacity;
             var lineFlow = capacity * avgOccupancy;
             const float maxWaitingTime = 120f;
@@ -166,8 +192,16 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
             }
 
             var demandOccupancy = avgFlow / capacity;
+
+            // Original: `float newOccupancy = 43.75f / lnBudget;` - derive the target
+            // occupancy from the player's actual Budget% slider for this line's service,
+            // instead of a hardcoded constant, so the vanilla Economy panel budget slider
+            // keeps controlling how aggressive Auto Line Budget is.
+            int lnBudget = Singleton<EconomyManager>.instance.GetBudget(line.Info.m_class);
+            var targetOccupancy = TargetOccupancyNumerator / Mathf.Max((float)lnBudget, MinBudgetPercent);
+
             // Correct for having less than a full day of data yet.
-            var correctedTarget = (TargetOccupancy - demandOccupancy) * hourFlow.Count / 24f + demandOccupancy;
+            var correctedTarget = (targetOccupancy - demandOccupancy) * hourFlow.Count / 24f + demandOccupancy;
             if (correctedTarget <= 0f)
             {
                 return;

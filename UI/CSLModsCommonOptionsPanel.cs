@@ -418,7 +418,7 @@ namespace ImprovedPublicTransport.UI
             ebsTramSection.AddDropDown<ModSetting.ExpressTramServicesModes>(
                 Localization.Get("SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE"),
                 null,
-                DropDownHelper.FromEnum<ModSetting.ExpressTramServicesModes>(e => Localization.Get("SETTINGS_EBS_TRAM_MODE_" + (e == ModSetting.ExpressTramServicesModes.Disabled ? "NONE" : e == ModSetting.ExpressTramServicesModes.LightRail ? "LIGHT_RAIL" : "TRAM"))),
+                DropDownHelper.FromEnum<ModSetting.ExpressTramServicesModes>(e => Localization.Get("SETTINGS_EBS_TRAM_MODE_" + (e == ModSetting.ExpressTramServicesModes.Disabled ? "NONE" : e == ModSetting.ExpressTramServicesModes.LightRail ? "LIGHT_RAIL" : e == ModSetting.ExpressTramServicesModes.TrueTram ? "TRAM" : "STREET_CAR"))),
                 item => item.Value == setting.ExpressTramUnbunchingMode,
                 item =>
                 {

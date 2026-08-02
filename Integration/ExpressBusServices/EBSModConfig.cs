@@ -30,6 +30,7 @@ namespace ExpressBusServices
             NONE = 0,
             LIGHT_RAIL,
             TRAM,
+            STREET_CAR,
         }
 
         public static ExpressTramMode CurrentExpressTramMode { get; set; }

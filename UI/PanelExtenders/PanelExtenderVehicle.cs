@@ -42,6 +42,12 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private UILabel _earningsAverage;
     private UIPanel _buttonPanel;
     private UILabel _status;
+    // Opaque panel drawn on top of _status. Hiding/reapplying _status.text/.isVisible still
+    // flickered - vanilla apparently fights isVisible too, the same race as text, so trying to
+    // win that race was abandoned. This just physically blocks the view of whatever vanilla does
+    // under it, whenever _statusCover.isVisible is true - the underlying flicker still happens,
+    // we simply never see it.
+    private UIPanel _statusCover;
     private UIButton _target;
     private UILabel _distance;
     private UIProgressBar _distanceTraveled;
@@ -179,6 +185,23 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       if (!((UnityEngine.Object) this._publicTransportVehicleWorldInfoPanel != (UnityEngine.Object) null))
         return;
       this._status = this._publicTransportVehicleWorldInfoPanel.Find<UILabel>("Status");
+      if (this._status != null && this._status.parent != null)
+      {
+        var cover = this._status.parent.AddUIComponent<UIPanel>();
+        cover.name = "IptStatusCover";
+        cover.size = this._status.size;
+        cover.relativePosition = this._status.relativePosition;
+        // Solid colour instead of reading the panel's own sprite/colour (component is a plain
+        // UIComponent here, not a UIPanel, so backgroundSprite isn't accessible) - close enough to
+        // the vanilla dark info-panel background to not stand out, and simpler than chasing the
+        // right sprite name.
+        cover.backgroundSprite = "GenericPanelDark";
+        cover.color = new Color32(56, 63, 68, 255);
+        cover.opacity = 1f;
+        cover.isVisible = false;
+        cover.zOrder = int.MaxValue;
+        this._statusCover = cover;
+      }
       this._target = this._publicTransportVehicleWorldInfoPanel.Find<UIButton>("Target");
       // Remove any native click handlers so only ours fires
       ClearEventClickHandlers(this._target);
@@ -275,6 +298,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         if ((vehicle.m_flags & Vehicle.Flags.Stopped) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
         {
           var vehicleCache = CachedVehicleData.m_cachedVehicleData;
+          if (this._statusCover != null) this._statusCover.isVisible = false;
           if (vehicleCache != null && vehicleID < vehicleCache.Length
               && vehicleCache[(int)vehicleID].IsUnbunchingInProgress)
             this._status.text = Localization.Get("VEHICLE_PANEL_STATUS_UNBUNCHING");
@@ -333,7 +357,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             this._cachedProgressValue = null;
             this._cachedProgressText = null;
           }
-          this._status.text = text;
+          // "Próxima parada" was just a static label here (VEHICLE_PANEL_STATUS_NEXT_STOP never
+          // changes while moving) - not worth fighting vanilla's own competing write for text that
+          // carries no information. Hiding it entirely is simpler and removes the flicker outright.
+          if (this._statusCover != null) this._statusCover.isVisible = true;
+          this._cachedStatusText = null;
           if (flag)
           {
             ushort targetBuilding = vehicle.m_targetBuilding;
@@ -354,7 +382,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           this._distance.text = ColossalFramework.Globalization.Locale.Get(this._distance.localeID);
           this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
           this._cachedProgressColor = this._distanceTraveled.progressColor;
-          this._cachedStatusText = this._status.text;
+          // _status stays hidden (set above) - intentionally not re-caching its text here.
           this._cachedDistanceText = this._distance.text;
         }
         this._statsPanel.Show();

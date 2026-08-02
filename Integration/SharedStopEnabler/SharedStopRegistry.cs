@@ -100,6 +100,76 @@ namespace SharedStopEnabler
         }
 
         /// <summary>
+        /// Registers a single stop segment/lane/line combination and re-applies elevated/bridge
+        /// stop flags for it. Shared by <see cref="Patch_TransportLineAI_AddLaneConnection"/>'s
+        /// postfix (a single newly-wired stop) and <see cref="RecalculateSharedStopSegments"/>
+        /// (every stop of every existing line, at once) so both paths run the exact same logic.
+        /// </summary>
+        public static void RegisterStop(NetManager netManager, ushort segment, ushort lineID, uint laneID)
+        {
+            AddSharedStop(segment, lineID, laneID);
+
+            if (netManager.m_segments.m_buffer[segment].Info?.m_netAI is RoadBridgeAI roadBridgeAI)
+            {
+                roadBridgeAI.UpdateSegmentStopFlags(
+                    segment,
+                    ref netManager.m_segments.m_buffer[segment]);
+            }
+        }
+
+        /// <summary>
+        /// Equivalent of the original mod's SharedStopsTool.Start() -> RecalculateSharedStopSegments():
+        /// walks every existing, complete TransportLine and re-registers every stop it uses via
+        /// <see cref="RegisterStop"/>, the same call <see cref="Patch_TransportLineAI_AddLaneConnection"/>'s
+        /// postfix makes for a newly-wired stop. Without this, the in-memory registry starts empty on
+        /// every (re)activation and only learns about a shared stop the next time a line touching it is
+        /// built or edited - so a segment already shared by 2+ lines from a previous session, or from
+        /// before the toggle was turned on, is invisible until then. Cheap to call repeatedly (each
+        /// registration is idempotent), so it is safe to run on every <c>PatchController.Activate()</c>,
+        /// not just the first one per level load.
+        /// </summary>
+        public static void RecalculateSharedStopSegments()
+        {
+            var lineBuffer = Singleton<TransportManager>.instance.m_lines.m_buffer;
+            var netManager = Singleton<NetManager>.instance;
+            var lineCount = lineBuffer.Length;
+
+            for (ushort lineID = 1; lineID < lineCount; lineID++)
+            {
+                var line = lineBuffer[lineID];
+                if (!line.Complete || line.Info == null || !line.Info.m_vehicleType.IsSharedStopTransport())
+                {
+                    continue;
+                }
+
+                var stops = line.m_stops;
+                if (stops == 0)
+                {
+                    continue;
+                }
+
+                var stopCount = line.CountStops(lineID);
+                for (var i = 0; i < stopCount; i++)
+                {
+                    stops = global::TransportLine.GetNextStop(stops);
+                    var lane = netManager.m_nodes.m_buffer[stops].m_lane;
+                    if (lane == 0)
+                    {
+                        continue;
+                    }
+
+                    var segment = netManager.m_lanes.m_buffer[lane].m_segment;
+                    if (segment == 0)
+                    {
+                        continue;
+                    }
+
+                    RegisterStop(netManager, segment, lineID, lane);
+                }
+            }
+        }
+
+        /// <summary>
         /// The core mechanism: vanilla forbids stacking more than one "secondary" stop type
         /// (Bus/Tram/Trolleybus stop, encoded as *2 flags) per side of a road segment. This relaxes
         /// exactly that restriction on every loaded road/track prefab, which is what lets a bus and

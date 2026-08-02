@@ -73,14 +73,7 @@ namespace SharedStopEnabler
                     return;
                 }
 
-                SharedStopRegistry.AddSharedStop(segment, lineID, laneID);
-
-                if (netManager.m_segments.m_buffer[segment].Info?.m_netAI is RoadBridgeAI roadBridgeAI)
-                {
-                    roadBridgeAI.UpdateSegmentStopFlags(
-                        segment,
-                        ref netManager.m_segments.m_buffer[segment]);
-                }
+                SharedStopRegistry.RegisterStop(netManager, segment, lineID, laneID);
             }
             catch (Exception ex)
             {
