@@ -73,7 +73,8 @@ namespace ExpressBusServices
             CitizenManager instance = Singleton<CitizenManager>.instance;
             uint citizenUnitIndex = data.m_citizenUnits;
             int count = 0;
-            while (citizenUnitIndex != 0)
+            int guard = 0;
+            while (citizenUnitIndex != 0 && guard++ < instance.m_units.m_size)
             {
                 count++;
                 citizenUnitIndex = instance.m_units.m_buffer[citizenUnitIndex].m_nextUnit;
