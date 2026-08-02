@@ -11,10 +11,6 @@ namespace ImprovedPublicTransport.Data
 
     public bool BudgetControl { get; set; }
 
-    public int DayBudget { get; set; } //deprecated
-
-    public int NightBudget { get; set; } //deprecated
-
     public bool Unbunching { get; set; }
 
     public ushort Depot { get; set; }
