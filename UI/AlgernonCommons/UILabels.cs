@@ -110,7 +110,11 @@ namespace ImprovedPublicTransport.UI.AlgernonCommons
             label.PerformLayout();
 
             // Iterativly remove the last remaining letter through text scales until acceptible width is reached.
-            while (label.width > maxWidth)
+            // Bound on text.Length > 4: without it, once the text shrinks to <= 4 chars,
+            // Substring(0, Length - 4) throws ArgumentOutOfRangeException, and even before
+            // that, if "..." alone is still wider than maxWidth the loop never terminates
+            // (text stays "...", width stays constant, condition stays true forever).
+            while (label.width > maxWidth && label.text.Length > 4)
             {
                 label.text = label.text.Substring(0, label.text.Length - 4) + "...";
                 label.PerformLayout();
