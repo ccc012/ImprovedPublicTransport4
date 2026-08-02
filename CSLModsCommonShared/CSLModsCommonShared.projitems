@@ -117,7 +117,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Threading\LazyThreadSafetyMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Threading\PlatformHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Threading\SpinWait.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\Threading\Tasks\AsyncTaskMethodBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Threading\Tasks\Task.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Threading\Tasks\TaskAwaiter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Threading\Tasks\TaskCanceledException.cs" />
