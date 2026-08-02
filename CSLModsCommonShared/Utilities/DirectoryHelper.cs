@@ -108,8 +108,11 @@ public static class DirectoryHelper {
     public static bool CompareDirectories(string dir1, string dir2, bool compareFileContents = false) {
         if (!Directory.Exists(dir1) || !Directory.Exists(dir2)) return false;
 
-        var files1 = GetAllFiles(dir1);
-        var files2 = GetAllFiles(dir2);
+        // Sort by relative path before pairing by index - Directory.GetFiles enumeration order
+        // is not guaranteed to match between two different directories, so an unsorted index
+        // pairing can compare the wrong files against each other (or report a false mismatch).
+        var files1 = GetAllFiles(dir1).OrderBy(f => f.Substring(dir1.Length).Trim(Path.DirectorySeparatorChar), StringComparer.OrdinalIgnoreCase).ToList();
+        var files2 = GetAllFiles(dir2).OrderBy(f => f.Substring(dir2.Length).Trim(Path.DirectorySeparatorChar), StringComparer.OrdinalIgnoreCase).ToList();
         var dirs1 = GetAllDirectories(dir1);
         var dirs2 = GetAllDirectories(dir2);
 

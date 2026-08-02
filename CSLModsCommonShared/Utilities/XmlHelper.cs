@@ -56,7 +56,7 @@ public static class XmlHelper {
 
     public static T DeserializeObjectFromFile<T>(string filePath, string rootElementName) {
         if (string.IsNullOrEmpty(filePath))
-            throw new ArgumentNullException(filePath, "Target file path cannot be null or empty when deserialize object from file");
+            throw new ArgumentNullException(nameof(filePath), "Target file path cannot be null or empty when deserialize object from file");
         if (!File.Exists(filePath))
             throw new FileNotFoundException(filePath, "Target file path doesn't exit");
         var xmlContent = File.ReadAllText(filePath);
@@ -88,7 +88,7 @@ public static class XmlHelper {
 
     public static string ReadXmlFile(string filePath) {
         if (string.IsNullOrEmpty(filePath))
-            throw new ArgumentNullException(filePath, "Target file path cannot be null or empty when read the file");
+            throw new ArgumentNullException(nameof(filePath), "Target file path cannot be null or empty when read the file");
         if (!File.Exists(filePath))
             throw new FileNotFoundException("Target file path doesn't exit");
         return File.ReadAllText(filePath);
@@ -96,9 +96,9 @@ public static class XmlHelper {
 
     public static void WriteXmlToFile(string xml, string filePath) {
         if (string.IsNullOrEmpty(xml))
-            throw new ArgumentNullException(xml, "Xml cannot be null or empty when write to file");
+            throw new ArgumentNullException(nameof(xml), "Xml cannot be null or empty when write to file");
         if (string.IsNullOrEmpty(filePath))
-            throw new ArgumentNullException(filePath, "Target file path cannot be null or empty when write to file");
+            throw new ArgumentNullException(nameof(filePath), "Target file path cannot be null or empty when write to file");
         File.WriteAllText(filePath, xml);
     }
 }
