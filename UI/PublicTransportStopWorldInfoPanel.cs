@@ -70,7 +70,7 @@ namespace ImprovedPublicTransport.UI
             this.CheckForClose();
         }
 
-        public new void LateUpdate()
+        public override void LateUpdate()
         {
             if (!this.isVisible)
                 return;
