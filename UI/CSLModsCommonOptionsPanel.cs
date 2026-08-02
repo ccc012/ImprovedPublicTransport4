@@ -272,6 +272,20 @@ namespace ImprovedPublicTransport.UI
                     Settings.SettingsActions.NotifyReloadRequired("Rescue Fullwidth Digits");
                 });
 
+            // Legacy toggle, locked read-only: kept so saves from installs that already had this
+            // on keep working exactly as before, but no longer offered to anyone going forward -
+            // no new save can turn it on, and every gameplay profile forces it off (see
+            // SettingsActions.OnGameplayProfileChanged). The value shown is whatever this install's
+            // settings file already had before this version; it cannot change from here on.
+            var legacy = AddSection(page, Localization.Get("SETTINGS_LEGACY_GROUP"),
+                Localization.Get("SETTINGS_LEGACY_GROUP_DESC"));
+            var berthCard = legacy.AddCheckBox(setting.EnableStopStacker, Localization.Get("SETTINGS_STOPSTACKER_ENABLE"), null, Localization.Get("SETTINGS_STOPSTACKER_ENABLE_TOOLTIP"),
+                (_, __) => { /* locked - no-op, see remarks above */ });
+            if (berthCard?.Control != null)
+            {
+                OptionsNestedTabs.SetEnabled(berthCard.Control, false);
+            }
+
             // Dangerous tools last so casual players do not hit them first.
             FillDeleteLinesPage(page);
         }
@@ -533,13 +547,6 @@ namespace ImprovedPublicTransport.UI
                     SettingsActions.OnSharedStopEnablerChanged(isChecked);
                     SettingsActions.NotifyReloadRequired("Shared Stop Enabler");
                 });
-            net.AddCheckBox(setting.EnableStopStacker, Localization.Get("SETTINGS_STOPSTACKER_ENABLE"), null, Localization.Get("SETTINGS_STOPSTACKER_ENABLE_TOOLTIP"),
-                (_, isChecked) =>
-                {
-                    ModSetting.Instance.EnableStopStacker = isChecked;
-                    SettingsActions.OnStopStackerChanged(isChecked);
-                });
-
             var vehicles = AddSection(page, Localization.Get("SETTINGS_SUB_VEHICLES"),
                 Localization.Get("SETTINGS_SUB_VEHICLES_DESC"));
             vehicles.AddCheckBox(setting.EnableBetterBoarding, Localization.Get("SETTINGS_BETTERBOARDING_ENABLE"), null, Localization.Get("SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP"),

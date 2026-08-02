@@ -585,3 +585,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP 독립형 Rescue Fullwidth Digits 
 CHANGELOG_4_8_6_1 통근 목적지가 다시 활성화되었습니다: 옵션 토글이 돌아왔으며 재로드 없이 실시간으로 작동합니다.
 CHANGELOG_4_8_6_2 모든 선택적 통합 기능을 "끄면 진짜로 꺼짐"이 되는지 점검했습니다: 고가 정류장 활성화 기능은 되돌릴 방법 없이 도로 프리팹 데이터를 영구적으로 다시 쓰고 있었고, 자동 노선 예산은 세션 도중 비활성화된 후에도 백그라운드에서 계속 노선을 관리하고 있었습니다. 이제 둘 다 꺼지면 바닐라 동작으로 완전히 되돌아갑니다.
 CHANGELOG_4_8_6_3 끌 방법 없이 항상 실행되던 두 가지 동작 - 이름 없는 정류장 자동 이름 지정과 전각 숫자 복구(Gansaku) - 을 발견하여 옵션 → 고급 아래에 두 가지 모두에 대한 토글을 추가했습니다. 기본적으로 켜져 있으므로 끄지 않는 한 아무것도 바뀌지 않습니다.
+SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_LEGACY_GROUP Legacy
+SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

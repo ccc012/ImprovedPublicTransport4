@@ -14,6 +14,57 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.7] Bus stop berth stacking: locked legacy toggle, naming cleanup
+
+Out-of-cycle release, prompted by a Workshop comment from ScratchyBald
+(author of [Stop Stacker](https://steamcommunity.com/sharedfiles/filedetails/?id=3751418194))
+objecting to IPT4's Workshop page and in-game tooltip using his mod's name,
+quoting his page wording, and recommending players unsubscribe from his mod.
+The underlying feature (`Integration/StopStacker/`) is and always was a
+clean-room reimplementation with no shared code - the objection was about
+naming/wording, not the implementation, and is addressed as such.
+
+### Changed - "Bus stop berth stacking" is now a locked legacy toggle
+
+- Moved the checkbox from `Options → Rede/Paradas` to a new
+  `Options → Advanced → Legacy` section, and disabled its control
+  (`OptionsNestedTabs.SetEnabled(card.Control, false)`, same pattern as the
+  "Future" spoiler cards) so it can no longer be toggled by anyone.
+- Removed `settings.EnableStopStacker = true` from the Realistic profile
+  cascade (`SettingsActions.OnGameplayProfileChanged`) - no gameplay profile
+  turns this on anymore.
+- No new persistence mechanism was needed for the grandfather behaviour:
+  `ModSetting.EnableStopStacker` already defaults to `false` and is a normal
+  JSON-backed property, so an install whose settings file already has it
+  `true` keeps deserializing to `true` (and the load-time
+  `StopStacker.PatchController.Activate()` call in
+  `ImprovedPublicTransportMod.cs` is unchanged and still runs for it) - only
+  fresh installs and the now-locked UI stop new adoption.
+- Rewrote the tooltip to describe the mechanic in fully neutral terms, with
+  no reference to the other mod's name or Workshop page.
+
+### Changed - Workshop text
+
+- Removed from the "Absorbed Standalone Mods (Unsubscribe Required)" list in
+  the incompatible-mods discussion post.
+- Removed the "Stop Stacker" name from the Workshop description's changelog
+  blurb and credits line (English, Portuguese PT/BR, Spanish, LatAm) in
+  favour of a plain description of the behaviour.
+
+### Housekeeping
+
+- Filled every translation file up to parity with `en.txt` (English
+  fallback text for strings not yet hand-translated) - several files had
+  been missing keys added across the last few releases
+  (`SETTINGS_AUTONAMESTOPS_*`, `SETTINGS_RESCUEFULLWIDTHDIGITS_*`,
+  `SETTINGS_HIDDENBEHAVIOUR_GROUP*`, `SETTINGS_FUTURE_BUSWAYPOINT*`,
+  `SETTINGS_HOTKEY_ADVSTOPSELECT_ALT*`, three 4.8.6 changelog entries) as
+  well as the new `SETTINGS_LEGACY_GROUP*` and `CHANGELOG_4_8_7_*` keys from
+  this release. `pt.txt`/`pt-br.txt` got real translations for the new
+  strings; every other locale got the English text as a stopgap.
+
+---
+
 ## [4.8.6] Commuter Destination back, real disable-on-toggle audit
 
 Quick follow-up, not a new module - existing bugs found and fixed, no new

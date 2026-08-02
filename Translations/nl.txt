@@ -585,3 +585,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Overgenomen van de losstaande Resc
 CHANGELOG_4_8_6_1 Bestemming forensen opnieuw ingeschakeld: de schakelaar in Opties is terug en werkt live, geen herladen nodig.
 CHANGELOG_4_8_6_2 Elke optionele integratie gecontroleerd op een echte "uit betekent uit": Elevated Stops Enabler herschreef permanent weg-prefabgegevens zonder manier om dit ongedaan te maken, en Auto Line Budget bleef lijnen op de achtergrond beheren nadat het midden in een sessie was uitgeschakeld. Beide keren nu volledig terug naar standaardgedrag wanneer uitgeschakeld.
 CHANGELOG_4_8_6_3 Twee gedragingen gevonden die altijd actief waren zonder mogelijkheid om ze uit te zetten - automatisch benoemen van naamloze haltes, en Rescue Fullwidth Digits (Gansaku) - en voor beide schakelaars toegevoegd onder Opties → Geavanceerd. Standaard ingeschakeld, dus er verandert niets tenzij je ze uitzet.
+SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_LEGACY_GROUP Legacy
+SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

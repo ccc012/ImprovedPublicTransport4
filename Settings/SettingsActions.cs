@@ -106,7 +106,8 @@ namespace ImprovedPublicTransport.Settings
                     settings.EnableFlightTracker = true;
                     settings.EnableSubBuildingsTabs = true;
                     settings.EnableTaxiStandFix = true;
-                    settings.EnableStopStacker = true;
+                    // EnableStopStacker deliberately NOT set here - legacy/locked toggle, see
+                    // FillAdvancedPage's grandfather note. Profiles never turn it back on.
                     settings.EnableSingleTrainTrackAI = true;
                     settings.EnableAdvancedStopSelection = true;
                     settings.EnableBetterBoarding = true;

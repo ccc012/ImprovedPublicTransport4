@@ -585,3 +585,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portert fra den frittstående mode
 CHANGELOG_4_8_6_1 Gjenaktiverte Passasjerdestinasjon: Innstillinger-bryteren er tilbake og fungerer live, uten behov for omlasting.
 CHANGELOG_4_8_6_2 Reviderte hver valgfrie integrasjon for et reelt «av betyr av»: Forhøyede stopp-aktivering skrev permanent om veiprefabdata uten mulighet til å angre det, og Automatisk flåtestørrelse fortsatte å styre linjer i bakgrunnen etter å ha blitt deaktivert midt i en økt. Begge tilbakestilles nå fullstendig til vanilla-atferd når de slås av.
 CHANGELOG_4_8_6_3 Fant to atferder som alltid kjørte uten mulighet til å slå dem av – autonavngiving av unavngitte stopp, og Redd fullbreddesifre (Gansaku) – og la til brytere for begge under Options → Avansert. På som standard, slik at ingenting endres med mindre du slår dem av.
+SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_LEGACY_GROUP Legacy
+SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
