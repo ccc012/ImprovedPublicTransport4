@@ -98,7 +98,8 @@ namespace UnlimitedOutsideConnections
 
             var vehicles = Singleton<VehicleManager>.instance.m_vehicles.m_buffer;
             var vehicleID = buildings[buildingID].m_ownVehicles;
-            while (vehicleID != 0)
+            var guard = 0;
+            while (vehicleID != 0 && guard++ < 65536)
             {
                 if (vehicles[vehicleID].m_transportLine == 0)
                 {
