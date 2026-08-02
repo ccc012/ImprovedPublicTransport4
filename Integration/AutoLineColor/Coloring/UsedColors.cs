@@ -57,6 +57,15 @@ namespace AutoLineColor.Coloring
 
         public float MeasureNovelty(Color32 color, IColorDistanceMetric metric)
         {
+            // No other used colors to compare against (e.g. manually refreshing the only active
+            // line in the city excludes that line itself, leaving nothing) - Min() on an empty
+            // sequence throws InvalidOperationException. Matches NullUsedColors: nothing used yet
+            // means every candidate colour is maximally novel.
+            if (_dict.Count == 0)
+            {
+                return 1f;
+            }
+
             return _dict.Keys.Min(usedColor => metric.MeasureDistance(color, usedColor));
         }
     }

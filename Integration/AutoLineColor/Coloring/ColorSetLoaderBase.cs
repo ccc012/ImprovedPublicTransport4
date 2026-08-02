@@ -18,6 +18,7 @@ namespace AutoLineColor.Coloring
 
         [NotNull] private readonly string _filename;
         [NotNull] private readonly string _defaultContent;
+        [CanBeNull] private IColorSet _cachedColorSet;
 
         protected ColorSetLoaderBase([NotNull] string name, [NotNull] string filename, [NotNull] string defaultContent)
         {
@@ -28,6 +29,16 @@ namespace AutoLineColor.Coloring
 
         public IColorSet LoadColorSet()
         {
+            // Each KnownColorSet loader is a per-file singleton (see KnownColorSet.cs) reused for
+            // the lifetime of the process, and the color file is never modified externally while the
+            // game runs - re-reading and re-parsing it from disk on every single call (once per line
+            // needing a colour, from both the periodic ColorMonitor.OnUpdate pass and the manual
+            // "reassign colour" button) was pure repeated I/O for output that never changes.
+            if (_cachedColorSet != null)
+            {
+                return _cachedColorSet;
+            }
+
             var logger = Console.Instance;
 
             var modConfigPath = Path.Combine(Path.Combine(Utils.AssemblyPath, "Resources"), "AutoLineColor");
@@ -55,7 +66,8 @@ namespace AutoLineColor.Coloring
 
             try
             {
-                return ParseColorSet(unparsedColors);
+                _cachedColorSet = ParseColorSet(unparsedColors);
+                return _cachedColorSet;
             }
             catch (Exception ex)
             {
