@@ -135,6 +135,25 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             _locDepotWarning = Localization.Get("LINE_PANEL_DEPOT_WARNING");
         }
 
+        // m_VehicleAmount is a vanilla-owned label - PublicTransportWorldInfoPanel writes its own
+        // text into it every frame from its own Update(), same as m_Status/m_Type on the vehicle
+        // panel (see PanelExtenderVehicle). Update() ordering between different components is not
+        // guaranteed, so whichever of us or vanilla ran last for a given frame won - the label
+        // flickered between "our" vehicle count and vanilla's own. Re-applying the last computed
+        // string every LateUpdate (which always runs after every Update in the frame) is enough to
+        // always win, without paying for a full UpdateBindings() every frame - that one stays
+        // throttled below since it also rebuilds the depot dropdown and vehicle list.
+        private string _cachedVehicleCountText;
+
+        private void LateUpdate()
+        {
+            if (_initialized && _cachedVehicleCountText != null
+                && _publicTransportWorldInfoPanel.component.isVisible && _vehicleAmount != null)
+            {
+                _vehicleAmount.text = _cachedVehicleCountText;
+            }
+        }
+
         private void Update()
         {
             if (!_initialized)
@@ -271,7 +290,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                             uiTextField.relativePosition = new Vector3(135f, 0.0f);
                             _colorTextField = uiTextField;
                             _colorField.eventSelectedColorReleased += OnColorChanged;
-                            CreateAutoColorRefreshButton();
+                            CreateLineActionsPanel();
                             CreateSpawnTimerPanel();
                             CreateBudgetControlPanel();
                             CreateUnbunchingPanel();
@@ -300,8 +319,9 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 int targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineId);
                 var tm = Singleton<TransportManager>.instance;
                 int num1 = tm.m_lines.m_buffer[lineId].CountStops(lineId);
-                _vehicleAmount.text = string.Format(_locVehicleCount,
+                _cachedVehicleCountText = string.Format(_locVehicleCount,
                     lineVehicleCount + " / " + targetVehicleCount);
+                _vehicleAmount.text = _cachedVehicleCountText;
                 _stopCountLabel.text = string.Format(_locStops, num1);
                 _budgetControl.isChecked = CachedTransportLineData.GetBudgetControlState(lineId);
 
@@ -650,37 +670,39 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         }
 
         /// <summary>
-        /// Reliable AutoLineColor recolor/rename button next to the colour field (not on the
-        /// crowded LinesOverview row where clicks were often lost).
+        /// Refresh Nome/Cor + Copy/Paste, as their own row in our own IPT container instead of
+        /// sharing vanilla's colour-swatch row. That row is also home to "Atividade da linha"
+        /// (vanilla's day/off-peak/night activity icons) - cramming three more buttons onto it
+        /// left everything squeezed and clipped against those icons regardless of how carefully
+        /// the buttons' own positions were chained (fixed in an earlier pass; the row itself was
+        /// simply too narrow for both, not just poorly laid out). _iptContainer auto-lays out its
+        /// rows vertically and is full panel width, so a new row here has no vanilla sibling to
+        /// contend with.
         /// </summary>
-        private void CreateAutoColorRefreshButton()
+        private void CreateLineActionsPanel()
         {
-            if (_colorField == null || _colorField.parent == null)
+            var existingPanel = _iptContainer.Find<UIPanel>("IptLineActions");
+            if (existingPanel != null)
             {
-                return;
+                _iptContainer.RemoveUIComponent(existingPanel);
+                UnityEngine.Object.Destroy(existingPanel.gameObject);
             }
 
-            var parent = _colorField.parent as UIPanel ?? _colorField.parent.GetComponent<UIPanel>();
-            if (parent == null)
-            {
-                return;
-            }
+            var panel = _iptContainer.AddUIComponent<UIPanel>();
+            panel.name = "IptLineActions";
+            panel.width = panel.parent.width;
+            panel.height = 23f;
+            panel.autoLayoutDirection = LayoutDirection.Horizontal;
+            panel.autoLayoutStart = LayoutStart.TopLeft;
+            panel.autoLayoutPadding = new RectOffset(0, 6, 0, 0);
+            panel.autoLayout = true;
 
-            // Remove prior instance if re-init.
-            var existing = parent.Find<UIButton>("IptAutoColorRefresh");
-            if (existing != null)
-            {
-                parent.RemoveUIComponent(existing);
-                UnityEngine.Object.Destroy(existing.gameObject);
-            }
-
-            var btn = UIUtils.CreateButton(parent);
+            var btn = UIUtils.CreateButton(panel);
             btn.name = "IptAutoColorRefresh";
             btn.textScale = 0.7f;
             btn.textPadding = new RectOffset(6, 6, 4, 0);
             btn.autoSize = true;
             btn.height = 23f;
-            btn.relativePosition = new Vector3(190f, 0f);
             btn.tooltip = Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP");
             btn.text = Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON");
             btn.eventClick += (_, __) => OnAutoColorRefreshClick();
@@ -688,20 +710,15 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             _autoColorRefreshBtn = btn;
 
             // Copy / Paste line settings (was only on PrefabPanel; CHANGELOG noted unreachable UI).
-            // Starts right after this button's actual measured width, not a fixed offset - a fixed
-            // x=280 overlapped this button in languages whose "refresh" text runs longer than
-            // English (e.g. Portuguese "Atualizar Nome/Cor"), since autoSize can grow past it.
-            CreateCopyPasteButtons(parent, btn.relativePosition.x + btn.width + 6f);
+            CreateCopyPasteButtons(panel);
         }
 
-        private void CreateCopyPasteButtons(UIComponent parent, float startX)
+        private void CreateCopyPasteButtons(UIComponent parent)
         {
             if (parent == null)
             {
                 return;
             }
-
-            var x = startX;
 
             UIButton EnsureButton(string name, string textKey, string tipKey, MouseEventHandler onClick)
             {
@@ -719,10 +736,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 b.autoSize = true;
                 b.height = 22f;
                 b.text = Localization.Get(textKey);
-                b.relativePosition = new Vector3(x, 0f);
                 b.tooltip = Localization.Get(tipKey);
                 b.eventClick += onClick;
-                x += b.width + 6f;
                 return b;
             }
 

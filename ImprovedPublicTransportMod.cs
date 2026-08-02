@@ -204,6 +204,8 @@ namespace ImprovedPublicTransport
                     SimulationStepPatch.Apply();
                     GetLineVehiclePatch.Apply();
                     CanLeaveStopPatch.Apply();
+                    // Engine-hardening, not a feature - see the class doc for why this exists.
+                    HarmonyPatches.EngineHardening.FontRequestCharactersGuardPatch.Apply();
                     // Must stay early: blocks GetNextStop/GetPrevStop IndexOutOfRange simulation popups
                     // from bad stop/building IDs (Express Bus redeploy, broken stop chains, etc.).
                     TransportLineStopSafetyPatch.Apply();
@@ -773,6 +775,7 @@ namespace ImprovedPublicTransport
             SimulationStepPatch.Undo();
             GetLineVehiclePatch.Undo();
             CanLeaveStopPatch.Undo();
+            HarmonyPatches.EngineHardening.FontRequestCharactersGuardPatch.Undo();
             TransportLineStopSafetyPatch.Undo();
             CachedTransportLineData.Deinit();
 
