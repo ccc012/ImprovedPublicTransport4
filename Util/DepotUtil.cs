@@ -11,7 +11,7 @@ namespace ImprovedPublicTransport.Util
     public static class DepotUtil
     {
         public static void GetStats(ref Building building,
-            out TransportInfo primatyInfo, out TransportInfo secondaryInfo)
+            out TransportInfo primaryInfo, out TransportInfo secondaryInfo)
         {
             var depotAi = building.Info?.m_buildingAI as DepotAI;
             if (depotAi == null || (depotAi.m_transportInfo == null && depotAi.m_secondaryTransportInfo == null))
@@ -19,18 +19,18 @@ namespace ImprovedPublicTransport.Util
                 var shelterAi = building.Info?.m_buildingAI as ShelterAI;
                 if (shelterAi == null || shelterAi.m_transportInfo == null)
                 {
-                    primatyInfo = null;
+                    primaryInfo = null;
                     secondaryInfo = null;
                 }
                 else
                 {
-                    primatyInfo = shelterAi.m_transportInfo;
+                    primaryInfo = shelterAi.m_transportInfo;
                     secondaryInfo = null;
                 }
             }
             else
             {
-                primatyInfo = depotAi.m_transportInfo;
+                primaryInfo = depotAi.m_transportInfo;
                 secondaryInfo = depotAi.m_secondaryTransportInfo;
             }
         }
@@ -89,14 +89,7 @@ namespace ImprovedPublicTransport.Util
                 return true;
             }
 
-            // Some ferry assets keep Ship transport type but are named Ferry.
-            if (info.m_transportType == TransportInfo.TransportType.Ship
-                && !string.IsNullOrEmpty(info.name)
-                && info.name.IndexOf("Ferry", StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                return true;
-            }
-
+            // Some ferry assets keep Ship (or another) transport type but are named Ferry.
             return !string.IsNullOrEmpty(info.name)
                    && info.name.IndexOf("Ferry", StringComparison.OrdinalIgnoreCase) >= 0;
         }
