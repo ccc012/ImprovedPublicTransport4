@@ -397,7 +397,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 if (depotDistrictNamesChanged)
                     _lastDepotDistrictNamesHash = currentDepotDistrictHash;
 
-                if (subService != _cachedSubService || level != _cachedLevel || depotNotValid || _updateDepots[triplet] || depotDistrictNamesChanged)
+                // TryGetValue, not the indexer: _updateDepots is only pre-seeded for a subset of
+                // (service, subService, level) combos in the constructor (e.g. Taxi and CableCar
+                // are absent) - the indexer throws KeyNotFoundException for anything missing,
+                // which aborted UpdateBindings() every ~0.25s while a Taxi/CableCar line panel
+                // was open (vehicle list, panel sizing, depot dropdown all silently skipped).
+                bool depotMarkedDirty = _updateDepots.TryGetValue(triplet, out var dirty) && dirty;
+                if (subService != _cachedSubService || level != _cachedLevel || depotNotValid || depotMarkedDirty || depotDistrictNamesChanged)
                 {
                     PopulateDepotDropDown(info);
                     _updateDepots[triplet] = false;
