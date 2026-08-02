@@ -43,27 +43,53 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private FieldInfo _cachedTotalProgress;
     private FieldInfo _cachedProgressVehicle;
 
+    // Re-applied every LateUpdate (see below) so we always win the race against vanilla's own
+    // Update() writing the same labels - see the comment on LateUpdate(). Populated inside
+    // UpdateBindings() every time _status/_distance.text is set there.
+    private string _cachedStatusText;
+    private string _cachedDistanceText;
+    private float _nextBindingsRealtime;
+
     public void LateUpdate()
     {
       if (!this._initialized)
       {
         this.Init();
+        return;
       }
-      else
+
+      if (!this._publicTransportVehicleWorldInfoPanel.component.isVisible)
+        return;
+
+      var now = UnityEngine.Time.unscaledTime;
+      if (now >= this._nextBindingsRealtime)
       {
-        if (!this._initialized || !this._publicTransportVehicleWorldInfoPanel.component.isVisible)
-          return;
-        // Deliberately every LateUpdate, not throttled like the other panel extenders
-        // (PanelExtenderLine/CityService run on a 0.25s Update timer). The vanilla panel's own
-        // Update() writes the Status/Type labels every frame with its own text (e.g. it can decide
-        // a vehicle is "not on route" the instant it isn't strictly between two stops). LateUpdate
-        // always runs after every Update in the same frame, so as long as we also run every frame
-        // we are guaranteed to overwrite vanilla's value last. The previous 0.2s throttle left a
-        // window each cycle where vanilla's text was the last one drawn, which read as the label
-        // flickering between two different values - most visible while paused, since vanilla's
-        // Update() keeps running under pause but our old throttle timer (unscaledTime) also kept
-        // advancing, so the two were never in sync.
+        // Everything else in UpdateBindings (passenger stats, earnings, depot/progress lookups,
+        // and - notably - WorldInfoCurrentLineIDQuery's UnityEngine.Object.FindObjectsOfType scene
+        // scan) is real work, not just label text - stays throttled like the other panel extenders.
+        this._nextBindingsRealtime = now + 0.2f;
         this.UpdateBindings();
+      }
+
+      // The vanilla panel's own Update() writes the Status/Distance labels every frame with its
+      // own text (e.g. it can decide a vehicle is "not on route" the instant it isn't strictly
+      // between two stops) - nothing patches or disables that native refresh. LateUpdate always
+      // runs after every Update in the same frame, so re-applying the LAST text UpdateBindings
+      // computed - a couple of string assignments, not a recompute - is enough to always win that
+      // race every single frame, without re-running the expensive parts on every frame too. The
+      // previous "no throttle at all" version fixed the flicker but paid for a full
+      // FindObjectsOfType scan every frame just to keep two labels current; this keeps the win
+      // without the cost. Most visible while paused, since vanilla's Update() keeps running under
+      // pause but a throttle timer built on unscaledTime also keeps advancing, so the two were
+      // never in sync at any fixed interval.
+      if (this._status != null && this._cachedStatusText != null)
+      {
+        this._status.text = this._cachedStatusText;
+      }
+
+      if (this._distance != null && this._cachedDistanceText != null)
+      {
+        this._distance.text = this._cachedDistanceText;
       }
     }
 
@@ -108,6 +134,12 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this._statsPanel.Hide();
         this._buttonPanel.Hide();
         this._publicTransportVehicleWorldInfoPanel.component.height = 229f;
+        // Not on a line: Status/Distance are vanilla's own concern here (no line/unbunching state
+        // for us to describe), so nothing below sets them. Without clearing the cache, LateUpdate
+        // would keep reapplying whatever the previous line-vehicle's text was onto this vehicle's
+        // panel every frame.
+        this._cachedStatusText = null;
+        this._cachedDistanceText = null;
       }
       else
       {
@@ -163,6 +195,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
               && vehicleCache[(int)vehicleID].IsUnbunchingInProgress)
             this._status.text = Localization.Get("VEHICLE_PANEL_STATUS_UNBUNCHING");
           this._distance.text = this._status.text;
+          this._cachedStatusText = this._status.text;
+          this._cachedDistanceText = this._distance.text;
           var boardingTime = vehicle.Info.m_vehicleType == VehicleInfo.VehicleType.Plane
             ? CanLeaveStopPatch.AirplaneBoardingTime
             : CanLeaveStopPatch.BoardingTime;
@@ -214,6 +248,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           }
           this._distance.text = ColossalFramework.Globalization.Locale.Get(this._distance.localeID);
           this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+          this._cachedStatusText = this._status.text;
+          this._cachedDistanceText = this._distance.text;
         }
         this._statsPanel.Show();
         var vCache = CachedVehicleData.m_cachedVehicleData;
