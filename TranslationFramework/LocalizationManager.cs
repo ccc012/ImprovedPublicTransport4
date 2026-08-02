@@ -19,6 +19,17 @@ namespace ImprovedPublicTransport.TranslationFramework
         private ILanguageDeserializer languageDeserializer;
         private Type modType;
 
+        // Dedupes the "doesn't contain a suitable translation" warning below, keyed by
+        // "<language>|<id>" so a real language switch gets its own first-time warning instead of
+        // being silently swallowed by an id already logged for a different language. Without this,
+        // every caller that (correctly) uses a vanilla-only key through this framework - e.g.
+        // Localization.Get("INFO_PUBLICTRANSPORT_BUS"), which always falls through to Colossal's
+        // own Locale.Get afterwards and works fine - re-logs this warning every time Localization's
+        // own resolved-value cache gets invalidated (any locale change event), not just once. One
+        // player's session produced a 2.2 MB output_log from exactly this, initially misdiagnosed
+        // as unrelated vanilla/engine noise before tracing it back here.
+        private readonly HashSet<string> _loggedMissingTranslations = new HashSet<string>();
+
         public LocalizationManager(Type modType, ILanguageDeserializer languageDeserializer = null, bool loadLanguageAutomatically = true,
             string fallbackLanguage = "en")
         {
@@ -280,7 +291,7 @@ namespace ImprovedPublicTransport.TranslationFramework
                 {
                     translatedText = _currentLanguage.GetTranslation(translationId);
                 }
-                else
+                else if (_loggedMissingTranslations.Add(_currentLanguage.LocaleName() + "|" + translationId))
                 {
                     UnityEngine.Debug.LogWarning("Returned translation for language \"" + _currentLanguage.LocaleName() + "\" doesn't contain a suitable translation for \"" + translationId + "\"");
                 }
