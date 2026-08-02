@@ -64,7 +64,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             PatchUtil.Unpatch(new PatchUtil.MethodDefinition(type, CanLeaveMethod));
         }
         
-        public static void Prefix(ushort vehicleID, ref Vehicle data)
+        public static void Prefix(ushort vehicleID, ref Vehicle vehicleData)
         {
             currentVehicleID = vehicleID;
             currentStop = 0;
@@ -72,9 +72,9 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             // Prefer the live stop the vehicle is leaving (target building). Cached CurrentStop
             // was only set on passenger exchange and went stale on empty stop visits, so unbunching
             // used the wrong stop flag or was skipped entirely.
-            if (data.m_targetBuilding != 0)
+            if (vehicleData.m_targetBuilding != 0)
             {
-                currentStop = data.m_targetBuilding;
+                currentStop = vehicleData.m_targetBuilding;
             }
 
             var cache = CachedVehicleData.m_cachedVehicleData;

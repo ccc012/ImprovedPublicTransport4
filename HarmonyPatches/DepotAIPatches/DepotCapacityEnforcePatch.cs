@@ -98,7 +98,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             DepotAI __instance,
             ushort buildingID,
             ref Building data,
-            VehicleInfo info)
+            VehicleInfo vehicleInfo)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                     return true;
                 }
 
-                if (!TryResolveMaxForVehicleInfo(__instance, info, out int maxVehicles))
+                if (!TryResolveMaxForVehicleInfo(__instance, vehicleInfo, out int maxVehicles))
                 {
                     // Unknown slot — fall back to primary if it is capped (still better than free spawn).
                     maxVehicles = __instance.m_maxVehicleCount;
