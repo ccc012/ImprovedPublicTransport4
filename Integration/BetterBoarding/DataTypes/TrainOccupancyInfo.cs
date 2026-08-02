@@ -63,7 +63,8 @@ namespace BetterBoarding.DataTypes
             var currentVehicleID = vehicleID;
             var vehicleManager = Singleton<VehicleManager>.instance;
             var currentVehicleInstance = vehicleManager.m_vehicles.m_buffer[currentVehicleID];
-            while (currentVehicleInstance.m_leadingVehicle != 0)
+            var guard = 0;
+            while (currentVehicleInstance.m_leadingVehicle != 0 && guard++ < 16384)
             {
                 // move 1 vehicle to the front
                 currentVehicleID = currentVehicleInstance.m_leadingVehicle;

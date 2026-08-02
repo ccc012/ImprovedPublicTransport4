@@ -214,35 +214,6 @@ namespace IntercityBusControl
             }
         }
 
-        private static void ApplyCapacityIfBus(TransportStationAI ai)
-        {
-            if (IsBusSubService(ai.m_transportInfo)
-                || (ai.m_transportInfo != null
-                    && string.Equals(ai.m_transportInfo.name, "Intercity Bus", StringComparison.Ordinal)))
-            {
-                ApplyCapacity(ai, primary: true);
-            }
-            else if (IsBusSubService(ai.m_secondaryTransportInfo)
-                     || (ai.m_secondaryTransportInfo != null
-                         && string.Equals(ai.m_secondaryTransportInfo.name, "Intercity Bus", StringComparison.Ordinal)))
-            {
-                ApplyCapacity(ai, primary: false);
-            }
-        }
-
-        private static void ApplyCapacity(TransportStationAI ai, bool primary)
-        {
-            var cap = GetCapacityForCurrentMode();
-            if (primary)
-            {
-                ai.m_maxVehicleCount = cap;
-            }
-            else
-            {
-                ai.m_maxVehicleCount2 = cap;
-            }
-        }
-
         private static bool IsBusSubService(TransportInfo ti) =>
             ti?.m_class != null
             && ti.m_class.m_subService == ItemClass.SubService.PublicTransportBus;
