@@ -30,10 +30,16 @@ namespace ImprovedPublicTransport.TranslationFramework
         // as unrelated vanilla/engine noise before tracing it back here.
         private readonly HashSet<string> _loggedMissingTranslations = new HashSet<string>();
 
-        public LocalizationManager(Type modType, ILanguageDeserializer languageDeserializer = null, bool loadLanguageAutomatically = true,
+        public LocalizationManager(Type modType, ILanguageDeserializer languageDeserializer, bool loadLanguageAutomatically = true,
             string fallbackLanguage = "en")
         {
-            this.languageDeserializer = languageDeserializer ?? new DefaultLanguageDeserializer();
+            // Was `?? new DefaultLanguageDeserializer()` - a legacy XML-format deserializer from
+            // before Translations/*.txt existed, with zero real callers (the only real caller,
+            // Localization.cs, always passes PlainTextLanguageDeserializer explicitly). Removed
+            // along with DefaultLanguage/DefaultLanguageDeserializer/TranslatableAttribute - fail
+            // fast instead of silently falling back to a deserializer that can't read our own file
+            // format, if a future caller ever forgets to pass one.
+            this.languageDeserializer = languageDeserializer ?? throw new ArgumentNullException(nameof(languageDeserializer));
             this._loadLanguageAutomatically = loadLanguageAutomatically;
             this.fallbackLanguage = fallbackLanguage;
             this.modType = modType;

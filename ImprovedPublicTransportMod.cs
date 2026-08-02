@@ -193,7 +193,6 @@ namespace ImprovedPublicTransport
                     }
 
                     Redirector<CommonBuildingAIReverseDetour>.Deploy();
-                    // TransportLineReverseDetour.GetActiveVehicle is unused (no call sites) — do not Deploy.
                     HarmonyPatches.PublicTransportStopButtonPatches.OnMouseDownPatch.Apply();
                     HarmonyPatches.PublicTransportVehicleButtonPatches.OnMouseDownPatch.Apply();
                     RefreshVehicleButtonsPatch.Apply();
