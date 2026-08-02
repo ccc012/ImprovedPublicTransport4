@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP خالی ٹیکسیوں کو بے ترتی�
 SETTINGS_SHAREDSTOPENABLER_ENABLE مشترکہ اسٹاپ فعال کریں
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP ایک سے زیادہ ٹرانسپورٹ اقسام (بس، ٹرام، ٹرالی بس) کو ایک ہی سڑک کے حصے پر رکنے کی اجازت دیتا ہے۔ پہلے سے غیر فعال - یہ مختصر ورژن کیا چھوڑتا ہے یہ جاننے کے لیے ماڈ کا GitHub دیکھیں۔
 SETTINGS_COMMUTERDESTINATION_ENABLE مسافر منزل فعال کریں (ری ڈیزائن زیر التواء)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP عارضی طور پر دستیاب نہیں: پرانا پینل اسٹاپ-info UI دہراتا تھا اور ری ڈیزائن تک زبردستی بند ہے۔ چیک باکس اسے دوبارہ آن نہیں کرتا۔
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP دکھاتا ہے کہ اسٹاپ پر انتظار کرنے والے مسافر کہاں جا رہے ہیں — ایک چھوٹا پینل اور نقشے کا اوورلے۔ صرف پڑھنے کے لیے، Harmony کے علاوہ کوئی انحصار نہیں۔
 SETTINGS_OOC_ENABLE بہتر بیرونی رابطے
 SETTINGS_OOC_ENABLE_TOOLTIP کارگو ٹرینیں، ہوائی جہاز اور بحری جہاز بیرونی رابطوں پر روانہ ہونے سے پہلے زیادہ بھرے ہوئے لوڈ کے لیے زیادہ دیر انتظار کرتے ہیں۔
 SETTINGS_OOC_WAIT_MULTIPLIER انتظار ضارب

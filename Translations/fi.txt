@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Lähettää joutilaat taksit lähimmälle t
 SETTINGS_SHAREDSTOPENABLER_ENABLE Ota jaetut pysäkit käyttöön
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Sallii useamman kuin yhden liikennemuodon (bussi, raitiovaunu, johdinauto) pysähtyä samalla tieosuudella. Oletuksena pois - katso modin GitHubista, mitä tämä karsittu versio jättää pois.
 SETTINGS_COMMUTERDESTINATION_ENABLE Ota matkustajien määränpää käyttöön (uudelleensuunnittelu odottaa)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Tilapäisesti poissa käytöstä: aiempi paneeli monisti pysäkkitieto-UI:n ja on pakotettu pois kunnes uudelleensuunnittelu valmistuu. Valintaruutu ei voi ottaa sitä uudelleen käyttöön.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Näyttää, minne pysäkillä odottavat matkustajat ovat menossa — pieni paneeli sekä karttapäällys. Vain luku, ei muita riippuvuuksia kuin Harmony.
 SETTINGS_OOC_ENABLE Optimoidut ulkoyhteydet
 SETTINGS_OOC_ENABLE_TOOLTIP Rahtijunat, lentokoneet ja laivat odottavat pidempään täydempää lastia ennen lähtöä ulkoyhteyksillä.
 SETTINGS_OOC_WAIT_MULTIPLIER Odotuskerroin

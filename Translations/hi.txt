@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP खाली टैक्सियों �
 SETTINGS_SHAREDSTOPENABLER_ENABLE साझा स्टॉप सक्षम करें
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP एक से अधिक परिवहन प्रकार (बस, ट्राम, ट्रॉलीबस) को एक ही सड़क खंड पर रुकने देता है। डिफ़ॉल्ट रूप से बंद - यह संक्षिप्त संस्करण क्या छोड़ता है, यह जानने के लिए मॉड का GitHub देखें।
 SETTINGS_COMMUTERDESTINATION_ENABLE कम्यूटर गंतव्य सक्षम करें (रीडिज़ाइन लंबित)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP अस्थायी रूप से अनुपलब्ध: पिछला पैनल स्टॉप-info UI दोहराता था और रीडिज़ाइन तक जबरन बंद है। चेकबॉक्स इसे फिर नहीं चालू करता।
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP दिखाता है कि किसी स्टॉप पर इंतज़ार कर रहे यात्री कहाँ जा रहे हैं — एक छोटा पैनल और एक मानचित्र ओवरले। केवल पढ़ने के लिए, Harmony के अलावा कोई निर्भरता नहीं।
 SETTINGS_OOC_ENABLE अनुकूलित बाहरी कनेक्शन
 SETTINGS_OOC_ENABLE_TOOLTIP मालगाड़ी, विमान और जहाज बाहरी कनेक्शन पर रवाना होने से पहले अधिक भरे हुए भार के लिए अधिक समय तक प्रतीक्षा करते हैं।
 SETTINGS_OOC_WAIT_MULTIPLIER प्रतीक्षा गुणक

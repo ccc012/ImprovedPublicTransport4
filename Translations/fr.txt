@@ -354,7 +354,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Envoie les taxis inactifs vers la station d
 SETTINGS_SHAREDSTOPENABLER_ENABLE Activer les arrÃªts partagÃ©s
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permet Ã  plusieurs types de transport (bus, tram, trolleybus) de s'arrÃªter sur le mÃªme tronÃ§on de route. DÃ©sactivÃ© par dÃ©faut - voir le GitHub du mod pour ce que cette version rÃ©duite omet.
 SETTINGS_COMMUTERDESTINATION_ENABLE Activer la destination des usagers (refonte en attente)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Temporairement indisponible : l'ancien panneau dupliquait l'UI d'info d'arrÃªt et reste forcÃ© dÃ©sactivÃ© jusqu'Ã  une refonte. La case ne le rÃ©active pas.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Affiche vers où se dirigent les passagers qui attendent à un arrêt — un petit panneau plus une superposition sur la carte. Lecture seule, aucune dépendance hormis Harmony.
 SETTINGS_OOC_ENABLE Connexions externes optimisees
 SETTINGS_OOC_ENABLE_TOOLTIP Les trains, avions et navires de marchandises attendent plus longtemps une charge plus complete avant de partir aux connexions externes.
 SETTINGS_OOC_WAIT_MULTIPLIER Multiplicateur d'attente

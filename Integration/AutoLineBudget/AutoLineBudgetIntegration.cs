@@ -34,6 +34,17 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
         private readonly Dictionary<ushort, SortedDictionary<int, float>> _avgIntervalByVehCount = new();
         private readonly Dictionary<ushort, SortedDictionary<int, float>> _avgIntervalCountByVehCount = new();
 
+        private void OnDestroy()
+        {
+            // Give every line this integration took over back to vanilla budget control,
+            // instead of leaving it stuck on whatever target count we last computed.
+            foreach (var lineID in _managedLines)
+            {
+                CachedTransportLineData.SetBudgetControlState(lineID, true);
+            }
+            _managedLines.Clear();
+        }
+
         private void Update()
         {
             _timeSinceUpdate += Time.unscaledDeltaTime;

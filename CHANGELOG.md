@@ -14,6 +14,104 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.6] Commuter Destination back, real disable-on-toggle audit
+
+Quick follow-up, not a new module - existing bugs found and fixed, no new
+absorbed integrations.
+
+### Fixed - Commuter Destination re-enabled
+
+4.8.5 force-disabled this integration everywhere (`OnCommuterDestinationChanged`
+always set the flag back to `false` and unconditionally deactivated the
+patch controller, ignoring its `enabled` parameter; the Options checkbox was
+removed) as a stopgap while the underlying redesign was still pending.
+That stopgap outlived its purpose - the toggle is restored to normal:
+`OnCommuterDestinationChanged` now actually activates when `true` and
+deactivates when `false`, the checkbox is back under `Options → Info`
+(same call pattern as `SharedStopEnabler`/`SubBuildingsTabs`), and the
+tooltip that told players the feature was "not available yet" is corrected
+across every language that had it (33 of the 34 translation files carried
+this text - `pt-br.fixed.txt` was skipped as its own known-incomplete
+scratch file).
+
+### Fixed - two integrations that did not actually revert when turned off
+
+An audit of every optional integration's on/off path (prompted by "does
+disabling this really disable it, or does it just look off") found two
+that silently kept affecting the game after being toggled off:
+
+- **`ElevatedStopsEnabler`** wrote directly into shared `NetInfo.Lane`
+  (`m_stopType`, `m_stopOffset`) and `NetLaneProps.Prop.m_flagsForbidden`
+  fields with no Harmony patch and no record of the prior values - the
+  opposite of the Harmony-patch-based `Activate()`/`Deactivate()` pattern
+  every other integration uses. Once applied, the mutation was permanent
+  for the rest of the game session; turning the setting off did nothing,
+  and any other mod reading those same prefabs (including a real "Elevated
+  Stops Enabler Revisited" install) would keep seeing IPT4's changes
+  regardless of the toggle state. Fixed by recording each lane's/prop's
+  original value in a dictionary the first time it is touched
+  (`ElevatedStops.RecordLane`/`_originalPropFlags`) and adding a real
+  `Revert()` that restores every recorded value; wired into a new
+  `SettingsActions.OnElevatedStopsChanged` live-toggle handler instead of
+  the previous "takes effect on next level load" checkbox.
+- **`AutoLineBudgetIntegration`** (a `MonoBehaviour`) was added to
+  `IptGameObject` once at level load if enabled, with no code path that
+  ever removed it - the Options dropdown just wrote the setting value with
+  no live-toggle handler at all. Disabling it mid-session left the
+  component running and still silently reassigning target vehicle counts
+  on lines it had taken over, for the rest of that game session, with no
+  "reload required" notice either. Fixed with a new
+  `SettingsActions.OnAutoLineBudgetModeChanged` handler that adds/destroys
+  the component live, plus an `OnDestroy()` on the component itself that
+  hands every line it had taken over back to vanilla budget control
+  (`CachedTransportLineData.SetBudgetControlState(lineID, true)`) instead
+  of leaving it stuck on the last computed target count.
+
+Seventeen other optional integrations were checked against the same
+question and were already correct (`PatchController`/`Patcher` pairs with
+`Harmony.UnpatchAll` scoped to a per-integration ID, called from a live
+on/off handler): `SharedStopEnabler`, `SingleTrainTrackAI`, `StopStacker`,
+`ExpressBusServices`, `IntercityBusControl`, `FlightTracker`,
+`TaxiStandFix`, `OptimisedOutsideConnections`, `SubBuildingsTabs`,
+`UnlimitedOutsideConnections`, `BetterBoarding`, `BetterBusStopPosition`,
+`MileageTaxiServices`, `PublicTransportUnstucker`, `RealisticWalkingSpeed`,
+`AdvancedStopSelection`, `TicketPriceCustomizer` (the last of these
+explicitly resets prices to vanilla and clears stop-lane pathfinding costs
+on disable, in addition to destroying its watcher component). A handful of
+integrations (`BetterBusStopPosition`, `AdvancedStopSelection`, and now
+`ElevatedStopsEnabler`'s live-toggle predecessor) intentionally only apply
+on the next level load and say so via `NotifyReloadRequired` - that is a
+documented limitation, not a fake-disable bug, since a reload with the
+setting off genuinely never re-applies them.
+
+### Added - two settings for behavior that always ran unconditionally
+
+A follow-up sweep of `HarmonyPatches/` (the mod's own core patches, as
+opposed to `Integration/`) for behavior with no matching `ModSetting`
+found two real features running with no way to turn them off:
+
+- **Auto-name unnamed stops** (`AutoNameStopPatch`) - silently renames any
+  newly-selected stop with no name, using the same nearby-building
+  suggestion the stop panel's dropdown already offers.
+- **Rescue Fullwidth Digits** (`NormalizeFullwidthLineNamesPatch`) -
+  credited on the Workshop page as an absorbed standalone mod (by
+  Gansaku) alongside every other integration that does have a toggle, but
+  this one never got one.
+
+Both gained a `ModSetting` bool (`EnableAutoNameStops`,
+`EnableRescueFullwidthDigits`), default `true` so existing installs see no
+behavior change, with checkboxes under a new `Options → Advanced →
+"Always-on behaviour"` section. The stale disabled "Coming later" spoiler
+for Commuter Destination in that same Advanced page (left over from the
+4.8.5 stopgap) was removed, since the feature has its own working checkbox
+again.
+
+Everything above ships in English and Portuguese (`pt`, `pt-br`) for this
+release; the other 31 language files fall back to English for the new
+strings until translated in a later pass.
+
+---
+
 ## [4.8.5] Stability release, Train Display redesign, Commuter parked
 
 Intermediate build for players who will not wait for a full 4.9. Started as a

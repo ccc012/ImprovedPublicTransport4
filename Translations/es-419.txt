@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Envía los taxis inactivos hacia la parada 
 SETTINGS_SHAREDSTOPENABLER_ENABLE Activar paradas compartidas
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite que más de un tipo de transporte (autobús, tranvía, trolebús) se detenga en el mismo tramo de vía. Desactivado por defecto - consulta el GitHub del mod para ver qué omite esta versión reducida.
 SETTINGS_COMMUTERDESTINATION_ENABLE Activar destino de pasajeros (rediseño pendiente)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Temporalmente no disponible: el panel anterior duplicaba la UI de info de parada y está forzado a desactivado hasta un rediseño. La casilla no lo reactiva.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Muestra hacia dónde se dirigen los pasajeros que esperan en una parada: un pequeño panel más una superposición en el mapa. Solo lectura, sin más dependencias que Harmony.
 SETTINGS_OOC_ENABLE Conexiones externas optimizadas
 SETTINGS_OOC_ENABLE_TOOLTIP Los trenes, aviones y barcos de carga esperan mas tiempo por una carga mas completa antes de partir en las conexiones externas.
 SETTINGS_OOC_WAIT_MULTIPLIER Multiplicador de espera

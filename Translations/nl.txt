@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Stuurt vrije taxi's naar de dichtstbijzijnd
 SETTINGS_SHAREDSTOPENABLER_ENABLE Gedeelde haltes inschakelen
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Laat meer dan één vervoerstype (bus, tram, trolleybus) op hetzelfde wegsegment stoppen. Standaard uitgeschakeld - zie de GitHub van de mod voor wat deze verkorte versie weglaat.
 SETTINGS_COMMUTERDESTINATION_ENABLE Forensbestemming inschakelen (herontwerp in afwachting)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Tijdelijk niet beschikbaar: het oude paneel dupliceerde de halte-info-UI en blijft geforceerd uit tot een herontwerp. Het selectievakje zet het niet weer aan.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Toont waar de wachtende passagiers bij een halte naartoe gaan — een klein paneel plus een kaartoverlay. Alleen-lezen, geen afhankelijkheid behalve Harmony.
 SETTINGS_OOC_ENABLE Geoptimaliseerde externe verbindingen
 SETTINGS_OOC_ENABLE_TOOLTIP Vrachttreinen, vliegtuigen en schepen wachten langer op een vollere lading voordat ze bij externe verbindingen vertrekken.
 SETTINGS_OOC_WAIT_MULTIPLIER Wachtvermenigvuldiger

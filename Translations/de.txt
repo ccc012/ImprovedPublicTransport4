@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Schickt untÃ¤tige Taxis zum nÃ¤chsten T
 SETTINGS_SHAREDSTOPENABLER_ENABLE Geteilte Haltestellen aktivieren
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Erlaubt mehr als einem Verkehrsmittel (Bus, StraÃŸenbahn, Oberleitungsbus), am selben StraÃŸensegment zu halten. StandardmÃ¤ÃŸig deaktiviert - was diese reduzierte Version auslÃ¤sst, steht im GitHub des Mods.
 SETTINGS_COMMUTERDESTINATION_ENABLE Pendlerziel aktivieren (Neugestaltung ausstehend)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP VorÃ¼bergehend nicht verfÃ¼gbar: das frÃ¼here Panel hat die Haltestellen-Info-UI verdoppelt und bleibt bis zu einer Neugestaltung erzwungen aus. Die Checkbox schaltet es nicht wieder ein.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Zeigt, wohin die an einer Haltestelle wartenden Fahrgäste unterwegs sind — ein kleines Panel plus eine Kartenüberlagerung. Nur lesend, keine Abhängigkeit außer Harmony.
 SETTINGS_OOC_ENABLE Optimierte AuÃŸenverbindungen
 SETTINGS_OOC_ENABLE_TOOLTIP GÃ¼terzÃ¼ge, Flugzeuge und Schiffe warten an AuÃŸenverbindungen lÃ¤nger auf eine vollere Ladung, bevor sie abfahren.
 SETTINGS_OOC_WAIT_MULTIPLIER Wartemultiplikator

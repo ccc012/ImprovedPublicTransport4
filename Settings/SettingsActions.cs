@@ -44,8 +44,8 @@ namespace ImprovedPublicTransport.Settings
 
         // One-click cascade: sets a batch of independent settings at once to match a named preset.
         // Safe/Vanilla leave everything off (max compatibility). Recommended turns on IPT core only.
-        // Realistic enables most absorbed integrations. SharedStop stays opt-in even on Realistic
-        // (rewrites global prefab data). Commuter Destination stays off until redesign.
+        // Realistic enables most absorbed integrations. SharedStop and Commuter Destination stay
+        // opt-in even on Realistic (higher risk / not part of the core cascade).
         public static void OnGameplayProfileChanged(ModSetting.GameplayProfiles profile)
         {
             var settings = ModSetting.Instance;
@@ -117,9 +117,8 @@ namespace ImprovedPublicTransport.Settings
                     settings.AutoLineColorColorStrategy = ModSetting.AutoLineColorStrategy.RandomColor;
                     settings.AutoLineColorNamingStrategyMode = ModSetting.AutoLineColorNamingStrategy.Roads;
                     settings.EnableEmptyBeforeReturnToDepot = true;
-                    // Commuter Destination: parked for 4.9 (bugs). Never auto-enable via profiles.
-                    settings.EnableCommuterDestination = false;
-                    // SharedStop / UnlimitedOutside stay opt-in (higher risk / prefab rewrites).
+                    // SharedStop / UnlimitedOutside / Commuter Destination stay opt-in (higher risk /
+                    // prefab rewrites / not part of the core cascade).
                     break;
 
                 case ModSetting.GameplayProfiles.Custom:
@@ -142,16 +141,15 @@ namespace ImprovedPublicTransport.Settings
             if (profile != ModSetting.GameplayProfiles.Custom)
             {
                 OnTicketPriceCustomizerChanged((int)settings.TicketPriceCustomizerMode);
+                OnAutoLineBudgetModeChanged((int)settings.AutoLineBudgetMode);
                 OnPublicTransportUnstuckerChanged(settings.EnablePublicTransportUnstucker ? 1 : 0);
                 OnFlightTrackerChanged(settings.EnableFlightTracker);
                 OnSubBuildingsTabsChanged(settings.EnableSubBuildingsTabs);
                 OnTaxiStandFixChanged(settings.EnableTaxiStandFix);
                 OnIntercityBusControlChanged(settings.EnableIntercityBusControl);
-                // Force Commuter Destination off for 4.9 prep (feature parked).
-                settings.EnableCommuterDestination = false;
-                OnCommuterDestinationChanged(false);
                 OnSingleTrainTrackAIChanged(settings.EnableSingleTrainTrackAI);
                 OnStopStackerChanged(settings.EnableStopStacker);
+                OnElevatedStopsChanged(settings.EnableElevatedStops);
 
                 // Profile cascades can flip several load-time-only integrations at once.
                 if (ImprovedPublicTransportMod.InGame)
@@ -297,6 +295,55 @@ namespace ImprovedPublicTransport.Settings
                 }
             });
 
+        }
+
+        public static void OnElevatedStopsChanged(bool enabled)
+        {
+            try
+            {
+                if (enabled)
+                {
+                    ElevatedStopsEnabler.ElevatedStops.AddElevatedStoptypes();
+                    ElevatedStopsEnabler.ElevatedStops.AllowStreetLightsOnElevatedStops();
+                }
+                else
+                {
+                    ElevatedStopsEnabler.ElevatedStops.Revert();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update ElevatedStopsEnabler: {ex.Message}");
+            }
+        }
+
+        public static void OnAutoLineBudgetModeChanged(int mode)
+        {
+            bool enabled = mode == (int)ModSetting.AutoLineBudgetModes.Enabled;
+
+            if (ImprovedPublicTransportMod.IptGameObject == null)
+            {
+                return;
+            }
+
+            var component = ImprovedPublicTransportMod.IptGameObject
+                .GetComponent<Integration.AutoLineBudget.AutoLineBudgetIntegration>();
+            if (enabled)
+            {
+                if (component == null)
+                {
+                    ImprovedPublicTransportMod.IptGameObject
+                        .AddComponent<Integration.AutoLineBudget.AutoLineBudgetIntegration>();
+                }
+            }
+            else
+            {
+                if (component != null)
+                {
+                    // OnDestroy releases every line it had taken over back to vanilla budget control.
+                    UnityEngine.Object.Destroy(component);
+                }
+            }
         }
 
         public static void OnTicketPathfindingCostChanged(bool enabled)
@@ -615,15 +662,8 @@ namespace ImprovedPublicTransport.Settings
             }
         }
 
-        /// <summary>
-        /// Commuter Destination is parked for 4.9. Always deactivates; activation is a no-op.
-        /// </summary>
         public static void OnCommuterDestinationChanged(bool enabled)
         {
-            // Ignore enable requests until redesign ships.
-            if (ModSetting.Instance != null)
-                ModSetting.Instance.EnableCommuterDestination = false;
-
             if (!ImprovedPublicTransportMod.InGame)
             {
                 return;
@@ -631,12 +671,19 @@ namespace ImprovedPublicTransport.Settings
 
             try
             {
-                CommuterDestination.PatchController.Deactivate();
-                CommuterDestination.CommuterDestinationPanel.CloseIfOpen();
+                if (enabled)
+                {
+                    CommuterDestination.PatchController.Activate();
+                }
+                else
+                {
+                    CommuterDestination.PatchController.Deactivate();
+                    CommuterDestination.CommuterDestinationPanel.CloseIfOpen();
+                }
             }
             catch (Exception ex)
             {
-                Utils.LogError($"SettingsActions: failed to park CommuterDestination: {ex.Message}");
+                Utils.LogError($"SettingsActions: failed to update CommuterDestination: {ex.Message}");
             }
         }
 

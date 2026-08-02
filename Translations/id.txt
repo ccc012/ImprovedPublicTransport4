@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Mengirim taksi yang menganggur menuju pangk
 SETTINGS_SHAREDSTOPENABLER_ENABLE Aktifkan Pemberdaya Halte Bersama
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Memungkinkan lebih dari satu jenis transportasi (bus, trem, bus listrik) berhenti di segmen jalan yang sama. Nonaktif secara default - lihat GitHub mod untuk mengetahui apa yang tidak disertakan versi ringkas ini.
 SETTINGS_COMMUTERDESTINATION_ENABLE Aktifkan destinasi penumpang (redesain menunggu)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Sementara tidak tersedia: panel lama menduplikasi UI info halte dan dipaksa mati sampai redesain. Kotak centang tidak mengaktifkannya lagi.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Menampilkan tujuan penumpang yang menunggu di halte — panel kecil ditambah overlay peta. Hanya baca, tanpa dependensi selain Harmony.
 SETTINGS_OOC_ENABLE Koneksi luar yang dioptimalkan
 SETTINGS_OOC_ENABLE_TOOLTIP Kereta, pesawat, dan kapal kargo menunggu lebih lama untuk muatan yang lebih penuh sebelum berangkat di koneksi luar.
 SETTINGS_OOC_WAIT_MULTIPLIER Pengali tunggu

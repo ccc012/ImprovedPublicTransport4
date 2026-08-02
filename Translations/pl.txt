@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Wysyła bezczynne taksówki do najbliższeg
 SETTINGS_SHAREDSTOPENABLER_ENABLE Włącz wspólne przystanki
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Pozwala więcej niż jednemu rodzajowi transportu (autobus, tramwaj, trolejbus) zatrzymywać się na tym samym odcinku drogi. Domyślnie wyłączone - zobacz GitHub moda, co pomija ta okrojona wersja.
 SETTINGS_COMMUTERDESTINATION_ENABLE Włącz cel dojazdów (przeprojektowanie w toku)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Tymczasowo niedostępne: poprzedni panel dublował UI info przystanku i jest wymuszony wyłączony do przeprojektowania. Checkbox go nie włączy.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Pokazuje, dokąd zmierzają pasażerowie czekający na przystanku — mały panel plus nakładka na mapie. Tylko do odczytu, bez żadnej zależności poza Harmony.
 SETTINGS_OOC_ENABLE Zoptymalizowane polaczenia zewnetrzne
 SETTINGS_OOC_ENABLE_TOOLTIP Pociagi, samoloty i statki towarowe czekaja dluzej na pelniejszy ladunek przed odjazdem na polaczeniach zewnetrznych.
 SETTINGS_OOC_WAIT_MULTIPLIER Mnoznik oczekiwania

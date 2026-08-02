@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Posiela voľné taxíky k najbližšiemu st
 SETTINGS_SHAREDSTOPENABLER_ENABLE Povoliť zdieľané zastávky
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Umožňuje viacerým typom dopravy (autobus, električka, trolejbus) zastaviť na rovnakom úseku cesty. V predvolenom nastavení vypnuté - čo táto zjednodušená verzia vynecháva, nájdete na GitHube modu.
 SETTINGS_COMMUTERDESTINATION_ENABLE Povoliť cieľ dochádzajúcich (prepracovanie čaká)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Dočasne nedostupné: skorší panel duplikoval UI info o zastávke a je vynútene vypnutý do prepracovania. Začiarknutie ho znova nezapne.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Zobrazuje, kam smerujú cestujúci čakajúci na zastávke — malý panel a prekrytie na mape. Iba na čítanie, bez závislostí okrem Harmony.
 SETTINGS_OOC_ENABLE Optimalizovane vonkajsie spojenia
 SETTINGS_OOC_ENABLE_TOOLTIP Nakladne vlaky, lietadla a lode cakaju na vacsi naklad dlhsie, kym odidu z vonkajsich spojeni.
 SETTINGS_OOC_WAIT_MULTIPLIER Nasobitel cakania

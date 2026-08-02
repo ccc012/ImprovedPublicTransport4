@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP ส่งแท็กซี่ที่ว�
 SETTINGS_SHAREDSTOPENABLER_ENABLE เปิดใช้ป้ายจอดร่วม
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP อนุญาตให้การขนส่งมากกว่าหนึ่งประเภท (รถบัส รถราง รถราง-ไฟฟ้า) จอดที่ถนนช่วงเดียวกัน ปิดใช้งานตามค่าเริ่มต้น - ดู GitHub ของม็อดว่ารุ่นย่อนี้ตัดอะไรออกไปบ้าง
 SETTINGS_COMMUTERDESTINATION_ENABLE เปิดใช้ปลายทางผู้โดยสาร (รอออกแบบใหม่)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP ใช้ชั่วคราวไม่ได้: แผงเดิมซ้ำกับ UI ข้อมูลจุดจอด และถูกบังคับปิดจนกว่าจะออกแบบใหม่ ช่องทำเครื่องหมายเปิดใหม่ไม่ได้
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP แสดงว่าผู้โดยสารที่รอที่ป้ายกำลังจะไปที่ไหน — แผงเล็กๆ พร้อมภาพซ้อนบนแผนที่ ใช้ดูอย่างเดียว ไม่มีการพึ่งพาอื่นนอกจาก Harmony
 SETTINGS_OOC_ENABLE การเชื่อมต่อภายนอกที่ปรับให้เหมาะสม
 SETTINGS_OOC_ENABLE_TOOLTIP รถไฟ เครื่องบิน และเรือขนส่งสินค้ารอนานขึ้นเพื่อบรรทุกให้เต็มมากขึ้นก่อนออกเดินทางที่การเชื่อมต่อภายนอก
 SETTINGS_OOC_WAIT_MULTIPLIER ตัวคูณการรอ

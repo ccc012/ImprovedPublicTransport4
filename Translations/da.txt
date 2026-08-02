@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sender ledige taxaer til nærmeste holdepla
 SETTINGS_SHAREDSTOPENABLER_ENABLE Aktiver delte stop
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Tillader mere end én transporttype (bus, sporvogn, trolleybus) at stoppe på samme vejsegment. Fra som standard - se moddens GitHub for hvad denne reducerede version udelader.
 SETTINGS_COMMUTERDESTINATION_ENABLE Aktiver passagerdestination (redesign afventer)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Midlertidigt utilgængelig: det tidligere panel duplikerede stopinfo-UI og er tvunget fra indtil et redesign. Afkrydsningsfeltet kan ikke genaktivere det.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Viser hvor passagererne, der venter ved et stoppested, skal hen — et lille panel plus et kortoverlay. Kun visning, ingen afhængighed ud over Harmony.
 SETTINGS_OOC_ENABLE Optimerede eksterne forbindelser
 SETTINGS_OOC_ENABLE_TOOLTIP Godstog, fly og skibe venter længere på en fyldigere last, før de afgår ved eksterne forbindelser.
 SETTINGS_OOC_WAIT_MULTIPLIER Ventemultiplikator

@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Skickar lediga taxibilar till nÃ¤rmaste h
 SETTINGS_SHAREDSTOPENABLER_ENABLE Aktivera delade hÃ¥llplatser
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP TillÃ¥ter mer Ã¤n en transporttyp (buss, spÃ¥rvagn, trÃ¥dbuss) att stanna pÃ¥ samma vÃ¤gsegment. Av som standard - se moddens GitHub fÃ¶r vad denna reducerade version utelÃ¤mnar.
 SETTINGS_COMMUTERDESTINATION_ENABLE Aktivera passagerardestination (omdesign vÃ¤ntar)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP TillfÃ¤lligt otillgÃ¤nglig: den tidigare panelen duplicerade hÃ¥llplatsinfo-UI och Ã¤r tvingad av tills en omdesign. Kryssrutan kan inte Ã¥teraktivera den.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Visar vart passagerarna som väntar vid en hållplats är på väg — en liten panel plus ett kartoverlay. Endast läsbar, inget beroende utöver Harmony.
 SETTINGS_OOC_ENABLE Optimerade externa anslutningar
 SETTINGS_OOC_ENABLE_TOOLTIP GodstÃ¥g, flyg och fartyg vÃ¤ntar lÃ¤ngre pÃ¥ en fylligare last innan de avgÃ¥r vid externa anslutningar.
 SETTINGS_OOC_WAIT_MULTIPLIER VÃ¤ntemultiplikator

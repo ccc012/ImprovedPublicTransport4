@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP অলস ট্যাক্সিগুল
 SETTINGS_SHAREDSTOPENABLER_ENABLE শেয়ারড স্টপ এনেবলার সক্রিয় করুন
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP একাধিক পরিবহন ধরন (বাস, ট্রাম, ট্রলিবাস) একই রাস্তার অংশে থামতে দেয়। ডিফল্টরূপে বন্ধ - এই সংক্ষিপ্ত সংস্করণে কী বাদ দেওয়া হয়েছে তা জানতে মডের GitHub দেখুন।
 SETTINGS_COMMUTERDESTINATION_ENABLE কমিউটার গন্তব্য সক্রিয় করুন (রিডিজাইন মুলতুবি)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP সাময়িকভাবে অনুপলব্ধ: আগের প্যানেল স্টপ-info UI ডুপ্লিকেট করত এবং রিডিজাইন পর্যন্ত জোর করে বন্ধ। চেকবক্স আবার চালু করে না।
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP একটি স্টপে অপেক্ষমাণ যাত্রীরা কোথায় যাচ্ছেন তা দেখায় — একটি ছোট প্যানেল এবং একটি মানচিত্র ওভারলে। শুধুমাত্র পঠনযোগ্য, Harmony ছাড়া অন্য কোনো নির্ভরতা নেই।
 SETTINGS_OOC_ENABLE অপ্টিমাইজড আউটসাইড কানেকশন
 SETTINGS_OOC_ENABLE_TOOLTIP কার্গো ট্রেন, প্লেন এবং জাহাজ বাইরের সংযোগে রওনা হওয়ার আগে আরও পূর্ণ লোডের জন্য বেশি সময় অপেক্ষা করে।
 SETTINGS_OOC_WAIT_MULTIPLIER অপেক্ষা গুণক

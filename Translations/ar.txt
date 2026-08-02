@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP يرسل سيارات الأجرة الخا
 SETTINGS_SHAREDSTOPENABLER_ENABLE تفعيل تمكين المحطات المشتركة
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP يسمح بأكثر من نوع نقل واحد (حافلة، ترام، حافلة كهربائية) بالتوقف على نفس مقطع الطريق. معطّل افتراضياً - راجع GitHub الخاص بالمود لمعرفة ما تستبعده هذه النسخة المخفّضة.
 SETTINGS_COMMUTERDESTINATION_ENABLE تفعيل وجهة الركاب (إعادة التصميم معلّقة)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP غير متاح مؤقتاً: اللوحة السابقة كانت تكرر واجهة معلومات المحطة وهي معطّلة قسراً حتى إعادة التصميم. لا يعيد مربع الاختيار تفعيلها.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP يعرض إلى أين يتجه الركاب الذين ينتظرون في المحطة - لوحة صغيرة مع تراكب على الخريطة. للقراءة فقط، بدون أي اعتماديات أخرى غير Harmony.
 SETTINGS_OOC_ENABLE تحسين الاتصالات الخارجية
 SETTINGS_OOC_ENABLE_TOOLTIP تنتظر قطارات وطائرات وسفن الشحن وقتًا أطول لتحميل أكبر قبل المغادرة عند الاتصالات الخارجية.
 SETTINGS_OOC_WAIT_MULTIPLIER مضاعف الانتظار

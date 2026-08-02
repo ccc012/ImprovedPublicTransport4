@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Invia i taxi inattivi verso il posteggio ta
 SETTINGS_SHAREDSTOPENABLER_ENABLE Abilita fermate condivise
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Consente a più di un tipo di trasporto (autobus, tram, filobus) di fermarsi sullo stesso tratto di strada. Disattivato di default - consulta il GitHub della mod per ciò che questa versione ridotta omette.
 SETTINGS_COMMUTERDESTINATION_ENABLE Abilita destinazione pendolari (ridisegno in sospeso)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Temporaneamente non disponibile: il pannello precedente duplicava l'UI info fermata ed è forzato disattivo fino a un ridisegno. La casella non lo riattiva.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Mostra dove sono diretti i passeggeri in attesa a una fermata — un piccolo pannello più una sovrapposizione sulla mappa. Sola lettura, nessuna dipendenza oltre a Harmony.
 SETTINGS_OOC_ENABLE Connessioni esterne ottimizzate
 SETTINGS_OOC_ENABLE_TOOLTIP Treni, aerei e navi merci attendono piu a lungo un carico piu pieno prima di partire dalle connessioni esterne.
 SETTINGS_OOC_WAIT_MULTIPLIER Moltiplicatore di attesa

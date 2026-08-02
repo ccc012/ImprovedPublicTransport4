@@ -48,7 +48,7 @@ namespace ImprovedPublicTransport
         private GameObject _worldInfoPanel;
         // Keep in sync with AssemblyInfo / Workshop so log "Begin init version" matches the
         // assembly Version cities reports on load (was still "4.0.0-dev" long after 4.8.0).
-        private const string Version = "4.8.5"; // deep bug/perf sweep applied on this build
+        private const string Version = "4.8.6"; // Commuter Destination re-enabled, real disable-on-toggle audit
 
         public override void OnCreated(ICities.ILoading loading)
         {
@@ -148,7 +148,10 @@ namespace ImprovedPublicTransport
                     DepotCapacityEnforcePatch.Apply();
                     IptGameObject.AddComponent<DepotCapacityEnforcer>();
                     ImprovedPublicTransport.HarmonyPatches.DepotAIPatches.DepotStatsDisplayPatch.Apply();
-                    ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPanelPatches.AutoNameStopPatch.Apply();
+                    if (ModSetting.Instance.EnableAutoNameStops)
+                    {
+                        ImprovedPublicTransport.HarmonyPatches.PublicTransportStopWorldInfoPanelPatches.AutoNameStopPatch.Apply();
+                    }
                     // Same reason IntercityBusControl needs its own retroactive PatchStations() sweep
                     // just below: prefabs are already loaded by the time OnLevelLoaded fires, so the
                     // InitializePrefab Harmony patch above never actually runs for any of them without
@@ -162,8 +165,12 @@ namespace ImprovedPublicTransport
                     CheckTransportLineVehiclesPatch.Apply();
                     ClassMatchesPatch.Apply();
                     CanLeavePatch.Apply();
-                    // Rescue corrupt saves that contain fullwidth digits in transport line custom names.
-                    NormalizeFullwidthLineNamesPatch.Apply();
+                    // Rescue Fullwidth Digits (Gansaku) - normalizes corrupt saves with fullwidth digits
+                    // in transport line custom names.
+                    if (ModSetting.Instance.EnableRescueFullwidthDigits)
+                    {
+                        NormalizeFullwidthLineNamesPatch.Apply();
+                    }
 
                     // BetterBusStopPosition integration (runtime-gated by BbspLogic; patches are light postfixes)
                     try
@@ -468,22 +475,22 @@ namespace ImprovedPublicTransport
                         Utils.LogError($"SharedStopEnabler: failed to apply integration: {ex.Message}");
                     }
 
-                    // CommuterDestination: PARKED for 4.8.5 stability (still buggy). Always force off
-                    // and keep patches/panel deactivated so old saves cannot re-enable it via JSON.
                     try
                     {
-                        if (ModSetting.Instance != null)
-                            ModSetting.Instance.EnableCommuterDestination = false;
-                        CommuterDestination.PatchController.Deactivate();
-                        CommuterDestination.CommuterDestinationPanel.CloseIfOpen();
-                        if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs)
+                        if (ModSetting.Instance.EnableCommuterDestination)
                         {
-                            Utils.Log("CommuterDestination: parked (disabled for 4.9).");
+                            CommuterDestination.PatchController.Activate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration applied.");
+                        }
+                        else
+                        {
+                            CommuterDestination.PatchController.Deactivate();
+                            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration disabled (toggle is off).");
                         }
                     }
                     catch (Exception ex)
                     {
-                        Utils.LogError($"CommuterDestination: failed to park integration: {ex.Message}");
+                        Utils.LogError($"CommuterDestination: failed to apply integration: {ex.Message}");
                     }
 
                     // In-game hotkeys (Options → Key bindings).

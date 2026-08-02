@@ -239,6 +239,8 @@ namespace ImprovedPublicTransport.UI
 
         protected override void FillAdvancedPage(ScrollContainer page)
         {
+            var setting = ModSetting.Instance;
+
             // Links first (was always near the top of Advanced before the restructure).
             var links = AddSection(page, Localization.Get("SETTINGS_ADVANCED_LINKS_GROUP"));
             links.AddButton(Localization.Get("SETTINGS_GITHUB_REPO"), null, CSLModsCommon.Localization.SharedTranslations.Website, null,
@@ -248,8 +250,23 @@ namespace ImprovedPublicTransport.UI
                 Localization.Get("SETTINGS_FUTURE_GROUP_DESCRIPTION"));
             AddFutureSpoiler(future, "SETTINGS_FUTURE_REVERSIBLE_TRAM", "SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_BREAKDOWN", "SETTINGS_FUTURE_BREAKDOWN_TIP");
-            // Parked feature (was a live toggle; kept as disabled spoiler so players know why it vanished).
-            AddFutureSpoiler(future, "SETTINGS_COMMUTERDESTINATION_ENABLE", "SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP");
+
+            // Two behaviours that always ran with no way to turn them off - added here for
+            // compatibility with other mods/players who prefer manual control over the same thing.
+            var hidden = AddSection(page, Localization.Get("SETTINGS_HIDDENBEHAVIOUR_GROUP"),
+                Localization.Get("SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC"));
+            hidden.AddCheckBox(setting.EnableAutoNameStops, Localization.Get("SETTINGS_AUTONAMESTOPS_ENABLE"), null, Localization.Get("SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableAutoNameStops = isChecked;
+                    Settings.SettingsActions.NotifyReloadRequired("Auto-name stops");
+                });
+            hidden.AddCheckBox(setting.EnableRescueFullwidthDigits, Localization.Get("SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE"), null, Localization.Get("SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableRescueFullwidthDigits = isChecked;
+                    Settings.SettingsActions.NotifyReloadRequired("Rescue Fullwidth Digits");
+                });
 
             // Dangerous tools last so casual players do not hit them first.
             FillDeleteLinesPage(page);
@@ -435,7 +452,11 @@ namespace ImprovedPublicTransport.UI
             budgetSection.AddDropDown<ModSetting.AutoLineBudgetModes>(Localization.Get("SETTINGS_AUTO_LINE_BUDGET"), Localization.Get("SETTINGS_AUTO_LINE_BUDGET_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.AutoLineBudgetModes>(e => Localization.Get(e == ModSetting.AutoLineBudgetModes.Disabled ? "SETTINGS_AUTO_LINE_BUDGET_DISABLED" : "SETTINGS_AUTO_LINE_BUDGET_ENABLED")),
                 item => item.Value == setting.AutoLineBudgetMode,
-                item => ModSetting.Instance.AutoLineBudgetMode = item.Value, null);
+                item =>
+                {
+                    ModSetting.Instance.AutoLineBudgetMode = item.Value;
+                    SettingsActions.OnAutoLineBudgetModeChanged((int)item.Value);
+                }, null);
         }
 
         /// <summary>AutoLineColor's own settings, split out of the old "Auto Line" tab so it is not
@@ -499,7 +520,7 @@ namespace ImprovedPublicTransport.UI
                 (_, isChecked) =>
                 {
                     ModSetting.Instance.EnableElevatedStops = isChecked;
-                    SettingsActions.NotifyReloadRequired("Elevated Stops Enabler");
+                    SettingsActions.OnElevatedStopsChanged(isChecked);
                 });
             net.AddCheckBox(setting.EnableSharedStopEnabler, Localization.Get("SETTINGS_SHAREDSTOPENABLER_ENABLE"), null, Localization.Get("SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP"),
                 (_, isChecked) =>
@@ -698,8 +719,6 @@ namespace ImprovedPublicTransport.UI
                 }, null);
 
             var info = AddSection(page, Localization.Get("SETTINGS_SUB_INFO"), null);
-            // Commuter Destination is parked for 4.9 (still buggy). UI removed; force-off on load.
-            // Re-enable when the redesign ships — do not re-add toggles until then.
             info.AddCheckBox(setting.EnableFlightTracker, Localization.Get("SETTINGS_FLIGHTTRACKER_ENABLE"), null, Localization.Get("SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP"),
                 (_, isChecked) =>
                 {
@@ -711,6 +730,12 @@ namespace ImprovedPublicTransport.UI
                 {
                     ModSetting.Instance.EnableSubBuildingsTabs = isChecked;
                     SettingsActions.OnSubBuildingsTabsChanged(isChecked);
+                });
+            info.AddCheckBox(setting.EnableCommuterDestination, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE"), null, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableCommuterDestination = isChecked;
+                    SettingsActions.OnCommuterDestinationChanged(isChecked);
                 });
         }
 

@@ -434,7 +434,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP A tÃ©tlen taxikat a legkÃ¶zelebbi taxid
 SETTINGS_SHAREDSTOPENABLER_ENABLE Megosztott megÃ¡llÃ³k bekapcsolÃ¡sa
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP EgynÃ©l tÃ¶bb kÃ¶zlekedÃ©si tÃ­pus (busz, villamos, trolibusz) megÃ¡llhat ugyanazon az Ãºtszakaszon. AlapbÃ³l ki - a mod GitHubjÃ¡n lÃ¡thatÃ³, mit hagy ki ez a csÃ¶kkentett verziÃ³.
 SETTINGS_COMMUTERDESTINATION_ENABLE Utas cÃ©lÃ¡llomÃ¡s bekapcsolÃ¡sa (ÃºjratervezÃ©s folyamatban)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Ãtmenetileg nem elÃ©rhetÅ‘: a korÃ¡bbi panel megkettÅ‘zte a megÃ¡llÃ³infÃ³ UI-t, Ã©s az ÃºjratervezÃ©sig kÃ©nyszerÃ­tve ki van kapcsolva. A jelÃ¶lÅ‘nÃ©gyzet nem kapcsolja vissza.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Megmutatja, hova tartanak a megállóban váró utasok — egy kis panel plusz egy térképi overlay. Csak olvasható, nincs más függősége, mint a Harmony.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Térképrészlet:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Teljesítmény kevesebb térképikonnal és gyorsabb frissítéssel. Teljes térkép sok több célikonnal; a panel lassabban frissül, így gyengébb gépek is használhatják.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Teljesítmény (gyorsabb)

@@ -116,6 +116,12 @@ SETTINGS_FUTURE_GROUP Coming later
 SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
+SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
 SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
 SETTINGS_QUICK_TIPS_GROUP Quick tips
@@ -409,7 +415,7 @@ SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Improves passenger boarding decisions so 
 SETTINGS_MILEAGETAXI_ENABLE Enable Mileage Taxi Services
 SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Charges taxi fares from distance driven instead of a flat rate, so longer rides earn more. Requires the After Dark DLC. Takes effect on next level load.
 SETTINGS_ELEVATEDSTOPS_ENABLE Enable Elevated Stops
-SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Allows public-transport stops on elevated roads/bridges and keeps street lights on those elevated stop segments. Takes effect on next level load.
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Allows public-transport stops on elevated roads/bridges and keeps street lights on those elevated stop segments. Applies immediately and fully reverts when turned off.
 SETTINGS_INTERCITY_BUS_CAPACITY Intercity Terminal Capacity
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP How many vehicles an intercity bus terminal can hold at once.
 SETTINGS_TRAM_DEPOT_CAPACITY Tram depot capacity
@@ -434,7 +440,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sends idle taxis toward the nearest taxi st
 SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared Stop Enabler
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) on the same road segment, including elevated/bridge roads. Includes PathManager stop-lane nudge and TransportTool multi-type placement. Prefab flag changes may need a map reload for full effect.
 SETTINGS_COMMUTERDESTINATION_ENABLE Enable Commuter Destination
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Parked pending a redesign: the previous side panel duplicated the vanilla stop panel. Not available yet.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Read-only, no dependency other than Harmony.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
@@ -535,6 +541,9 @@ CHANGELOG_4_8_5_2 Optimized Train Display route strip and stop auto-naming: at m
 CHANGELOG_4_8_5_3 Parked Commuter Destination (still buggy): forced off for all profiles/saves and removed the Options toggle until a later redesign. Future-only spoiler remains under Advanced.
 CHANGELOG_4_8_5_4 Options language packs: full Common JSON set ships on deploy (35+ framework languages) so the language dropdown no longer misses half the list; section description cards keep a shared background with their controls.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms–1000ms range in Options.
+CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
+CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
+CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
 CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (destination display - currently forced off pending redesign) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
 CHANGELOG_4_7_0_2 Added a vehicle capacity mode for intercity bus terminals (Options > Integrations > Intercity Bus Terminal Capacity): Disabled keeps this mod's existing effectively-uncapped terminal, Intermediate applies a moderate fixed cap, Realistic restores the terminal's own vanilla prefab capacity. Existing saves default to Disabled so upgrading never silently shrinks a terminal's capacity.
 CHANGELOG_4_7_0_3 Fixed the intercity bus terminal's "accept intercity buses" checkbox: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged sets acceptsInterCityTrains, which is a pure alias for isEmptying, so the relabeled checkbox was able to silently put a bus terminal into the game's building-shutdown state instead of actually toggling bus acceptance. A Harmony prefix now intercepts and redirects it to per-building state for bus-patched terminals, leaving real train stations untouched.

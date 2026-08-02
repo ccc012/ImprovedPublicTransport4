@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Boşta bekleyen taksileri rastgele dolaşma
 SETTINGS_SHAREDSTOPENABLER_ENABLE Paylaşımlı Durak Etkinleştiriciyi Aç
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Birden fazla ulaşım türünün (otobüs, tramvay, troleybüs) aynı yol bölümünde durmasına izin verir. Varsayılan olarak kapalıdır - bu azaltılmış sürümün neyi dışarıda bıraktığını modun GitHub'ından görebilirsiniz.
 SETTINGS_COMMUTERDESTINATION_ENABLE Yolcu hedefini etkinleştir (yeniden tasarım bekliyor)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Geçici olarak kullanılamaz: önceki panel durak bilgisi UI'sini çoğaltıyordu ve yeniden tasarıma kadar zorla kapalı. Onay kutusu yeniden açmaz.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Bir durakta bekleyen yolcuların nereye gittiğini gösterir — küçük bir panel ve harita katmanı. Salt okunur, Harmony dışında bağımlılığı yok.
 SETTINGS_OOC_ENABLE Optimize edilmis dis baglantilar
 SETTINGS_OOC_ENABLE_TOOLTIP Yuk trenleri, ucaklar ve gemiler dis baglantilarda hareket etmeden once daha dolu bir yuk icin daha uzun bekler.
 SETTINGS_OOC_WAIT_MULTIPLIER Bekleme carpani

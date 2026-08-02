@@ -211,6 +211,11 @@ namespace ImprovedPublicTransport
         /// </summary>
         public bool EnableEmptyBeforeReturnToDepot { get; set; } = false;
 
+        // Both below always ran unconditionally with no way to turn them off until this toggle was
+        // added - default true so upgrading players see no behaviour change.
+        public bool EnableAutoNameStops { get; set; } = true;
+        public bool EnableRescueFullwidthDigits { get; set; } = true;
+
         // Which public-transport sub-services show the Train Display corner panel.
         [Flags]
         public enum TrainDisplayVehicleTypes

@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Trimite taxiurile inactive spre cea mai apr
 SETTINGS_SHAREDSTOPENABLER_ENABLE Activează stațiile partajate
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite mai mult de un tip de transport (autobuz, tramvai, troleibuz) să oprească pe același segment de drum. Oprit implicit - vezi GitHub-ul modului pentru ce lasă afară această versiune redusă.
 SETTINGS_COMMUTERDESTINATION_ENABLE Activează destinația navetiștilor (redesign în așteptare)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Temporar indisponibil: panoul anterior duplica UI-ul de info stație și este forțat oprit până la un redesign. Caseta nu îl poate reactiva.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Arată încotro se îndreaptă pasagerii care așteaptă într-o stație — un panou mic plus o suprapunere pe hartă. Doar pentru citire, fără altă dependență în afară de Harmony.
 SETTINGS_OOC_ENABLE Conexiuni exterioare optimizate
 SETTINGS_OOC_ENABLE_TOOLTIP Trenurile, avioanele și navele de marfă așteaptă mai mult o încărcătură mai plină înainte de a pleca la conexiunile exterioare.
 SETTINGS_OOC_WAIT_MULTIPLIER Multiplicator de așteptare

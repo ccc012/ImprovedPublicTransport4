@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Gửi taxi nhàn rỗi tới điểm đỗ 
 SETTINGS_SHAREDSTOPENABLER_ENABLE Bật điểm dừng dùng chung
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Cho phép hơn một loại vận tải (xe buýt, tàu điện, xe điện bánh lốp) dừng cùng đoạn đường. Mặc định tắt - xem GitHub mod về phần phiên bản rút gọn bỏ đi.
 SETTINGS_COMMUTERDESTINATION_ENABLE Bật điểm đến hành khách (đang thiết kế lại)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Tạm không dùng: bảng cũ trùng UI thông tin điểm dừng và bị buộc tắt đến khi thiết kế lại. Ô chọn không bật lại được.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Hiển thị hành khách đang chờ ở trạm dừng sẽ đi đâu — một bảng nhỏ cùng lớp phủ bản đồ. Chỉ xem, không phụ thuộc gì ngoài Harmony.
 SETTINGS_OOC_ENABLE Kết nối ngoài tối ưu
 SETTINGS_OOC_ENABLE_TOOLTIP Tàu hàng, máy bay và tàu thủy chờ lâu hơn để đầy tải trước khi rời kết nối ngoài.
 SETTINGS_OOC_WAIT_MULTIPLIER Hệ số chờ
