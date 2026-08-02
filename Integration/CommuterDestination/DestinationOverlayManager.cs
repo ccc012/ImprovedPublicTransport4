@@ -60,6 +60,25 @@ namespace CommuterDestination
 
         protected override void BeginOverlayImpl(RenderManager.CameraInfo cameraInfo)
         {
+            // Everything here runs inside RenderManager's overlay pass. An exception escaping this
+            // method aborts the rest of that pass for the frame, and since it would throw again on
+            // the very next frame the game ends up in a state where the camera still moves but
+            // nothing is selectable and the city looks frozen - the same failure shape as the font
+            // atlas stack overflow fixed in UITextBase. Nothing drawn here is worth taking the
+            // whole overlay pass down for, so it fails closed instead.
+            try
+            {
+                RenderIcons(cameraInfo);
+            }
+            catch (System.Exception ex)
+            {
+                Utils.LogError($"CommuterDestination: overlay render failed, clearing overlay: {ex.Message}");
+                ClearOverlay();
+            }
+        }
+
+        private void RenderIcons(RenderManager.CameraInfo cameraInfo)
+        {
             if (!ModSetting.Instance.EnableCommuterDestination)
             {
                 return;

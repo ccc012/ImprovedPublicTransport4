@@ -291,9 +291,36 @@ public abstract class UITextBase : UIStateElement {
         _isFontCallbackAssigned = false;
     }
 
+    // Font.textureRebuilt is a *static* Unity event that every live UITextBase subscribes to, and
+    // the handler below re-requests glyphs - which can make Unity grow and rebuild the atlas again,
+    // firing the same event re-entrantly while we are still inside it. Normally that settles after
+    // a pass or two. It does not settle when the atlas texture cannot actually be allocated, which
+    // is what happens on low-VRAM integrated GPUs once a heavy asset load has eaten the budget (the
+    // game logs "d3d11: failed to create 2D texture ... width=257 height=256 [D3D error was
+    // 80070057]" first). The atlas then stays permanently dirty, so every level of recursion fans
+    // back out across every text component and the stack overflows - inside OverlayEffect's render
+    // pass, which is where the game draws road and stop name labels. That kills the whole
+    // render/overlay pass every frame: the camera still moves, but nothing is clickable and the
+    // city looks frozen.
+    //
+    // The guard has to be static, not per-instance, because the recursion crosses instances: A's
+    // handler triggers a rebuild, which invokes B's handler, which triggers another rebuild that
+    // re-enters A. Suppressing only the *nested* invocations is safe - Unity is still walking the
+    // outer invocation list, so every component gets its one real callback, and anything skipped
+    // while nested is picked up on the next rebuild.
+    private static bool _inFontTextureRebuild;
+
     private void OnFontTextureRebuilt(Font font) {
-        RequestCharacterInfo();
-        Invalidate();
+        if (_inFontTextureRebuild) return;
+
+        _inFontTextureRebuild = true;
+        try {
+            RequestCharacterInfo();
+            Invalidate();
+        }
+        finally {
+            _inFontTextureRebuild = false;
+        }
     }
 
     public virtual void UpdateFontInfo() => RequestCharacterInfo();
