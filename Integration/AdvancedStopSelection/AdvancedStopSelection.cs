@@ -93,7 +93,7 @@ namespace ImprovedPublicTransport.Integration.AdvancedStopSelection
         }
         private static bool GetAlternateMode()
         {
-            return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            return ImprovedPublicTransport.Settings.IptHotkeys.AdvancedStopSelectionAlternateKey.Combination.IsPressed();
         }
     }
 

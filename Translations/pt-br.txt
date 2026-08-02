@@ -453,6 +453,8 @@ SETTINGS_HOTKEY_TRAIN_DISPLAY Alternar Train Display
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Liga ou desliga o overlay de veículo no canto.
 SETTINGS_HOTKEY_LINE_COLOR Reatribuir cor da linha
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Com uma linha de transporte selecionada, reexecuta o Auto Line Color (precisa de estratégia de cor ativa).
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: escolher o trilho exato
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Segure ao criar uma conexão de parada de trem/bonde para mirar no trilho exato em vez do mais próximo válido. Antes era fixo em Shift esquerdo/direito; reatribuir aqui cobre só o lado que você escolher.
 LINE_PANEL_COPY Copiar
 LINE_PANEL_PASTE Colar
 SETTINGS_OOC_ENABLE Conexoes externas otimizadas

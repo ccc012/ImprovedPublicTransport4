@@ -684,20 +684,26 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             btn.tooltip = Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP");
             btn.text = Localization.Get("AUTOLINECOLOR_REFRESH_BUTTON");
             btn.eventClick += (_, __) => OnAutoColorRefreshClick();
+            btn.gameObject.AddComponent<AutoLineColor.RefreshButtonStateUpdater>().Button = btn;
             _autoColorRefreshBtn = btn;
 
             // Copy / Paste line settings (was only on PrefabPanel; CHANGELOG noted unreachable UI).
-            CreateCopyPasteButtons(parent);
+            // Starts right after this button's actual measured width, not a fixed offset - a fixed
+            // x=280 overlapped this button in languages whose "refresh" text runs longer than
+            // English (e.g. Portuguese "Atualizar Nome/Cor"), since autoSize can grow past it.
+            CreateCopyPasteButtons(parent, btn.relativePosition.x + btn.width + 6f);
         }
 
-        private void CreateCopyPasteButtons(UIComponent parent)
+        private void CreateCopyPasteButtons(UIComponent parent, float startX)
         {
             if (parent == null)
             {
                 return;
             }
 
-            void EnsureButton(string name, string textKey, string tipKey, float x, MouseEventHandler onClick)
+            var x = startX;
+
+            UIButton EnsureButton(string name, string textKey, string tipKey, MouseEventHandler onClick)
             {
                 var old = parent.Find<UIButton>(name);
                 if (old != null)
@@ -712,13 +718,15 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 b.textPadding = new RectOffset(4, 4, 3, 0);
                 b.autoSize = true;
                 b.height = 22f;
-                b.relativePosition = new Vector3(x, 0f);
                 b.text = Localization.Get(textKey);
+                b.relativePosition = new Vector3(x, 0f);
                 b.tooltip = Localization.Get(tipKey);
                 b.eventClick += onClick;
+                x += b.width + 6f;
+                return b;
             }
 
-            EnsureButton("IptLineCopy", "LINE_PANEL_COPY", "COPY_TIP", 280f, (c, p) =>
+            EnsureButton("IptLineCopy", "LINE_PANEL_COPY", "COPY_TIP", (c, p) =>
             {
                 ushort vehicleId;
                 var lineId = WorldInfoCurrentLineIDQuery.Query(out vehicleId);
@@ -730,7 +738,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 CopyPaste.Instance.Copy(lineId);
             });
 
-            EnsureButton("IptLinePaste", "LINE_PANEL_PASTE", "PASTE_TIP", 340f, (c, p) =>
+            EnsureButton("IptLinePaste", "LINE_PANEL_PASTE", "PASTE_TIP", (c, p) =>
             {
                 ushort vehicleId;
                 var lineId = WorldInfoCurrentLineIDQuery.Query(out vehicleId);

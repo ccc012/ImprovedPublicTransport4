@@ -453,6 +453,8 @@ SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
 SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
 LINE_PANEL_COPY Copy
 LINE_PANEL_PASTE Paste
 SETTINGS_OOC_ENABLE Optimised outside connections

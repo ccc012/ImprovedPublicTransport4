@@ -18,6 +18,40 @@ namespace CommuterDestination
         /// <summary>Ignore stop-panel CheckForClose for a few frames after Destinations click.</summary>
         public static int SuppressStopPanelHideFrames;
 
+        /// <summary>
+        /// Frame the suppression was armed. TickSuppressHide only runs from the stop panel's own
+        /// LateUpdate, so if that never fires for any reason (panel pooling, a future game/engine
+        /// change to the patched method), SuppressStopPanelHideFrames could stay stuck above zero
+        /// forever - permanently blocking the X button. The Hide() prefix cross-checks this
+        /// timestamp so the suppression always expires on its own even if the decrement never runs.
+        /// </summary>
+        private static int _suppressArmedFrame;
+
+        public static void ArmSuppressHide()
+        {
+            SuppressStopPanelHideFrames = 5;
+            _suppressArmedFrame = Time.frameCount;
+        }
+
+        /// <summary>True only while genuinely within the suppression window - self-heals stale state.</summary>
+        public static bool IsSuppressHideActive()
+        {
+            if (SuppressStopPanelHideFrames <= 0)
+            {
+                return false;
+            }
+
+            // Generous margin over the 5-frame intent; anything beyond this is stuck state, not a
+            // real suppression window (a real one always clears within a handful of frames).
+            if (Time.frameCount - _suppressArmedFrame > 30)
+            {
+                SuppressStopPanelHideFrames = 0;
+                return false;
+            }
+
+            return true;
+        }
+
         private static Harmony GetHarmonyInstance() => _harmony ??= new Harmony(HarmonyModID);
 
         public static bool IsActive => _active;
@@ -136,14 +170,14 @@ namespace CommuterDestination
             // MouseDown first so we suppress Hide before LateUpdate CheckForClose runs.
             button.eventMouseDown += (_, __) =>
             {
-                PatchController.SuppressStopPanelHideFrames = 5;
+                PatchController.ArmSuppressHide();
             };
 
             button.eventClick += (_, __) =>
             {
                 try
                 {
-                    PatchController.SuppressStopPanelHideFrames = 5;
+                    PatchController.ArmSuppressHide();
                     var stopId = ResolveCurrentStopId(panel);
                     if (stopId == 0)
                     {

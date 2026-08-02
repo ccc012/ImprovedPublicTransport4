@@ -118,12 +118,7 @@ namespace CommuterDestination
         public static bool Prefix()
         {
             // Destinations button click must not close the stop panel in the same frame.
-            if (PatchController.SuppressStopPanelHideFrames > 0)
-            {
-                return false;
-            }
-
-            return true;
+            return !PatchController.IsSuppressHideActive();
         }
 
         [HarmonyPostfix]
@@ -132,7 +127,7 @@ namespace CommuterDestination
             try
             {
                 // Only clear when hide really happened (not suppressed).
-                if (PatchController.SuppressStopPanelHideFrames > 0)
+                if (PatchController.IsSuppressHideActive())
                 {
                     return;
                 }

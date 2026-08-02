@@ -90,7 +90,11 @@ namespace CommuterDestination
             var entries = graph.Entries;
             var maxIcons = DestinationGraphGenerator.OverlayIconLimit;
             var n = entries.Length < maxIcons ? entries.Length : maxIcons;
-            const float scale = 1f; // colour carries popularity, not size
+            // Destination buildings can be scattered across the whole city, seen from a more
+            // zoomed-out camera than a typical single-building problem icon - the vanilla 1x
+            // size read as too small there, so this renders larger. Colour still carries
+            // popularity, not size.
+            const float scale = 1.8f;
             for (var i = 0; i < n; i++)
             {
                 var e = entries[i];

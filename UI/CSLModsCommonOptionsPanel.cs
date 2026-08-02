@@ -235,6 +235,9 @@ namespace ImprovedPublicTransport.UI
             section.AddKeyBinding(IptHotkeys.LineColorRefresh,
                 Localization.Get("SETTINGS_HOTKEY_LINE_COLOR"),
                 Localization.Get("SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.AdvancedStopSelectionAlternateKey,
+                Localization.Get("SETTINGS_HOTKEY_ADVSTOPSELECT_ALT"),
+                Localization.Get("SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP"));
         }
 
         protected override void FillAdvancedPage(ScrollContainer page)

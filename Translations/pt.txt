@@ -451,6 +451,8 @@ SETTINGS_HOTKEY_TRAIN_DISPLAY Alternar Train Display
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Liga ou desliga o overlay de veículo no canto.
 SETTINGS_HOTKEY_LINE_COLOR Reatribuir cor da linha
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Com uma linha de transporte selecionada, reexecuta o Auto Line Color (precisa de estratégia de cor ativa).
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: escolher a via exata
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Mantenha premida ao criar uma ligação de paragem de comboio/elétrico para visar a via exata em vez da mais próxima válida. Antes era fixo em Shift esquerdo/direito; reatribuir aqui cobre só o lado escolhido.
 SETTINGS_OOC_ENABLE Conexoes externas otimizadas
 SETTINGS_OOC_ENABLE_TOOLTIP Trens, avioes e navios de carga esperam mais por uma carga mais completa antes de partir nas conexoes externas.
 SETTINGS_OOC_WAIT_MULTIPLIER Multiplicador de espera

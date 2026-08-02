@@ -187,7 +187,6 @@ namespace ImprovedPublicTransport
         public bool EnableTaxiStandFix { get; set; } = false;
         // Off by default - rewrites shared global road-prefab data (higher risk class).
         public bool EnableSharedStopEnabler { get; set; } = false;
-        // PARKED for 4.9 (bugs). Forced off on load / profiles; UI toggle removed until redesign.
         public bool EnableCommuterDestination { get; set; } = false;
 
         /// <summary>
