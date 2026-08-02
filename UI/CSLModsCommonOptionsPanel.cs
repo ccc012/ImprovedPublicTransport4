@@ -250,6 +250,7 @@ namespace ImprovedPublicTransport.UI
                 Localization.Get("SETTINGS_FUTURE_GROUP_DESCRIPTION"));
             AddFutureSpoiler(future, "SETTINGS_FUTURE_REVERSIBLE_TRAM", "SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_BREAKDOWN", "SETTINGS_FUTURE_BREAKDOWN_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_BUSWAYPOINT", "SETTINGS_FUTURE_BUSWAYPOINT_TIP");
 
             // Two behaviours that always ran with no way to turn them off - added here for
             // compatibility with other mods/players who prefer manual control over the same thing.

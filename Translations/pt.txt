@@ -126,6 +126,8 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portado do mod avulso Rescue Fullwidth Digits. Corrige nomes de linhas de transporte que foram guardados com dígitos de largura total (１２３ em vez de 123) por causa de alguns métodos de introdução (IME), que de outra forma ficariam exibidos errados para sempre.
 SETTINGS_FUTURE_BREAKDOWN Diagnóstico de trânsito (em breve)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planejado: diagnóstico de rotas/trânsito travado. Ainda não disponível.
+SETTINGS_FUTURE_BUSWAYPOINT Paragem-waypoint de autocarro (em breve)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planejado: marcar uma paragem como waypoint apenas de rota - a linha passa por ela, mas os veículos nunca param nem embarcam/desembarcam passageiros ali. Ajuda a guiar o pathfinding vanilla pela rua que pretendia mesmo. Ainda não disponível.
 SETTINGS_QUICK_TIPS_GROUP Dicas rápidas
 SETTINGS_QUICK_TIPS_DESC Lembretes simples — sem código novo, só como usar o que já existe.
 SETTINGS_QUICK_TIP_1_TITLE Comece simples

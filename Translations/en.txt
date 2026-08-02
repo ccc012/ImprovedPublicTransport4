@@ -124,6 +124,8 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
 SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
 SETTINGS_QUICK_TIPS_GROUP Quick tips
 SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
 SETTINGS_QUICK_TIP_1_TITLE Start simple
