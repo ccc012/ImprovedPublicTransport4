@@ -177,7 +177,7 @@ public class LocalizationManager : ManagerBase {
         if (LocaleSources.TryGetValue(localeId, out var source)) {
             if (source.TryGetValue(key, out var value)) return value;
 
-            if (LocaleSources[LocaleEntry.EnLocaleID].TryGetValue(key, out var value2)) {
+            if (LocaleSources.TryGetValue(LocaleEntry.EnLocaleID, out var enSource) && enSource.TryGetValue(key, out var value2)) {
                 LogManager.GetLogger().Info($"Cannot find {key} in {ModActiveLocaleId} source, fallback en-US value");
                 return value2;
             }
@@ -386,7 +386,14 @@ public class LocalizationManager : ManagerBase {
         ModActiveLocaleChanged?.Invoke(ModActiveLocaleId, this);
     }
 
-    private void SetDefaultLocale() => CurrentLocaleSource = LocaleSources[LocaleEntry.EnLocaleID];
+    private void SetDefaultLocale() {
+        // Reached whenever the requested locale can't be found (e.g. game locale not shipped),
+        // including from game event handlers (OnLocaleChanged) - a raw indexer here would throw
+        // KeyNotFoundException and crash the caller if locale loading has failed entirely
+        // (a race this class already guards against elsewhere via the embedded-resource fallback).
+        LocaleSources.TryGetValue(LocaleEntry.EnLocaleID, out var enSource);
+        CurrentLocaleSource = enSource;
+    }
 
     private bool TryGetLocaleSource(string localeId, out LocaleEntry localeEntry) => LocaleSources.TryGetValue(localeId, out localeEntry);
 
