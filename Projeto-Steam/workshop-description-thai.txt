@@ -1,44 +1,44 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]ม็อดเดียวแทนสิบห้าม็อด.[/b] ควบคุมระบบขนส่งสาธารณะได้เต็มรูปแบบ: จำนวนยานพาหนะ, ประเภทยานพาหนะ, ป้ายหยุด, ค่าโดยสาร. รวมม็อดเล็ก ๆ ไว้ในที่เดียว.
+[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
 
-[h1]ทำไมถึงมีม็อดนี้[/h1]
-เมืองเสียเงิน — ค่าบำรุงพุ่ง [b]-42,000,000,000[/b] ม็อดสองตัวเขียนทับกัน รวมไว้ที่เดียว
+[h1]ทำไมม็อดนี้ถึงมีอยู่[/h1]
+ค่าบำรุงรักษาระบบขนส่งพุ่งสูงถึง [b]-42,000,000,000[/b] — ม็อดสองตัวปรับจำนวนยานพาหนะของตัวเองอย่างอิสระและเขียนทับกันเอง. ม็อดนี้แก้ความขัดแย้งโดยรวมการควบคุมไว้ที่เดียว.
 [hr][/hr]
 [h1]คุณทำอะไรกับมันได้บ้าง[/h1]
 [h2]ควบคุมทุกสายได้อย่างเต็มที่[/h2]
-รถบัส, รถราง, รถไฟ, เรือ, เครื่องบิน, แท็กซี่ — [b]กำหนดจำนวน[/b], [b]เลือกยานพาหนะ[/b], [b]แก้ไขแต่ละคัน[/b], [b]เลือกอู่[/b]
+สายทุกประเภทได้รับ: [b]ควบคุมจำนวนยานพาหนะ[/b] (ปรับเองหรือตามงบประมาณ), [b]เลือกยานพาหนะ[/b], [b]แก้ไขทีละคัน[/b], และ [b]เลือกอู่[/b].
 [h2]แก้ปัญหารถกระจุกตัว[/h2]
-รถต่อท้ายแล้วไม่มา ระดับ: [b]ปิด[/b], [b]ปานกลาง[/b], [b]สมจริง[/b], [b]ด่วน[/b]
+ระดับกันรถกระจุกตัวสามระดับ: [b]Disabled[/b] (เวอร์ชันเดิม), [b]Prudent[/b] (เว้นระยะ), [b]Realistic[/b] (ช่วงเวลาจริง). โหมด [b]Express[/b] ข้ามป้ายที่ว่าง.
 [h2]กำหนดค่าโดยสารของคุณเอง[/h2]
-ตั้งราคาในแท็บ [b]ราคาตั๋ว[/b] พร้อม [b]กลางวัน/กลางคืน[/b] ราคาส่งผลต่อความต้องการ
+ตั้งราคาการขนส่งแต่ละประเภทในแผง [b]Economy[/b] พร้อมตัวเลือก [b]ราคากลางวัน/กลางคืน[/b]. ราคากระตุ้นความต้องการอย่างเป็นธรรมชาติ.
 [h2]ดูว่ากำลังเกิดอะไรขึ้น[/h2]
-[b]แผงข้อมูลป้าย[/b], [b]Train Display[/b], [b]สีและชื่อสาย[/b], [b]Flight Tracker[/b]
-[h2]จัดการเครือข่ายของคุณ[/h2]
-[b]ลบสายหลายสาย[/b], [b]จัดวางป้าย[/b], [b]ปลดล็อกยานพาหนะ[/b]
-[h2]มีอะไรใหม่ใน 4.8[/h2]
-[b]Single Train Track AI[/b]: จองเส้นทาง [b]Stop Stacker[/b]: ที่จอดรถบัส [b]Intercity Bus Control[/b]: แก้ DLC [b]Sub-Buildings Tabs[/b]: แก้บั๊ก + ปรับประสิทธิภาพ
+[b]ข้อมูลป้ายหยุด[/b] (ผู้โดยสาร, ยานพาหนะ, ความแออัด), [b]แผงเส้นทางของยานพาหนะ[/b] (โอเวอร์เลย์สดที่ปรับแต่งได้), [b]สีและชื่อสายอัตโนมัติ[/b] เพื่อความชัดเจน, [b]กระดานเที่ยวบินของสนามบิน[/b] (ขาเข้า/ขาออก).
+[h2]จัดระเบียบเครือข่ายของคุณ[/h2]
+[b]ลบสายเป็นกลุ่ม[/b] (ตามประเภท, ยืนยันก่อนลบ), [b]วางป้ายบนยกระดับ[/b], และ [b]unstucker[/b] สำหรับยานพาหนะที่ติดค้าง.
+[h2]4.8.8: การล้างบั๊กจากการเล่นจริง[/h2]
+นี่ไม่ใช่การอัปเดตฟีเจอร์ — ทุกการแก้ไขด้านล่างมาจากการเล่น 4.8.7 จริง ๆ แล้วรายงานสิ่งที่พัง. [b]การกำหนดเส้นทางของยานพาหนะ[/b] แก้แล้ว (รถบัสเคยชิดขอบถนนนอกป้ายและทะลุผ่านพื้นสะพาน; แพตช์การขึ้นรถแบบต่อคันอาจส่งรถบัสกลับรถก่อนกำหนด). [b]โอเวอร์เลย์จุดหมายของผู้โดยสาร[/b]: พบและแก้ความขัดแย้งของ Harmony patch จริง แต่การทดสอบยังแสดงว่าไอคอน/แผงไม่แสดงอย่างน่าเชื่อถือ — จึงยังคง [b]ปิดตามค่าเริ่มต้น, Experimental[/b]. [b]ช่องทำเครื่องหมายควบคุมงบประมาณ[/b] ไม่ถูกยกเลิกเองทันทีที่คุณติ๊กอีกต่อไป. [b]การกำหนดเส้นทางอู่[/b] แก้แล้วสำหรับอาคารที่ให้บริการสองอย่างพร้อมกัน. เพิ่มตัวป้องกันการคราฟต์ของเกมเวอร์ชันเดิมที่เกิดกับเซฟที่เสียหายบางประเภท (ไม่ใช่บั๊กของเรา — ตัวป้องกันแค่หยุดไม่ให้มันล้มทั้งซิมูเลชัน). ฉลากตัวเลือกหลายรายการเปลี่ยนชื่อเพื่ออธิบายว่ามันทำอะไรแทนที่จะตั้งตามชื่อม็อดต้นทาง (เครดิตยังอยู่ที่หน้านี้และในซอร์สโค้ด). changelog ทางเทคนิคฉบับเต็มอยู่บน GitHub ตามลิงก์ด้านล่าง.
 [hr][/hr]
 [h1]ม็อดที่ถูกรวมเข้ากับ IPT4 — และผู้สร้างสรรค์[/h1]
-[b]ยกเลิกเวอร์ชันแยก[/b] ทุกอันจากผู้สร้างอื่น
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-ส่วนใหญ่มีสวิตช์ บางอย่างเปิดเสมอ แท็กซี่ต้อง [b]After Dark[/b] [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Stop Stacker[/b] คือโค้ดดั้งเดิม
+[b]ยกเลิกการสมัครรับเวอร์ชันแยก[/b] เพื่อไม่ให้แพตช์ซ้ำสองครั้ง. แต่ละม็อดด้านล่างเป็นผลงานของผู้อื่น — ให้เครดิตที่หน้าของพวกเขาหากเป็นประโยชน์.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+ส่วนใหญ่มีสวิตช์ในตัวเลือก. ตัวเลือกอธิบายว่ามันทำอะไร ไม่ใช่ชื่อม็อดต้นทาง. [b]After Dark[/b] จำเป็นสำหรับรายได้แท็กซี่. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], และการจอดซ้อนคันที่ป้ายรถบัสเป็นโค้ดดั้งเดิม (ไม่มีม็อดต้นทาง).
 [hr][/hr]
 [h1]ความต้องการของระบบและความเข้ากันได้[/h1]
-ต้อง [b]Harmony[/b] (ID 2040656402) ไม่ใช้ IPT2/IPT3/Transport Lines Manager/AutoLineBudget
+ต้องมี [b]Harmony[/b] (ID 2040656402). [b]ไม่เข้ากันกับ:[/b] IPT2, IPT3, Transport Lines Manager, AutoLineBudget แบบแยก หรือสำเนาแบบแยกของม็อดใด ๆ ข้างต้น — จะเตือนในเกมหากพบ.
 [hr][/hr]
 [h1]ภาษา[/h1]
-[b]แปล 23 ภาษา[/b] — ตามภาษาเกมหรือเลือกในตัวเลือก
+ใช้ตามภาษาในเกมของคุณ หรือเลือกในตัวเลือก. ภาษาอังกฤษและภาษาโปรตุเกสอัปเดตครบถ้วนทุกเวอร์ชัน; ภาษาอื่น ๆ อัปเดตเป็นชุดและอาจล่าช้า 1–2 เวอร์ชันสำหรับข้อความใหม่ — จะแสดงเป็นภาษาอังกฤษชั่วคราวในระหว่างนั้น.
 [hr][/hr]
 [h1]การเริ่มต้นใช้งาน[/h1]
-[b]Harmony[/b], ยกเลิกม็อดเดี่ยว, เปิด IPT4 ตัวเลือกใน [b]ม็อด → IPT4[/b]; ค่าโดยสารใน [b]เศรษฐกิจ[/b]
+สมัครรับ [b]Harmony[/b], ยกเลิกเวอร์ชันแยก, เปิดใช้งาน IPT4. ตัวเลือก: [b]การตั้งค่า → การตั้งค่าม็อด → Improved Public Transport 4[/b]. ค่าโดยสาร: แผง [b]Economy[/b]. [b]เซฟเดิมใช้ได้[/b].
 [hr][/hr]
 [h1]ความเสถียร[/h1]
-บั๊กแก้ไข เซฟซ่อมอัตโนมัติ [b]สำรองเซฟ[/b] เสมอ หากพัง แนบ:
+เสถียร. บั๊กค่าบำรุงที่พุ่งไม่หยุดแก้แล้ว; เซฟที่เสียหายซ่อมอัตโนมัติ. [b]สำรองเซฟไว้เสมอ[/b]. หากพบปัญหา ให้รายงาน [i]สิ่งที่คุณกำลังทำ[/i] และแนบ:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-ห้ามบอก ไม่ทำงาน โดยไม่มี log
+แค่บอกว่า “ใช้ไม่ได้” อย่างเดียวไม่เพียงพอสำหรับการวินิจฉัย.
 [hr][/hr]
 [h1]ซอร์สโค้ดและเครดิต[/h1]
-ซอร์สโค้ด: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-[b]GPL-3.0[/b] จาก [b]DontCryJustDie[/b] (IPT ต้นฉบับ), [b]BloodyPenguin[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]), [b]Madisonian[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]) UI frameworks โดย [b]algernon[/b] และ [b]Mbyron26[/b] ขอบคุณทุกคน
+ซอร์สโค้ดและ changelog ทางเทคนิค: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 เป็น [b]GPL-3.0[/b] และยืนอยู่บนผลงานของผู้อื่น: [b]DontCryJustDie[/b] เขียน IPT ต้นฉบับ (2015), [b]BloodyPenguin[/b] เขียน [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] เขียน [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] ซึ่งม็อดนี้แยกสาขามา. ม็อดที่ถูกรวมถูกให้เครดิตด้านบน; UI frameworks โดย [b]algernon[/b] และ [b]Mbyron26[/b]. ขอบคุณทุกคน.

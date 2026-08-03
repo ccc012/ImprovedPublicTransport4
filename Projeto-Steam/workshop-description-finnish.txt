@@ -1,44 +1,44 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]Yksi modi viidentoista sijaan.[/b] Täysi hallinta linjoihin: kalustokoko, ajoneuvot, pysäkit, hinnat. Pienet modit yhdistetty.
+[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
 
 [h1]Miksi tämä on olemassa[/h1]
-Kaupunki menetti rahaa — kuluista kasautui [b]-42 mrd[/b]. Kaksi itsenäistä modia päättivät kumpikin linjojen kalustokoot ja korvasivat toistensa muutokset. Ratkaisu: yksi paikka, yksi järjestelmä.
+Joukkoliikenteen ylläpito karkasi [b]-42 000 000 000[/b]:een — kaksi modia muutti itsenäisesti kalustokokoja ja korvasi toistensa. Tämä modi ratkaisee ristiriidan keskittämällä hallinnan.
 [hr][/hr]
 [h1]Mitä voit tehdä sillä[/h1]
 [h2]Ota komento miltä tahansa linjalta[/h2]
-Bussi, raitiovaunu, metro, juna, laiva, lentokone, monorail, köysirata, taksi, kiertoajelu — täydellinen ohjaus jokaiselle: [b]kalusto itse tai budjetista[/b] (ei hiljaiset muutokset), [b]ajoneuvot per linja[/b], [b]muokkaa ja varikko[/b] linjakohtaisesti.
-[h2]Korjaa ajoneuvojen kasautuminen (bunching)[/h2]
-Neljä bussia peräkkäin, ja sitten ei mitään kymmeneen minuuttiin. Kolme tasoa linjakohtaisesti: [b]Pois käytöstä (Disabled)[/b] (vanilla), [b]Harkittu (Prudent)[/b] (kevyet välit), [b]Realistinen (Realistic)[/b] (todelliset aikavälit). Tai käytä [b]Express[/b]-tilaa ohittaaksesi tyhjät pysäkit.
+Jokainen linjatyyppi: [b]kaluston hallinta[/b] (manuaalinen tai budjettipohjainen), [b]ajoneuvovalinta[/b], [b]yksittäiset muokkaukset[/b], [b]varikon valinta[/b].
+[h2]Korjaa kasautuminen (bunching)[/h2]
+Kolme tasoa: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (välit), [b]Realistic[/b] (todelliset aikavälit). [b]Express[/b] ohittaa tyhjät pysäkit.
 [h2]Aseta omat hintasi[/h2]
-Hinnoittele kukin kuljetustyyppi Talous-paneelissa, valinnaisella [b]päivä-/yöhinnoittelulla[/b]. Hinnat ruokkivat kysyntää.
-[h2]Katso mitä tapahtuu[/h2]
-[b]Pysäkin infopaneeli[/b], [b]Train Display[/b] (reittikartta livenä, muokattavissa), [b]automaattiset linjavärit ja -nimet[/b] sekä [b]Flight Tracker[/b].
+Hinnoittele jokainen kuljetustyyppi [b]Talous[/b]-paneelissa, valinnaisella [b]päivä-/yöhinnoittelulla[/b]. Hinnat ohjaavat kysyntää.
+[h2]Näe mitä tapahtuu[/h2]
+[b]Pysäkkitiedot[/b] (matkustajat, ajoneuvo, ruuhkautuminen), [b]reittipaneeli[/b] (elävä, muokattava päällekkäisyys), [b]automaattiset linjavärit/nimet[/b], [b]lentokentän lentonäyttö[/b] (saapuvat/lähtevät).
 [h2]Siivoa verkostosi[/h2]
-[b]Linjojen massapoisto[/b] (vahvistuksella), [b]parempi pysäkkien sijoittelu[/b] korotetuille radoille, [b]jumiutumisen poistaja[/b].
-[h2]Uutta versiossa 4.8[/h2]
-[b]Yksiraiteisen junan tekoäly[/b] — jaettu raide varataan yhteen suuntaan, ei törmäysvaaraa. [b]Pysäkkipaikkojen erottelu[/b] — toinen bussi saa oman pysähdyspaikkansa. [b]Intercity Bus Control[/b] ja [b]Sub-Buildings Tabs[/b] korjattu; päällä oletuksena. Bugien ja suorituskyvyn siivoo — täydellinen lista GitHubissa.
+[b]Linjojen massapoisto[/b] (tyypin mukaan, vahvistettu), [b]korotettujen pysäkkien sijoittelu[/b], [b]jumiutumisen poistaja[/b].
+[h2]4.8.8: oikean pelin bugisivous[/h2]
+Ei ominaisuuspäivitys — jokainen korjaus syntyi pelaamalla 4.8.7:ää ja raportoimalla mikä hajosi. [b]Ajoneuvojen reititys[/b] korjattu (bussit roikkuivat pysäkin ulkopuolella reunakivessä ja ajoivat siltojen kansien läpi; pinottua nousua korjaava paikkaus saattoi lähettää bussin ennenaikaiseen U-käännökseen). [b]Matkustajien määränpään päällekkäisyys[/b]: löysimme ja korjasimme todellisen Harmony-paikkausristiriidan, mutta kuvakkeet/paneeli ilmestyvät epäluotettavasti — pysyy [b]oletuksena pois päältä, Experimental[/b]. [b]Budjettiohjauksen valintaruutu[/b] ei enää poista itseään heti. [b]Varikkoreititys[/b] korjattu rakennuksille, jotka tarjoavat kaksi palvelua kerralla. Suoja oikeaa vanilla-pelin kaatumista vastaan vioittuneissa tallennuksissa (ei meidän bugimme — estää vain kaatamasta koko simulaatiota). Useita asetusnimikkeitä uudelleennimetty kuvaamaan mitä ne tekevät, ei mistä modista (krediitit pysyvät tällä sivulla ja lähteessä). Täysi tekninen muutosloki GitHubissa, alla.
 [hr][/hr]
 [h1]IPT4:ään imeytyneet modit — ja kuka ne teki[/h1]
-[b]Poista itsenäisten versioiden tilaus[/b] — korjaavat samaa koodia kahdesti. Jokainen alla oleva on jonkun muun työtä.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Useimmilla on oma kytkimensä; muutama vanillan korjaus aina päällä. Taksien kilometritulot vaativat [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Pysäkkipaikkojen erottelu[/b] ovat alkuperäistä koodia (clean-room).
+[b]Peru itsenäisten versioiden tilaus[/b], jotta ei paikata kahdesti. Jokainen alla oleva modi on jonkun työtä — anna krediitti hänen sivullaan.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+Useimmilla on kytkimet. Asetukset kertovat mitä kukin tekee, eivät lähdemodin nimeä. [b]After Dark[/b] vaaditaan taksituloihin. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] ja [b]bussipysäkkien laituripaikkojen (berth) pinoaminen[/b] ovat alkuperäistä koodia.
 [hr][/hr]
 [h1]Vaatimukset ja yhteensopivuus[/h1]
-[b]Harmony[/b] (ID 2040656402) vaaditaan. [b]Ei yhteensopiva:[/b] IPT2, IPT3, Transport Lines Manager, erillinen AutoLineBudget tai minkä tahansa yllä olevan modin erillinen kopio — varoittaa pelissä, jos löytyy.
+[b]Harmony[/b] (ID 2040656402) vaaditaan. [b]Ei yhteensopiva:[/b] IPT2, IPT3, Transport Lines Manager, itsenäinen AutoLineBudget tai itsenäinen kopio mistä tahansa yllä olevasta modista — varoittaa pelissä.
 [hr][/hr]
 [h1]Kielet[/h1]
-[b]Kaikki 23 kieltä täysin käännetty[/b] — jokainen merkkijono, ei vain valikot. Seuraa pelisi kieltä tai valitse haluamasi asetuksista.
+Seuraa pelisi kieltä tai valitse yksi. Englanti ja portugali pidetään ajan tasalla; muut kielet saavuttavat erissä ja voivat jäädä yhden-kahden julkaisun päähän uusista teksteistä — putoaa englantiin.
 [hr][/hr]
 [h1]Aloittaminen[/h1]
-Tilaa [b]Harmony[/b], poista erilliset modit, ota IPT4 käyttöön. Asetukset: [b]Settings → Mod Settings → IPT4[/b], liput [b]Economy[/b]-paneelissa. Vanhat tallennukset toimivat.
+Tilaa [b]Harmony[/b], peru itsenäiset, ota IPT4 käyttöön. Asetukset: [b]Asetukset → Mod-asetukset → Improved Public Transport 4[/b]. Hinnat: [b]Talous[/b]. [b]Vanhat tallennukset toimivat[/b].
 [hr][/hr]
 [h1]Vakaus[/h1]
-Vakaa kanava; bugi korjattu, vioittuneet tallennukset korjautuvat. [b]Varmuuskopio suositeltava[/b]. Jos ongelmia, kerro mitä olit tekemässä ja liitä:
+Vakaa. Karkaavan ylläpidon bugi korjattu; vaurioituneet tallennukset korjautuvat. [b]Ota silti varmuuskopio[/b]. Kerro [i]mitä olit tekemässä[/i] ja liitä:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-Ilman lokia ei voida diagnosoida.
+Pelkkä „ei toimi” ei riitä diagnosointiin.
 [hr][/hr]
-[h1]Lähdekoodi ja tekijät[/h1]
-[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url] — lähdekoodi ja muutosloki.
-[b]GPL-3.0[/b]. Perustuu: [b]DontCryJustDie[/b] (IPT 2015), [b]BloodyPenguin[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]), [b]Madisonian[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]). UI: [b]algernon[/b], [b]Mbyron26[/b]. Kiitos kaikille.
+[h1]Lähdekoodi ja krediitit[/h1]
+Lähde ja tekninen muutosloki: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 on [b]GPL-3.0[/b] ja nojaa muiden työhön: [b]DontCryJustDie[/b] kirjoitti alkuperäisen IPT:n (2015), [b]BloodyPenguin[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]:n, [b]Madisonian[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]:n, josta tämä on fork. Imeytyneet modit yllä; UI-kehykset [b]algernon[/b] ja [b]Mbyron26[/b]. Kiitos kaikille.

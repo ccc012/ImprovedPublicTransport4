@@ -1,42 +1,44 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]Eén mod in plaats van vijftien.[/b] Volledige controle over lijnen: vlootgrootte, voertuigtypen, haltes, tarieven. Kleine mods gebundeld.
+[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
 
 [h1]Waarom dit bestaat[/h1]
-Twee mods overschreven elkaar bij vlootgrootte-berekening, tot [b]-42 miljard[/b]. Oplossing: één plek, één systeem.
+Onderhoudskosten van het OV schoten naar [b]-42.000.000.000[/b] — twee mods pasten vlootgroottes onafhankelijk aan en overschreven elkaar. Deze mod lost dat op door controle te centraliseren.
 [hr][/hr]
 [h1]Wat je ermee kunt doen[/h1]
-[h2]Neem de controle over elke lijn[/h2]
-Elke lijntype krijgt volledig bedieningspaneel: [b]vlootgrootte instellen[/b] of automatisch op basis van budget, [b]voertuigen kiezen[/b], [b]individueel bewerken[/b] en [b]depot kiezen[/b].
-[h2]Voorkom kluitjesvorming (bunching)[/h2]
-Drie bunching-niveaus per lijn: [b]Uitgeschakeld[/b], [b]Voorzichtig[/b], [b]Realistisch[/b]. [b]Express[/b]-modus slaat lege haltes over.
+[h2]Neem elke lijn onder controle[/h2]
+Elk lijntype krijgt: [b]vlootbeheer[/b] (handmatig of budget), [b]voertuigkeuze[/b], [b]individuele bewerkingen[/b] en [b]depotkeuze[/b].
+[h2]Los bunching op[/h2]
+Drie anti-bunching-niveaus: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (afstand), [b]Realistic[/b] (echte intervallen). [b]Express[/b] slaat lege haltes over.
 [h2]Stel je eigen tarieven in[/h2]
-Prijs elk transporttype in het Economie-paneel, met optionele [b]dag-/nachtprijzen[/b]. Prijzen beïnvloeden vraag.
+Prijs elk vervoerstype in het [b]Economie[/b]-paneel, met optionele [b]dag-/nachtprijzen[/b]. Prijzen sturen de vraag natuurlijk.
 [h2]Zie wat er gebeurt[/h2]
-[b]Halte info-paneel[/b], [b]Train Display[/b] (live route-overlay), [b]automatische lijnkleuren/namen[/b] en [b]Flight Tracker[/b].
-[h2]Schoon je netwerk op[/h2]
-[b]Massaal verwijderen van lijnen[/b], [b]betere halte-plaatsing[/b] en [b]losmaker[/b] voor vastgelopen voertuigen.
-[h2]Nieuw in 4.8[/h2]
-[b]Enkelspoor AI[/b] voorkomt treinen-botsingen. [b]Extra wachtplekken bij bushaltes[/b] geeft bussen wachtplekken. [b]Intercity Bus Control[/b] nu standaard aan. [b]Sub-gebouwen tabbladen[/b] bug opgelost. Grote schoonmaak bugs en prestatie — technische changelog.
+[b]Halte-info[/b] (passagiers, voertuig, drukte), [b]voertuigroute-paneel[/b] (configureerbare overlay), [b]automatische lijnkleuren/-namen[/b], [b]luchthaven-vluchtbord[/b] (aankomsten/vertrekken).
+[h2]Ruim je netwerk op[/h2]
+[b]Bulk-verwijdering van lijnen[/b] (per type, bevestigd), [b]verhoogde haltes[/b] en een [b]losmaker[/b] voor vastgelopen voertuigen.
+[h2]4.8.8: bug-sweep uit echt spelen[/h2]
+Geen feature-update — elke fix hieronder komt van echt spelen van 4.8.7 en het melden van wat er brak. [b]Voertuig-routering[/b] gefixt (bussen bleven buiten de halte aan de stoeprand plakken en sneden door brugdekken; een patch voor gestapeld instappen kon een bus te vroeg laten keren). [b]Overlay passagiersbestemming[/b]: echte Harmony-patchconflict gevonden en gefixt, maar iconen/panel verschijnen nog steeds onbetrouwbaar — blijft [b]standaard uit, Experimental[/b]. [b]Budget-vinkje[/b] vinkt zich niet meer vanzelf uit zodra je het aanklikt. [b]Depot-routering[/b] gefixt voor gebouwen met twee diensten tegelijk. Bescherming tegen een echte vanilla-crash op bepaalde beschadigde saves (niet onze bug — de bescherming voorkomt alleen de volledige crash). Enkele optielabels hernoemd om te beschrijven wat ze doen in plaats van de mod waar ze vandaan komen (credits blijven hier en in de bron). Volledige technische changelog op GitHub (hieronder).
 [hr][/hr]
-[h1]Mods geabsorbeerd in IPT4 — en wie ze heeft gemaakt[/h1]
-[b]Meld je af voor de originele mods[/b] — beide tegelijk patcht dezelfde code twee keer. Het werk van anderen; geef feedback op hun pagina.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b], vervolg op BloodyPenguins origineel) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b], gebaseerd op Phil Scotts origineel) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], vervolg op [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmapes origineel[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Meeste hebben opties-schakelaar; sommige repareren alleen vanilla-bugs, altijd aan. Taxi-inkomsten vereisen After Dark. Taxi Stand Fix, Single Train Track AI, Extra wachtplekken bij bushaltes zijn origineel (geen ports).
+[h1]Mods opgenomen in IPT4 — en wie ze maakte[/h1]
+[b]Zeg de standalones op[/b] om dubbel patchen te voorkomen. Elke mod hieronder is iemands werk — geef credits op hun pagina.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+De meeste hebben optieschakelaars; opties beschrijven wat ze doen, niet de naam van de bronmod. [b]After Dark[/b] nodig voor taxi-inkomsten. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]bus-standplaats-stapeling[/b]: originele code (geen bronmods).
 [hr][/hr]
 [h1]Vereisten & compatibiliteit[/h1]
-[b]Harmony[/b] (ID 2040656402) vereist. Niet compatibel met: IPT2, IPT3, Transport Lines Manager, AutoLineBudget — waarschuwt in-game.
+[b]Harmony[/b] (ID 2040656402) vereist. [b]Niet compatibel met:[/b] IPT2, IPT3, Transport Lines Manager, standalone AutoLineBudget of een standalone kopie van een mod hierboven — waarschuwt in-game.
 [hr][/hr]
 [h1]Talen[/h1]
-[b]23 talen volledig vertaald[/b] — volgt je game-taal of kies in opties.
+Volgt je gametaal, of kies er een in de opties. Engels en Portugees blijven bij elke release volledig actueel; andere talen halen in batches bij en kunnen een of twee releases achterlopen op gloednieuwe tekst — vallen intussen terug op Engels.
 [hr][/hr]
 [h1]Aan de slag[/h1]
-Abonneer Harmony, meld standalone mods af, schakel IPT4 in. Opties: Instellingen → Mod-instellingen; tarieven in Economie-paneel. Bestaande saves werken.
+Abonneer [b]Harmony[/b], zeg standalones op, schakel IPT4 in. Opties: [b]Instellingen → Mod-instellingen → Improved Public Transport 4[/b]. Tarieven: [b]Economie[/b]-paneel. [b]Bestaande saves werken[/b].
 [hr][/hr]
 [h1]Stabiliteit[/h1]
-Stabiel. Onderhoudsbug opgelost, beschadigde saves hersteld. [b]Back-up saves[/b]. Bij bugs: log toe (output_log.txt). Geen log = ondiagnostiseerbaar.
+Stabiel. Runaway-onderhoudsbug gefixt; beschadigde saves repareren zichzelf. [b]Back-up saves toch.[/b] Meld bij problemen [i]wat je aan het doen was[/i] en voeg toe:
+[code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
+“Werkt niet” alleen is niet te diagnosticeren.
 [hr][/hr]
 [h1]Broncode en credits[/h1]
 Broncode en technische changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-GPL-3.0. Gebouwd op werk van: [b]DontCryJustDie[/b] (origineel IPT), [b]BloodyPenguin[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]), [b]Madisonian[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]). UI-frameworks: [b]algernon[/b], [b]Mbyron26[/b].
+IPT4 is [b]GPL-3.0[/b] en bouwt voort op werk van anderen: [b]DontCryJustDie[/b] schreef de originele IPT (2015), [b]BloodyPenguin[/b] schreef [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] schreef [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], waarvan dit een fork is. Opgenomen mods hierboven; UI-frameworks door [b]algernon[/b] en [b]Mbyron26[/b]. Dank jullie allemaal.

@@ -1,43 +1,44 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]Un singur mod în loc de cincisprezece.[/b] Control total: mărime flotă, vehicule, stații, tarife. Moduri mici unite.
+[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
 
 [h1]De ce există acest mod[/h1]
-Doi mods funcțional se suprascriau reciproc pe flux, creând haos. IPT4 consolidează—un singur loc, un singur sistem.
+Întreținerea transportului a explodat la [b]-42.000.000.000[/b] — două moduri redimensionau flotele independent, suprascriindu-se. Modul rezolvă conflictul prin centralizare.
 [hr][/hr]
 [h1]Ce poți face cu el[/h1]
 [h2]Preia controlul asupra oricărei linii[/h2]
-Autobuz, tramvai, metrou, tren, vapor, avion, monorail, telecabină, taxi, tur — [b]setează dimensiunea flotei[/b] manual sau din buget (fără suprascriere tacită), [b]alege vehicule[/b], [b]editează individual[/b], [b]alege depozit[/b] per linie.
+Fiecare tip de linie primește: [b]control flotă[/b] (manual sau din buget), [b]selecție vehicule[/b], [b]editări individuale[/b], [b]alegere depozit[/b].
 [h2]Rezolvă aglomerarea vehiculelor (bunching)[/h2]
-Trei niveluri: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (spațiere fină), [b]Realistic[/b] (intervale reale). Mode [b]Express[/b] sare peste stații goale.
+Trei niveluri anti-aglomerare: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (spațiere), [b]Realistic[/b] (intervale reale). Modul [b]Express[/b] sare peste stațiile goale.
 [h2]Setează-ți propriile tarife[/h2]
-Prețul per tip de transport în fila [b]Prețuri bilete[/b] (Economie), cu [b]zi/noapte[/b]. Ieftin se umple, scump se golește.
+Prețuiește fiecare tip de transport în panoul [b]Economie[/b], cu [b]preț zi/noapte[/b]. Prețurile conduc cererea natural.
 [h2]Vezi ce se întâmplă[/h2]
-[b]Panou stație[/b] (pasageri, următorul vehicul, aglomerație), [b]Train Display[/b] (rută timp real, configurabil), [b]culori și nume automate linii[/b] și [b]Flight Tracker[/b] (sosiri/plecări).
+[b]Info stație[/b] (pasageri, vehicul, aglomerație), [b]panou de rută vehicul[/b] (suprapunere live configurabilă), [b]culori/denumiri automate de linii[/b], [b]panou de zbor aeroport[/b] (sosiri/plecări).
 [h2]Curăță-ți rețeaua[/h2]
-[b]Ștergere masă linii[/b] (tip ales, confirmare), [b]plasare stații pe șine elevate[/b], [b]unstucker[/b] pentru vehicule blocate.
-[h2]Noutăți în 4.8[/h2]
-[b]Single Train Track AI[/b] — o direcție per segment. [b]Stop Stacker[/b] — al doilea autobuz la locul propriu. [b]Intercity Bus Control[/b] reparat (DLC check era nesigură). [b]Sub-Buildings Tabs[/b] bug fix. Plus perf și bug-uri — vezi changelog pentru detalii.
+[b]Ștergere în masă linii[/b] (pe tip, confirmată), [b]stații elevate[/b], [b]unstucker[/b] pentru vehicule blocate.
+[h2]4.8.8: curățare de buguri din joc real[/h2]
+Nu este o actualizare de funcții — fiecare reparare a venit din jocul efectiv al 4.8.7 și din raportarea a ce s-a stricat. [b]Rutarea vehiculelor[/b] reparată (autobuzele se lipeau de bordură în afara stației și treceau prin punțile podurilor; un patch pentru urcarea în stivă putea trimite un autobuz într-o întoarcere prematură). [b]Suprapunerea destinațiilor pasagerilor[/b]: am găsit și reparat un conflict real de patch Harmony, dar iconițele/panoul încă nu apar mereu — rămâne [b]oprit implicit, Experimental[/b]. [b]Bifarea controlului bugetar[/b] nu se mai debifează singură. [b]Rutarea către depozit[/b] reparată pentru clădirile cu două servicii simultan. Protecție împotriva unui crash real vanilla la salvări corupte (nu e bug-ul nostru — doar împiedică dărâmarea întregii simulări). Mai multe etichete de opțiuni redenumite să descrie ce fac, nu de unde provin (creditele rămân aici și în sursă). Changelog tehnic complet pe GitHub, mai jos.
 [hr][/hr]
-[h1]Moduri absorbite în IPT4[/h1]
-[b]Dezabonează-te de la copiile independente[/b] — evită cod duplicat. Creditează autorii:
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] (macsergey) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] (snowie) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] (TaradinoC) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] (Vectorial1024) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] (llunak) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] (jkm) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] (macsergey) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] (Vectorial1024) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] (Nyoko) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] (BloodyPenguin) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] (Vectorial1024) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] (Vectorial1024) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] (egi) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] (CodeBardian) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] (dymanoid) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] (BloodyPenguin, AJ3D) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] (BloodyPenguin) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] (Will, cont. [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] (Gansaku)
-Majoritatea au comutator; unele reparații vanilla sunt mereu active. Taximetru necesită [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Stop Stacker[/b]: cod original, nu porturi.
+[h1]Moduri absorbite în IPT4 — și cine le-a făcut[/h1]
+[b]Dezabonează versiunile standalone[/b] — evită patcharea dublă. Fiecare mod de mai jos este munca cuiva — creditează autorul dacă e util.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+Majoritatea au comutatoare. Opțiunile descriu ce face fiecare, nu numele modului sursă. [b]After Dark[/b] necesar pentru venitul taxi. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] și [b]suprapunerea locurilor (berth) la stațiile de autobuz[/b] sunt cod original.
 [hr][/hr]
 [h1]Cerințe și compatibilitate[/h1]
-[b]Harmony[/b] (2040656402) necesar. Incompatibil: IPT2, IPT3, Transport Lines Manager, copii independente ale modurilor de mai sus.
+[b]Harmony[/b] (ID 2040656402) necesar. [b]Incompatibil cu:[/b] IPT2, IPT3, Transport Lines Manager, AutoLineBudget standalone sau copia standalone a oricărui mod de mai sus — te avertizează în joc.
 [hr][/hr]
 [h1]Limbi[/h1]
-[b]23 limbi complete[/b] — fiecare șir. Urmează jocul sau alege.
+Urmează limba jocului sau alege una. Engleza și portugheza sunt mereu actuale; celelalte limbi ajung din urmă în loturi și pot rămâne în urmă cu una-două versiuni la text nou — revin la engleză între timp.
 [hr][/hr]
 [h1]Noțiuni de bază[/h1]
-Abonează [b]Harmony[/b], dezabonează modurile de mai sus, activează IPT4, deschide un oraș. Setări: [b]Setări mod → Improved Public Transport 4[/b]; tarife: [b]Economie[/b]. [b]Salvările IPT2/IPT3 funcționează.[/b]
+Abonează [b]Harmony[/b], dezabonează standalone, activează IPT4. Opțiuni: [b]Setări → Setări Mod → Improved Public Transport 4[/b]. Tarife: [b]Economie[/b]. [b]Salvările existente funcționează[/b].
 [hr][/hr]
 [h1]Stabilitate[/h1]
-Stabil. Bug întreținere remediat, salvări deteriorate reparate la încărcare. [b]Fă backup.[/b] Pentru probleme, atașează:
+Stabil. Bug de întreținere reparat; salvările deteriorate se auto-repară. [b]Fă backup oricum[/b]. La probleme, raportează [i]ce făceai[/i] și atașează:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
+„Nu merge” singur nu poate fi diagnosticat.
 [hr][/hr]
 [h1]Sursă și credite[/h1]
-[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url] · [b]GPL-3.0[/b]
-IPT original (2015) [b]DontCryJustDie[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url] (BloodyPenguin), [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] (Madisonian). UI framework: algernon, Mbyron26.
+Sursă și changelog tehnic: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 este [b]GPL-3.0[/b] și se sprijină pe munca altora: [b]DontCryJustDie[/b] a scris IPT-ul original (2015), [b]BloodyPenguin[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], din care acesta este un fork. Modurile absorbite sunt creditate mai sus; framework-urile UI de [b]algernon[/b] și [b]Mbyron26[/b]. Mulțumesc tuturor.

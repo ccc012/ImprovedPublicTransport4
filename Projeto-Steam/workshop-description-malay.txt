@@ -1,45 +1,44 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]Satu mod, bukan lima belas.[/b] Kawalan penuh tiap laluan transit: saiz armada, jenis kenderaan, perhentian, tambang. Mod kecil disatukan.
+[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
 
 [h1]Sebab mod ini wujud[/h1]
-Bandar rugi wang: penyelenggaraan melambung ke [b]-42,000,000,000[/b]. Dua mod berfungsi, masing-masing tentukan saiz armada, saling menimpa. Solusi: satu tempat, satu sistem — IPT4.
+Penyelenggaraan transit melambung ke [b]-42,000,000,000[/b] — dua mod masing-masing menyusun saiz armada, saling menimpa. Mod ini menyelesaikannya dengan memusatkan kawalan.
 [hr][/hr]
 [h1]Apa yang anda boleh lakukan dengannya[/h1]
 [h2]Kawal mana-mana laluan[/h2]
-Bas, trem, metro, kereta api, kapal, kapal terbang, monorel, kereta kabel, teksi, pelancongan — setiap laluan dapat panel penuh: [b]saiz armada sendiri[/b] atau mod sesuaikan daripada bajet, [b]pilih kenderaan[/b], [b]edit individu[/b], [b]pilih depo[/b].
+Setiap jenis laluan dapat: [b]kawalan armada[/b] (manual atau dari bajet), [b]pilihan kenderaan[/b], [b]suntingan individu[/b], dan [b]pilihan depo[/b].
 [h2]Baiki masalah kenderaan bersusun[/h2]
-Empat bas bersusun, kemudian tiada selama sepuluh minit. Tiga tahap: [b]Disabled[/b] (vanila), [b]Prudent[/b] (jarak perlahan), [b]Realistic[/b] (selang sebenar), atau [b]Express[/b] (langkau kosong).
+Tiga tahap anti-susun: [b]Disabled[/b] (vanila), [b]Prudent[/b] (jarak), [b]Realistic[/b] (selang sebenar). Mod [b]Express[/b] melangkau perhentian kosong.
 [h2]Tetapkan tambang anda sendiri[/h2]
-Tetapkan harga tiap jenis pengangkutan dalam tab [b]Harga Tiket[/b] panel Ekonomi, dengan [b]harga siang/malam[/b]. Murah = penuh, mahal = kosong.
+Setel harga tiap pengangkutan dalam panel [b]Economy[/b], dengan pilihan [b]harga siang/malam[/b]. Harga memacu permintaan.
 [h2]Lihat apa yang berlaku[/h2]
-[b]Panel info perhentian[/b] (penumpang, kenderaan seterusnya, kesesakan), [b]Train Display[/b] (tindanan laluan boleh dikonfigurasi), [b]warna/nama laluan automatik[/b], [b]Flight Tracker[/b] (ketibaan/pelepasan).
+[b]Info perhentian[/b] (penumpang, kenderaan, kesesakan), [b]panel laluan kenderaan[/b] (tindanan langsung boleh diatur), [b]warna/nama laluan automatik[/b] agar jelas, [b]papan penerbangan lapangan terbang[/b] (tiba/berlepas).
 [h2]Bersihkan rangkaian anda[/h2]
-[b]Pemadaman laluan pukal[/b] (jenis terpilih sekaligus), [b]penempatan perhentian lebih baik[/b] (trek bertingkat), [b]pelepas tersekat[/b].
-[h2]Baharu dalam 4.8[/h2]
-[b]Single Train Track AI[/b] — rel tunggal untuk satu arah, elak kereta api bertembung. [b]Stop Stacker[/b] — bas kedua dapat tempat sendiri di belakang. [b]Intercity Bus Control[/b] dibaiki (DLC check dipercayai). [b]Sub-Buildings Tabs[/b] — pepijat tab dibaiki. Tambahan pembersihan pepijat/prestasi.
+[b]Pemadaman laluan pukal[/b] (ikut jenis, disahkan), [b]perhentian bertingkat[/b], dan [b]unstucker[/b] kenderaan tersekat.
+[h2]4.8.8: sapuan pepijat dari permainan sebenar[/h2]
+Bukan kemas kini ciri — tiap pembetulan di bawah datang daripada bermain 4.8.7 dan melaporkan kerosakan. [b]Penghalaan kenderaan[/b] dibetulkan (bas pernah melekat pada batu tepi di luar perhentian dan menembusi geladak jambatan; tampalan menaiki bertindan boleh menghantar bas berpusing balik awal). [b]Tindanan destinasi penumpang[/b]: konflik tampalan Harmony ditemui dan dibetulkan, tetapi ikon/panel masih belum selalu muncul — [b]mati secara lalai, Experimental[/b]. [b]Kotak semak kawalan bajet[/b] tidak lagi nyahcentang sebaik ditanda. [b]Penghalaan depo[/b] dibetulkan untuk bangunan dua perkhidmatan sekaligus. Ditambah pengawal terhadap ranap vanila sebenar pada simpanan rosak tertentu (bukan pepijat kami — hanya menghalang simulasinya jatuh). Beberapa label pilihan dinamakan semula untuk menerangkan fungsinya, bukan nama mod sumber (kredit kekal di halaman dan sumber). Changelog teknikal penuh di GitHub di bawah.
 [hr][/hr]
 [h1]Mod yang diserap ke dalam IPT4 — dan penciptanya[/h1]
-[b]Nyahlanggan versi berasingan[/b] — menjalankan kedua-duanya menampal sama, konflik mod ini elakkan. Setiap satu di bawah kerja orang lain; jika berguna, nyatakan di halaman penulis.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], via [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Kebanyakan ada suis; pembaikan vanila rosak sentiasa aktif. Pendapatan perbatuan teksi perlukan [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Stop Stacker[/b] — kod asal, bukan port (mod sumber tak berlesen).
+[b]Nyahlanggan versi berasingan[/b] untuk elak menampal dua kali. Setiap mod di bawah kerja orang lain — beri kredit jika membantu.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+Kebanyakan ada suis; pilihan menerangkan fungsinya, bukan nama mod sumber. [b]After Dark[/b] diperlukan untuk pendapatan teksi. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], dan susunan bertindan tempat perhentian bas ialah kod asal (tiada mod sumber).
 [hr][/hr]
 [h1]Keperluan & keserasian[/h1]
-[b]Harmony[/b] (2040656402) diperlukan. Tidak serasi: IPT2, IPT3, Transport Lines Manager, atau mod terpisah di atas.
+[b]Harmony[/b] (ID 2040656402) wajib. [b]Tidak serasi dengan:[/b] IPT2, IPT3, Transport Lines Manager, AutoLineBudget berasingan, atau salinan mod di atas — amaran dalam permainan jika ditemui.
 [hr][/hr]
 [h1]Bahasa[/h1]
-[b]23 bahasa penuh[/b] — setiap rentetan. Ikut bahasa permainan atau pilih dalam tetapan.
+Mengikut bahasa permainan, atau pilih dalam tetapan. Inggeris dan Portugis dikemas kini penuh tiap keluaran; bahasa lain menyusul bertahap dan mungkin ketinggalan satu dua keluaran pada teks baharu — sementara kembali ke Inggeris.
 [hr][/hr]
 [h1]Bermula[/h1]
-Langgan [b]Harmony[/b], nyahlanggan mod berasingan, dayakan IPT4, muat bandar. Pilihan: [b]Tetapan → Tetapan Mod → IPT4[/b]; tambang dalam [b]Ekonomi[/b]. [b]Simpanan sedia ada serasi[/b].
+Langgan [b]Harmony[/b], nyahlanggan versi berasingan, dayakan IPT4. Pilihan: [b]Tetapan → Tetapan Mod → Improved Public Transport 4[/b]. Tambang: panel [b]Economy[/b]. [b]Simpanan sedia ada serasi[/b].
 [hr][/hr]
 [h1]Kestabilan[/h1]
-Stabil. Pepijat penyelenggaraan dibaiki; simpanan rosak dibaiki auto. [b]Simpan sandaran[/b]. Jika rosak, nyatakan apa dilakukan dan lampirkan:
+Stabil. Pepijat penyelenggaraan liar dibetulkan; simpanan rosak dibaiki auto. [b]Sandarkan simpanan[/b]. Jika bermasalah, laporkan [i]aktiviti anda[/i] dan lampirkan:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-Aduan tanpa log tidak boleh didiagnosis.
+“Tidak berfungsi” saja tidak dapat didiagnosis.
 [hr][/hr]
 [h1]Sumber dan kredit[/h1]
-Sumber & changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-
-[b]GPL-3.0[/b] — dibina atas: [b]DontCryJustDie[/b] (IPT asal 2015), [b]BloodyPenguin[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]), [b]Madisonian[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]). Mod diserap di atas; UI framework: [b]algernon[/b], [b]Mbyron26[/b]. Terima kasih.
+Sumber dan changelog teknikal: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 [b]GPL-3.0[/b] berdiri atas kerja orang lain: [b]DontCryJustDie[/b] menulis IPT asal (2015), [b]BloodyPenguin[/b] menulis [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] menulis [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], dari mana versi ini bercabang. Mod yang diserap diberi kredit di atas; rangka kerja UI oleh [b]algernon[/b] dan [b]Mbyron26[/b]. Terima kasih.

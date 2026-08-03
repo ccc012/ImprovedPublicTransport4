@@ -1,44 +1,44 @@
-﻿[img]https://i.imgur.com/8BfNPgj.png[/img]
+[img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]Một mod thay cho mười lăm mod.[/b] Kiểm soát đầy đủ mọi tuyến giao thông: quy mô đội xe, loại phương tiện, trạm dừng, giá vé. Các mod nhỏ hợp nhất.
+[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
 
 [h1]Tại sao mod này tồn tại[/h1]
-Một thành phố cạn kiệt tiền vì chi phí bảo trì giao thông lên [b]-42.000.000.000[/b] — hai mod độc lập tự quyết định quy mô đội xe và ghi đè lẫn nhau. Giải pháp: một nơi, một hệ thống.
+Chi phí bảo trì giao thông leo lên [b]-42,000,000,000[/b] — hai mod tự chỉnh quy mô đội xe độc lập, ghi đè lên nhau. Mod này giải quyết xung đột bằng cách tập trung quyền kiểm soát.
 [hr][/hr]
 [h1]Bạn có thể làm gì với nó[/h1]
-[h2]Nắm quyền kiểm soát bất kỳ tuyến đường nào[/h2]
-Xe buýt, xe điện, tàu, tàu thủy, máy bay, cáp treo, taxi, tour — bảng điều khiển đầy đủ cho mỗi tuyến: [b]tự thiết lập quy mô đội xe[/b] hoặc để mod tự động điều chỉnh từ ngân sách, [b]chọn phương tiện[/b], [b]chỉnh sửa từng phương tiện[/b], [b]chọn depot[/b].
+[h2]Nắm quyền kiểm soát bất kỳ tuyến nào[/h2]
+Mọi loại tuyến đều có: [b]kiểm soát đội xe[/b] (thủ công hoặc theo ngân sách), [b]chọn phương tiện[/b], [b]chỉnh sửa từng phương tiện[/b], và [b]chọn depot[/b].
 [h2]Khắc phục tình trạng dồn ứ phương tiện[/h2]
-Ba cấp độ: [b]Tắt[/b] (vanilla), [b]Thận trọng[/b] (giãn cách nhẹ), [b]Thực tế[/b] (khoảng thời gian thực). Chế độ [b]Nhanh[/b] bỏ qua trạm trống.
+Ba mức chống dồn ứ: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (giãn cách), [b]Realistic[/b] (khoảng thời gian thực). Chế độ [b]Express[/b] bỏ qua các trạm trống.
 [h2]Đặt giá vé của riêng bạn[/h2]
-Định giá cho từng loại phương tiện trong tab [b]Giá vé[/b] (với [b]giá vé ngày/đêm[/b]). Giá rẻ = đầy khách, giá cao = vắng khách.
+Định giá từng loại phương tiện trong bảng [b]Economy[/b], với tùy chọn [b]giá ngày/đêm[/b]. Giá dẫn dắt nhu cầu tự nhiên.
 [h2]Xem chuyện gì đang xảy ra[/h2]
-[b]Bảng thông tin trạm dừng[/b] (hành khách, phương tiện tiếp theo, mức đông đúc), [b]Train Display[/b] (lộ trình trực tiếp, tùy chỉnh), [b]màu sắc & tên tuyến tự động[/b], [b]Flight Tracker[/b] (chuyến bay).
+[b]Thông tin trạm[/b] (hành khách, phương tiện, mức đông), [b]bảng lộ trình phương tiện[/b] (overlay trực tiếp tùy chỉnh được), [b]màu/tên tuyến tự động[/b] cho rõ ràng, [b]bảng chuyến bay sân bay[/b] (đến/đi).
 [h2]Dọn dẹp mạng lưới của bạn[/h2]
-[b]Xóa hàng loạt tuyến[/b] (với xác nhận), [b]đặt trạm dừng tốt hơn[/b] (bao gồm đường ray trên cao), [b]công cụ gỡ kẹt[/b] (unstucker) giải phóng phương tiện bị kẹt.
-[h2]Có gì mới trong phiên bản 4.8[/h2]
-[b]AI Đường sắt đơn[/b] — tránh va chạm tàu. [b]Stop Stacker[/b] — xe buýt tiếp theo đỗ riêng, không xếp hàng. [b]Kiểm soát xe buýt liên tỉnh[/b] — sửa lỗi, bật theo mặc định. [b]Tab Tòa nhà phụ[/b] — sửa lỗi tab, bật lại. Cộng quét lỗi và cải thiện hiệu suất (xem changelog đầy đủ).
+[b]Xóa hàng loạt tuyến[/b] (theo loại, có xác nhận), [b]đặt trạm trên cao[/b], và [b]unstucker[/b] cho phương tiện bị kẹt.
+[h2]4.8.8: quét lỗi từ chơi thật[/h2]
+Không phải bản cập nhật tính năng — mọi bản sửa dưới đây đến từ việc chơi thật 4.8.7 và báo lỗi. [b]Định tuyến phương tiện[/b] đã sửa (buýt từng bám lề ngoài trạm và lọt qua boong cầu; bản vá xếp hàng dồn có thể khiến buýt quay đầu sớm). [b]Overlay điểm đến hành khách[/b]: tìm và sửa được một xung đột Harmony patch thật, nhưng thử nghiệm vẫn cho thấy biểu tượng/bảng không hiển thị đáng tin cậy — giữ [b]tắt mặc định, Experimental[/b]. [b]Hộp kiểm soát ngân sách[/b] không còn tự bỏ chọn ngay khi đánh dấu. [b]Định tuyến depot[/b] đã sửa cho tòa nhà cung cấp hai dịch vụ cùng lúc. Thêm lớp bảo vệ chống crash vanilla thật trên một số save hỏng (không phải lỗi của chúng tôi — chỉ ngăn nó kéo cả mô phỏng sụp đổ). Một số nhãn tùy chọn được đổi tên để mô tả chức năng thay vì tên mod nguồn (ghi công vẫn ở trang này và trong mã nguồn). Changelog kỹ thuật đầy đủ trên GitHub, liên kết bên dưới.
 [hr][/hr]
 [h1]Các mod được tích hợp vào IPT4 — và ai đã tạo ra chúng[/h1]
-[b]Hủy đăng ký (Unsubscribe) các phiên bản độc lập[/b] — việc chạy cả hai sẽ vá cùng một mã trò chơi hai lần, chính xác là xung đột mà mod này sinh ra để ngăn chặn. Mọi thứ dưới đây là công tác của người khác; nếu hữu ích với bạn, hãy gửi lời cảm ơn trên trang của tác giả.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Hầu hết có công tắc riêng; số ít sửa lỗi vanilla luôn bật. Taxi mileage cần [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Stop Stacker[/b] là mã gốc (clean-room code).
+[b]Hủy đăng ký các bản độc lập[/b] để tránh vá hai lần. Mỗi mod dưới đây là công sức của người khác — hãy ghi công họ nếu hữu ích.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+Hầu hết có công tắc trong tùy chọn. Tùy chọn mô tả chức năng, không phải tên mod nguồn. Cần [b]After Dark[/b] cho thu nhập taxi. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], và xếp bến tại trạm xe buýt là mã gốc (không có mod nguồn).
 [hr][/hr]
 [h1]Yêu cầu & tương thích[/h1]
-Yêu cầu [b]Harmony[/b] (2040656402). [b]Xung đột:[/b] IPT2, IPT3, Transport Lines Manager, AutoLineBudget độc lập, hoặc bản sao bất kỳ mod ở trên (cảnh báo trong game).
+Cần [b]Harmony[/b] (ID 2040656402). [b]Không tương thích với:[/b] IPT2, IPT3, Transport Lines Manager, AutoLineBudget độc lập, hoặc bản sao độc lập của bất kỳ mod nào trên — cảnh báo trong game nếu phát hiện.
 [hr][/hr]
 [h1]Ngôn ngữ[/h1]
-[b]23 ngôn ngữ dịch đầy đủ[/b] — tất cả chuỗi văn bản, không chỉ menu. Theo ngôn ngữ trò chơi hoặc chọn trong tùy chọn.
+Theo ngôn ngữ trò chơi, hoặc chọn trong tùy chọn. Tiếng Anh và Bồ Đào Nha luôn cập nhật đầy đủ mỗi bản; ngôn ngữ khác cập nhật theo đợt và có thể chậm một hai bản với văn bản mới — tạm quay về tiếng Anh.
 [hr][/hr]
 [h1]Bắt đầu[/h1]
-Đăng ký [b]Harmony[/b], hủy mod độc lập ở trên, bật IPT4, tải thành phố. Tùy chọn: [b]Settings → Mod Settings → IPT4[/b]; giá vé: [b]Economy[/b]. [b]Save hiện có vẫn hoạt động[/b] (dữ liệu như IPT2/3).
+Đăng ký [b]Harmony[/b], hủy đăng ký bản độc lập, bật IPT4. Tùy chọn: [b]Settings → Mod Settings → Improved Public Transport 4[/b]. Giá vé: bảng [b]Economy[/b]. [b]Save hiện có tương thích[/b].
 [hr][/hr]
 [h1]Tính ổn định[/h1]
-Kênh ổn định. Lỗi chi phí đã sửa, save bị hỏng tự sửa khi tải. [b]Giữ backup[/b]. Lỗi? Cho biết bạn làm gì và gửi:
+Ổn định. Lỗi bảo trì vượt mức đã sửa; save hỏng tự sửa. [b]Vẫn hãy backup save[/b]. Khi gặp lỗi, báo [i]bạn đang làm gì[/i] và đính kèm:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-“Không hoạt động“ không kèm log: không chẩn đoán được.
+“Không hoạt động” một mình thì không thể chẩn đoán được.
 [hr][/hr]
 [h1]Mã nguồn và ghi công[/h1]
-Mã nguồn & changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]. [b]GPL-3.0[/b].
-Xây dựng trên: [b]DontCryJustDie[/b] (IPT gốc 2015), [b]BloodyPenguin[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]), [b]Madisonian[/b] ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]). UI: [b]algernon[/b], [b]Mbyron26[/b]. Cảm ơn tất cả.
+Mã nguồn và changelog kỹ thuật: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 là [b]GPL-3.0[/b] và đứng trên công sức của người khác: [b]DontCryJustDie[/b] viết IPT gốc (2015), [b]BloodyPenguin[/b] viết [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] viết [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], mà bản này phát triển từ đó. Mod tích hợp được ghi công ở trên; UI framework bởi [b]algernon[/b] và [b]Mbyron26[/b]. Cảm ơn tất cả.
