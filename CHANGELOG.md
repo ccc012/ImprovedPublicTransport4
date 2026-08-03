@@ -14,7 +14,57 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
-## [Unreleased] Post-4.8.7 fixes (not yet built into a published version)
+## [4.8.8] Real-play bug sweep: vehicle pathing, CommuterDestination, budget control, crash guard
+
+Not a feature release. Every entry below came from actually playing 4.8.7
+and reporting what broke, one issue at a time, each investigated to a
+confirmed root cause rather than a guessed fix - covers regressions
+introduced in 4.8.7 itself, several bugs that had been there since much
+earlier releases and were only now found, one real vanilla-game crash
+(not ours, guarded against anyway), and a round of cleanup (dead options,
+mod-branded labels, performance profile actually doing something).
+
+### Fixed - CommuterDestination's panel and map icons never appeared at all
+
+Root cause confirmed against Harmony's own documentation: "The first
+prefix that returns false will skip all remaining prefixes ... and the
+original method." `OpenStopDestinationPanelPatch` was a second,
+independently-registered `[HarmonyPrefix]` on `PublicTransportStopButton.
+OnMouseDown`, alongside IPT4's own prefix in
+`HarmonyPatches/PublicTransportStopButtonPatches/OnMouseDownPatch.cs`,
+which always returns `false` and has real side effects (it shows IPT4's
+own stop panel). Whichever of the two prefixes Harmony happened to run
+first, if it was ours, CommuterDestination's own prefix never ran - not
+intermittently, never. Fixed by removing the second Harmony registration
+entirely and calling `OpenStopDestinationPanelPatch.TryShowForStopClick`
+directly from inside IPT4's own already-firing prefix, so it no longer
+depends on execution order between two independently-registered patches.
+`PatchController` no longer does any Harmony patching of its own as a
+result - just panel creation and the `EnableCommuterDestination` gate.
+
+Given how many real bugs this integration has hit this session (the
+citizen-scan cap counting every pedestrian instead of just waiting
+passengers, `PatchAll(assembly)` double-patching every other integration,
+and now this), its labels and panel title are marked "(Experimental)" in
+en/pt/pt-br so players know to report anything odd rather than assume
+it's fully solid yet.
+
+### Fixed - Train Display performance profile did nothing at its own slider default
+
+`PerformanceProfile.TrainDisplayMinPollSeconds` was a floor
+(`Mathf.Max(interval, floor)`) on top of the player's own Options
+interval slider. Light's floor (0.40s) and Maximum's floor (0.15s) both
+sit *below* the slider's own default (0.25s), so the floor never bound
+anything at default settings - switching between Light/Normal/Maximum
+changed nothing visible unless the player had also lowered the slider
+below the floor first. Replaced with `TrainDisplayPollMultiplier`, applied
+directly to the slider's value (Light `1.6x`, Normal `1x`, Maximum
+`0.6x`) before the existing hard 0.1s hitching-safety clamp - always
+changes the effective interval relative to whatever the slider says, in
+either direction. At the slider's own default this reproduces the exact
+0.40s/0.15s Light/Maximum used to hardcode, so a player who never touches
+the slider sees no change; a player who does now sees the profile
+actually do something.
 
 ### Fixed - buses driving on the pavement and sinking into bridge decks (BBSP regression)
 

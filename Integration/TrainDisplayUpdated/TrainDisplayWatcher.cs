@@ -31,9 +31,12 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                 return;
             }
 
-            var interval = Mathf.Max(0.1f, TrainDisplayIntegration.GetUpdateInterval());
-            // Performance profile still softens Light installs without racing Max.
-            interval = Mathf.Max(interval, PerformanceProfile.TrainDisplayMinPollSeconds);
+            // Profile is a multiplier on the slider value, not a floor - a floor stopped mattering
+            // the moment the slider's own value exceeded it, which was true at the slider's default
+            // against both Normal and Maximum, so switching profiles had no visible effect. The
+            // 0.1s floor below is the actual hitching guard and always applies regardless of profile.
+            var interval = TrainDisplayIntegration.GetUpdateInterval() * PerformanceProfile.TrainDisplayPollMultiplier;
+            interval = Mathf.Max(0.1f, interval);
             _nextPollTime = Time.realtimeSinceStartup + interval;
 
             if (!TrainDisplayIntegration.TryGetSelectedVehicle(out ushort vehicleId))

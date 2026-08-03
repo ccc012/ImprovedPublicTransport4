@@ -12,14 +12,22 @@ namespace ImprovedPublicTransport.Util
             ModSetting.Instance?.PerformanceProfile ?? ModSetting.PerformanceProfiles.Normal;
 
         /// <summary>
-        /// Train Display poll floor (seconds). Values are intentionally conservative after the
-        /// 4.8 snappier-panel experiment caused hitching — Maximum no longer drops below 0.15s.
+        /// Train Display poll interval multiplier, applied to the player's own Options slider
+        /// value. A plain floor (the previous design) stopped doing anything the moment the
+        /// slider's own value exceeded it - which is true at the slider's default (0.25s) against
+        /// both Normal (was 0.20s) and Maximum (was 0.15s), so switching profiles had no visible
+        /// effect for most players. A multiplier always changes the effective interval relative to
+        /// whatever the slider says, in either direction, while TrainDisplayWatcher still clamps
+        /// the result to a hard 0.1s floor - the same safety net that already exists there, kept
+        /// after the 4.8 snappier-panel experiment caused hitching on sub-0.1s intervals. At the
+        /// slider's own default, Light/Maximum land on the same 0.40s/0.15s this used to hardcode,
+        /// so nothing changes for a player who never touches the slider.
         /// </summary>
-        public static float TrainDisplayMinPollSeconds => Current switch
+        public static float TrainDisplayPollMultiplier => Current switch
         {
-            ModSetting.PerformanceProfiles.Light => 0.40f,
-            ModSetting.PerformanceProfiles.Maximum => 0.15f,
-            _ => 0.20f,
+            ModSetting.PerformanceProfiles.Light => 1.6f,
+            ModSetting.PerformanceProfiles.Maximum => 0.6f,
+            _ => 1f,
         };
 
         /// <summary>

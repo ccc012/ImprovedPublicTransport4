@@ -48,7 +48,7 @@ namespace ImprovedPublicTransport
         private GameObject _worldInfoPanel;
         // Keep in sync with AssemblyInfo / Workshop so log "Begin init version" matches the
         // assembly Version cities reports on load (was still "4.0.0-dev" long after 4.8.0).
-        private const string Version = "4.8.6"; // Commuter Destination re-enabled, real disable-on-toggle audit
+        private const string Version = "4.8.8"; // Real-play bug sweep: vehicle pathing, CommuterDestination, budget control, crash guard
 
         public override void OnCreated(ICities.ILoading loading)
         {
