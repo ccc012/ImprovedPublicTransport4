@@ -1,5 +1,12 @@
-// Intentionally empty legacy type removed — destinations are tracked as DestinationEntry.
-// File kept so git history of the port remains easy to find; type is unused.
+// Adapted from Commuter Destination (MIT, Workshop 2475986859,
+// github.com/Jameskmonger/CSL-ShowCommuterDestination) - see LICENSE.txt.
+
 namespace CommuterDestination
 {
+    /// <summary>One waiting citizen: the stop they will alight at, and the building they end at.</summary>
+    internal struct CitizenDestination
+    {
+        public ushort StopId;
+        public ushort BuildingId;
+    }
 }

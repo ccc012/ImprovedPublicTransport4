@@ -19,7 +19,20 @@ public static class BusAI_Patch
         if(mode == ModSetting.BbspLogicModes.Disabled)
             return;
 
-        // Only process if we're arriving/leaving (same condition as original method)
+        // Stop-context gate. This postfix runs on EVERY CalculateSegmentPosition call - i.e.
+        // constantly while the bus is just driving down the road - and what it does below is
+        // replace the driving position with a CURB-PULLED stop position. Applied outside stop
+        // context that makes buses hug the kerb permanently (they visibly drive on the pavement),
+        // and on bridges/elevated segments, where there is no real kerb to pull towards, it drops
+        // them through the deck into the terrain.
+        //
+        // Do NOT "correct" this to the original mod's own bare `if (Leaving) return;`: upstream is
+        // a TRANSPILER injected inside the method's stop-handling branch, so it only ever runs in
+        // stop context by construction and its Leaving test is an inner detail - one we already
+        // replicate in CalculateModifiedStopPosition's own `Leaving == 0` check below. Our port is
+        // an unconditional postfix, so it needs this outer gate instead. StopStacker's
+        // Patch_BusAI_CalculateSegmentPosition uses the identical gate for the identical reason.
+        // This was once removed on exactly that mistaken reading, and had to be restored.
         if ((vehicleData.m_flags & (Vehicle.Flags.Leaving | Vehicle.Flags.Arriving)) == 0)
             return;
 
@@ -31,7 +44,7 @@ public static class BusAI_Patch
         NetInfo.Lane laneInfo = info.m_lanes[position.m_lane];
         float stopOffset = laneInfo.m_stopOffset;
         NetSegment.Flags flags = NetSegment.Flags.None;
-        
+
         if ((instance.m_segments.m_buffer[position.m_segment].m_flags & NetSegment.Flags.Invert) != 0)
         {
             stopOffset = 0f - stopOffset;
@@ -150,6 +163,20 @@ public static class TrolleybusAI_Patch
         if(mode == ModSetting.BbspLogicModes.Disabled)
             return;
 
+        // Stop-context gate. This postfix runs on EVERY CalculateSegmentPosition call - i.e.
+        // constantly while the bus is just driving down the road - and what it does below is
+        // replace the driving position with a CURB-PULLED stop position. Applied outside stop
+        // context that makes buses hug the kerb permanently (they visibly drive on the pavement),
+        // and on bridges/elevated segments, where there is no real kerb to pull towards, it drops
+        // them through the deck into the terrain.
+        //
+        // Do NOT "correct" this to the original mod's own bare `if (Leaving) return;`: upstream is
+        // a TRANSPILER injected inside the method's stop-handling branch, so it only ever runs in
+        // stop context by construction and its Leaving test is an inner detail - one we already
+        // replicate in CalculateModifiedStopPosition's own `Leaving == 0` check below. Our port is
+        // an unconditional postfix, so it needs this outer gate instead. StopStacker's
+        // Patch_BusAI_CalculateSegmentPosition uses the identical gate for the identical reason.
+        // This was once removed on exactly that mistaken reading, and had to be restored.
         if ((vehicleData.m_flags & (Vehicle.Flags.Leaving | Vehicle.Flags.Arriving)) == 0)
             return;
 
@@ -161,7 +188,7 @@ public static class TrolleybusAI_Patch
         NetInfo.Lane laneInfo = info.m_lanes[position.m_lane];
         float stopOffset = laneInfo.m_stopOffset;
         NetSegment.Flags flags = NetSegment.Flags.None;
-        
+
         if ((instance.m_segments.m_buffer[position.m_segment].m_flags & NetSegment.Flags.Invert) != 0)
         {
             stopOffset = 0f - stopOffset;

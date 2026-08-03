@@ -133,68 +133,76 @@ namespace FlightTracker
 
             // Regenerate vehicle list.
             _tempList.Clear();
-            ushort vehicleID = buildingBuffer[_buildingID].m_ownVehicles;
-            int ownVehicleLoopGuard = 0;
             int maxOwnVehicles = (int)Singleton<VehicleManager>.instance.m_vehicles.m_size;
-            while (vehicleID != 0)
+
+            // Terminal buildings of large airports often don't own vehicles directly - the actual
+            // aircraft are owned by sibling stand/gate sub-buildings under the same airport complex
+            // (see TrackerPanelManager.GetAirportComplexBuildings). Collect vehicles from all of them.
+            foreach (ushort ownerBuildingID in TrackerPanelManager.GetAirportComplexBuildings(_buildingID))
             {
-                if (++ownVehicleLoopGuard > maxOwnVehicles)
+                ushort vehicleID = buildingBuffer[ownerBuildingID].m_ownVehicles;
+                int ownVehicleLoopGuard = 0;
+                while (vehicleID != 0)
                 {
-                    Logging.Error("Invalid own-vehicle list detected for building ", _buildingID);
-                    break;
-                }
-                // Local reference.
-                ref Vehicle thisVehicle = ref vehicleBuffer[vehicleID];
+                    if (++ownVehicleLoopGuard > maxOwnVehicles)
+                    {
+                        Logging.Error("Invalid own-vehicle list detected for building ", ownerBuildingID);
+                        break;
+                    }
 
-                // Only interested in passenger aircraft.
-                VehicleInfo vehicleInfo = thisVehicle.Info;
-                if (vehicleInfo == null || vehicleInfo.m_class.m_subService != ItemClass.SubService.PublicTransportPlane)
-                {
-                    // Make sure that the next vehicle ID is assigned before continuing, otherwise there'll be an infinite loop.
+                    // Local reference.
+                    ref Vehicle thisVehicle = ref vehicleBuffer[vehicleID];
+
+                    // Only interested in passenger aircraft.
+                    VehicleInfo vehicleInfo = thisVehicle.Info;
+                    if (vehicleInfo == null || vehicleInfo.m_class.m_subService != ItemClass.SubService.PublicTransportPlane)
+                    {
+                        // Make sure that the next vehicle ID is assigned before continuing, otherwise there'll be an infinite loop.
+                        vehicleID = thisVehicle.m_nextOwnVehicle;
+                        continue;
+                    }
+
+                    // Determine flight status for this vehicle.
+                    FlightRowData.FlightStatus flightStatus = FlightRowData.FlightStatus.Incoming;
+                    // m_targetBuilding is a building ID (outside connection / gate), not a NetNode index.
+                    // Indexing nodeBuffer with it was reading unrelated node data and mis-classifying flights.
+                    ushort vehicleTarget = thisVehicle.m_targetBuilding;
+                    if (vehicleTarget != 0)
+                    {
+                        Vector3 targetPos = buildingBuffer[vehicleTarget].m_position;
+                        if (targetPos.x < -8500 || targetPos.x > 8500 || targetPos.z < -8500 || targetPos.z > 8500)
+                        {
+                            // Check to see if it's still at the gate.
+                            if ((vehicleBuffer[vehicleID].m_flags & Vehicle.Flags.Stopped) != 0)
+                            {
+                                // At gate.
+                                flightStatus = FlightRowData.FlightStatus.AtGate;
+                            }
+                            else
+                            {
+                                // It's left the gate.
+                                flightStatus = FlightRowData.FlightStatus.Departed;
+                            }
+                        }
+                    }
+
+                    // Check for 'landed' status for arriving flights.
+                    if (flightStatus == FlightRowData.FlightStatus.Incoming && (thisVehicle.m_flags & Vehicle.Flags.Flying) == 0)
+                    {
+                        // Exclude vehicles landed near map edge from being recorded as 'landed'.
+                        Vector3 vehiclePos = thisVehicle.GetLastFramePosition();
+                        if (vehiclePos.x > -8500 && vehiclePos.x < 8500 && vehiclePos.z > -8500 && vehiclePos.z < 8500)
+                        {
+                            flightStatus = FlightRowData.FlightStatus.Landed;
+                        }
+                    }
+
+                    // Add this row to the list.
+                    _tempList.Add(new FlightRowData(vehicleID, vehicleInfo, flightStatus));
+
+                    // Next vehicle.
                     vehicleID = thisVehicle.m_nextOwnVehicle;
-                    continue;
                 }
-
-                // Determine flight status for this vehicle.
-                FlightRowData.FlightStatus flightStatus = FlightRowData.FlightStatus.Incoming;
-                // m_targetBuilding is a building ID (outside connection / gate), not a NetNode index.
-                // Indexing nodeBuffer with it was reading unrelated node data and mis-classifying flights.
-                ushort vehicleTarget = thisVehicle.m_targetBuilding;
-                if (vehicleTarget != 0)
-                {
-                    Vector3 targetPos = buildingBuffer[vehicleTarget].m_position;
-                    if (targetPos.x < -8500 || targetPos.x > 8500 || targetPos.z < -8500 || targetPos.z > 8500)
-                    {
-                        // Check to see if it's still at the gate.
-                        if ((vehicleBuffer[vehicleID].m_flags & Vehicle.Flags.Stopped) != 0)
-                        {
-                            // At gate.
-                            flightStatus = FlightRowData.FlightStatus.AtGate;
-                        }
-                        else
-                        {
-                            // It's left the gate.
-                            flightStatus = FlightRowData.FlightStatus.Departed;
-                        }
-                    }
-                }
-
-                // Check for 'landed' status for arriving flights.
-                if (flightStatus == FlightRowData.FlightStatus.Incoming && (thisVehicle.m_flags & Vehicle.Flags.Flying) == 0)
-                {
-                    // Exclude vehicles landed near map edge from being recorded as 'landed'.
-                    Vector3 vehiclePos = thisVehicle.GetLastFramePosition();
-                    if (vehiclePos.x > -8500 && vehiclePos.x < 8500 && vehiclePos.z > -8500 && vehiclePos.z < 8500)
-                    {
-                        flightStatus = FlightRowData.FlightStatus.Landed;
-                    }
-                }
-
-                // Add this row to the list.
-                _tempList.Add(new FlightRowData(vehicleID, vehicleInfo, flightStatus));
-
-                // Next vehicle.
-                vehicleID = thisVehicle.m_nextOwnVehicle;
             }
 
             // Set display list items, without changing the display.

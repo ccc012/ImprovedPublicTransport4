@@ -1,0 +1,174 @@
+// Adapted from Commuter Destination (MIT, Workshop 2475986859) - see LICENSE.txt.
+using ColossalFramework;
+using ImprovedPublicTransport;
+using ImprovedPublicTransport.Util;
+using UnityEngine;
+using Utils = ImprovedPublicTransport.Util.Utils;
+
+namespace CommuterDestination
+{
+    /// <summary>
+    /// Map icons for destination buildings. Colour bands by waiting count (same size).
+    /// </summary>
+    public sealed class DestinationOverlayManager
+        : SimulationManagerBase<DestinationOverlayManager, MonoBehaviour>, IRenderableManager
+    {
+        private static readonly Vector3 HeightOffset = new Vector3(0f, 40f, 0f);
+
+        // Single consistent icon (was a 3-tier Low/Mid/High colour ramp) - MajorProblem alone
+        // renders as vanilla's plain red circle-with-"!" problem badge, easiest to spot on the map.
+        private static readonly Notification.ProblemStruct IconLow =
+            new Notification.ProblemStruct(Notification.Problem1.MajorProblem);
+        private static readonly Notification.ProblemStruct IconMid = IconLow;
+        private static readonly Notification.ProblemStruct IconHigh = IconLow;
+
+        private static bool _registered;
+
+        // TEMP DIAG (see CHANGELOG Unreleased): RenderIcons runs every frame via BeginOverlayImpl,
+        // so logging unconditionally there would flood the log. This tracks the last logged reason
+        // string and only logs again when it actually changes, giving one log line per state
+        // transition instead of one per frame.
+        private static string _lastDiagState;
+
+        internal static DestinationGraph ActiveGraph { get; set; }
+
+        internal static ushort ActiveStopId { get; set; }
+
+        public static void EnsureRegistered()
+        {
+            try
+            {
+                var mgr = instance;
+                if (mgr == null)
+                {
+                    return;
+                }
+
+                if (!_registered)
+                {
+                    SimulationManager.RegisterManager(mgr);
+                    _registered = true;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Utils.LogError($"CommuterDestination: failed to register overlay manager: {ex.Message}");
+            }
+        }
+
+        public static void ClearOverlay()
+        {
+            ActiveGraph = null;
+            ActiveStopId = 0;
+        }
+
+        protected override void BeginOverlayImpl(RenderManager.CameraInfo cameraInfo)
+        {
+            // Everything here runs inside RenderManager's overlay pass. An exception escaping this
+            // method aborts the rest of that pass for the frame, and since it would throw again on
+            // the very next frame the game ends up in a state where the camera still moves but
+            // nothing is selectable and the city looks frozen - the same failure shape as the font
+            // atlas stack overflow fixed in UITextBase. Nothing drawn here is worth taking the
+            // whole overlay pass down for, so it fails closed instead.
+            try
+            {
+                RenderIcons(cameraInfo);
+            }
+            catch (System.Exception ex)
+            {
+                Utils.LogError($"CommuterDestination: overlay render failed, clearing overlay: {ex.Message}");
+                ClearOverlay();
+            }
+        }
+
+        private void RenderIcons(RenderManager.CameraInfo cameraInfo)
+        {
+            if (!ModSetting.Instance.EnableCommuterDestination)
+            {
+                LogDiagOnChange("disabled (EnableCommuterDestination=false)");
+                return;
+            }
+
+            var graph = ActiveGraph;
+            var panel = CommuterDestinationPanel.Instance;
+            if (panel != null && panel.isVisible && panel.Graph != null)
+            {
+                graph = panel.Graph;
+                ActiveGraph = graph;
+            }
+
+            if (graph == null || graph.Entries == null || graph.Entries.Length == 0)
+            {
+                LogDiagOnChange(graph == null
+                    ? "no icons: ActiveGraph is null (nothing generated yet, or cleared)"
+                    : "no icons: graph has 0 entries");
+                return;
+            }
+
+            // Icons while stop panel is open (secondary list optional).
+            var stopPanel = ImprovedPublicTransport.UI.PublicTransportStopWorldInfoPanel.instance;
+            var stopOpen = stopPanel != null && stopPanel.isVisible;
+            var panelOpen = panel != null && panel.isVisible;
+            if (!stopOpen && !panelOpen)
+            {
+                LogDiagOnChange($"no icons: neither stop panel nor secondary panel is visible "
+                    + $"(graph has {graph.Entries.Length} entries, stopPanelInstanceNull={stopPanel == null})");
+                return;
+            }
+
+            var entries = graph.Entries;
+            var maxIcons = DestinationGraphGenerator.OverlayIconLimit;
+            var n = entries.Length < maxIcons ? entries.Length : maxIcons;
+            // Destination buildings can be scattered across the whole city, seen from a more
+            // zoomed-out camera than a typical single-building problem icon - the vanilla 1x
+            // size read as too small there, so this renders larger. Colour still carries
+            // popularity, not size.
+            const float scale = 1.8f;
+            var drawn = 0;
+            for (var i = 0; i < n; i++)
+            {
+                var e = entries[i];
+                if (e.BuildingId == 0 || e.Count <= 0)
+                {
+                    continue;
+                }
+
+                var icon = PickIcon(e.Count);
+                Notification.RenderInstance(cameraInfo, icon, e.Position + HeightOffset, scale);
+                drawn++;
+            }
+
+            LogDiagOnChange($"drew {drawn} icon(s) out of {entries.Length} entries "
+                + $"(maxIcons={maxIcons}, stopOpen={stopOpen}, panelOpen={panelOpen})");
+        }
+
+        // TEMP DIAG (see CHANGELOG Unreleased): remove this method and its call sites once icon
+        // display is confirmed working end to end in game.
+        private static void LogDiagOnChange(string state)
+        {
+            if (state == _lastDiagState)
+            {
+                return;
+            }
+
+            _lastDiagState = state;
+            Utils.Log($"CommuterDestination DIAG: RenderIcons - {state}");
+        }
+
+        private static Notification.ProblemStruct PickIcon(int count)
+        {
+            // Low / mid / high popularity → different colours (same footprint).
+            if (count >= 10)
+            {
+                return IconHigh;
+            }
+
+            if (count >= 4)
+            {
+                return IconMid;
+            }
+
+            return IconLow;
+        }
+    }
+}

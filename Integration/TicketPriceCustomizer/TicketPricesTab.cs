@@ -133,7 +133,6 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
         // Passenger count refresh timer
         private static float s_refreshAccumulator = 0f;
-        private const float RefreshInterval = 5.0f; // seconds between passenger count refreshes
 
         // Transport types with their sprite names and display order
         private static readonly TransportTypeInfo[] s_transportTypes = new TransportTypeInfo[]
@@ -436,7 +435,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
         /// <summary>
         /// Called every frame from ColorMonitor.OnUpdate. Refreshes passenger count labels
-        /// at most every <see cref="RefreshInterval"/> seconds, only when the tab is visible.
+        /// at most every <see cref="PerformanceProfile.TicketPricesRefreshSeconds"/> seconds, only when the tab is visible.
         /// </summary>
         public static void OnUpdate(float realTimeDelta)
         {
@@ -444,7 +443,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             if (s_ticketPricesContainer == null || !s_ticketPricesContainer.isVisible) return;
 
             s_refreshAccumulator += realTimeDelta;
-            if (s_refreshAccumulator < RefreshInterval) return;
+            if (s_refreshAccumulator < PerformanceProfile.TicketPricesRefreshSeconds) return;
             s_refreshAccumulator = 0f;
 
             foreach (var row in s_sliderRows)
@@ -693,10 +692,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             s_ticketPricesContainer = leftColumn; // Store reference to main container
 
             // Trigger an immediate passenger-count refresh the first time the tab is opened
-            // (and again every subsequent open), rather than waiting the full RefreshInterval.
+            // (and again every subsequent open), rather than waiting the full refresh interval.
             page.eventVisibilityChanged += (c, visible) =>
             {
-                if (visible) s_refreshAccumulator = RefreshInterval;
+                if (visible) s_refreshAccumulator = PerformanceProfile.TicketPricesRefreshSeconds;
             };
         }
 

@@ -85,6 +85,13 @@ namespace ImprovedPublicTransport
             try
             {
                 Utils.Log($"{ShortModName}: Begin init version: {Version}");
+                // As early as possible, before anything (ours or another mod's OnLevelLoaded) walks
+                // live vehicles: a save can contain a vehicle slot deserialized with a corrupted/
+                // unresolvable prefab reference (Info stays null). Left in place, that slot has
+                // caused a full-city vehicle/citizen scan in another mod to NullReferenceException
+                // during its own OnLevelLoaded, and is a plausible contributor to "loads but never
+                // unpauses" reports. See VehicleCorruptionRepair's own doc comment for the evidence.
+                HarmonyPatches.EconomyPanelPatches.VehicleCorruptionRepair.RepairMissingVehicleInfo();
                 ReleaseUnusedCitizenUnits();
                 UIView objectOfType = Object.FindObjectOfType<UIView>();
                 if (objectOfType != null)

@@ -1,5 +1,23 @@
 # Intercity Bus Control Integration Changelog
 
+## Unreleased
+
+### Documented - converted stations default OFF (native SH terminals default ON)
+
+See root `CHANGELOG.md` under `[Unreleased]` for the full writeup. Summary:
+`StationPatcher` puts every regular bus station it converts to intercity
+service into `PrefabsDefaultReject`, so `IntercityAcceptanceState.DefaultAccepts`
+returns `false` for those until the player opts in via the "Allow Intercity
+Buses" checkbox; native Sunset Harbor intercity terminals default `true`
+(matching vanilla). The upstream RegionalBuses/Intercity Bus Controller mod
+enabled every converted stop by default - this integration does not, and no
+documented crash/instability tied to that specific default was found in
+project history to explain the divergence. Left as-is (not reverted, in case
+the original off-by-default choice was guarding against something never
+written down), but now called out in the checkbox tooltip itself
+(`CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP`) so it's no longer a silent
+difference from the original mod.
+
 ## v3.0.0 - IPT3 Integration Major Revision (2026-03-22)
 
 ### Overview

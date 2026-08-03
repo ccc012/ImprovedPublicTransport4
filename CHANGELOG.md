@@ -16,6 +16,305 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ## [Unreleased] Post-4.8.7 fixes (not yet built into a published version)
 
+### Fixed - buses driving on the pavement and sinking into bridge decks (BBSP regression)
+
+`BetterBusStopPosition`'s `CalculateSegmentPosition` postfix skipped unless the
+vehicle was `Leaving | Arriving`, and that gate was removed in an earlier pass
+here on the reading that upstream only checks `Leaving`. That reading was wrong
+in a way that is easy to repeat, so it is now spelled out in the code: upstream
+is a *transpiler* injected inside the method's stop-handling branch, so it only
+ever runs in stop context by construction and its `Leaving` test is an inner
+detail (which `CalculateModifiedStopPosition` already replicates). This port is
+an unconditional *postfix*, so without the outer gate it replaced the ordinary
+driving position with a curb-pulled stop position on every call - buses hugged
+the kerb permanently, and on bridges, where there is no kerb to pull toward,
+dropped through the deck into the terrain. Gate restored for bus and trolleybus.
+StopStacker's equivalent patch already carried the same gate and the same
+reasoning, which is what confirmed the diagnosis.
+
+### Removed - StopStacker forced boarding (premature arrivals, U-turns mid-route)
+
+`Patch_ForceStackedBoarding` (added in the previous session, never confirmed
+in-game) called `ArriveAtDestination` itself once a berthed vehicle looked
+"settled". The berth target it compared against was re-recorded every frame from
+the vehicle's *current* path offset, so the target tracked the moving bus; a bus
+merely slowed in traffic could satisfy both the 2m and the 0.5 m/s test far from
+any stop, arrive early, advance to the next stop and re-path - which is a U-turn
+on the road. Removed along with `BerthRegistry`'s berth-target cache. Berth
+stacking is back to repositioning only, as it was before. The gap it was meant
+to close (berthed vehicles never boarding) remains open and undemonstrated; it
+is a locked legacy feature, so this is not worth a speculative patch.
+
+### Fixed - depot redirect drove one building's transfer through another's AI
+
+`StartTransferPatch` redirects a spawn from whichever depot vanilla offered it
+to, to the depot the line is actually assigned. It performed the redirect as
+`__instance.StartTransfer(depot, ...)` - `__instance` being the AI of the
+*original* building, applied to a *different* building. The two are frequently
+different subclasses: `TransportStationAI` (bus/train stations, which act as
+their own depot) derives from `DepotAI`, so a station and a plain depot can each
+end up on either side of the redirect, and the call then mixes up
+`m_transportInfo` / `m_vehicleAI` / capacity. That spawns vehicles which do not
+match the line and are culled again almost immediately - matching a report of
+buses appearing at a station, moving a little and vanishing without ever leaving.
+Redirect now resolves and uses the target building's own `DepotAI`, and aborts
+with a warning if the target is not a depot at all.
+
+### Changed - vehicle panel "next stop" label hidden by transparency, not by a cover
+
+Successive attempts to stop this label flickering fought vanilla for
+`_status.text` / `.isVisible` and lost intermittently; the last one covered the
+label with an opaque sibling panel, which failed too because the cover was sized
+and positioned from `_status` itself and parented beside it, inheriting the exact
+layout vanilla was churning. The label's *colour* is now made transparent
+instead. Vanilla writes the label's text, never its colour, so it no longer
+matters who writes the text last - invisible text is invisible either way, and
+the race is sidestepped rather than fought. `ReapplyCachedFields` re-asserts the
+colour anyway, so even a future game or mod that did touch `textColor` could not
+bring it back.
+
+### Changed - CommuterDestination restored to the original mod's behaviour
+
+Icons had stopped appearing entirely. Rather than keep patching a rewrite that had drifted from
+upstream, the integration is now a straight port of
+`Jameskmonger/CSL-ShowCommuterDestination` and drives itself end to end, as the original does:
+
+- Upstream's own destination panel is back (`StopDestinationInfoPanel`), with its title bar,
+  Previous/Next stop navigation and close button.
+- Its own stop-click patch is back (`OnMouseDown` on `PublicTransportStopButton`), so opening a
+  stop opens the panel.
+- Icons are gated on that panel being visible, which is upstream's own gate.
+- The graph is grouped by alighting stop again, so an icon is drawn per (alighting stop,
+  destination building) pair with upstream's `1 + popularity / 5` size formula, at its 50m height
+  offset, using its notification (`TooLong | MajorProblem`).
+
+Removed on the way: the button IPT4 injected into its own stop panel, the "suppress hide" frame
+counter that button needed, the map-detail setting that never had a UI control, and the
+performance caps applied to the citizen scan. That last one is the most likely reason no icons
+appeared - the cap counted *every* pedestrian in the 64m window rather than only waiting
+passengers, so on a busy street it was exhausted by people walking past before a single waiting
+passenger was found. Upstream has no such cap and neither does this port.
+
+No behavioural corrections are applied on top. Two safety departures that cannot change which
+icons are produced are marked in the code where they occur:
+
+- `GetDestinationStopId` walks the line with `while (true)`, terminating only when a stop has no
+  next stop. A circular line has no such stop, so an unmatched citizen would spin forever and hang
+  the simulation thread. Bounded to the game's own maximum stop count.
+- `StopIsDestination` calls `PathManager.ReleaseFirstUnit(ref citizenData.m_path)` - correct in
+  `TransportArriveAtTarget`, where consuming the path is the point, but here it runs inside a
+  read-only query and frees a path unit the real citizen is still using. The port reads the same
+  path position without freeing anything, reaching the same verdict.
+
+The previous IPT4-flavoured implementation is kept verbatim, as `.txt`, under
+`Docs/referencia-commuterdestination-nossa-versao/`.
+
+### Added - Train Display: second panel layout
+
+`Options > Train Display > Panel layout` chooses between `Classic` (the existing
+corner panel, still the default, so no existing install changes) and `Detailed`:
+a line-coloured header carrying up to four metrics, a next-stop strip, the line
+name, a rail of stop dots and the upcoming stop list. Drawn with the same IMGUI
+primitives and the same `OverlayData` as the classic panel, and honouring the
+same per-field checkboxes, so neither layout costs more than the other.
+
+### Removed - "Street car" express tram mode was a duplicate of "Express skip"
+
+Added in the previous session as a supposedly missing upstream feature. An audit
+found both values landing in the same branch of `DepartureChecker`
+(`... == TRAM || ... == STREET_CAR`), so the two behaved identically while their
+labels promised different things ("Express skip" vs "Street car (brief stop and
+go)"). Removed rather than given invented behaviour.
+
+### Changed - Safe and Vanilla gameplay profiles now actually differ
+
+Both called `ApplyAllIntegrationsOff`, and Vanilla's only extra line
+(`ShowLineInfo = false`) was already done inside that method - two dropdown
+entries, identical result. Split along what their own labels promise: Safe
+("everything optional OFF, best with many mods") keeps UI conveniences, Vanilla
+("base game feel") turns them off too.
+
+### Performance - profile now reaches beyond two integrations; hover query cached
+
+The performance profile was consulted by only two integrations; everything else
+used hardcoded numbers. Ticket Prices' full vehicle-buffer refresh
+(`TicketPricesRefreshSeconds`) and the waiting-passenger grid scan
+(`WaitingPassengerMaxInspect`) now derive their limits from it, with the Normal
+profile keeping today's exact values.
+
+Separately, `PanelExtenderLine`'s hover handler called the waiting-passenger
+query once per stop, for every stop on the line, in a single frame with no
+throttle - on a long line that is thousands of grid inspections plus a
+`TransportArriveAtSource` call each, per hover. Result is now cached per line for
+~1s.
+
+### Removed - dead performance-profile helpers and unreachable map-detail setting
+
+`CommuterDestinationMapDetails` had no UI control anywhere, so `FullMap` was
+unreachable and every `fullMap` branch in `PerformanceProfile` was dead code -
+including two previously "fixed" clamp bugs that could never have executed. The
+enum, its property, and the helpers left without consumers by the
+CommuterDestination rewrite (`IsLight`, `IsMaximum`, `CommuterPanelListRows`,
+`CommuterRefreshFrames`, and both `*Effective` methods) are removed. The orphaned
+translation keys are left in place rather than editing 34 language files.
+
+### Fixed - pre-IPT4 save loads but never unpauses (root cause: corrupted vehicle assets)
+
+Reported: loading a save created before IPT4 was installed shows the city, but
+the game never auto-unpauses. Suspected `OnLevelLoaded` was silently returning
+early due to a missing/undetectable condition.
+
+Instrumentation added to diagnose the issue confirmed: `OnLevelLoaded` executes
+normally with `mode=LoadGame` and Harmony properly installed, logging "Begin
+init version" as expected. The real cause was pre-existing corrupted vehicle
+assets in the save file: a vehicle slot deserialized with a malformed prefab
+reference (UTF-16 encoding error in the asset name). When Loading Screen Mod
+scanned the city for missing assets, it attempted to report this corrupted
+asset name, hit an exception while processing the invalid UTF-16 bytes, and
+crashed the loading process.
+
+This was not an IPT4 bug — it resulted from assets corrupted before IPT4 was
+installed. The temporary diagnostic logging (`OnLevelLoaded DIAG:`) has been
+removed. The defensive repair routine `VehicleCorruptionRepair` remains active
+in `OnLevelLoaded` to clear such corrupted slots before any other mod walks the
+vehicle array, preventing this specific vector for "loads but never unpauses"
+reports in the future.
+
+### Fixed - StopStacker: berthed vehicles now actually board/alight passengers
+
+`Integration/StopStacker` (legacy/locked feature, player-visible label "Bus stop
+berth stacking") only repositioned the 2nd/3rd vehicle at a stop into its own
+berth (`Patch_BusAI_CalculateSegmentPosition.cs`); it never made that vehicle
+eligible to load/unload passengers, so only the lead vehicle in the queue ever
+served riders — the follower(s) just sat visually parked in their berth for
+their whole dwell time.
+
+Root cause, confirmed by decompiling `Assembly-CSharp.dll` (BusAI/CarAI/VehicleAI):
+vanilla only calls `LoadPassengers`/`UnloadPassengers` once, from inside
+`ArriveAtDestination`, itself gated by a movement-code arrival check requiring
+the vehicle's physical position to land within ~1m of its calculated stop
+target while essentially stationary (`CarAI.SimulationStep`). A berthed vehicle
+parked a fixed short distance behind the lead vehicle on the same lane can be
+kept perpetually a hair short of that exact threshold by ordinary
+collision-avoidance braking against the vehicle ahead — it visually settles in
+its repositioned berth but never crosses vanilla's own strict arrival check.
+
+- `Integration/StopStacker/BerthRegistry.cs`: added a small
+  vehicle→target-position cache (`RecordBerthTarget`/`TryGetBerthTarget`/
+  `ClearBerthTarget`) recording the exact berth position each non-lead vehicle
+  was last repositioned to.
+- `Integration/StopStacker/Patch_BusAI_CalculateSegmentPosition.cs`: records
+  that berth target after computing it (only reached for berth index >= 1;
+  lead vehicles are never cached).
+- New `Integration/StopStacker/Patch_ForceStackedBoarding.cs`: postfixes
+  `BusAI.SimulationStep`/`TrolleybusAI.SimulationStep` and, only for a cached
+  (non-lead) berthed vehicle still flagged `Arriving`, checks its physical
+  position/velocity against the recorded berth target with a looser-than-vanilla
+  threshold (~2m / ~0.5 m/s). Once settled, it calls the same
+  `VehicleAI.ArriveAtDestination` vanilla would have called — reusing vanilla's
+  own unload/load/next-stop logic rather than reimplementing it — so berthed
+  vehicles now board and alight passengers alongside the lead vehicle instead
+  of skipping their turn. Idempotent: `ArriveAtDestination` clears the
+  `Arriving` flag, so the check naturally stops firing once it succeeds.
+
+This only affects players who already had the legacy StopStacker toggle
+enabled before it was locked; new installs cannot turn it on. `BetterBoarding`
+(a separate integration another agent maintains) was not touched.
+
+### Changed - SingleTrainTrackAI: whole-section reservation instead of per-segment
+
+The reservation model reserved one track SEGMENT at a time as a train advanced,
+not the full single-track SECTION (the whole stretch between the two nearest
+switches/junctions/stations/double-track resumption points). That left a gap:
+two trains approaching a shared section from opposite ends could each claim a
+different segment of the *same* section before either was blocking the other,
+and only collide once already inside it.
+
+- New `Integration/SingleTrainTrackAI/SectionClassifier.cs`: given any
+  single-track segment, walks the `NetManager` node/segment graph outward in
+  both directions (`ExtendFrom`/`FindSinglePassThroughContinuation`) and
+  groups every contiguous single-track segment into one shared `Section`
+  object, stopping at the first node that isn't a plain two-way pass-through
+  (switch, junction, station platform, dead end, or where double-track
+  resumes). Results are cached per segment ID (the network doesn't change at
+  runtime) so the walk only happens once per section, not once per train per
+  tick.
+- `TrackReservation` (`Integration/SingleTrainTrackAI/TrackReservation.cs`)
+  now keys reservations by `SectionClassifier.Section` instead of by
+  `ushort segmentId`. `Patch_TrainAI_CalculateTargetSpeed.cs` now calls
+  `SectionClassifier.GetSection(...)` before occupying/checking, so a train
+  claims (or is blocked by) the entire section the moment it sets foot on any
+  segment belonging to it, not just the one segment it's currently standing
+  on.
+- `PatchController.Deactivate` now also clears `SectionClassifier`'s cache.
+
+**What this gets for free:** because only one train can hold a given
+`Section` at a time, the "who enters first when two trains arrive at once"
+case is already resolved without a separate queue structure — whichever
+train's `CalculateTargetSpeed` runs first that tick and finds the section
+free becomes its holder; every other train that finds it already held brakes
+(existing soft-brake-to-8, not a hard stop) until the holder's current
+segment moves out of the section and the reservation is released. The
+600-frame stale-reservation safety net (a despawned/deleted holder's section
+would otherwise stay blocked forever) carries over unchanged from the old
+per-segment code.
+
+**What is explicitly NOT included, and why:** a real fairness/ordering
+priority queue (e.g. tracking how long each waiting train has been queued and
+letting the longest-waiting one go next, or alternating direction on
+contested sections) was not built — with only single-holder exclusivity,
+ordering among simultaneously-waiting trains is whatever order the game
+processes vehicles in that tick, not a deliberate fairness policy. Adding
+real fairness would mean tracking per-section wait state across ticks (who
+arrived first, how long they've waited) and is a reasonable follow-up if
+starvation on busy single-track lines turns out to be a real problem in
+practice, but it's a separate, smaller change from the section-reservation
+gap this entry closes.
+
+### Added - Train Display: prominent "next stop" indicator
+
+Restored the flagship feature of the original Workshop 3233229958 mod that the
+4.8.5 "single corner panel" redesign had dropped: a bold, LED-sign-style "next
+stop" readout, shown as the topmost line of the panel, above the terminus
+`Destination` line. Updates automatically as the vehicle advances from stop to
+stop (each poll re-derives it from the vehicle's live state — no cached index
+to go stale).
+
+- `TrainDisplayIntegration.OverlayData.NextStop` (new field) is populated in
+  `TryBuildOverlayData` (`Integration/TrainDisplayUpdated/TrainDisplayIntegration.cs`)
+  by reusing the first entry of the already-computed route strip
+  (`BuildRouteStrip`'s `RouteStopNames[0]`), which is resolved from
+  `vehicle.m_targetBuilding` — the same field `DepartureChecker`/
+  `TransportLineUtil` elsewhere in this codebase already treat as "the stop
+  the vehicle is currently approaching". No second line-walk was needed; the
+  route-strip resolver already had a correct next-stop name, it just was
+  never surfaced prominently.
+- Drawn in `DrawSingleCornerPanel` as a small caps "próxima parada" label
+  followed by a large bold value in the line's colour, ahead of the
+  Destination/Line rows.
+- New `ModSetting.TrainDisplayFields.NextStop` flag (bit `64`), on by default,
+  with its own Options checkbox ("Mostrar próxima parada" /
+  `SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP`) next to the existing "Show
+  destination" toggle in `UI/CSLModsCommonOptionsPanel.cs`, so it can be
+  turned off independently of the terminus display.
+- The previously-dead `ResolveNextStopName` method (unused since 4.8.5, see
+  the entry below) is left in place but still unused — the route-strip-based
+  approach above was simpler and reuses tested code; it can be deleted in a
+  later cleanup pass if nothing else claims it.
+- New localisation keys (`en`, `pt`, `pt-br`; other languages fall back to
+  English until translated): `SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP(_TOOLTIP)`,
+  `TRAINDISPLAY_LABEL_NEXTSTOP`.
+
+**Not done in this pass (left for a future round):**
+- **Loop/branch detection** — no logic yet distinguishes a circular line from
+  an out-and-back line, and no warning is shown for lines with more than 2
+  terminals (Y/branch lines). The next-stop indicator itself is agnostic to
+  this (it just reads the live `m_targetBuilding`), but the route rail's
+  "current index" and the terminus `Destination` label can both be
+  misleading on such lines — worth a dedicated pass.
+- **TTS (text-to-speech)** announcements from the original mod — intentionally
+  skipped as out of scope per the requesting brief; no groundwork laid.
+
 ### Fixed - CommuterDestination LateUpdate patch, for real this time
 
 The `[HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "LateUpdate")]`
@@ -37,11 +336,15 @@ iteration bounds (already derived from `stopPosition ± StopRange`) already do
 the real proximity filtering by grid cell; this was a redundant and incorrect
 second check. Removed.
 
-Also (temporary, for testing while confirming the fix works end to end -
-**revert before any release**): `PerformanceProfile.CommuterMaxCitizens`/
-`CommuterMaxDestinations` bumped way up across all three profiles, and
-`DestinationGraphGenerator.StopRange` widened from 64f to 300f, so results are
-easy to spot rather than possibly capped down to near-nothing.
+Also (temporary, for testing while confirming the fix works end to end):
+`PerformanceProfile.CommuterMaxCitizens`/`CommuterMaxDestinations` bumped way
+up across all three profiles, and `DestinationGraphGenerator.StopRange`
+widened from 64f to 300f, so results were easy to spot rather than possibly
+capped down to near-nothing. **Reverted** back to the original defaults (80/6
+Light, 200/12 Normal, 2000/80 Maximum for citizens/destinations; StopRange
+64f) - icons still aren't confirmed showing in-game as of this revert, so this
+was reverted on principle (temporary test values shouldn't ship) rather than
+because the underlying feature was confirmed working.
 
 Icon set changed from a 3-tier Low/Mid/High colour ramp
 (`NoCustomers`/`Noise`/`Death+MajorProblem`) to a single consistent
@@ -91,6 +394,32 @@ author had just asked us to stop interfering with it. Removed the entry.
 (two hashes); `TransportLineReadFutureDeployment` also used `.First()` to read
 element 0 of a `List<ushort>`, allocating a LINQ enumerator for no reason.
 Replaced with `TryGetValue` and `list[0]`.
+
+### Documented - Intercity Bus Control: converted stations default OFF, unlike the original mod
+
+First public documentation of a behaviour gap that has existed silently since
+the 4.8.5 `IntercityAcceptanceState` rewrite: `StationPatcher.TryPatchStation`
+adds every regular bus station it converts to intercity service to
+`PrefabsDefaultReject`, so `IntercityAcceptanceState.DefaultAccepts` returns
+`false` for those stations until the player explicitly flips the "Allow
+Intercity Buses" checkbox. Native Sunset Harbor intercity terminals are not
+added to that set and default `true`, matching vanilla. The original
+[Intercity Bus Controller](https://github.com/bloodypenguin/Skylines-IntercityBusController)
+mod this integration is based on enabled every converted stop by default -
+IPT4 does not.
+
+Audited `git log -p` on `IntercityAcceptanceState.cs`/`StationPatcher.cs` and
+every CHANGELOG entry mentioning Intercity Bus Control (4.8.0, 4.8.5, 4.8.6)
+looking for the reason this diverged: no crash, bug report, or instability
+tied specifically to converted stations defaulting ON was found anywhere in
+the project history. The only trace is the source comment "checkbox visible
+but default OFF (player must opt in)" introduced alongside the 4.8.5 rewrite,
+with no rationale recorded beyond that. Given the lack of a documented
+failure mode, the default was left as-is rather than risk reintroducing
+whatever prompted the original choice - but the divergence is now called out
+explicitly in the checkbox's own tooltip (`CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP`,
+`en`/`pt`/`pt-br`) so players coming from the original mod are not left
+guessing why a freshly converted terminal isn't routing intercity buses.
 
 ---
 

@@ -42,12 +42,19 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private UILabel _earningsAverage;
     private UIPanel _buttonPanel;
     private UILabel _status;
-    // Opaque panel drawn on top of _status. Hiding/reapplying _status.text/.isVisible still
-    // flickered - vanilla apparently fights isVisible too, the same race as text, so trying to
-    // win that race was abandoned. This just physically blocks the view of whatever vanilla does
-    // under it, whenever _statusCover.isVisible is true - the underlying flicker still happens,
-    // we simply never see it.
-    private UIPanel _statusCover;
+    // How _status is hidden while it has nothing worth showing (moving between stops - see the
+    // else branch in UpdateBindings): its text colour is made fully transparent, and left that way.
+    //
+    // Every earlier attempt fought vanilla for _status.text / .isVisible and lost intermittently
+    // (that IS the flicker: vanilla rewrites the label every frame from its own Update). Covering
+    // the label with an opaque sibling panel failed too, because the cover was positioned/sized
+    // from _status itself and parented next to it, so it inherited the very layout vanilla was
+    // churning. Transparency sidesteps the race completely instead of trying to win it: vanilla
+    // writes the label's *text*, never its colour, so it does not matter who writes the text last -
+    // invisible text is invisible either way. ReapplyCachedFields re-asserts the colour anyway, so
+    // even a future game/mod that did touch textColor could not bring it back.
+    private Color32 _statusVisibleTextColor;
+    private bool _statusTextHidden;
     private UIButton _target;
     private UILabel _distance;
     private UIProgressBar _distanceTraveled;
@@ -58,7 +65,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
     // Re-applied every LateUpdate (see below) so we always win the race against vanilla's own
     // Update() writing the same labels - see the comment on LateUpdate(). Populated inside
-    // UpdateBindings() every time _status/_distance.text is set there.
+    // UpdateBindings() every time _distance.text is set there. _cachedStatusText is ONLY set
+    // while the vehicle is stopped/boarding (_status shows real info there, e.g. "unbunching",
+    // and is visible, so this race still matters) - UpdateBindings clears it back to null while
+    // moving, since _status is transparent then and there is nothing left to defend.
     private string _cachedStatusText;
     private string _cachedDistanceText;
     private float _nextBindingsRealtime;
@@ -73,12 +83,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private Color32? _cachedProgressColor;
     private string _cachedProgressText;
 
-    // Same race again, for the "Target" button (next-stop name) - vanilla writes this button's text
-    // every frame too, and we only touch it ourselves inside the "moving between stops" branch of
-    // UpdateBindings, on the 0.2s throttle. Null means we don't own it this tick (boarding/stopped
-    // state, or the Plane takeoff/landing edge case) - vanilla stays in control and LateUpdate must
-    // not force stale text onto it.
-    private string _cachedTargetText;
     private bool _endOfFrameLoopRunning;
 
     public void LateUpdate()
@@ -144,10 +148,23 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       // every frame just to keep two labels current; this keeps the win without the cost. Most
       // visible while paused, since vanilla's Update() keeps running under pause but a throttle
       // timer built on unscaledTime also keeps advancing, so the two were never in sync at any
-      // fixed interval.
-      if (this._status != null && this._cachedStatusText != null)
+      // fixed interval. _cachedStatusText is null (see the field comment) whenever _status is
+      // hidden, so this is a no-op for the Status label in that state - it only still does real
+      // work for _status while stopped/boarding, and always for _distance.
+      if (this._status != null)
       {
-        this._status.text = this._cachedStatusText;
+        // Cheap (two byte compares) and belt-and-braces: nothing in vanilla writes this label's
+        // colour today, so the assignment below normally never has anything to undo - but keeping
+        // it here means the hide cannot regress into a race even if that ever changes.
+        var wanted = this._statusTextHidden
+          ? new Color32(this._statusVisibleTextColor.r, this._statusVisibleTextColor.g, this._statusVisibleTextColor.b, 0)
+          : this._statusVisibleTextColor;
+        this._status.textColor = wanted;
+
+        if (this._cachedStatusText != null)
+        {
+          this._status.text = this._cachedStatusText;
+        }
       }
 
       if (this._distance != null && this._cachedDistanceText != null)
@@ -173,10 +190,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this._distanceProgress.text = this._cachedProgressText;
       }
 
-      if (this._target != null && this._cachedTargetText != null)
-      {
-        this._target.text = this._cachedTargetText;
-      }
     }
 
     private void Init()
@@ -185,22 +198,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       if (!((UnityEngine.Object) this._publicTransportVehicleWorldInfoPanel != (UnityEngine.Object) null))
         return;
       this._status = this._publicTransportVehicleWorldInfoPanel.Find<UILabel>("Status");
-      if (this._status != null && this._status.parent != null)
+      if (this._status != null)
       {
-        var cover = this._status.parent.AddUIComponent<UIPanel>();
-        cover.name = "IptStatusCover";
-        cover.size = this._status.size;
-        cover.relativePosition = this._status.relativePosition;
-        // Solid colour instead of reading the panel's own sprite/colour (component is a plain
-        // UIComponent here, not a UIPanel, so backgroundSprite isn't accessible) - close enough to
-        // the vanilla dark info-panel background to not stand out, and simpler than chasing the
-        // right sprite name.
-        cover.backgroundSprite = "GenericPanelDark";
-        cover.color = new Color32(56, 63, 68, 255);
-        cover.opacity = 1f;
-        cover.isVisible = false;
-        cover.zOrder = int.MaxValue;
-        this._statusCover = cover;
+        // Captured before anything of ours touches it, so restoring the visible state later can
+        // never drift from whatever colour the active UI theme actually uses for this label.
+        this._statusVisibleTextColor = this._status.textColor;
       }
       this._target = this._publicTransportVehicleWorldInfoPanel.Find<UIButton>("Target");
       // Remove any native click handlers so only ours fires
@@ -215,6 +217,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       this.AddPanelControls();
       this._initialized = true;
     }
+
 
     private void UpdateBindings()
     {
@@ -246,7 +249,9 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this._cachedProgressValue = null;
         this._cachedProgressColor = null;
         this._cachedProgressText = null;
-        this._cachedTargetText = null;
+        // Vanilla owns Status entirely here, so it must be left legible - otherwise a vehicle that
+        // was hidden while on a line would stay invisible after being taken off one.
+        this._statusTextHidden = false;
       }
       else
       {
@@ -298,7 +303,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         if ((vehicle.m_flags & Vehicle.Flags.Stopped) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
         {
           var vehicleCache = CachedVehicleData.m_cachedVehicleData;
-          if (this._statusCover != null) this._statusCover.isVisible = false;
+          this._statusTextHidden = false;
           if (vehicleCache != null && vehicleID < vehicleCache.Length
               && vehicleCache[(int)vehicleID].IsUnbunchingInProgress)
             this._status.text = Localization.Get("VEHICLE_PANEL_STATUS_UNBUNCHING");
@@ -328,13 +333,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           this._cachedProgressValue = progress;
           this._cachedProgressColor = Color.green;
           this._cachedProgressText = this._distanceProgress.text;
-          // Boarding/stopped: we never touch _target here, vanilla stays in control of it - don't
-          // let a stale next-stop name from before this vehicle stopped keep getting reapplied.
-          this._cachedTargetText = null;
+          this.ApplyTargetStop(lineId, ref vehicle);
         }
         else
         {
-          bool flag = true;
           string text = Localization.Get("VEHICLE_PANEL_STATUS_NEXT_STOP");
           if (subService == ItemClass.SubService.PublicTransportShip)
             this.UpdateProgress();
@@ -343,7 +345,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             if ((vm.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.Landing) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive) || (vm.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.TakingOff) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive) || (vm.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.Flying) == ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
             {
               text = this._status.text;
-              flag = false;
             }
             this.UpdateProgress();
           }
@@ -357,28 +358,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             this._cachedProgressValue = null;
             this._cachedProgressText = null;
           }
-          // "Próxima parada" was just a static label here (VEHICLE_PANEL_STATUS_NEXT_STOP never
-          // changes while moving) - not worth fighting vanilla's own competing write for text that
-          // carries no information. Hiding it entirely is simpler and removes the flicker outright.
-          if (this._statusCover != null) this._statusCover.isVisible = true;
+          // "Próxima parada" is just a static label here (VEHICLE_PANEL_STATUS_NEXT_STOP never
+          // changes while moving) - it carries no information, so rather than fight vanilla's own
+          // competing per-frame write of it, we make it transparent (see the _statusTextHidden
+          // field comment) and let vanilla write whatever it likes underneath.
+          this._statusTextHidden = true;
           this._cachedStatusText = null;
-          if (flag)
-          {
-            ushort targetBuilding = vehicle.m_targetBuilding;
-            InstanceID id = new InstanceID();
-            id.NetNode = targetBuilding;
-            string name = Singleton<InstanceManager>.instance.GetName(id);
-            this._target.objectUserData = (object) id;
-            this._target.text = name == null ? string.Format(Localization.Get("STOP_LIST_BOX_ROW_STOP"), (object) (TransportLineUtil.GetStopIndex(lineId, targetBuilding) + 1)) : name;
-            this._target.Enable();
-            this._target.Show();
-            this._cachedTargetText = this._target.text;
-          }
-          else
-          {
-            // Plane taking off/landing: we don't touch _target this tick either, same as above.
-            this._cachedTargetText = null;
-          }
+          this.ApplyTargetStop(lineId, ref vehicle);
           this._distance.text = ColossalFramework.Globalization.Locale.Get(this._distance.localeID);
           this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
           this._cachedProgressColor = this._distanceTraveled.progressColor;
@@ -418,6 +404,32 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this._earningsAverage.textColor = (Color32) this.GetColor((float) incomeAverage);
         this._buttonPanel.Show();
       }
+    }
+
+    // Always own the Target button (the blue next-stop name) while the vehicle is on a line, in
+    // every state. Previously we only wrote it while moving, and deliberately handed it back to
+    // vanilla while boarding/stopped and during plane takeoff/landing - and handing it back is
+    // exactly what made it flicker, because vanilla rewrites it every frame from its own Update,
+    // so in those states there were two writers and no fixed winner. There is a correct value to
+    // show in all of those states, so there is no reason to ever stop reapplying it.
+    private void ApplyTargetStop(ushort lineId, ref Vehicle vehicle)
+    {
+      if (this._target == null)
+      {
+        return;
+      }
+
+      ushort targetBuilding = vehicle.m_targetBuilding;
+      InstanceID id = new InstanceID();
+      id.NetNode = targetBuilding;
+      // objectUserData only - deliberately NOT .text. Vanilla's own Update writes this button's
+      // caption every frame with the same stop name we would compute, so writing it too achieved
+      // nothing except making us the second writer, and two writers with no fixed winner is
+      // exactly what the flicker was. We need the instance ID (OnTargetClick reads it to open
+      // IPT's stop panel), so that is all we set, and the caption is left to the game.
+      this._target.objectUserData = (object) id;
+      this._target.Enable();
+      this._target.Show();
     }
 
     private void SetLastStopExchangeText(ushort vehicleID)

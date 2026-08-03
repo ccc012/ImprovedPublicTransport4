@@ -26,6 +26,7 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
         internal static float OverlayOpacity => ModSetting.Instance.TrainDisplayOverlayOpacity;
         internal static float UpdateInterval => ModSetting.Instance.TrainDisplayUpdateInterval;
         internal static ModSetting.TrainDisplayModes Mode => ModSetting.Instance.TrainDisplayMode;
+        internal static ModSetting.TrainDisplayLayouts Layout => ModSetting.Instance.TrainDisplayLayout;
         internal static ModSetting.TrainDisplayColorThemes ColorTheme => ModSetting.Instance.TrainDisplayColorTheme;
 
         /// <summary>

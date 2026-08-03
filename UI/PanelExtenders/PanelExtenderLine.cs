@@ -149,6 +149,12 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         // throttled below since it also rebuilds the depot dropdown and vehicle list.
         private string _cachedVehicleCountText;
 
+        // Cache for total waiting passengers tooltip: avoids expensive re-scanning when mouse
+        // re-enters quickly. Each stop scan can inspect up to 150 citizens; cached within 1s per lineId.
+        private ushort _cachedWaitingPassengersLineId;
+        private int _cachedWaitingPassengersCount;
+        private float _cachedWaitingPassengersTime;
+
         private void LateUpdate()
         {
             if (_initialized && _cachedVehicleCountText != null
@@ -976,6 +982,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
             if (lineId == 0)
                 return;
+
+            // Use cached result if line hasn't changed and cache is still fresh (<1s old)
+            if (lineId == _cachedWaitingPassengersLineId &&
+                Time.unscaledTime - _cachedWaitingPassengersTime < 1.0f)
+            {
+                component.tooltip = string.Format(Localization.Get("LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP"), _cachedWaitingPassengersCount);
+                return;
+            }
+
+            // Calculate total waiting passengers and cache the result
             TransportLine transportLine = Singleton<TransportManager>.instance.m_lines.m_buffer[lineId];
             ushort num1 = transportLine.m_stops;
             int num2 = 0;
@@ -984,6 +1000,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 num2 += WaitingPassengerCountQuery.Query(num1, out var nextStop, out _);
                 num1 = nextStop;
             }
+
+            _cachedWaitingPassengersLineId = lineId;
+            _cachedWaitingPassengersCount = num2;
+            _cachedWaitingPassengersTime = Time.unscaledTime;
 
             component.tooltip = string.Format(Localization.Get("LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP"), num2);
         }

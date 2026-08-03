@@ -6,7 +6,7 @@ AVERAGE_TOOLTIP Average of the last {0} weeks.
 CITY_SERVICE_PANEL_TITLE_STATION_STOPS Station stops
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Depot vehicles
 CITYSERVICE_ACCEPTINTERCITYBUSES Allow Intercity Buses
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Allow intercity buses to use this station. Disable this for local buses only.
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Allow intercity buses to use this station. Disable this for local buses only. Native Sunset Harbor intercity terminals default to ON. Regular bus stations converted by this mod default to OFF (unlike the original Intercity Bus Controller mod, which enabled every converted stop) so a new terminal never silently starts pulling intercity routes onto a stop you meant for local service — turn it on here if you want this stop to accept intercity buses.
 EXPLANATION_BUDGET_CONTROL Budget control: The vehicle count is controlled by the budget.
 EXPLANATION_UNBUNCHING Vehicle unbunching: The game tries to create a gap between vehicles.
 LINE_PANEL_STOPS Stops: {0}
@@ -278,7 +278,6 @@ SETTINGS_EBS_MODE_AGGRESSIVE Aggressive
 SETTINGS_EBS_MODE_PRUDENTIAL Prudential
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Every stop (realistic)
 SETTINGS_EBS_TRAM_MODE_NONE Disabled
-SETTINGS_EBS_TRAM_MODE_STREET_CAR Street car (brief stop and go)
 SETTINGS_EBS_TRAM_MODE_TRAM Express skip
 SETTINGS_PTU_GROUP Public Transport Unstucker
 SETTINGS_PTU_ENABLE Despawn stuck passengers
@@ -389,6 +388,8 @@ SETTINGS_TRAINDISPLAY_SHOW_LINE Show line name
 SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Include the line name in the overlay.
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Show destination
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Include the destination in the overlay.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
 SETTINGS_TRAINDISPLAY_SHOW_STATE Show status strip
 SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Adds an extra strip with vehicle status (loading, moving, waiting…).
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Only while following
@@ -513,6 +514,7 @@ CHANGELOG_4_0_0_2 Ported AutoLineBudget's demand-based fleet sizing to coordinat
 CHANGELOG_4_0_0_3 Adopted CSLModsCommon for the Options UI (version badge, changelog, compatibility warnings, translation progress).
 TRAINDISPLAY_LABEL_NAME Name
 TRAINDISPLAY_LABEL_STATUS Status
+TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 TRAINDISPLAY_NO_LINE No line
 TRAINDISPLAY_NO_DESTINATION No destination
 TRAINDISPLAY_HIDDEN Hidden
@@ -594,3 +596,13 @@ SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Show elapsed time (extras strip)
 SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adds a line-coloured strip above the main panel with these extras. Off by default.
 TRAINDISPLAY_LABEL_SPEED Speed
 TRAINDISPLAY_LABEL_TIME Time
+SETTINGS_TRAINDISPLAY_LAYOUT Panel layout
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Which arrangement the overlay uses. Both show the same information and obey the same field checkboxes below - only the shape differs.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic (compact corner panel)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed (header metrics + stop list)
+COMMUTERDESTINATION_PANEL_TITLE Commuter Destination
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinations
+COMMUTERDESTINATION_PANEL_STOP Stop #{0}
+COMMUTERDESTINATION_PANEL_WAITING Waiting passengers: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Previous
+COMMUTERDESTINATION_PANEL_NEXT Next

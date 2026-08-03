@@ -1,32 +1,28 @@
-// Adapted from Commuter Destination (MIT, Workshop 2475986859) - see LICENSE.txt.
+// Adapted from Commuter Destination (MIT, Workshop 2475986859,
+// github.com/Jameskmonger/CSL-ShowCommuterDestination) - see LICENSE.txt.
 using ColossalFramework;
 using ImprovedPublicTransport;
-using ImprovedPublicTransport.Util;
 using UnityEngine;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace CommuterDestination
 {
     /// <summary>
-    /// Map icons for destination buildings. Colour bands by waiting count (same size).
+    /// Port of upstream's DestinationDisplayManager + NotificationDestinationGraphRenderer, kept
+    /// deliberately identical: same gate (upstream's own panel open, with a graph), same icon,
+    /// same height offset, same popularity-driven size, every journey of every stop drawn.
     /// </summary>
     public sealed class DestinationOverlayManager
         : SimulationManagerBase<DestinationOverlayManager, MonoBehaviour>, IRenderableManager
     {
-        private static readonly Vector3 HeightOffset = new Vector3(0f, 40f, 0f);
+        /// <summary>How high above the destination building the notification is rendered.</summary>
+        private static readonly Vector3 HeightOffset = new Vector3(0f, 50f, 0f);
 
-        // Single consistent icon (was a 3-tier Low/Mid/High colour ramp) - MajorProblem alone
-        // renders as vanilla's plain red circle-with-"!" problem badge, easiest to spot on the map.
-        private static readonly Notification.ProblemStruct IconLow =
-            new Notification.ProblemStruct(Notification.Problem1.MajorProblem);
-        private static readonly Notification.ProblemStruct IconMid = IconLow;
-        private static readonly Notification.ProblemStruct IconHigh = IconLow;
+        /// <summary>The "Major" variant of the "Too Long" problem - the red walking man.</summary>
+        private static readonly Notification.ProblemStruct DestinationIcon =
+            new Notification.ProblemStruct(Notification.Problem1.TooLong | Notification.Problem1.MajorProblem);
 
         private static bool _registered;
-
-        internal static DestinationGraph ActiveGraph { get; set; }
-
-        internal static ushort ActiveStopId { get; set; }
 
         public static void EnsureRegistered()
         {
@@ -50,28 +46,19 @@ namespace CommuterDestination
             }
         }
 
-        public static void ClearOverlay()
-        {
-            ActiveGraph = null;
-            ActiveStopId = 0;
-        }
-
         protected override void BeginOverlayImpl(RenderManager.CameraInfo cameraInfo)
         {
-            // Everything here runs inside RenderManager's overlay pass. An exception escaping this
-            // method aborts the rest of that pass for the frame, and since it would throw again on
-            // the very next frame the game ends up in a state where the camera still moves but
-            // nothing is selectable and the city looks frozen - the same failure shape as the font
-            // atlas stack overflow fixed in UITextBase. Nothing drawn here is worth taking the
-            // whole overlay pass down for, so it fails closed instead.
+            // Not upstream's, and kept: this runs inside RenderManager's overlay pass, and an
+            // exception escaping here aborts the rest of that pass every frame, leaving the game
+            // in a state where the camera still moves but nothing is selectable. Failing closed
+            // costs a frame of icons; failing open costs the session.
             try
             {
                 RenderIcons(cameraInfo);
             }
             catch (System.Exception ex)
             {
-                Utils.LogError($"CommuterDestination: overlay render failed, clearing overlay: {ex.Message}");
-                ClearOverlay();
+                Utils.LogError($"CommuterDestination: overlay render failed: {ex.Message}");
             }
         }
 
@@ -82,63 +69,29 @@ namespace CommuterDestination
                 return;
             }
 
-            var graph = ActiveGraph;
-            var panel = CommuterDestinationPanel.Instance;
-            if (panel != null && panel.isVisible && panel.Graph != null)
-            {
-                graph = panel.Graph;
-                ActiveGraph = graph;
-            }
-
-            if (graph == null || graph.Entries == null || graph.Entries.Length == 0)
+            var panel = StopDestinationInfoPanel.instance;
+            if (panel == null || !panel.isVisible)
             {
                 return;
             }
 
-            // Icons while stop panel is open (secondary list optional).
-            var stopPanel = ImprovedPublicTransport.UI.PublicTransportStopWorldInfoPanel.instance;
-            var stopOpen = stopPanel != null && stopPanel.isVisible;
-            var panelOpen = panel != null && panel.isVisible;
-            if (!stopOpen && !panelOpen)
+            var graph = panel.DestinationGraph;
+            if (graph == null)
             {
                 return;
             }
 
-            var entries = graph.Entries;
-            var maxIcons = DestinationGraphGenerator.OverlayIconLimit;
-            var n = entries.Length < maxIcons ? entries.Length : maxIcons;
-            // Destination buildings can be scattered across the whole city, seen from a more
-            // zoomed-out camera than a typical single-building problem icon - the vanilla 1x
-            // size read as too small there, so this renders larger. Colour still carries
-            // popularity, not size.
-            const float scale = 1.8f;
-            for (var i = 0; i < n; i++)
+            foreach (var stop in graph.Stops)
             {
-                var e = entries[i];
-                if (e.BuildingId == 0 || e.Count <= 0)
+                foreach (var journey in stop.GetJourneys())
                 {
-                    continue;
+                    Notification.RenderInstance(
+                        cameraInfo,
+                        DestinationIcon,
+                        journey.Destination + HeightOffset,
+                        1 + (journey.Popularity / 5));
                 }
-
-                var icon = PickIcon(e.Count);
-                Notification.RenderInstance(cameraInfo, icon, e.Position + HeightOffset, scale);
             }
-        }
-
-        private static Notification.ProblemStruct PickIcon(int count)
-        {
-            // Low / mid / high popularity → different colours (same footprint).
-            if (count >= 10)
-            {
-                return IconHigh;
-            }
-
-            if (count >= 4)
-            {
-                return IconMid;
-            }
-
-            return IconLow;
         }
     }
 }

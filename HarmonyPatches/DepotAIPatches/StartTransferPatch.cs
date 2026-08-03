@@ -79,9 +79,26 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             else
             {
                 // Validate target depot before redirecting to prevent infinite loops
-                if (depot == 0 || BuildingManager.instance.m_buildings.m_buffer[depot].Info == null)
+                var targetInfo = depot != 0 ? BuildingManager.instance.m_buildings.m_buffer[depot].Info : null;
+                if (targetInfo == null)
                 {
                     Debug.LogWarning($"{ShortModName}: Invalid target depot {depot} for redirect from {buildingID}. Aborting redirect.");
+                    CachedTransportLineData.ClearEnqueuedVehicles(lineID);
+                    return false;
+                }
+
+                // Redirect through the TARGET building's own AI, not __instance. __instance is the
+                // AI of the building vanilla originally offered the transfer to, and the two are
+                // frequently different subclasses - notably TransportStationAI (bus/train stations,
+                // which act as their own depot) derives from DepotAI, so a station and a plain depot
+                // can each end up on either side of this redirect. Driving one building's transfer
+                // through the other's AI mixes up m_transportInfo / m_vehicleAI / capacity, which
+                // spawns vehicles that do not match the line and get culled again almost
+                // immediately - the "buses appear at the station, move a little and vanish" report.
+                var targetAi = targetInfo.m_buildingAI as DepotAI;
+                if (targetAi == null)
+                {
+                    Debug.LogWarning($"{ShortModName}: Target depot {depot} for line {lineID} is not a depot ({targetInfo.m_buildingAI?.GetType().Name ?? "null AI"}). Aborting redirect.");
                     CachedTransportLineData.ClearEnqueuedVehicles(lineID);
                     return false;
                 }
@@ -91,7 +108,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                     Debug.Log($"{ShortModName}: Redirecting from {buildingID} to {depot}");
                 }
 
-                __instance.StartTransfer(depot, ref BuildingManager.instance.m_buildings.m_buffer[depot], reason,
+                targetAi.StartTransfer(depot, ref BuildingManager.instance.m_buildings.m_buffer[depot], reason,
                     offer);
                 return false;
             }

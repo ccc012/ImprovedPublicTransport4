@@ -76,6 +76,10 @@ namespace SharedStopEnabler
                 }
 
                 var dir = segment.Info.m_lanes[laneIndex].m_direction;
+                // stop/laneIndex are m_lanes indices; FindIndex looks them up inside m_sortedLanes to get
+                // their physical (left-to-right) position, then +/-1 below walks to the spatially adjacent
+                // lane and reads m_sortedLanes[pos] to convert that position back into an m_lanes index.
+                // Both directions of the m_lanes <-> m_sortedLanes conversion are used correctly here.
                 var stopLane = Array.FindIndex(segment.Info.m_sortedLanes, s => s == stop);
                 var drivingLane = Array.FindIndex(segment.Info.m_sortedLanes, s => s == laneIndex);
                 if (stopLane < 0 || drivingLane < 0)

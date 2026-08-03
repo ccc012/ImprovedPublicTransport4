@@ -32,6 +32,7 @@ namespace SingleTrainTrackAI
             }
 
             TrackReservation.Clear();
+            SectionClassifier.Clear();
             SegmentClassifier.Clear();
         }
     }

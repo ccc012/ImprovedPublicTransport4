@@ -272,18 +272,32 @@ namespace ImprovedPublicTransport.UI
                     Settings.SettingsActions.NotifyReloadRequired("Rescue Fullwidth Digits");
                 });
 
-            // Legacy toggle, locked read-only: kept so saves from installs that already had this
-            // on keep working exactly as before, but no longer offered to anyone going forward -
-            // no new save can turn it on, and every gameplay profile forces it off (see
-            // SettingsActions.OnGameplayProfileChanged). The value shown is whatever this install's
-            // settings file already had before this version; it cannot change from here on.
+            // Legacy toggle, one-way: kept so saves from installs that already had this on keep
+            // working exactly as before, but no longer offered to anyone going forward - no new
+            // save can turn it on, and every gameplay profile forces it off (see
+            // SettingsActions.OnGameplayProfileChanged). Unlike a fully read-only lock, an install
+            // that already has it on CAN click this off (e.g. it conflicts with the real Stop
+            // Stacker mod if that's also still subscribed) - but once off, it locks immediately and
+            // can never be turned back on from here.
             var legacy = AddSection(page, Localization.Get("SETTINGS_LEGACY_GROUP"),
                 Localization.Get("SETTINGS_LEGACY_GROUP_DESC"));
             var berthCard = legacy.AddCheckBox(setting.EnableStopStacker, Localization.Get("SETTINGS_STOPSTACKER_ENABLE"), null, Localization.Get("SETTINGS_STOPSTACKER_ENABLE_TOOLTIP"),
-                (_, __) => { /* locked - no-op, see remarks above */ });
+                (checkbox, isChecked) =>
+                {
+                    if (isChecked)
+                    {
+                        // Turning back on is never allowed - revert without persisting.
+                        checkbox.IsChecked = false;
+                        return;
+                    }
+
+                    ModSetting.Instance.EnableStopStacker = false;
+                    Settings.SettingsActions.NotifyReloadRequired("Bus stop berth stacking");
+                    OptionsNestedTabs.SetEnabled(checkbox, false);
+                });
             if (berthCard?.Control != null)
             {
-                OptionsNestedTabs.SetEnabled(berthCard.Control, false);
+                OptionsNestedTabs.SetEnabled(berthCard.Control, setting.EnableStopStacker);
             }
 
             // Dangerous tools last so casual players do not hit them first.
@@ -418,7 +432,7 @@ namespace ImprovedPublicTransport.UI
             ebsTramSection.AddDropDown<ModSetting.ExpressTramServicesModes>(
                 Localization.Get("SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE"),
                 null,
-                DropDownHelper.FromEnum<ModSetting.ExpressTramServicesModes>(e => Localization.Get("SETTINGS_EBS_TRAM_MODE_" + (e == ModSetting.ExpressTramServicesModes.Disabled ? "NONE" : e == ModSetting.ExpressTramServicesModes.LightRail ? "LIGHT_RAIL" : e == ModSetting.ExpressTramServicesModes.TrueTram ? "TRAM" : "STREET_CAR"))),
+                DropDownHelper.FromEnum<ModSetting.ExpressTramServicesModes>(e => Localization.Get("SETTINGS_EBS_TRAM_MODE_" + (e == ModSetting.ExpressTramServicesModes.Disabled ? "NONE" : e == ModSetting.ExpressTramServicesModes.LightRail ? "LIGHT_RAIL" : "TRAM"))),
                 item => item.Value == setting.ExpressTramUnbunchingMode,
                 item =>
                 {
@@ -812,6 +826,10 @@ namespace ImprovedPublicTransport.UI
                     UpdateTrainDisplayChildrenEnabled(item.Value);
                 }, null);
 
+            TrackTrainChild(section.AddDropDown<ModSetting.TrainDisplayLayouts>(Localization.Get("SETTINGS_TRAINDISPLAY_LAYOUT"), Localization.Get("SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.TrainDisplayLayouts>(e => Localization.Get("SETTINGS_TRAINDISPLAY_LAYOUT_" + e.ToString().ToUpperInvariant())),
+                item => item.Value == setting.TrainDisplayLayout,
+                item => ModSetting.Instance.TrainDisplayLayout = item.Value, null));
             TrackTrainChild(section.AddDropDown<ModSetting.TrainDisplayOverlayPositions>(Localization.Get("SETTINGS_TRAINDISPLAY_OVERLAY_POSITION"), Localization.Get("SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.TrainDisplayOverlayPositions>(e => Localization.Get("SETTINGS_TRAINDISPLAY_POS_" + e.ToString().ToUpperInvariant())),
                 item => item.Value == setting.TrainDisplayOverlayPosition,
@@ -834,6 +852,8 @@ namespace ImprovedPublicTransport.UI
                 (_, isChecked) => ModSetting.Instance.TrainDisplayVisibleFields = SetFlag(ModSetting.Instance.TrainDisplayVisibleFields, ModSetting.TrainDisplayFields.Line, isChecked)));
             TrackTrainChild(section.AddCheckBox((setting.TrainDisplayVisibleFields & ModSetting.TrainDisplayFields.Destination) != 0, Localization.Get("SETTINGS_TRAINDISPLAY_SHOW_DESTINATION"), null, Localization.Get("SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP"),
                 (_, isChecked) => ModSetting.Instance.TrainDisplayVisibleFields = SetFlag(ModSetting.Instance.TrainDisplayVisibleFields, ModSetting.TrainDisplayFields.Destination, isChecked)));
+            TrackTrainChild(section.AddCheckBox((setting.TrainDisplayVisibleFields & ModSetting.TrainDisplayFields.NextStop) != 0, Localization.Get("SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP"), null, Localization.Get("SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP"),
+                (_, isChecked) => ModSetting.Instance.TrainDisplayVisibleFields = SetFlag(ModSetting.Instance.TrainDisplayVisibleFields, ModSetting.TrainDisplayFields.NextStop, isChecked)));
             TrackTrainChild(section.AddCheckBox((setting.TrainDisplayVisibleFields & ModSetting.TrainDisplayFields.State) != 0, Localization.Get("SETTINGS_TRAINDISPLAY_SHOW_STATE"), null, Localization.Get("SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP"),
                 (_, isChecked) => ModSetting.Instance.TrainDisplayVisibleFields = SetFlag(ModSetting.Instance.TrainDisplayVisibleFields, ModSetting.TrainDisplayFields.State, isChecked)));
 

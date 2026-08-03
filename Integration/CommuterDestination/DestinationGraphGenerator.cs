@@ -1,29 +1,36 @@
-// Adapted from Commuter Destination (MIT, Workshop 2475986859) - see LICENSE.txt.
+// Adapted from Commuter Destination (MIT, Workshop 2475986859,
+// github.com/Jameskmonger/CSL-ShowCommuterDestination) - see LICENSE.txt.
 using System.Collections.Generic;
 using ColossalFramework;
-using ImprovedPublicTransport;
-using ImprovedPublicTransport.Util;
 using UnityEngine;
 
 namespace CommuterDestination
 {
+    /// <summary>
+    /// Straight port of upstream's Bridge (GetCitizenDestinations / GetDestinationStopId /
+    /// StopIsDestination / IsCitizenAtStop) and DestinationGraphGenerator.GenerateGraph.
+    ///
+    /// Deliberately unmodified otherwise - no caps, no performance-profile limits, no reordering.
+    /// An earlier in-house rewrite diverged from this and ended up showing no icons at all, so the
+    /// behaviour here is upstream's, including its rough edges. The only two departures are safety
+    /// ones that cannot change which icons are produced, and both are called out where they happen.
+    /// </summary>
     internal static class DestinationGraphGenerator
     {
-        // TEMP (testing): widened from 64f so we're not also fighting a too-narrow search radius
-        // while confirming whether the feature produces any entries at all. Narrow back down once
-        // confirmed working.
-        private const float StopRange = 300f;
-        private const float StopRangeSq = StopRange * StopRange;
+        /// <summary>
+        /// Upstream's GetStopRange(): flat 64f, with its own TODO noting the real values are 32 for
+        /// bus/cable car and 64 for everything else.
+        /// </summary>
+        private const float TransitRange = 64f;
 
-        private static readonly Dictionary<ushort, int> s_buildingCounts = new Dictionary<ushort, int>(64);
-        private static readonly List<DestinationEntry> s_scratchEntries = new List<DestinationEntry>(32);
-
-        public static bool IsFullMapMode =>
-            ModSetting.Instance.CommuterDestinationMapDetail
-            == ModSetting.CommuterDestinationMapDetails.FullMap;
-
-        public static int OverlayIconLimit =>
-            PerformanceProfile.CommuterMaxDestinationsEffective(IsFullMapMode);
+        /// <summary>
+        /// DEPARTURE FROM UPSTREAM (safety). Upstream's GetDestinationStopId walks the line with
+        /// `while (true)`, terminating only on `nextStop == 0` or on finding the destination. A
+        /// circular line has no stop with `nextStop == 0`, so a citizen whose destination is never
+        /// matched spins forever and hangs the simulation thread. Bounded by the game's own maximum
+        /// stop count so a legitimate walk can never be cut short.
+        /// </summary>
+        private const int MaxStopWalk = 256;
 
         public static DestinationGraph GenerateGraph(ushort stopId)
         {
@@ -32,106 +39,68 @@ namespace CommuterDestination
                 return DestinationGraph.Empty;
             }
 
-            s_buildingCounts.Clear();
+            var stops = new Dictionary<ushort, DestinationGraphStop>();
 
-            var netManager = Singleton<NetManager>.instance;
+            foreach (var destination in GetCitizenDestinations(stopId))
+            {
+                if (destination.StopId == 0 || destination.BuildingId == 0)
+                {
+                    continue;
+                }
+
+                DestinationGraphStop stop;
+                if (!stops.TryGetValue(destination.StopId, out stop))
+                {
+                    stop = new DestinationGraphStop(destination.StopId);
+                    stops.Add(destination.StopId, stop);
+                }
+
+                stop.AddJourney(destination.BuildingId);
+            }
+
+            return new DestinationGraph(new List<DestinationGraphStop>(stops.Values));
+        }
+
+        /// <remarks>Upstream notes this logic is taken from LoadPassengers (e.g. in BusAI).</remarks>
+        private static List<CitizenDestination> GetCitizenDestinations(ushort stopId)
+        {
+            var citizenDestinations = new List<CitizenDestination>();
+
             var citizenManager = Singleton<CitizenManager>.instance;
-            if (netManager == null || citizenManager == null)
+            var netManager = Singleton<NetManager>.instance;
+            if (citizenManager == null || netManager == null)
             {
-                return DestinationGraph.Empty;
+                return citizenDestinations;
             }
 
-            var fullMap = IsFullMapMode;
-            var maxCitizens = PerformanceProfile.CommuterMaxCitizensEffective(fullMap);
-            var maxDest = PerformanceProfile.CommuterMaxDestinationsEffective(fullMap);
+            var stopPosition = netManager.m_nodes.m_buffer[stopId].m_position;
 
-            ref var stopNode = ref netManager.m_nodes.m_buffer[stopId];
-            var stopPosition = stopNode.m_position;
-
-            var nextStop = global::TransportLine.GetNextStop(stopId);
-            Vector3 nextStopPosition = Vector3.zero;
-            if (nextStop != 0)
-            {
-                nextStopPosition = netManager.m_nodes.m_buffer[nextStop].m_position;
-            }
-
-            var lowerX = Mathf.Max((int)((stopPosition.x - StopRange) / 8f + 1080f), 0);
-            var upperX = Mathf.Min((int)((stopPosition.x + StopRange) / 8f + 1080f), 2159);
-            var lowerZ = Mathf.Max((int)((stopPosition.z - StopRange) / 8f + 1080f), 0);
-            var upperZ = Mathf.Min((int)((stopPosition.z + StopRange) / 8f + 1080f), 2159);
+            var lowerX = Mathf.Max((int)((stopPosition.x - TransitRange) / 8.0 + 1080.0), 0);
+            var upperX = Mathf.Min((int)((stopPosition.x + TransitRange) / 8.0 + 1080.0), 2159);
+            var lowerZ = Mathf.Max((int)((stopPosition.z - TransitRange) / 8.0 + 1080.0), 0);
+            var upperZ = Mathf.Min((int)((stopPosition.z + TransitRange) / 8.0 + 1080.0), 2159);
 
             var instances = citizenManager.m_instances.m_buffer;
             var grid = citizenManager.m_citizenGrid;
-            var scanned = 0;
-            var waiting = 0;
 
-            for (var z = lowerZ; z <= upperZ && scanned < maxCitizens; z++)
+            for (var z = lowerZ; z <= upperZ; z++)
             {
-                var row = z * 2160;
-                for (var x = lowerX; x <= upperX && scanned < maxCitizens; x++)
+                for (var x = lowerX; x <= upperX; x++)
                 {
-                    var citizenInstanceId = grid[row + x];
+                    var citizenInstanceId = grid[z * 2160 + x];
                     var guard = 0;
-                    while (citizenInstanceId != 0 && scanned < maxCitizens && guard++ < 64)
+                    while (citizenInstanceId != 0 && ++guard <= 65536)
                     {
-                        ref var citizen = ref instances[citizenInstanceId];
+                        var citizen = instances[citizenInstanceId];
                         var nextGridInstance = citizen.m_nextGridInstance;
-                        scanned++;
 
-                        if ((citizen.m_flags & CitizenInstance.Flags.WaitingTransport) == 0)
+                        if (IsCitizenAtStop(ref citizen, citizenInstanceId, stopId, TransitRange))
                         {
-                            citizenInstanceId = nextGridInstance;
-                            continue;
-                        }
-
-                        // Restored after checking the original mod's actual source
-                        // (Jameskmonger/CSL-ShowCommuterDestination, Bridge.cs::IsCitizenInRangeOfStop)
-                        // - it does exactly this m_targetPos-vs-stopPosition check, unconditionally,
-                        // as its ONLY distance gate (the grid-cell bounds are just a coarse
-                        // pre-filter in both implementations, not a substitute). An earlier pass
-                        // here removed this on the theory that m_targetPos always advances past the
-                        // stop once WaitingTransport is set - that theory was wrong; the original
-                        // mod relies on the opposite being true and is a working, shipped mod.
-                        if (Vector3.SqrMagnitude((Vector3)citizen.m_targetPos - stopPosition) >= StopRangeSq)
-                        {
-                            citizenInstanceId = nextGridInstance;
-                            continue;
-                        }
-
-                        // Light profile: skip expensive AI gate (WaitingTransport + distance is enough).
-                        if (!PerformanceProfile.IsLight
-                            && nextStop != 0
-                            && citizen.Info?.m_citizenAI != null)
-                        {
-                            if (!citizen.Info.m_citizenAI.TransportArriveAtSource(
-                                    citizenInstanceId, ref citizen, stopPosition, nextStopPosition))
+                            citizenDestinations.Add(new CitizenDestination
                             {
-                                citizenInstanceId = nextGridInstance;
-                                continue;
-                            }
-                        }
-
-                        // The original mod reads m_targetBuilding exactly like this, unconditionally
-                        // - no TargetIsNode check. An earlier pass here added one on the theory that
-                        // a transit-boarding citizen's immediate path target is usually the next stop
-                        // NODE rather than their final building, which would make TargetIsNode true
-                        // for nearly every legitimately-waiting citizen and reject almost all of
-                        // them - removed to match the original's proven-working behaviour.
-                        var buildingId = citizen.m_targetBuilding;
-                        if (buildingId == 0)
-                        {
-                            citizenInstanceId = nextGridInstance;
-                            continue;
-                        }
-
-                        waiting++;
-                        if (s_buildingCounts.TryGetValue(buildingId, out var n))
-                        {
-                            s_buildingCounts[buildingId] = n + 1;
-                        }
-                        else
-                        {
-                            s_buildingCounts[buildingId] = 1;
+                                StopId = GetDestinationStopId(stopId, citizenInstanceId),
+                                BuildingId = citizen.m_targetBuilding,
+                            });
                         }
 
                         citizenInstanceId = nextGridInstance;
@@ -139,50 +108,123 @@ namespace CommuterDestination
                 }
             }
 
-            if (s_buildingCounts.Count == 0)
-            {
-                return new DestinationGraph(new DestinationEntry[0], waiting);
-            }
-
-            s_scratchEntries.Clear();
-            var buildings = Singleton<BuildingManager>.instance.m_buildings.m_buffer;
-            foreach (var kv in s_buildingCounts)
-            {
-                var id = kv.Key;
-                var count = kv.Value;
-                if (id == 0 || count <= 0)
-                {
-                    continue;
-                }
-
-                InsertTopN(s_scratchEntries, new DestinationEntry(id, buildings[id].m_position, count), maxDest);
-            }
-
-            return new DestinationGraph(s_scratchEntries.ToArray(), waiting);
+            return citizenDestinations;
         }
 
-        private static void InsertTopN(List<DestinationEntry> list, DestinationEntry entry, int maxN)
+        private static bool IsCitizenAtStop(
+            ref CitizenInstance citizen, ushort citizenInstanceId, ushort stopId, float stopRange)
         {
-            var insertAt = list.Count;
-            for (var i = 0; i < list.Count; i++)
+            var netManager = Singleton<NetManager>.instance;
+            var stopPosition = netManager.m_nodes.m_buffer[stopId].m_position;
+
+            // Upstream's IsCitizenInRangeOfStop, inlined: it compares the citizen's *target*
+            // position, not their current position.
+            if (Vector3.SqrMagnitude((Vector3)citizen.m_targetPos - stopPosition) >= stopRange * stopRange)
             {
-                if (entry.Count > list[i].Count)
+                return false;
+            }
+
+            var nextStop = global::TransportLine.GetNextStop(stopId);
+            var nextStopPosition = netManager.m_nodes.m_buffer[nextStop].m_position;
+
+            var info = citizen.Info;
+            if (info == null || info.m_citizenAI == null)
+            {
+                return false;
+            }
+
+            return (citizen.m_flags & CitizenInstance.Flags.WaitingTransport) != CitizenInstance.Flags.None
+                && info.m_citizenAI.TransportArriveAtSource(
+                    citizenInstanceId, ref citizen, stopPosition, nextStopPosition);
+        }
+
+        /// <summary>
+        /// The stop this citizen will get off at, given the stop they are waiting at.
+        /// </summary>
+        /// <remarks>Upstream notes most of this is ripped from TransportArriveAtTarget.</remarks>
+        private static ushort GetDestinationStopId(ushort originalStopId, ushort citizenId)
+        {
+            var citizen = Singleton<CitizenManager>.instance.m_instances.m_buffer[citizenId];
+            var currentStop = global::TransportLine.GetNextStop(originalStopId);
+
+            for (var walked = 0; walked < MaxStopWalk; walked++)
+            {
+                var nextStop = global::TransportLine.GetNextStop(currentStop);
+
+                if (nextStop == 0)
                 {
-                    insertAt = i;
-                    break;
+                    return currentStop;
+                }
+
+                if (StopIsDestination(currentStop, nextStop, citizen))
+                {
+                    return currentStop;
+                }
+
+                currentStop = nextStop;
+            }
+
+            // Loop guard tripped (see MaxStopWalk): fall back to wherever the walk got to, which is
+            // what upstream would return for the equivalent "ran out of line" case.
+            return currentStop;
+        }
+
+        private static bool StopIsDestination(ushort currentStop, ushort nextStop, CitizenInstance citizenData)
+        {
+            var pathManager = Singleton<PathManager>.instance;
+            var netManager = Singleton<NetManager>.instance;
+
+            var currentPosition = netManager.m_nodes.m_buffer[currentStop].m_position;
+            var nextPosition = netManager.m_nodes.m_buffer[nextStop].m_position;
+
+            if ((citizenData.m_flags & CitizenInstance.Flags.OnTour) == CitizenInstance.Flags.OnTour)
+            {
+                if ((citizenData.m_flags & CitizenInstance.Flags.TargetIsNode) == CitizenInstance.Flags.TargetIsNode)
+                {
+                    var targetStop = citizenData.m_targetBuilding;
+                    if (targetStop != 0 &&
+                        Vector3.SqrMagnitude(netManager.m_nodes.m_buffer[targetStop].m_position - currentPosition) < 4.0)
+                    {
+                        var stopAfterTarget = global::TransportLine.GetNextStop(targetStop);
+                        if (stopAfterTarget != 0 &&
+                            Vector3.SqrMagnitude(netManager.m_nodes.m_buffer[stopAfterTarget].m_position - nextPosition) < 4.0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            // DEPARTURE FROM UPSTREAM (safety, same result). Upstream advances the path here and
+            // calls PathManager.ReleaseFirstUnit(ref citizenData.m_path) when the index runs past
+            // the unit - inherited from TransportArriveAtTarget, where consuming the path is
+            // correct. Here it runs inside a read-only query, and although citizenData is a struct
+            // copy (so the citizen's own m_path field is untouched), ReleaseFirstUnit frees the
+            // path unit *globally*, leaving the real citizen pointing at freed memory. The lookup
+            // below reads the same position without freeing anything, so it reaches the same
+            // verdict without damaging the city.
+            var path = citizenData.m_path;
+            var pathPositionIndex = citizenData.m_pathPositionIndex + 2;
+            if (path == 0U || pathPositionIndex >> 1 >= pathManager.m_pathUnits.m_buffer[(int)path].m_positionCount)
+            {
+                return true;
+            }
+
+            PathUnit.Position position;
+            if (pathManager.m_pathUnits.m_buffer[(int)path].GetPosition(pathPositionIndex >> 1, out position))
+            {
+                var laneId = PathManager.GetLaneID(position);
+                if (Vector3.SqrMagnitude(
+                        netManager.m_lanes.m_buffer[(int)laneId].CalculatePosition(position.m_offset * 0.003921569f)
+                        - nextPosition) < 4.0)
+                {
+                    return false;
                 }
             }
 
-            if (insertAt >= maxN)
-            {
-                return;
-            }
-
-            list.Insert(insertAt, entry);
-            while (list.Count > maxN)
-            {
-                list.RemoveAt(list.Count - 1);
-            }
+            return true;
         }
     }
 }

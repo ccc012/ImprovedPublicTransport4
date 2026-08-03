@@ -6,7 +6,7 @@ AVERAGE_TOOLTIP Média das últimas {0} semanas.
 CITY_SERVICE_PANEL_TITLE_STATION_STOPS Paradas da estação
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Veículos da garagem
 CITYSERVICE_ACCEPTINTERCITYBUSES Permitir ônibus interurbanos
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Permite que ônibus intermunicipais usem esta estação. Desative esta opção para aceitar apenas ônibus locais.
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Permite que ônibus intermunicipais usem esta estação. Desative esta opção para aceitar apenas ônibus locais. Terminais intermunicipais nativos do Sunset Harbor vêm LIGADOS por padrão. Estações comuns convertidas por este mod vêm DESLIGADAS por padrão (diferente do mod original Intercity Bus Controller, que ligava toda parada convertida) para que um novo terminal nunca comece a puxar linhas intermunicipais silenciosamente para uma parada que você queria manter só local — ative aqui se quiser que esta parada aceite ônibus intermunicipais.
 EXPLANATION_BUDGET_CONTROL Controle por orçamento: a quantidade de veículos é controlada pelo orçamento.
 EXPLANATION_UNBUNCHING Distribuição de veículos: O jogo tenta manter uma distribuição regular entre os veículos.
 LINE_PANEL_STOPS Paradas: {0}
@@ -390,6 +390,8 @@ SETTINGS_TRAINDISPLAY_SHOW_LINE Mostrar nome da linha
 SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Inclui o nome da linha na sobreposição.
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Mostrar destino
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Inclui o destino na sobreposição.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Mostrar próxima parada
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Mostra em destaque a próxima parada, atualizada conforme o veículo avança na linha.
 SETTINGS_TRAINDISPLAY_SHOW_STATE Mostrar faixa de status
 SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Adiciona uma faixa extra com o status do veículo (carregando, em movimento, esperando…).
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Apenas ao seguir
@@ -508,6 +510,7 @@ CHANGELOG_4_0_0_2 Portada a logica de frota automatica por demanda do AutoLineBu
 CHANGELOG_4_0_0_3 Adotado CSLModsCommon para a interface de Opcoes (badge de versao, changelog, avisos de compatibilidade e progresso de traducao).
 TRAINDISPLAY_LABEL_NAME Nome
 TRAINDISPLAY_LABEL_STATUS Estado
+TRAINDISPLAY_LABEL_NEXTSTOP Próxima parada
 TRAINDISPLAY_NO_LINE Sem linha
 TRAINDISPLAY_NO_DESTINATION Sem destino
 TRAINDISPLAY_HIDDEN Oculto
@@ -593,3 +596,13 @@ SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detalhe do mapa:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Desempenho mostra menos ícones e atualiza mais rápido. Mapa completo mostra bem mais destinos no mapa; o painel atualiza mais devagar (melhor para PCs fracos).
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Desempenho (mais rápido)
 SETTINGS_COMMUTERDESTINATION_MAP_FULL Mapa completo (mais ícones, mais lento)
+SETTINGS_TRAINDISPLAY_LAYOUT Disposição do painel
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Qual arranjo o painel usa. Os dois mostram a mesma informação e respeitam as mesmas caixas de seleção abaixo - só o formato muda.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Clássico (painel compacto de canto)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detalhado (métricas no topo + lista de paradas)
+COMMUTERDESTINATION_PANEL_TITLE Destino dos passageiros
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinos
+COMMUTERDESTINATION_PANEL_STOP Parada nº {0}
+COMMUTERDESTINATION_PANEL_WAITING Passageiros esperando: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Anterior
+COMMUTERDESTINATION_PANEL_NEXT Próxima

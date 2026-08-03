@@ -33,13 +33,6 @@ namespace BetterBoarding
                 return 0;
             }
             
-            // BetterBoarding only makes sense for multi-vehicle chains (trains, metros, monorails, trams).
-            // Single-vehicle transports (non-chain) still fall back to vanilla boarding.
-            if (data.m_trailingVehicle == 0)
-            {
-                return -1; // sentinel: use vanilla logic
-            }
-            
             // remember to reset the wait time alarm! otherwise outside vehicles would keep endlessly spawning
             var netManager = Singleton<NetManager>.instance;
             netManager.m_nodes.m_buffer[currentStop].m_maxWaitTime = 0;

@@ -57,6 +57,11 @@ namespace ElevatedStopsEnabler
                 if (!hasStops)
                     continue;
 
+                // NetInfo.m_sortedLanes is an int[] of indices INTO m_lanes, ordered by physical
+                // (left-to-right) lane position, not by declaration order. Every access below goes
+                // through m_lanes[m_sortedLanes[i]] to resolve position -> actual lane, which is the
+                // same pattern vanilla game code (RoadBaseAI, NetInfo itself) uses. m_sortedLanes[i]
+                // is never used as a raw m_lanes index on its own, so this is safe.
                 VehicleInfo.VehicleType firstStopType = network.m_lanes[network.m_sortedLanes[0]].m_stopType;
                 VehicleInfo.VehicleType secondStopType = network.m_lanes[network.m_sortedLanes[network.m_sortedLanes.Length - 1]].m_stopType;
                 VehicleInfo.VehicleType mediumStopType = VehicleInfo.VehicleType.None;

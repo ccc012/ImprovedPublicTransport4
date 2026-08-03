@@ -162,7 +162,7 @@ namespace ImprovedPublicTransport
                     "Ticket price UI/multipliers are built into IPT4.",
                     1393820309u)
                 .AddWithWorkshop("TransitVehicleSpawnDelay", Ban, "Transit Vehicle Spawn Delay",
-                    "Spawn timing is covered by IPT4 unbunching/spawn settings.",
+                    "Redundant: IPT4's own DepotAI.StartTransfer patch enforces a per-line minimum spawn interval (Options > Unbunching > \"Spawn time interval\"), spacing out burst spawns from the depot the same way this mod does.",
                     2654110611u)
                 .AddWithWorkshop("TrainDisplay", Ban, "Train Display (Updated)",
                     "Train Display overlay is built into IPT4.",

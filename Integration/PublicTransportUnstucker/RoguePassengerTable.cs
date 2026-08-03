@@ -161,6 +161,11 @@ namespace PublicTransportUnstucker
                 currentVehicleID = vehicleManager.m_vehicles.m_buffer[currentVehicleID].m_trailingVehicle;
                 if (++iterationCount > 16384)
                 {
+                    // Not a scan bound over m_vehicles.m_buffer (that's fine, unaffected by MoreVehicles/
+                    // MoreCitizenUnits mods since this method is invoked per-vehicle via Harmony patches on
+                    // each AI's CanLeave, not via a manual buffer scan). This is only a runaway-loop guard
+                    // while walking the m_trailingVehicle linked list for one consist; a real consist never
+                    // gets remotely close to this count, so it only fires on an already-corrupted list.
                     // invalid list yada yada
                     break;
                 }

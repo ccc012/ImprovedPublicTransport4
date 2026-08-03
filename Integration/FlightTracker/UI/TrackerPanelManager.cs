@@ -5,6 +5,7 @@
 
 namespace FlightTracker
 {
+    using System.Collections.Generic;
     using AlgernonCommons;
     using AlgernonCommons.UI;
     using ColossalFramework;
@@ -87,15 +88,67 @@ namespace FlightTracker
                 return false;
             }
 
-            // Only support buildings that actually own vehicles (stand/terminal with aircraft), otherwise ignore.
-            if (building.m_ownVehicles != 0)
+            // Only support buildings whose airport complex actually owns vehicles. On large airports
+            // (Airports DLC), the terminal building the player selects often doesn't own any aircraft
+            // itself - the real owners are sibling stand/gate sub-buildings chained off the same main
+            // (root) building via m_subBuilding. So check the whole complex, not just this building.
+            foreach (ushort complexBuildingID in GetAirportComplexBuildings(buildingID))
             {
-                Logging.Message("building supported: ", buildingInfo.name, " ownVehicles=", building.m_ownVehicles);
-                return true;
+                if (Singleton<BuildingManager>.instance.m_buildings.m_buffer[complexBuildingID].m_ownVehicles != 0)
+                {
+                    Logging.Message("building supported: ", buildingInfo.name);
+                    return true;
+                }
             }
 
-            Logging.Message("plane subservice but no vehicles: ", buildingInfo.name);
+            Logging.Message("plane subservice but no vehicles anywhere in complex: ", buildingInfo.name);
             return false;
+        }
+
+        /// <summary>
+        /// Gets every building ID that belongs to the same airport complex as <paramref name="buildingID"/>:
+        /// the root (main) building reached by following <see cref="Building.m_parentBuilding"/> up the chain,
+        /// plus every sub-building reached by following <see cref="Building.m_subBuilding"/> down from the root.
+        /// </summary>
+        /// <param name="buildingID">Building ID to start from (can be the root or any sub-building).</param>
+        /// <returns>List of building IDs in the complex, including the root itself.</returns>
+        internal static List<ushort> GetAirportComplexBuildings(ushort buildingID)
+        {
+            Building[] buildingBuffer = Singleton<BuildingManager>.instance.m_buildings.m_buffer;
+            var result = new List<ushort>();
+
+            // Walk up to the root (main) building of the complex.
+            ushort rootID = buildingID;
+            int guard = 0;
+            while (buildingBuffer[rootID].m_parentBuilding != 0)
+            {
+                rootID = buildingBuffer[rootID].m_parentBuilding;
+
+                // A building chain cannot legitimately be longer than the building buffer itself;
+                // this only trips on a corrupted m_parentBuilding cycle, and bails instead of hanging.
+                if (++guard > 49152)
+                {
+                    result.Add(buildingID);
+                    return result;
+                }
+            }
+
+            result.Add(rootID);
+
+            ushort subBuildingID = buildingBuffer[rootID].m_subBuilding;
+            guard = 0;
+            while (subBuildingID != 0)
+            {
+                result.Add(subBuildingID);
+                subBuildingID = buildingBuffer[subBuildingID].m_subBuilding;
+
+                if (++guard > 49152)
+                {
+                    break;
+                }
+            }
+
+            return result;
         }
     }
 }

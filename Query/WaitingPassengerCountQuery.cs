@@ -1,6 +1,7 @@
 using System;
 using ColossalFramework;
 using UnityEngine;
+using ImprovedPublicTransport.Util;
 
 namespace ImprovedPublicTransport.Query
 {
@@ -26,7 +27,7 @@ namespace ImprovedPublicTransport.Query
             var num6 = 0;
             // Cap how many waiting citizens we inspect per query — UI can call this often
             // for many stops; TransportArriveAtSource is the expensive part.
-            const int maxInspect = 150;
+            var maxInspect = PerformanceProfile.WaitingPassengerMaxInspect;
             var inspected = 0;
             for (var index1 = num2; index1 <= num4 && inspected < maxInspect; ++index1)
             {

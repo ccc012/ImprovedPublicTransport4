@@ -1,164 +1,55 @@
-// Adapted from Commuter Destination (MIT, Workshop 2475986859) - see LICENSE.txt.
+// Adapted from Commuter Destination (MIT, Workshop 2475986859,
+// github.com/Jameskmonger/CSL-ShowCommuterDestination) - see LICENSE.txt.
 using System;
+using ColossalFramework.UI;
 using HarmonyLib;
 using ImprovedPublicTransport;
-using ImprovedPublicTransport.UI;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
 namespace CommuterDestination
 {
     /// <summary>
-    /// When a stop is selected: inject Destinations button and refresh data/icons.
-    /// Does NOT force-open the floating panel (that made clicks feel broken).
+    /// Upstream's OpenStopDestinationPanelPatch: clicking a stop button opens the destination
+    /// panel for that stop. Restored in place of the button IPT4 used to inject into its own stop
+    /// panel - the feature now drives itself end to end, exactly as the original mod does.
+    ///
+    /// IPT4 also prefixes this same method (HarmonyPatches/PublicTransportStopButtonPatches) to
+    /// show its own stop panel and skip vanilla's. Both prefixes still run; this one returns true
+    /// and only opens a panel, so the two do not interfere.
     /// </summary>
-    [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "Show", new[] { typeof(UnityEngine.Vector3), typeof(InstanceID) })]
-    internal static class Patch_PublicTransportStopWorldInfoPanel_Show
+    [HarmonyPatch(typeof(PublicTransportStopButton), "OnMouseDown")]
+    internal static class OpenStopDestinationPanelPatch
     {
-        [HarmonyPostfix]
-        public static void Postfix(PublicTransportStopWorldInfoPanel __instance, InstanceID instanceID)
-        {
-            try
-            {
-                if (!ModSetting.Instance.EnableCommuterDestination || !InstanceManager.IsValid(instanceID))
-                {
-                    return;
-                }
-
-                StopPanelButton.EnsureOnPanel(__instance);
-
-                var stopId = instanceID.NetNode;
-                if (stopId == 0)
-                {
-                    return;
-                }
-
-                // Map icons only while stop is open (secondary list is NOT auto-opened).
-                try
-                {
-                    var graph = DestinationGraphGenerator.GenerateGraph(stopId);
-                    DestinationOverlayManager.ActiveGraph = graph;
-                    DestinationOverlayManager.ActiveStopId = stopId;
-                    DestinationOverlayManager.EnsureRegistered();
-                }
-                catch (Exception ex)
-                {
-                    Utils.LogError($"CommuterDestination: graph on Show failed: {ex.Message}");
-                }
-
-                // Secondary panel: only retarget if user already opened it and did not dismiss with X.
-                var panel = CommuterDestinationPanel.Instance;
-                if (panel != null && panel.isVisible && !CommuterDestinationPanel.UserDismissed)
-                {
-                    panel.Show(stopId);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"CommuterDestination: failed on stop Show: {ex.Message}");
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "SetupPanel")]
-    internal static class Patch_PublicTransportStopWorldInfoPanel_SetupPanel
-    {
-        [HarmonyPostfix]
-        public static void Postfix(PublicTransportStopWorldInfoPanel __instance)
+        [HarmonyPrefix]
+        public static bool Prefix(UIComponent component)
         {
             try
             {
                 if (!ModSetting.Instance.EnableCommuterDestination)
                 {
-                    return;
+                    return true;
                 }
 
-                StopPanelButton.EnsureOnPanel(__instance);
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"CommuterDestination: SetupPanel button inject failed: {ex.Message}");
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "ChangeInstanceID")]
-    internal static class Patch_PublicTransportStopWorldInfoPanel_ChangeInstanceID
-    {
-        [HarmonyPostfix]
-        public static void Postfix(InstanceID newID)
-        {
-            try
-            {
-                if (!ModSetting.Instance.EnableCommuterDestination || newID.NetNode == 0)
+                var button = component as UIButton;
+                if (button == null || !(button.objectUserData is ushort))
                 {
-                    return;
+                    return true;
                 }
 
-                var graph = DestinationGraphGenerator.GenerateGraph(newID.NetNode);
-                DestinationOverlayManager.ActiveGraph = graph;
-                DestinationOverlayManager.ActiveStopId = newID.NetNode;
-
-                var panel = CommuterDestinationPanel.Instance;
-                if (panel != null && panel.isVisible && !CommuterDestinationPanel.UserDismissed)
+                var stopId = (ushort)button.objectUserData;
+                var panel = StopDestinationInfoPanel.instance;
+                if (panel != null && stopId != 0)
                 {
-                    panel.Show(newID.NetNode);
+                    panel.Show(stopId);
+                    DestinationOverlayManager.EnsureRegistered();
                 }
             }
             catch (Exception ex)
             {
-                Utils.LogError($"CommuterDestination: failed to sync on stop navigation: {ex.Message}");
+                Utils.LogError($"CommuterDestination: failed to open destination panel: {ex.Message}");
             }
+
+            return true;
         }
     }
-
-    [HarmonyPatch(typeof(PublicTransportStopWorldInfoPanel), "Hide")]
-    internal static class Patch_PublicTransportStopWorldInfoPanel_Hide
-    {
-        [HarmonyPrefix]
-        public static bool Prefix()
-        {
-            // Destinations button click must not close the stop panel in the same frame.
-            return !PatchController.IsSuppressHideActive();
-        }
-
-        [HarmonyPostfix]
-        public static void Postfix()
-        {
-            try
-            {
-                // Only clear when hide really happened (not suppressed).
-                if (PatchController.IsSuppressHideActive())
-                {
-                    return;
-                }
-
-                var stopPanel = PublicTransportStopWorldInfoPanel.instance;
-                if (stopPanel != null && stopPanel.isVisible)
-                {
-                    return;
-                }
-
-                CommuterDestinationPanel.CloseIfOpen();
-                DestinationOverlayManager.ClearOverlay();
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"CommuterDestination: failed on stop Hide: {ex.Message}");
-            }
-        }
-    }
-
-    // A Harmony patch on this type's LateUpdate used to live here, to decay the suppress-hide
-    // counter every frame. Removed (again - a git reset earlier in this session silently undid the
-    // first removal, since it was still uncommitted at the time): Type.GetMethod("LateUpdate", ...)
-    // for this exact override reliably resolves outside the game (verified via a standalone
-    // reflection probe against the built DLL, with the game's own Managed assemblies loaded for
-    // dependency resolution - found cleanly, zero ambiguity, single DeclaredOnly match) but returns
-    // null every time inside the game's own Mono runtime, through AccessTools.Method,
-    // AccessTools.DeclaredMethod, and raw Type.GetMethod alike - all three logged the exact same
-    // failure in-game. Whatever causes this is specific to this old embedded Mono build, not to how
-    // we're looking the method up. Not worth continuing to fight: PatchController.IsSuppressHideActive()
-    // (see PatchController.cs) already self-heals via Time.frameCount - _suppressArmedFrame > 30
-    // without needing this patch to ever run - TickSuppressHide() was only an early-decay nicety,
-    // never load-bearing.
 }

@@ -81,6 +81,10 @@ namespace SharedStopEnabler
                     continue;
                 }
 
+                // m_sortedLanes holds indices into m_lanes ordered by physical lane position (not
+                // declaration order). Everywhere in this file the pattern is m_lanes[m_sortedLanes[i]] -
+                // position -> real lane - matching vanilla usage, so lane data is never picked up
+                // from the wrong array.
                 var firstStopType = network.m_lanes[network.m_sortedLanes[0]].m_stopType;
                 var secondStopType = network.m_lanes[network.m_sortedLanes[network.m_sortedLanes.Length - 1]].m_stopType;
                 var middleStopType = VehicleInfo.VehicleType.None;

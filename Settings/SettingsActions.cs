@@ -59,13 +59,11 @@ namespace ImprovedPublicTransport.Settings
             switch (profile)
             {
                 case ModSetting.GameplayProfiles.Safe:
+                    ApplyAllIntegrationsOff(settings, alsoDisableUiConveniences: false);
+                    break;
+
                 case ModSetting.GameplayProfiles.Vanilla:
-                    ApplyAllIntegrationsOff(settings);
-                    if (profile == ModSetting.GameplayProfiles.Vanilla)
-                    {
-                        // Extra: match base game UX (no auto-open line info either).
-                        settings.ShowLineInfo = false;
-                    }
+                    ApplyAllIntegrationsOff(settings, alsoDisableUiConveniences: true);
                     break;
 
                 case ModSetting.GameplayProfiles.Recommended:
@@ -160,14 +158,26 @@ namespace ImprovedPublicTransport.Settings
             }
         }
 
-        /// <summary>Baseline: every optional integration and mode off (Safe install / profile reset).</summary>
-        private static void ApplyAllIntegrationsOff(ModSetting settings)
+        /// <summary>Baseline: every optional integration and mode off (Safe install / profile reset).
+        /// When alsoDisableUiConveniences is false, UI-only features like ShowLineInfo remain enabled for convenience (Safe profile).
+        /// When true, all non-essential features are disabled including UI conveniences (Vanilla profile / full reset).</summary>
+        private static void ApplyAllIntegrationsOff(ModSetting settings, bool alsoDisableUiConveniences = true)
         {
             settings.WalkingSpeedMode = ModSetting.WalkingSpeedModes.Vanilla;
             settings.BbspLogic = ModSetting.BbspLogicModes.Disabled;
             settings.BudgetControl = ModSetting.BudgetControlModes.Disabled;
             settings.Unbunching = false;
-            settings.ShowLineInfo = false;
+            // ShowLineInfo is a UI convenience: show/hide transit line info in the interface.
+            // Safe profile keeps it ON (helps compatibility, doesn't affect simulation).
+            // Vanilla profile disables it (matches base game feel with no IPT extras).
+            if (alsoDisableUiConveniences)
+            {
+                settings.ShowLineInfo = false;
+            }
+            else
+            {
+                settings.ShowLineInfo = true;
+            }
             settings.TicketPriceCustomizerMode = ModSetting.TicketPriceCustomizerModes.Disabled;
             settings.AutoLineBudgetMode = ModSetting.AutoLineBudgetModes.Disabled;
             settings.TrainDisplayMode = ModSetting.TrainDisplayModes.Disabled;
@@ -678,8 +688,10 @@ namespace ImprovedPublicTransport.Settings
                 }
                 else
                 {
+                    // Deactivate() already clears the map overlay; there is no separate panel to
+                    // close any more (upstream's floating destination list was dropped in favour of
+                    // IPT4's own stop panel).
                     CommuterDestination.PatchController.Deactivate();
-                    CommuterDestination.CommuterDestinationPanel.CloseIfOpen();
                 }
             }
             catch (Exception ex)

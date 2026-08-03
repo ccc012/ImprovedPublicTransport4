@@ -41,21 +41,23 @@ namespace SingleTrainTrackAI
 
             if (SegmentClassifier.IsSingleTrainTrack(currentPos.m_segment))
             {
-                // Already on the shared track - claim it (renews our own hold, releases whatever we
-                // held before if we've moved to a different segment since last tick) and proceed at
-                // normal speed; we got here because nothing blocked us from entering.
-                TrackReservation.Occupy(currentPos.m_segment, vehicleID, currentFrame);
+                // Already on the shared track - claim the whole section it belongs to (renews our
+                // own hold, releases whatever section we held before if we've moved out of it since
+                // last tick) and proceed at normal speed; we got here because nothing blocked us
+                // from entering.
+                TrackReservation.Occupy(SectionClassifier.GetSection(currentPos.m_segment), vehicleID, currentFrame);
                 return;
             }
 
-            // Not on a shared segment yet - if the very next one is single-track and held by a
-            // different train, brake rather than enter it.
+            // Not on a shared segment yet - if the very next one is single-track and its section is
+            // held by a different train, brake rather than enter it.
             if (!pathManager.m_pathUnits.m_buffer[data.m_path].GetNextPosition(pathIndex, out var nextPos))
             {
                 return;
             }
 
-            if (SegmentClassifier.IsSingleTrainTrack(nextPos.m_segment) && TrackReservation.IsHeldByOther(nextPos.m_segment, vehicleID))
+            if (SegmentClassifier.IsSingleTrainTrack(nextPos.m_segment) &&
+                TrackReservation.IsHeldByOther(SectionClassifier.GetSection(nextPos.m_segment), vehicleID))
             {
                 // Soft brake: hard 0 froze trains for long periods when reservations went stale or
                 // when same-direction followers queued behind a slow train still on the segment.

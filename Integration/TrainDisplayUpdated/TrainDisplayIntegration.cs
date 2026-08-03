@@ -29,9 +29,21 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             internal bool HasContent;
             /// <summary>Next stop / primary destination title (max 2 lines in UI).</summary>
             internal string Destination;
+            /// <summary>
+            /// The vehicle's immediate next stop on the line (LED-sign style "next stop"
+            /// indicator) — distinct from <see cref="Destination"/>, which is the line's
+            /// terminus. Updates as the vehicle advances from stop to stop.
+            /// </summary>
+            internal string NextStop;
             /// <summary>Current line name (IPT change vs original "next" subtitle) — large italic.</summary>
             internal string LineName;
             internal Color32 LineColor;
+            /// <summary>
+            /// The stop the vehicle is at / has just left - i.e. the one before
+            /// RouteStopNames[0]. Only the detailed layout uses it, which lists the current
+            /// stop first and the approaching one second.
+            /// </summary>
+            internal string CurrentStop;
             internal string[] RouteStopNames;
             internal int RouteCurrentIndex;
             // Optional extras (default off / unused in base panel; reserved for expand-up later).
@@ -218,6 +230,14 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             data.Elapsed = FormatElapsedTime(trackedSeconds);
 
             BuildRouteStrip(lineId, vehicle.m_targetBuilding, ref data);
+
+            // Next-stop indicator: the route strip's first entry is already resolved from
+            // vehicle.m_targetBuilding (the stop the vehicle is currently approaching — same
+            // field DepartureChecker/TransportLineUtil treat as "approaching stop" elsewhere in
+            // this codebase), so reuse it instead of re-walking the line a second time.
+            data.NextStop = data.RouteStopNames != null && data.RouteStopNames.Length > 0
+                ? data.RouteStopNames[0]
+                : Localization.Get("TRAINDISPLAY_NO_DESTINATION");
             return true;
         }
 
@@ -288,6 +308,16 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
 
             data.RouteStopNames = result;
             data.RouteCurrentIndex = 0; // startStop is "current" (approaching)
+
+            // The stop behind startStop: where the vehicle is now, as opposed to where it is
+            // heading. Resolved by name only and kept out of RouteStopNames so the classic
+            // layout's rail indices are unaffected.
+            var previousStop = global::TransportLine.GetPrevStop(startStop);
+            if (previousStop != 0)
+            {
+                var previousName = instanceManager.GetName(new InstanceID { NetNode = previousStop });
+                data.CurrentStop = string.IsNullOrEmpty(previousName) ? "?" : previousName;
+            }
         }
 
         // A 1x1 white pixel, tinted via GUI.color to draw a flat, accurate solid-colour box.
@@ -329,11 +359,235 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             EnsureGuiStyles();
             // ONE panel only (Workshop 3233229958 style). Themes only recolour the face —
             // never a second full-screen HUD bar.
+            if (TrainDisplayRuntimeConfig.Layout == ModSetting.TrainDisplayLayouts.Detailed)
+            {
+                DrawDetailedPanel(data);
+                return;
+            }
+
             DrawSingleCornerPanel(data);
         }
 
         private static Color MultiplyAlpha(Color color, float alphaMultiplier) =>
             new Color(color.r, color.g, color.b, color.a * alphaMultiplier);
+
+        /// <summary>
+        /// Alternative "detailed" layout, drawn to a mock-up supplied by the user: a line-coloured
+        /// header carrying four metrics, then a next-stop strip, the line name, a rail of stop dots,
+        /// and the upcoming stop list. Same IMGUI primitives and the same data as the classic
+        /// panel - only the arrangement differs, so neither layout costs more than the other.
+        /// </summary>
+        private static void DrawDetailedPanel(OverlayData data)
+        {
+            var scale = TrainDisplayRuntimeConfig.DrawScale;
+            var opacity = GetOverlayOpacity();
+            var face = TrainDisplayRuntimeConfig.PanelFaceColor;
+            var ink = TrainDisplayRuntimeConfig.PanelInkColor;
+            var lineColor = new Color(data.LineColor.r / 255f, data.LineColor.g / 255f, data.LineColor.b / 255f, 1f);
+
+            var fields = TrainDisplayRuntimeConfig.VisibleFields;
+            var showLine = (fields & ModSetting.TrainDisplayFields.Line) != 0
+                           && !string.IsNullOrEmpty(data.LineName);
+            var showNextStop = (fields & ModSetting.TrainDisplayFields.NextStop) != 0
+                               && !string.IsNullOrEmpty(data.NextStop);
+
+            // Header metrics reuse the same four fields (and the same Options checkboxes) the
+            // classic panel's extras strip uses, so turning one off hides it in both layouts.
+            var labels = new string[4];
+            var values = new string[4];
+            var metricCount = 0;
+            if ((fields & ModSetting.TrainDisplayFields.State) != 0 && !string.IsNullOrEmpty(data.Status))
+            {
+                labels[metricCount] = Localization.Get("TRAINDISPLAY_LABEL_STATUS");
+                values[metricCount++] = data.Status;
+            }
+
+            if ((fields & ModSetting.TrainDisplayFields.Speed) != 0 && !string.IsNullOrEmpty(data.Speed))
+            {
+                labels[metricCount] = Localization.Get("TRAINDISPLAY_LABEL_SPEED");
+                values[metricCount++] = data.Speed;
+            }
+
+            if ((fields & ModSetting.TrainDisplayFields.Passengers) != 0 && !string.IsNullOrEmpty(data.Passengers))
+            {
+                labels[metricCount] = Localization.Get("VEHICLE_PANEL_PASSENGERS");
+                values[metricCount++] = data.Passengers;
+            }
+
+            if ((fields & ModSetting.TrainDisplayFields.Elapsed) != 0 && !string.IsNullOrEmpty(data.Elapsed))
+            {
+                labels[metricCount] = Localization.Get("TRAINDISPLAY_LABEL_TIME");
+                values[metricCount++] = data.Elapsed;
+            }
+
+            // The list reads as a timetable: where the vehicle is now, then where it is going,
+            // then the three after that - five rows at most. The approaching stop deliberately
+            // appears here as well as in the strip above; the strip is the headline, this is the
+            // sequence it sits in.
+            var upcoming = data.RouteStopNames ?? _emptyRouteStops;
+            var listStops = new string[5];
+            var stopRows = 0;
+            if (!string.IsNullOrEmpty(data.CurrentStop))
+            {
+                listStops[stopRows++] = data.CurrentStop;
+            }
+
+            for (var i = 0; i < upcoming.Length && stopRows < 5; i++)
+            {
+                listStops[stopRows++] = upcoming[i];
+            }
+
+            var panelW = 280f * scale;
+            var pad = 8f * scale;
+            var headerH = metricCount > 0 ? 34f * scale : 0f;
+            var nextStopH = showNextStop ? 32f * scale : 0f;
+            var lineNameH = showLine ? 24f * scale : 0f;
+            var railH = stopRows > 1 ? 14f * scale : 0f;
+            var rowH = 14f * scale;
+            var bodyH = pad + lineNameH + railH + (stopRows * rowH) + pad;
+            var totalH = headerH + nextStopH + bodyH;
+
+            var panelRect = GetCornerPanelRect(panelW, totalH);
+
+            var previousColor = GUI.color;
+            var previousContentColor = GUI.contentColor;
+
+            // —— Header (line colour, white ink) ——
+            var y = panelRect.y;
+            if (metricCount > 0)
+            {
+                var headerRect = new Rect(panelRect.x, y, panelW, headerH);
+                DrawSolidBox(headerRect, MultiplyAlpha(lineColor, opacity));
+
+                GUI.color = new Color(1f, 1f, 1f, opacity);
+                GUI.contentColor = Color.white;
+                _smallStyle.fontSize = Mathf.RoundToInt(9f * scale);
+                _smallStyle.normal.textColor = new Color(1f, 1f, 1f, 0.8f);
+                _smallStyle.alignment = TextAnchor.UpperLeft;
+                _valueStyle.fontSize = Mathf.RoundToInt(11f * scale);
+                _valueStyle.fontStyle = FontStyle.Bold;
+                _valueStyle.normal.textColor = Color.white;
+                _valueStyle.alignment = TextAnchor.UpperLeft;
+
+                var colW = (panelW - pad * 2f) / metricCount;
+                for (var i = 0; i < metricCount; i++)
+                {
+                    var colX = panelRect.x + pad + (i * colW);
+                    GUI.Label(new Rect(colX, y + 4f * scale, colW - 2f * scale, 11f * scale),
+                        labels[i].ToUpper(), _smallStyle);
+                    // Each metric gets a narrow column, so values are clipped hard rather than
+                    // allowed to run into the neighbouring one.
+                    GUI.Label(new Rect(colX, y + 15f * scale, colW - 2f * scale, 14f * scale),
+                        TruncateToLines(values[i], 1, 12), _valueStyle);
+                }
+
+                y += headerH;
+            }
+
+            // —— Next stop strip (panel face, ink) ——
+            if (showNextStop)
+            {
+                var stripRect = new Rect(panelRect.x, y, panelW, nextStopH);
+                DrawSolidBox(stripRect, MultiplyAlpha(face, opacity));
+
+                GUI.color = new Color(1f, 1f, 1f, opacity);
+                GUI.contentColor = ink;
+                _smallStyle.fontSize = Mathf.RoundToInt(9f * scale);
+                _smallStyle.normal.textColor = MultiplyAlpha(ink, 0.7f);
+                _smallStyle.alignment = TextAnchor.UpperLeft;
+                _headerStyle.fontSize = Mathf.RoundToInt(13f * scale);
+                _headerStyle.normal.textColor = ink;
+                _headerStyle.alignment = TextAnchor.UpperLeft;
+
+                GUI.Label(new Rect(panelRect.x + pad, y + 3f * scale, panelW - pad * 2f, 11f * scale),
+                    Localization.Get("TRAINDISPLAY_LABEL_NEXTSTOP").ToUpper(), _smallStyle);
+                GUI.Label(new Rect(panelRect.x + pad, y + 14f * scale, panelW - pad * 2f, 16f * scale),
+                    TruncateToLines(data.NextStop, 1, 30), _headerStyle);
+
+                y += nextStopH;
+            }
+
+            // —— Body (panel face, ink) ——
+            var bodyRect = new Rect(panelRect.x, y, panelW, bodyH);
+            DrawSolidBox(bodyRect, MultiplyAlpha(face, opacity));
+            // Hairline between the strip and the body, same idea as the classic panel's join.
+            if (showNextStop)
+            {
+                DrawSolidBox(new Rect(panelRect.x, y, panelW, 1f * scale),
+                    MultiplyAlpha(new Color(0f, 0f, 0f, 0.18f), opacity));
+            }
+
+            GUI.color = new Color(1f, 1f, 1f, opacity);
+            GUI.contentColor = ink;
+            var contentLeft = panelRect.x + pad;
+            var contentW = panelW - pad * 2f;
+            var bodyY = y + pad;
+
+            if (showLine)
+            {
+                _lineNameStyle.fontSize = Mathf.RoundToInt(17f * scale);
+                _lineNameStyle.normal.textColor = ink;
+                _lineNameStyle.alignment = TextAnchor.UpperLeft;
+                GUI.Label(new Rect(contentLeft, bodyY, contentW, lineNameH),
+                    TruncateToLines(data.LineName, 1, 30), _lineNameStyle);
+                bodyY += lineNameH;
+            }
+
+            // —— Stop rail: a dot per upcoming stop, joined by connector bars ——
+            if (stopRows > 1)
+            {
+                var dot = 7f * scale;
+                var bigDot = 9f * scale;
+                var railY = bodyY + (railH - dot) * 0.5f;
+                var gap = stopRows > 1 ? (contentW - bigDot) / (stopRows - 1) : 0f;
+                var railInk = MultiplyAlpha(lineColor, opacity);
+                for (var i = 0; i < stopRows; i++)
+                {
+                    var cx = contentLeft + (i * gap);
+                    if (i < stopRows - 1)
+                    {
+                        DrawSolidBox(new Rect(cx + bigDot, bodyY + railH * 0.5f - 1f * scale,
+                            Mathf.Max(1f, gap - bigDot), 2f * scale), railInk);
+                    }
+
+                    // The first dot is the stop the vehicle is heading to, drawn larger so the
+                    // player can see progress along the line at a glance.
+                    var size = i == 0 ? bigDot : dot;
+                    var offset = i == 0 ? 0f : (bigDot - dot) * 0.5f;
+                    DrawSolidBox(new Rect(cx + offset, railY + (i == 0 ? -1f * scale : 0f), size, size), railInk);
+                }
+
+                bodyY += railH;
+            }
+
+            // —— Upcoming stop list ——
+            _stopLabelStyle.fontSize = Mathf.RoundToInt(11f * scale);
+            _stopLabelStyle.normal.textColor = ink;
+            _stopLabelStyle.alignment = TextAnchor.UpperLeft;
+            _tinyStyle.fontSize = Mathf.RoundToInt(11f * scale);
+            _tinyStyle.normal.textColor = MultiplyAlpha(lineColor, opacity);
+            _tinyStyle.alignment = TextAnchor.UpperLeft;
+
+            var iconW = 14f * scale;
+            for (var i = 0; i < stopRows; i++)
+            {
+                var name = listStops[i];
+                if (string.IsNullOrEmpty(name))
+                {
+                    continue;
+                }
+
+                // Filled dot for where the vehicle is, then decreasing emphasis going forward.
+                var marker = i == 0 ? "●" : (i == 1 ? "→" : (i == 2 ? "↘" : "↓"));
+                GUI.Label(new Rect(contentLeft, bodyY, iconW, rowH), marker, _tinyStyle);
+                GUI.Label(new Rect(contentLeft + iconW, bodyY, contentW - iconW, rowH),
+                    TruncateToLines(name, 1, 32), _stopLabelStyle);
+                bodyY += rowH;
+            }
+
+            GUI.color = previousColor;
+            GUI.contentColor = previousContentColor;
+        }
 
         /// <summary>
         /// Single corner LCD (Workshop 3233229958 style). No second top-of-screen panel.
@@ -353,12 +607,19 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             var showDest = (fields & ModSetting.TrainDisplayFields.Destination) != 0;
             var showLine = (fields & ModSetting.TrainDisplayFields.Line) != 0
                            && !string.IsNullOrEmpty(data.LineName);
+            var showNextStop = (fields & ModSetting.TrainDisplayFields.NextStop) != 0
+                           && !string.IsNullOrEmpty(data.NextStop);
             var extrasOn = TrainDisplayRuntimeConfig.ShowExtrasStrip;
 
             var panelW = 320f * scale;
-            // Shrink base panel when destination / line name are hidden so empty space
-            // does not remain under the extras strip.
+            // Shrink base panel when destination / line name / next-stop are hidden so empty
+            // space does not remain under the extras strip.
             var panelH = 72f * scale; // route rail + padding minimum
+            if (showNextStop)
+            {
+                panelH += 40f * scale;
+            }
+
             if (showDest)
             {
                 panelH += 44f * scale;
@@ -461,6 +722,32 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             GUI.contentColor = ink;
 
             var y = contentTop;
+
+            // —— Next-stop indicator (LED-sign style, the flagship feature of the original
+            // Workshop 3233229958 mod) — always the topmost line so it reads first, like a real
+            // vehicle head-sign. Distinct from Destination (line terminus) below it. ——
+            if (showNextStop)
+            {
+                _smallStyle.fontSize = Mathf.RoundToInt(10f * scale);
+                _smallStyle.fontStyle = FontStyle.Bold;
+                _smallStyle.normal.textColor = MultiplyAlpha(ink, 0.75f);
+                _smallStyle.alignment = TextAnchor.UpperLeft;
+                _smallStyle.wordWrap = false;
+                _smallStyle.clipping = TextClipping.Clip;
+                var tagH = 14f * scale;
+                GUI.Label(new Rect(contentLeft, y, contentW, tagH), Localization.Get("TRAINDISPLAY_LABEL_NEXTSTOP"), _smallStyle);
+                y += tagH;
+
+                _headerStyle.fontSize = Mathf.RoundToInt(19f * scale);
+                _headerStyle.fontStyle = FontStyle.Bold;
+                _headerStyle.normal.textColor = lineColor;
+                _headerStyle.wordWrap = true;
+                _headerStyle.alignment = TextAnchor.UpperLeft;
+                _headerStyle.clipping = TextClipping.Clip;
+                var valueH = 24f * scale;
+                GUI.Label(new Rect(contentLeft, y, contentW, valueH), TruncateToLines(data.NextStop, 1, 30), _headerStyle);
+                y += valueH + 2f * scale;
+            }
 
             if (showDest)
             {

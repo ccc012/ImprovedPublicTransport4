@@ -21,6 +21,8 @@ namespace ImprovedPublicTransport
         public enum TicketPriceCustomizerModes { Disabled = 0, Enabled = 1 }
         public enum AutoLineBudgetModes { Disabled = 0, Enabled = 1 }
         public enum TrainDisplayModes { Disabled = 0, Enabled = 1 }
+        /// <summary>Which arrangement the overlay is drawn in. Both use the same data and fields.</summary>
+        public enum TrainDisplayLayouts { Classic = 0, Detailed = 1 }
         public enum TrainDisplayOverlayPositions { TopLeft = 0, TopRight = 1, BottomLeft = 2, BottomRight = 3 }
         [Flags]
         public enum TrainDisplayFields
@@ -32,6 +34,10 @@ namespace ImprovedPublicTransport
             Speed = 8,
             Passengers = 16,
             Elapsed = 32,
+            // Prominent "next stop" LED-style readout (the vehicle's immediate next stop on the
+            // line, not the terminus) — the flagship feature of the original Workshop 3233229958
+            // mod that IPT4's rewrite had dropped. See TrainDisplayIntegration.ResolveNextStopName.
+            NextStop = 64,
             // Extra strip (line-coloured) appears when any of these is on.
             ExtrasMask = State | Speed | Passengers | Elapsed,
         }
@@ -54,7 +60,7 @@ namespace ImprovedPublicTransport
             BlackSemi = 7,
         }
         public enum ExpressBusServicesModes { None = 0, Prudential = 1, Aggressive = 2 }
-        public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2, StreetCar = 3 }
+        public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
         public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
         public enum AutoLineColorNamingStrategy { Disabled = 0, Districts = 1, London = 2, Roads = 3, NamedColors = 4 }
         public enum VehicleEditorPositions { Bottom = 0, Right = 1 }
@@ -117,6 +123,8 @@ namespace ImprovedPublicTransport
         public bool EnableTicketPathfindingCost { get; set; } = false;
         public AutoLineBudgetModes AutoLineBudgetMode { get; set; } = AutoLineBudgetModes.Disabled;
         public TrainDisplayModes TrainDisplayMode { get; set; } = TrainDisplayModes.Disabled;
+        // Classic keeps the layout every existing install already has; Detailed is opt-in.
+        public TrainDisplayLayouts TrainDisplayLayout { get; set; } = TrainDisplayLayouts.Classic;
         // Original Train Display (3233229958) sits bottom-left; one corner panel only.
         public TrainDisplayOverlayPositions TrainDisplayOverlayPosition { get; set; } = TrainDisplayOverlayPositions.BottomLeft;
         // Default 200% so the unified overlay is readable at native UI scale; options slider is 100–200%.
@@ -126,7 +134,7 @@ namespace ImprovedPublicTransport
         public float TrainDisplayOverlayOpacity { get; set; } = 0.85f;
         // 250ms default — snappier sub-200ms defaults contributed to hitch reports in 4.8.
         public float TrainDisplayUpdateInterval { get; set; } = 0.25f;
-        public TrainDisplayFields TrainDisplayVisibleFields { get; set; } = TrainDisplayFields.Line | TrainDisplayFields.Destination | TrainDisplayFields.State;
+        public TrainDisplayFields TrainDisplayVisibleFields { get; set; } = TrainDisplayFields.Line | TrainDisplayFields.Destination | TrainDisplayFields.State | TrainDisplayFields.NextStop;
         // Original matches the source mod's own look (header strip + line-coloured route strip) -
         // that's what screenshots of "the real Train Display" are compared against, so it should be
         // what players see without having to discover and change a theme dropdown first.
@@ -188,21 +196,6 @@ namespace ImprovedPublicTransport
         // Off by default - rewrites shared global road-prefab data (higher risk class).
         public bool EnableSharedStopEnabler { get; set; } = false;
         public bool EnableCommuterDestination { get; set; } = false;
-
-        /// <summary>
-        /// Map / scan detail for Commuter Destination.
-        /// Performance = few icons, faster refresh (default).
-        /// FullMap = show as many destination icons as possible; refresh is slower (better for
-        /// weaker PCs that still want full map info, or anyone who prefers completeness over snappiness).
-        /// </summary>
-        public enum CommuterDestinationMapDetails
-        {
-            Performance = 0,
-            FullMap = 1,
-        }
-
-        public CommuterDestinationMapDetails CommuterDestinationMapDetail { get; set; } =
-            CommuterDestinationMapDetails.Performance;
 
         /// <summary>
         /// When true, PT vehicles with passengers cannot leave their line for the depot until empty.
