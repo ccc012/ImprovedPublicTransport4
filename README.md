@@ -1,6 +1,6 @@
 # Improved Public Transport 4
 
-**Version 4.8.6** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
+**Version 4.8.8** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
 
 IPT4 is a fork of [Improved Public Transport 3](https://github.com/TheMadisonian/ImprovedPublicTransport3)
 that absorbs other public-transport mods into a **single assembly**. The goal is not
@@ -9,8 +9,10 @@ it, and that class of conflict is what motivated this fork (see
 [Why this fork exists](#why-this-fork-exists)).
 
 - **Workshop page:** https://steamcommunity.com/sharedfiles/filedetails/?id=3773802930
+- **Download without Steam:** [GitHub Releases](https://github.com/ccc012/ImprovedPublicTransport4/releases/latest) — grab the source zip for the current version, or clone the repo (see [Building](#building) below)
 - **Player-facing release notes:** the Workshop changelog
 - **Developer release notes:** [`CHANGELOG.md`](CHANGELOG.md) — root cause, affected class, why it was not obvious
+- **Support the author:** [Ko-fi](https://ko-fi.com/ccc02)
 
 > This is a personal fork maintained for one player's setup. It is public so the
 > work is inspectable and reusable, not because it is a supported product.
