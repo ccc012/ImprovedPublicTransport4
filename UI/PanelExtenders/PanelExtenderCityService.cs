@@ -60,20 +60,25 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         ItemClass.Service service = instance1.m_buildings.m_buffer[(int) building].Info.GetService();
         ItemClass.Level level = instance1.m_buildings.m_buffer[(int) building].Info.GetClassLevel();
 
-        switch (subService)
+        // The prefab's own ItemClass subService is a single fixed value and is not always a
+        // reliable signal on its own: dual-purpose depots/stations (TransportStationAI or DepotAI
+        // with both m_transportInfo and m_secondaryTransportInfo set to two DIFFERENT transport
+        // types, e.g. a combined metro-tram hub) sometimes leave the class subService generic or
+        // set to only one of the two real services. Reading only the class subService then made
+        // this whole extra panel silently disappear for such buildings, even though a plain
+        // single-service depot/station with the "right" subService worked fine. Same
+        // primary/AI-first, class-as-fallback precedence DepotCapacityPatch already uses instead
+        // of trusting the class alone.
+        bool isPublicTransportBuilding = IsPublicTransportSubService(subService);
+        if (!isPublicTransportBuilding)
         {
-          case ItemClass.SubService.PublicTransportBus:
-          case ItemClass.SubService.PublicTransportTours:
-          case ItemClass.SubService.PublicTransportMetro:
-          case ItemClass.SubService.PublicTransportTrain:
-          case ItemClass.SubService.PublicTransportShip:
-          case ItemClass.SubService.PublicTransportPlane:
-          case ItemClass.SubService.PublicTransportMonorail:
-          case ItemClass.SubService.PublicTransportTrolleybus:
-          case ItemClass.SubService.PublicTransportTaxi:
-          case ItemClass.SubService.PublicTransportCableCar:
-          case ItemClass.SubService.PublicTransportTram:
-          {
+          DepotAI fallbackDepotAi = instance1.m_buildings.m_buffer[(int) building].Info.m_buildingAI as DepotAI;
+          isPublicTransportBuilding = fallbackDepotAi != null
+            && (fallbackDepotAi.m_transportInfo != null || fallbackDepotAi.m_secondaryTransportInfo != null);
+        }
+
+        if (isPublicTransportBuilding)
+        {
             // Stations → stop list. Depots (or stations with no stop nodes but own fleet) → vehicle list.
             ushort[] stationStops = CollectStationStops(building, instance1);
             bool hasStops = stationStops != null && stationStops.Length > 0;
@@ -147,12 +152,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             {
               this._listBoxPanel.Hide();
             }
-
-            break;
-          }
-          default:
-            this._listBoxPanel.Hide();
-            break;
+        }
+        else
+        {
+          this._listBoxPanel.Hide();
         }
         this._cachedBuildingID = building;
       }
@@ -202,6 +205,33 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       vehicleListBox.height = parentHeight - 61f;
       vehicleListBox.Font = UIUtils.Font;
       this._vehicleListBox = vehicleListBox;
+    }
+
+    /// <summary>
+    /// Whether the prefab's own (single-valued) ItemClass subService identifies it as some kind of
+    /// public-transport depot/station. Kept as a fast first check; buildings that fail this (e.g.
+    /// combo hub prefabs whose class subService doesn't map to either of their two real transport
+    /// slots) still get a chance via the AI-based fallback in <see cref="Update"/>.
+    /// </summary>
+    private static bool IsPublicTransportSubService(ItemClass.SubService subService)
+    {
+      switch (subService)
+      {
+        case ItemClass.SubService.PublicTransportBus:
+        case ItemClass.SubService.PublicTransportTours:
+        case ItemClass.SubService.PublicTransportMetro:
+        case ItemClass.SubService.PublicTransportTrain:
+        case ItemClass.SubService.PublicTransportShip:
+        case ItemClass.SubService.PublicTransportPlane:
+        case ItemClass.SubService.PublicTransportMonorail:
+        case ItemClass.SubService.PublicTransportTrolleybus:
+        case ItemClass.SubService.PublicTransportTaxi:
+        case ItemClass.SubService.PublicTransportCableCar:
+        case ItemClass.SubService.PublicTransportTram:
+          return true;
+        default:
+          return false;
+      }
     }
 
     public static ushort[] GetStationStops(ushort buildingID)

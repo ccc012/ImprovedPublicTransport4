@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ColossalFramework;
+using ImprovedPublicTransport.ReverseDetours;
 using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
@@ -23,6 +24,8 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
         private static ushort _cacheBuildingId;
         private static int _cacheCount = -1;
         private static int _cacheMax = -1;
+        private static int? _cacheCount2;
+        private static int? _cacheMax2;
         private static string _cacheResult;
 
         public static void Apply()
@@ -75,7 +78,31 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                     max = cap;
                 }
 
+                // Dual-purpose depots (e.g. a combined bus+tram garage) also expose a second
+                // vehicle slot via m_secondaryTransportInfo/m_maxVehicleCount2. GetVehicleCount()
+                // above only reflects the primary slot's TransferReason, so without this the
+                // secondary fleet's occupancy line was silently missing from the panel entirely -
+                // not wrong, just absent, same as the un-appended stops in
+                // PanelExtenderCityService.CollectStationStops before that fix.
+                int? count2 = null;
+                int? max2 = null;
+                var cap2 = __instance.m_maxVehicleCount2;
+                if (__instance.m_secondaryTransportInfo != null && cap2 > 0 && cap2 < 100000)
+                {
+                    var secondaryCount = GetVehicleCountForSlot(
+                        __instance, buildingID, ref data, __instance.m_secondaryTransportInfo);
+                    var secondaryMax = (productionRate * cap2 + 99) / 100;
+                    if (secondaryMax <= 0)
+                    {
+                        secondaryMax = cap2;
+                    }
+
+                    count2 = secondaryCount;
+                    max2 = secondaryMax;
+                }
+
                 if (buildingID == _cacheBuildingId && count == _cacheCount && max == _cacheMax
+                    && count2 == _cacheCount2 && max2 == _cacheMax2
                     && !string.IsNullOrEmpty(_cacheResult))
                 {
                     __result = _cacheResult;
@@ -83,16 +110,44 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                 }
 
                 var line = BuildOccupancyLine(__instance.m_transportInfo, count, max);
+                if (count2.HasValue && max2.HasValue)
+                {
+                    // Combine both lines into a single block before handing it to
+                    // AppendOrReplaceVehicleLine - calling it twice in a row would strip the
+                    // first line back out, since it also "looks like" a depot vehicle line.
+                    var line2 = BuildOccupancyLine(__instance.m_secondaryTransportInfo, count2.Value, max2.Value);
+                    line = line + Environment.NewLine + line2;
+                }
+
                 __result = AppendOrReplaceVehicleLine(__result, line);
                 _cacheBuildingId = buildingID;
                 _cacheCount = count;
                 _cacheMax = max;
+                _cacheCount2 = count2;
+                _cacheMax2 = max2;
                 _cacheResult = __result;
             }
             catch (Exception ex)
             {
                 Utils.LogError($"DepotStatsDisplayPatch: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Counts owned vehicles matching a specific transport slot's <see cref="TransferReason"/>
+        /// (primary or secondary), instead of <see cref="DepotAI.GetVehicleCount"/> which only
+        /// resolves the primary slot. Goes through the same private
+        /// <c>CommonBuildingAI.CalculateOwnVehicles</c> vanilla itself uses, via
+        /// <see cref="CommonBuildingAIReverseDetour"/>.
+        /// </summary>
+        private static int GetVehicleCountForSlot(
+            DepotAI depotAi, ushort buildingID, ref Building data, TransportInfo slotInfo)
+        {
+            int count = 0, cargo = 0, capacity = 0, outside = 0;
+            CommonBuildingAIReverseDetour.CalculateOwnVehicles(
+                depotAi, buildingID, ref data, slotInfo.m_vehicleReason,
+                ref count, ref cargo, ref capacity, ref outside);
+            return count;
         }
 
         /// <summary>
