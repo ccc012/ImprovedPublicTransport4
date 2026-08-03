@@ -64,7 +64,7 @@ SETTINGS_TAB_GENERAL General
 SETTINGS_ADVANCED_LINKS_GROUP Links
 SETTINGS_GITHUB_REPO Source code on GitHub
 SETTINGS_TAB_AUTOLINE Auto Line
-SETTINGS_TAB_STOPS Stops and Stations
+SETTINGS_TAB_STOPS Waiting passenger limits
 SETTINGS_TAB_UNBUNCHING Unbunching
 SETTINGS_TAB_DELETE Delete Lines
 SETTINGS_TAB_FLEET Fleet & Scheduling
@@ -82,13 +82,13 @@ SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla — base game feel
 SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Recommended — IPT core
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistic — most features
 SETTINGS_PERFORMANCE_PROFILE Performance profile
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Train Display refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget for heavy UI and scans (Vehicle route panel refresh, Commuter Destination map/list, similar work).\nLight: minimize hitch risk — fewer icons, slower refresh.\nNormal: balanced (default).\nMaximum: fullest detail and snappier overlays; may cost FPS on weaker PCs.
 SETTINGS_PERFORMANCE_PROFILE_LIGHT Light (smoother)
 SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanced)
 SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximum (full detail)
 SETTINGS_TAB_PERFORMANCE Performance
 SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Train Display and Commuter Destination. Some other integrations still need a map reload.
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Light if UI or overlays hitch; Maximum only if your PC is strong. Changes apply immediately to Vehicle route panel and Commuter Destination. Some other integrations still need a map reload.
 SETTINGS_TAB_FLEET_SHORT Fleet
 SETTINGS_TAB_STOPS_SHORT Stops
 SETTINGS_TAB_OVERLAY_SHORT Overlay
@@ -120,7 +120,7 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
 SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
 SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Fullwidth digit repair
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
 SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
@@ -163,7 +163,7 @@ SETTINGS_WALKING_SPEED Walking/Cycling Speed:
 SETTINGS_WALKING_SPEED_TOOLTIP Standard: base game speeds.\nRealistic: reduces walking speed to realistic, age-based values.\nRealistic also reduces cycling speed with After Dark DLC.
 SETTINGS_WALKING_SPEED_MODE_VANILLA Standard
 SETTINGS_WALKING_SPEED_MODE_REALISTIC Realistic
-SETTINGS_BBSP Better Bus Stop Position: 
+SETTINGS_BBSP Bus stop kerb alignment: 
 SETTINGS_BBSP_TOOLTIP Disabled: no positioning adjustment.\nEnabled: buses stop at the front of the bus stop instead of the center.
 SETTINGS_BBSP_MODE_DISABLED Disabled
 SETTINGS_BBSP_MODE_ORIGINAL Enabled
@@ -177,7 +177,7 @@ SETTINGS_BUDGET_TICKET_PRICES Ticket Price Customizer:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Disabled
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Enabled
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP When enabled, adds a new tab to Economy panel with sliders to adjust ticket prices for each transport type.
-SETTINGS_AUTO_LINE_BUDGET Automatic Fleet Sizing:
+SETTINGS_AUTO_LINE_BUDGET Automatic fleet sizing:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Disabled
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Enabled
 SETTINGS_AUTO_LINE_BUDGET_TOOLTIP When enabled, lines in Budget mode automatically adjust their vehicle count based on real passenger demand, instead of the vanilla budget slider. Lines set to Manual are never touched.
@@ -258,8 +258,8 @@ SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Resets all sliders back to default.
 UNBUNCHING_ENABLED Vehicle unbunching
 UNBUNCHING_DISABLED Unbunching is disabled.
 UNBUNCHING_TARGET_GAP Target gap: {0}
-SETTINGS_EBS_GROUP_BUS Express Bus Services
-SETTINGS_EBS_GROUP_TRAM Express Tram Services
+SETTINGS_EBS_GROUP_BUS Express skip-stop service
+SETTINGS_EBS_GROUP_TRAM Express skip-stop service (tram)
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Express Bus: 
 SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Disabled' = Buses use unbunching settings from above.\n'Prudential' = Stops briefly, checks passengers, may depart if empty.\n'Aggressive' = Skips stops entirely if no passengers waiting.
 SETTINGS_EBS_ENABLE_SELFBAL Enable Service Self-Balancing
@@ -279,7 +279,7 @@ SETTINGS_EBS_MODE_PRUDENTIAL Prudential
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Every stop (realistic)
 SETTINGS_EBS_TRAM_MODE_NONE Disabled
 SETTINGS_EBS_TRAM_MODE_TRAM Express skip
-SETTINGS_PTU_GROUP Public Transport Unstucker
+SETTINGS_PTU_GROUP Stuck vehicle recovery
 SETTINGS_PTU_ENABLE Despawn stuck passengers
 SETTINGS_PTU_TOOLTIP Auto-despawns passengers that become stuck attempting to board transport vehicles, allowing the vehicle to depart normally and preventing frozen departures.
 SETTINGS_LINE_DELETION_TOOL Lines Deletion Tool
@@ -337,7 +337,7 @@ VEHICLE_SELECTION_SELECTED_VEHICLES Selected vehicles
 VEHICLE_SELECTION_ANY_VEHICLE Any vehicle
 VEHICLE_BUTTON_TOOLTIP {0}\n\nClick to jump to this vehicle.\nHolding down a shift key when clicking will also zoom in.\nHoling down an alt key when clicking will prevent opening the vehicle info panel.
 TRANSPORT_LINE_VEHICLECOUNT Vehicle count: {0}
-FLIGHT_TRACKER_NAME Flight Tracker
+FLIGHT_TRACKER_NAME Airport flight board
 FLIGHT_STATUS_NONE None
 FLIGHT_STATUS_INCOMING Incoming
 FLIGHT_STATUS_LANDED Landed
@@ -364,12 +364,12 @@ ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Total current passenger count 
 WHATSNEW_3_0_0_1 Updated for Race Day; now compatible with More Vehicles Renewed.
 WHATSNEW_3_0_0_2 The following mods have been integrated into IPT3:\n â€¢ Advanced Stop Selection Revisited\n â€¢ Auto Line Color Redux\n â€¢ Better Bus Stop Position\n â€¢ Better Train Boarding\n â€¢ Elevated Stops Enabler Revisited  \n â€¢ Express Bus Services\n â€¢ Flight Tracker\n â€¢ Intercity Bus Control\n â€¢ Mileage Taxi Services\n â€¢ Public Transport Unstucker\n â€¢ Realistic Walking Speed\n â€¢ Stops and Stations\n â€¢ Ticket Price Customizer
 WHATSNEW_3_0_1 Public Transport Unstucker now integrated into IPT3.\nSee version 3.0 for all other integrated mods. Unsubscribe from originals to avoid conflicts.
-SETTINGS_TAB_TRAINDISPLAY Train Display
+SETTINGS_TAB_TRAINDISPLAY Vehicle route panel
 SETTINGS_TAB_INTEGRATIONS Integrations
-SETTINGS_TRAINDISPLAY_GROUP Train Display Overlay
+SETTINGS_TRAINDISPLAY_GROUP Vehicle route panel overlay
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configure the integrated overlay shown while following supported transport vehicles.
-SETTINGS_TRAINDISPLAY_ENABLE Enable Train Display
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Turn the integrated Train Display overlay on or off.
+SETTINGS_TRAINDISPLAY_ENABLE Enable Vehicle route panel
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Turn the integrated Vehicle route panel overlay on or off.
 SETTINGS_TRAINDISPLAY_MODE_DISABLED Disabled
 SETTINGS_TRAINDISPLAY_MODE_ENABLED Enabled
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Overlay position:
@@ -451,8 +451,8 @@ SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
 SETTINGS_COMMUTERDESTINATION_MAP_FULL Full map (more icons, slower refresh)
 SETTINGS_KEYBINDINGS_GROUP In-game hotkeys
 SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Shortcuts while a city is loaded. Click a binding then press a key to rebind.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the corner vehicle overlay.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Vehicle route panel
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the vehicle route panel.
 SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track

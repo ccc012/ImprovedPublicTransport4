@@ -64,7 +64,7 @@ SETTINGS_TAB_GENERAL Geral
 SETTINGS_ADVANCED_LINKS_GROUP Links
 SETTINGS_GITHUB_REPO Código-fonte no GitHub
 SETTINGS_TAB_AUTOLINE Linha automática
-SETTINGS_TAB_STOPS Paradas e Estações
+SETTINGS_TAB_STOPS Limite de passageiros esperando
 SETTINGS_TAB_UNBUNCHING Distribuição
 SETTINGS_TAB_DELETE Excluir Linhas
 SETTINGS_TAB_FLEET Frota e Escalonamento
@@ -82,13 +82,13 @@ SETTINGS_GAMEPLAY_PROFILE_VANILLA Padrão do jogo
 SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Recomendado — núcleo IPT
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realista — quase tudo
 SETTINGS_PERFORMANCE_PROFILE Perfil de desempenho
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Orçamento global para UI e varreduras pesadas (atualização do Train Display, Destino dos Passageiros, etc.).\nLeve: menos risco de travadas — menos ícones, refresh mais lento.\nNormal: equilíbrio (padrão).\nMáximo: mais detalhe e overlays mais rápidos; pode custar FPS em PCs fracos.
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Orçamento global para UI e varreduras pesadas (atualização do Painel de rota do veículo, Destino dos Passageiros, etc.).\nLeve: menos risco de travadas — menos ícones, refresh mais lento.\nNormal: equilíbrio (padrão).\nMáximo: mais detalhe e overlays mais rápidos; pode custar FPS em PCs fracos.
 SETTINGS_PERFORMANCE_PROFILE_LIGHT Leve (mais fluido)
 SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (equilibrado)
 SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Máximo (mais detalhe)
 SETTINGS_TAB_PERFORMANCE Desempenho
 SETTINGS_PERFORMANCE_TIPS_GROUP Dicas
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Leve se a UI ou overlays engasgarem; Máximo só se o PC for forte. Vale na hora para Train Display e Destino dos Passageiros. Algumas integrações ainda pedem recarregar o mapa.
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Use Leve se a UI ou overlays engasgarem; Máximo só se o PC for forte. Vale na hora para Painel de rota do veículo e Destino dos Passageiros. Algumas integrações ainda pedem recarregar o mapa.
 SETTINGS_TAB_FLEET_SHORT Frota
 SETTINGS_TAB_STOPS_SHORT Paradas
 SETTINGS_TAB_OVERLAY_SHORT Overlay
@@ -120,7 +120,7 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP Comportamento sempre ativo
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Dois comportamentos pequenos que sempre rodaram sem opção de desligar até agora. Vêm ativados por padrão pra quem já usa o mod não notar diferença — desative se você usa um mod avulso que faz a mesma coisa, ou só prefere controle manual.
 SETTINGS_AUTONAMESTOPS_ENABLE Nomear paradas sem nome automaticamente
 SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Na primeira vez que você seleciona uma parada sem nome, dá a ela o mesmo nome de prédio próximo que o menu suspenso do próprio painel da parada sugeriria — sem você precisar abrir esse menu. Nunca mexe num nome que você (ou isso mesmo) já tenha definido.
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Correção de dígitos de largura total
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portado do mod avulso Rescue Fullwidth Digits. Corrige nomes de linhas de transporte que foram salvos com dígitos de largura total (１２３ em vez de 123) por causa de alguns métodos de entrada (IME), que de outra forma ficariam exibidos errados pra sempre.
 SETTINGS_FUTURE_BREAKDOWN Diagnóstico de trânsito (em breve)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planejado: diagnóstico de rotas/trânsito travado. Ainda não disponível.
@@ -163,7 +163,7 @@ SETTINGS_WALKING_SPEED Velocidade caminhada/ciclismo:
 SETTINGS_WALKING_SPEED_TOOLTIP Padrão: velocidades do jogo base.\nRealista: reduz a velocidade de caminhada para valores realistas baseados na idade.\nRealista também reduz a velocidade do ciclismo com o DLC After Dark.
 SETTINGS_WALKING_SPEED_MODE_VANILLA Padrão
 SETTINGS_WALKING_SPEED_MODE_REALISTIC Realista
-SETTINGS_BBSP Melhor posição de parada de ônibus: 
+SETTINGS_BBSP Alinhamento do ônibus no meio-fio: 
 SETTINGS_BBSP_TOOLTIP Desabilitado: sem ajuste de posição.\nHabilitado: ônibus param na frente da parada em vez do centro.
 SETTINGS_BBSP_MODE_DISABLED Desabilitado
 SETTINGS_BBSP_MODE_ORIGINAL Habilitado
@@ -177,7 +177,7 @@ SETTINGS_BUDGET_TICKET_PRICES Personalizador de preços de bilhetes:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Desativado
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Ativado
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Quando ativado, adiciona uma nova aba ao painel Economia com sliders para ajustar os preços dos bilhetes por tipo de transporte.
-SETTINGS_AUTO_LINE_BUDGET Frota Automática por Demanda:
+SETTINGS_AUTO_LINE_BUDGET Dimensionamento automático da frota:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Desativado
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Ativado
 SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Quando ativado, linhas em modo Orçamento ajustam a quantidade de veículos automaticamente conforme a demanda real de passageiros, em vez do slider de orçamento vanilla. Linhas em modo Manual nunca são alteradas.
@@ -258,8 +258,8 @@ SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Reseta todos os controles deslizantes p
 UNBUNCHING_ENABLED Distribuição de veículos
 UNBUNCHING_DISABLED A distribuição está desativada.
 UNBUNCHING_TARGET_GAP Intervalo: {0}
-SETTINGS_EBS_GROUP_BUS Serviços de ônibus expresso
-SETTINGS_EBS_GROUP_TRAM Serviços de bonde expresso
+SETTINGS_EBS_GROUP_BUS Serviço expresso com pulo de paradas
+SETTINGS_EBS_GROUP_TRAM Serviço expresso com pulo de paradas (bonde)
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Distribuição de ônibus expresso: 
 SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Desativado' = os ônibus usam as configurações de distribuição acima.\n'Prudente' = para brevemente, verifica passageiros e pode partir se estiver vazio.\n'Realista' = pula completamente as paradas se não houver passageiros esperando.
 SETTINGS_EBS_ENABLE_SELFBAL Habilitar auto-equilíbrio de serviço
@@ -279,7 +279,7 @@ SETTINGS_EBS_MODE_PRUDENTIAL Prudente
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Toda parada (realista)
 SETTINGS_EBS_TRAM_MODE_NONE Desabilitado
 SETTINGS_EBS_TRAM_MODE_TRAM Expresso (pode pular)
-SETTINGS_PTU_GROUP Desatador de transporte público
+SETTINGS_PTU_GROUP Recuperação de veículos presos
 SETTINGS_PTU_ENABLE Remover passageiros travados
 SETTINGS_PTU_TOOLTIP Remove automaticamente passageiros que ficam presos ao embarcar em veículos de transporte público, permitindo que o veículo saia normalmente e evitando partidas congeladas.
 SETTINGS_LINE_DELETION_TOOL Ferramenta de exclusão de linhas
@@ -337,7 +337,7 @@ VEHICLE_SELECTION_SELECTED_VEHICLES Veículos selecionados
 VEHICLE_SELECTION_ANY_VEHICLE Qualquer veículo
 VEHICLE_BUTTON_TOOLTIP {0}\n\nClique para ir para este veículo.\nSegurar Shift ao clicar também dará zoom.\nSegurar Alt ao clicar impedirá a abertura do painel de informações do veículo.
 TRANSPORT_LINE_VEHICLECOUNT Contagem de veículos: {0}
-FLIGHT_TRACKER_NAME Rastreador de voos
+FLIGHT_TRACKER_NAME Painel de voos do aeroporto
 FLIGHT_STATUS_NONE Nenhum
 FLIGHT_STATUS_INCOMING Chegando
 FLIGHT_STATUS_LANDED Pousado

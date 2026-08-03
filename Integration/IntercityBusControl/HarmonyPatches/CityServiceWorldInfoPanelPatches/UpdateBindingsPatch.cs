@@ -206,6 +206,14 @@ namespace IntercityBusControl.HarmonyPatches.CityServiceWorldInfoPanelPatches
                 if (_iptCheckBox != null)
                 {
                     _iptBuildingId = buildingId;
+
+                    // Position label to the right of checkbox to match vanilla layout (checkbox left, label right)
+                    if (label != null)
+                    {
+                        const float checkboxLabelSpacing = 4f;
+                        label.relativePosition = _iptCheckBox.relativePosition + new Vector3(_iptCheckBox.width + checkboxLabelSpacing, 0f);
+                    }
+
                     var accepts = IntercityAcceptanceState.Accepts(buildingId);
                     IsSyncingDisplay = true;
                     try

@@ -428,8 +428,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       // exactly what the flicker was. We need the instance ID (OnTargetClick reads it to open
       // IPT's stop panel), so that is all we set, and the caption is left to the game.
       this._target.objectUserData = (object) id;
-      this._target.Enable();
-      this._target.Show();
+      // Nothing else. Not .text, and deliberately not Enable()/Show() either: vanilla drives this
+      // button's caption AND its visibility every frame, so forcing it visible on our 0.2s tick
+      // meant that in any state where vanilla hides it, the button was being switched back on
+      // several times a second - which reads as the caption flickering. The click handler only
+      // needs objectUserData, so that is the only thing we still set.
     }
 
     private void SetLastStopExchangeText(ushort vehicleID)
