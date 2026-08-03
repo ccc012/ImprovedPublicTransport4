@@ -127,8 +127,8 @@ SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planned: route/traffic diagnostics for stuck transit. Not available yet.
 SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
 SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_MODTRANSLATION_GROUP Mod content translation
-SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text (menus, tooltips, in-game panels - not the Steam page) is translated into your current language, computed automatically from the actual translation files every time this panel opens. Separate from "Translation Progress" above, which is the shared options-menu framework's own small set of generic strings (OK, Cancel, and similar), not this mod's content.
+SETTINGS_MODTRANSLATION_GROUP Mod text translated
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text - menus, tooltips, in-game panels - is translated into your language. This is different from "Translation Progress" above, which only covers a handful of generic buttons like OK and Cancel, not this mod's actual content. If you still see some English here, a full translation for your language is on its way.
 SETTINGS_QUICK_TIPS_GROUP Quick tips
 SETTINGS_QUICK_TIPS_DESC Small reminders — no extra code, just how to use what you already have.
 SETTINGS_QUICK_TIP_1_TITLE Start simple
@@ -438,8 +438,8 @@ SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vanilla defaults every ferry depot to an e
 SETTINGS_DEPOT_CAPACITY_DISABLED Disabled (uncapped)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermediate
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistic
-SETTINGS_FLIGHTTRACKER_ENABLE Enable Flight Tracker
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Enables the integrated Flight Tracker patches and UI support.
+SETTINGS_FLIGHTTRACKER_ENABLE Airport flight board
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Ported from the standalone Flight Tracker mod (Nyoko). Shows a live arrivals/departures board for airports with a flight-capable outside connection.
 SETTINGS_SUBBUILDINGSTABS_ENABLE Enable Sub-Buildings Tabs
 SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Shows a tab strip on a building's info panel when it has sub-buildings (e.g. an airport with a built-in metro station), letting you switch between them.
 SETTINGS_TAXISTANDFIX_ENABLE Enable Taxi Stand Fix
@@ -447,7 +447,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sends idle taxis toward the nearest taxi st
 SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared stops
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) on the same road segment, including elevated/bridge roads. Includes PathManager stop-lane nudge and TransportTool multi-type placement. Prefab flag changes may need a map reload for full effect.
 SETTINGS_COMMUTERDESTINATION_ENABLE Enable Passenger destination overlay (Experimental)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Experimental: this integration has had real bugs found and fixed more than once this session (icons/panel not appearing at all) - report anything odd. Read-only, no dependency other than Harmony.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Meant to show where the passengers waiting at a stop are headed - a small panel plus a map overlay. Experimental and known unreliable: as of 4.8.8, the icons/panel still often fail to appear even after a real underlying bug was found and fixed. Off by default - turn on only if you want to help test it and report what you see. Read-only, no dependency other than Harmony.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
@@ -558,7 +558,7 @@ CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off":
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
-CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): the map icons and panel finally show up when you click a stop. Root cause found and fixed.
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): found and fixed a real bug where two of the mod's own patches were silently colliding on the same click - but real-play testing still shows the icons/panel not reliably appearing. Stays off by default and Experimental until this is fully sorted out.
 CHANGELOG_4_8_8_2 Budget control checkbox no longer unchecks itself the moment you tick it.
 CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximum) now actually changes its update rate - previously had no visible effect for most players.
 CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.

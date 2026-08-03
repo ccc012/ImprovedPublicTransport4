@@ -79,7 +79,17 @@ regressed the panel back to showing no icons at all (see the entry below);
 adding checks there risks repeating that regression for a crash scenario
 that has never actually been observed.
 
-### Fixed - CommuterDestination's panel and map icons never appeared at all
+### Partially fixed, still broken - CommuterDestination's panel and map icons
+
+**Update, same session, after further real-play testing: this integration
+is still not reliably showing icons or a panel after the fix below.** The
+Harmony bug described below was real, confirmed, and is fixed - but it was
+evidently not the only thing wrong, or something else regressed alongside
+it. Not investigating further this round (see 06_HISTORICO_VERSOES.md /
+07_ESTADO_ATUAL.md for status); stays off by default and labeled
+"(Experimental)" rather than presented as working. Do not describe this as
+resolved in the Workshop description or any changelog entry - say "attempted
+a fix, still broken" instead.
 
 Root cause confirmed against Harmony's own documentation: "The first
 prefix that returns false will skip all remaining prefixes ... and the

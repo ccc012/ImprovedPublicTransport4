@@ -129,8 +129,8 @@ SETTINGS_FUTURE_BREAKDOWN Diagnóstico de trânsito (em breve)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planejado: diagnóstico de rotas/trânsito travado. Ainda não disponível.
 SETTINGS_FUTURE_BUSWAYPOINT Paragem-waypoint de autocarro (em breve)
 SETTINGS_FUTURE_BUSWAYPOINT_TIP Planejado: marcar uma paragem como waypoint apenas de rota - a linha passa por ela, mas os veículos nunca param nem embarcam/desembarcam passageiros ali. Ajuda a guiar o pathfinding vanilla pela rua que pretendia mesmo. Ainda não disponível.
-SETTINGS_MODTRANSLATION_GROUP Tradução do conteúdo do mod
-SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Quanto do texto próprio deste mod (menus, tooltips, painéis do jogo - não a página da Steam) está traduzido no seu idioma atual, calculado automaticamente a partir dos arquivos de tradução toda vez que este painel abre. Diferente do "Progresso da tradução" acima, que é só o pequeno conjunto de textos genéricos do framework de opções compartilhado (OK, Cancelar e afins), não o conteúdo deste mod.
+SETTINGS_MODTRANSLATION_GROUP Texto do mod traduzido
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Quanto do texto próprio deste mod - menus, tooltips, painéis do jogo - está traduzido no seu idioma. Isso é diferente do "Progresso da tradução" acima, que cobre só um punhado de botões genéricos como OK e Cancelar, não o conteúdo real deste mod. Se ainda aparecer algo em inglês aqui, uma tradução completa pro seu idioma está a caminho.
 SETTINGS_QUICK_TIPS_GROUP Dicas rápidas
 SETTINGS_QUICK_TIPS_DESC Lembretes simples — sem código novo, só como usar o que já existe.
 SETTINGS_QUICK_TIP_1_TITLE Comece simples
@@ -440,8 +440,8 @@ SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo galpao de bals
 SETTINGS_DEPOT_CAPACITY_DISABLED Desativado (sem limite)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermediário
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realista
-SETTINGS_FLIGHTTRACKER_ENABLE Ativar Flight Tracker
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Ativa os patches integrados e o suporte de UI do Flight Tracker.
+SETTINGS_FLIGHTTRACKER_ENABLE Painel de voos do aeroporto
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Portado do mod standalone Flight Tracker (Nyoko). Mostra um painel ao vivo de chegadas/partidas para aeroportos com uma conexão externa com capacidade de voo.
 SETTINGS_SUBBUILDINGSTABS_ENABLE Ativar Abas de Sub-Prédios
 SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Mostra uma faixa de abas no painel de informações de um prédio quando ele tem sub-prédios (ex: um aeroporto com estação de metrô integrada), permitindo alternar entre eles.
 SETTINGS_TAXISTANDFIX_ENABLE Ativar Correção de Pontos de Táxi
@@ -449,7 +449,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Envia táxis ociosos para o ponto de táxi 
 SETTINGS_SHAREDSTOPENABLER_ENABLE Ativar Paradas compartilhadas
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite mais de um tipo de transporte (onibus, bonde, trolebus) no mesmo trecho, inclusive vias elevadas/pontes. Inclui ajuste de faixa e colocacao multi-tipo. Prefabs grandes podem pedir recarregar o mapa.
 SETTINGS_COMMUTERDESTINATION_ENABLE Ativar Destinos dos passageiros (Experimental)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Ao selecionar uma paragem, ícones no mapa mostram destinos dos passageiros. Experimental: esta integração já teve bugs reais encontrados e corrigidos mais de uma vez nesta sessão (ícones/painel não aparecendo de todo) - reporte qualquer coisa estranha. A lista de destinos é secundária (só pelo botão). Vale na hora.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Devia mostrar, ao selecionar uma paragem, ícones no mapa com os destinos dos passageiros. Experimental e conhecido por não ser fiável: na 4.8.8, os ícones/painel continuam a falhar em aparecer mesmo depois de um bug real ter sido encontrado e corrigido. Desligado por padrão - ative só se quiser ajudar a testar e relatar o que vê.
 SETTINGS_KEYBINDINGS_GROUP Atalhos no jogo
 SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Atalhos com a cidade carregada. Clique numa tecla e pressione outra para reatribuir.
 SETTINGS_HOTKEY_TRAIN_DISPLAY Alternar Painel de rota do veículo
@@ -554,7 +554,7 @@ CHANGELOG_4_8_6_2 Auditoria completa em cada integração opcional para garantir
 CHANGELOG_4_8_6_3 Encontrámos dois comportamentos que sempre correram sem opção de desligar — nomear paragens sem nome automaticamente, e o Rescue Fullwidth Digits (Gansaku) — e adicionámos opções para ambos em Options → Avançado. Vêm ligados por padrão, portanto nada muda a menos que os desligue.
 CHANGELOG_4_8_7_1 O empilhamento de vagas no ponto de autocarro passa a ser uma opção legada bloqueada em Options → Avançado → Legado: instalações que já a tinham ativada continuam a funcionar exatamente como antes, mas já não pode ser ligada em instalações novas e nenhum perfil de configuração a ativa.
 CHANGELOG_4_8_7_2 Removido texto da página da Workshop e da dica de ecrã do jogo que referia outro mod pelo nome, a pedido do autor.
-CHANGELOG_4_8_8_1 Sobreposição de destino dos passageiros (Experimental): os ícones no mapa e o painel finalmente aparecem ao clicar numa paragem. Causa raiz encontrada e corrigida.
+CHANGELOG_4_8_8_1 Sobreposição de destino dos passageiros (Experimental): encontrado e corrigido um bug real em que dois patches do próprio mod colidiam silenciosamente no mesmo clique - mas testes reais em jogo continuam a mostrar os ícones/painel a não aparecer de forma fiável. Continua desligado por padrão e Experimental até isto ficar totalmente resolvido.
 CHANGELOG_4_8_8_2 A caixa de controlo por orçamento já não se desmarca sozinha assim que a marca.
 CHANGELOG_4_8_8_3 O perfil de desempenho do painel de rota do veículo (Leve/Normal/Máximo) agora muda mesmo a taxa de atualização - antes não tinha efeito visível para a maioria dos jogadores.
 CHANGELOG_4_8_8_4 Corrigidos vários problemas de deslocação de veículos perto de depósitos e paragens, incluindo autocarros a entrar no terreno/pontes e uma viragem em U prematura ocasional.
