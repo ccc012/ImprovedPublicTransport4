@@ -22,6 +22,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             PatchLoadPassengers(typeof(BusAI));
             PatchLoadPassengers(typeof(TrolleybusAI));
             PatchLoadPassengers(typeof(TramAI));
+            PatchLoadPassengers(typeof(CableCarAI));
             PatchLoadPassengers(typeof(PassengerTrainAI));
             PatchLoadPassengers(typeof(PassengerPlaneAI));
             PatchLoadPassengers(typeof(PassengerHelicopterAI));
@@ -35,6 +36,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             UnpatchLoadPassengers(typeof(BusAI));
             UnpatchLoadPassengers(typeof(TrolleybusAI));
             UnpatchLoadPassengers(typeof(TramAI));
+            UnpatchLoadPassengers(typeof(CableCarAI));
             UnpatchLoadPassengers(typeof(PassengerTrainAI));
             UnpatchLoadPassengers(typeof(PassengerPlaneAI));
             UnpatchLoadPassengers(typeof(PassengerHelicopterAI));

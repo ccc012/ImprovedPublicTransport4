@@ -39,6 +39,13 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
         // otherwise look identical to the user manually choosing Manual mode.
         private readonly HashSet<ushort> _managedLines = new();
 
+        // Lines seen with BudgetControl=true (checkbox checked) exactly once so
+        // far, that are NOT already in _managedLines - i.e. either genuinely
+        // untouched or just checked by the player in the UI. We wait one full
+        // cycle here before taking over, so checking the box doesn't get
+        // reverted on the very same cycle it was checked.
+        private readonly HashSet<ushort> _pendingLines = new();
+
         private readonly Dictionary<ushort, Dictionary<int, float>> _lineHourFlow = new();
         private readonly Dictionary<ushort, SortedDictionary<int, float>> _avgIntervalByVehCount = new();
         private readonly Dictionary<ushort, SortedDictionary<int, float>> _avgIntervalCountByVehCount = new();
@@ -90,19 +97,38 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
                 var underVanillaBudgetControl = CachedTransportLineData.GetBudgetControlState(lineID);
                 if (underVanillaBudgetControl)
                 {
-                    // Either untouched so far, or the user just flipped this line
-                    // back to Budget mode in the UI - relinquish it either way and
-                    // let it run vanilla for one cycle before we consider it again.
                     if (_managedLines.Remove(lineID))
                     {
+                        // The user just flipped this line back to Budget mode in the
+                        // UI - relinquish it and let it run vanilla for one cycle
+                        // before we consider it again.
+                        _pendingLines.Remove(lineID);
                         continue;
                     }
+
+                    if (!_pendingLines.Remove(lineID))
+                    {
+                        // First cycle we've seen this line checked - either
+                        // genuinely untouched so far, or the user just checked it.
+                        // Don't take it over yet; give it one full cycle running
+                        // vanilla so checking the box isn't immediately reverted.
+                        _pendingLines.Add(lineID);
+                        continue;
+                    }
+                    // Was pending and still checked one cycle later - take it over.
                 }
-                else if (!_managedLines.Contains(lineID))
+                else
                 {
-                    // BudgetControl is off and we never took it over - the user set
-                    // this line to Manual on purpose. Never touch it.
-                    continue;
+                    // BudgetControl is off. Drop any stale pending mark - if it was
+                    // checked last cycle and unchecked again before we got to it,
+                    // it no longer qualifies for takeover.
+                    _pendingLines.Remove(lineID);
+                    if (!_managedLines.Contains(lineID))
+                    {
+                        // BudgetControl is off and we never took it over - the user set
+                        // this line to Manual on purpose. Never touch it.
+                        continue;
+                    }
                 }
 
                 ProcessLine(lineID);
@@ -112,6 +138,7 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
         private void ForgetLine(ushort lineID)
         {
             _managedLines.Remove(lineID);
+            _pendingLines.Remove(lineID);
             _lineHourFlow.Remove(lineID);
             _avgIntervalByVehCount.Remove(lineID);
             _avgIntervalCountByVehCount.Remove(lineID);

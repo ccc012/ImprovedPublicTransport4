@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ColossalFramework;
 using ImprovedPublicTransport.Util;
@@ -11,22 +12,56 @@ namespace ImprovedPublicTransport.HarmonyPatches.VehicleAIPatches
     /// </summary>
     public static class EmptyBeforeDepotPatch
     {
+        private const string SetTransportLineMethod = "SetTransportLine";
+
         private static readonly HashSet<ushort> PendingReturn = new HashSet<ushort>();
 
         public static void Apply()
         {
-            PatchUtil.Patch(
-                new PatchUtil.MethodDefinition(typeof(VehicleAI), nameof(VehicleAI.SetTransportLine)),
-                new PatchUtil.MethodDefinition(typeof(EmptyBeforeDepotPatch), nameof(SetTransportLinePrefix))
-            );
+            // VehicleAI.SetTransportLine is virtual and every concrete public-transport AI below
+            // overrides it with its own full implementation that does NOT call
+            // base.SetTransportLine(...). Patching only the base method (as this used to do) means
+            // virtual dispatch never reaches the patched body for real vehicles - the prefix simply
+            // never fires. Each override has to be patched individually, same pattern as
+            // LoadPassengersPatch / UnloadPassengersPatch in XYZVehicleAIPatches.
+            PatchSetTransportLine(typeof(BusAI));
+            PatchSetTransportLine(typeof(TramAI));
+            PatchSetTransportLine(typeof(TrolleybusAI));
+            PatchSetTransportLine(typeof(CableCarAI));
+            PatchSetTransportLine(typeof(PassengerBlimpAI));
+            PatchSetTransportLine(typeof(PassengerFerryAI));
+            PatchSetTransportLine(typeof(PassengerHelicopterAI));
+            PatchSetTransportLine(typeof(PassengerPlaneAI));
+            PatchSetTransportLine(typeof(PassengerShipAI));
+            PatchSetTransportLine(typeof(PassengerTrainAI));
         }
 
         public static void Undo()
         {
-            PatchUtil.Unpatch(
-                new PatchUtil.MethodDefinition(typeof(VehicleAI), nameof(VehicleAI.SetTransportLine))
-            );
+            UnpatchSetTransportLine(typeof(BusAI));
+            UnpatchSetTransportLine(typeof(TramAI));
+            UnpatchSetTransportLine(typeof(TrolleybusAI));
+            UnpatchSetTransportLine(typeof(CableCarAI));
+            UnpatchSetTransportLine(typeof(PassengerBlimpAI));
+            UnpatchSetTransportLine(typeof(PassengerFerryAI));
+            UnpatchSetTransportLine(typeof(PassengerHelicopterAI));
+            UnpatchSetTransportLine(typeof(PassengerPlaneAI));
+            UnpatchSetTransportLine(typeof(PassengerShipAI));
+            UnpatchSetTransportLine(typeof(PassengerTrainAI));
             PendingReturn.Clear();
+        }
+
+        private static void PatchSetTransportLine(Type type)
+        {
+            PatchUtil.Patch(
+                new PatchUtil.MethodDefinition(type, SetTransportLineMethod),
+                new PatchUtil.MethodDefinition(typeof(EmptyBeforeDepotPatch), nameof(SetTransportLinePrefix))
+            );
+        }
+
+        private static void UnpatchSetTransportLine(Type type)
+        {
+            PatchUtil.Unpatch(new PatchUtil.MethodDefinition(type, SetTransportLineMethod));
         }
 
         public static void ForgetVehicle(ushort vehicleID)

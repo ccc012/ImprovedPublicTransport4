@@ -33,7 +33,7 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nWaiting passengers: {1}\n\nRight click to jump to
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP List of suggested stop names.
 STOP_PANEL_REUSE_NAME_TOOLTIP Set this name to all other stops at this station / position.
 STOP_PANEL_WAITING_PEOPLE Waiting passengers: {0}
-COMMUTER_DESTINATION_PANEL_TITLE Commuter Destination
+COMMUTER_DESTINATION_PANEL_TITLE Passenger destination overlay
 COMMUTER_DESTINATION_HEADER Top destinations:
 COMMUTER_DESTINATION_NONE No passengers waiting here right now.
 COMMUTER_DESTINATION_LOADING Calculating...
@@ -173,7 +173,7 @@ SETTINGS_ENABLE_BUDGET_CONTROL Line Budget Control:
 SETTINGS_BUDGET_CONTROL_DISABLED Disabled
 SETTINGS_BUDGET_CONTROL_ENABLED Enabled
 SETTINGS_BUDGET_CONTROL_TOOLTIP When enabled, vehicle counts for transport lines are controlled by the budget; updates all existing lines and clears enqueued vehicles.
-SETTINGS_BUDGET_TICKET_PRICES Ticket Price Customizer:
+SETTINGS_BUDGET_TICKET_PRICES Custom ticket prices:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Disabled
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Enabled
 SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP When enabled, adds a new tab to Economy panel with sliders to adjust ticket prices for each transport type.
@@ -412,11 +412,11 @@ COPY_DISTRICT_TIP Copy these settings to all lines in this district.
 SETTINGS_INTEGRATIONS_GROUP Integrated Add-ons
 SETTINGS_INTERCITY_BUS_ENABLE Enable Intercity Bus Control
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Enables the integrated Intercity Bus Control compatibility layer and station patching.
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Enable Advanced Stop Selection
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Enable Precise stop placement
 SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Lets you place stops on alternate platforms/tracks of multi-track stations (hold the alternate-mode key while placing). Takes effect on next level load.
 SETTINGS_BETTERBOARDING_ENABLE Enable Better Boarding
 SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Improves passenger boarding decisions so riders prefer the vehicle that actually serves their destination. Takes effect on next level load.
-SETTINGS_MILEAGETAXI_ENABLE Enable Mileage Taxi Services
+SETTINGS_MILEAGETAXI_ENABLE Enable Distance-based taxi fares
 SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Charges taxi fares from distance driven instead of a flat rate, so longer rides earn more. Requires the After Dark DLC. Takes effect on next level load.
 SETTINGS_ELEVATEDSTOPS_ENABLE Enable Elevated Stops
 SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Allows public-transport stops on elevated roads/bridges and keeps street lights on those elevated stop segments. Applies immediately and fully reverts when turned off.
@@ -441,9 +441,9 @@ SETTINGS_SUBBUILDINGSTABS_ENABLE Enable Sub-Buildings Tabs
 SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Shows a tab strip on a building's info panel when it has sub-buildings (e.g. an airport with a built-in metro station), letting you switch between them.
 SETTINGS_TAXISTANDFIX_ENABLE Enable Taxi Stand Fix
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sends idle taxis toward the nearest taxi stand instead of leaving them to wander at random. Requires the After Dark DLC.
-SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared Stop Enabler
+SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared stops
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) on the same road segment, including elevated/bridge roads. Includes PathManager stop-lane nudge and TransportTool multi-type placement. Prefab flag changes may need a map reload for full effect.
-SETTINGS_COMMUTERDESTINATION_ENABLE Enable Commuter Destination
+SETTINGS_COMMUTERDESTINATION_ENABLE Enable Passenger destination overlay
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Read-only, no dependency other than Harmony.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
@@ -455,7 +455,7 @@ SETTINGS_HOTKEY_TRAIN_DISPLAY Toggle Vehicle route panel
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Enable or disable the vehicle route panel.
 SETTINGS_HOTKEY_LINE_COLOR Reassign line colour
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP While a transport line is selected, re-run Auto Line Color for that line (needs a colour strategy enabled).
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Precise stop placement: pick exact track
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
 LINE_PANEL_COPY Copy
 LINE_PANEL_PASTE Paste
@@ -600,7 +600,7 @@ SETTINGS_TRAINDISPLAY_LAYOUT Panel layout
 SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Which arrangement the overlay uses. Both show the same information and obey the same field checkboxes below - only the shape differs.
 SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic (compact corner panel)
 SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed (header metrics + stop list)
-COMMUTERDESTINATION_PANEL_TITLE Commuter Destination
+COMMUTERDESTINATION_PANEL_TITLE Passenger destination overlay
 COMMUTERDESTINATION_PANEL_DESTINATIONS destinations
 COMMUTERDESTINATION_PANEL_STOP Stop #{0}
 COMMUTERDESTINATION_PANEL_WAITING Waiting passengers: {0}
