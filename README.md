@@ -1,3 +1,5 @@
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/ccc02)
+---
 # Improved Public Transport 4
 
 **Version 4.8.8** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
