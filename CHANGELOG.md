@@ -24,6 +24,41 @@ earlier releases and were only now found, one real vanilla-game crash
 (not ours, guarded against anyway), and a round of cleanup (dead options,
 mod-branded labels, performance profile actually doing something).
 
+### Fixed - Options panel translation percentage was a different mod's number
+
+The "Translation Progress: 100%" line in Options → General was real, but it
+was the shared CSLModsCommonShared framework's own ~116 generic UI strings
+(OK, Cancel, dropdown labels), not IPT4's own ~600 content strings -
+misleading in context, since it reads as "this mod is 100% translated" when
+several languages are still catching up on keys added this session. Added
+`Util/TranslationCompleteness.cs`: reads `Translations/en.txt` and the
+active language's file directly and computes a real percentage (a key
+whose value is byte-identical to English counts as untranslated, which
+matches how missing keys actually get filled - a temporary English
+placeholder), recomputed every time the panel opens rather than hand-typed.
+Shown as its own "Mod content translation" line, separate from the
+framework's line above it, in `UI/CSLModsCommonOptionsPanel.cs`.
+
+### Fixed - in-game Changelog dialog stopped updating after 4.8.6
+
+`IptModManager.GenerateChangelogs()` is a hand-maintained list separate
+from this file; nobody had added an entry for 4.8.7 or 4.8.8, so the
+in-game dialog looked frozen at 4.8.6 even though two more versions had
+shipped. Added both.
+
+### Changed - Train Display (Updated) no longer flagged incompatible
+
+Its author (Will) pointed out the mod does zero Harmony patching, so there
+is no actual state conflict with IPT4's own vehicle route panel - only the
+possibility of two overlays being visible at once, which the player can
+already resolve by disabling either one. Removed the hard "EnableNotAllowed"
+entry for it from `IptModManager.cs`'s compatibility rules and reworked the
+Workshop "Known Incompatible & Absorbed Mods" pinned post's corresponding
+entry into a new "Optional, No Technical Conflict" section instead of
+"Absorbed (Unsubscribe Required)". Credit stays either way.
+
+### Added - Ko-fi link in Options → Advanced → Links
+
 ### Fixed - unguarded array access in PublicTransportStopButton's click prefix
 
 `HarmonyPatches/PublicTransportStopButtonPatches/OnMouseDownPatch.cs` cast

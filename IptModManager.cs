@@ -164,9 +164,11 @@ namespace ImprovedPublicTransport
                 .AddWithWorkshop("TransitVehicleSpawnDelay", Ban, "Transit Vehicle Spawn Delay",
                     "Redundant: IPT4's own DepotAI.StartTransfer patch enforces a per-line minimum spawn interval (Options > Unbunching > \"Spawn time interval\"), spacing out burst spawns from the depot the same way this mod does.",
                     2654110611u)
-                .AddWithWorkshop("TrainDisplay", Ban, "Train Display (Updated)",
-                    "Train Display overlay is built into IPT4.",
-                    3233229958u)
+                // No longer banned as of 4.8.8: its own author (Will) pointed out Train Display -
+                // Updated does zero Harmony patching, so there is no real state conflict with IPT4's
+                // own vehicle route panel - only the possibility of two overlays being visible at
+                // once, which the player can already resolve by disabling either one. Both stay
+                // credited in the Workshop description either way.
                 .AddWithWorkshop("TrainDisplayMod", Ban, "Train Display (original Asmape)",
                     "Original Train Display — use IPT4's integrated overlay instead.",
                     2380878816u)
@@ -195,6 +197,18 @@ namespace ImprovedPublicTransport
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 8, 8), new DateTime(2026, 8, 3), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_2"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_3"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_4"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_5"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_8_6"))
+            ,
+            new ChangelogCollection(new Version(4, 8, 7), new DateTime(2026, 8, 2), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_7_1"))
+                .AddEntry(ChangelogFlag.Removed, L("CHANGELOG_4_8_7_2"))
+            ,
             new ChangelogCollection(new Version(4, 8, 6), new DateTime(2026, 8, 2), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_6_1"))
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_6_2"))

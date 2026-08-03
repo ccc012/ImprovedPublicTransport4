@@ -13,6 +13,7 @@ using CSLModsCommon.UI.OptionsPanel;
 using CSLModsCommon.UI.SettingsCard;
 using CSLModsCommon.UI.Sliders;
 using CSLModsCommon.UI.Utilities;
+using ImprovedPublicTransport.LanguageFormat;
 using ImprovedPublicTransport.Settings;
 using UnityEngine;
 
@@ -248,6 +249,8 @@ namespace ImprovedPublicTransport.UI
             var links = AddSection(page, Localization.Get("SETTINGS_ADVANCED_LINKS_GROUP"));
             links.AddButton(Localization.Get("SETTINGS_GITHUB_REPO"), null, CSLModsCommon.Localization.SharedTranslations.Website, null,
                 onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenURL("https://github.com/ccc012/ImprovedPublicTransport4"));
+            links.AddButton(Localization.Get("SETTINGS_KOFI_LINK"), null, CSLModsCommon.Localization.SharedTranslations.Website, null,
+                onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenURL("https://ko-fi.com/ccc02"));
 
             var future = AddSection(page, Localization.Get("SETTINGS_FUTURE_GROUP"),
                 Localization.Get("SETTINGS_FUTURE_GROUP_DESCRIPTION"));
@@ -326,6 +329,26 @@ namespace ImprovedPublicTransport.UI
         {
             base.FillGeneralPage(page);
             var setting = ModSetting.Instance;
+
+            // Real, self-updating number instead of a hand-typed one that goes stale every time a
+            // key is added - see Util/TranslationCompleteness.cs. Deliberately separate from the
+            // framework's own "Translation Progress" line above (that one is the shared options-menu
+            // framework's ~116 generic strings, not this mod's ~600 own keys - the two numbers can
+            // legitimately disagree, e.g. framework 100% while this mod is still catching up on a
+            // handful of newly-added keys in that language).
+            var activeLocale = PlainTextLanguageDeserializer.NormalizeLocaleName(
+                !string.IsNullOrEmpty(setting.LocaleId) && setting.LocaleId != CSLModsCommon.Manager.LocalizationManager.UseGameLanguage
+                    ? setting.LocaleId
+                    : ColossalFramework.Globalization.LocaleManager.instance.language);
+            var completeness = Util.TranslationCompleteness.ForLocale(activeLocale);
+            if (completeness.Total > 0)
+            {
+                var modTranslationSection = AddSection(page, Localization.Get("SETTINGS_MODTRANSLATION_GROUP"));
+                modTranslationSection.AddLabel(
+                    Localization.Get("SETTINGS_MODTRANSLATION_GROUP"),
+                    $"{completeness.Percent}% ({completeness.Translated}/{completeness.Total})",
+                    Localization.Get("SETTINGS_MODTRANSLATION_GROUP_TOOLTIP"));
+            }
 
             var profileSection = AddSection(page, Localization.Get("SETTINGS_GAMEPLAY_PROFILE"),
                 Localization.Get("SETTINGS_GAMEPLAY_PROFILE_TOOLTIP") + "\n\n" +
