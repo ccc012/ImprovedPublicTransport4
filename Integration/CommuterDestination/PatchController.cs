@@ -47,6 +47,11 @@ namespace CommuterDestination
                     .Patch();
                 _active = true;
                 DestinationOverlayManager.EnsureRegistered();
+                // LogWarning, not Log: Utils.Log is silent unless Diagnostics.VerboseRuntimeLogs is
+                // on (see Utils.Log's own comment) - this integration has been hard to diagnose
+                // from a normal log twice now, so its one-time activation confirmation needs to be
+                // visible by default, the same way PatchUtil's own patch-conflict warnings already are.
+                Utils.LogWarning("CommuterDestination: integration applied.");
             }
             catch (System.Exception ex)
             {

@@ -606,3 +606,9 @@ COMMUTERDESTINATION_PANEL_STOP Stop #{0}
 COMMUTERDESTINATION_PANEL_WAITING Waiting passengers: {0}
 COMMUTERDESTINATION_PANEL_PREVIOUS Previous
 COMMUTERDESTINATION_PANEL_NEXT Next
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (soon)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: warn on the vehicle route panel when a line loops back on itself or splits into more than two branches, instead of assuming a simple end-to-end route. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.

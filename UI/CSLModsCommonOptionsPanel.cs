@@ -254,6 +254,9 @@ namespace ImprovedPublicTransport.UI
             AddFutureSpoiler(future, "SETTINGS_FUTURE_REVERSIBLE_TRAM", "SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_BREAKDOWN", "SETTINGS_FUTURE_BREAKDOWN_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_BUSWAYPOINT", "SETTINGS_FUTURE_BUSWAYPOINT_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_ROUTEPANEL_BRANCH", "SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_ROUTEPANEL_TTS", "SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_STTAI_QUEUE", "SETTINGS_FUTURE_STTAI_QUEUE_TIP");
 
             // Two behaviours that always ran with no way to turn them off - added here for
             // compatibility with other mods/players who prefer manual control over the same thing.

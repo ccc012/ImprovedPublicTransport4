@@ -366,12 +366,12 @@ ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Contagem total atual de passag
 WHATSNEW_3_0_0_1 Atualizado para Race Day; agora compatível com More Vehicles Renewed.
 WHATSNEW_3_0_0_2 Os seguintes mods foram integrados ao IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
 WHATSNEW_3_0_1 Public Transport Unstucker agora integrado no IPT3.\nConsulte a versão 3.0 para os outros mods integrados. Cancele a subscrição dos mods originais para evitar conflitos.
-SETTINGS_TAB_TRAINDISPLAY Train Display
+SETTINGS_TAB_TRAINDISPLAY Painel de rota do veículo
 SETTINGS_TAB_INTEGRATIONS Integrações
-SETTINGS_TRAINDISPLAY_GROUP Sobreposição do Train Display
+SETTINGS_TRAINDISPLAY_GROUP Sobreposição do Painel de rota do veículo
 SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configure a sobreposição integrada mostrada ao seguir veículos de transporte suportados.
-SETTINGS_TRAINDISPLAY_ENABLE Ativar Train Display
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Liga ou desliga a sobreposição integrada do Train Display.
+SETTINGS_TRAINDISPLAY_ENABLE Ativar Painel de rota do veículo
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Liga ou desliga a sobreposição integrada do Painel de rota do veículo.
 SETTINGS_TRAINDISPLAY_MODE_DISABLED Desativado
 SETTINGS_TRAINDISPLAY_MODE_ENABLED Ativado
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Posição da sobreposição:
@@ -401,7 +401,7 @@ SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Só mostra a sobreposição enqu
 SETTINGS_TRAINDISPLAY_THEME Tema de cores:
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Escolha as cores de fundo/texto da sobreposição.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Vermelho (pastel)
-SETTINGS_TRAINDISPLAY_THEME_DARK Preto (solido)
+SETTINGS_TRAINDISPLAY_THEME_DARK Preto (sólido)
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Branco (semi-transparente)
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original (branco)
 SETTINGS_TRAINDISPLAY_THEME_BLUE Azul (pastel)
@@ -449,7 +449,7 @@ SETTINGS_COMMUTERDESTINATION_ENABLE Ativar Destinos dos passageiros
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Ao selecionar uma parada, ícones no mapa mostram destinos dos passageiros. A lista de destinos é secundária (só pelo botão). Vale na hora.
 SETTINGS_KEYBINDINGS_GROUP Atalhos no jogo
 SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Atalhos com a cidade carregada. Clique numa tecla e pressione outra para reatribuir.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Alternar Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY Alternar Painel de rota do veículo
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Liga ou desliga o overlay de veículo no canto.
 SETTINGS_HOTKEY_LINE_COLOR Reatribuir cor da linha
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Com uma linha de transporte selecionada, reexecuta o Auto Line Color (precisa de estratégia de cor ativa).
@@ -606,3 +606,9 @@ COMMUTERDESTINATION_PANEL_STOP Parada nº {0}
 COMMUTERDESTINATION_PANEL_WAITING Passageiros esperando: {0}
 COMMUTERDESTINATION_PANEL_PREVIOUS Anterior
 COMMUTERDESTINATION_PANEL_NEXT Próxima
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Deteção de ramificação/laço de linha (em breve)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planejado: avisar no painel de rota do veículo quando uma linha volta sobre si mesma ou se divide em mais de dois ramos, em vez de assumir uma rota simples de ponta a ponta. Ainda não disponível.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Anúncio de voz da próxima paragem (em breve)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planejado: anúncio opcional por voz da próxima paragem, igual ao mod original em que este painel se baseia. Ainda não disponível.
+SETTINGS_FUTURE_STTAI_QUEUE Ordem justa de trens em via única (em breve)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planejado: registar há quanto tempo cada trem está à espera de um trecho de via única, para quem chegou primeiro ser atendido primeiro, em vez de qualquer um que seja processado primeiro naquele ciclo. Ainda não disponível.
