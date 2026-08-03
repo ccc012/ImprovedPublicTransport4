@@ -220,35 +220,35 @@ SETTINGS_STOPSANDSTATIONS_ENABLE Ativar Paradas e Estações
 SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Ativar ou desativar a aplicação de limites de passageiros nas paradas.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Número máximo de passageiros esperando em uma parada de linha de transporte:
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Ônibus de linha
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Máx. passageiros esperando em uma parada de ônibus de linha
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Máx. passageiros esperando em uma parada de ônibus de linha.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Trólebus
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Máx. passageiros esperando em uma parada de trólebus
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Máx. passageiros esperando em uma parada de trólebus.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Ônibus de evacuação
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Máx. passageiros esperando em uma parada de ônibus de evacuação
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Máx. passageiros esperando em uma parada de ônibus de evacuação.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Ônibus turístico
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Máx. passageiros esperando em uma parada de ônibus turístico
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Máx. passageiros esperando em uma parada de ônibus turístico.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Bonde
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Máx. passageiros esperando em uma parada de bonde
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Máx. passageiros esperando em uma parada de bonde.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metrô
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Máx. passageiros esperando em uma estação de metrô
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Máx. passageiros esperando em uma estação de metrô.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Trem
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Máx. passageiros esperando em uma estação de trem
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Máx. passageiros esperando em uma estação de trem.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monotrilho
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Máx. passageiros esperando em uma parada de monotrilho
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Máx. passageiros esperando em uma parada de monotrilho.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Navio
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Máx. passageiros esperando em um porto de carga
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Máx. passageiros esperando em um porto de carga.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Balsa
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Máx. passageiros esperando em uma parada de balsa
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Máx. passageiros esperando em uma parada de balsa.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Avião
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Máx. passageiros esperando em um terminal de aeroporto
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Máx. passageiros esperando em um terminal de aeroporto.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Teleférico
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Máx. passageiros esperando em uma parada de teleférico
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Máx. passageiros esperando em uma parada de teleférico.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Balão de ar quente
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Máx. passageiros esperando em uma parada de balão de ar quente
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Máx. passageiros esperando em uma parada de balão de ar quente.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helicóptero
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Máx. passageiros esperando em uma parada de helicóptero
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Máx. passageiros esperando em uma parada de helicóptero.
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Dirigível
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Máx. passageiros esperando em uma parada de dirigível
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Máx. passageiros esperando em uma parada de dirigível.
 SETTINGS_UNBUNCHING Distribuição de veículos
 SETTINGS_UNBUNCHING_AGGRESSION Agressividade de distribuição:
 SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Quão agressiva deve ser a distribuição?\nValores possíveis: 0-52. Um valor de 0 desativa a distribuição.\nValores mais altos terão grande impacto no tráfego e podem fazer veículos desaparecerem.

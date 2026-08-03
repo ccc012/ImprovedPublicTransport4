@@ -24,6 +24,26 @@ earlier releases and were only now found, one real vanilla-game crash
 (not ours, guarded against anyway), and a round of cleanup (dead options,
 mod-branded labels, performance profile actually doing something).
 
+### Fixed - unguarded array access in PublicTransportStopButton's click prefix
+
+`HarmonyPatches/PublicTransportStopButtonPatches/OnMouseDownPatch.cs` cast
+`component` to `UIButton` and immediately dereferenced `.objectUserData`
+with no null check, then indexed `NetManager.m_nodes.m_buffer` with that
+value with no bounds check. Both were pre-existing (ported straight from
+vanilla's own `OnMouseDown`, which has the same shape), not something this
+session introduced, but this method is now also the single entry point for
+CommuterDestination's click handling (see below), so a crash here has a
+wider blast radius than before. Added a null check on the cast and a
+bounds check on the buffer index; falls back to `return true` (let the
+original method run) instead of crashing when either is out of range.
+Found during a dedicated end-of-round bug/optimization sweep. A similar
+suggestion for `Integration/CommuterDestination/DestinationGraphGenerator.cs`
+was deliberately **not** applied - that file is an intentionally unmodified
+port of upstream, and an earlier "safer" in-house rewrite of the same logic
+regressed the panel back to showing no icons at all (see the entry below);
+adding checks there risks repeating that regression for a crash scenario
+that has never actually been observed.
+
 ### Fixed - CommuterDestination's panel and map icons never appeared at all
 
 Root cause confirmed against Harmony's own documentation: "The first

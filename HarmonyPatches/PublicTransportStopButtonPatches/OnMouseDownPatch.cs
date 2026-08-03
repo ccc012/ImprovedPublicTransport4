@@ -27,8 +27,20 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportStopButtonPatche
         
         private static bool Prefix(UIComponent component, UIMouseEventParameter eventParam)
         {
-            var objectUserData = (ushort)(component as UIButton).objectUserData;
-            var position = Singleton<NetManager>.instance.m_nodes.m_buffer[objectUserData].m_position;
+            var button = component as UIButton;
+            if (button == null)
+            {
+                return true;
+            }
+
+            var objectUserData = (ushort)button.objectUserData;
+            var nodeBuffer = Singleton<NetManager>.instance.m_nodes.m_buffer;
+            if (objectUserData >= nodeBuffer.Length)
+            {
+                return true;
+            }
+
+            var position = nodeBuffer[objectUserData].m_position;
             var instanceID = InstanceID.Empty;
             instanceID.NetNode = objectUserData;
             if (PublicTransportStopButton.cameraController != null)
