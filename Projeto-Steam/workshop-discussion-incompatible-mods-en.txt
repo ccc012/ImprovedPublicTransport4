@@ -12,6 +12,13 @@ Do [b]NOT[/b] use IPT4 alongside these. They aggressively modify the same core t
 
 [hr][/hr]
 
+[h2]Known Minor Interaction Risk (no need to unsubscribe)[/h2]
+Found by code review, not yet reported by a player — listed here so it's public before it bites someone. No action needed unless you hit the specific symptom below:
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2804719780]Transfer Manager CE[/url] — both mods patch the game's own [i]CreateIncomingVehicle[/i]/[i]CreateOutgoingVehicle[/i] airport-terminal methods. In the narrow case where you have TMCE's [b]"Force Passenger Plane Spawn At Gate"[/b] option enabled AND you've disabled IPT4's "accept intercity" toggle on that specific airport gate, IPT4's toggle may be silently ignored depending on mod load order. Everything else about running both mods together is fine. If you notice a disabled gate still accepting flights, that's this — a proper fix is planned for a future update.
+
+[hr][/hr]
+
 [h2]Absorbed Standalone Mods (Unsubscribe Required)[/h2]
 The functionality of every mod below is [b]already built directly into IPT4[/b]. Running the standalone version alongside IPT4 patches the same game code twice — expect performance drops or UI bugs, not extra features. Full author credit is in the main description tab.
 
