@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP Đặt lại chờ kết nối ngoài, giao thông tr
 SETTINGS_EBS_GROUP_BUS_DESC Xe buýt nhanh có thể khởi hành sớm khi ít hành khách lên — khoảng cách nâng cao tùy chọn.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Hàng thêm
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop chỉ thay đổi nơi xe buýt đỗ tại điểm dừng. Tùy chọn bên dưới là tính năng riêng (trên cao, điểm dừng dùng chung, v.v.) — chúng ở để người dùng bật được.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Hành vi luôn bật
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Hai hành vi nhỏ luôn chạy không cách tắt cho đến giờ. Bật theo mặc định nên bản cài cũ không thấy thay đổi - tắt nếu bạn dùng mod độc lập làm điều tương tự, hoặc chỉ thích kiểm soát thủ công.
+SETTINGS_AUTONAMESTOPS_ENABLE Đặt tên tự động điểm dừng không tên
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Lần đầu bạn chọn điểm dừng không tên, nó đặt tên tòa nhà gần đó giống hệt danh sách xổ của chính bảng điểm dừng gợi ý - không cần mở danh sách đó. Không bao giờ đụng tên bạn (hoặc nó) đã đặt.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Chuyển từ mod độc lập Rescue Fullwidth Digits. Sửa tên tuyến giao thông bị lưu với chữ số toàn chiều rộng (１２３ thay vì 123) bởi vài thiết lập IME/nhập liệu, mà nếu không sẽ hiển thị sai vĩnh viễn.
+SETTINGS_FUTURE_BUSWAYPOINT Điểm dừng waypoint xe buýt (sắp)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Dự định: đánh dấu điểm dừng chỉ là waypoint định tuyến - tuyến đi qua nhưng xe không bao giờ dừng hay lên/xuống hành khách ở đó. Giúp dẫn tìm đường vanilla về đúng con đường bạn định. Chưa có.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Giữ khi đặt kết nối điểm dừng tàu hỏa/tàu điện để nhắm đúng ray thay vì ray hợp lệ gần nhất. Trước đây gắn cứng với Shift trái/phải; gán lại ở đây chỉ bao phủ một bên bạn chọn.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Các nút bật cũ chỉ giữ để bản cài đã bật chúng vẫn hoạt động y như trước. Đã khóa - không thể bật hay tắt từ đây nữa, và mọi hồ sơ chơi sẽ để chúng tắt về sau.
+CHANGELOG_4_8_6_1 Đã bật lại Điểm đến hành khách: nút bật trong Tùy chọn đã trở lại và hoạt động trực tiếp, không cần tải lại.
+CHANGELOG_4_8_6_2 Đã kiểm tra mọi tích hợp tùy chọn để "tắt nghĩa là tắt" thật: Elevated Stops Enabler ghi đè dữ liệu prefab đường vĩnh viễn không thể hoàn tác, và Auto Line Budget tiếp tục quản lý tuyến ngầm sau khi bị tắt giữa phiên. Cả hai giờ hoàn toàn trở lại hành vi vanilla khi tắt.
+CHANGELOG_4_8_6_3 Tìm thấy hai hành vi luôn chạy mà không có cách tắt - đặt tên tự động điểm dừng không tên, và Rescue Fullwidth Digits (Gansaku) - và thêm nút bật cho cả hai dưới Tùy chọn → Nâng cao. Bật theo mặc định, nên không gì đổi trừ khi bạn tắt.
+CHANGELOG_4_8_7_1 Xếp chồng bến điểm dừng xe buýt giờ là nút bật legacy khóa dưới Tùy chọn → Nâng cao → Legacy: bản cài đã bật vẫn hoạt động y như trước, nhưng không thể bật cho bản cài mới và không hồ sơ chơi nào kích hoạt nó nữa.
+CHANGELOG_4_8_7_2 Đã gỡ câu chữ khỏi trang Workshop và mẹo trong game nhắc tên mod của tác giả khác, theo yêu cầu của họ.
+
+SETTINGS_KOFI_LINK Ủng hộ trên Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Văn bản mod đã dịch
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Bao nhiêu văn bản của riêng mod này - menu, mẹo, bảng trong game - được dịch sang ngôn ngữ của bạn. Khác với "Tiến trình dịch" ở trên, chỉ bao gồm vài nút chung như OK và Hủy, không phải nội dung thực của mod. Nếu bạn vẫn thấy tiếng Anh ở đây, bản dịch đầy đủ cho ngôn ngữ của bạn đang được chuẩn bị.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Hiện điểm dừng tiếp theo
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Hiện dòng "điểm dừng tiếp theo" nổi bật cập nhật khi xe tiến dọc tuyến.
+TRAINDISPLAY_LABEL_NEXTSTOP Điểm dừng tiếp theo
+CHANGELOG_4_8_8_1 Lớp phủ điểm đến hành khách (Thử nghiệm): tìm và sửa lỗi thực khi hai bản vá của chính mod âm thầm va nhau ở cùng một cú nhấp - nhưng thử nghiệm chơi thật vẫn cho thấy biểu tượng/bảng không hiện đáng tin cậy. Vẫn tắt theo mặc định và là Thử nghiệm đến khi xử lý xong hoàn toàn.
+CHANGELOG_4_8_8_2 Hộp kiểm Kiểm soát ngân sách không còn tự bỏ chọn ngay khi bạn đánh dấu.
+CHANGELOG_4_8_8_3 Hồ sơ hiệu suất của bảng tuyến xe (Nhẹ/Bình thường/Tối đa) giờ thực sự thay đổi tốc độ cập nhật - trước đây không có tác dụng nhìn thấy với đa số người chơi.
+CHANGELOG_4_8_8_4 Sửa nhiều lỗi tìm đường xe gần depot và điểm dừng, gồm xe buýt xuyên vào địa hình/cầu và đôi khi quay đầu sớm.
+CHANGELOG_4_8_8_5 Chặn lỗi crash thực mà vài người chơi có thể gặp ở một số save - không do mod này, nhưng vẫn chặn vì nó vá cùng phương thức của game.
+CHANGELOG_4_8_8_6 Bảng này giờ hiện phần trăm thực, tự tính, bao nhiêu văn bản của mod được dịch sang ngôn ngữ của bạn, thay vì con số có thể lỗi thời.
+SETTINGS_TRAINDISPLAY_LAYOUT Bố cục bảng
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Cách sắp xếp lớp phủ dùng. Cả hai hiện cùng thông tin và tuân theo cùng hộp kiểm bên dưới - chỉ khác hình dạng.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Cổ điển (bảng góc gọn)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Chi tiết (số liệu tiêu đề + danh sách điểm dừng)
+COMMUTERDESTINATION_PANEL_TITLE Lớp phủ điểm đến hành khách (Thử nghiệm)
+COMMUTERDESTINATION_PANEL_DESTINATIONS điểm đến
+COMMUTERDESTINATION_PANEL_STOP Điểm dừng #{0}
+COMMUTERDESTINATION_PANEL_WAITING Hành khách chờ: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Trước
+COMMUTERDESTINATION_PANEL_NEXT Tiếp theo
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Phát hiện nhánh/vòng tuyến (sắp)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Dự định: cảnh báo trên bảng tuyến xe khi tuyến vòng về chính nó hoặc tách ra hơn hai nhánh, thay vì giả định tuyến đơn giản từ đầu đến cuối. Chưa có.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Thông báo điểm dừng tiếp theo bằng giọng nói (sắp)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Dự định: thông báo điểm dừng tiếp theo tùy chọn bằng chuyển văn bản thành giọng nói, khớp với mod gốc mà bảng này dựa theo. Chưa có.
+SETTINGS_FUTURE_STTAI_QUEUE Xếp thứ tự tàu công bằng trên đường đơn ray (sắp)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Dự định: theo dõi mỗi tàu đã chờ đoạn đơn ray bao lâu, để tàu đến trước được dùng trước thay vì con nào được xử lý trước trong lượt đó. Chưa có.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Hộp kiểm Kiểm soát ngân sách vẫn được chọn khi được IPT quản lý (sắp)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Dự định: hiện tại, khi Tự động điều chỉnh đội xe tiếp quản một tuyến, hộp kiểm Kiểm soát ngân sách của nó tự bỏ chọn để báo hiệu điều đó - có chủ đích nhưng trông khó hiểu. Sẽ tách "tính ngân sách của game" khỏi "IPT đang quản lý tuyến này" nội bộ, để hộp kiểm có thể được chọn suốt. Chưa có.

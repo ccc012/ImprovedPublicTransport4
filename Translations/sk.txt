@@ -585,11 +585,42 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Prenesené zo samostatného modu R
 CHANGELOG_4_8_6_1 Znovu aktivovaná Cieľová destinácia cestujúcich: prepínač v Možnostiach je späť a funguje naživo, bez potreby opätovného načítania.
 CHANGELOG_4_8_6_2 Preverená každá voliteľná integrácia kvôli skutočnému „vypnuté znamená vypnuté": Zvýšené zastávky trvalo prepisovali dáta prefabu cesty bez možnosti to vrátiť späť a Automatická veľkosť flotily pokračovala v riadení liniek na pozadí aj po deaktivácii uprostred relácie. Obe sa teraz po vypnutí úplne vrátia k vanilla správaniu.
 CHANGELOG_4_8_6_3 Nájdené dve správania, ktoré vždy bežali bez možnosti ich vypnúť — automatické pomenovanie nepomenovaných zastávok a Záchrana širokých číslic (Gansaku) — a pridané prepínače pre obe pod Options → Rozšírené. V predvolenom nastavení zapnuté, takže sa nič nezmení, pokiaľ ich nevypnete.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Autobusové zastávky ako body trasy (čoskoro)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Plánované: označiť zastávku iba ako bod trasy — cesta linky prechádza cez ňu, ale vozidlá sa tam nikdy nezastavia ani nenakladajú/nevyládajú cestujúcich. Pomáha nasmerovať vanilla hľadanie cesty na cestu, ktorú ste skutočne zamýšľali. Zatiaľ nie je dostupné.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Podržte pri umiestňovaní spojenia zastávky vlaku/električky, aby ste zamierili na presnú koľaj namiesto najbližšej platnej. Bolo pevne nastavené na Ľavý/Pravý Shift; priradenie tu pokrýva iba tú stranu, ktorú si vyberiete.
+SETTINGS_LEGACY_GROUP Zastarané
+SETTINGS_LEGACY_GROUP_DESC Staré prepínače zachované iba preto, aby inštalácie, ktoré ich už mali zapnuté, fungovali presne ako predtým. Uzamknuté — odtiaľ ich už nemožno zapnúť ani vypnúť a každý herný profil ich odteraz necháva vypnuté.
+CHANGELOG_4_8_7_1 Ukladanie autobusov na zastávke je teraz uzamknutý zastaraný prepínač pod Options → Rozšírené → Zastarané: inštalácie, ktoré ho už mali zapnutý, fungujú presne ako predtým, ale už ho nemožno zapnúť pre nové inštalácie a žiadny herný profil ho už nezapína.
+CHANGELOG_4_8_7_2 Odstránená formulácia zo stránky Workshop a herného tipu, ktoré spomínali mod iného autora po mene, na jeho žiadosť.
+
+SETTINGS_KOFI_LINK Podporiť na Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Preložené textu modu
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Koľko vlastného textu tohto modu — ponuky, tipy, herné panely — je preložené do vášho jazyka. Toto sa líši od „Priebehu prekladu“ vyššie, ktorý pokrýva len niekoľko všeobecných tlačidiel ako OK a Zrušiť, nie skutočný obsah tohto modu. Ak tu stále vidíte trochu angličtiny, úplný preklad pre váš jazyk je na ceste.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Zobraziť ďalšiu zastávku
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Zobrazí výrazný indikátor „ďalšia zastávka“, ktorý sa aktualizuje, ako vozidlo postupuje po linke.
+TRAINDISPLAY_LABEL_NEXTSTOP Ďalšia zastávka
+CHANGELOG_4_8_8_1 Prekrytie cieľov cestujúcich (Experimentálne): nájdená a opravená skutočná chyba, kde sa dva vlastné patche modu ticho zrazili pri tom istom kliknutí — ale testy v reálnej hre stále ukazujú, že ikony/panel sa neobjavujú spoľahlivo. Zostáva predvolene vypnutý a Experimentálny, kým sa to úplne nevyrieši.
+CHANGELOG_4_8_8_2 Začiarkavacie políčko kontroly rozpočtu sa už samo neodčiarkne v momente, keď ho začiarknete.
+CHANGELOG_4_8_8_3 Profil výkonu panela trasy vozidla (Ľahký/Normálny/Maximálny) teraz skutočne mení frekvenciu aktualizácie — predtým nemal pre väčšinu hráčov žiadny viditeľný účinok.
+CHANGELOG_4_8_8_4 Opravených niekoľko problémov s trasovaním vozidiel pri depách a zastávkach, vrátane autobusov zarezávajúcich do terénu/mostov a občasného predčasného otočenia.
+CHANGELOG_4_8_8_5 Pridaná ochrana proti skutočnému pádu, na ktorý niektorí hráči mohli naraziť pri určitých uložených hrách — nespôsobenému týmto modom, ale chránené tak či tak, pretože patchuje rovnakú hernú metódu.
+CHANGELOG_4_8_8_6 Tento panel teraz zobrazuje skutočné, automaticky vypočítané percento toho, koľko vlastného textu modu je preložené do vášho jazyka, namiesto čísla, ktoré mohlo zastarať.
+SETTINGS_TRAINDISPLAY_LAYOUT Rozloženie panela
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ktoré rozloženie prekrytie používa. Obe zobrazujú rovnaké informácie a riadia sa rovnakými začiarkavacími políčkami nižšie — líši sa len tvar.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klasické (kompaktný panel v rohu)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailné (metriky v hlavičke + zoznam zastávok)
+COMMUTERDESTINATION_PANEL_TITLE Prekrytie cieľov cestujúcich (Experimentálne)
+COMMUTERDESTINATION_PANEL_DESTINATIONS ciele
+COMMUTERDESTINATION_PANEL_STOP Zastávka #{0}
+COMMUTERDESTINATION_PANEL_WAITING Čakajúci cestujúci: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Predchádzajúca
+COMMUTERDESTINATION_PANEL_NEXT Ďalšia
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Detekcia vetvenia/slučiek trasy (čoskoro)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Plánované: upozornenie na paneli trasy vozidla, keď sa linka vracia do seba alebo sa delí na viac ako dve vetvy, namiesto predpokladu jednoduchej trasy od začiatku do konca. Zatiaľ nie je dostupné.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Hlasové hlásenia ďalšej zastávky (čoskoro)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Plánované: voliteľné hlásenie ďalšej zastávky syntézou reči, zodpovedajúce pôvodnému modu, na ktorom je tento panel založený. Zatiaľ nie je dostupné.
+SETTINGS_FUTURE_STTAI_QUEUE Spravodlivé poradie vlakov na jednokoľajovom úseku (čoskoro)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Plánované: sledovať, ako dlho každý vlak čaká na jednokoľajový úsek, aby vlak, ktorý prišiel prvý, ho dostal prvý, namiesto toho, ktorý je náhodou spracovaný prvý v danom cykle. Zatiaľ nie je dostupné.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Začiarkavacie políčko kontroly rozpočtu zostáva začiarknuté pri inteligentnom riadení (čoskoro)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Plánované: momentálne, len čo Automatické dimenzovanie vozového parku prevezme linku, jej políčko kontroly rozpočtu sa samo odčiarkne, aby to signalizovalo — zámerne, ale mätúce na pohľad. Toto vnútorne oddelí „vlastnú rozpočtovú matematiku hry“ od „IPT riadi túto linku“, aby políčko mohlo zostať začiarknuté celý čas. Zatiaľ nie je dostupné.

@@ -542,7 +542,7 @@ SETTINGS_SUB_OUTSIDE_DESC Terminal interurbani e attesa cargo/passeggeri delle c
 SETTINGS_SUB_DISPLAY Visualizzazione
 SETTINGS_SUB_INFO Info
 SETTINGS_SUB_INFO_DESC Pannelli e strumenti info città (non simulazione flotta).
-SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_PERF Prest
 SETTINGS_SUB_COMPAT Compat
 SETTINGS_SUB_KEYS Tasti
 SETTINGS_FUTURE_GROUP Disponibile dopo
@@ -585,11 +585,42 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portato dalla mod standalone Rescu
 CHANGELOG_4_8_6_1 Riattivata Destinazione Pendolari: l'interruttore nelle Opzioni è tornato e funziona in tempo reale, senza bisogno di ricaricare.
 CHANGELOG_4_8_6_2 Verificato ogni integrazione opzionale per un vero "off significa off": Elevated Stops Enabler riscriveva permanentemente i dati dei prefabbricati stradali senza modo di annullarli, e Auto Line Budget continuava a gestire le linee in background dopo essere stato disattivato a metà sessione. Entrambi ora ripristinano completamente il comportamento vanilla quando disattivati.
 CHANGELOG_4_8_6_3 Trovati due comportamenti sempre attivi senza possibilità di disattivarli - assegnazione automatica del nome alle fermate senza nome e Rescue Fullwidth Digits (Gansaku) - e aggiunti interruttori per entrambi in Opzioni → Avanzate. Attivi per impostazione predefinita, quindi nulla cambia a meno che tu non li disattivi.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Fermate di waypoint degli autobus (presto)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Pianificato: marcare una fermata solo come waypoint di rotta - il percorso della linea passa da lì ma i veicoli non si fermano mai né fanno salire/scendere passeggeri. Aiuta a indirizzare il pathfinding vanilla verso la strada che intendevi davvero. Non disponibile ancora.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Tieni premuto mentre piazzi una connessione di fermata treno/tram per puntare al binario esatto invece che a quello valido più vicino. Era fissato a Shift sinistro/destro; riassegnarlo qui copre solo il lato che scegli.
+SETTINGS_LEGACY_GROUP Eredità
+SETTINGS_LEGACY_GROUP_DESC Vecchi interruttori mantenuti solo perché le installazioni che li avevano già attivi continuino a funzionare esattamente come prima. Bloccati - non possono più essere attivati o disattivati da qui, e ogni profilo di gioco li lascia spenti d'ora in poi.
+CHANGELOG_4_8_7_1 L'impilamento delle baie delle fermate degli autobus ora è un interruttore legacy bloccato in Opzioni → Avanzate → Eredità: le installazioni che lo avevano già attivo continuano a funzionare esattamente come prima, ma non può più essere attivato per nuove installazioni e nessun profilo di gioco lo abilita più.
+CHANGELOG_4_8_7_2 Rimosso il testo dalla pagina Workshop e dal tooltip in gioco che citava il mod di un altro autore per nome, su sua richiesta.
+
+SETTINGS_KOFI_LINK Sostieni su Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Testo del mod tradotto
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Quanto del testo proprio di questo mod - menu, tooltip, pannelli di gioco - è tradotto nella tua lingua. Questo è diverso da "Avanzamento traduzione" qui sopra, che copre solo una manciata di pulsanti generici come OK e Annulla, non il contenuto reale di questo mod. Se vedi ancora un po' di inglese qui, una traduzione completa per la tua lingua è in arrivo.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Mostra prossima fermata
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Mostra un riquadro ben visibile con la "prossima fermata" che si aggiorna man mano che il veicolo avanza lungo la linea.
+TRAINDISPLAY_LABEL_NEXTSTOP Prossima fermata
+CHANGELOG_4_8_8_1 Sovrapposizione destinazione pendolari (Sperimentale): trovato e corretto un bug reale in cui due patch del mod stesso entravano silenziosamente in collisione sullo stesso clic - ma i test in gioco reale mostrano ancora icone/pannello che non appaiono in modo affidabile. Resta disattivato per impostazione predefinita e Sperimentale finché non sarà del tutto risolto.
+CHANGELOG_4_8_8_2 La casella di controllo del budget non si deseleziona più da sola nel momento stesso in cui la spunti.
+CHANGELOG_4_8_8_3 Il profilo prestazioni del pannello di rotta del veicolo (Leggero/Normale/Massimo) ora cambia davvero la sua frequenza di aggiornamento - prima non aveva alcun effetto visibile per la maggior parte dei giocatori.
+CHANGELOG_4_8_8_4 Corretti diversi glitch di percorso dei veicoli vicino a depositi e fermate, inclusi autobus che attraversavano il terreno/i ponti e un'occasionale inversione a U prematura.
+CHANGELOG_4_8_8_5 Protetto contro un crash reale che alcuni giocatori potevano incontrare su certe partite salvate - non causato da questo mod, ma protetto comunque perché patcha lo stesso metodo del gioco.
+CHANGELOG_4_8_8_6 Questo pannello ora mostra una percentuale reale, calcolata automaticamente, di quanto del testo proprio del mod è tradotto nella tua lingua, invece di un numero che poteva diventare obsoleto.
+SETTINGS_TRAINDISPLAY_LAYOUT Disposizione del pannello
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Quale disposizione usa la sovrapposizione. Entrambe mostrano le stesse informazioni e obbediscono alle stesse caselle dei campi qui sotto - cambia solo la forma.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classica (pannello compatto d'angolo)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Dettagliata (metriche in intestazione + elenco fermate)
+COMMUTERDESTINATION_PANEL_TITLE Sovrapposizione destinazione pendolari (Sperimentale)
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinazioni
+COMMUTERDESTINATION_PANEL_STOP Fermata #{0}
+COMMUTERDESTINATION_PANEL_WAITING Passeggeri in attesa: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Precedente
+COMMUTERDESTINATION_PANEL_NEXT Successiva
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Rilevamento rami/loop di rotta (presto)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Pianificato: avvisare sul pannello di rotta del veicolo quando una linea si ripiega su se stessa o si divide in più di due rami, invece di presupporre una rotta semplice da un capo all'altro. Non disponibile ancora.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Annunci parlati della prossima fermata (presto)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Pianificato: annuncio opzionale in sintesi vocale della prossima fermata, come nel mod originale su cui si basa questo pannello. Non disponibile ancora.
+SETTINGS_FUTURE_STTAI_QUEUE Ordine equo dei treni su binario unico (presto)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Pianificato: registrare da quanto tempo ogni treno attende una sezione a binario unico, così il treno arrivato per primo la ottiene per primo invece di chiunque venga elaborato per primo in quel tick. Non disponibile ancora.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED La casella di controllo del budget resta spuntata con la gestione automatica (presto)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Pianificato: adesso, quando il Dimensionamento automatico della flotta prende in carico una linea, la sua casella di controllo del budget si deseleziona da sola per segnalarlo - è voluto, ma confuso da vedere. Questo separerà "i calcoli di budget del gioco stesso" da "IPT gestisce questa linea" internamente, così la casella potrà restare spuntata per tutto il tempo. Non disponibile ancora.

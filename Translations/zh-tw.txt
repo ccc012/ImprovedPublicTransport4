@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP 將外部連接等候、裝飾性過境交通和相�
 SETTINGS_EBS_GROUP_BUS_DESC 快速巴士在乘客很少時可能會提前離開 — 可選的進階間距。
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 額外列
 SETTINGS_SUB_NET_BBSP_NOTE 改進公車站位置僅會改變公車在停靠處的停靠位置。下方的選項是獨立功能（高架、共享停靠等）— 它們刻意保持可點擊。
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP 始終執行的行為
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC 兩個迄今為止始終在執行、且無法關閉的小型行為。預設開啟，因此現有安裝不會看到任何變化——如果你使用的是會執行相同功能的獨立模組，或只是偏好手動控制，請將其關閉。
+SETTINGS_AUTONAMESTOPS_ENABLE 自動命名未命名站點
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP 當你第一次選中一個沒有名稱的站點時，會賦予它站點面板自身下拉式清單會建議的相同附近建築名稱——無需你開啟該下拉式清單。絕不會修改你（或此功能）已設定的名稱。
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP 從獨立的 Rescue Fullwidth Digits mod 移植而來。修正部分輸入法／輸入設定會以全形數字（１２３ 而非 123）儲存的運輸路線名稱，否則這些名稱將永遠顯示錯誤。
+SETTINGS_FUTURE_BUSWAYPOINT 公車途經站點（即將推出）
+SETTINGS_FUTURE_BUSWAYPOINT_TIP 計畫：將站點僅標記為路線途經點——路線路徑會通過它，但車輛絕不在那裡停靠或上下乘客。有助於引導原版尋路走向你真正想要的道路。尚無法使用。
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP 在放置火車／電車站點連線時按住，以精確選取目標軌道，而非最近的有效軌道。先前是硬編碼為左／右 Shift；在此重新綁定時，只會涵蓋你所選的那一側。
+SETTINGS_LEGACY_GROUP 舊版
+SETTINGS_LEGACY_GROUP_DESC 保留這些舊開關，只是為了讓已開啟它們的安裝能與以前完全一樣地運作。已鎖定——從此處再也無法將其開啟或關閉，且今後所有遊戲設定檔都會讓它們保持關閉。
+CHANGELOG_4_8_6_1 重新啟用乘客目的地：「選項」開關已恢復並即時生效，無需重新載入。
+CHANGELOG_4_8_6_2 為了真正的「關閉即關閉」，稽核了每一項選用整合：Elevated Stops Enabler 會在沒有復原途徑的情況下永久改寫道路預製件資料，而 Auto Line Budget 在會話中途被停用後仍持續在背景管理路線。兩者現在關閉後都會完全還原為原版行為。
+CHANGELOG_4_8_6_3 發現了兩個始終在執行且無法關閉的行為——自動命名未命名站點，以及救援全形數字（Gansaku）——並在「選項 > 進階」下為兩者新增了開關。預設開啟，因此除非你關閉它們，否則一切不會改變。
+CHANGELOG_4_8_7_1 公車站台多泊位堆疊現在是「選項 > 進階 > 舊版」底下的鎖定式舊版開關：先前已開啟此功能的安裝會與以前完全一樣地運作，但新安裝無法再將其開啟，且不再有任何遊戲設定檔會啟用它。
+CHANGELOG_4_8_7_2 應另一位作者的要求，從 Workshop 頁面和遊戲內提示中移除了點名提及對方模組的措辭。
+
+SETTINGS_KOFI_LINK 在 Ko-fi 上贊助我們
+SETTINGS_MODTRANSLATION_GROUP 模組文字已翻譯
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP 此模組自身的文字——選單、提示、遊戲內面板——有多少已翻譯成你的語言。這不同於上方的「翻譯進度」，後者只涵蓋少數通用按鈕，例如確定與取消，而非此模組的實際內容。如果你在這裡仍看到一些英文，表示你的語言的完整翻譯正在製作中。
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP 顯示下一站點
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP 顯示醒目的「下一站點」資訊，並隨車輛沿路線前進而即時更新。
+TRAINDISPLAY_LABEL_NEXTSTOP 下一站點
+CHANGELOG_4_8_8_1 乘客目的地浮層（實驗性）：發現並修正了一個真實的錯誤，其中此模組自身的兩個修補程式會在同一次點擊上靜默衝突——但實際遊玩測試仍顯示圖示／面板無法穩定出現。在完全解決之前，將保持預設關閉並維持實驗性。
+CHANGELOG_4_8_8_2 「預算控制」核取方塊不再在你勾選的瞬間自行取消勾選。
+CHANGELOG_4_8_8_3 車輛路線面板的性能設定檔（輕量／均衡／最大）現在確實會改變其更新頻率——先前對大多數玩家而言沒有可見效果。
+CHANGELOG_4_8_8_4 修正了停車庫與站點附近的數個車輛路徑異常，包括公車穿入地形／橋梁，以及偶爾過早的 U 形迴轉。
+CHANGELOG_4_8_8_5 針對部分玩家在某些存檔上可能遭遇的真實當機加入了防護——這並非由本模組引起，但由於它會修補同一個遊戲方法，仍加上防護。
+CHANGELOG_4_8_8_6 此面板現在會顯示一個真實、自動計算的百分比，表示此模組自身文字有多少已翻譯成你的語言，取代先前可能過時的數字。
+SETTINGS_TRAINDISPLAY_LAYOUT 面板版面配置
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP 浮層所使用的排列方式。兩種配置顯示相同的資訊，並遵循下方相同的欄位核取方塊——只有外形不同。
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC 經典（精簡角落面板）
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED 詳細（標題指標 + 站點清單）
+COMMUTERDESTINATION_PANEL_TITLE 乘客目的地浮層（實驗性）
+COMMUTERDESTINATION_PANEL_DESTINATIONS 個目的地
+COMMUTERDESTINATION_PANEL_STOP 站點 #{0}
+COMMUTERDESTINATION_PANEL_WAITING 等待乘客：{0}
+COMMUTERDESTINATION_PANEL_PREVIOUS 上一個
+COMMUTERDESTINATION_PANEL_NEXT 下一個
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH 路線分支／迴圈偵測（即將推出）
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP 計畫：當路線自行迴圈或分支超過兩條時，在車輛路線面板上提出警告，而非假定為簡單的端對端路線。尚無法使用。
+SETTINGS_FUTURE_ROUTEPANEL_TTS 下一站語音播報（即將推出）
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP 計畫：可選的下一站文字轉語音播報，與此面板所根據的原始模組一致。尚無法使用。
+SETTINGS_FUTURE_STTAI_QUEUE 單線軌道上的公平列車排序（即將推出）
+SETTINGS_FUTURE_STTAI_QUEUE_TIP 計畫：記錄每列火車等待單線區段已多久，使先到達的火車優先獲得通行，而不是由該次處理中碰巧先被處理的那列火車取得。尚無法使用。
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED 自動管理時「預算控制」核取方塊保持勾選（即將推出）
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP 計畫：目前，一旦「自動車隊規模調整」接管某一條路線，其「預算控制」核取方塊就會自行取消勾選以作為標示——這是刻意設計，但看起來令人困惑。此功能將在內部區分「遊戲自身的預算計算」與「IPT 正在管理此路線」，使核取方塊能全程保持勾選。尚無法使用。

@@ -585,11 +585,42 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP Immer aktives Verhalten
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Zwei kleine Verhaltensweisen, die bisher immer liefen, ohne dass man sie abschalten konnte. Standardmäßig aktiviert, damit bestehende Installationen keine Änderung bemerken - abschalten, wenn ein eigenständiger Mod dasselbe tut oder man einfach manuelle Kontrolle bevorzugt.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portiert aus dem eigenständigen Mod Rescue Fullwidth Digits. Behebt Transportlinien-Namen, die durch manche IME-/Eingabe-Setups mit Vollbreiten-Ziffern (１２３ statt 123) gespeichert wurden und sonst dauerhaft falsch angezeigt würden.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Bus-Wegpunkt-Haltestellen (bald)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Geplant: Eine Haltestelle nur als Wegpunkt für die Routenführung markieren – die Linienführung verläuft durch sie hindurch, aber Fahrzeuge halten dort nie an und laden dort keine Fahrgäste ein oder aus. Hilft, die Vanilla-Wegfindung auf die Straße zu lenken, die du tatsächlich vorgesehen hast. Noch nicht verfügbar.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Halten, während eine Zug-/Straßenbahn-Haltestellenverbindung platziert wird, um das genaue Gleis statt des nächstgelegenen gültigen anzuzielen. War fest auf Links-/Rechts-Umschalt belegt; eine Neubelegung hier deckt nur die von dir gewählte Seite ab.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Alte Umschalter, die nur behalten wurden, damit Installationen, die sie bereits aktiviert hatten, weiterhin genau wie zuvor funktionieren. Gesperrt – sie können von hier aus nicht mehr ein- oder ausgeschaltet werden, und jedes Spielprofil lässt sie künftig ausgeschaltet.
+CHANGELOG_4_8_7_1 Die Stapelung von Bushaltestellen-Halteplätzen ist jetzt ein gesperrter Legacy-Umschalter unter Optionen → Erweitert → Legacy: Installationen, die sie bereits aktiviert hatten, funktionieren weiterhin genau wie zuvor, aber sie kann für neue Installationen nicht mehr aktiviert werden, und kein Spielprofil aktiviert sie mehr.
+CHANGELOG_4_8_7_2 Formulierungen von der Workshop-Seite und aus dem Ingame-Tooltip entfernt, die auf Wunsch des Autors eine andere Mod namentlich erwähnten.
+
+SETTINGS_KOFI_LINK Auf Ko-fi unterstützen
+SETTINGS_MODTRANSLATION_GROUP Mod-Text übersetzt
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Wie viel des eigenen Textes dieses Mods – Menüs, Tooltips, Panels im Spiel – in deine Sprache übersetzt ist. Das unterscheidet sich vom "Übersetzungsfortschritt" weiter oben, der nur eine Handvoll generischer Schaltflächen wie OK und Abbrechen abdeckt, nicht den tatsächlichen Inhalt dieses Mods. Wenn hier noch etwas auf Englisch erscheint, ist eine vollständige Übersetzung für deine Sprache unterwegs.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Nächste Haltestelle anzeigen
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Zeigt eine deutliche "Nächste Haltestelle"-Anzeige, die sich aktualisiert, während das Fahrzeug entlang der Linie vorrückt.
+TRAINDISPLAY_LABEL_NEXTSTOP Nächste Haltestelle
+CHANGELOG_4_8_8_1 Pendlerziel-Overlay (Experimentell): Ein echter Fehler wurde gefunden und behoben, bei dem zwei Patches des Mods stillschweigend beim selben Klick kollidierten – die Tests im echten Spiel zeigen jedoch weiterhin, dass die Symbole/das Panel nicht zuverlässig erscheinen. Bleibt bis zur vollständigen Klärung standardmäßig deaktiviert und experimentell.
+CHANGELOG_4_8_8_2 Das Kontrollkästchen der Budgetsteuerung wird nicht mehr im selben Moment wieder deaktiviert, in dem man es aktiviert.
+CHANGELOG_4_8_8_3 Das Leistungsprofil (Light/Normal/Maximum) des Fahrzeug-Routenpanels ändert nun tatsächlich seine Aktualisierungsrate – zuvor hatte es für die meisten Spieler keine sichtbare Wirkung.
+CHANGELOG_4_8_8_4 Mehrere Routenfehler von Fahrzeugen in der Nähe von Depots und Haltestellen behoben, darunter Busse, die in Gelände/Brücken hineinragten, sowie gelegentliche vorzeitige Kehrtwenden.
+CHANGELOG_4_8_8_5 Gegen einen echten Absturz abgesichert, den manche Spieler bei bestimmten Spielständen treffen konnten – nicht durch diesen Mod verursacht, aber trotzdem abgesichert, da er dieselbe Spielmethode patcht.
+CHANGELOG_4_8_8_6 Dieses Panel zeigt jetzt einen echten, automatisch berechneten Prozentsatz davon, wie viel des eigenen Textes des Mods in deine Sprache übersetzt ist, statt einer Zahl, die veralten konnte.
+SETTINGS_TRAINDISPLAY_LAYOUT Panel-Layout
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Welche Anordnung das Overlay verwendet. Beide zeigen dieselben Informationen und befolgen dieselben Feld-Checkboxen darunter – nur die Form unterscheidet sich.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klassisch (kompaktes Eck-Panel)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailreich (Kennzahlen im Kopfbereich + Haltestellenliste)
+COMMUTERDESTINATION_PANEL_TITLE Pendlerziel-Overlay (Experimentell)
+COMMUTERDESTINATION_PANEL_DESTINATIONS Ziele
+COMMUTERDESTINATION_PANEL_STOP Haltestelle #{0}
+COMMUTERDESTINATION_PANEL_WAITING Wartende Fahrgäste: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Zurück
+COMMUTERDESTINATION_PANEL_NEXT Weiter
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Erkennung von Linienverzweigungen/-schleifen (bald)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Geplant: Im Fahrzeug-Routenpanel warnen, wenn eine Linie auf sich selbst zurückkehrt oder sich in mehr als zwei Zweige aufteilt, statt von einer einfachen Strecke von Ende zu Ende auszugehen. Noch nicht verfügbar.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Sprachansagen der nächsten Haltestelle (bald)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Geplant: optionale Sprachausgabe der nächsten Haltestelle, passend zum ursprünglichen Mod, auf dem dieses Panel basiert. Noch nicht verfügbar.
+SETTINGS_FUTURE_STTAI_QUEUE Faire Zugreihenfolge auf eingleisiger Strecke (bald)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Geplant: Nachverfolgen, wie lange jeder Zug auf einen eingleisigen Abschnitt wartet, sodass der zuerst angekommene Zug ihn auch zuerst bekommt, statt desjenigen, der zufällig in diesem Tick zuerst verarbeitet wird. Noch nicht verfügbar.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budgetsteuerungs-Checkbox bleibt bei automatischer Verwaltung angehakt (bald)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Geplant: Aktuell hakt sich die Checkbox "Budgetsteuerung" ab, sobald die automatische Flottengröße eine Linie übernimmt, um das zu signalisieren – gewollt, aber verwirrend anzusehen. Das wird intern "die eigene Budgetberechnung des Spiels" von "IPT verwaltet diese Linie" trennen, sodass die Checkbox die ganze Zeit angehakt bleiben kann. Noch nicht verfügbar.

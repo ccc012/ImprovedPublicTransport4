@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP বাইরের সংযোগ অপেক্ষ
 SETTINGS_EBS_GROUP_BUS_DESC কয়েকজন যাত্রী ওঠানামা করলে এক্সপ্রেস বাসগুলি আগেই ছেড়ে যেতে পারে — ঐচ্ছিক উন্নত ব্যবধান।
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP অতিরিক্ত সারি
 SETTINGS_SUB_NET_BBSP_NOTE উন্নত বাস স্টপ শুধুমাত্র বাসগুলি স্টপে কোথায় পার্ক করে তা পরিবর্তন করে। নিচের বিকল্পগুলি আলাদা বৈশিষ্ট্য (উন্নত, ভাগ করা স্টপ, ইত্যাদি) - তারা উদ্দেশ্যমূলকভাবে ক্লিকযোগ্য থাকে।
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP সর্বদা-চালু আচরণ
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC দুটি ছোট আচরণ যা এখন পর্যন্ত বন্ধ করার কোনো উপায় ছাড়াই সর্বদা চলত। ডিফল্টভাবে চালু যাতে বিদ্যমান ইনস্টল কোনো পরিবর্তন না দেখে - বন্ধ করুন যদি আপনি একই কাজ করা স্ট্যান্ডঅ্যালোন মড চালান, বা শুধু ম্যানুয়াল নিয়ন্ত্রণ পছন্দ করেন।
+SETTINGS_AUTONAMESTOPS_ENABLE নামহীন স্টপের অটো-নামকরণ
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP আপনি প্রথমবার নামহীন স্টপ নির্বাচন করলে, এটি স্টপ প্যানেলের নিজস্ব ড্রপডাউন যা সুপারিশ করবে সেই একই কাছের ভবনের নাম দেয় - সেই ড্রপডাউনটি না খুলেই। আপনি (বা এটি) ইতিমধ্যে সেট করা নাম কখনো স্পর্শ করে না।
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP স্ট্যান্ডঅ্যালোন Rescue Fullwidth Digits মড থেকে পোর্ট করা হয়েছে। সেই পরিবহন লাইনের নাম ঠিক করে যা কিছু IME/ইনপুট সেটআপ দ্বারা ফুল-উইডথ সংখ্যা (123-এর পরিবর্তে ১২৩) দিয়ে সংরক্ষিত হয়েছিল, যা অন্যথায় চিরকাল ভুলভাবে প্রদর্শিত হয়।
+SETTINGS_FUTURE_BUSWAYPOINT বাস ওয়েপয়েন্ট স্টপ (শীঘ্রই)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP পরিকল্পিত: একটি স্টপকে শুধুমাত্র রাউটিং ওয়েপয়েন্ট হিসাবে চিহ্নিত করুন - লাইনের পথ এটি দিয়ে যায় তবে যানবাহন সেখানে কখনো থামে না বা যাত্রী ওঠানো/নামায় না। ভ্যানিলা পাথফাইন্ডিংকে আপনি আসলে যে সড়কটি চেয়েছিলেন সেদিকে নিয়ে যেতে সাহায্য করে। এখনও উপলব্ধ নয়।
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP ট্রেন/ট্রাম স্টপ সংযোগ স্থাপনের সময় চেপে ধরে রাখুন যাতে নিকটতম বৈধটির পরিবর্তে সঠিক ট্র্যাককে লক্ষ্য করা যায়। পূর্বে Left/Right Shift-এ হার্ডকোড ছিল; এখানে পুনঃ-বাঁধাই শুধুমাত্র আপনি যে পাশটি বেছে নেন সেটি কভার করে।
+SETTINGS_LEGACY_GROUP লিগ্যাসি
+SETTINGS_LEGACY_GROUP_DESC পুরনো টগল শুধুমাত্র এজন্য রাখা হয়েছে যাতে যে ইনস্টলগুলিতে এগুলি আগে থেকে চালু ছিল তারা আগের মতোই কাজ করে। লক করা - এগুলিকে আর এখান থেকে চালু বা বন্ধ করা যাবে না, এবং সামনে প্রতিটি গেমপ্লে প্রোফাইল এগুলিকে বন্ধ রাখে।
+CHANGELOG_4_8_6_1 কমিউটার গন্তব্য পুনরায় সক্রিয় করা হয়েছে: অপশন টগল ফিরে এসেছে এবং সরাসরি কাজ করে, রিলোডের প্রয়োজন নেই।
+CHANGELOG_4_8_6_2 প্রতিটি ঐচ্ছিক ইন্টিগ্রেশন অডিট করা হয়েছে প্রকৃত "বন্ধ মানে বন্ধ" নিশ্চিত করতে: Elevated Stops Enabler পূর্বাবস্থায় ফেরানোর কোনো উপায় ছাড়াই স্থায়ীভাবে রাস্তার প্রিফ্যাব ডেটা পুনর্লিখন করছিল, এবং Auto Line Budget সেশনের মাঝে অক্ষম করার পরেও পটভূমিতে লাইন পরিচালনা করতে থাকত। বন্ধ করলে উভয়ই এখন সম্পূর্ণভাবে ভ্যানিলা আচরণে ফিরে যায়।
+CHANGELOG_4_8_6_3 দুটি আচরণ পাওয়া গেছে যা সর্বদা চালত এবং বন্ধ করার কোনো উপায় ছিল না - নামহীন স্টপের অটো-নামকরণ এবং Rescue Fullwidth Digits (Gansaku) - এবং উভয়ের জন্য অপশন → অ্যাডভান্সড-এর অধীনে টগল যোগ করা হয়েছে। ডিফল্টভাবে চালু, তাই আপনি বন্ধ না করা পর্যন্ত কিছুই পরিবর্তন হয় না।
+CHANGELOG_4_8_7_1 বাস স্টপ বার্থ স্ট্যাকিং এখন অপশন → অ্যাডভান্সড → Legacy-এর অধীনে একটি লক করা লিগ্যাসি টগল: যে ইনস্টলগুলিতে এটি আগে থেকে চালু ছিল তারা আগের মতোই কাজ করে, তবে এটি নতুন ইনস্টলের জন্য চালু করা যাবে না এবং কোনো গেমপ্লে প্রোফাইল এটিকে আর সক্রিয় করে না।
+CHANGELOG_4_8_7_2 ওয়ার্কশপ পৃষ্ঠা এবং গেমের টুলটিপ থেকে সেই শব্দবন্ধটি সরানো হয়েছে যা অন্য একটি লেখকের মডের নাম উল্লেখ করত, তাদের অনুরোধে।
+
+SETTINGS_KOFI_LINK Ko-fi-তে সমর্থন করুন
+SETTINGS_MODTRANSLATION_GROUP মডের লেখা অনূদিত
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP এই মডের নিজস্ব লেখার কতটা - মেনু, টুলটিপ, গেমের প্যানেল - আপনার ভাষায় অনূদিত। এটি উপরের "অনুবাদের অগ্রগতি" থেকে আলাদা, যা শুধুমাত্র OK এবং Cancel-এর মতো কিছু সাধারণ বোতাম কভার করে, এই মডের প্রকৃত বিষয়বস্তু নয়। আপনি যদি এখানে এখনও কিছু ইংরেজি দেখেন, তাহলে আপনার ভাষার জন্য একটি পূর্ণ অনুবাদ আসছে।
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP পরবর্তী স্টপ দেখান
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP একটি উল্লেখযোগ্য "পরবর্তী স্টপ" রিডআউট দেখায় যা যানবাহন লাইন বরাবর এগোনোর সাথে সাথে আপডেট হয়।
+TRAINDISPLAY_LABEL_NEXTSTOP পরবর্তী স্টপ
+CHANGELOG_4_8_8_1 যাত্রী গন্তব্য ওভারলে (Experimental): মডের দুটি নিজস্ব প্যাচ একই ক্লিকে নিঃশব্দে সংঘর্ষ করছিল এমন একটি প্রকৃত বাগ খুঁজে পাওয়া এবং ঠিক করা হয়েছে - কিন্তু প্রকৃত গেম টেস্টিংয়ে এখনও আইকন/প্যানেল নির্ভরযোগ্যভাবে দেখা যাচ্ছে না। এটি সম্পূর্ণরূপে সমাধান না হওয়া পর্যন্ত ডিফল্টভাবে বন্ধ এবং Experimental থাকবে।
+CHANGELOG_4_8_8_2 বাজেট নিয়ন্ত্রণ চেকবক্স আর টিক দেওয়ার সাথে সাথে নিজে থেকে আনচেক হয় না।
+CHANGELOG_4_8_8_3 যানবাহন রুট প্যানেলের কর্মক্ষমতা প্রোফাইল (Light/Normal/Maximum) এখন সত্যিই তার আপডেট হার পরিবর্তন করে - আগে বেশিরভাগ খেলোয়াড়ের জন্য কোনো দৃশ্যমান প্রভাব ছিল না।
+CHANGELOG_4_8_8_4 ডিপো এবং স্টপের কাছে বেশ কয়েকটি যানবাহন পথের গোলযোগ ঠিক করা হয়েছে, যার মধ্যে বাসের ভূখণ্ড/সেতুতে ঢুকে পড়া এবং মাঝে মাঝে অসময়ে U-টার্ন অন্তর্ভুক্ত।
+CHANGELOG_4_8_8_5 কিছু সেভে কিছু খেলোয়াড়ের সম্মুখীন হওয়া একটি প্রকৃত ক্র্যাশের বিরুদ্ধে সুরক্ষা যোগ করা হয়েছে - এটি এই মডের কারণে নয়, তবে তবুও সুরক্ষা দেওয়া হয়েছে কারণ এটি একই গেম পদ্ধতিকে প্যাচ করে।
+CHANGELOG_4_8_8_6 এই প্যানেলটি এখন মডের নিজস্ব লেখার কতটা আপনার ভাষায় অনূদিত তার একটি প্রকৃত, স্বয়ংক্রিয়-গণনা শতাংশ দেখায়, এমন একটি সংখ্যার পরিবর্তে যা পুরনো হয়ে যেতে পারত।
+SETTINGS_TRAINDISPLAY_LAYOUT প্যানেল বিন্যাস
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP ওভারলে কোন বিন্যাস ব্যবহার করে। উভয়ই একই তথ্য দেখায় এবং নীচের একই ফিল্ড চেকবক্স মান্য করে - শুধুমাত্র আকৃতি আলাদা।
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC ক্লাসিক (কমপ্যাক্ট কোণের প্যানেল)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED বিস্তারিত (শীর্ষ মেট্রিক্স + স্টপ তালিকা)
+COMMUTERDESTINATION_PANEL_TITLE যাত্রী গন্তব্য ওভারলে (Experimental)
+COMMUTERDESTINATION_PANEL_DESTINATIONS গন্তব্যসমূহ
+COMMUTERDESTINATION_PANEL_STOP স্টপ #{0}
+COMMUTERDESTINATION_PANEL_WAITING অপেক্ষারত যাত্রী: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS পূর্ববর্তী
+COMMUTERDESTINATION_PANEL_NEXT পরবর্তী
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH রুট শাখা/লুপ সনাক্তকরণ (শীঘ্রই)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP পরিকল্পিত: কোনো লাইন নিজের উপর ফিরে লুপ করলে বা দুইয়ের বেশি শাখায় বিভক্ত হলে যানবাহন রুট প্যানেলে সতর্ক করুন, একটি সাধারণ শেষ-থেকে-শেষ রুট ধরে নেওয়ার পরিবর্তে। এখনও উপলব্ধ নয়।
+SETTINGS_FUTURE_ROUTEPANEL_TTS পরবর্তী স্টপের ঘোষিত ঘোষণা (শীঘ্রই)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP পরিকল্পিত: পরবর্তী স্টপের ঐচ্ছিক টেক্সট-টু-স্পিচ ঘোষণা, যে মূল মডের উপর এই প্যানেল ভিত্তিক তার সাথে সামঞ্জস্যপূর্ণ। এখনও উপলব্ধ নয়।
+SETTINGS_FUTURE_STTAI_QUEUE একক ট্র্যাকে ন্যায্য ট্রেন অর্ডারিং (শীঘ্রই)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP পরিকল্পিত: প্রতিটি ট্রেন একটি একক-ট্র্যাক অংশের জন্য কতক্ষণ অপেক্ষা করছে তা ট্র্যাক করুন, যাতে প্রথমে পৌঁছানো ট্রেনটি প্রথমে পায়, যে ট্রেনটি সেই টিকটিতে প্রথম প্রক্রিয়াকৃত হয় তার পরিবর্তে। এখনও উপলব্ধ নয়।
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED বাজেট নিয়ন্ত্রণ চেকবক্স স্মার্ট-ব্যবস্থাপনায় চেক থাকে (শীঘ্রই)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP পরিকল্পিত: এই মুহূর্তে, অটোমেটিক ফ্লিট সাইজিং কোনো লাইন দখল করলে, এর বাজেট নিয়ন্ত্রণ চেকবক্স নিজে থেকে আনচেক হয়ে যায় সেটি জানাতে - এটি ইচ্ছাকৃত, তবে দেখতে বিভ্রান্তিকর। এটি অভ্যন্তরীণভাবে "গেমের নিজস্ব বাজেট হিসাব"কে "IPT এই লাইনটি পরিচালনা করছে" থেকে আলাদা করবে, যাতে চেকবক্সটি পুরো সময় চেক থাকতে পারে। এখনও উপলব্ধ নয়।

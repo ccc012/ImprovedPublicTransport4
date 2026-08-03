@@ -475,7 +475,7 @@ SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Kun käytössä, joukkoliikenteen ajoneuvot 
 SETTINGS_TRAINDISPLAY_TYPES_GROUP Ajoneuvotyypit peittokuvalla
 SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Mitkä joukkoliikenteen ajoneuvot voivat näyttää Train Display paneelin kun valittuna.
 SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Näytä peittokuva kun tämä ajoneuvotyppi on valittuna.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bussi
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Johdinauto
 SETTINGS_TRAINDISPLAY_TYPE_TRAM Raitiovaunu
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP Nollaa ulkoyhteyden odotus, koristeellinen liikenne j
 SETTINGS_EBS_GROUP_BUS_DESC Pikabussit saattavat lähteä aiemmin kun vain muutama matkustaja nousta - valinnainen edistynyt välistys.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ylimääräiset rivit
 SETTINGS_SUB_NET_BBSP_NOTE Parempi bussipysäkki muuttaa vain missä bussit pysähtyvät pysäkillä. Alla olevat asetukset ovat erillisiä ominaisuuksia (korotettu, jaetut pysäkit, jne.) — ne pysyvät klikattavissa tarkoituksella.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Aina päällä oleva käyttäytyminen
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Kaksi pientä käyttäytymistä, jotka toimivat aina ilman tapaa sammuttaa niitä tähän asti. Oletuksena päällä, joten olemassa olevat asennukset eivät näe muutosta - sammuta, jos käytät erillistä modia, joka tekee saman, tai pidät vain manuaalisesta hallinnasta.
+SETTINGS_AUTONAMESTOPS_ENABLE Nimeä nimeämättömät pysäkit automaattisesti
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Kun valitset ensimmäistä kertaa pysäkin, jolla ei ole nimeä, se antaa sille saman lähellä olevan rakennuksen nimen, jota pysäkkipaneelin oma avattava valikko ehdottaisi - ilman että sinun tarvitsee avata sitä valikkoa. Se ei koskaan kosketa nimeä, jonka sinä (tai tämä) olet jo asettanut.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Siirretty erillisestä Rescue Fullwidth Digits -modista. Korjaa liikennelinjojen nimiä, jotka tallennettiin täysleveillä numeroilla (１２３ sen sijaan että 123) joidenkin IME/syöttöasetusten vuoksi, ja jotka muuten näkyvät virheellisesti ikuisesti.
+SETTINGS_FUTURE_BUSWAYPOINT Bussin reittipistepysäkit (pian)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Suunniteltu: merkitse pysäkki vain reitityksen välipisteeksi - linjan reitti kulkee sen läpi, mutta ajoneuvot eivät koskaan pysähdy tai nouse/laske matkustajia siellä. Auttaa ohjaamaan vanilla-polunetsinnän tielle, jonka todella aiot. Ei vielä saatavilla.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Pidä painettuna sijoittaessasi juna-/raitiotiepysäkkiliitännän kohdistaaksesi tarkan raiteen lähimmän kelvollisen sijaan. Oli kovakoodattu vasemmalle/oikealle Shiftille; uudelleensidonta tässä kattaa vain sen puolen, jonka valitset.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Vanhoja vaihtokytkimiä säilytetään vain, jotta asennukset, joissa ne olivat jo päällä, toimivat tarkalleen kuten ennen. Lukittu - niitä ei voi enää kytkeä päälle tai pois täältä, ja jokainen peliprofiili jättää ne pois käytöstä jatkossa.
+CHANGELOG_4_8_6_1 Matkustajien määränpää otettu uudelleen käyttöön: Asetusten vaihtokytkin on palannut ja toimii livenä, ilman uudelleenlatausta.
+CHANGELOG_4_8_6_2 Tarkastettiin jokainen valinnainen integraatio aidon "pois on pois" -periaatteen varalta: Elevated Stops Enabler kirjoitti pysyvästi tien prefab-tietoja uudelleen ilman tapaa kumota se, ja Auto Line Budget jatkoi linjojen hallintaa taustalla, kun se oli poistettu käytöstä istunnon keskellä. Molemmat palaavat nyt täysin vanilla-käyttäytymiseen, kun ne poistetaan käytöstä.
+CHANGELOG_4_8_6_3 Löydettiin kaksi käyttäytymistä, jotka toimivat aina ilman tapaa sammuttaa niitä - nimeämättömien pysäkkien automaattinen nimeäminen ja Rescue Fullwidth Digits (Gansaku) - ja lisättiin vaihtokytkimet molemmille kohtaan Asetukset → Lisäasetukset. Oletuksena päällä, joten mikään ei muutu, ellet sammuta niitä.
+CHANGELOG_4_8_7_1 Bussipysäkin paikkojen pinoaminen on nyt lukittu legacy-vaihtokytkin kohdassa Asetukset → Lisäasetukset → Legacy: asennukset, joissa se oli jo päällä, toimivat tarkalleen kuten ennen, mutta sitä ei voi enää ottaa käyttöön uusissa asennuksissa eikä yksikään peliprofiili enää ota sitä käyttöön.
+CHANGELOG_4_8_7_2 Poistettiin sanamuotoa Workshop-sivulta ja pelin sisäisestä työkaluvihjeestä, jotka mainitsivat toisen tekijän modin nimeltä, heidän pyynnöstään.
+
+SETTINGS_KOFI_LINK Tue Ko-fi:ssa
+SETTINGS_MODTRANSLATION_GROUP Modin teksti käännetty
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Kuinka suuri osa tämän modin omasta tekstistä - valikot, työkaluvihjeet, pelin sisäiset paneelit - on käännetty kielellesi. Tämä eroaa yllä olevasta "Käännöksen edistymisestä", joka kattaa vain kourallisen yleisiä painikkeita kuten OK ja Peruuta, ei tämän modin varsinaista sisältöä. Jos näet täällä vielä englantia, täysi käännös kielellesi on tulossa.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Näytä seuraava pysäkki
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Näyttää näkyvän "seuraava pysäkki" -näytön, joka päivittyy ajoneuvon edetessä linjalla.
+TRAINDISPLAY_LABEL_NEXTSTOP Seuraava pysäkki
+CHANGELOG_4_8_8_1 Matkustajien määränpää-peittokuva (Kokeellinen): löydettiin ja korjattiin oikea bugi, jossa kaksi modin omaa paikkausta törmäsivät hiljaa samaan napsautukseen - mutta oikean pelin testaus näyttää edelleen, että kuvakkeet/paneeli eivät luotettavasti näy. Pysyy oletuksena pois päältä ja Kokeellisena, kunnes tämä on täysin selvitetty.
+CHANGELOG_4_8_8_2 Budjetin hallinnan valintaruutu ei enää poista omaa valintaansa heti kun sen merkitset.
+CHANGELOG_4_8_8_3 Ajoneuvon reittipaneelin suorituskykyprofiili (Kevyt/Normaali/Maksimi) muuttaa nyt todella sen päivitysnopeutta - aiemmin sillä ei ollut näkyvää vaikutusta useimmille pelaajille.
+CHANGELOG_4_8_8_4 Korjattu useita ajoneuvojen reitityshäiriöitä varikkojen ja pysäkkien lähellä, mukaan lukien bussit, jotka leikkasivat maastoon/silloihin, ja satunnainen ennenaikainen U-käännös.
+CHANGELOG_4_8_8_5 Suojaa oikeaa kaatumista vastaan, jonka jotkut pelaajat saattoivat kohdata tietyissä tallennuksissa - ei tämän modin aiheuttama, mutta suojattu silti, koska se paikkaa samaa pelin metodia.
+CHANGELOG_4_8_8_6 Tämä paneeli näyttää nyt oikean, automaattisesti lasketun prosenttiosuuden siitä, kuinka paljon modin omasta tekstistä on käännetty kielellesi, sen sijaan että näyttäisi luvun, joka voi vanhentua.
+SETTINGS_TRAINDISPLAY_LAYOUT Paneelin asettelu
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Minkä järjestelyn peittokuva käyttää. Molemmat näyttävät samat tiedot ja noudattavat samoja alla olevia kenttävalintaruutuja - vain muoto eroaa.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klassinen (kompakti kulmapaneeli)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Yksityiskohtainen (otsikon mittarit + pysäkkiluettelo)
+COMMUTERDESTINATION_PANEL_TITLE Matkustajien määränpää-peittokuva (Kokeellinen)
+COMMUTERDESTINATION_PANEL_DESTINATIONS määränpäät
+COMMUTERDESTINATION_PANEL_STOP Pysäkki #{0}
+COMMUTERDESTINATION_PANEL_WAITING Odottavat matkustajat: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Edellinen
+COMMUTERDESTINATION_PANEL_NEXT Seuraava
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Reitin haara-/silmukkailmaisu (pian)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Suunniteltu: varoitus ajoneuvon reittipaneelissa, kun linja kiertää takaisin itseensä tai jakautuu useampaan kuin kahteen haaraan, sen sijaan että oletettaisiin yksinkertainen päästä-päähän-reitti. Ei vielä saatavilla.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Puhutut seuraavan pysäkin kuulutukset (pian)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Suunniteltu: valinnainen tekstistä-puheeksi -kuulutus seuraavasta pysäkistä, vastaten alkuperäistä modia, johon tämä paneeli perustuu. Ei vielä saatavilla.
+SETTINGS_FUTURE_STTAI_QUEUE Reilu junien järjestys yksiraiteisella (pian)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Suunniteltu: seurataan kuinka kauan kukin juna on odottanut yksiraiteista osuutta, jotta ensin saapunut juna saa sen ensimmäisenä sen sijaan, että sattumanvarainen juna käsiteltäisiin ensin sillä tickillä. Ei vielä saatavilla.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budjetin hallinnan valintaruutu pysyy valittuna älykkäässä hallinnassa (pian)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Suunniteltu: tällä hetkellä kun Automaattinen kaluston mitoitus ottaa linjan hallintaansa, sen budjetin hallinnan valintaruutu poistaa oman valintansa sen merkiksi - tarkoituksella, mutta hämmentävää katsottavaa. Tämä erottaa "pelin oman budjettilaskennan" ja "IPT hallinnoi tätä linjaa" sisäisesti, joten valintaruutu voi pysyä valittuna koko ajan. Ei vielä saatavilla.

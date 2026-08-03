@@ -585,11 +585,42 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Overgenomen van de losstaande Resc
 CHANGELOG_4_8_6_1 Bestemming forensen opnieuw ingeschakeld: de schakelaar in Opties is terug en werkt live, geen herladen nodig.
 CHANGELOG_4_8_6_2 Elke optionele integratie gecontroleerd op een echte "uit betekent uit": Elevated Stops Enabler herschreef permanent weg-prefabgegevens zonder manier om dit ongedaan te maken, en Auto Line Budget bleef lijnen op de achtergrond beheren nadat het midden in een sessie was uitgeschakeld. Beide keren nu volledig terug naar standaardgedrag wanneer uitgeschakeld.
 CHANGELOG_4_8_6_3 Twee gedragingen gevonden die altijd actief waren zonder mogelijkheid om ze uit te zetten - automatisch benoemen van naamloze haltes, en Rescue Fullwidth Digits (Gansaku) - en voor beide schakelaars toegevoegd onder Opties → Geavanceerd. Standaard ingeschakeld, dus er verandert niets tenzij je ze uitzet.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Bus-routepunthaltes (binnenkort)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Gepland: een halte alleen als routeringspunt markeren – het pad van de lijn loopt erdoorheen, maar voertuigen stoppen er nooit en laten er geen passagiers in- of uitstappen. Helpt de vanilla-padzoeker naar de weg te sturen die je daadwerkelijk bedoelde. Nog niet beschikbaar.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Ingedrukt houden tijdens het plaatsen van een trein-/tramhaltverbinding om het exacte spoor te selecteren in plaats van het dichtstbijzijnde geldige spoor. Was vastgelegd op Shift links/rechts; een nieuwe toewijzing hier dekt alleen de kant die jij kiest.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Oude schakelaars die alleen zijn gehouden zodat installaties die ze al aan hadden precies hetzelfde blijven werken. Vergrendeld – ze kunnen vanaf hier niet meer aan of uit worden gezet, en elk gameplay-profiel laat ze voortaan uitgeschakeld.
+CHANGELOG_4_8_7_1 Stapeling van bushalte-perrons is nu een vergrendelde legacy-schakelaar onder Opties → Geavanceerd → Legacy: installaties die het al aan hadden, blijven precies hetzelfde werken, maar het kan niet meer worden ingeschakeld voor nieuwe installaties en geen enkel gameplay-profiel schakelt het meer in.
+CHANGELOG_4_8_7_2 Tekst verwijderd van de Workshop-pagina en de tooltip in het spel die op verzoek van de auteur een mod van een andere auteur bij naam noemden.
+
+SETTINGS_KOFI_LINK Steun op Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Modtekst vertaald
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Hoeveel van de eigen tekst van deze mod – menu's, tooltips, panels in het spel – is vertaald in jouw taal. Dit verschilt van "Vertalingsvoortgang" hierboven, dat slechts een handvol generieke knoppen dekt zoals OK en Annuleren, niet de daadwerkelijke inhoud van deze mod. Als je hier nog wat Engels ziet, is een volledige vertaling voor jouw taal onderweg.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Volgende halte tonen
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Toont een prominente "volgende halte"-aanduiding die bijwerkt terwijl het voertuig langs de lijn opschuift.
+TRAINDISPLAY_LABEL_NEXTSTOP Volgende halte
+CHANGELOG_4_8_8_1 Overlay voor passagiersbestemming (Experimenteel): een echte bug gevonden en opgelost waarbij twee eigen patches van de mod stilletjes op dezelfde klik botsten – maar tests in echte games laten nog steeds zien dat de pictogrammen/het paneel niet betrouwbaar verschijnen. Blijft standaard uitgeschakeld en Experimenteel tot dit volledig is opgelost.
+CHANGELOG_4_8_8_2 Het selectievakje voor begrotingscontrole vinkt zichzelf niet langer uit op het moment dat je het aanvinkt.
+CHANGELOG_4_8_8_3 Het prestatieniveau (Licht/Normaal/Maximaal) van het routepaneel van voertuigen wijzigt nu daadwerkelijk de actualisatiesnelheid – eerder had dit voor de meeste spelers geen zichtbaar effect.
+CHANGELOG_4_8_8_4 Meerdere routeproblemen van voertuigen nabij depots en haltes opgelost, waaronder bussen die in terrein/bruggen sneden en een incidentele voortijdige U-bocht.
+CHANGELOG_4_8_8_5 Beschermd tegen een echte crash die sommige spelers konden tegenkomen in bepaalde saves – niet veroorzaakt door deze mod, maar toch beschermd omdat deze dezelfde spelmethode patcht.
+CHANGELOG_4_8_8_6 Dit paneel toont nu een echt, automatisch berekend percentage van hoeveel eigen tekst van de mod in jouw taal is vertaald, in plaats van een getal dat verouderd kon raken.
+SETTINGS_TRAINDISPLAY_LAYOUT Paneellay-out
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Welke indeling de overlay gebruikt. Beide tonen dezelfde informatie en volgen dezelfde veldselectievakjes hieronder – alleen de vorm verschilt.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klassiek (compact hoekpaneel)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Gedetailleerd (statistieken in kop + lijst met haltes)
+COMMUTERDESTINATION_PANEL_TITLE Overlay voor passagiersbestemming (Experimenteel)
+COMMUTERDESTINATION_PANEL_DESTINATIONS bestemmingen
+COMMUTERDESTINATION_PANEL_STOP Halte #{0}
+COMMUTERDESTINATION_PANEL_WAITING Wachtende passagiers: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Vorige
+COMMUTERDESTINATION_PANEL_NEXT Volgende
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Detectie van lijntakken/-lussen (binnenkort)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Gepland: waarschuwt op het routepaneel van voertuigen wanneer een lijn op zichzelf terugkeert of zich in meer dan twee takken splitst, in plaats van uit te gaan van een eenvoudige route van begin tot eind. Nog niet beschikbaar.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Gesproken aankondigingen van de volgende halte (binnenkort)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Gepland: optionele gesproken aankondiging van de volgende halte, zoals in de oorspronkelijke mod waarop dit paneel is gebaseerd. Nog niet beschikbaar.
+SETTINGS_FUTURE_STTAI_QUEUE Eerlijke treinvolgorde op enkelspoor (binnenkort)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Gepland: bijhouden hoe lang elke trein al wacht op een enkelsporig traject, zodat de trein die het eerst arriveerde ook als eerste aan de beurt is, in plaats van degene die in die tick toevallig eerst wordt verwerkt. Nog niet beschikbaar.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Selectievakje begrotingscontrole blijft aangevinkt bij automatisch beheer (binnenkort)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Gepland: momenteel vinkt het selectievakje "Begrotingscontrole" zichzelf uit zodra automatische vlootgrootte een lijn overneemt, om dat te signaleren – bedoeld, maar verwarrend om te zien. Dit zal intern "de eigen begrotingsberekening van het spel" scheiden van "IPT beheert deze lijn", zodat het vakje de hele tijd aangevinkt kan blijven. Nog niet beschikbaar.

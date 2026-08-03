@@ -576,21 +576,52 @@ CHANGELOG_4_8_5_1 Correction des ralentissements/gels du Train Display : rÃ©ta
 CHANGELOG_4_8_5_2 OptimisÃ© l'arÃªte d'itinÃ©raire du Train Display et l'auto-nommage d'arrÃªt : Ã  tout moment un scan de nom lourd par sondage, les arrÃªts non nommÃ©s Ã©chouÃ©s ne sont pas re-scannÃ©s chaque intervalle, et les listes de noms d'itinÃ©raire Ã©vitent les allocations de liste supplÃ©mentaires.
 CHANGELOG_4_8_5_3 Destination des voyageurs stationnÃ©e (toujours boguÃ©) : forcÃ©e dÃ©sactivÃ©e pour tous les profils/sauvegardes et l'option Options supprimÃ©e jusqu'Ã  une refonte ultÃ©rieure. L'indice exclusif d'avenir reste sous AvancÃ©.
 CHANGELOG_4_8_5_4 Packs de langue Options : l'ensemble JSON Common complet s'expÃ©die Ã  la dÃ©ploiement (35+ langues de framework) si bien que la liste dÃ©roulante de langue ne manque plus la moitiÃ© de la liste ; les cartes de description de section gardent un arriÃ¨re-plan partagÃ© avec leurs contrÃ´les.
-MOD_DESCRIPTION Improved control of public transportation.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+MOD_DESCRIPTION Gestion avancée des transports en commun.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Comportement toujours actif
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Deux petits comportements qui fonctionnaient toujours sans possibilité de les désactiver jusqu'à présent. Activés par défaut afin que les installations existantes ne voient aucun changement — désactivez-les si vous utilisez un mod autonome qui fait la même chose, ou si vous préférez simplement le contrôle manuel.
+SETTINGS_AUTONAMESTOPS_ENABLE Nommer automatiquement les arrêts sans nom
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP La première fois que vous sélectionnez un arrêt sans nom, lui attribue le nom du bâtiment à proximité que la liste déroulante du panneau d'arrêt suggérerait — sans avoir à ouvrir cette liste. Ne touche jamais à un nom que vous (ou cette fonction) avez déjà défini.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Porté depuis le mod autonome Rescue Fullwidth Digits. Corrige les noms de lignes de transport enregistrés avec des chiffres pleine largeur (１２３ au lieu de 123) par certaines configurations d'IME/saisie, qui sinon s'afficheraient incorrectement pour toujours.
+SETTINGS_FUTURE_BUSWAYPOINT Arrêts de point de passage de bus (bientôt)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Prévu : marquer un arrêt comme simple point de passage d'itinéraire — le tracé de la ligne y passe, mais les véhicules ne s'y arrêtent jamais et n'y font pas monter/descendre de voyageurs. Aide à orienter le pathfinding vanilla vers la route que vous vouliez réellement. Non disponible pour l'instant.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Maintenez pendant le placement d'une connexion d'arrêt train/tram pour cibler la voie exacte au lieu de la plus proche valide. Était codé en dur sur Maj gauche/droite ; réassigner ici ne couvre que le côté que vous choisissez.
+SETTINGS_LEGACY_GROUP Héritage
+SETTINGS_LEGACY_GROUP_DESC Anciens interrupteurs conservés uniquement pour que les installations qui les avaient déjà activés continuent de fonctionner exactement comme avant. Verrouillés — ils ne peuvent plus être activés ou désactivés d'ici, et chaque profil de jeu les laisse désactivés à l'avenir.
+CHANGELOG_4_8_6_1 Destination des voyageurs réactivée : l'interrupteur des Options est de retour et fonctionne en direct, sans rechargement nécessaire.
+CHANGELOG_4_8_6_2 Audité chaque intégration optionnelle pour un vrai « éteint signifie éteint » : Elevated Stops Enabler réécrivait en permanence les données de prefab des routes sans aucun moyen de les annuler, et Auto Line Budget continuait de gérer les lignes en arrière-plan après avoir été désactivé en cours de session. Les deux reviennent maintenant entièrement au comportement vanilla lorsqu'ils sont éteints.
+CHANGELOG_4_8_6_3 Trouvé deux comportements qui fonctionnaient toujours sans possibilité de les désactiver — la dénomination automatique des arrêts sans nom et Rescue Fullwidth Digits (Gansaku) — et ajouté des interrupteurs pour les deux sous Options → Avancé. Activés par défaut, donc rien ne change sauf si vous les désactivez.
+CHANGELOG_4_8_7_1 L'empilement des quais d'arrêt de bus est maintenant un interrupteur hérité verrouillé sous Options → Avancé → Héritage : les installations qui l'avaient déjà activé continuent de fonctionner exactement comme avant, mais il ne peut plus être activé pour les nouvelles installations et plus aucun profil de jeu ne l'active.
+CHANGELOG_4_8_7_2 Retiré les formulations de la page Workshop et de l'info-bulle en jeu qui mentionnaient le mod d'un autre auteur par son nom, à sa demande.
+
+SETTINGS_KOFI_LINK Soutenir sur Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Texte du mod traduit
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Dans quelle mesure le texte propre de ce mod — menus, info-bulles, panneaux en jeu — est traduit dans votre langue. Ceci est différent de la « Progression de la traduction » ci-dessus, qui ne couvre que quelques boutons génériques comme OK et Annuler, pas le contenu réel de ce mod. Si vous voyez encore un peu d'anglais ici, une traduction complète pour votre langue est en route.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Afficher le prochain arrêt
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Affiche un indicateur « prochain arrêt » bien visible qui se met à jour à mesure que le véhicule avance le long de la ligne.
+TRAINDISPLAY_LABEL_NEXTSTOP Prochain arrêt
+CHANGELOG_4_8_8_1 Superposition de destination des voyageurs (Expérimental) : trouvé et corrigé un vrai bug où deux des patchs propres du mod entraient silencieusement en collision sur le même clic — mais les tests en conditions réelles montrent encore que les icônes/le panneau n'apparaissent pas de manière fiable. Reste désactivé par défaut et Expérimental jusqu'à ce que ce soit entièrement réglé.
+CHANGELOG_4_8_8_2 La case de contrôle du budget ne se décoche plus d'elle-même au moment même où vous la cochez.
+CHANGELOG_4_8_8_3 Le profil de performance du panneau d'itinéraire du véhicule (Léger/Normal/Maximum) change maintenant réellement sa fréquence de mise à jour — auparavant, il n'avait aucun effet visible pour la plupart des joueurs.
+CHANGELOG_4_8_8_4 Corrigé plusieurs anomalies de déplacement des véhicules près des dépôts et des arrêts, notamment des bus qui traversaient le terrain/les ponts et un demi-tour prématuré occasionnel.
+CHANGELOG_4_8_8_5 Protégé contre un crash réel que certains joueurs pouvaient rencontrer sur certaines sauvegardes — non causé par ce mod, mais protégé quand même puisqu'il patche la même méthode du jeu.
+CHANGELOG_4_8_8_6 Ce panneau affiche maintenant un pourcentage réel, calculé automatiquement, de la quantité de texte propre du mod traduite dans votre langue, au lieu d'un nombre qui pouvait devenir obsolète.
+SETTINGS_TRAINDISPLAY_LAYOUT Disposition du panneau
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Quel agencement la superposition utilise. Les deux affichent les mêmes informations et obéissent aux mêmes cases à cocher des champs ci-dessous — seule la forme diffère.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classique (panneau compact d'angle)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Détaillé (métriques d'en-tête + liste des arrêts)
+COMMUTERDESTINATION_PANEL_TITLE Superposition de destination des voyageurs (Expérimental)
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinations
+COMMUTERDESTINATION_PANEL_STOP Arrêt #{0}
+COMMUTERDESTINATION_PANEL_WAITING Voyageurs en attente : {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Précédent
+COMMUTERDESTINATION_PANEL_NEXT Suivant
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Détection de branche/boucle d'itinéraire (bientôt)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Prévu : avertir sur le panneau d'itinéraire du véhicule lorsqu'une ligne se replie sur elle-même ou se divise en plus de deux branches, au lieu de supposer un itinéraire simple de bout en bout. Non disponible pour l'instant.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Annonces vocales du prochain arrêt (bientôt)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Prévu : annonce vocale optionnelle du prochain arrêt, comme dans le mod original sur lequel ce panneau est basé. Non disponible pour l'instant.
+SETTINGS_FUTURE_STTAI_QUEUE Ordre équitable des trains sur voie unique (bientôt)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Prévu : suivre combien de temps chaque train attend une section à voie unique, pour que le premier arrivé obtienne la priorité au lieu de celui qui se trouve traité en premier à ce tick. Non disponible pour l'instant.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED La case de contrôle du budget reste cochée en gestion automatique (bientôt)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Prévu : actuellement, dès que le Dimensionnement automatique de la flotte prend en charge une ligne, sa case de contrôle du budget se décoche d'elle-même pour le signaler — c'est voulu, mais déroutant à voir. Ceci séparera « le calcul du budget du jeu lui-même » de « IPT gère cette ligne » en interne, pour que la case puisse rester cochée en permanence. Non disponible pour l'instant.

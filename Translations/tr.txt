@@ -475,7 +475,7 @@ SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Etkinleştirildiğinde, yolcu taşıyan topl
 SETTINGS_TRAINDISPLAY_TYPES_GROUP Bindirmede Araç Türleri
 SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Seçildiğinde Tren Gösterimi panelini gösterebilecek toplu taşıma araçları.
 SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Araç türü seçildiğinde bindirmeyi göster.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_BUS Otobüs
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Troleybüs
 SETTINGS_TRAINDISPLAY_TYPE_TRAM Tramvay
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP Dış bağlantı bekleme, sahte trafik ve ilgili geç
 SETTINGS_EBS_GROUP_BUS_DESC Ekspres otobüsler, birkaç yolcu bindiyse erken ayrılabilir — isteğe bağlı gelişmiş aralık.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ekstra satırlar
 SETTINGS_SUB_NET_BBSP_NOTE Daha İyi Otobüs Durağı sadece otobüslerin durakta nerede durduğunu değiştirir. Aşağıdaki seçenekler ayrı özelliklerdir (yükseltilmiş, paylaşımlı duraklar, vb.) — amaçlı olarak tıklanabilir kaliyor. only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Her zaman açık davranış
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Şimdiye kadar kapatmanın hiçbir yolu olmadan her zaman çalışan iki küçük davranış. Varsayılan olarak açık, bu yüzden mevcut kurulumlar bir değişiklik görmez - aynı şeyi yapan bağımsız bir mod çalıştırıyorsanız veya manuel kontrolü tercih ediyorsanız kapatın.
+SETTINGS_AUTONAMESTOPS_ENABLE Adsız durakları otomatik adlandır
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Adı olmayan bir durağı ilk seçtiğinizde, durak panelinin kendi açılır menüsünün önereceği aynı yakın bina adını verir - o menüyü açmak zorunda kalmadan. Sizin (veya bunun) önceden belirlediği bir adı asla değiştirmez.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Bağımsız Rescue Fullwidth Digits modundan taşındı. Bazı IME/giriş kurulumlarında tam genişlikli rakamlarla (123 yerine １２３) kaydedilen, aksi halde sonsuza dek yanlış görüntülenen toplu taşıma hat adlarını düzeltir.
+SETTINGS_FUTURE_BUSWAYPOINT Otobüs yol noktası durakları (yakında)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planlı: bir durağı yalnızca rota yön noktası olarak işaretle - hattın yolu oradan geçer ancak araçlar orada asla durmaz veya yolcu indirip bindirmez. Vanilla yol bulmayı gerçekten amaçladığınız yola yönlendirmeye yardımcı olur. Henüz mevcut değil.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Bir tren/tramvay durak bağlantısı yerleştirirken, en yakın geçerli olan yerine tam rayı hedeflemek için basılı tutun. Sol/Sağ Shift'e sabit kodlanmıştı; burada yeniden atamak yalnızca seçtiğiniz tarafı kapsar.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Yalnızca, daha önce açık olan kurulumların eskisi gibi tam olarak çalışmaya devam etmesi için tutulan eski anahtarlar. Kilitli - artık buradan açılıp kapatılamazlar ve bundan sonra her oynanış profili onları kapalı bırakır.
+CHANGELOG_4_8_6_1 Yolcu Varış Noktası yeniden etkinleştirildi: Seçenekler anahtarı geri döndü ve canlı çalışıyor, yeniden yükleme gerekmiyor.
+CHANGELOG_4_8_6_2 Her isteğe bağlı entegrasyon gerçek bir "kapalıysa kapalı" için denetlendi: Yükseltilmiş Duraklar Etkinleştirici, geri alınamaz şekilde yol prefab verilerini kalıcı olarak yeniden yazıyordu ve Otomatik Hat Bütçesi, oturum ortasında devre dışı bırakıldıktan sonra arka planda hatları yönetmeye devam ediyordu. İkisi de artık kapatıldığında tamamen vanilla davranışına dönüyor.
+CHANGELOG_4_8_6_3 Kapatmanın hiçbir yolu olmadan her zaman çalışan iki davranış bulundu - adsız durakları otomatik adlandırma ve Rescue Fullwidth Digits (Gansaku) - ve ikisi için de Seçenekler → Gelişmiş altına anahtarlar eklendi. Varsayılan olarak açık, bu yüzden kapatmadığınız sürece hiçbir şey değişmez.
+CHANGELOG_4_8_7_1 Otobüs durağı peron yığınlama, Seçenekler → Gelişmiş → Legacy altında kilitli bir legacy anahtardır: zaten açık olan kurulumlar eskisi gibi tam olarak çalışmaya devam eder, ancak yeni kurulumlar için artık açılamaz ve hiçbir oynanış profili artık onu etkinleştirmez.
+CHANGELOG_4_8_7_2 Workshop sayfasından ve oyun içi araç ipucundan, başka bir yazarın moduna adıyla atıfta bulunan ifadeler, yazarın isteği üzerine kaldırıldı.
+
+SETTINGS_KOFI_LINK Ko-fi'de destekle
+SETTINGS_MODTRANSLATION_GROUP Mod metni çevrildi
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Bu modun kendi metninin ne kadarı - menüler, araç ipuçları, oyun içi paneller - dilinize çevrildi. Bu, yalnızca OK ve İptal gibi bir avuç genel düğmeyi kapsayan, bu modun gerçek içeriğini kapsamayan yukarıdaki "Çeviri ilerlemesi"nden farklıdır. Burada hâlâ biraz İngilizce görüyorsanız, diliniz için tam bir çeviri yolda.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Sonraki durağı göster
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Araç hat boyunca ilerledikçe güncellenen belirgin bir "sonraki durak" göstergesi gösterir.
+TRAINDISPLAY_LABEL_NEXTSTOP Sonraki durak
+CHANGELOG_4_8_8_1 Yolcu varış noktası bindirmesi (Deneysel): modun kendi iki yamasının aynı tıklamada sessizce çakıştığı gerçek bir hata bulunup düzeltildi - ancak gerçek oyun testleri, simgelerin/panelin güvenilir şekilde görünmediğini hâlâ gösteriyor. Bu tamamen çözülene kadar varsayılan olarak kapalı ve Deneysel olarak kalıyor.
+CHANGELOG_4_8_8_2 Bütçe kontrol onay kutusu artık işaretlediğiniz anda kendini işaretten çıkarmıyor.
+CHANGELOG_4_8_8_3 Araç rota panelinin performans profili (Hafif/Normal/Maksimum) artık gerçekten güncelleme hızını değiştiriyor - önceden çoğu oyuncu için görünür bir etkisi yoktu.
+CHANGELOG_4_8_8_4 Depoların ve durakların yakınındaki birkaç araç yol bulma hatası düzeltildi; otobüslerin araziye/köprülere girmesi ve ara sıra erken U dönüşü dahil.
+CHANGELOG_4_8_8_5 Bazı oyuncuların belirli kayıtlarda yaşayabileceği gerçek bir çöküşe karşı koruma eklendi - bu moddan kaynaklanmıyor, ancak aynı oyun yöntemine yama yaptığı için yine de korunuyor.
+CHANGELOG_4_8_8_6 Bu panel artık modun kendi metninin ne kadarının dilinize çevrildiğine dair eskiyebilecek bir sayı yerine gerçek, otomatik hesaplanan bir yüzde gösteriyor.
+SETTINGS_TRAINDISPLAY_LAYOUT Panel düzeni
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Bindirmenin kullandığı düzen. İkisi de aynı bilgiyi gösterir ve aşağıdaki aynı alan onay kutularına uyar - yalnızca şekil farklıdır.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klasik (kompakt köşe paneli)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detaylı (üst bilgi metrikleri + durak listesi)
+COMMUTERDESTINATION_PANEL_TITLE Yolcu varış noktası bindirmesi (Deneysel)
+COMMUTERDESTINATION_PANEL_DESTINATIONS varış noktaları
+COMMUTERDESTINATION_PANEL_STOP Durak #{0}
+COMMUTERDESTINATION_PANEL_WAITING Bekleyen yolcular: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Önceki
+COMMUTERDESTINATION_PANEL_NEXT Sonraki
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Rota dalı/döngü algılama (yakında)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planlı: bir hat kendi üzerine geri döndüğünde veya ikiden fazla dala ayrıldığında, basit bir uçtan uca rota varsaymak yerine araç rota panelinde uyar. Henüz mevcut değil.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Sesli sonraki durak anonsları (yakında)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planlı: bu panelin temel aldığı orijinal modla aynı şekilde, isteğe bağlı metin-sese dönüştürme ile sonraki durak anonsu. Henüz mevcut değil.
+SETTINGS_FUTURE_STTAI_QUEUE Tek hat üzerinde adil tren sıralaması (yakında)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planlı: her trenin tek hat bölümü için ne kadar beklediği takip edilir, böylece ilk gelen tren, o tick'te hangisi önce işlenirse işlensin bölümü ilk alır. Henüz mevcut değil.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Bütçe kontrol onay kutusu akıllı yönetimde işaretli kalır (yakında)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planlı: şu anda Otomatik filo boyutlandırma bir hattı devraldığında, Bütçe kontrol onay kutusu bunu işaretlemek için kendini işaretten çıkarıyor - tasarım gereği, ancak görmesi kafa karıştırıcı. Bu, "oyunun kendi bütçe matematiğini" "IPT bu hattı yönetiyor"dan dahili olarak ayıracak, böylece onay kutusu her zaman işaretli kalabilecek. Henüz mevcut değil.

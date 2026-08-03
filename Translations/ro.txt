@@ -542,7 +542,7 @@ SETTINGS_SUB_OUTSIDE_DESC Terminale interurbane și aşteptare marfă/pasageri l
 SETTINGS_SUB_DISPLAY Afişaj
 SETTINGS_SUB_INFO Info
 SETTINGS_SUB_INFO_DESC Panouri și instrumente info oraş (nu simulare flotă).
-SETTINGS_SUB_PERF Perf
+SETTINGS_SUB_PERF Perform.
 SETTINGS_SUB_COMPAT Compat
 SETTINGS_SUB_KEYS Taste
 SETTINGS_FUTURE_GROUP Viitor
@@ -585,11 +585,42 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portat din modul independent Rescu
 CHANGELOG_4_8_6_1 A fost reactivată Destinația navetiștilor: comutatorul din Opțiuni este din nou disponibil și funcționează live, fără a fi nevoie de reîncărcare.
 CHANGELOG_4_8_6_2 A fost verificată fiecare integrare opțională pentru un "dezactivat înseamnă cu adevărat dezactivat": Elevated Stops Enabler rescria permanent datele prefab ale drumurilor fără nicio modalitate de a anula, iar Auto Line Budget continua să gestioneze liniile în fundal după ce era dezactivat la mijlocul sesiunii. Ambele revin acum complet la comportamentul vanilla când sunt dezactivate.
 CHANGELOG_4_8_6_3 Au fost găsite două comportamente care rulau mereu fără nicio modalitate de a le opri - denumirea automată a stațiilor fără nume și Rescue Fullwidth Digits (Gansaku) - și au fost adăugate comutatoare pentru ambele sub Opțiuni → Avansat. Activate implicit, deci nimic nu se schimbă decât dacă le dezactivezi.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Opriri bus waypoint (în curând)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planificat: marcarea unei opriri doar ca waypoint de rutare - calea liniei trece prin ea, dar vehiculele nu se opresc niciodată și nu încarcă/descarcă pasageri acolo. Ajută la ghidarea pathfinding-ului vanilla pe drumul pe care l-ai intenționat de fapt. Nu este încă disponibil.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Țineți apăsat în timp ce plasați o conexiune de oprire tren/tramvai pentru a viza exact linia de cale ferată în locul celei valide celei mai apropiate. Era codat fix pe Shift stânga/dreapta; reatribuirea aici acoperă doar partea pe care o alegeți.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Comutatoare vechi păstrate doar pentru ca instalările care le aveau deja activate să continue să funcționeze exact ca înainte. Blocate - nu mai pot fi activate sau dezactivate de aici, iar fiecare profil de gameplay le lasă dezactivate de acum înainte.
+CHANGELOG_4_8_7_1 Stivuirea locurilor de oprire pentru autobuze este acum un comutator legacy blocat sub Opțiuni → Avansat → Legacy: instalările care îl aveau deja activat continuă să funcționeze exact ca înainte, dar nu mai poate fi activat pentru instalări noi și niciun profil de gameplay nu îl mai activează.
+CHANGELOG_4_8_7_2 Îndepărtat textul de pe pagina Workshop și din tooltip-ul din joc care menționa un mod al altui autor pe nume, la cererea acestuia.
+
+SETTINGS_KOFI_LINK Sprijin pe Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Textul modului tradus
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Cât din textul propriu al acestui mod - meniuri, tooltip-uri, panouri din joc - este tradus în limba ta. Acest lucru diferă de "Progresul traducerii" de mai sus, care acoperă doar câteva butoane generice precum OK și Anulare, nu conținutul real al acestui mod. Dacă mai vezi engleză aici, o traducere completă pentru limba ta este pe drum.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Arată următoarea stație
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Afișează o citire proeminentă a "următoarei stații" care se actualizează pe măsură ce vehiculul avansează pe linie.
+TRAINDISPLAY_LABEL_NEXTSTOP Următoarea stație
+CHANGELOG_4_8_8_1 Suprapunerea destinației pasagerilor (Experimental): găsită și reparată o eroare reală în care două patch-uri proprii ale modului se ciocneau silențios pe același click - dar testele reale de joc arată în continuare că iconițele/panoul nu apar în mod fiabil. Rămâne dezactivată implicit și Experimental până când acest lucru este pe deplin rezolvat.
+CHANGELOG_4_8_8_2 Caseta de control al bugetului nu se mai debifează singură în momentul în care o bifezi.
+CHANGELOG_4_8_8_3 Profilul de performanță al panoului de rută al vehiculului (Lejer/Normal/Maxim) schimbă acum într-adevăr rata de actualizare - anterior nu avea niciun efect vizibil pentru majoritatea jucătorilor.
+CHANGELOG_4_8_8_4 Reparate mai multe probleme de rutare ale vehiculelor în apropierea depourilor și stațiilor, inclusiv autobuze care tăiau în teren/poduri și un viraj în U prematur ocazional.
+CHANGELOG_4_8_8_5 Adăugată protecție împotriva unui crash real pe care unii jucători îl puteau întâlni pe anumite salvări - nu cauzat de acest mod, dar protejat oricum, deoarece patchează aceeași metodă a jocului.
+CHANGELOG_4_8_8_6 Acest panou arată acum un procent real, calculat automat, din cât text propriu al modului este tradus în limba ta, în loc de un număr care putea deveni învechit.
+SETTINGS_TRAINDISPLAY_LAYOUT Aspectul panoului
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ce aranjament folosește suprapunerea. Ambele arată aceleași informații și respectă aceleași casete de selectare de mai jos - doar forma diferă.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Clasic (panou compact de colț)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detaliat (valori în antet + listă de stații)
+COMMUTERDESTINATION_PANEL_TITLE Suprapunerea destinației pasagerilor (Experimental)
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinații
+COMMUTERDESTINATION_PANEL_STOP Stația #{0}
+COMMUTERDESTINATION_PANEL_WAITING Pasageri care așteaptă: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Anterioară
+COMMUTERDESTINATION_PANEL_NEXT Următoarea
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Detectarea ramificării/buclei de rută (în curând)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planificat: avertizare pe panoul de rută al vehiculului atunci când o linie se întoarce pe ea însăși sau se împarte în mai mult de două ramuri, în loc să presupună o rută simplă de la capăt la capăt. Nu este încă disponibil.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Anunțuri vocale pentru următoarea stație (în curând)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planificat: anunț opțional text-to-speech al următoarei stații, potrivit cu modul original pe care se bazează acest panou. Nu este încă disponibil.
+SETTINGS_FUTURE_STTAI_QUEUE Ordine corectă a trenurilor pe cale simplă (în curând)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planificat: se urmărește cât timp a așteptat fiecare tren un segment de cale simplă, astfel încât trenul care a ajuns primul să îl obțină primul, în loc de oricare se întâmplă să fie procesat primul în acel tick. Nu este încă disponibil.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Caseta de control al bugetului rămâne bifată când este gestionată inteligent (în curând)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planificat: chiar acum, odată ce Dimensionarea automată a flotei preia o linie, caseta sa de control al bugetului se debifează singură pentru a semnala asta - intenționat, dar confuz de văzut. Acest lucru va separa intern "calculul de buget al jocului însuși" de "IPT-ul gestionează această linie", astfel încât caseta să poată rămâne bifată tot timpul. Nu este încă disponibil.

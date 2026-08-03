@@ -15,7 +15,7 @@ LINE_PANEL_DEPOT_WARNING <color #FF0000>Depot yang dipilih tidak memiliki kender
 LINE_PANEL_BUDGET_CONTROL Kawalan Bajet
 LINE_PANEL_BUDGET_CONTROL_TOOLTIP Mengdayakan atau medilumpuhkankan kawalan bajet untuk laluan ini.
 LINE_PANEL_UNBUNCHING_TOOLTIP Mengdayakan atau medilumpuhkankan elak berumpun kenderaan untuk laluan ini.\nElak berumpun didilumpuhkankan jika keagresifan elak berumpun diatur ke 0.
-LINE_PANEL_DEPOT Depot:
+LINE_PANEL_DEPOT Depoh:
 LINE_PANEL_NO_DEPOT_FOUND Tiada depot ditemukan.
 LINE_PANEL_DEPOT_MARKER_TOOLTIP Lompat ke depot yang dipilih.\nMenahan butang shift saat klik juga akan menzum masuk.
 LINE_PANEL_SELECT_TYPES Pilih Jenis
@@ -475,7 +475,7 @@ SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Apabila didayakan, kenderaan pengangkutan aw
 SETTINGS_TRAINDISPLAY_TYPES_GROUP Jenis kenderaan pada tindanan
 SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Kenderaan pengangkutan awam yang dapat menunjukkan panel Paparan Kereta apabila dipilih.
 SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Tunjuk tindanan apabila jenis kenderaan ini dipilih.
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_BUS Bas
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Bas listrik
 SETTINGS_TRAINDISPLAY_TYPE_TRAM Trem
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metro
@@ -585,11 +585,42 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Dipindahkan daripada mod Rescue Fu
 CHANGELOG_4_8_6_1 Destinasi Komuter diaktifkan semula: togol Pilihan kembali dan berfungsi secara langsung, tiada muat semula diperlukan.
 CHANGELOG_4_8_6_2 Mengaudit setiap integrasi pilihan untuk "mati bermakna mati" yang sebenar: Elevated Stops Enabler menulis semula data prafabrikasi jalan secara kekal tanpa cara untuk membatalkannya, dan Auto Line Budget terus menguruskan laluan di latar belakang selepas dimatikan pada pertengahan sesi. Kedua-duanya kini kembali sepenuhnya kepada tingkah laku asal apabila dimatikan.
 CHANGELOG_4_8_6_3 Menemui dua tingkah laku yang sentiasa berjalan tanpa cara untuk mematikannya - penamaan automatik perhentian tanpa nama, dan Rescue Fullwidth Digits (Gansaku) - dan menambah togol untuk kedua-duanya di bawah Pilihan → Lanjutan. Hidup secara lalai, jadi tiada apa yang berubah melainkan anda mematikannya.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Perhentian waypoint bas (segera)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Dirancang: tandakan perhentian hanya sebagai waypoint penglaluan - laluan melalui perhentian itu tetapi kenderaan tidak pernah berhenti atau menaikkan/menurunkan penumpang di sana. Membantu mengarahkan pathfinding vanilla ke jalan yang benar-benar anda maksudkan. Belum tersedia.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Tahan sambil meletakkan sambungan perhentian kereta api/trem untuk menyasarkan landasan yang tepat dan bukannya yang sah terdekat. Dahulu dikodkan keras kepada Shift Kiri/Kanan; pengikatan semula di sini hanya meliputi sisi yang anda pilih.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Togol lama dikekalkan hanya supaya pemasangan yang sudah menghidupkannya terus berfungsi persis seperti dahulu. Dikunci - tidak boleh lagi dihidupkan atau dimatikan dari sini, dan setiap profil permainan membiarkannya mati ke hadapan.
+CHANGELOG_4_8_7_1 Penumpukan ruang berhenti bas kini menjadi togol legacy terkunci di bawah Options → Advanced → Legacy: pemasangan yang sudah menghidupkannya terus berfungsi persis seperti dahulu, tetapi ia tidak lagi boleh dihidupkan untuk pemasangan baharu dan tiada profil permainan yang menghidupkannya lagi.
+CHANGELOG_4_8_7_2 Membuang kata-kata dari halaman Workshop dan tooltip dalam permainan yang menyebut nama mod pengarang lain, atas permintaan mereka.
+
+SETTINGS_KOFI_LINK Sokong di Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Teks mod diterjemahkan
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Berapa banyak teks milik mod ini - menu, tooltip, panel dalam permainan - yang diterjemahkan ke bahasa anda. Ini berbeza daripada "Kemajuan terjemahan" di atas, yang hanya meliputi segelintir butang generik seperti OK dan Batal, bukan kandungan sebenar mod ini. Jika anda masih melihat beberapa teks Inggeris di sini, terjemahan penuh untuk bahasa anda sedang dalam perjalanan.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Tunjukkan perhentian seterusnya
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Menunjukkan baca "perhentian seterusnya" yang menonjol dan dikemas kini semasa kenderaan bergerak di sepanjang laluan.
+TRAINDISPLAY_LABEL_NEXTSTOP Perhentian seterusnya
+CHANGELOG_4_8_8_1 Hamparan destinasi penumpang (Eksperimental): ditemui dan dibaiki pepijat sebenar di mana dua patch milik mod ini sendiri bertembung secara senyap pada klik yang sama - tetapi ujian bermain sebenar masih menunjukkan ikon/panel tidak muncul dengan boleh dipercayai. Kekal mati secara lalai dan Eksperimental sehingga ini diselesaikan sepenuhnya.
+CHANGELOG_4_8_8_2 Kotak semak kawalan belanjawan tidak lagi menyahtanda dirinya sendiri sebaik sahaja anda menandainya.
+CHANGELOG_4_8_8_3 Profil prestasi panel laluan kenderaan (Ringan/Normal/Maksimum) kini benar-benar menukar kadar kemaskininya - sebelum ini tiada kesan yang kelihatan bagi kebanyakan pemain.
+CHANGELOG_4_8_8_4 Dibaiki beberapa gangguan penglaluan kenderaan berhampiran depoh dan perhentian, termasuk bas yang memotong ke rupa bumi/jambatan dan sekali-sekala pusingan U pramatang.
+CHANGELOG_4_8_8_5 Menambah perlindungan terhadap ranap sebenar yang boleh dialami sesetengah pemain pada simpanan tertentu - bukan disebabkan mod ini, tetapi tetap dilindungi kerana ia men-patch kaedah permainan yang sama.
+CHANGELOG_4_8_8_6 Panel ini kini menunjukkan peratusan sebenar yang dikira secara automatik bagi berapa banyak teks milik mod diterjemahkan ke bahasa anda, dan bukannya nombor yang boleh menjadi basi.
+SETTINGS_TRAINDISPLAY_LAYOUT Susun atur panel
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Susunan yang digunakan hamparan. Kedua-duanya menunjukkan maklumat yang sama dan mematuhi kotak semak medan yang sama di bawah - hanya bentuknya yang berbeza.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klasik (panel sudut ringkas)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Terperinci (metrik tajuk + senarai perhentian)
+COMMUTERDESTINATION_PANEL_TITLE Hamparan destinasi penumpang (Eksperimental)
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinasi
+COMMUTERDESTINATION_PANEL_STOP Perhentian #{0}
+COMMUTERDESTINATION_PANEL_WAITING Penumpang menunggu: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Sebelumnya
+COMMUTERDESTINATION_PANEL_NEXT Seterusnya
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Pengesanan cabang/lingkaran laluan (segera)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Dirancang: memberi amaran pada panel laluan kenderaan apabila laluan berpusing balik kepada dirinya atau bercabang menjadi lebih daripada dua cabang, dan bukannya menganggap laluan mudah hujung-ke-hujung. Belum tersedia.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Pengumuman perhentian seterusnya bersuara (segera)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Dirancang: pengumuman teks-ke-ucapan pilihan untuk perhentian seterusnya, sepadan dengan mod asal yang menjadi asas panel ini. Belum tersedia.
+SETTINGS_FUTURE_STTAI_QUEUE Urutan kereta api yang adil di landasan tunggal (segera)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Dirancang: mengesan berapa lama setiap kereta api telah menunggu bahagian landasan tunggal, supaya kereta api yang tiba dahulu mendapatkannya dahulu dan bukannya yang kebetulan diproses dahulu pada tick itu. Belum tersedia.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Kotak semak kawalan belanjawan kekal ditanda apabila diurus secara pintar (segera)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Dirancang: sekarang, apabila Saiz armada automatik mengambil alih laluan, kotak semak kawalan belanjawannya menyahtanda dirinya untuk memberi isyarat itu - memang sengaja, tetapi mengelirukan untuk dilihat. Ini akan memisahkan "pengiraan belanjawan permainan itu sendiri" daripada "IPT mengurus laluan ini" secara dalaman, supaya kotak semak boleh kekal ditanda sepanjang masa. Belum tersedia.

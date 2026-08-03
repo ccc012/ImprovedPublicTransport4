@@ -576,21 +576,52 @@ SETTINGS_OOC_RESET_TOOLTIP Ã…terstÃ¤ller extern anslutningsvÃ¤ntan, dekor
 SETTINGS_EBS_GROUP_BUS_DESC Expressbudsbussar kan avgÃ¥ tidigt nÃ¤r fÃ¥ passagerare stiger pÃ¥ â€“ valfri avancerad avstÃ¥ndsstyrning.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rader
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop Ã¤ndrar bara var bussar parkerar vid hÃ¥llplatsen. Alternativen nedan Ã¤r separata funktioner (upphÃ¶jda, delade hÃ¥llplatser, etc.) â€“ de Ã¤r klickbara med avsikt.
-MOD_DESCRIPTION Improved control of public transportation.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+MOD_DESCRIPTION Förbättrad kollektivtrafik.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Alltid-aktivt beteende
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Två små beteenden som alltid kördes utan möjlighet att stänga av dem förrän nu. På som standard så att befintliga installationer inte ser någon förändring – stäng av om du kör en fristående mod som gör samma sak, eller bara föredrar manuell kontroll.
+SETTINGS_AUTONAMESTOPS_ENABLE Namnge namnlösa hållplatser automatiskt
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Första gången du väljer en hållplats utan namn, ger den samma namn som den närliggande byggnad som hållplatspanelens egen rullgardinsmeny skulle föreslå – utan att du behöver öppna den menyn. Rör aldrig ett namn som du (eller denna funktion) redan har angett.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Porterad från den fristående moden Rescue Fullwidth Digits. Åtgärdar transportlinjenamn som sparades med fullwidth-siffror (１２３ istället för 123) av vissa IME-/inmatningsinställningar, vilka annars visas felaktigt för alltid.
+SETTINGS_FUTURE_BUSWAYPOINT Buss-waypoint-hållplatser (snart)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planerat: markera en hållplats endast som ett routing-waypoint – linjens rutt går genom den, men fordon stannar aldrig där och tar inte av eller på passagerare. Hjälper till att styra vanilla-ruttplaneringen till den väg du faktiskt avsåg. Ännu inte tillgänglig.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Håll in medan du placerar en tåg-/spårvagnshållplatsanslutning för att sikta på exakt det spår istället för det närmaste giltiga. Var hårdkodad till vänster/höger Shift; ombindning här täcker bara den sida du väljer.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Gamla växlar som bara behållits så att installationer som redan hade dem på fortsätter fungera precis som förut. Låsta – de kan inte längre slås på eller av härifrån, och varje spelprofil lämnar dem avstängda framöver.
+CHANGELOG_4_8_6_1 Genaktiverade Commuter Destination: växeln i Alternativ är tillbaka och fungerar live, ingen omladdning krävs.
+CHANGELOG_4_8_6_2 Granskade varje valfri integration för en riktig "av är av": Elevated Stops Enabler skrev om vägprefab-data permanent utan möjlighet att ångra, och Auto Line Budget fortsatte hantera linjer i bakgrunden efter att ha inaktiverats mitt i en session. Båda återgår nu helt till vanilla-beteende när de stängs av.
+CHANGELOG_4_8_6_3 Hittade två beteenden som alltid kördes utan möjlighet att stänga av dem – automatisk namngivning av namnlösa hållplatser, och Rescue Fullwidth Digits (Gansaku) – och lade till växlar för båda under Alternativ → Avancerat. På som standard, så inget ändras om du inte stänger av dem.
+CHANGELOG_4_8_7_1 Busshållplatsernas ställplats-stapling är nu en låst legacy-växel under Alternativ → Avancerat → Legacy: installationer som redan hade den på fortsätter fungera precis som förut, men den kan inte längre slås på för nya installationer och ingen spelprofil aktiverar den längre.
+CHANGELOG_4_8_7_2 Tog bort formuleringar från Workshopsidan och i spelets tooltip som, på uppdrag av författaren, nämnde en annan författares mod vid namn.
+
+SETTINGS_KOFI_LINK Stötta på Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Modtext översatt
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Hur mycket av denna mods egen text – menyer, tooltips, paneler i spelet – är översatt till ditt språk? Detta skiljer sig från "Översättningsframsteg" ovan, som bara täcker en handfull generiska knappar som OK och Avbryt, inte moddens faktiska innehåll. Om du fortfarande ser lite engelska här, är en fullständig översättning för ditt språk på väg.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Visa nästa hållplats
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Visar en framträdande "nästa hållplats"-avläsning som uppdateras när fordonet rör sig längs linjen.
+TRAINDISPLAY_LABEL_NEXTSTOP Nästa hållplats
+CHANGELOG_4_8_8_1 Fixade en riktig bugg i överlägget för passagerardestinationer (Experimentell), där två av moddens egna patchar tyst kolliderade på samma klick – men tester i riktiga spel visar fortfarande att ikonerna/överlägget inte dyker upp tillförlitligt. Förblir avstängt som standard och Experimentell tills detta är helt utrett.
+CHANGELOG_4_8_8_2 Kryssrutan för budgetkontroll avmarkerar sig inte längre samma ögonblick som du bockar i den.
+CHANGELOG_4_8_8_3 Prestandaprofilen (Lätt/Normal/Maximum) för fordonsruttpanelen ändrar nu faktiskt sin uppdateringstakt – tidigare utan synlig effekt för de flesta spelare.
+CHANGELOG_4_8_8_4 Fixade flera ruttfel för fordon nära depåer och hållplatser, inklusive bussar som skar in i terräng/broar och enstaka förtida U-svängar.
+CHANGELOG_4_8_8_5 Skyddade mot en riktig krasch som vissa spelare kunde stöta på i vissa sparade spel – inte orsakad av denna mod, men skyddad ändå eftersom den patchar samma spelmetod.
+CHANGELOG_4_8_8_6 Denna panel visar nu en verklig, automatiskt beräknad procentandel av hur mycket av moddens egen text som är översatt till ditt språk, istället för ett nummer som kunde bli inaktuellt.
+SETTINGS_TRAINDISPLAY_LAYOUT Panellayout
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Vilken layout överlägget använder. Båda visar samma information och följer samma fältkryssrutor nedanför – bara formen skiljer sig.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klassisk (kompakt hörnpanel)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detaljerad (statistik i rubriken + hållplatslista)
+COMMUTERDESTINATION_PANEL_TITLE Överlägg för passagerardestination (Experimentell)
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinationer
+COMMUTERDESTINATION_PANEL_STOP Hållplats #{0}
+COMMUTERDESTINATION_PANEL_WAITING Väntande passagerare: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Föregående
+COMMUTERDESTINATION_PANEL_NEXT Nästa
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Detektering av linjegrenar/-slingor (snart)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planerat: varning på fordonsruttpanelen när en linje går tillbaka på sig själv eller delar sig i fler än två grenar, istället för att anta en enkel end-to-end-rutt. Ännu inte tillgänglig.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Talade nästa-hållplats-annonseringar (snart)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planerat: valfri talsyntes-annonsering av nästa hållplats, i linje med den ursprungliga moden som denna panel bygger på. Ännu inte tillgänglig.
+SETTINGS_FUTURE_STTAI_QUEUE Rättvis tågordning på enkelspår (snart)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planerat: hålla reda på hur länge varje tåg har väntat på en enkelspårssträcka, så att tåget som kom först får den först, istället för det som råkar bearbetas först den ticken. Ännu inte tillgänglig.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budgetkontrollrutan förblir ikryssad vid automatisk hantering (snart)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planerat: just nu avmarkerar kryssrutan "Budgetkontroll" sig själv så fort Automatisk flottstorlek tar över en linje, för att signalera det – avsiktligt, men förvirrande att se på. Detta kommer internt att skilja "spelets egen budgetberäkning" från "IPT hanterar denna linje", så att kryssrutan kan förbli ikryssad hela tiden. Ännu inte tillgänglig.

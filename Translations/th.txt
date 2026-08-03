@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP รีเซ็ตการรอการเชื�
 SETTINGS_EBS_GROUP_BUS_DESC รถบัส express อาจออกเดินทางเร็วขึ้นเมื่อมีผู้โดยสารน้อยคนขึ้น ระยะห่างขั้นสูงเป็นทางเลือก
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP แถบเพิ่มเติม
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop จะเปลี่ยนตำแหน่งจอดรถบัสในจุดหยุดเท่านั้น ตัวเลือกด้านล่างเป็นคุณสมบัติที่แยกจากกัน (ยกระดับ, จุดหยุดร่วม, เป็นต้น) จึงเก็บกลุ่มคลิกไว้โดยจงใจ
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP พฤติกรรมที่เปิดตลอดเวลา
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC พฤติกรรมเล็กๆ สองอย่างที่ทำงานตลอดเวลาโดยไม่มีวิธีปิดจนถึงตอนนี้ เปิดเป็นค่าเริ่มต้นเพื่อให้การติดตั้งเดิมไม่เห็นการเปลี่ยนแปลง - ปิดหากคุณรัน mod แบบเดี่ยวที่ทำสิ่งเดียวกัน หรือเพียงชอบการควบคุมด้วยตนเอง
+SETTINGS_AUTONAMESTOPS_ENABLE ตั้งชื่อจุดหยุดที่ไม่มีชื่ออัตโนมัติ
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP ครั้งแรกที่คุณเลือกจุดหยุดที่ไม่มีชื่อ จะให้ชื่ออาคารใกล้เคียงเดียวกันกับที่ดรอปดาวน์ของแผงจุดหยุดเองจะแนะนำ - โดยไม่ต้องเปิดดรอปดาวน์นั้น ไม่แตะต้องชื่อที่คุณ (หรือฟีเจอร์นี้) ตั้งไว้แล้ว
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP พอร์ตมาจาก mod แบบเดี่ยว Rescue Fullwidth Digits แก้ไขชื่อสายการขนส่งที่ถูกบันทึกด้วยเลขเต็มความกว้าง (１２３ แทน 123) โดยชุด IME/อินพุตบางชุด ซึ่งมิฉะนั้นจะแสดงไม่ถูกต้องตลอดไป
+SETTINGS_FUTURE_BUSWAYPOINT จุดหยุดเส้นทางบัส (ในไม่ช้า)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP วางแผน: ทำเครื่องหมายจุดหยุดเป็นจุดทางผ่านสำหรับเส้นทางเท่านั้น - เส้นทางของเส้นผ่านมัน แต่ยานพาหนะไม่เคยจอดหรือรับ/ส่งผู้โดยสารที่นั่น ช่วยนำการหาเส้นทางของเกมเดิมไปยังถนนที่คุณตั้งใจจริงๆ ยังไม่พร้อมใช้งาน
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP กดค้างขณะวางการเชื่อมต่อจุดหยุดรถไฟ/รถรางเพื่อกำหนดรางที่แน่นอนแทนที่จะเป็นรางที่ถูกต้องที่ใกล้ที่สุด เดิมถูกกำหนดตายตัวให้ Left/Right Shift การผูกใหม่ที่นี่ครอบคลุมเฉพาะด้านที่คุณเลือก
+SETTINGS_LEGACY_GROUP มรดก
+SETTINGS_LEGACY_GROUP_DESC ปุ่มสลับเก่าที่เก็บไว้เพียงเพื่อให้การติดตั้งที่เปิดไว้แล้วยังทำงานเหมือนเดิม ล็อกแล้ว - เปิดหรือปิดจากที่นี่ไม่ได้อีกต่อไป และทุกโปรไฟล์การเล่นจะปล่อยไว้แบบปิดต่อไป
+CHANGELOG_4_8_6_1 เปิด Commuter Destination อีกครั้ง: ปุ่มสลับในตัวเลือกกลับมาแล้วและทำงานทันที ไม่ต้องโหลดใหม่
+CHANGELOG_4_8_6_2 ตรวจสอบทุกการผสานรวมที่เลือกได้เพื่อให้ "ปิดหมายถึงปิด" จริงๆ: Elevated Stops Enabler เขียนข้อมูล prefab ถนนซ้ำอย่างถาวรโดยไม่สามารถย้อนกลับได้ และ Auto Line Budget ยังคงจัดการเส้นในพื้นหลังแม้ถูกปิดกลางเซสชัน ทั้งสองตอนนี้กลับสู่พฤติกรรมเดิมของเกมอย่างเต็มที่เมื่อปิด
+CHANGELOG_4_8_6_3 พบพฤติกรรมสองอย่างที่ทำงานตลอดเวลาโดยไม่มีวิธีปิด - การตั้งชื่อจุดหยุดที่ไม่มีชื่ออัตโนมัติ และ Rescue Fullwidth Digits (Gansaku) - และเพิ่มปุ่มสลับสำหรับทั้งสองภายใต้ ตัวเลือก → ขั้นสูง เปิดเป็นค่าเริ่มต้น ดังนั้นไม่มีอะไรเปลี่ยนแปลงเว้นแต่คุณจะปิด
+CHANGELOG_4_8_7_1 การวางซ้อนช่องจอดรถบัสตอนนี้เป็นปุ่มสลับมรดกที่ล็อกไว้ภายใต้ ตัวเลือก → ขั้นสูง → Legacy: การติดตั้งที่เปิดไว้แล้วยังทำงานเหมือนเดิม แต่เปิดไม่ได้สำหรับการติดตั้งใหม่ และไม่มีโปรไฟล์การเล่นเปิดใช้งานอีกต่อไป
+CHANGELOG_4_8_7_2 นำคำกล่าวอ้างออกจากหน้า Workshop และเคล็ดลับในเกมที่อ้างถึง mod ของผู้แต่งอีกคนตามชื่อ ตามคำขอของพวกเขา
+
+SETTINGS_KOFI_LINK สนับสนุนบน Ko-fi
+SETTINGS_MODTRANSLATION_GROUP ข้อความ mod แปลแล้ว
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP ข้อความของ mod นี้เอง - เมนู เคล็ดลับ แผงในเกม - แปลเป็นภาษาของคุณมากน้อยแค่ไหน ซึ่งต่างจาก "ความคืบหน้าการแปล" ด้านบน ซึ่งครอบคลุมเฉพาะปุ่มทั่วไปไม่กี่ปุ่ม เช่น OK และ Cancel ไม่ใช่เนื้อหาจริงของ mod นี้ หากคุณยังเห็นภาษาอังกฤษบางส่วนที่นี่ แปลเต็มสำหรับภาษาของคุณกำลังมา
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP แสดงจุดหยุดถัดไป
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP แสดงการอ่านค่า "จุดหยุดถัดไป" ที่เด่นชัดซึ่งอัปเดตเมื่อยานพาหนะเคลื่อนไปตามเส้น
+TRAINDISPLAY_LABEL_NEXTSTOP จุดหยุดถัดไป
+CHANGELOG_4_8_8_1 ชั้นภาพซ้อนปลายทางผู้โดยสาร (ทดลอง): พบและแก้ไขบั๊กจริงที่แพตช์สองตัวของ mod เองชนกันอย่างเงียบๆ ในการคลิกเดียวกัน - แต่การทดสอบการเล่นจริงยังแสดงว่าไอคอน/แผงไม่ปรากฏอย่างน่าเชื่อถือ จะคงปิดเป็นค่าเริ่มต้นและเป็นทดลองจนกว่าจะแก้ไขได้อย่างสมบูรณ์
+CHANGELOG_4_8_8_2 กล่องกาเครื่องหมายควบคุมงบประมาณไม่เลิกกาเองอีกต่อไปในทันทีที่คุณกา
+CHANGELOG_4_8_8_3 โปรไฟล์ประสิทธิภาพของแผงเส้นทางยานพาหนะ (เบา/ปกติ/สูงสุด) ตอนนี้เปลี่ยนอัตราการอัปเดตจริงๆ - ก่อนหน้านี้ไม่มีผลที่มองเห็นได้สำหรับผู้เล่นส่วนใหญ่
+CHANGELOG_4_8_8_4 แก้ไขความผิดปกติของเส้นทางยานพาหนะหลายจุดใกล้ศูนย์กระจายสินค้าและจุดหยุด รวมถึงรถบัสชนเข้าไปในภูมิประเทศ/สะพาน และการกลับรถก่อนเวลาอันควรเป็นครั้งคราว
+CHANGELOG_4_8_8_5 เพิ่มการป้องกันการ crash จริงที่ผู้เล่นบางคนอาจเจอในบางเซฟ - ไม่ได้เกิดจาก mod นี้ แต่ก็ป้องกันไว้เพราะมันแพตช์เมธอดของเกมเดียวกัน
+CHANGELOG_4_8_8_6 แผงนี้ตอนนี้แสดงเปอร์เซ็นต์จริงที่คำนวณอัตโนมัติว่าข้อความของ mod เองแปลเป็นภาษาของคุณไปเท่าไร แทนที่จะเป็นตัวเลขที่อาจล้าสมัย
+SETTINGS_TRAINDISPLAY_LAYOUT รูปแบบแผง
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP การจัดเรียงที่ชั้นภาพซ้อนใช้ ทั้งสองแสดงข้อมูลเดียวกันและเชื่อฟังกล่องกาเครื่องหมายฟิลด์เดียวกันด้านล่าง - รูปร่างเท่านั้นที่ต่าง
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC คลาสสิก (แผงมุมกะทัดรัด)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED ละเอียด (เมตริกส่วนหัว + รายการจุดหยุด)
+COMMUTERDESTINATION_PANEL_TITLE ชั้นภาพซ้อนปลายทางผู้โดยสาร (ทดลอง)
+COMMUTERDESTINATION_PANEL_DESTINATIONS ปลายทาง
+COMMUTERDESTINATION_PANEL_STOP จุดหยุด #{0}
+COMMUTERDESTINATION_PANEL_WAITING ผู้โดยสารที่รออยู่: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS ก่อนหน้า
+COMMUTERDESTINATION_PANEL_NEXT ถัดไป
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH การตรวจจับกิ่ง/วงของเส้นทาง (ในไม่ช้า)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP วางแผน: เตือนบนแผงเส้นทางยานพาหนะเมื่อเส้นวนกลับมาที่ตัวเองหรือแยกออกมากกว่าสองกิ่ง แทนที่จะสมมติเส้นทางธรรมดาจากต้นถึงปลาย ยังไม่พร้อมใช้งาน
+SETTINGS_FUTURE_ROUTEPANEL_TTS ประกาศจุดหยุดถัดไปด้วยเสียงพูด (ในไม่ช้า)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP วางแผน: ประกาศจุดหยุดถัดไปแบบข้อความเป็นเสียงพูดให้เลือกได้ เหมือนกับ mod ต้นฉบับที่แผงนี้สร้างตาม ยังไม่พร้อมใช้งาน
+SETTINGS_FUTURE_STTAI_QUEUE การจัดลำดับรถไฟอย่างเป็นธรรมบนรางเดี่ยว (ในไม่ช้า)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP วางแผน: ติดตามว่าแต่ละรถไฟรอช่วงรางเดี่ยวมานานแค่ไหน เพื่อให้รถไฟที่มาถึงก่อนได้ใช้ก่อน แทนที่จะเป็นคันที่ถูกประมวลผลก่อนในรอบนั้น ยังไม่พร้อมใช้งาน
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED กล่องกาเครื่องหมายควบคุมงบประมาณคงถูกกาเมื่อจัดการอัตโนมัติ (ในไม่ช้า)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP วางแผน: ตอนนี้ เมื่อการกำหนดขนาดกองยานพาหนะอัตโนมัติเข้าควบคุมเส้น กล่องกาเครื่องหมายควบคุมงบประมาณจะเลิกกาเองเพื่อบอกสัญญาณนั้น - เป็นไปตามการออกแบบ แต่ดูสับสน จะแยก "คณิตงบประมาณของเกมเอง" ออกจาก "IPT กำลังจัดการเส้นนี้" ภายใน เพื่อให้กล่องกาเครื่องหมายถูกกาได้ตลอดเวลา ยังไม่พร้อมใช้งาน

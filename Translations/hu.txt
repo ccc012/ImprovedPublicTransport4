@@ -576,21 +576,52 @@ SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Eltelt idő megjelenítése (extrák sáv)
 SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Vonalszínű sávot ad az átfedés fölé ezekkel az extrákkal. Alapértelmezésben ki.
 TRAINDISPLAY_LABEL_SPEED Sebesség
 TRAINDISPLAY_LABEL_TIME Idő
-MOD_DESCRIPTION Improved control of public transportation.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+MOD_DESCRIPTION A tömegközlekedés jobb ellenőrzése.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Mindig aktív viselkedés
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Két kicsi viselkedés, amelyek mindig futottak, és eddig nem lehetett kikapcsolni őket. Alapértelmezés szerint be vannak kapcsolva, így a meglévő telepítések nem látnak változást - kapcsold ki, ha önálló modot futtatsz, amely ugyanezt csinálja, vagy egyszerűen inkább kézi vezérlést szeretnél.
+SETTINGS_AUTONAMESTOPS_ENABLE Névtelen megállók automatikus elnevezése
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Amikor először választasz ki egy név nélküli megállót, ugyanazt a közeli épületnevet adja neki, amit a megállópanel saját legördülője javasolna - anélkül, hogy meg kellene nyitnod azt a legördülőt. Soha nem nyúl ahhoz a névhez, amit te (vagy ez a funkció) már beállított.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Az önálló Rescue Fullwidth Digits modból átportolva. Kijavítja a közlekedési vonalneveket, amelyek teljes szélességű számjegyekkel (１２３ a 123 helyett) mentődtek el bizonyos IME/billentyűzetkiosztások miatt, és egyébként örökre hibásan jelennek meg.
+SETTINGS_FUTURE_BUSWAYPOINT Busz útpont megállók (hamarosan)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Tervezett: egy megálló megjelölése csak útvonali útpontként - a vonal útja átmegy rajta, de a járművek soha nem állnak meg, és nem szállnak ki/be utasok ott. Segít a vanilla útvonaltervezést arra az útra terelni, amelyet ténylegesen szántál. Még nem elérhető.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Tartsd nyomva vonat/villamos megálló-kapcsolat elhelyezésekor, hogy a pontos vágányt célozd meg a legközelebbi érvényes helyett. Korábban a Bal/Jobb Shift-hez volt kötve; az itteni újrahangolás csak azt az oldalt fedi le, amelyet választasz.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Régi kapcsolók, amelyeket csak azért tartottak meg, hogy azok a telepítések, amelyekben már be voltak kapcsolva, pontosan úgy működjenek tovább, mint korábban. Zárolva - innen már nem kapcsolhatók be vagy ki, és minden játékprofil kikapcsolva hagyja őket a jövőben.
+CHANGELOG_4_8_6_1 A Commuter Destination újra engedélyezve: az Options kapcsoló visszatért és élőben működik, újratöltés nélkül.
+CHANGELOG_4_8_6_2 Minden opcionális integráció ellenőrizve, hogy a "kikapcsolva valóban kikapcsolva" legyen: az Elevated Stops Enabler véglegesen átírta az útprefab adatokat visszavonási lehetőség nélkül, az Auto Line Budget pedig a háttérben tovább kezelte a vonalakat, miután a munkamenet közben kikapcsolták. Mindkettő most teljesen visszatér a vanilla viselkedéshez, ha kikapcsolják.
+CHANGELOG_4_8_6_3 Két viselkedés találva, amelyek mindig futottak, és eddig nem lehetett kikapcsolni őket - a névtelen megállók automatikus elnevezése és a Rescue Fullwidth Digits (Gansaku) - és mindkettőhöz kapcsoló lett adva az Options → Haladó alatt. Alapértelmezés szerint be van kapcsolva, így semmi sem változik, hacsak ki nem kapcsolod őket.
+CHANGELOG_4_8_7_1 A buszmegálló férőhely-stackelés most zárolt örökölt (legacy) kapcsoló az Options → Haladó → Legacy alatt: azok a telepítések, amelyekben már be volt kapcsolva, pontosan úgy működnek tovább, mint korábban, de új telepítéseknél már nem kapcsolható be, és egyik játékprofil sem engedélyezi többé.
+CHANGELOG_4_8_7_2 Eltávolítva a szövegrészek a Workshop oldalról és a játékon belüli tippből, amelyek egy másik szerző modját név szerint említették, az ő kérésükre.
+
+SETTINGS_KOFI_LINK Támogatás a Ko-fi-n
+SETTINGS_MODTRANSLATION_GROUP Mod szövege lefordítva
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Ennyi ennek a modnak a saját szövege - menük, tippek, játékon belüli panelek - van lefordítva a nyelvedre. Ez különbözik a fenti "Fordítás előrehaladás"-tól, ami csak néhány általános gombot fed le, mint az OK és a Mégse, nem pedig ennek a modnak a tényleges tartalmát. Ha még látsz itt angol szöveget, a nyelvedhez teljes fordítás van úton.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Következő megálló mutatása
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Kiemelt "következő megálló" kijelzőt mutat, ami frissül, ahogy a jármű halad a vonalon.
+TRAINDISPLAY_LABEL_NEXTSTOP Következő megálló
+CHANGELOG_4_8_8_1 Utas célállomás átfedés (Kísérleti): megtalálva és javítva egy valódi hiba, ahol a mod két saját patch-e csendben ütközött ugyanazon a kattintáson - de valódi játéktesztek még mindig azt mutatják, hogy az ikonok/panel nem jelenik meg megbízhatóan. Alapértelmezés szerint kikapcsolva és Kísérleti marad, amíg ez teljesen rendbe nem jön.
+CHANGELOG_4_8_8_2 A költségvetés-vezérlő jelölőnégyzet már nem törli a saját bejelölését abban a pillanatban, ahogy bejelölöd.
+CHANGELOG_4_8_8_3 A jármű útvonal-paneljének teljesítményprofilja (Könnyű/Normál/Maximális) most már ténylegesen változtatja a frissítési gyakoriságot - korábban a legtöbb játékosnál nem volt látható hatása.
+CHANGELOG_4_8_8_4 Számos jármű útvonal-hiba javítva depók és megállók közelében, beleértve azt, amikor a buszok belevágódnak a terepbe/hidakba, és az alkalmi idő előtti megfordulást.
+CHANGELOG_4_8_8_5 Védelem egy valódi összeomlás ellen, amit néhány játékos bizonyos mentéseknél tapasztalhatott - nem ez a mod okozta, de így is védett, mivel ugyanazt a játékmetódust patcheli.
+CHANGELOG_4_8_8_6 Ez a panel most valódi, automatikusan számított százalékot mutat arról, mennyi a mod saját szövegéből van lefordítva a nyelvedre, ahelyett, hogy egy számot, ami elavulhat.
+SETTINGS_TRAINDISPLAY_LAYOUT Panel elrendezése
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Melyik elrendezést használja az átfedés. Mindkettő ugyanazt az információt mutatja, és ugyanazoknak az alábbi mező-jelölőnégyzeteknek engedelmeskedik - csak az alak különbözik.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klasszikus (kompakt sarokpanel)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Részletes (fejléc mérőszámok + megállólista)
+COMMUTERDESTINATION_PANEL_TITLE Utas célállomás átfedés (Kísérleti)
+COMMUTERDESTINATION_PANEL_DESTINATIONS célok
+COMMUTERDESTINATION_PANEL_STOP Megálló #{0}
+COMMUTERDESTINATION_PANEL_WAITING Váró utasok: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Előző
+COMMUTERDESTINATION_PANEL_NEXT Következő
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Vonal elágazás/hurok észlelés (hamarosan)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Tervezett: figyelmeztetés a jármű útvonal-paneljén, ha egy vonal visszafordul önmagára vagy több mint két ágra oszlik, ahelyett, hogy egyszerű végponttól-végpontig útvonalat feltételezne. Még nem elérhető.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Hangos következő-megálló bemondások (hamarosan)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Tervezett: opcionális beszéd-szintézises bemondás a következő megállóról, egyezően azzal az eredeti moddal, amelyen ez a panel alapul. Még nem elérhető.
+SETTINGS_FUTURE_STTAI_QUEUE Igazságos vonatsorrend egyvágányú pályán (hamarosan)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Tervezett: nyilvántartja, mennyi ideje vár minden vonat egy egyvágányú szakaszra, hogy az érkezett először kapja meg elsőként, ahelyett, hogy akármelyik kerüljön feldolgozásra elsőként abban a ciklusban. Még nem elérhető.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Költségvetés-vezérlő jelölőnégyzet bejelölve marad okos kezelésnél (hamarosan)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Tervezett: jelenleg, amint az Automatikus flottaméretezés átvesz egy vonalat, annak Költségvetés-vezérlő jelölőnégyzete törli a saját bejelölését, hogy ezt jelezze - szándékosan, de zavaró látni. Ez majd szétválasztja "a játék saját költségvetés-számítását" és "az IPT kezeli ezt a vonalat" belsőleg, hogy a jelölőnégyzet végig bejelölve maradhasson. Még nem elérhető.

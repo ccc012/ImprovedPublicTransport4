@@ -585,11 +585,42 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP سلوك دائم التفعيل
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC سلوكان صغيران كانا يعملان دائمًا دون إمكانية إيقافهما حتى الآن. مفعّلان افتراضيًا حتى لا تلاحظ التركيبات الحالية أي تغيير - قم بإيقافهما إذا كنت تستخدم مودًا مستقلاً يقوم بنفس الشيء، أو ببساطة تفضل التحكم اليدوي.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE إنقاذ الأرقام العريضة (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP منقول من مود Rescue Fullwidth Digits المستقل. يصلح أسماء خطوط النقل التي تم حفظها بأرقام عريضة (１٢٣ بدلاً من 123) بسبب بعض إعدادات IME/الإدخال، والتي تظهر بشكل خاطئ إلى الأبد لولا ذلك.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT محطات نقاط مسار الحافلات (قريباً)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP مخطط: تحديد محطة كنقطة مسار فقط - يمر مسار الخط عبرها لكن المركبات لا تتوقف ولا تحمّل/تنزّل الركاب هناك. يساعد على توجيه البحث عن المسار الافتراضي إلى الطريق الذي قصدته فعلاً. غير متاح حتى الآن.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP اضغط مع الاستمرار أثناء وضع اتصال محطة قطار/ترام لاستهداف المسار الدقيق بدلاً من أقرب مسار صالح. كان مرتبطًا بشكل ثابت بمفتاحي Shift الأيسر/الأيمن؛ إعادة الربط هنا تغطي الجانب الذي تختاره فقط.
+SETTINGS_LEGACY_GROUP الإرث
+SETTINGS_LEGACY_GROUP_DESC مفاتيح تبديل قديمة محفوظة فقط حتى تستمر التركيبات التي كانت مفعّلة لديها بالعمل تمامًا كما قبل. مقفلة - لا يمكن تفعيلها أو تعطيلها من هنا بعد الآن، وكل ملف لعب يتركها معطلة في المستقبل.
+CHANGELOG_4_8_7_1 تكديس أرصفة محطات الحافلات أصبح الآن مفتاحًا قديمًا مقفلاً ضمن الخيارات ← متقدم ← الإرث: التركيبات التي كانت مفعّلة لديه تستمر بالعمل تمامًا كما كانت من قبل، لكن لا يمكن تفعيله بعد الآن للتركيبات الجديدة، ولم يعد أي ملف لعب يفعّله.
+CHANGELOG_4_8_7_2 تمت إزالة الصياغة من صفحة الورشة والتلميح داخل اللعبة التي كانت تذكر مود مؤلف آخر بالاسم، بناءً على طلبه.
+
+SETTINGS_KOFI_LINK ادعمنا على Ko-fi
+SETTINGS_MODTRANSLATION_GROUP النص المترجم للمود
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP كم من النص الخاص بهذا المود - القوائم، التلميحات، اللوحات داخل اللعبة - مترجم إلى لغتك. هذا يختلف عن «تقدم الترجمة» أعلاه، الذي يغطي فقط عددًا قليلًا من الأزرار العامة مثل موافق وإلغاء، وليس المحتوى الفعلي لهذا المود. إذا كنت ما زلت ترى بعض الإنجليزية هنا، فترجمة كاملة للغتك قادمة.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP إظهار المحطة التالية
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP عرض مؤشر بارز «المحطة التالية» يتحدث مع تقدم المركبة على طول الخط.
+TRAINDISPLAY_LABEL_NEXTSTOP المحطة التالية
+CHANGELOG_4_8_8_1 طبقة وجهة الركاب (تجريبية): تم العثور على خطأ حقيقي وإصلاحه حيث كان تصحيحان من تصحيحات المود يتصادمان بصمت عند نفس النقرة - لكن اختبار اللعب الفعلي ما زال يُظهر أن الأيقونات/اللوحة لا تظهر بشكل موثوق. تبقى معطلة افتراضيًا وتجريبية حتى يتم حل هذا الأمر بالكامل.
+CHANGELOG_4_8_8_2 لم تعد خانة التحكم بالميزانية تلغي تحديدها من نفسها بمجرد تحديدها.
+CHANGELOG_4_8_8_3 ملف تعريف أداء شاشة القطار (خفيف/عادي/أقصى) يغيّر الآن معدل التحديث فعليًا - في السابق لم يكن له أي تأثير مرئي لمعظم اللاعبين.
+CHANGELOG_4_8_8_4 تم إصلاح عدة خلل في مسار المركبات بالقرب من المستودعات والمحطات، بما في ذلك اختراق الحافلات في التضاريس/الجسور واستدارة U مبكرة في بعض الأحيان.
+CHANGELOG_4_8_8_5 تمت إضافة حماية من تعطل حقيقي قد يصيب بعض اللاعبين في حفظات معينة - ليس سببه هذا المود، لكنه محمي على أي حال لأنه يعدّل نفس طريقة اللعبة.
+CHANGELOG_4_8_8_6 تعرض هذه اللوحة الآن نسبة مئوية حقيقية تُحسب تلقائيًا من مقدار النص الخاص بالمود المترجم إلى لغتك، بدلاً من رقم قد يصبح قديمًا.
+SETTINGS_TRAINDISPLAY_LAYOUT تخطيط اللوحة
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP أي ترتيب تستخدمه الطبقة. كلاهما يعرض نفس المعلومات ويخضع لنفس خانات التحديد أدناه - يختلف الشكل فقط.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC كلاسيكي (لوحة زاوية مدمجة)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED تفصيلي (مقاييس في الترويسة + قائمة المحطات)
+COMMUTERDESTINATION_PANEL_TITLE طبقة وجهة الركاب (تجريبية)
+COMMUTERDESTINATION_PANEL_DESTINATIONS الوجهات
+COMMUTERDESTINATION_PANEL_STOP المحطة #{0}
+COMMUTERDESTINATION_PANEL_WAITING الركاب المنتظرون: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS السابق
+COMMUTERDESTINATION_PANEL_NEXT التالي
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH كشف تفرع/التفاف الخط (قريباً)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP مخطط: التحذير على لوحة مسار المركبة عندما يعود الخط على نفسه أو يتفرع إلى أكثر من فرعين، بدلاً من افتراض مسار بسيط من البداية إلى النهاية. غير متاح حتى الآن.
+SETTINGS_FUTURE_ROUTEPANEL_TTS إعلانات المحطة التالية الصوتية (قريباً)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP مخطط: إعلان اختياري للمحطة التالية عبر تحويل النص إلى كلام، مطابقًا للمود الأصلي الذي تستند إليه هذه اللوحة. غير متاح حتى الآن.
+SETTINGS_FUTURE_STTAI_QUEUE ترتيب عادل للقطارات على المسار الواحد (قريباً)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP مخطط: تتبع مدة انتظار كل قطار لمقطع المسار الواحد، بحيث يحصل القطار الذي وصل أولاً على المقطع أولاً بدلاً من أي قطار يُعالج أولاً في تلك الومضة. غير متاح حتى الآن.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED بقاء خانة التحكم بالميزانية محددة عند الإدارة الذكية (قريباً)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP مخطط: حاليًا، بمجرد أن يتولى التحجيم التلقائي للأسطول إدارة خط ما، تلغي خانة «التحكم بالميزانية» تحديدها من نفسها للإشارة إلى ذلك - مقصود، لكنه مربك للوهلة. سيفصل هذا «حساب الميزانية الخاص باللعبة» عن «IPT يدير هذا الخط» داخليًا، بحيث يمكن للخانة أن تبقى محددة طوال الوقت. غير متاح حتى الآن.

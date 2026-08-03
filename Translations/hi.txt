@@ -475,7 +475,7 @@ SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP सक्षम होने पर, या�
 SETTINGS_TRAINDISPLAY_TYPES_GROUP Overlay पर वाहन प्रकार
 SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION कौन से सार्वजनिक परिवहन वाहन चुने जाने पर Train Display पैनल दिखा सकते हैं।
 SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP जब इस वाहन प्रकार को चुना जाता है तो overlay दिखाएँ।
-SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
+SETTINGS_TRAINDISPLAY_TYPE_BUS बस
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY ट्रॉलीबस
 SETTINGS_TRAINDISPLAY_TYPE_TRAM ट्राम
 SETTINGS_TRAINDISPLAY_TYPE_METRO मेट्रो
@@ -576,20 +576,51 @@ SETTINGS_OOC_RESET_TOOLTIP बाहरी-कनेक्शन wait, dummy tra
 SETTINGS_EBS_GROUP_BUS_DESC Express buses कुछ यात्रियों के चढ़ने पर जल्दी रवाना हो सकती हैं — optional advanced spacing।
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP अतिरिक्त rows
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop केवल यह बदलता है कि बसें स्टॉप पर कहाँ park करती हैं। नीचे दिए गए विकल्प अलग-अलग features हैं।
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP हमेशा-चालू व्यवहार
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC दो छोटे व्यवहार जो अब तक बंद करने के किसी तरीके के बिना हमेशा चलते थे। डिफ़ॉल्ट रूप से चालू ताकि मौजूदा इंस्टॉल में कोई बदलाव न दिखे - बंद कर दें यदि आप वही काम करने वाला standalone मॉड चलाते हैं, या बस मैनुअल नियंत्रण पसंद करते हैं।
+SETTINGS_AUTONAMESTOPS_ENABLE बिना नाम वाले स्टॉप को ऑटो-नाम दें
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP पहली बार जब आप बिना नाम वाला स्टॉप चुनते हैं, तो यह उसे वही पास की इमारत का नाम देता है जो स्टॉप पैनल का अपना ड्रॉपडाउन सुझाता - बिना आपको उस ड्रॉपडाउन को खोलने की आवश्यकता। उस नाम को कभी नहीं छूता जो आप (या यह) पहले से सेट कर चुके हैं।
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Standalone Rescue Fullwidth Digits मॉड से पोर्ट किया गया। उन परिवहन लाइन नामों को ठीक करता है जो कुछ IME/इनपुट सेटअप द्वारा fullwidth अंकों (123 के बजाय １２３) के साथ सहेजे गए थे, जो अन्यथा हमेशा गलत प्रदर्शित होते हैं।
+SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (जल्द ही)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: किसी स्टॉप को केवल routing waypoint के रूप में चिह्नित करें - लाइन का मार्ग उससे गुजरता है लेकिन वाहन वहां कभी नहीं रुकते या यात्रियों को चढ़ाते/उतारते नहीं। vanilla pathfinding को उस सड़क पर ले जाने में मदद करता है जो आपने वास्तव में चाही थी। अभी available नहीं।
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
-CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
-CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP ट्रेन/ट्राम स्टॉप कनेक्शन रखते समय दबाए रखें ताकि निकटतम मान्य के बजाय सटीक ट्रैक को लक्षित किया जाए। पहले Left/Right Shift पर हार्डकोड था; यहां पुनः-बाइंड करने से केवल वही पक्ष कवर होता है जो आप चुनते हैं।
+SETTINGS_LEGACY_GROUP लेगेसी
+SETTINGS_LEGACY_GROUP_DESC पुराने टॉगल केवल इसलिए रखे गए ताकि जिन इंस्टॉल में वे पहले से चालू थे वे पहले की तरह ही काम करते रहें। लॉक किए गए - इन्हें अब यहां से चालू या बंद नहीं किया जा सकता, और आगे हर gameplay profile इन्हें बंद रखेगी।
+CHANGELOG_4_8_6_1 Commuter Destination को फिर से सक्षम किया गया: Options टॉगल वापस आ गया है और लाइव काम करता है, रीलोड की आवश्यकता नहीं।
+CHANGELOG_4_8_6_2 हर वैकल्पिक एकीकरण का ऑडिट किया गया ताकि "बंद का मतलब बंद" सच में हो: Elevated Stops Enabler सड़क prefab डेटा को स्थायी रूप से फिर से लिख रहा था जिसे पूर्ववत करने का कोई तरीका नहीं था, और Auto Line Budget सत्र के बीच में अक्षम किए जाने के बाद भी पृष्ठभूमि में लाइनें प्रबंधित करता रहा। दोनों अब बंद होने पर पूरी तरह से vanilla व्यवहार पर लौट आते हैं।
+CHANGELOG_4_8_6_3 दो व्यवहार मिले जो हमेशा चलते थे और उन्हें बंद करने का कोई तरीका नहीं था - बिना नाम वाले स्टॉप का ऑटो-नामकरण, और Rescue Fullwidth Digits (Gansaku) - और दोनों के लिए Options → Advanced के अंतर्गत टॉगल जोड़े गए। डिफ़ॉल्ट रूप से चालू, इसलिए जब तक आप उन्हें बंद न करें कुछ भी नहीं बदलता।
+CHANGELOG_4_8_7_1 Bus stop berth stacking अब Options → Advanced → Legacy के अंतर्गत एक लॉक किया हुआ legacy टॉगल है: जिन इंस्टॉल में यह पहले से चालू था वे पहले की तरह ही काम करते रहते हैं, लेकिन इसे नए इंस्टॉल के लिए चालू नहीं किया जा सकता और कोई gameplay profile इसे अब सक्षम नहीं करती।
+CHANGELOG_4_8_7_2 Workshop पेज और गेम में टूलटिप से वह शब्द हटा दिए गए जो किसी अन्य लेखक के मॉड का नाम लेकर संदर्भ देते थे, उनके अनुरोध पर।
+
+SETTINGS_KOFI_LINK Ko-fi पर समर्थन
+SETTINGS_MODTRANSLATION_GROUP मॉड टेक्स्ट अनुवादित
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP इस मॉड के अपने टेक्स्ट का कितना हिस्सा - मेनू, टूलटिप्स, गेम में पैनल - आपकी भाषा में अनुवादित है। यह ऊपर के "अनुवाद प्रगति" से अलग है, जो केवल OK और Cancel जैसे कुछ सामान्य बटनों को कवर करता है, इस मॉड की असली सामग्री को नहीं। अगर आपको अभी भी यहां कुछ अंग्रेज़ी दिखे, तो आपकी भाषा के लिए पूर्ण अनुवाद आ रहा है।
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP अगला स्टॉप दिखाएँ
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP एक प्रमुख "अगला स्टॉप" रीडआउट दिखाता है जो वाहन के लाइन पर आगे बढ़ने के साथ अपडेट होता है।
+TRAINDISPLAY_LABEL_NEXTSTOP अगला स्टॉप
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): मॉड के दो पैच एक ही क्लिक पर चुपचाप टकरा रहे थे - एक असली बग मिला और ठीक किया गया - लेकिन वास्तविक गेम टेस्टिंग में अभी भी आइकन/पैनल विश्वसनीय रूप से नहीं दिखते। पूरी तरह से हल होने तक डिफ़ॉल्ट रूप से बंद और Experimental रहेगा।
+CHANGELOG_4_8_8_2 Budget control चेकबॉक्स अब टिक करते ही अपने आप अनचेक नहीं होता।
+CHANGELOG_4_8_8_3 Vehicle route panel का प्रदर्शन प्रोफ़ाइल (Light/Normal/Maximum) अब वास्तव में अपनी अपडेट दर बदलता है - पहले अधिकांश खिलाड़ियों के लिए कोई दृश्य प्रभाव नहीं था।
+CHANGELOG_4_8_8_4 डिपो और स्टॉप के पास कई वाहन मार्ग गड़बड़ियाँ ठीक की गईं, जिनमें बसों का इलाक़े/पुलों में घुसना और कभी-कभार समय से पहले U-टर्न शामिल हैं।
+CHANGELOG_4_8_8_5 कुछ सेव्स पर कुछ खिलाड़ियों को हो सकने वाले असली क्रैश के खिलाफ सुरक्षा जोड़ी गई - इस मॉड के कारण नहीं, लेकिन फिर भी सुरक्षित किया गया क्योंकि यह उसी गेम विधि को पैच करता है।
+CHANGELOG_4_8_8_6 यह पैनल अब मॉड के अपने टेक्स्ट का कितना हिस्सा आपकी भाषा में अनुवादित है इसकी वास्तविक, स्वतः-गणना प्रतिशत दिखाता है, उस संख्या के बजाय जो पुरानी हो सकती थी।
+SETTINGS_TRAINDISPLAY_LAYOUT पैनल लेआउट
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP ओवरले किस व्यवस्था का उपयोग करता है। दोनों समान जानकारी दिखाते हैं और नीचे दिए गए समान फ़ील्ड चेकबॉक्स का पालन करते हैं - केवल आकार अलग है।
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC क्लासिक (कॉम्पैक्ट कोने वाला पैनल)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED विस्तृत (हेडर मेट्रिक्स + स्टॉप सूची)
+COMMUTERDESTINATION_PANEL_TITLE यात्री गंतव्य ओवरले (Experimental)
+COMMUTERDESTINATION_PANEL_DESTINATIONS गंतव्य
+COMMUTERDESTINATION_PANEL_STOP स्टॉप #{0}
+COMMUTERDESTINATION_PANEL_WAITING प्रतीक्षारत यात्री: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS पिछला
+COMMUTERDESTINATION_PANEL_NEXT अगला
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (जल्द ही)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: जब कोई लाइन अपने आप पर वापस लूप करे या दो से अधिक शाखाओं में विभाजित हो तो vehicle route panel पर चेतावनी दें, साधारण अंत-से-अंत रूट मानने के बजाय। अभी available नहीं।
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (जल्द ही)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: अगले स्टॉप की वैकल्पिक text-to-speech घोषणा, उस मूल मॉड के अनुरूप जिस पर यह पैनल आधारित है। अभी available नहीं।
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (जल्द ही)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: प्रत्येक ट्रेन ने सिंगल-ट्रैक खंड के लिए कितनी देर इंतज़ार किया है यह ट्रैक करें, ताकि जो ट्रेन पहले पहुंची उसे पहले मिले, न कि जो उस टिक में पहले प्रोसेस हो जाए। अभी available नहीं।
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control चेकबॉक्स smart-managed होने पर चेक रहता है (जल्द ही)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: अभी, जब Automatic fleet sizing किसी लाइन को संभाल लेता है, उसका Budget control चेकबॉक्स अपने आप अनचेक हो जाता है - यह डिज़ाइन द्वारा है, लेकिन देखने में भ्रमित करने वाला है। यह आंतरिक रूप से "गेम का अपना बजट गणित" को "IPT इस लाइन को प्रबंधित कर रहा है" से अलग करेगा, ताकि चेकबॉक्स पूरे समय चेक रह सके। अभी available नहीं।

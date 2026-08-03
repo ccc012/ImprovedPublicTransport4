@@ -585,11 +585,42 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP Altid aktiv adfærd
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC To små funktioner, der altid kørte uden mulighed for at slå dem fra indtil nu. Slået til som standard, så eksisterende installationer ikke oplever nogen ændring - slå dem fra, hvis du kører en selvstændig mod, der gør det samme, eller bare foretrækker manuel kontrol.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Porteret fra den selvstændige mod Rescue Fullwidth Digits. Retter transportlinjenavne, der blev gemt med fullwidth-cifre (１２３ i stedet for 123) af nogle IME/input-opsætninger, som ellers ville blive vist forkert for altid.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
+SETTINGS_FUTURE_BUSWAYPOINT Bus-waypoint-stop (snart)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planlagt: markér et stop kun som rute-waypoint – linjens rute går igennem det, men køretøjer standser aldrig der og lader ingen passagerer stige af eller på. Hjælper med at styre vanilla-routesøgningen hen på den vej, du faktisk havde tænkt dig. Endnu ikke tilgængelig.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold nede, mens du placerer en tog-/sporvognsforbindelse, for at ramme det præcise spor i stedet for det nærmeste gyldige. Var hårdkodet til venstre/højre Shift; en ny binding her dækker kun den side, du vælger.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
-CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+SETTINGS_LEGACY_GROUP_DESC Gamle til/fra-knapper, der kun er beholdt, så installationer, der allerede havde dem slået til, fortsat fungerer præcis som før. Låst – de kan ikke længere slås til eller fra herfra, og hvert gameplay-profil lader dem fremover være slået fra.
+CHANGELOG_4_8_7_1 Stabling af busstoppladser er nu en låst legacy-til/fra-knap under Indstillinger → Avanceret → Legacy: installationer, der allerede havde den slået til, fortsætter præcis som før, men den kan ikke længere slås til for nye installationer, og intet gameplay-profil aktiverer den mere.
+CHANGELOG_4_8_7_2 Fjernet formulering fra Workshoppen-siden og tooltippen i spillet, som efter forfatterens ønske nævnte en anden forfatters mod ved navn.
+
+SETTINGS_KOFI_LINK Støt på Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Modtekst oversat
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP Hvor meget af denne mods egen tekst – menuer, tooltips, paneler i spillet – er oversat til dit sprog? Det adskiller sig fra "Oversættelsesfremskridt" ovenfor, som kun dækker en håndfuld generiske knapper som OK og Annuller, ikke modens faktiske indhold. Hvis du stadig ser noget engelsk her, er en fuld oversættelse til dit sprog på vej.
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Vis næste stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Viser en tydelig "næste stop"-visning, der opdateres, efterhånden som køretøjet bevæger sig langs linjen.
+TRAINDISPLAY_LABEL_NEXTSTOP Næste stop
+CHANGELOG_4_8_8_1 Rettet en virkelig fejl i overlayet for passagerernes destination (Eksperimentel), hvor to af modens egne patches stille og roligt kolliderede på samme klik – men tests i rigtige spil viser stadig, at ikonerne/overlayet ikke pålideligt dukker op. Forbliver slået fra som standard og Eksperimentel, indtil dette er fuldt ud afklaret.
+CHANGELOG_4_8_8_2 Krydsfeltet for budgetkontrol fravælger sig ikke længere i samme øjeblik, som du markerer det.
+CHANGELOG_4_8_8_3 Ydeevneprofilen (Let/Normal/Maksimal) for køretøjets rutepanel ændrer nu faktisk sin opdateringshastighed – tidligere havde det ingen synlig effekt for de fleste spillere.
+CHANGELOG_4_8_8_4 Rettet flere ruteafvigelser for køretøjer i nærheden af depoter og stop, herunder busser, der skar ind i terræn/broer, og en lejlighedsvis for tidlig U-vending.
+CHANGELOG_4_8_8_5 Beskyttet mod et reelt nedbrud, som nogle spillere kunne ramme i visse gemte spil – ikke forårsaget af denne mod, men beskyttet alligevel, da den patcher den samme spilmetode.
+CHANGELOG_4_8_8_6 Dette panel viser nu en reel, automatisk beregnet procentdel af, hvor meget af modens egen tekst der er oversat til dit sprog, i stedet for et tal, der kunne blive forældet.
+SETTINGS_TRAINDISPLAY_LAYOUT Panellayout
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Hvilket arrangement overlayet bruger. Begge viser de samme oplysninger og følger de samme feltkrydsfelter herunder – kun formen adskiller sig.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Klassisk (kompakt hjørnepanel)
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detaljeret (målinger i toppen + stopliste)
+COMMUTERDESTINATION_PANEL_TITLE Overlay for passagerernes destination (Eksperimentel)
+COMMUTERDESTINATION_PANEL_DESTINATIONS destinationer
+COMMUTERDESTINATION_PANEL_STOP Stop #{0}
+COMMUTERDESTINATION_PANEL_WAITING Ventende passagerer: {0}
+COMMUTERDESTINATION_PANEL_PREVIOUS Forrige
+COMMUTERDESTINATION_PANEL_NEXT Næste
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Registrering af linjegrene/-løkker (snart)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planlagt: advarsel på køretøjets rutepanel, når en linje løber i ring på sig selv eller deler sig i mere end to grene, i stedet for at antage en simpel rute fra ende til anden. Endnu ikke tilgængelig.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Taleannoncering af næste stop (snart)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planlagt: valgfri taleannoncering af næste stop, der matcher den oprindelige mod, som dette panel er baseret på. Endnu ikke tilgængelig.
+SETTINGS_FUTURE_STTAI_QUEUE Retfærdig togafvikling på enkeltsporet strækning (snart)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planlagt: holde styr på, hvor længe hvert tog har ventet på et enkeltsporet stykke, så det tog, der ankom først, også får det først – i stedet for det, der tilfældigvis behandles først i den tick. Endnu ikke tilgængelig.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budgetkontrolfeltet forbliver markeret ved automatisk styring (snart)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planlagt: lige nu fravælger krydsfeltet "Budgetkontrol" sig selv, så snart automatisk flådestørrelse overtager en linje, for at signalere det – bevidst, men forvirrende at se på. Det vil internt adskille "spillets egen budgetberegning" fra "IPT administrerer denne linje", så krydsfeltet kan forblive markeret hele tiden. Endnu ikke tilgængelig.
