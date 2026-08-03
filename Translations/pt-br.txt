@@ -443,8 +443,8 @@ SETTINGS_TAXISTANDFIX_ENABLE Ativar Correção de Pontos de Táxi
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Envia táxis ociosos para o ponto de táxi mais próximo em vez de deixá-los vagar aleatoriamente. Requer a DLC After Dark.
 SETTINGS_SHAREDSTOPENABLER_ENABLE Ativar Paradas compartilhadas
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite mais de um tipo de transporte (onibus, bonde, trolebus) no mesmo trecho, inclusive vias elevadas/pontes. Inclui ajuste de faixa e colocacao multi-tipo. Prefabs grandes podem pedir recarregar o mapa.
-SETTINGS_COMMUTERDESTINATION_ENABLE Ativar Destinos dos passageiros
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Ao selecionar uma parada, ícones no mapa mostram destinos dos passageiros. A lista de destinos é secundária (só pelo botão). Vale na hora.
+SETTINGS_COMMUTERDESTINATION_ENABLE Ativar Destinos dos passageiros (Experimental)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Ao selecionar uma parada, ícones no mapa mostram destinos dos passageiros. Experimental: essa integração já teve bugs reais encontrados e corrigidos mais de uma vez nesta sessão (ícones/painel não aparecendo de jeito nenhum) - reporte qualquer coisa estranha. A lista de destinos é secundária (só pelo botão). Vale na hora.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detalhe do mapa:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Desempenho mostra menos ícones e atualiza mais rápido. Mapa completo mostra bem mais destinos no mapa; o painel atualiza mais devagar (melhor para PCs fracos).
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Desempenho (mais rápido)
@@ -600,7 +600,7 @@ SETTINGS_TRAINDISPLAY_LAYOUT Disposição do painel
 SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Qual arranjo o painel usa. Os dois mostram a mesma informação e respeitam as mesmas caixas de seleção abaixo - só o formato muda.
 SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Clássico (painel compacto de canto)
 SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detalhado (métricas no topo + lista de paradas)
-COMMUTERDESTINATION_PANEL_TITLE Destino dos passageiros
+COMMUTERDESTINATION_PANEL_TITLE Destino dos passageiros (Experimental)
 COMMUTERDESTINATION_PANEL_DESTINATIONS destinos
 COMMUTERDESTINATION_PANEL_STOP Parada nº {0}
 COMMUTERDESTINATION_PANEL_WAITING Passageiros esperando: {0}
@@ -612,3 +612,5 @@ SETTINGS_FUTURE_ROUTEPANEL_TTS Anúncio de voz da próxima parada (em breve)
 SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planejado: anúncio opcional por voz da próxima parada, igual ao mod original em que este painel se baseia. Ainda não disponível.
 SETTINGS_FUTURE_STTAI_QUEUE Ordem justa de trens em via única (em breve)
 SETTINGS_FUTURE_STTAI_QUEUE_TIP Planejado: registrar há quanto tempo cada trem está esperando um trecho de via única, para quem chegou primeiro ser atendido primeiro, em vez de qualquer um que seja processado primeiro naquele ciclo. Ainda não disponível.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Caixa de controle via orçamento continuar marcada quando gerida pelo IPT (em breve)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planejado: hoje, quando o Dimensionamento automático da frota assume uma linha, a caixa "Controle via orçamento" desmarca sozinha para sinalizar isso - é proposital, mas confuso de ver. Isto vai separar "o cálculo do próprio jogo" de "o IPT está gerenciando esta linha" internamente, para a caixa poder continuar marcada o tempo todo. Ainda não disponível.

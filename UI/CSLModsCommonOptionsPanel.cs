@@ -257,6 +257,7 @@ namespace ImprovedPublicTransport.UI
             AddFutureSpoiler(future, "SETTINGS_FUTURE_ROUTEPANEL_BRANCH", "SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_ROUTEPANEL_TTS", "SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_STTAI_QUEUE", "SETTINGS_FUTURE_STTAI_QUEUE_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED", "SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP");
 
             // Two behaviours that always ran with no way to turn them off - added here for
             // compatibility with other mods/players who prefer manual control over the same thing.

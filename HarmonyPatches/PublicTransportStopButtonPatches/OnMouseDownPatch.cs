@@ -47,6 +47,13 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportStopButtonPatche
             }
             //end mod
 
+            // Called directly rather than as its own Harmony prefix on the same vanilla method:
+            // this prefix always returns false below, and per Harmony's own docs that skips every
+            // remaining prefix on the method, not just the original - a second, independently
+            // registered prefix here would never run. See OpenStopDestinationPanelPatch's own
+            // comment for the full story (this was a real bug, not a hypothetical one).
+            CommuterDestination.OpenStopDestinationPanelPatch.TryShowForStopClick(component);
+
             return false;
         }
     }

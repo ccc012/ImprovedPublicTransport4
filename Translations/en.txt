@@ -443,8 +443,8 @@ SETTINGS_TAXISTANDFIX_ENABLE Enable Taxi Stand Fix
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Sends idle taxis toward the nearest taxi stand instead of leaving them to wander at random. Requires the After Dark DLC.
 SETTINGS_SHAREDSTOPENABLER_ENABLE Enable Shared stops
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Allows more than one transit type (bus, tram, trolleybus) on the same road segment, including elevated/bridge roads. Includes PathManager stop-lane nudge and TransportTool multi-type placement. Prefab flag changes may need a map reload for full effect.
-SETTINGS_COMMUTERDESTINATION_ENABLE Enable Passenger destination overlay
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Read-only, no dependency other than Harmony.
+SETTINGS_COMMUTERDESTINATION_ENABLE Enable Passenger destination overlay (Experimental)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Shows where the passengers waiting at a stop are headed - a small panel plus a map overlay. Experimental: this integration has had real bugs found and fixed more than once this session (icons/panel not appearing at all) - report anything odd. Read-only, no dependency other than Harmony.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Map detail:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performance shows fewer map icons and refreshes faster. Full map shows many more destination icons on the map; the panel updates more slowly so weaker PCs can still use it.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Performance (faster)
@@ -600,7 +600,7 @@ SETTINGS_TRAINDISPLAY_LAYOUT Panel layout
 SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Which arrangement the overlay uses. Both show the same information and obey the same field checkboxes below - only the shape differs.
 SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic (compact corner panel)
 SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed (header metrics + stop list)
-COMMUTERDESTINATION_PANEL_TITLE Passenger destination overlay
+COMMUTERDESTINATION_PANEL_TITLE Passenger destination overlay (Experimental)
 COMMUTERDESTINATION_PANEL_DESTINATIONS destinations
 COMMUTERDESTINATION_PANEL_STOP Stop #{0}
 COMMUTERDESTINATION_PANEL_WAITING Waiting passengers: {0}
@@ -612,3 +612,5 @@ SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
 SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
 SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
 SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control checkbox stays checked when smart-managed (soon)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: right now, once Automatic fleet sizing takes over a line, its Budget control checkbox unchecks itself to signal that - by design, but confusing to look at. This will separate "the game's own budget math" from "IPT is managing this line" internally, so the checkbox can stay checked the whole time. Not available yet.
