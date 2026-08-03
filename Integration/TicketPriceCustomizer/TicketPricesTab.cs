@@ -664,27 +664,46 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             {
                 Utils.Log($"TicketPricesTab: Creating {landTransport.Count} land rows, {airWaterTransport.Count} air/water rows");
             }
+            // Each CreateSliderRow call is isolated: an exception building one row (e.g. a template
+            // field missing on some game build) used to propagate out of this whole method and get
+            // caught by InjectTab's outer try/catch, which returns WITHOUT ever setting s_initialized
+            // = true. That silently disabled the periodic OnUpdate refresh for every row, including
+            // ones that built fine - the tab would show icons/sliders but the price/passenger totals
+            // would stay on their "-" placeholder for the rest of the session. Catching per-row keeps
+            // one bad row from taking down the whole tab's refresh loop.
             int landIndex = 0;
             foreach (var transportType in landTransport)
             {
-
-                var row = CreateSliderRow(leftColumn, transportType, landIndex);
-                if (row != null)
+                try
                 {
-                    s_sliderRows.Add(row);
-                    landIndex++;
+                    var row = CreateSliderRow(leftColumn, transportType, landIndex);
+                    if (row != null)
+                    {
+                        s_sliderRows.Add(row);
+                        landIndex++;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError($"TicketPricesTab: Failed to create row for {transportType.Name}: {ex.Message}\n{ex.StackTrace}");
                 }
             }
 
             int airIndex = 0;
             foreach (var transportType in airWaterTransport)
             {
-
-                var row = CreateSliderRow(rightColumn, transportType, airIndex);
-                if (row != null)
+                try
                 {
-                    s_sliderRows.Add(row);
-                    airIndex++;
+                    var row = CreateSliderRow(rightColumn, transportType, airIndex);
+                    if (row != null)
+                    {
+                        s_sliderRows.Add(row);
+                        airIndex++;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError($"TicketPricesTab: Failed to create row for {transportType.Name}: {ex.Message}\n{ex.StackTrace}");
                 }
             }
 
@@ -846,13 +865,23 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             var backDivider = rowComponent.Find<UISlicedSprite>("BackDivider");
             if (backDivider != null)
             {
+                // ToolsModifierControl.economyPanel is normally set in EconomyPanel.Start(), which
+                // may not have run yet the first time this fires - we're a postfix on
+                // EconomyPanel.Awake(), so on a fresh level load Start() can still be pending. A null
+                // here used to NRE and abort the whole row-building loop, which left s_initialized
+                // false for the rest of the session: the tab would still show icons/sliders (set
+                // earlier in this method) but the deferred price/passenger totals would never start
+                // refreshing, reading as "values stuck empty" even though the panel otherwise worked.
                 var ep = ToolsModifierControl.economyPanel;
-                // Vanilla's own divider colors are tuned to blend into the Budget tab's background -
-                // exactly what makes them hard to tell apart from the Economy panel behind this tab.
-                // Bumping the alpha (not swapping to a different hue) keeps the same vanilla look but
-                // makes the alternating rows actually read as a distinct row, not a wash of one color.
-                var baseColor = (index % 2 == 0) ? ep.m_BackDividerColor : ep.m_BackDividerAltColor;
-                backDivider.color = new Color(baseColor.r, baseColor.g, baseColor.b, Mathf.Min(1f, baseColor.a + 60f / 255f));
+                if (ep != null)
+                {
+                    // Vanilla's own divider colors are tuned to blend into the Budget tab's background -
+                    // exactly what makes them hard to tell apart from the Economy panel behind this tab.
+                    // Bumping the alpha (not swapping to a different hue) keeps the same vanilla look but
+                    // makes the alternating rows actually read as a distinct row, not a wash of one color.
+                    var baseColor = (index % 2 == 0) ? ep.m_BackDividerColor : ep.m_BackDividerAltColor;
+                    backDivider.color = new Color(baseColor.r, baseColor.g, baseColor.b, Mathf.Min(1f, baseColor.a + 60f / 255f));
+                }
             }
 
             // Transport icon
