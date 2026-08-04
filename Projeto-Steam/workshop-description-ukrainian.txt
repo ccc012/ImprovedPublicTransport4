@@ -1,44 +1,45 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Повний контроль над лініями: розмір автопарку, типи транспорту, зупинки, тарифи. Дрібні моди об’єднано.
-[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
+[b]1 мод замість 15.[/b] Повний контроль: парк, транспорт, зупинки, тариф.
+[b]v4.8.8[/b] · Гра 1.21.1-f9
 
-[h1]Чому це існує[/h1]
-Витрати на обслуговування злетіли до [b]-42 000 000 000[/b]: два моди незалежно задавали розмір автопарку, перезаписуючи один одного. IPT4 централізує керування.
+[h1]Чому існує[/h1]
+Обслуговування [b]-42 млрд[/b] — 2 моб змінили парк независимо. Централізація виправляє.
 [hr][/hr]
-[h1]Що ви можете з цим зробити[/h1]
-[h2]Візьміть під контроль будь-яку лінію[/h2]
-Кожен тип лінії: [b]керування автопарком[/b] (вручну або за бюджетом), [b]вибір транспорту[/b], [b]індивідуальні правки[/b], [b]вибір депо[/b].
-[h2]Усуньте скупчення транспорту[/h2]
-Три рівні: [b]Disabled[/b] (ваніль), [b]Prudent[/b] (інтервали), [b]Realistic[/b] (точні інтервали). [b]Express[/b] пропускає порожні зупинки.
-[h2]Встановлюйте власні тарифи[/h2]
-Ціна кожному виду транспорту — на панелі [b]Економіка[/b], опція [b]день/ніч[/b]. Ціни керують попитом.
-[h2]Дивіться, що відбувається[/h2]
-[b]Інфо про зупинку[/b] (пасажири, транспорт, заповненість), [b]панель маршруту[/b] (живий настроюваний оверлей), [b]автокольори та назви ліній[/b], [b]табло рейсів аеропорту[/b] (прибуття/відправлення).
-[h2]Наведіть лад у мережі[/h2]
-[b]Масове видалення ліній[/b] (за типом, з підтвердженням), [b]зупинки на естакадах[/b], [b]unstucker[/b] для застряглих.
-[h2]4.8.8: вичистка багів за підсумками реальної гри[/h2]
-Це не оновлення функцій — кожен фікс знайдено в реальній грі на 4.8.7. [b]Маршрутизація транспорту[/b]: автобуси терлися об бордюри та пробивали мости; патч посадки міг відправити автобус у передчасний розворот. [b]Оверлей напрямків пасажирів[/b]: знайдено й виправлено конфлікт патчів Harmony, але іконки/панель усе ще нестабільні — [b]вимкнено за замовчуванням, Experimental[/b]. Прапорець [b]бюджетного керування[/b] більше не знімається сам. Виправлено [b]маршрутизацію до депо[/b] для будівель із двома послугами. Додано захист від реального крашу ванільної гри на пошкоджених збереженнях (не наш баг — захист лише не дає йому звалити симуляцію). Частину назв опцій перейменовано: описують дію, а не мод-джерело (подяки — на сторінці та в коді). Повний changelog — на GitHub нижче.
+[h1]Функції[/h1]
+[h2]Будь-яка лінія[/h2]
+[b]Парк[/b] (ручний/бюджет), [b]транспорт[/b], [b]редагування[/b], [b]депо[/b].
+[h2]Скупчення[/h2]
+[b]Вимкнено[/b] / [b]Осторожний[/b] / [b]Реалістичний[/b]. [b]Експрес[/b] — пропуск порожніх.
+[h2]Тарифи[/h2]
+Панель [b]Економіка[/b] + [b]день/ніч[/b].
+[h2]Інфо[/h2]
+[b]Зупинки[/b], [b]маршрути[/b], [b]авто-коліри[/b], [b]табло аеропорту[/b].
+[h2]Мережа[/h2]
+[b]Масове видалення[/b], [b]набагаті зупинки[/b], [b]unstucker[/b].
+[h2]4.8.8: багфікси[/h2]
+З гри в 4.8.7. [b]Шляхи[/b] (борadura, мости, розворот). [b]Ціль пасажирів[/b] — Harmony фікс, [b]off/експеримент[/b]. [b]Бюджет-чекбокс[/b] стійкий. [b]Депо 2-послуг[/b]. Краш-гвард. Мітки: дія, не мод. Changelog — GitHub.
 [hr][/hr]
-[h1]Моди, поглинуті IPT4, — і їхні автори[/h1]
-[b]Скасуйте підписку на автономні версії[/b] — подвійний патч конфліктує. Кожен мод — чиясь праця; подякуйте авторові.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Більшість має перемикачі; опції описують дію, а не мод-джерело. Для доходу таксі потрібен [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] і [b]bus stop berth stacking[/b] — оригінальний код.
+[h1]Поглинуті моб[/h1]
+[b]Відпишіться від самостійних[/b]. IPT4 авто-вимикає.
+Advanced Stop Selection Revisited ([b]macsergey[/b]) · Auto Line Budget 21 ([b]snowie[/b]) · AutoLineColor Redux ([b]TaradinoC[/b]) · Better Train Boarding ([b]Vectorial1024[/b]) · Better Bus Stop Position ([b]llunak[/b]) · Commuter Destination ([b]jkm[/b]) · Elevated Stops Enabler Revisited ([b]macsergey[/b]) · Express Bus Services ([b]Vectorial1024[/b]) · Flight Tracker ([b]Nyoko[/b]) · Intercity Bus Control ([b]BloodyPenguin[/b]) · Mileage Taxi Services ([b]Vectorial1024[/b]) · Public Transport Unstucker ([b]Vectorial1024[/b]) · Realistic Walking Speed ([b]egi[/b]) · Shared Stop Enabler ([b]CodeBardian[/b]) · Stops & Stations ([b]dymanoid[/b]) · Sub-Buildings Tabs ([b]BloodyPenguin, AJ3D[/b])
+Опції: дія, не мод. [b]After Dark[/b] для таксі. Taxi Stand Fix, Single Train Track AI, berth stacking — оригінал.
 [hr][/hr]
-[h1]Вимоги та сумісність[/h1]
-Потрібен [b]Harmony[/b] (ID 2040656402). [b]Несумісно:[/b] IPT2, IPT3, Transport Lines Manager, автономний AutoLineBudget або копія будь-якого мода вище — гра попередить.
+[h1]Вимоги[/h1]
+[b]Harmony[/b] (2040656402). [b]Несумісний:[/b] IPT2/3, TLM, AutoLineBudget, копії вище. OK: TM:PE, Move It, Network Anarchy.
 [hr][/hr]
 [h1]Мови[/h1]
-Слідує за мовою гри або оберіть у налаштуваннях. Англійська та португальська актуальні завжди; інші наздоганяють партіями й можуть відставати на новий текст — тимчасово англійською.
+За грою. EN/PT — кожен реліз; інші — пакетами, фолбек EN.
 [hr][/hr]
-[h1]Початок роботи[/h1]
-Підпишіться на [b]Harmony[/b], скасуйте підписку на автономні, увімкніть IPT4. Налаштування: [b]Параметри → Параметри модів → Improved Public Transport 4[/b]. Тарифи: [b]Економіка[/b]. [b]Існуючі збереження сумісні[/b].
+[h1]Старт[/h1]
+Harmony → відписатися самостійні → IPT4. Опції: [b]Налаштування → Моди → IPT4[/b]. Тарифи: [b]Економіка[/b]. Нові сейви: [b]Безпечний[/b] → Рекомендований/Реалістичний. Старі OK.
 [hr][/hr]
 [h1]Стабільність[/h1]
-Стабільно. Баг неконтрольованих витрат виправлено; пошкоджені збереження відновлюються самі. [b]Робіть резервні копії[/b]. При проблемі опишіть [i]що ви робили[/i] та додайте:
+Стабільний. Біглий фікс, авто-ремонт сейвів. [b]Бекапьте[/b]. Репорт: [i]дії[/i] + 
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-Одного „Не працює“ для діагностики недостатньо.
+[h1]Джерело[/h1]
+[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url] · [b]GPL-3.0[/b]
+DontCryJustDie (IPT'15) · BloodyPenguin ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]) · Madisonian ([url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] — форк). Поглинуті — вище. UI: algernon, Mbyron26.
 [hr][/hr]
-[h1]Код та подяки[/h1]
-Вихідний код і технічний changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-IPT4 — [b]GPL-3.0[/b] і стоїть на чужій праці: [b]DontCryJustDie[/b] написав IPT (2015), [b]BloodyPenguin[/b] — [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] — [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], від якого форк. Поглинуті моди — вище; UI — [b]algernon[/b] і [b]Mbyron26[/b]. Дякуємо всім.
+[h1]Підтримка[/h1]
+[url=https://ko-fi.com/ccc02]Ko-fi[/url]

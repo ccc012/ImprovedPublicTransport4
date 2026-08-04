@@ -1,44 +1,47 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]On beş mod yerine tek mod.[/b] Hatlar üzerinde tam kontrol: filo büyüklüğü, araçlar, duraklar, fiyatlar. Küçük modlar birleştirildi.
-[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
+[b]Tek mod yerine on beş.[/b] Toplu taşıma hatlarına tam kontrol: filoya boyutu, araç türleri, duraklar, ücretler. Küçük modlar birleştirildi.
+[b]Sürüm 4.8.8[/b] · Oyun sürümü 1.21.1-f9 için
 
-[h1]Bunun var olma nedeni[/h1]
-Toplu taşıma bakımı [b]-42.000.000.000[/b]'a fırladı — iki mod filoları yeniden boyutlandırıp birbirini üzerine yazıyordu. Bu mod kontrolü merkezileştirerek çakışmayı çözer.
+[h1]Neden var?[/h1]
+Toplu taşıma bakımı [b]-42.000.000.000[/b]’e düştü — iki mod bağımsız filoya boyutlandırıyor, birbirini ezerdi. Bu mod kontrolü merkezileştirerek çakışmayı çözer.
 [hr][/hr]
-[h1]Bununla neler yapabilirsiniz[/h1]
-[h2]Herhangi bir hattın kontrolünü ele alın[/h2]
-Her hat türü alır: [b]filo kontrolü[/b] (manuel veya bütçe tabanlı), [b]araç seçimi[/b], [b]bireysel düzenleme[/b], [b]depo seçimi[/b].
-[h2]Araç yığılmasını (bunching) düzeltin[/h2]
-Üç anti-yığılma seviyesi: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (aralık), [b]Realistic[/b] (gerçek aralıklar). [b]Express[/b] boş durakları atlar.
-[h2]Kendi bilet fiyatlarınızı belirleyin[/h2]
-Her taşıma türünü [b]Ekonomi[/b] panelinde fiyatlandırın; [b]gece/gündüz fiyatlandırma[/b] seçenekleriyle. Fiyatlar talebi yönlendirir.
-[h2]Neler olduğunu görün[/h2]
-[b]Durak bilgisi[/b] (yolcular, araç, yoğunluk), [b]araç rota paneli[/b] (canlı, yapılandırılabilir katman), [b]otomatik hat renkleri/isimleri[/b], [b]havaalanı uçuş panosu[/b] (inişler/kalkışlar).
+[h1]Ne yapabilirsiniz?[/h1]
+[h2]Her hatın kontrolünü alın[/h2]
+Her hat türü: [b]filoya kontrolü[/b] (manuel veya bütçe tabanlı), [b]araç seçimi[/b], [b]tekil düzenleme[/b], [b]depo seçimi[/b] alır.
+[h2]Sıkışmayı düzeltin[/h2]
+Üç anti-sıkışma seviyesi: [b]Kapalı[/b] (vanilla), [b]Tedbirli[/b] (aralık), [b]Gerçekçi[/b] (gerçek aralıklar). [b]Ekspres[/b] modu boş durakları atlar.
+[h2]Kendi ücretlerinizi belirleyin[/h2]
+Her taşıma türünü [b]Ekonomi[/b] panelinde fiyatlandırın, [b]gün/gece fiyatlandırması[/b] seçenekleriyle.
+[h2]Ne olduğunu görün[/h2]
+[b]Durak bilgisi[/b] (yolcu, araç, yoğunluk), [b]araç rota paneli[/b] (ayarlandırılabilir örtüş), [b]oto hat renkleri/isimleri[/b], [b]havaalanı uçuş panosu[/b] (varış/kalkış).
 [h2]Ağınızı temizleyin[/h2]
-[b]Toplu hat silme[/b] (türe göre, onaylı), [b]yükseltilmiş durak yerleşimi[/b], sıkışmış araçlar için [b]unstucker[/b].
-[h2]4.8.8: gerçek oyun hata süpürmesi[/h2]
-Bir özellik güncellemesi değil — aşağıdaki her düzeltme 4.8.7'yi gerçekten oynayıp neyin bozulduğunu raporlamaktan geldi. [b]Araç yönlendirmesi[/b] düzeltildi (otobüsler durak dışında bordüre sürtüyor ve köprü güvertelerinden geçiyordu; yığılmış biniş yaması bir otobüsü erken U-dönüşüne gönderebiliyordu). [b]Yolcu hedef katmanı[/b]: gerçek bir Harmony yama çakışması bulunup düzeltildi, ama simgeler/panel her zaman görünmüyor — [b]varsayılan kapalı, Experimental[/b] kalıyor. [b]Bütçe kontrol onay kutusu[/b] işaretlediğiniz anda kendini kaldırmıyor. [b]Depo yönlendirmesi[/b] aynı anda iki hizmet sunan binalar için düzeltildi. Bozuk kayıtlarda gerçek bir vanilla çökmesine karşı koruma eklendi (bizim hatamız değil — yalnızca tüm simülasyonu götürmesini engelliyor). Bazı seçenek adları, geldikleri modu değil ne yaptıklarını anlatacak şekilde yeniden adlandırıldı (krediler burada ve kaynakta kalıyor). Tam teknik changelog aşağıda bağlantılı GitHub'da.
+[b]Toplu hat silme[/b] (tür bazlı), [b]yükselti durak yerleştirme[/b], ve takılan araçlar için [b]çıkarıcı[/b].
+[h2]4.8.8: gerçek oynama hata taraması[/h2]
+Özellik güncellemesi değil — her düzeltme 4.8.7 oynayıp neler kırıldığını raporlayarak geldi. [b]Araç rotalama[/b] düzeltildi (otobüsler durak dışında kaldırımı sarıyor, köprü tablalarına giriyordu; yığınlı binme yaması erken U-dönüşe zorlayabiliyordu). [b]Yolcu hedef örtüşü[/b]: gerçek bir Harmony yama çakışması bulundu ve düzeltildi, ama ikonlar/panel hâlâ güvenilir görünmüyor — [b]varsayılan kapalı, Deneysel[/b] kaldı. [b]Bütçe kontrol onay kutusu[/b] tiklandığında kendini işaretlemiyor. Çift hizmet veren binalar için [b]depo rotalama[/b] düzeltildi. Bozulmuş kayıtlardaki gerçek vanilla çökmesine karşı koruma (bizim hatamız değil — koruma simülasyonun çökmesini engeller). Seçenek etiketleri ne yaptıklarını anlatacak şekilde yeniden adlandırıldı (krediler bu sayfada ve kaynakta duruyor). Tam değişiklik listesi GitHub’da.
 [hr][/hr]
-[h1]IPT4'e dahil edilen modlar — ve onları kim yaptı[/h1]
-[b]Tek başına sürümlerden çıkın[/b] — iki kez yama yapılmasın. Aşağıdaki her mod birinin emeği — faydalıysa sayfasında kredi verin.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Çoğunun seçenek anahtarı vardır. Seçenekler, kaynak modun adını değil ne yaptığını anlatır. Taksi geliri için [b]After Dark[/b] gerekir. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] ve [b]otobüs durağı berth istifleme[/b] özgün koddur.
+[h1]IPT4’ü tam veya kısmen alan modlar — ve yaratıcıları[/h1]
+[b]Bağımsızları abonelikten çıkarın[/b] iki kez yama önlemek için. Aşağıdaki her mod birinin emeği — faydalıysa sayfasında onlara kredi verin. IPT4 yanlarında çalışanı bulursa otomatik devre dışı bırakır.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b])
+Çoğunda seçenek açma/kapama var; seçenekler kaynak modun adını değil, ne yaptıklarını anlatır. [b]After Dark[/b] taksi geliri için gerekli. [b]Taksi Durağı Düzeltmesi[/b], [b]Tek Ray Tren AI[/b], ve [b]otobüs durağı bert yığınlama[/b] orijinal kod (kaynak mod yok).
 [hr][/hr]
 [h1]Gereksinimler ve uyumluluk[/h1]
-[b]Harmony[/b] (ID 2040656402) gereklidir. [b]Uyumsuz:[/b] IPT2, IPT3, Transport Lines Manager, bağımsız AutoLineBudget veya yukarıdaki herhangi bir modun kopyası — bulursa oyun içinde uyarır.
+[b]Harmony[/b] (ID 2040656402) gerekli. [b]Uyumsuz:[/b] IPT2, IPT3, Transport Lines Manager, bağımsız AutoLineBudget, veya yukarıdaki herhangi bir modun bağımsız kopyası — oyun içinde uyarır. TM:PE, Move It, Network Anarchy ile test edildi uyumlu.
 [hr][/hr]
 [h1]Diller[/h1]
-Oyun dilinizi takip eder veya seçeneklerden birini seçin. İngilizce ve Portekizce her sürümde tam güncel; diğerleri toplu yetişir, yeni metinde bir-iki sürüm geri kalabilir — İngilizceye döner.
+Oyun dilinizi takip eder (veya seçeneklerden birini seçin). İngilizce ve Portekizce her sürümde güncel; diğer diller toplu güncellenir ve yen metinlerde bir iki sürüm gecikebilir, İngilizceye döner.
 [hr][/hr]
-[h1]Başlarken[/h1]
-[b]Harmony[/b]'ye abone olun, tek başına sürümleri kaldırın, IPT4'ü etkinleştirin. Seçenekler: [b]Ayarlar → Mod Ayarları → Improved Public Transport 4[/b]. Fiyatlar: [b]Ekonomi[/b]. [b]Mevcut kayıtlar uyumlu[/b].
+[h1]Başlangıç[/h1]
+[b]Harmony[/b] abone olun, bağımsızları çıkarın, IPT4’ü etkinleştirin. Seçenekler: [b]Ayarlar → Mod Ayarları → Improved Public Transport 4[/b]. Ücretler: [b]Ekonomi[/b] paneli. Yeni kurulumlar [b]Güvenli[/b] ile başlar; Recommended veya Realistic’e geçin. [b]Mevcut kayıtlar uyumlu[/b].
 [hr][/hr]
 [h1]Kararlılık[/h1]
-Kararlı. Kontrolden çıkan bakım hatası düzeltildi; hasarlı kayıtlar oto-onarılır. [b]Yine de yedekleyin[/b]. Sorunlarda [i]ne yaptığınızı[/i] bildirin ve ekleyin:
+Kararlı; kaçak bakım düzeltildi, hasarlı kayıtlar otomatik onarılır. [b]Yedek alın yine de[/b]. Sorunlarda [i]ne yaptığınızı[/i] bildirin ve ekleyin:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-“Çalışmıyor” demek tek başına teşhis için yeterli değil.
+“Çalışmıyor” tek başına teşhis edilemez.
 [hr][/hr]
-[h1]Kaynak kod ve teşekkürler[/h1]
-Kaynak ve teknik changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-IPT4 [b]GPL-3.0[/b] lisanslıdır ve başkalarının işine dayanır: [b]DontCryJustDie[/b] orijinal IPT'yi yazdı (2015), [b]BloodyPenguin[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]'yi yazdı, [b]Madisonian[/b] bunun çatallandığı [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]'ü yazdı. Dahil edilen modlar yukarıda kredilendirildi; UI çerçeveleri [b]algernon[/b] ve [b]Mbyron26[/b]'den. Hepsine teşekkürler.
+[h1]Kaynak ve krediler[/h1]
+Kaynak ve değişiklik listesi: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 [b]GPL-3.0[/b]’dır ve başkalarının işinin üzerine kuruludur: [b]DontCryJustDie[/b] orijinal IPT’yi yazdı (2015), [b]BloodyPenguin[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]’yi yazdı, [b]Madisonian[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]’ü yazdı, bu ondan çatallanmıştır. Yukarıda kredisi verilen modlar emildi; UI çerçeveleri [b]algernon[/b] ve [b]Mbyron26[/b] tarafından. Hepinize teşekkürler.
+[hr][/hr]
+[h1]Destek[/h1]
+IPT4’ü beğendiyseniz ve gelecek araçları desteklemek istiyorsanız, [url=https://ko-fi.com/ccc02]Ko-fi[/url]’da bağış düşünün

@@ -1,44 +1,47 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Plná kontrola nad linkami: velikost vozového parku, typy vozidel, zastávky, jízdné. Drobné módy sjednocené.
-[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
+[b]Jeden mod místo patnácti.[/b] Plná kontrola linek MHD: velikost vozového parku, typy vozidel, zastávky, jízdné. Sloučení malých modulů.
+[b]Verze 4.8.8[/b] · postaveno pro verzi hry 1.21.1-f9
 
-[h1]Proč toto existuje[/h1]
-Náklady na údržbu dopravy vyšplhaly na [b]-42 000 000 000[/b]: dva módy si nezávisle upravovaly velikost vozového parku a přepisovaly se. IPT4 centralizuje kontrolu.
+[h1]Proč to existuje[/h1]
+Údržba MHD se zvrtla na [b]-42 000 000 000[/b] — dva moduly měnili velikost vozového parku nezávisle na sobě, přepisovali se navzájem. Tento modul konflikt řeší centralizovanou kontrolou.
 [hr][/hr]
 [h1]Co s tím můžete dělat[/h1]
-[h2]Vezměte si na starost jakoukoli linku[/h2]
-Každý typ linky: [b]kontrola vozového parku[/b] (ruční nebo podle rozpočtu), [b]výběr vozidel[/b], [b]individuální úpravy[/b], [b]výběr depa[/b].
-[h2]Oprava shlukování[/h2]
-Tři úrovně: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (rozestup), [b]Realistic[/b] (skutečné intervaly). [b]Express[/b] přeskakuje prázdné zastávky.
+[h2]Převzmejte kontrolu nad jakoukoliv linkou[/h2]
+Každý typ linky získá: [b]kontrolu vozového parku[/b] (manuální nebo založenou na rozpočtu), [b]výběr vozidel[/b], [b]individuální úpravy[/b] a [b]výběr depa[/b].
+[h2]Opravte sbíhání[/h2]
+Tři úrovně proti sbíhání: [b]Vypnuto[/b] (vanilla), [b]Rozumné[/b] (rozdělení), [b]Realistické[/b] (skutečná intervaly). Režim [b]Expres[/b] přeskočí prázdné zastávky.
 [h2]Nastavte si vlastní jízdné[/h2]
-Cena za každý typ dopravy v panelu [b]Ekonomika[/b], volitelný [b]denní/noční ceník[/b]. Ceny řídí poptávku.
-[h2]Podívejte se, co se děje[/h2]
-[b]Info o zastávce[/b] (cestující, vozidlo, přeplněnost), [b]panel trasy vozidla[/b] (živé překrytí), [b]automatické barvy a názvy linek[/b], [b]letištní tabule letů[/b] (přílety/odlety).
-[h2]Ukliďte si svou síť[/h2]
-[b]Hromadné mazání linek[/b] (podle typu, s potvrzením), [b]zastávky na vyvýšených tratích[/b], [b]unstucker[/b] pro zaseknutá vozidla.
-[h2]4.8.8: vyčesávání chyb ze skutečného hraní[/h2]
-Nejde o přidání funkcí — každá oprava vznikla při skutečném hraní 4.8.7. [b]Trasování vozidel[/b]: autobusy se dřely o obrubníky a projížděly mosty; patch nástupu mohl poslat autobus do předčasné zatáčky. [b]Překrytí cílů cestujících[/b]: nalezen a opraven konflikt Harmony patchů, ale ikony/panel se stále zobrazují nespolehlivě — [b]ve výchozím stavu vypnuto, Experimental[/b]. Zaškrtávátko [b]kontroly rozpočtu[/b] se už neodškrtává samo. Opraveno [b]trasování do depa[/b] pro budovy se dvěma službami. Přidána ochrana proti pádu vanilkové hry na poškozených uložených hrách (není to náš bug — pád nepoloží celou simulaci). Několik názvů voleb bylo přejmenováno: popisují činnost, ne mód-zdroj (poděkování zde i v kódu). Plný changelog — GitHub níže.
+Nastavte cenu každého druhu dopravy v panelu [b]Ekonomika[/b], s možností [b]denní/noční ceny[/b].
+[h2]Viděte, co se děje[/h2]
+[b]Info zastávky[/b] (cestující, vozidlo, zaplněnost), [b]panel trasy vozidla[/b] (konfigurovatelný overlay), [b]automatické barvy/názvy linek[/b], [b]letový tabule letiště[/b] (přílety/odlety).
+[h2]Uklidněte svou síť[/h2]
+[b]Hromadné mazání linek[/b] (podle typu), [b]umisťování nadzemních zastávek[/b] a [b]unstucker[/b] pro zaseknutá vozidla.
+[h2]4.8.8: opravy z reálného hraní[/h2]
+Ne jde o aktualizaci funkcí — každá oprava přišla z hraní 4.8.7 a hlášení toho, co se rozbilo. [b]Cestování vozidel[/b] opraveno (busy líznuly okraje pruhů mimo zastávky, prolézly mostové desky; záplata na skladování nástupu mohla vynutit předčasnou obrácenou směrnici). [b]Overlay cílových cestujících[/b]: nalezen a opraven skutečný konflikt Harmony patche, ale ikony/panel stále se nezobrazují spolehlivě — zůstává [b]vypnutý výchozím nastavením, Experimentální[/b]. Zaškrtávátko [b]rozpočtové kontroly[/b] se už neodškrtává samo, když ho zaškrtnete. [b]Směrování do depa[/b] opraveno pro budovy nabízející dvě služby. Ochrana proti reálnému pádu vanilla hry na poškozených savách (není náš bug — ochrana zabrání pádu simulace). Popisky opcí přejmenovány, aby říkali, co dělají, místo názvu modulu, odkud přišly (kredity zůstanou na této stránce a ve zdroji). Plný changelog na GitHubu.
 [hr][/hr]
-[h1]Absorbované módy IPT4 — a jejich autoři[/h1]
-[b]Odhlaste samostatné verze[/b] — dvojitý patch konfliktuje. Každý mód je práce někoho jiného; poděkujte autorovi.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Většina má přepínače; volby popisují činnost, ne zdrojový mód. Příjem z taxi vyžaduje [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] a [b]bus stop berth stacking[/b] — originální kód.
+[h1]Moduly, které IPT4 plně nebo částečně absorboval — a kdo je vytvořil[/h1]
+[b]Odeberte samostojné moduly[/b] aby se patchovalo dvakrát. Každý modul níže je práce někoho — poděkujte jim na jejich stránce, pokud pomohli. IPT4 automaticky zakáže jakýkoliv najde běžící vedle sebe.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=...[/url] (seznam pokračuje)
+Většina má přepínače volby; volby popisují, co dělají, ne název zdrojového modulu. [b]After Dark[/b] je vyžadováno pro příjmy z taxi. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b] a [b]bus stop berth stacking[/b] jsou původní kód (bez zdrojových modulů).
 [hr][/hr]
-[h1]Požadavky a kompatibilita[/h1]
-Vyžaduje [b]Harmony[/b] (ID 2040656402). [b]Nekompatibilní s:[/b] IPT2, IPT3, Transport Lines Manager, samostatným AutoLineBudget nebo kopií módu výše — hra upozorní.
+[h1]Požadavky & kompatibilita[/h1]
+[b]Harmony[/b] (ID 2040656402) vyžadováno. [b]Nekompatibilní s:[/b] IPT2, IPT3, Transport Lines Manager, samostojné AutoLineBudget, nebo samostojná kopie libovolného modulu výše — varuje v hře, pokud je najde. Ověřeně kompatibilní s TM:PE, Move It, Network Anarchy.
 [hr][/hr]
 [h1]Jazyky[/h1]
-Řídí se jazykem hry, nebo si vyberte v možnostech. Angličtina a portugalština jsou vždy aktuální; ostatní se dohánějí po dávkách a u nového textu mohou zaostávat — mezitím angličtina.
+Řídí se jazykem hry (nebo si vyberte v nastavení). Angličtina a portugalština jsou aktuální při každém vydání; ostatní jazyky dohonají dávkově a mohou zaostávat jedno nebo dvě vydání u zcela nových textů, s návratem k angličtině.
 [hr][/hr]
 [h1]Jak začít[/h1]
-Přihlaste [b]Harmony[/b], odhlaste samostatné, zapněte IPT4. Možnosti: [b]Nastavení → Nastavení módů → Improved Public Transport 4[/b]. Jízdné: [b]Ekonomika[/b]. [b]Existující uložené hry jsou kompatibilní[/b].
+Přihlaste se k odběru [b]Harmony[/b], odhlaste samostojné moduly, povolte IPT4. Nastavení: [b]Nastavení → Nastavení modulů → Improved Public Transport 4[/b]. Jízdné: panel [b]Ekonomika[/b]. Nové instalace začínají na [b]Bezpečném[/b]; přepněte na Doporučené nebo Realistické. [b]Existující savy kompatibilní[/b].
 [hr][/hr]
 [h1]Stabilita[/h1]
-Stabilní. Bug s údržbou opraven; poškozené uložené hry se opraví samy. [b]Stejně si zálohujte[/b]. Při problému popište [i]co jste dělali[/i] a přiložte:
+Stabilní; zběsilá údržba opravena, poškozené savy se automaticky opravují. [b]Zálohujte savy přece jen[/b]. Při problémech nahláste [i]co jste dělali[/i] a přiložte:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-Pouhé „Nefunguje to“ nelze diagnostikovat.
+“Ne funguje” samotné nelze diagnostikovat.
 [hr][/hr]
-[h1]Zdrojový kód a kredity[/h1]
-Zdrojový kód a technický changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-IPT4 je [b]GPL-3.0[/b] a stojí na práci jiných: [b]DontCryJustDie[/b] napsal IPT (2015), [b]BloodyPenguin[/b] — [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] — [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], ze kterého fork. Absorbované módy — výše; UI — [b]algernon[/b] a [b]Mbyron26[/b]. Děkuji vám všem.
+[h1]Zdroj a kredity[/h1]
+Zdroj a changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 je [b]GPL-3.0[/b] a stojí na práci ostatních: [b]DontCryJustDie[/b] napsal původní IPT (2015), [b]BloodyPenguin[/b] napsal [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] napsal [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], z kterého to forkuje. Absorbované moduly kreditovány výše; UI frameworky od [b]algernon[/b] a [b]Mbyron26[/b]. Děkuji všem.
+[hr][/hr]
+[h1]Podpora[/h1]
+Pokud se vám líbí IPT4 a chcete podpořit budoucí nástroje, zvažte šálkový na [url=https://ko-fi.com/ccc02]Ko-fi[/url]

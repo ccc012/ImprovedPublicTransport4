@@ -1,44 +1,47 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]En mod i stedet for femten.[/b] Full kontroll over linjer: flåtestørrelse, kjøretøytyper, stopp, priser. Små mods samlet.
-[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
+[b]En mod i stedet for femten.[/b] Full kontroll av ruter: flåtestørrelse, kjøretøy, stoppesteder, billetter. Små mod'er samlet.
+[b]Versjon 4.8.8[/b] · For spillversjon 1.21.1-f9
 
-[h1]Hvorfor denne eksisterer[/h1]
-Vedlikeholdet løp løpsk til [b]-42.000.000.000[/b] — to mods justerte flåtestørrelser uavhengig og overskrev hverandre. Modden løser konflikten ved å sentralisere kontrollen.
+[h1]Hvorfor denne finnes[/h1]
+Vedlikehold kostet [b]-42 000 000 000[/b] — to mod'er endret flåter uavhengig, overskrev hverandre. Denne sentraliserer kontrollen.
 [hr][/hr]
-[h1]Hva du kan gjøre med den[/h1]
+[h1]Hva du kan gjøre[/h1]
 [h2]Ta kontroll over enhver linje[/h2]
-Hver linjetype får: [b]flåtekontroll[/b] (manuell eller budsjett), [b]kjøretøyvalg[/b], [b]individuelle redigeringer[/b] og [b]depotvalg[/b].
-[h2]Fiks klyngekjøring[/h2]
-Tre anti-klynge-nivåer: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (avstand), [b]Realistic[/b] (sanne intervaller). [b]Express[/b]-modus hopper over tomme stopp.
-[h2]Sett dine egne priser[/h2]
-Pris hver transporttype i [b]Økonomi[/b]-panelet, med valgfri [b]dag/natt-prising[/b]. Prisene styrer etterspørselen naturlig.
+Alle linjetyper får: [b]flåtekontroll[/b] (manuell/budsjett), [b]valg av kjøretøy[/b], [b]individuelle redigeringer[/b], [b]valg av depot[/b].
+[h2]Fiks klumping[/h2]
+Tre nivåer: [b]Deaktivert[/b] (vanilla), [b]Forsiktig[/b] (avstand), [b]Realistisk[/b] (ekte intervaller). [b]Ekspress[/b] hopper over tomme stopp.
+[h2]Sett dine egne billetter[/h2]
+Pris per transporttype i [b]Økonomi[/b], med [b]dag/natt-priser[/b].
 [h2]Se hva som skjer[/h2]
-[b]Stopp-info[/b] (passasjerer, kjøretøy, trengsel), [b]kjøretøy-rutepanel[/b] (konfigurerbar sanntids-overlay), [b]automatiske linjefarger/-navn[/b], [b]flyplassens avgangstavle[/b] (ankomster/avganger).
-[h2]Rydd opp i nettverket[/h2]
-[b]Massesletting av linjer[/b] (per type, bekreftet), [b]opphøyde stopp[/b] og [b]unstucker[/b] for fastkjørte kjøretøy.
-[h2]4.8.8: bug-sveip fra ekte spilling[/h2]
-Ikke en funksjonsoppdatering — hver fix nedenfor kom fra å faktisk spille 4.8.7 og rapportere hva som gikk i stykker. [b]Kjøretøy-ruting[/b] fikset (busser klamret seg til fortauskanten utenfor stopp og skar gjennom brodekker; en patch for stablet påstigning kunne sende en buss i en for tidlig U-sving). [b]Overlay for passasjerenes reisemål[/b]: en ekte Harmony-patchkonflikt funnet og fikset, men testing viser fortsatt at ikonene/panelet ikke vises pålitelig — forblir [b]av som standard, Experimental[/b]. [b]Avkrysningsboksen for budsjettkontroll[/b] avkrysser seg ikke lenger av i det du krysser den. [b]Depotruting[/b] fikset for bygninger med to tjenester samtidig. Beskyttelse mot en ekte vanilla-krasj på visse skadde lagringer (ikke vår bug — beskyttelsen hindrer bare at hele simuleringen går ned). Flere alternativ-etiketter omdøpt for å beskrive hva de gjør i stedet for å navngi modden de kom fra (krediteringene blir her og i kildekoden). Full teknisk changelog på GitHub (nedenfor).
+[b]Stoppinfo[/b] (passasjerer, kjøretøy, tette folk), [b]kjøretøy-rutepanel[/b] (konfigurerbart overlay), [b]auto linjefarger/navn[/b], [b]flyplasstavle[/b] (ankomst/avgang).
+[h2]Rydd opp nettverket[/h2]
+[b]Masse-slett linjer[/b] (per type), [b]hevede stoppesteder[/b], [b]unstucker[/b] for faste kjøretøy.
+[h2]4.8.8: bug-sanering fra ekte spill[/h2]
+Ikke nye funksjoner — alle fix fra 4.8.7-spill. [b]Kjøretøy-ruting[/b] fikset (busser klemte til kant, klippet broer; stappet ombordstigning ga for tidlig wending). [b]Destinasjon-overlay[/b]: ekte Harmony-konflikt fikset, men ikoner/panelet utrygg — [b]av som standard, Eksperimentell[/b]. [b]Budsjett-avkrysning[/b] avkrysser seg ikke lenger. [b]Depo-ruting[/b] fikset for dobbelt-tjeneste-bygg. Vern mot vanilla-krasj på korrupte lagringer (ikke vår bug). Alternativnavn sier hva de gjør, ikke kildemod (kreditter her og i koden). Full changelog på GitHub.
 [hr][/hr]
-[h1]Mods absorbert i IPT4 — og hvem som lagde dem[/h1]
-[b]Avmeld de frittstående versjonene[/b] for å unngå dobbel patching. Hver mod nedenfor er noens arbeid — krediter dem hvis nyttig.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-De fleste har egne brytere; alternativene beskriver hva de gjør, ikke kildemoddenes navn. [b]After Dark[/b] kreves for taxiinntekter. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]stabling av busstopp-plasser[/b]: originalkode (ingen kildemods).
+[h1]Mod'er IPT4 absorberer — og skapere[/h1]
+[b]Avslutt abonnement på enkeltmod'er[/b] for dobbel patching. Hver mod er en persons verk — kreditér dem. IPT4 deaktiverer auto.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b])
+Fleste har toggler; teksten sier hva de gjør, ikke kildemod. [b]After Dark[/b] kreves for drosjeinntekt. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]busstoppskjøl stacking[/b] er original kode.
 [hr][/hr]
-[h1]Krav og kompatibilitet[/h1]
-[b]Harmony[/b] (ID 2040656402) kreves. [b]Ikke kompatibel med:[/b] IPT2, IPT3, Transport Lines Manager, frittstående AutoLineBudget eller en frittstående kopi av en mod ovenfor — advarer i spillet.
+[h1]Krav & kompatibilitet[/h1]
+[b]Harmony[/b] (ID 2040656402) påkrevd. [b]Ikke kompatibel:[/b] IPT2, IPT3, Transport Lines Manager, AutoLineBudget enkelt, eller kopi av mod'er over — advarsel in-game. Fungerer med TM:PE, Move It, Network Anarchy.
 [hr][/hr]
 [h1]Språk[/h1]
-Følger spillespråket, eller velg ett i alternativene. Engelsk og portugisisk holdes fullt oppdatert; andre språk innhentes i grupper og kan ligge en eller to utgivelser bak på helt ny tekst — faller tilbake på engelsk.
+Følger spill-språk (eller velg i innstillinger). Engelsk og portugisisk oppdateres hver utgivelse; andre henter opp i omganger, kan ligge en utgivelse etter, faller til engelsk.
 [hr][/hr]
 [h1]Kom i gang[/h1]
-Abonner på [b]Harmony[/b], avmeld frittstående mods, aktiver IPT4. Alternativer: [b]Innstillinger → Mod-innstillinger → Improved Public Transport 4[/b]. Priser: [b]Økonomi[/b]-panelet. [b]Eksisterende lagringer fungerer[/b].
+Abonner [b]Harmony[/b], slutt enkeltmod'er, aktiver IPT4. Innstillinger: [b]Innstillinger → Mod-innstillinger → Improved Public Transport 4[/b]. Billetter: [b]Økonomi[/b]-panel. Ny installasjon starter [b]Sikker[/b]; bytt til Anbefalt/Realistisk. [b]Eksisterende lagringer fungerer[/b].
 [hr][/hr]
 [h1]Stabilitet[/h1]
-Stabilt. Løpsk vedlikeholdsbug fikset; skadde lagringer repareres automatisk. [b]Ta sikkerhetskopi uansett.[/b] Rapporter [i]hva du holdt på med[/i] og legg ved:
+Stabil; løpende vedlikehold fikset, skadede lagringer auto-repareres. [b]Backup likevel[/b]. Ved feil:Rapportér [i]hva du gjorde[/i] og legg ved:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-Bare «Funker ikke» kan ikke diagnostiseres.
+“Fungerer ikke” alene kan ikke diagnosticeres.
 [hr][/hr]
-[h1]Kildekode og anerkjennelser[/h1]
-Kildekode og teknisk changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
-IPT4 er [b]GPL-3.0[/b] og bygger på andres arbeid: [b]DontCryJustDie[/b] skrev originalen IPT (2015), [b]BloodyPenguin[/b] skrev [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] skrev [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], som dette er en fork av. Absorberte mods krediteres ovenfor; UI-rammeverk av [b]algernon[/b] og [b]Mbyron26[/b]. Takk, alle sammen.
+[h1]Kilde & kreditter[/h1]
+Kilde/changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 er [b]GPL-3.0[/b] og bygger på andres verk: [b]DontCryJustDie[/b] skrev IPT (2015), [b]BloodyPenguin[/b] skrev [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] skrev [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] (denne forker). Absorbierte mod'er kreditert ovenfor; UI av [b]algernon[/b] og [b]Mbyron26[/b]. Takk alle.
+[hr][/hr]
+[h1]Støtt[/h1]
+Liker du IPT4? Støtt fremtidige verktøy: [url=https://ko-fi.com/ccc02]Ko-fi[/url]
