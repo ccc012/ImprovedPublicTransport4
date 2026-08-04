@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Upload ONLY the localized Workshop descriptions of Improved Public Transport 4.
+"""Update the localized Workshop titles and descriptions of Improved Public Transport 4.
 
 Reads  ../workshop-description-<steam_lang>.txt  (the Projeto-Steam folder) and
 pushes each one through the Steamworks SteamUGC API using SetItemUpdateLanguage.
-Only the description of each language is touched: title, content, preview image
+Each language gets BOTH its title and description re-set in the same update:
+Steam clears the localized title when only the description is submitted, so the
+title is always written together with the description. Content, preview image
 and tags are NOT modified.
 
 Requirements
@@ -38,6 +40,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROJETO_STEAM = os.path.normpath(os.path.join(HERE, ".."))
 DESC_RE = re.compile(r"^workshop-description-(.+)\.txt$")
 LANG_ALIASES = {"en": "english"}
+TITLE = "Improved Public Transport 4 (IPT4)"
 MAX_DESC_BYTES = 8000
 SUBMIT_TIMEOUT_SECONDS = 300
 POLL_INTERVAL_SECONDS = 0.5
@@ -67,11 +70,14 @@ def collect_descriptions():
 
 
 def submit_one(steam, handle, lang):
-    """Set the update language, then submit and block until Steam answers."""
-    workshop = steam.Workshop
+    """Set the update language and title, then submit and block until Steam answers."""
 
-    if not steam.Workshop_SetItemUpdateLanguage(handle, lang.encode()):
+    if not steam.Workshop.SetItemUpdateLanguage(handle, lang.encode()):
         print("  ! SetItemUpdateLanguage failed for '%s'" % lang)
+        return False
+
+    if not steam.Workshop.SetItemTitle(handle, TITLE):
+        print("  ! SetItemTitle failed for '%s'" % lang)
         return False
 
     holder = {"done": False, "result": None}
@@ -80,7 +86,7 @@ def submit_one(steam, handle, lang):
         holder["done"] = True
         holder["result"] = result
 
-    workshop.SubmitItemUpdate(handle, None, callback=on_updated, override_callback=True)
+    steam.Workshop.SubmitItemUpdate(handle, None, callback=on_updated, override_callback=True)
 
     last_status = None
     start = time.time()
@@ -89,7 +95,7 @@ def submit_one(steam, handle, lang):
         if time.time() - start > SUBMIT_TIMEOUT_SECONDS:
             print("  ! Timed out waiting for Steam to process the submit.")
             return False
-        progress = workshop.GetItemUpdateProgress(handle)
+        progress = steam.Workshop.GetItemUpdateProgress(handle)
         status = progress["status"]
         if status != EItemUpdateStatus.INVALID and status != last_status:
             print("    status: %s" % status.name.replace("_", " ").lower())

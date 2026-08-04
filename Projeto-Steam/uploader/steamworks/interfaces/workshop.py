@@ -161,6 +161,16 @@ class SteamWorkshop(object):
         return self.steam.Workshop_StartItemUpdate(app_id, c_uint64(published_file_id))
 
 
+    def SetItemUpdateLanguage(self, update_handle: int, language: bytes) -> bool:
+        """Set the language of the title/description being submitted in this update
+
+        :param update_handle: int
+        :param language: bytes (Steam language code, e.g. b'german')
+        :return: bool
+        """
+        return self.steam.Workshop_SetItemUpdateLanguage(update_handle, language)
+
+
     def SetItemTitle(self, update_handle: int, title: str) -> bool:
         """Set the title of a Workshop item
 

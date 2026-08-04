@@ -54,18 +54,18 @@ Documentação oficial: [ISteamUGC](https://partner.steamgames.com/doc/api/IStea
 ### Mapeamento dos seus arquivos → códigos Steam
 Seus nomes `workshop-description-<lang>.txt` já batem com os códigos Steam na maioria (`english`, `german`, `brazilian`, `french`, `spanish`, `latam`, `italian`, `dutch`, `portuguese`, `danish`, `norwegian`, `swedish`, `finnish`, `hungarian`, `romanian`, `turkish`, `greek`, `polish`, `russian`, `indonesian`, `malay`, `japanese`, `koreana`, `schinese`, `tchinese`, `vietnamese`). Lista oficial dos 29: https://partner.steamgames.com/doc/store/localization/languages. Encoding dos arquivos: **UTF-8 sem BOM**.
 
-> ⚠️ **Caveat dos wrappers Python/Node:** `SteamworksPy` e `steamworks.js` **não** expõem `SetItemUpdateLanguage` (só o texto default/en). Para multi-idioma usar o SDK cru, o binding `steamworks` do upload.py do EU5, ou as ferramentas abaixo.
+> ⚠️ **Caveat dos wrappers Python/Node:** `SteamworksPy` e `steamworks.js` **não** expõem `SetItemUpdateLanguage` (só o texto default/en). Para multi-idioma usar o SDK cru, o binding `steamworks` do upload.py do EU5 (neste repo já há o wrapper `SteamWorkshop.SetItemUpdateLanguage` em `interfaces/workshop.py`), ou as ferramentas abaixo.
 
-### 3.1 Implementado e validado na prática (03/08/2026)
+### 3.1 Implementado e validado na prática (03/08 e 04/08/2026)
 
-O uploader foi construído e executado com sucesso em 03/08/2026: **30/30 idiomas enviados, 0 falhas**, apenas descrições (título, conteúdo, preview e tags **não** foram tocados).
+O uploader foi construído e executado com sucesso em 03/08/2026 (só descrições) e **04/08/2026 (título + descrição por idioma)**: **30/30 idiomas enviados, 0 falhas**. O envio grava **sempre título + descrição juntos** porque o Steam apaga o título localizado quando só a descrição é submetida — descoberto na conferência ao vivo em 03/08 (19 idiomas ficaram com título em branco). Conteúdo, preview e tags **não** são tocados.
 
 **Localização:** `Projeto-Steam\uploader\`
 
 | Arquivo | Papel |
 |---|---|
-| `upload_desc.py` | Script principal: lê `../workshop-description-<lang>.txt`, trata `en` como alias de `english`, e faz `StartItemUpdate → SetItemDescription → SetItemUpdateLanguage → SubmitItemUpdate` por idioma. Suporta `--dry-run`, `--lang <langs>`, `--yes`, e validação do limite de 8000 bytes. |
-| `run_elevated.py` | Runner com log em `upload_run.log`; foi o usado no envio real (via UAC). |
+| `upload_desc.py` | Script principal: lê `../workshop-description-<lang>.txt`, trata `en` como alias de `english`, e faz `StartItemUpdate → SetItemDescription → SetItemUpdateLanguage → SetItemTitle → SubmitItemUpdate` por idioma (título fixo `Improved Public Transport 4 (IPT4)`). Suporta `--dry-run`, `--lang <langs>`, `--yes`, e validação do limite de 8000 bytes. |
+| `run_elevated.py` | Runner com log em `upload_run.log`; foi o usado no envio real (via UAC). Tem `try/except` por idioma para o log não morrer em silêncio. |
 | `steamworks\` | Binding Python `ctypes` do Steamworks (MIT, extraído do community-mod-framework do EU5), 17 arquivos `.py`. |
 | `SteamworksPy64.dll`, `steam_api64.dll`, `steam_appid.txt` | DLLs 64-bit + `steam_appid.txt` com o appid `255710`. |
 
@@ -78,7 +78,9 @@ python upload_desc.py --yes                            # todos
 
 **⚠️ Elevação (UAC) obrigatória:** o shell/terminal comum roda com integridade **Low** no Windows enquanto o client Steam roda elevado (via `svchost`) → `SteamAPI_Init()` falha com "Steam is not running". Executar o runner via `Start-Process -Verb RunAs` (UAC) resolve; o log de execução fica em `upload_run.log` (que o `.gitignore` do repo ignora).
 
-**Resultado da execução real (03/08/2026 ~23:19):** `INIT OK`, `logged_on: True`, persona `ccc02`, `steamid 76561198434832331`, `owns_app_255710: True`; 30 uploads, `ok=30 failed=0`. Conferido ao vivo: a página `https://steamcommunity.com/sharedfiles/filedetails/?id=3773802930&l=english` exibe a descrição 4.8.8 nova em produção.
+**Resultado da execução real (04/08/2026 ~05:55):** `INIT OK`, `logged_on: True`, persona `ccc02`, `steamid 76561198434832331`, `owns_app_255710: True`; 30 uploads (título + descrição), `ok=30 failed=0`. Conferido ao vivo: a página `https://steamcommunity.com/sharedfiles/filedetails/?id=3773802930&l=<lang>` exibe o título `Improved Public Transport 4 (IPT4)` em **todos os 30 idiomas** e a descrição 4.8.8 em produção.
+
+> 🐛 **Bug corrigido no caminho:** a primeira tentativa do envio título+descrição (04/08 ~05:48) morreu em silêncio com `AttributeError: 'SteamWorkshop' object has no attribute 'SetItemUpdateLanguage'` — o binding tinha a função C (`Workshop_SetItemUpdateLanguage`) mas faltava o wrapper Python na classe `SteamWorkshop`. Adicionado `SetItemUpdateLanguage` em `interfaces/workshop.py` + `try/except` por idioma no `run_elevated.py`; re-envio com `ok=30 failed=0`.
 
 ---
 

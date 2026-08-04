@@ -57,25 +57,29 @@ def main():
         steam.unload()
         return 1
 
-    log("uploading %d language(s), description only" % len(updates))
+    log("uploading %d language(s), title + description" % len(updates))
     ok = 0
     failed = []
     try:
         for lang in sorted(updates):
             u = updates[lang]
             log("uploading %s (%d bytes)" % (lang, u["bytes"]))
-            handle = steam.Workshop.StartItemUpdate(APP_ID, ITEM_ID)
-            if not handle:
-                log("  ! StartItemUpdate failed")
-                failed.append(lang)
-                continue
-            if not steam.Workshop.SetItemDescription(handle, u["text"]):
-                log("  ! SetItemDescription failed")
-                failed.append(lang)
-                continue
-            if upload_desc.submit_one(steam, handle, lang):
-                ok += 1
-            else:
+            try:
+                handle = steam.Workshop.StartItemUpdate(APP_ID, ITEM_ID)
+                if not handle:
+                    log("  ! StartItemUpdate failed")
+                    failed.append(lang)
+                    continue
+                if not steam.Workshop.SetItemDescription(handle, u["text"]):
+                    log("  ! SetItemDescription failed")
+                    failed.append(lang)
+                    continue
+                if upload_desc.submit_one(steam, handle, lang):
+                    ok += 1
+                else:
+                    failed.append(lang)
+            except Exception as e:
+                log("  !! exception: %s: %s" % (type(e).__name__, e))
                 failed.append(lang)
     finally:
         steam.unload()
