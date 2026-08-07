@@ -70,6 +70,8 @@ namespace MileageTaxiServices
         [UsedImplicitly]
         public static int HandleTaxiBaseMileage(this EconomyManager manager, EconomyManager.Resource resource, int amount, ItemClass itemClass, TaxiAI taxiInstance)
         {
+            if (taxiInstance?.m_transportInfo == null)
+                return 0;
             // "Abuse" this replacement call site to pay a flat "taxi base mileage fare" instead of
             // vanilla's full straight-line-distance arrival fare.
             var baseFare = Mathf.RoundToInt(taxiInstance.m_transportInfo.m_ticketPrice * TaxiBaseMileage * VanillaTaxiFareRate);

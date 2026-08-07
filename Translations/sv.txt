@@ -1,223 +1,223 @@
-﻿MOD_DESCRIPTION FÃ¶rbÃ¤ttrad kollektivtrafik: linjekontroll, flotta, integrationer och mer.
+MOD_DESCRIPTION Förbättrad kollektivtrafik: linjekontroll, flotta, integrationer och mer.
 CURRENT_WEEK Denna vecka
-LAST_WEEK FÃ¶rra veckan
+LAST_WEEK Förra veckan
 AVERAGE Genomsnitt
 AVERAGE_TOOLTIP Genomsnitt av de senaste {0} veckorna.
-CITY_SERVICE_PANEL_TITLE_STATION_STOPS StationshÃ¥llplatser
-CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES DepÃ¥fordon
-CITYSERVICE_ACCEPTINTERCITYBUSES TillÃ¥t intercitybussar
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP TillÃ¥t intercitybussar att anvÃ¤nda denna station. Inaktivera fÃ¶r endast lokala bussar.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS Stationshållplatser
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Depåfordon
+CITYSERVICE_ACCEPTINTERCITYBUSES Tillåt intercitybussar
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Tillåt intercitybussar att använda denna station. Inaktivera för endast lokala bussar.
 EXPLANATION_BUDGET_CONTROL Budgetstyrning: Antalet fordon styrs av budgeten.
-EXPLANATION_UNBUNCHING AvstÃ¥ndsstyrning: Spelet fÃ¶rsÃ¶ker skapa avstÃ¥nd mellan fordon.
-LINE_PANEL_STOPS HÃ¥llplatser: {0}
-LINE_PANEL_SPAWNTIMER NÃ¤sta fordon om {0} sekunder.
-LINE_PANEL_DEPOT_WARNING <color #FF0000>Den valda depÃ¥n har inga fordon kvar.</color>
+EXPLANATION_UNBUNCHING Avståndsstyrning: Spelet försöker skapa avstånd mellan fordon.
+LINE_PANEL_STOPS Hållplatser: {0}
+LINE_PANEL_SPAWNTIMER Nästa fordon om {0} sekunder.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Den valda depån har inga fordon kvar.</color>
 LINE_PANEL_BUDGET_CONTROL Budgetstyrning
-LINE_PANEL_BUDGET_CONTROL_TOOLTIP Aktiverar eller inaktiverar budgetstyrning fÃ¶r denna linje.
-LINE_PANEL_UNBUNCHING_TOOLTIP Aktiverar eller inaktiverar avstÃ¥ndsstyrning fÃ¶r denna linje.\nAvstÃ¥ndsstyrning Ã¤r inaktiverad om aggressiviteten Ã¤r satt till 0.
-LINE_PANEL_DEPOT DepÃ¥:
-LINE_PANEL_NO_DEPOT_FOUND Ingen depÃ¥ hittades.
-LINE_PANEL_DEPOT_MARKER_TOOLTIP Hoppa till den valda depÃ¥n.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
-LINE_PANEL_SELECT_TYPES VÃ¤lj typer
-LINE_PANEL_SELECT_TYPES_TOOLTIP VÃ¤xlar paneln "VÃ¤lj typer".\nOm knappen Ã¤r inaktiverad mÃ¥ste du vÃ¤lja en depÃ¥ fÃ¶rst.
-LINE_PANEL_LINE_STOPS LinjehÃ¥llplatser
-LINE_PANEL_LINE_VEHICLES Fordon pÃ¥ denna linje
-LINE_PANEL_ENQUEUED Fordon i kÃ¶
-LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} passagerare vÃ¤ntar pÃ¥ denna linje.
-LINE_PANEL_ADD_VEHICLE LÃ¤gg till fordon
-LINE_PANEL_ADD_VEHICLE_TOOLTIP LÃ¤gger till ett nytt fordon pÃ¥ linjen.\nOm knappen Ã¤r inaktiverad har den valda depÃ¥n inga fordon kvar.
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Aktiverar eller inaktiverar budgetstyrning för denna linje.
+LINE_PANEL_UNBUNCHING_TOOLTIP Aktiverar eller inaktiverar avståndsstyrning för denna linje.\nAvståndsstyrning är inaktiverad om aggressiviteten är satt till 0.
+LINE_PANEL_DEPOT Depå:
+LINE_PANEL_NO_DEPOT_FOUND Ingen depå hittades.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Hoppa till den valda depån.\nHåll Shift nedtryckt vid klick för att även zooma in.
+LINE_PANEL_SELECT_TYPES Välj typer
+LINE_PANEL_SELECT_TYPES_TOOLTIP Växlar paneln "Välj typer".\nOm knappen är inaktiverad måste du välja en depå först.
+LINE_PANEL_LINE_STOPS Linjehållplatser
+LINE_PANEL_LINE_VEHICLES Fordon på denna linje
+LINE_PANEL_ENQUEUED Fordon i kö
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} passagerare väntar på denna linje.
+LINE_PANEL_ADD_VEHICLE Lägg till fordon
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Lägger till ett nytt fordon på linjen.\nOm knappen är inaktiverad har den valda depån inga fordon kvar.
 LINE_PANEL_REMOVE_VEHICLE Ta bort fordon
-STOP_LIST_BOX_ROW_STOP HÃ¥llplats #{0}
-STOP_LIST_BOX_ROW_TOOLTIP {0}\nVÃ¤ntande passagerare: {1}\nHÃ¶gerklicka fÃ¶r att hoppa till denna hÃ¥llplats.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
-STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lista Ã¶ver fÃ¶reslagna hÃ¥llplatsnamn.
-STOP_PANEL_REUSE_NAME_TOOLTIP SÃ¤tt detta namn pÃ¥ alla andra hÃ¥llplatser vid denna station/position.
-STOP_PANEL_WAITING_PEOPLE VÃ¤ntande passagerare: {0}
+STOP_LIST_BOX_ROW_STOP Hållplats #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nVäntande passagerare: {1}\nHögerklicka för att hoppa till denna hållplats.\nHåll Shift nedtryckt vid klick för att även zooma in.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Lista över föreslagna hållplatsnamn.
+STOP_PANEL_REUSE_NAME_TOOLTIP Sätt detta namn på alla andra hållplatser vid denna station/position.
+STOP_PANEL_WAITING_PEOPLE Väntande passagerare: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Passagerardestination
-COMMUTER_DESTINATION_HEADER PopulÃ¤raste destinationer:
-COMMUTER_DESTINATION_NONE Inga passagerare vÃ¤ntar hÃ¤r just nu.
-COMMUTER_DESTINATION_LOADING BerÃ¤knar...
+COMMUTER_DESTINATION_HEADER Populäraste destinationer:
+COMMUTER_DESTINATION_NONE Inga passagerare väntar här just nu.
+COMMUTER_DESTINATION_LOADING Beräknar...
 COMMUTER_DESTINATION_BUTTON Destinationer
-COMMUTER_DESTINATION_BUTTON_TOOLTIP Visa vart passagerarna vid denna hÃ¥llplats Ã¤r pÃ¥ vÃ¤g.
-STOP_PANEL_BORED_TIMER Tid till otÃ¥lighet: <color #{0}>{1}</color>
-STOP_PANEL_BORED_TIMER_TOOLTIP Passagerare lÃ¤mnar hÃ¥llplatsen nÃ¤r nedrÃ¤kningen nÃ¥r noll.
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Visa vart passagerarna vid denna hållplats är på väg.
+STOP_PANEL_BORED_TIMER Tid till otålighet: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Passagerare lämnar hållplatsen när nedräkningen når noll.
 STOP_PANEL_PASSENGERS_IN Passagerare in:
-STOP_PANEL_PASSENGERS_IN_TOOLTIP Passagerare som stiger pÃ¥ hÃ¤r.
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Passagerare som stiger på här.
 STOP_PANEL_PASSENGERS_OUT Passagerare ut:
-STOP_PANEL_PASSENGERS_OUT_TOOLTIP Passagerare som stiger av hÃ¤r.
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Passagerare som stiger av här.
 STOP_PANEL_PASSENGERS_TOTAL Totalt:
-STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Totalt antal passagerare som betjÃ¤nats hÃ¤r.
-STOP_PANEL_UNBUNCHING_TOOLTIP Aktiverar eller inaktiverar avstÃ¥ndsstyrning vid denna hÃ¥llplats.\nAvstÃ¥ndsstyrning Ã¤r inaktiverad om aggressiviteten Ã¤r satt till 0.
-STOP_PANEL_UPDATE_CLOSE_STOPS Uppdatera nÃ¤rliggande hÃ¥llplatser
-STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP SÃ¤tt avstÃ¥ndsstyrningsstatus fÃ¶r alla andra hÃ¥llplatser vid denna station/position.
-STOP_PANEL_PREVIOUS FÃ¶regÃ¥ende hÃ¥llplats
-STOP_PANEL_PREVIOUS_TOOLTIP Hoppa till fÃ¶regÃ¥ende hÃ¥llplats.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
-STOP_PANEL_DELETE_STOP Ta bort hÃ¥llplats
-STOP_PANEL_DELETE_STOP_TOOLTIP Denna knapp Ã¤r aktiv medan du hÃ¥ller Alt nedtryckt.\nAnvÃ¤nd pÃ¥ egen risk!!!
-STOP_PANEL_NEXT NÃ¤sta hÃ¥llplats
-STOP_PANEL_NEXT_TOOLTIP Hoppa till nÃ¤sta hÃ¥llplats.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
-STOP_BUTTON_TOOLTIP {0}\nKlicka fÃ¶r att hoppa till denna hÃ¥llplats.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.\nHÃ¥ll Alt nedtryckt vid klick fÃ¶r att undvika att Ã¶ppna hÃ¥llplatsinfopanelen.
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Totalt antal passagerare som betjänats här.
+STOP_PANEL_UNBUNCHING_TOOLTIP Aktiverar eller inaktiverar avståndsstyrning vid denna hållplats.\nAvståndsstyrning är inaktiverad om aggressiviteten är satt till 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS Uppdatera närliggande hållplatser
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Sätt avståndsstyrningsstatus för alla andra hållplatser vid denna station/position.
+STOP_PANEL_PREVIOUS Föregående hållplats
+STOP_PANEL_PREVIOUS_TOOLTIP Hoppa till föregående hållplats.\nHåll Shift nedtryckt vid klick för att även zooma in.
+STOP_PANEL_DELETE_STOP Ta bort hållplats
+STOP_PANEL_DELETE_STOP_TOOLTIP Denna knapp är aktiv medan du håller Alt nedtryckt.\nAnvänd på egen risk!!!
+STOP_PANEL_NEXT Nästa hållplats
+STOP_PANEL_NEXT_TOOLTIP Hoppa till nästa hållplats.\nHåll Shift nedtryckt vid klick för att även zooma in.
+STOP_BUTTON_TOOLTIP {0}\nKlicka för att hoppa till denna hållplats.\nHåll Shift nedtryckt vid klick för att även zooma in.\nHåll Alt nedtryckt vid klick för att undvika att öppna hållplatsinfopanelen.
 SETTINGS_DELETE Radera
-SETTINGS_RESET Ã…terstÃ¤ll
-SETTINGS_TAB_GENERAL AllmÃ¤nt
-SETTINGS_ADVANCED_LINKS_GROUP LÃ¤nkar
-SETTINGS_GITHUB_REPO KÃ¤llkod pÃ¥ GitHub
+SETTINGS_RESET Återställ
+SETTINGS_TAB_GENERAL Allmänt
+SETTINGS_ADVANCED_LINKS_GROUP Länkar
+SETTINGS_GITHUB_REPO Källkod på GitHub
 SETTINGS_TAB_AUTOLINE Autolinje
-SETTINGS_TAB_STOPS HÃ¥llplatser och stationer
-SETTINGS_TAB_UNBUNCHING AvstÃ¥ndsstyrning
+SETTINGS_TAB_STOPS Hållplatser och stationer
+SETTINGS_TAB_UNBUNCHING Avståndsstyrning
 SETTINGS_TAB_DELETE Radera linjer
-SETTINGS_TAB_FLEET Flotta och schemalÃ¤ggning
+SETTINGS_TAB_FLEET Flotta och schemaläggning
 SETTINGS_TAB_BUDGET Budget och priser
-SETTINGS_TAB_LINECOLORS LinjefÃ¤rger
-SETTINGS InstÃ¤llningar
+SETTINGS_TAB_LINECOLORS Linjefärger
+SETTINGS Inställningar
 SETTINGS_SPEED Visa hastighet i: 
-SETTINGS_SPEED_TOOLTIP VÃ¤lj enhet fÃ¶r hastighetsvisning i grÃ¤nssnittet.
-SETTINGS_GAMEPLAY_PROFILE SpellÃ¤ge-profil
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP TillÃ¤mpar en uppsÃ¤ttning instÃ¤llningar pÃ¥ en gÃ¥ng. SÃ¤ker (standard) lÃ¤mnar allt av fÃ¶r maximal kompatibilitet med andra mods. Vanilla matchar basspelet. Rekommenderad aktiverar bara IPT-kÃ¤rnan (budget flottstyrning, avstÃ¥ndsstyrning, intercity-brytare, underbyggnadsflikar, unstucker, avancerat hÃ¥llplatsval, upphÃ¶jda hÃ¥llplatser). Realistisk aktiverar de flesta absorberade integrationer. Anpassad kaskaderar aldrig - du styr varje reglage sjÃ¤lv.
+SETTINGS_SPEED_TOOLTIP Välj enhet för hastighetsvisning i gränssnittet.
+SETTINGS_GAMEPLAY_PROFILE Spelläge-profil
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Tillämpar en uppsättning inställningar på en gång. Säker (standard) lämnar allt av för maximal kompatibilitet med andra mods. Vanilla matchar basspelet. Rekommenderad aktiverar bara IPT-kärnan (budget flottstyrning, avståndsstyrning, intercity-brytare, underbyggnadsflikar, unstucker, avancerat hållplatsval, upphöjda hållplatser). Realistisk aktiverar de flesta absorberade integrationer. Anpassad kaskaderar aldrig - du styr varje reglage själv.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Anpassad
-SETTINGS_GAMEPLAY_PROFILE_SAFE SÃ¤ker (allt av)
+SETTINGS_GAMEPLAY_PROFILE_SAFE Säker (allt av)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
-SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Rekommenderad (IPT-kÃ¤rna)
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Rekommenderad (IPT-kärna)
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realistisk
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
-SETTINGS_WALKING_SPEED GÃ¥ng-/cykelhastighet: 
-SETTINGS_WALKING_SPEED_TOOLTIP Standard: basspelets hastigheter.\nRealistisk: sÃ¤nker gÃ¥nghastighet till realistiska, Ã¥ldersbaserade vÃ¤rden.\nRealistisk sÃ¤nker ocksÃ¥ cykelhastighet med After Dark DLC.
+SETTINGS_WALKING_SPEED Gång-/cykelhastighet: 
+SETTINGS_WALKING_SPEED_TOOLTIP Standard: basspelets hastigheter.\nRealistisk: sänker gånghastighet till realistiska, åldersbaserade värden.\nRealistisk sänker också cykelhastighet med After Dark DLC.
 SETTINGS_WALKING_SPEED_MODE_VANILLA Standard
 SETTINGS_WALKING_SPEED_MODE_REALISTIC Realistisk
-SETTINGS_BBSP BÃ¤ttre busshÃ¥llplatsposition: 
-SETTINGS_BBSP_TOOLTIP Inaktiverad: ingen positionsjustering.\nAktiverad: bussar stannar lÃ¤ngst fram pÃ¥ hÃ¥llplatsen i stÃ¤llet fÃ¶r i mitten.
+SETTINGS_BBSP Bättre busshållplatsposition: 
+SETTINGS_BBSP_TOOLTIP Inaktiverad: ingen positionsjustering.\nAktiverad: bussar stannar längst fram på hållplatsen i stället för i mitten.
 SETTINGS_BBSP_MODE_DISABLED Inaktiverad
 SETTINGS_BBSP_MODE_ORIGINAL Aktiverad
-SETTINGS_BBSP_MODE_UPDATED AnvÃ¤nd experimentell logik
+SETTINGS_BBSP_MODE_UPDATED Använd experimentell logik
 SETTINGS_BUDGET Budget
 SETTINGS_ENABLE_BUDGET_CONTROL Linjebudgetstyrning:
 SETTINGS_BUDGET_CONTROL_DISABLED Inaktiverad
 SETTINGS_BUDGET_CONTROL_ENABLED Aktiverad
-SETTINGS_BUDGET_CONTROL_TOOLTIP NÃ¤r aktiverad styrs antalet fordon pÃ¥ transportlinjer av budgeten; uppdaterar alla befintliga linjer och rensar fordon i kÃ¶.
+SETTINGS_BUDGET_CONTROL_TOOLTIP När aktiverad styrs antalet fordon på transportlinjer av budgeten; uppdaterar alla befintliga linjer och rensar fordon i kö.
 SETTINGS_BUDGET_TICKET_PRICES Biljettprisanpassning:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Inaktiverad
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Aktiverad
-SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP NÃ¤r aktiverad lÃ¤ggs en ny flik till i Ekonomi-panelen med reglage fÃ¶r biljettpriser per transporttyp.
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP När aktiverad läggs en ny flik till i Ekonomi-panelen med reglage för biljettpriser per transporttyp.
 SETTINGS_AUTO_LINE_BUDGET Automatisk flottstorlek:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Inaktiverad
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Aktiverad
-SETTINGS_AUTO_LINE_BUDGET_TOOLTIP NÃ¤r aktiverad justerar linjer i budgetlÃ¤ge automatiskt fordonsantalet efter verklig passagerarefterfrÃ¥gan i stÃ¤llet fÃ¶r vanilla-budgetreglaget. Linjer satta till Manuell pÃ¥verkas aldrig.
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP När aktiverad justerar linjer i budgetläge automatiskt fordonsantalet efter verklig passagerarefterfrågan i stället för vanilla-budgetreglaget. Linjer satta till Manuell påverkas aldrig.
 SETTINGS_AUTO_LINE Autolinje
-SETTINGS_AUTOSHOW_LINE_INFO Ã–ppna linjeinfopanel automatiskt
+SETTINGS_AUTOSHOW_LINE_INFO Öppna linjeinfopanel automatiskt
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Visa linjeinfopanelen automatiskt efter att en ny linje skapats.
 AUTOLINECOLOR_STRATEGY_DISABLED Inaktiverad
-AUTOLINECOLOR_STRATEGY_RANDOM_HUE SlumpmÃ¤ssig nyans
-AUTOLINECOLOR_STRATEGY_RANDOM_COLOR SlumpmÃ¤ssig fÃ¤rg
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Slumpmässig nyans
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Slumpmässig färg
 AUTOLINECOLOR_STRATEGY_CATEGORISED Kategoriserad
-AUTOLINECOLOR_STRATEGY_NAMED Namngivna fÃ¤rger
+AUTOLINECOLOR_STRATEGY_NAMED Namngivna färger
 AUTOLINECOLOR_NAMING_DISABLED Inaktiverad
 AUTOLINECOLOR_NAMING_DISTRICTS Distrikt
 AUTOLINECOLOR_NAMING_LONDON Londonstil
-AUTOLINECOLOR_NAMING_ROADS VÃ¤gar
-AUTOLINECOLOR_NAMING_COLORS Namngivna fÃ¤rger
-AUTOLINECOLOR_COLOR_STRATEGY FÃ¤rgstrategi:
-AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Hur fÃ¤rger tilldelas nya linjer:\n'SlumpmÃ¤ssig nyans' = samma mÃ¤ttnad/ljusstyrka, olika nyanser;\n'SlumpmÃ¤ssig fÃ¤rg' = helt slumpmÃ¤ssig RGB;\n'Kategoriserad' = fÃ¤rger efter fordonstyp;\n'Namngivna fÃ¤rger' = fÃ¶rdefinierad fÃ¤rgpalett.
+AUTOLINECOLOR_NAMING_ROADS Vägar
+AUTOLINECOLOR_NAMING_COLORS Namngivna färger
+AUTOLINECOLOR_COLOR_STRATEGY Färgstrategi:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Hur färger tilldelas nya linjer:\n'Slumpmässig nyans' = samma mättnad/ljusstyrka, olika nyanser;\n'Slumpmässig färg' = helt slumpmässig RGB;\n'Kategoriserad' = färger efter fordonstyp;\n'Namngivna färger' = fördefinierad färgpalett.
 AUTOLINECOLOR_NAMING_STRATEGY Namnstrategi:
-AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Hur namn tilldelas nya linjer:\n'Ingen' = ingen auto-namngivning;\n'Distrikt' = baserat pÃ¥ betjÃ¤nade distrikt;\n'London' = numrerade rutter (London Buses-stil);\n'VÃ¤gar' = baserat pÃ¥ gatunamn;\n'Namngivna fÃ¤rger' = baserat pÃ¥ fÃ¤rgnamn.
-AUTOLINECOLOR_MIN_COLOR_DIFF Minsta fÃ¤rgskillnad (%):
-AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minsta fÃ¤rgskillnad i procent vid val av slumpmÃ¤ssiga fÃ¤rger.
-AUTOLINECOLOR_MAX_COLOR_PICK Maximalt antal fÃ¶rsÃ¶k:
-AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximalt antal fÃ¶rsÃ¶k att vÃ¤lja en urskiljbar fÃ¤rg.
-SETTINGS_UI UI-instÃ¤llningar
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Hur namn tilldelas nya linjer:\n'Ingen' = ingen auto-namngivning;\n'Distrikt' = baserat på betjänade distrikt;\n'London' = numrerade rutter (London Buses-stil);\n'Vägar' = baserat på gatunamn;\n'Namngivna färger' = baserat på färgnamn.
+AUTOLINECOLOR_MIN_COLOR_DIFF Minsta färgskillnad (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minsta färgskillnad i procent vid val av slumpmässiga färger.
+AUTOLINECOLOR_MAX_COLOR_PICK Maximalt antal försök:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximalt antal försök att välja en urskiljbar färg.
+SETTINGS_UI UI-inställningar
 SETTINGS_VEHICLE_EDITOR_POSITION Fordonsredigerarens position: 
-SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP VÃ¤lj om fordonsredigeraren visas lÃ¤ngst ned eller till hÃ¶ger pÃ¥ skÃ¤rmen.
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Välj om fordonsredigeraren visas längst ned eller till höger på skärmen.
 SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Nederst
-SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT HÃ¶ger
-SETTINGS_VEHICLE_EDITOR_HIDE DÃ¶lj fordonsredigerare
-SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP DÃ¶lj fordonsredigeraren frÃ¥n fordonspaneler.
-SETTINGS_STOPS KollektivhÃ¥llplatser
-SETTINGS_STOPSANDSTATIONS_DESCRIPTION Hur mÃ¥nga passagerare av varje transporttyp som kan vÃ¤nta vid en hÃ¥llplats innan den rÃ¤knas som full. HÃ¶gre vÃ¤rden minskar trÃ¤ngselklagomÃ¥l vid trafikerade hÃ¥llplatser till priset av en mindre realistisk kÃ¶storlek.
-SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Ã…terstÃ¤ll alla passagerartak ovan till standardvÃ¤rden.
-SETTINGS_ENABLE_STOPS_AND_STATIONS Aktivera hÃ¥llplatser och stationer
-SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Justera maximalt antal medborgare som kan vÃ¤nta pÃ¥ kollektivtrafik vid hÃ¥llplatser och stationer. Konfigurera under fliken HÃ¥llplatser.
-SETTINGS_STOPSANDSTATIONS_ENABLE Aktivera hÃ¥llplatser och stationer
-SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Aktivera eller inaktivera tillÃ¤mpning av passagerargrÃ¤nser vid hÃ¥llplatser.
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximala vÃ¤ntande passagerare vid en linjehÃ¥llplats:
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Höger
+SETTINGS_VEHICLE_EDITOR_HIDE Dölj fordonsredigerare
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Dölj fordonsredigeraren från fordonspaneler.
+SETTINGS_STOPS Kollektivhållplatser
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Hur många passagerare av varje transporttyp som kan vänta vid en hållplats innan den räknas som full. Högre värden minskar trängselklagomål vid trafikerade hållplatser till priset av en mindre realistisk köstorlek.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Återställ alla passagerartak ovan till standardvärden.
+SETTINGS_ENABLE_STOPS_AND_STATIONS Aktivera hållplatser och stationer
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Justera maximalt antal medborgare som kan vänta på kollektivtrafik vid hållplatser och stationer. Konfigurera under fliken Hållplatser.
+SETTINGS_STOPSANDSTATIONS_ENABLE Aktivera hållplatser och stationer
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Aktivera eller inaktivera tillämpning av passagerargränser vid hållplatser.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximala väntande passagerare vid en linjehållplats:
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Linjebuss
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximala vÃ¤ntande passagerare vid en linjebusshÃ¥llplats
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS TrÃ¥dbuss
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximala vÃ¤ntande passagerare vid en trÃ¥dbusshÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximala väntande passagerare vid en linjebusshållplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Trådbuss
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximala väntande passagerare vid en trådbusshållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Evakueringsbuss
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximala vÃ¤ntande passagerare vid en evakueringsbusshÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximala väntande passagerare vid en evakueringsbusshållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Turistbuss
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximala vÃ¤ntande passagerare vid en turistbusshÃ¥llplats
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM SpÃ¥rvagn
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximala vÃ¤ntande passagerare vid en spÃ¥rvagnshÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximala väntande passagerare vid en turistbusshållplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Spårvagn
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximala väntande passagerare vid en spårvagnshållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Tunnelbana
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximala vÃ¤ntande passagerare vid en tunnelbanestation
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN TÃ¥g
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximala vÃ¤ntande passagerare vid en tÃ¥gstation
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximala väntande passagerare vid en tunnelbanestation
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Tåg
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximala väntande passagerare vid en tågstation
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximala vÃ¤ntande passagerare vid en monorailhÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximala väntande passagerare vid en monorailhållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Fartyg
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximala vÃ¤ntande passagerare vid en godsham
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY FÃ¤rja
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximala vÃ¤ntande passagerare vid en fÃ¤rjehÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximala väntande passagerare vid en godsham
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Färja
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximala väntande passagerare vid en färjehållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Flyg
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximala vÃ¤ntande passagerare vid en flygterminal
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximala väntande passagerare vid en flygterminal
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Linbana
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximala vÃ¤ntande passagerare vid en linbanehÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximala väntande passagerare vid en linbanehållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Luftballong
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximala vÃ¤ntande passagerare vid en ballonghÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximala väntande passagerare vid en ballonghållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Helikopter
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximala vÃ¤ntande passagerare vid en helikopterhÃ¥llplats
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximala väntande passagerare vid en helikopterhållplats
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Luftskepp
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximala vÃ¤ntande passagerare vid en luftskeppshÃ¥llplats
-SETTINGS_UNBUNCHING AvstÃ¥ndsstyrning
-SETTINGS_UNBUNCHING_AGGRESSION AvstÃ¥ndsstyrningsaggressivitet:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Hur starkt ska avstÃ¥ndsstyrning verka?\nMÃ¶jliga vÃ¤rden: 0â€“52. VÃ¤rde 0 inaktiverar avstÃ¥ndsstyrning.\nHÃ¶gre vÃ¤rden pÃ¥verkar trafiken kraftigt och kan fÃ¥ fordon att fÃ¶rsvinna.
-SETTINGS_VEHICLE_COUNT Fordon pÃ¥ nya linjer:
-SETTINGS_VEHICLE_COUNT_TOOLTIP Antal fordon som automatiskt lÃ¤ggs till nya linjer nÃ¤r linjebudgetstyrning Ã¤r av.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximala väntande passagerare vid en luftskeppshållplats
+SETTINGS_UNBUNCHING Avståndsstyrning
+SETTINGS_UNBUNCHING_AGGRESSION Avståndsstyrningsaggressivitet:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Hur starkt ska avståndsstyrning verka?\nMöjliga värden: 0–52. Värde 0 inaktiverar avståndsstyrning.\nHögre värden påverkar trafiken kraftigt och kan få fordon att försvinna.
+SETTINGS_VEHICLE_COUNT Fordon på nya linjer:
+SETTINGS_VEHICLE_COUNT_TOOLTIP Antal fordon som automatiskt läggs till nya linjer när linjebudgetstyrning är av.
 SETTINGS_SPAWN_TIME_INTERVAL Spawn-tidsintervall:
 SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Tid i sekunder mellan fordonsspawns.
-SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Ã…terstÃ¤ller alla reglage till standard.
-UNBUNCHING_ENABLED AvstÃ¥ndsstyrning fÃ¶r fordon
-UNBUNCHING_DISABLED AvstÃ¥ndsstyrning Ã¤r inaktiverad.
-UNBUNCHING_TARGET_GAP MÃ¥lavstÃ¥nd: {0}
-SETTINGS_EBS_GROUP_BUS ExpressbusstjÃ¤nster
-SETTINGS_EBS_GROUP_TRAM ExpressspÃ¥rvagnstjÃ¤nster
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Återställer alla reglage till standard.
+UNBUNCHING_ENABLED Avståndsstyrning för fordon
+UNBUNCHING_DISABLED Avståndsstyrning är inaktiverad.
+UNBUNCHING_TARGET_GAP Målavstånd: {0}
+SETTINGS_EBS_GROUP_BUS Expressbusstjänster
+SETTINGS_EBS_GROUP_TRAM Expressspårvagnstjänster
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Expressbuss: 
-SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Inaktiverad' = Bussar anvÃ¤nder avstÃ¥ndsstyrning ovan.\n'FÃ¶rsiktig' = Stannar kort, kontrollerar passagerare, kan avgÃ¥ tom.\n'Aggressiv' = Hoppar Ã¶ver hÃ¥llplatser om ingen vÃ¤ntar.
-SETTINGS_EBS_ENABLE_SELFBAL Aktivera sjÃ¤lvbalansering av tjÃ¤nst
-SETTINGS_EBS_DESC_SELFBAL LÃ¥ter expressbusstjÃ¤nsten omfÃ¶rdela fordon lÃ¤ngs linjen fÃ¶r att prioritera trafikerade segment och minska vÃ¤ntetid.
-SETTINGS_EBS_TOOLTIP_SELFBAL Analyserar linjesegment och kan omplacera fordon till trafikerade segment eller Ã¤ndhÃ¥llplatser fÃ¶r jÃ¤mnare trafik och kortare vÃ¤ntetid.\nBeslut Ã¤r probabilistiska och beror pÃ¥ passagerarantal och omplaceringsodds.
-SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Aktivera sjÃ¤lvbalansering till mittlinjehÃ¥llplatser
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID TillÃ¥ter sjÃ¤lvbalansering att vÃ¤lja en trafikerad hÃ¥llplats mitt pÃ¥ linjen i stÃ¤llet fÃ¶r bara en Ã¤ndhÃ¥llplats vid omplacering.
-SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID TillÃ¥t sjÃ¤lvbalansering att omplacera fordon till en trafikerad mittlinjehÃ¥llplats (i stÃ¤llet fÃ¶r Ã¤ndhÃ¥llplats).\nÃ–vervÃ¤gs bara nÃ¤r den mest trafikerade hÃ¥llplatsen har Ã¶ver 30 vÃ¤ntande passagerare, sedan vald med ~50 % sannolikhet och understÃ¤lld totala omplaceringsodds.
-SETTINGS_EBS_ENABLE_MINIBUS Aktivera minibuss-lÃ¤ge
-SETTINGS_EBS_DESC_MINIBUS FÃ¥r mindre bussar att avgÃ¥ tidigare nÃ¤r bara fÃ¥ passagerare stiger pÃ¥ eller av.
-SETTINGS_EBS_TOOLTIP_MINIBUS Bussar med kapacitet â‰¤20 kan avgÃ¥ tidigare frÃ¥n en hÃ¥llplats nÃ¤r pÃ¥stigande + avstigande passagerare â‰¤5.
-SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE ExpressspÃ¥rvagn: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Inaktiverad' = SpÃ¥rvagnar anvÃ¤nder avstÃ¥ndsstyrning ovan.\n'LÃ¤ttbana' = Stannar vid varje hÃ¥llplats, vÃ¤ntar alltid full tid (strikt disciplin).\n'Ã„kta spÃ¥rvagn' = Stannar bara nÃ¤r passagerare stiger pÃ¥/av.
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Inaktiverad' = Bussar använder avståndsstyrning ovan.\n'Försiktig' = Stannar kort, kontrollerar passagerare, kan avgå tom.\n'Aggressiv' = Hoppar över hållplatser om ingen väntar.
+SETTINGS_EBS_ENABLE_SELFBAL Aktivera självbalansering av tjänst
+SETTINGS_EBS_DESC_SELFBAL Låter expressbusstjänsten omfördela fordon längs linjen för att prioritera trafikerade segment och minska väntetid.
+SETTINGS_EBS_TOOLTIP_SELFBAL Analyserar linjesegment och kan omplacera fordon till trafikerade segment eller ändhållplatser för jämnare trafik och kortare väntetid.\nBeslut är probabilistiska och beror på passagerarantal och omplaceringsodds.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Aktivera självbalansering till mittlinjehållplatser
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Tillåter självbalansering att välja en trafikerad hållplats mitt på linjen i stället för bara en ändhållplats vid omplacering.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Tillåt självbalansering att omplacera fordon till en trafikerad mittlinjehållplats (i stället för ändhållplats).\nÖvervägs bara när den mest trafikerade hållplatsen har över 30 väntande passagerare, sedan vald med ~50 % sannolikhet och underställd totala omplaceringsodds.
+SETTINGS_EBS_ENABLE_MINIBUS Aktivera minibuss-läge
+SETTINGS_EBS_DESC_MINIBUS Får mindre bussar att avgå tidigare när bara få passagerare stiger på eller av.
+SETTINGS_EBS_TOOLTIP_MINIBUS Bussar med kapacitet ≤20 kan avgå tidigare från en hållplats när påstigande + avstigande passagerare ≤5.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Expressspårvagn: 
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Inaktiverad' = Spårvagnar använder avståndsstyrning ovan.\n'Lättbana' = Stannar vid varje hållplats, väntar alltid full tid (strikt disciplin).\n'Äkta spårvagn' = Stannar bara när passagerare stiger på/av.
 SETTINGS_EBS_MODE_NONE Inaktiverad
 SETTINGS_EBS_MODE_AGGRESSIVE Aggressiv
-SETTINGS_EBS_MODE_PRUDENTIAL FÃ¶rsiktig
-SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL LÃ¤ttbana-lÃ¤ge
+SETTINGS_EBS_MODE_PRUDENTIAL Försiktig
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Lättbana-läge
 SETTINGS_EBS_TRAM_MODE_NONE Inaktiverad
-SETTINGS_EBS_TRAM_MODE_TRAM Ã„kta spÃ¥rvagns-lÃ¤ge
-SETTINGS_PTU_GROUP FrigÃ¶r fastnade passagerare
+SETTINGS_EBS_TRAM_MODE_TRAM Äkta spårvagns-läge
+SETTINGS_PTU_GROUP Frigör fastnade passagerare
 SETTINGS_PTU_ENABLE Ta bort fastnade passagerare
-SETTINGS_PTU_TOOLTIP Tar automatiskt bort passagerare som fastnar vid ombordstigning sÃ¥ att fordonet kan avgÃ¥ normalt och undvika frusna avgÃ¥ngar.
-SETTINGS_LINE_DELETION_TOOL Verktyg fÃ¶r borttagning av linjer
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Markera transporttyperna nedan och tryck Radera fÃ¶r att ta bort alla linjer av de typerna frÃ¥n den aktuella staden. Urvalet Ã¤r tillfÃ¤lligt - det bÃ¶rjar alltid omarkerat och rensas efter borttagning; det sparas inte som instÃ¤llning.
-SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Tar bort alla linjer av de valda typerna. Fungerar bara medan staden Ã¤r laddad.
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE BEKRÃ„FTA BORTTAGNING AV LINJER
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Du hÃ¥ller pÃ¥ att ta bort alla linjer.\nVill du fortsÃ¤tta?
+SETTINGS_PTU_TOOLTIP Tar automatiskt bort passagerare som fastnar vid ombordstigning så att fordonet kan avgå normalt och undvika frusna avgångar.
+SETTINGS_LINE_DELETION_TOOL Verktyg för borttagning av linjer
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Markera transporttyperna nedan och tryck Radera för att ta bort alla linjer av de typerna från den aktuella staden. Urvalet är tillfälligt - det börjar alltid omarkerat och rensas efter borttagning; det sparas inte som inställning.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Tar bort alla linjer av de valda typerna. Fungerar bara medan staden är laddad.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE BEKRÄFTA BORTTAGNING AV LINJER
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Du håller på att ta bort alla linjer.\nVill du fortsätta?
 SETTINGS_DELETE_BUS_TOOLTIP Tar bort alla vanliga busslinjer.
 SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Turistbussar
 SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Tar bort alla turistbusslinjer.
-SETTINGS_DELETE_TRAM_TOOLTIP Tar bort alla spÃ¥rvagnslinjer.
-SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Tar bort alla trÃ¥dbusslinjer.
-SETTINGS_DELETE_TRAIN_TOOLTIP Tar bort alla tÃ¥glinjer.
+SETTINGS_DELETE_TRAM_TOOLTIP Tar bort alla spårvagnslinjer.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Tar bort alla trådbusslinjer.
+SETTINGS_DELETE_TRAIN_TOOLTIP Tar bort alla tåglinjer.
 SETTINGS_DELETE_METRO_TOOLTIP Tar bort alla underjordiska tunnelbanelinjer.
 SETTINGS_DELETE_MONORAIL_TOOLTIP Tar bort alla monoraillinjer.
-SETTINGS_DELETE_FERRY_LABEL FÃ¤rjor
-SETTINGS_DELETE_SHIP_TOOLTIP Tar bort alla fÃ¤rjelinjer.
+SETTINGS_DELETE_FERRY_LABEL Färjor
+SETTINGS_DELETE_SHIP_TOOLTIP Tar bort alla färjelinjer.
 SETTINGS_DELETE_HELICOPTER_LABEL Helikoptrar
 SETTINGS_DELETE_HELICOPTER_TOOLTIP Tar bort alla helikopterlinjer.
 SETTINGS_DELETE_BLIMP_LABEL Luftskepp
@@ -227,261 +227,281 @@ VEHICLE_EDITOR_SUB_TITLE {0} fordon
 VEHICLE_EDITOR_CAPACITY Passagerarkapacitet
 VEHICLE_EDITOR_CAPACITY_TAXI Resekapacitet
 VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Antal passagerare per arbetsskift.
-VEHICLE_EDITOR_MAINTENANCE UnderhÃ¥llskostnad
+VEHICLE_EDITOR_MAINTENANCE Underhållskostnad
 VEHICLE_EDITOR_MAX_SPEED Maxhastighet
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS TÃ¥gmotor i bÃ¥da Ã¤ndar
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Aktiverar eller inaktiverar tÃ¥gmotorer i bÃ¥da Ã¤ndar av tÃ¥get.
-VEHICLE_EDITOR_APPLY TillÃ¤mpa
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Tågmotor i båda ändar
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Aktiverar eller inaktiverar tågmotorer i båda ändar av tåget.
+VEHICLE_EDITOR_APPLY Tillämpa
 VEHICLE_EDITOR_DEFAULT Standard
-VEHICLE_LIST_BOX_ROW_TOOLTIP1 HÃ¶gerklicka fÃ¶r att fÃ¶lja detta fordon.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
-VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + klick fÃ¶r att stÃ¤lla detta fordon i kÃ¶.
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Högerklicka för att följa detta fordon.\nHåll Shift nedtryckt vid klick för att även zooma in.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + klick för att ställa detta fordon i kö.
 VEHICLE_PANEL_EDIT_TYPE Redigera fordonstyp
 VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Redigera denna fordonstyp med fordonsredigeraren.
-VEHICLE_PANEL_STATUS_NEXT_STOP NÃ¤sta hÃ¥llplats:
-VEHICLE_PANEL_STATUS_UNBUNCHING AvstÃ¥ndsstyrning pÃ¥gÃ¥r
-VEHICLE_PANEL_LAST_STOP_EXCHANGE Passagerarutbyte vid senaste hÃ¥llplats: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_STATUS_NEXT_STOP Nästa hållplats:
+VEHICLE_PANEL_STATUS_UNBUNCHING Avståndsstyrning pågår
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Passagerarutbyte vid senaste hållplats: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
 VEHICLE_PANEL_PASSENGERS Passagerare:
-VEHICLE_PANEL_EARNINGS IntÃ¤kter:
-VEHICLE_PANEL_EARNINGS_TOOLTIP Resultat av biljettfÃ¶rsÃ¤ljning minus underhÃ¥llskostnad fÃ¶r fordonet.
-VEHICLE_PANEL_PREVIOUS FÃ¶regÃ¥ende fordon
-VEHICLE_PANEL_PREVIOUS_TOOLTIP Hoppa till fÃ¶regÃ¥ende fordon.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
+VEHICLE_PANEL_EARNINGS Intäkter:
+VEHICLE_PANEL_EARNINGS_TOOLTIP Resultat av biljettförsäljning minus underhållskostnad för fordonet.
+VEHICLE_PANEL_PREVIOUS Föregående fordon
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Hoppa till föregående fordon.\nHåll Shift nedtryckt vid klick för att även zooma in.
 VEHICLE_PANEL_REMOVE_VEHICLE Ta bort fordon
-VEHICLE_PANEL_NEXT NÃ¤sta fordon
-VEHICLE_PANEL_NEXT_TOOLTIP Hoppa till nÃ¤sta fordon.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.
+VEHICLE_PANEL_NEXT Nästa fordon
+VEHICLE_PANEL_NEXT_TOOLTIP Hoppa till nästa fordon.\nHåll Shift nedtryckt vid klick för att även zooma in.
 VEHICLE_SELECTION_CAPACITY Kapacitet
-VEHICLE_SELECTION_ADD_VEHICLE LÃ¤gg till detta fordon i listan Ã¶ver tillÃ¥tna fordon
-VEHICLE_SELECTION_ADD_ALL LÃ¤gg till alla lÃ¤mpliga fordon i listan Ã¶ver tillÃ¥tna fordon
-VEHICLE_SELECTION_REMOVE_VEHICLE Ta bort detta fordon frÃ¥n listan Ã¶ver tillÃ¥tna fordon
-VEHICLE_SELECTION_REMOVE_ALL Ta bort alla fordon frÃ¥n listan Ã¶ver tillÃ¥tna fordon
-VEHICLE_SELECTION_AVAILABLE_VEHICLES TillgÃ¤ngliga fordon
+VEHICLE_SELECTION_ADD_VEHICLE Lägg till detta fordon i listan över tillåtna fordon
+VEHICLE_SELECTION_ADD_ALL Lägg till alla lämpliga fordon i listan över tillåtna fordon
+VEHICLE_SELECTION_REMOVE_VEHICLE Ta bort detta fordon från listan över tillåtna fordon
+VEHICLE_SELECTION_REMOVE_ALL Ta bort alla fordon från listan över tillåtna fordon
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Tillgängliga fordon
 VEHICLE_SELECTION_SELECTED_VEHICLES Valda fordon
 VEHICLE_SELECTION_ANY_VEHICLE Vilket fordon som helst
-VEHICLE_BUTTON_TOOLTIP {0}\nKlicka fÃ¶r att hoppa till detta fordon.\nHÃ¥ll Shift nedtryckt vid klick fÃ¶r att Ã¤ven zooma in.\nHÃ¥ll Alt nedtryckt vid klick fÃ¶r att undvika att Ã¶ppna fordonsinfopanelen.
+VEHICLE_BUTTON_TOOLTIP {0}\nKlicka för att hoppa till detta fordon.\nHåll Shift nedtryckt vid klick för att även zooma in.\nHåll Alt nedtryckt vid klick för att undvika att öppna fordonsinfopanelen.
 TRANSPORT_LINE_VEHICLECOUNT Antal fordon: {0}
 FLIGHT_TRACKER_NAME Flygtracker
 FLIGHT_STATUS_NONE Ingen
 FLIGHT_STATUS_INCOMING Ankommande
 FLIGHT_STATUS_LANDED Landat
 FLIGHT_STATUS_AT_GATE Vid gate
-FLIGHT_STATUS_DEPARTED AvgÃ¥tt
+FLIGHT_STATUS_DEPARTED Avgått
 TICKET_PRICE_TAXI_KILOMETER Taxipris per kilometer: 
 TICKET_PRICE_TAXI_MILE Taxipris per mile: 
 TICKET_PRICE_BUS Bussbiljettpris: 
 TICKET_PRICE_INTERCITY_BUS Intercitybussbiljettpris: 
 TICKET_PRICE_METRO Tunnelbanebiljettpris: 
-TICKET_PRICE_TRAIN TÃ¥gbiljettpris: 
-TICKET_PRICE_TRAM SpÃ¥rvagnsbiljettpris: 
+TICKET_PRICE_TRAIN Tågbiljettpris: 
+TICKET_PRICE_TRAM Spårvagnsbiljettpris: 
 TICKET_PRICE_MONORAIL Monorailbiljettpris: 
 TICKET_PRICE_SHIP Fartygsbiljettpris: 
-TICKET_PRICE_FERRY FÃ¤rjebiljettpris: 
+TICKET_PRICE_FERRY Färjebiljettpris: 
 TICKET_PRICE_PLANE Flygbiljettpris: 
 TICKET_PRICE_CABLECAR Linbanebiljettpris: 
 TICKET_PRICE_SIGHTSEEING_BUS Turistbussbiljettpris: 
-TICKET_PRICE_TROLLEYBUS TrÃ¥dbussbiljettpris: 
+TICKET_PRICE_TROLLEYBUS Trådbussbiljettpris: 
 TICKET_PRICE_BLIMP Luftskeppsbiljettpris: 
 TICKET_PRICE_HELICOPTER Helikopterbiljettpris: 
 ECONOMY_TAB_TICKET_PRICES Biljettpriser
-ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Totalt aktuellt passagerarantal fÃ¶r denna transporttyp.
-WHATSNEW_3_0_0_1 Uppdaterad fÃ¶r Race Day; nu kompatibel med More Vehicles Renewed.
-WHATSNEW_3_0_0_2 FÃ¶ljande mods har integrerats i IPT3:\nâ€¢ Advanced Stop Selection Revisited\nâ€¢ Auto Line Color Redux\nâ€¢ Better Bus Stop Position\nâ€¢ Better Train Boarding\nâ€¢ Elevated Stops Enabler Revisited\nâ€¢ Express Bus Services\nâ€¢ Flight Tracker\nâ€¢ Intercity Bus Control\nâ€¢ Mileage Taxi Services\nâ€¢ Public Transport Unstucker\nâ€¢ Realistic Walking Speed\nâ€¢ Stops and Stations\nâ€¢ Ticket Price Customizer
-WHATSNEW_3_0_1 Public Transport Unstucker Ã¤r nu integrerad i IPT3.\nSe version 3.0 fÃ¶r alla andra integrerade mods. Avprenumerera frÃ¥n originalen fÃ¶r att undvika konflikter.
-SETTINGS_TAB_TRAINDISPLAY TÃ¥gvisning
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Totalt aktuellt passagerarantal för denna transporttyp.
+WHATSNEW_3_0_0_1 Uppdaterad för Race Day; nu kompatibel med More Vehicles Renewed.
+WHATSNEW_3_0_0_2 Följande mods har integrerats i IPT3:\n• Advanced Stop Selection Revisited\n• Auto Line Color Redux\n• Better Bus Stop Position\n• Better Train Boarding\n• Elevated Stops Enabler Revisited\n• Express Bus Services\n• Flight Tracker\n• Intercity Bus Control\n• Mileage Taxi Services\n• Public Transport Unstucker\n• Realistic Walking Speed\n• Stops and Stations\n• Ticket Price Customizer
+WHATSNEW_3_0_1 Public Transport Unstucker är nu integrerad i IPT3.\nSe version 3.0 för alla andra integrerade mods. Avprenumerera från originalen för att undvika konflikter.
+SETTINGS_TAB_TRAINDISPLAY Tågvisning
 SETTINGS_TAB_INTEGRATIONS Integrationer
-SETTINGS_TRAINDISPLAY_GROUP TÃ¥gvisningsÃ¶verlÃ¤gg
-SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Konfigurera det integrerade Ã¶verlÃ¤gget som visas medan du fÃ¶ljer stÃ¶dda transportfordon.
-SETTINGS_TRAINDISPLAY_ENABLE Aktivera tÃ¥gvisning
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP SlÃ¥ pÃ¥ eller av det integrerade tÃ¥gvisningsÃ¶verlÃ¤gget.
+SETTINGS_TRAINDISPLAY_GROUP Tågvisningsöverlägg
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Konfigurera det integrerade överlägget som visas medan du följer stödda transportfordon.
+SETTINGS_TRAINDISPLAY_ENABLE Aktivera tågvisning
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Slå på eller av det integrerade tågvisningsöverlägget.
 SETTINGS_TRAINDISPLAY_MODE_DISABLED Inaktiverad
 SETTINGS_TRAINDISPLAY_MODE_ENABLED Aktiverad
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Ã–verlÃ¤ggsposition:
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP VÃ¤lj var Ã¶verlÃ¤gget visas pÃ¥ skÃ¤rmen.
-SETTINGS_TRAINDISPLAY_POS_TOPLEFT Ã–vre vÃ¤nster
-SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Ã–vre hÃ¶ger
-SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Nedre vÃ¤nster
-SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Nedre hÃ¶ger
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Ã–verlÃ¤ggsskala:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Skala Ã¶verlÃ¤ggets storlek.
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Ã–verlÃ¤ggstransparens:
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Justera hur transparent Ã¶verlÃ¤gget Ã¤r.
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Överläggsposition:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Välj var överlägget visas på skärmen.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT Övre vänster
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Övre höger
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Nedre vänster
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Nedre höger
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Överläggsskala:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Skala överläggets storlek.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Överläggstransparens:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Justera hur transparent överlägget är.
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Uppdateringsintervall:
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Hur ofta Ã¶verlÃ¤gget uppdateras medan du fÃ¶ljer ett fordon.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Hur ofta överlägget uppdateras medan du följer ett fordon.
 SETTINGS_TRAINDISPLAY_SHOW_LINE Visa linjenamn
-SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Inkludera linjenamnet i Ã¶verlÃ¤gget.
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Inkludera linjenamnet i överlägget.
 SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Visa destination
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Inkludera destinationen i Ã¶verlÃ¤gget.
-SETTINGS_TRAINDISPLAY_SHOW_STATE Visa tillstÃ¥nd
-SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Inkludera fordonets tillstÃ¥nd i Ã¶verlÃ¤gget.
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Endast under fÃ¶ljning
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP DÃ¶lj Ã¶verlÃ¤gget om inte kameran faktiskt fÃ¶ljer ett stÃ¶tt fordon.
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Endast i fÃ¶rstapersonskamera
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Visa endast Ã¶verlÃ¤gget vid anvÃ¤ndning av en fÃ¶rstapersonskameramod (t.ex. First Person Camera - Continued). Om av visas det nÃ¤r du fÃ¶ljer ett stÃ¶tt fordon i valfritt kameralÃ¤ge.
-SETTINGS_TRAINDISPLAY_THEME FÃ¤rgtema:
-SETTINGS_TRAINDISPLAY_THEME_TOOLTIP VÃ¤lj Ã¶verlÃ¤ggets bakgrunds-/textfÃ¤rger.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Inkludera destinationen i överlägget.
+SETTINGS_TRAINDISPLAY_SHOW_STATE Visa tillstånd
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Inkludera fordonets tillstånd i överlägget.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Endast under följning
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Dölj överlägget om inte kameran faktiskt följer ett stött fordon.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Endast i förstapersonskamera
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Visa endast överlägget vid användning av en förstapersonskameramod (t.ex. First Person Camera - Continued). Om av visas det när du följer ett stött fordon i valfritt kameraläge.
+SETTINGS_TRAINDISPLAY_THEME Färgtema:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Välj överläggets bakgrunds-/textfärger.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Enkel
-SETTINGS_TRAINDISPLAY_THEME_DARK MÃ¶rk
+SETTINGS_TRAINDISPLAY_THEME_DARK Mörk
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Ljus
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
-SETTINGS_TRAINDISPLAY_THEME_BLUE BlÃ¥
-SETTINGS_TRAINDISPLAY_THEME_GREEN GrÃ¶n
-SETTINGS_TRAINDISPLAY_THEME_AMBER BÃ¤rnsten
-COPY_TIP Kopiera denna linjes instÃ¤llningar.
-PASTE_TIP Klistra in de kopierade linjeinstÃ¤llningarna.
-COPY_BUILDING_TIP Kopiera dessa instÃ¤llningar till alla linjer som betjÃ¤nar denna byggnad.
-COPY_DISTRICT_TIP Kopiera dessa instÃ¤llningar till alla linjer i detta distrikt.
-SETTINGS_INTEGRATIONS_GROUP Integrerade tillÃ¤gg
+SETTINGS_TRAINDISPLAY_THEME_BLUE Blå
+SETTINGS_TRAINDISPLAY_THEME_GREEN Grön
+SETTINGS_TRAINDISPLAY_THEME_AMBER Bärnsten
+COPY_TIP Kopiera denna linjes inställningar.
+PASTE_TIP Klistra in de kopierade linjeinställningarna.
+COPY_BUILDING_TIP Kopiera dessa inställningar till alla linjer som betjänar denna byggnad.
+COPY_DISTRICT_TIP Kopiera dessa inställningar till alla linjer i detta distrikt.
+SETTINGS_INTEGRATIONS_GROUP Integrerade tillägg
 SETTINGS_INTERCITY_BUS_ENABLE Aktivera intercitybusskontroll
 SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Aktiverar det integrerade intercitybuss-kompatibilitetslagret och stationspatchning.
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Aktivera avancerat hÃ¥llplatsval
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP LÃ¥ter dig placera hÃ¥llplatser pÃ¥ alternativa plattformar/spÃ¥r vid flerspÃ¥riga stationer (hÃ¥ll alternativlÃ¤ge-tangenten vid placering). GÃ¤ller vid nÃ¤sta nivÃ¥inlÃ¤sning.
-SETTINGS_BETTERBOARDING_ENABLE Aktivera bÃ¤ttre ombordstigning
-SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP FÃ¶rbÃ¤ttrar ombordstigningsval sÃ¥ att passagerare fÃ¶redrar fordonet som faktiskt betjÃ¤nar deras destination. GÃ¤ller vid nÃ¤sta nivÃ¥inlÃ¤sning.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Aktivera avancerat hållplatsval
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Låter dig placera hållplatser på alternativa plattformar/spår vid flerspåriga stationer (håll alternativläge-tangenten vid placering). Gäller vid nästa nivåinläsning.
+SETTINGS_BETTERBOARDING_ENABLE Aktivera bättre ombordstigning
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Förbättrar ombordstigningsval så att passagerare föredrar fordonet som faktiskt betjänar deras destination. Gäller vid nästa nivåinläsning.
 SETTINGS_MILEAGETAXI_ENABLE Aktivera kilometertaxi
-SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Tar betalt fÃ¶r taxi efter kÃ¶rd distans i stÃ¤llet fÃ¶r fast pris sÃ¥ att lÃ¤ngre resor ger mer. KrÃ¤ver After Dark DLC. GÃ¤ller vid nÃ¤sta nivÃ¥inlÃ¤sning.
-SETTINGS_ELEVATEDSTOPS_ENABLE Aktivera upphÃ¶jda hÃ¥llplatser
-SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP TillÃ¥ter kollektivhÃ¥llplatser pÃ¥ upphÃ¶jda vÃ¤gar/broar och behÃ¥ller gatubelysning pÃ¥ de segmenten. GÃ¤ller vid nÃ¤sta nivÃ¥inlÃ¤sning.
-SETTINGS_INTERCITY_BUS_CAPACITY Kapacitet fÃ¶r intercityterminal
-SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Hur mÃ¥nga fordon en intercitybussterminal kan rymma samtidigt.
-SETTINGS_TRAM_DEPOT_CAPACITY SpÃ¥rvagnsdepÃ¥kapacitet
-SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje spÃ¥rvagnsdepÃ¥ en praktiskt obegrÃ¤nsad grÃ¤ns pÃ¥ 100 000 fordon. Realistisk och Mellan anvÃ¤nder i stÃ¤llet ett mÃ¥ttligt fast tak; Inaktiverad behÃ¥ller befintligt beteende.
-SETTINGS_TAXI_DEPOT_CAPACITY TaxidepÃ¥kapacitet
-SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje taxidepÃ¥ en praktiskt obegrÃ¤nsad grÃ¤ns pÃ¥ 100 000 fordon. Realistisk och Mellan anvÃ¤nder i stÃ¤llet ett mÃ¥ttligt fast tak; Inaktiverad behÃ¥ller befintligt beteende.
-SETTINGS_BUS_DEPOT_CAPACITY BussdepÃ¥kapacitet
-SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje bussdepÃ¥ (vanliga, biobrÃ¤nsle och turistbussgarage) en praktiskt obegrÃ¤nsad grÃ¤ns pÃ¥ 100 000 fordon. Realistisk och Mellan anvÃ¤nder i stÃ¤llet ett mÃ¥ttligt fast tak; Inaktiverad behÃ¥ller befintligt beteende.
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY TrÃ¥dbussdepÃ¥kapacitet
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje trÃ¥dbussdepÃ¥ en praktiskt obegrÃ¤nsad grÃ¤ns pÃ¥ 100 000 fordon. Realistisk och Mellan anvÃ¤nder i stÃ¤llet ett mÃ¥ttligt fast tak; Inaktiverad behÃ¥ller befintligt beteende.
-SETTINGS_FERRY_DEPOT_CAPACITY FÃ¤rjedepÃ¥kapacitet
-SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje fÃ¤rjedepÃ¥ en praktiskt obegrÃ¤nsad grÃ¤ns pÃ¥ 100 000 fordon. Realistisk och Mellan anvÃ¤nder i stÃ¤llet ett mÃ¥ttligt fast tak; Inaktiverad behÃ¥ller befintligt beteende.
-SETTINGS_DEPOT_CAPACITY_DISABLED Inaktiverad (obegrÃ¤nsad)
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Tar betalt för taxi efter körd distans i stället för fast pris så att längre resor ger mer. Kräver After Dark DLC. Gäller vid nästa nivåinläsning.
+SETTINGS_ELEVATEDSTOPS_ENABLE Aktivera upphöjda hållplatser
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Tillåter kollektivhållplatser på upphöjda vägar/broar och behåller gatubelysning på de segmenten. Gäller vid nästa nivåinläsning.
+SETTINGS_INTERCITY_BUS_CAPACITY Kapacitet för intercityterminal
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Hur många fordon en intercitybussterminal kan rymma samtidigt.
+SETTINGS_TRAM_DEPOT_CAPACITY Spårvagnsdepåkapacitet
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje spårvagnsdepå en praktiskt obegränsad gräns på 100 000 fordon. Realistisk och Mellan använder i stället ett måttligt fast tak; Inaktiverad behåller befintligt beteende.
+SETTINGS_TAXI_DEPOT_CAPACITY Taxidepåkapacitet
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje taxidepå en praktiskt obegränsad gräns på 100 000 fordon. Realistisk och Mellan använder i stället ett måttligt fast tak; Inaktiverad behåller befintligt beteende.
+SETTINGS_BUS_DEPOT_CAPACITY Bussdepåkapacitet
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje bussdepå (vanliga, biobränsle och turistbussgarage) en praktiskt obegränsad gräns på 100 000 fordon. Realistisk och Mellan använder i stället ett måttligt fast tak; Inaktiverad behåller befintligt beteende.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Trådbussdepåkapacitet
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje trådbussdepå en praktiskt obegränsad gräns på 100 000 fordon. Realistisk och Mellan använder i stället ett måttligt fast tak; Inaktiverad behåller befintligt beteende.
+SETTINGS_FERRY_DEPOT_CAPACITY Färjedepåkapacitet
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vanilla ger varje färjedepå en praktiskt obegränsad gräns på 100 000 fordon. Realistisk och Mellan använder i stället ett måttligt fast tak; Inaktiverad behåller befintligt beteende.
+SETTINGS_DEPOT_CAPACITY_DISABLED Inaktiverad (obegränsad)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Mellan
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistisk
 SETTINGS_FLIGHTTRACKER_ENABLE Aktivera flygtracker
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Aktiverar de integrerade flygtracker-patcharna och UI-stÃ¶det.
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Aktiverar de integrerade flygtracker-patcharna och UI-stödet.
 SETTINGS_SUBBUILDINGSTABS_ENABLE Aktivera underbyggnadsflikar
-SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Visar en flikremsa pÃ¥ en byggnads infopanel nÃ¤r den har underbyggnader (t.ex. en flygplats med inbyggd tunnelbanestation) sÃ¥ att du kan vÃ¤xla mellan dem.
-SETTINGS_TAXISTANDFIX_ENABLE Aktivera taxihÃ¥llplatsfix
-SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Skickar lediga taxibilar till nÃ¤rmaste hÃ¥llplats i stÃ¤llet fÃ¶r att lÃ¥ta dem kÃ¶ra slumpmÃ¤ssigt. KrÃ¤ver After Dark DLC.
-SETTINGS_SHAREDSTOPENABLER_ENABLE Aktivera delade hÃ¥llplatser
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP TillÃ¥ter mer Ã¤n en transporttyp (buss, spÃ¥rvagn, trÃ¥dbuss) att stanna pÃ¥ samma vÃ¤gsegment. Av som standard - se moddens GitHub fÃ¶r vad denna reducerade version utelÃ¤mnar.
-SETTINGS_COMMUTERDESTINATION_ENABLE Aktivera passagerardestination (omdesign vÃ¤ntar)
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Visar en flikremsa på en byggnads infopanel när den har underbyggnader (t.ex. en flygplats med inbyggd tunnelbanestation) så att du kan växla mellan dem.
+SETTINGS_TAXISTANDFIX_ENABLE Aktivera taxihållplatsfix
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Skickar lediga taxibilar till närmaste hållplats i stället för att låta dem köra slumpmässigt. Kräver After Dark DLC.
+SETTINGS_SHAREDSTOPENABLER_ENABLE Aktivera delade hållplatser
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Tillåter mer än en transporttyp (buss, spårvagn, trådbuss) att stanna på samma vägsegment. Av som standard - se moddens GitHub för vad denna reducerade version utelämnar.
+SETTINGS_COMMUTERDESTINATION_ENABLE Aktivera passagerardestination (omdesign väntar)
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Visar vart passagerarna som väntar vid en hållplats är på väg — en liten panel plus ett kartoverlay. Endast läsbar, inget beroende utöver Harmony.
 SETTINGS_OOC_ENABLE Optimerade externa anslutningar
-SETTINGS_OOC_ENABLE_TOOLTIP GodstÃ¥g, flyg och fartyg vÃ¤ntar lÃ¤ngre pÃ¥ en fylligare last innan de avgÃ¥r vid externa anslutningar.
-SETTINGS_OOC_WAIT_MULTIPLIER VÃ¤ntemultiplikator
-SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Hur mycket lÃ¤ngre Ã¤n vanilla det vÃ¤ntas pÃ¥ en fylligare last. HÃ¶gre vÃ¤rden betyder fÃ¤rre men fylligare resor.
-SETTINGS_OOC_PASSENGER_SCOPE Omfattning fÃ¶r passagerarvÃ¤ntan
-SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Var vÃ¤ntemultiplikatorn ovan gÃ¤ller fÃ¶r medborgare som vÃ¤ntar pÃ¥ kollektivtrafik. Endast externa anslutningar pÃ¥verkar bara medborgare som vÃ¤ntar vid en extern anslutning; stadsomfattande fÃ¶rdrÃ¶jer ocksÃ¥ vanlig inhemsk vÃ¤ntan fÃ¶r alla medborgare (matchar kÃ¤llmoddens faktiska beteende).
+SETTINGS_OOC_ENABLE_TOOLTIP Godståg, flyg och fartyg väntar längre på en fylligare last innan de avgår vid externa anslutningar.
+SETTINGS_OOC_WAIT_MULTIPLIER Väntemultiplikator
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Hur mycket längre än vanilla det väntas på en fylligare last. Högre värden betyder färre men fylligare resor.
+SETTINGS_OOC_PASSENGER_SCOPE Omfattning för passagerarväntan
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Var väntemultiplikatorn ovan gäller för medborgare som väntar på kollektivtrafik. Endast externa anslutningar påverkar bara medborgare som väntar vid en extern anslutning; stadsomfattande fördröjer också vanlig inhemsk väntan för alla medborgare (matchar källmoddens faktiska beteende).
 SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Endast externa anslutningar
 SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Stadsomfattande
 SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Inaktiverad (vanilla)
 SETTINGS_OOC_DISABLE_DUMMY Inaktivera dekorativ genomfartstrafik
-SETTINGS_OOC_DISABLE_DUMMY_ROAD Inaktivera dekorativ vÃ¤gtrafik
-SETTINGS_OOC_DISABLE_DUMMY_TRAIN Inaktivera dekorativ tÃ¥gtrafik
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Inaktivera dekorativ vägtrafik
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN Inaktivera dekorativ tågtrafik
 SETTINGS_OOC_DISABLE_DUMMY_PLANE Inaktivera dekorativ flygtrafik
 SETTINGS_OOC_DISABLE_DUMMY_SHIP Inaktivera dekorativ fartygstrafik
-SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Externa anslutningar spawnar normalt extra dekorativ trafik som aldrig faktiskt kommer in i eller lÃ¤mnar staden, bara fÃ¶r visuell atmosfÃ¤r. Inaktivering tar bort den trafiken utan att pÃ¥verka verklig import/export/passagerarflÃ¶de.
-SETTINGS_UOC_ENABLE ObegrÃ¤nsade externa anslutningar
-SETTINGS_UOC_ENABLE_TOOLTIP Tar bort vanillas grÃ¤ns pÃ¥ 4 anslutningar fÃ¶r vÃ¤gar, spÃ¥r, fartygs- och flygrutter, och kopplar retrospektivt transportlinjer nÃ¤r en ny anslutning byggs nÃ¤ra en befintlig station. GÃ¤ller vid nÃ¤sta nivÃ¥inlÃ¤sning.
-SETTINGS_STTAI_ENABLE Kollisionsundvikande pÃ¥ enkelspÃ¥rig jÃ¤rnvÃ¤g
-SETTINGS_STTAI_ENABLE_TOOLTIP Reserverar ett enkelspÃ¥rigt segment fÃ¶r ett tÃ¥g i taget och hÃ¥ller ett mÃ¶tande tÃ¥g vid ingÃ¥ngen tills segmentet Ã¤r fritt. Original IPT4-funktion, finns inte i vanilla eller nÃ¥gon absorberad mod.
-SETTINGS_STOPSTACKER_ENABLE Stapling av busshÃ¥llplatsplatser
-SETTINGS_STOPSTACKER_ENABLE_TOOLTIP LÃ¥ter en andra/tredje buss som nÃ¤rmar sig samma hÃ¥llplats anvÃ¤nda sin egen plats lÃ¤ngre bak lÃ¤ngs hÃ¥llplatsspÃ¥ret i stÃ¤llet fÃ¶r att stÃ¥ i enkel fil bakom den frÃ¤msta bussen, sÃ¥ att flera bussar kan lasta/lossa samtidigt. Original IPT4-funktion (fÃ¶renklad clean-room-omimplementering), finns inte i vanilla eller nÃ¥gon absorberad mod.
-CHANGELOG_4_3_3_1 Fixade instÃ¤llningar spara/ladda fortfarande bryta pÃ¥ vissa mod-stackar Ã¤ven efter bundling Newtonsoft.Json.dll: den tidigare lÃ¶sningen fÃ¶rsÃ¶kte bara Assembly.LoadFrom i en ingÃ¥ngspunkt och var fortfarande beroende av lastordningen. IPT4 registrerar nu en global AssemblyResolve-krok och eager startar dess bundlade Newtonsoft.Json frÃ¥n alla mod/UI-ingÃ¥ngspunkter fÃ¶re CSLModsCommon berÃ¶r JsonWriter, sÃ¥ det nya Options UI kvarstÃ¥r pÃ¥ ett tillfÃ¶rlitligt sÃ¤tt i stÃ¤llet fÃ¶r slumpmÃ¤ssigt bindning till en annan mods inkompatibel Json.NET-kopia.
-CHANGELOG_4_3_2_1 Fixade moden misslyckades att ladda helt ("failed to load the mod's dll or one of its dependencies") nÃ¤rhelst ingen annan installerad mod hÃ¤nt att redan tillhandahÃ¥lla Newtonsoft.Json: CSLModsCommon:s instÃ¤llningsserialisering (JsonHelper/SerializationContext) behÃ¶ver det, men vÃ¥r bygg distribuerade aldrig Newtonsoft.Json.dll vid sidan av moden â€“ det fungerade endast genom tillfÃ¤llighet, Ã¥kandes pÃ¥ en annan mods kopia. Hittad genom att inaktivera alla andra moddar fÃ¶r ett rent test, vilket Ã¤r exakt hur detta bÃ¶r testas framÃ¥t.
-CHANGELOG_4_3_1_1 Fixade Options-panelens sprÃ¥kvÃ¤ljare som endast Ã¥ter-translatede ramverkets egna strÃ¤ngar (Version/Changelog/...) medan varje strÃ¤ng av denna mod stannade pÃ¥ spelets sprÃ¥k â€“ vÃ¥r Ã¶versÃ¤ttningsloader nycklades av spelets sprÃ¥k och ignorerade moddens eget urval helt. Det fÃ¶ljer nu moddens sprÃ¥kvÃ¤ljarÃ©, faller tillbaka pÃ¥ spelets sprÃ¥k och sedan engelska, och Ã¥ter-lÃ¶ser nÃ¤r prickvÃ¤ljaren Ã¤ndras.
-CHANGELOG_4_3_1_2 Ifyllda 38 Ã¶versÃ¤ttningsnycklar som fanns endast pÃ¥ engelska och portugisiska â€“ varje annat sprÃ¥k (arabiska, bengali, tyska, spanska, franska, hindi, indonesiska, italienska, japanska, koreanska, polska, ryska, urdu och alla kinesiska varianter) fÃ¶ll tyst tillbaka till engelska fÃ¶r hela Train Display-avsnittet, Delete Lines-beskrivningen och de tre Express Bus-beskrivningarna.
-CHANGELOG_4_3_1_3 Tillagda 4 kopiera/klistra-verktygstips-nycklar som saknades frÃ¥n alla sprÃ¥kfiler inklusive engelska, sÃ¥ de skulle ha renderats som rÃ¥a nycklar ("COPY_TIP") nÃ¤r dessa knappar Ã¥ter-aktiveras.
-CHANGELOG_4_3_0_1 Tillagd Train Display Updated: ett litet on-screen-Ã¶verlÃ¤gg som visar linje/destination/tillstÃ¥nd under fÃ¶ljning av ett stÃ¶tt fordon. Konfigurerbar i Options: skÃ¤rmposition, storlek, opacitet, vilka fÃ¤lt som visar, uppdateringsfrekvens, om det Ã¤r begrÃ¤nsat till fÃ¶rstapersons-kamers moddar, och ett enkelt/mÃ¶rkt/ljust fÃ¤rgtema.
-CHANGELOG_4_3_0_2 Fixade flera byggfel i den nya Train Display-integreringen: en tvetydig Utils-referens, tvÃ¥ API:er som inte finns pÃ¥ denna spelversion (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), och Enum.HasFlag-anvÃ¤ndning â€“ som inte finns pÃ¥ .NET Framework 3.5, denna mods mÃ¥lramverk, och mÃ¥ste ersÃ¤ttas med manuell bitwise-kontroller.
-CHANGELOG_4_2_4_1 Fixade att moden alltid visade "Compatibility with Game Version: 0.0.0" â€“ vi deklarerade aldrig ett stÃ¶dt spelversionsintervall. Nu instÃ¤llt pÃ¥ 1.21.1-f9 och upp.
-CHANGELOG_4_2_4_2 Fixade AutoLineColor fÃ¤rgstrategi-rulltÃ¤nden som visar rÃ¥a enum-namn (t.ex. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") i stÃ¤llet fÃ¶r Ã¶versatt text: koden genererade en nyckel utan understreck medan Ã¶versÃ¤ttningsfilen anvÃ¤nde en. Omordnade ocksÃ¥ avsnittet sÃ¥ de tvÃ¥ beroende reglangen sitter precis under fÃ¤rgstrategi-rullbÃ¤ren de tillhÃ¶r, i stÃ¤llet fÃ¶r efter den orelaterade namngivningsrullbÃ¤ren.
-CHANGELOG_4_2_4_3 Bytt namn pÃ¥ spÃ¥rvagnsavstÃ¥ndsÃ¶de lÃ¤gen fÃ¶r att matcha bussarna (Inaktiverad/FÃ¶rsiktig/Realistisk) i stÃ¤llet fÃ¶r "LÃ¤ttbana"/"Ã„kta spÃ¥rvagn", och Ã¶versatte de senaste bitarna av engelsk text kvar i den portugisiska beskrivningen.
-CHANGELOG_4_2_4_4 Fixade att checkboxbeskrivningar aldrig renderades nÃ¥gon stans i panelen nÃ¤rhelst ingen rubriktext stÃ¤lldes in (vilket Ã¤r varje checkbox i denna mod) â€“ layoutkoden positionerade bara beskrivningsetiketten om en rubriketikett ocksÃ¥ fanns, Ã¤ven om beskrivningen redan skapades och fylldes med text.
-CHANGELOG_4_2_4_5 Fixade Options-flikbeskrivningar som fÃ¥r avskurna (sÃ¤rskilt pÃ¥ portugisiska, som kÃ¶r lÃ¤ngre Ã¤n engelska) â€“ flikar omsluter nu till en andra rad istÃ¤llet fÃ¶r klippning.
-CHANGELOG_4_2_4_6 Fixade Reset-knapparna (Unbunching, Ticket Prices) som Ã¤ndrade de underliggande instÃ¤llningarna omedelbar men uppdaterade inte redan visade reglang, sÃ¥ det sÃ¥g ut som ingenting hÃ¤nde tills Ã¥terÃ¶ppnad Options.
-CHANGELOG_4_2_4_7 Fixade Delete Lines-verktygkryssrutorna som kvarstod som sparade instÃ¤llningar i stÃ¤llet fÃ¶r att Ã¥terstÃ¤lla efter anvÃ¤ndning â€“ de var av misstag kopplade till ModSetting som en verklig preferens, nÃ¤r detta Ã¤r avsett att vara en engÃ¥ngs "vÃ¤lj typer, klicka Radera"-Ã¥tgÃ¤rd.
-CHANGELOG_4_2_3_1 Fixade att varje mod-translation visades som den rÃ¥a nyckeln (t.ex. "SETTINGS_SPEED:0") pÃ¥ varje sprÃ¥k: vÃ¥r egen Ã¶versÃ¤ttningsloader matchade fortfarande insticksmodulen av den gamla ImprovedPublicTransportMod-typen i stÃ¤llet fÃ¶r Mod (klassen som faktiskt Ã¤r IUserMod sedan CSLModsCommon-migrationen), sÃ¥ den hittade aldrig modmappen och laddade aldrig nÃ¥gon Translations/*.txt-fil. HÃ¤rdade ocksÃ¥ fallbacks fÃ¶r vanilla-sprÃ¥k sÃ¥ att den inte lÃ¤ngre misstÃ¤nker Colossal:s "key:0" not-found-markÃ¶r fÃ¶r en verklig translation.
-CHANGELOG_4_2_3_2 Borttagen alltid-tom "Key Bindings"-flik frÃ¥n Options â€“ denna mod har inga nyckelbindningar att konfigurera.
-CHANGELOG_4_2_3_3 Reglage i Options visar nu sitt aktuella vÃ¤rde igen (fÃ¶rlorat i CSLModsCommon-migrationen â€“ den nya reglagekontrollen visar det inte som standard).
-CHANGELOG_4_2_3_4 Fixade AutoLineColor "min fÃ¤rgskillnad"- och "max fÃ¤rgpickfÃ¶rsÃ¶k"-reglage som stannade interaktiva Ã¤ven nÃ¤r fÃ¤rgstrategin stÃ¤lldes pÃ¥ Inaktiverad eller Kategoriserad (ingen av dessa anvÃ¤nder dessa instÃ¤llningar).
-CHANGELOG_4_2_0_1 Tillagd Rescue Fullwidth Digits: normaliserar helbredds siffror i anpassade transportlinjenamn tillbaka till vanliga ASCII-siffror, vilket fixar en display/sorteringskonstighet frÃ¥n vissa icke-latinska tangentor.
-CHANGELOG_4_2_0_2 Tillagd en dedikerad Ticket Prices-flik till Options-panelen, sÃ¥ dag/natt tariffmultiplikatorer kan justeras utan att Ã¶ppna ekonomipanelen i spelet.
-CHANGELOG_4_2_0_3 Fixade Rescue Fullwidth Digits-patchen att endast nÃ¥gonsin appliceras en gÃ¥ng vid mod-startup medan det Ã¥ngras pÃ¥ varje nivÃ¥bortladdning, vilket tyst inaktivera det fÃ¶r varje sparning efter det fÃ¶rsta som laddas i en session.
-CHANGELOG_4_2_0_4 Fixade en taxi-tullinteger-overflow-bug (MileageTaxiServices) som kunde drÃ¤nera den offentliga transportbudgeten med miljarder i ett steg: en taxi med skadad eller oinitialiserad ramdata (t.ex. direkt efter spawning) kunde berÃ¤kna en osannolik per-frame-avstÃ¥nd, Ã¶verflÃ¶dande tariffens cast till int till ett enormt skrÃ¤pvÃ¤rde â€“ detta matchar ett kÃ¤nt olÃ¶st problem rapporterat uppstrÃ¶ms (runaway negativ taxi-inkomst). Nu ignoreras osannolika ramavstÃ¥nd i stÃ¤llet fÃ¶r att debiteras.
-CHANGELOG_4_1_5_1 Fixade den verkliga orsaken till den tomma/svarta Options-panelen: CSLModsCommon:s egen UI-strÃ¤ngar (Version/Changelog/etc.) lever i en fysisk Localization/Common-mapp bredvid DLL:en som vÃ¥r build aldrig distribuerade. Utan den gav ramverkets LocalizationManager tyst upp, vilket lÃ¤mnade CurrentLocaleSource null och kraschade OptionsPanelBase.Awake() med en NullReferenceException omedelbar nÃ¤r den fÃ¶rsÃ¶kte visa etiketten fÃ¶r Ã¶versÃ¤ttningsfÃ¶rlopp â€“ vilken Unity absorberar tyst, avbryter panelen mid-build. Nu distribuerar .csproj den mappen, och GetTranslationProgress() kastar inte lÃ¤ngre om den nÃ¥gonsin saknas igen.
-CHANGELOG_4_1_4_1 Fixade Options-panelen som visades som tom/svart: panelen byggdes bara nÃ¤r spelet vÃ¤xlade instÃ¤llningsbehÃ¥llarens synlighet av och pÃ¥, men den Ã¤r vanligtvis redan synlig nÃ¤r spelet Ã¶ppnar denna mods sida, sÃ¥ panelen byggdes aldrig. Nu bygger den ocksÃ¥ omedelbar om behÃ¥llaren redan Ã¤r synlig.
-CHANGELOG_4_1_4_2 Fixade att alla CSLModsCommon UI-texturer (bakgrund, ikoner, vÃ¤xlar) misslyckades att ladda och Ã¥tergick till en platshÃ¥llare: projektets RootNamespace var fortfarande "ImprovedPublicTransport3" frÃ¥n den ursprungliga IPT3-fÃ¶rgreningen, sÃ¥ inbÃ¤ddade resurser kompilerades under fel namn och matchades aldrig vid kÃ¶rtid.
-CHANGELOG_4_1_3_1 Fixade tre instÃ¤llningssparingsbuggar kvar frÃ¥n CSLModsCommon-migrationen: var och en skrev det nya vÃ¤rdet till ModSetting korrekt men sparade sedan det gamla, nu-dÃ¶da instÃ¤llningsobjektet, sÃ¥ Ã¤ndringen har aldrig faktiskt sparats pÃ¥ disk.
-CHANGELOG_4_1_3_2 Borttagen dÃ¶d kod frÃ¥n pre-CSLModsCommon-eran: det attributbaserade OptionsFramework, det monolitiska Settings.cs och den fristÃ¥ende VehicleEditorPositions-enum â€“ alla helt ersatta av ModSetting och CSLModsCommonOptionsPanel.
-CHANGELOG_4_0_0_1 Forked frÃ¥n Improved Public Transport 3.
-CHANGELOG_4_0_0_2 Portade AutoLineBudget:s efterfrÃ¥gningsbaserad flottstorlek fÃ¶r att samordna med IPT:s egen fordons-rÃ¤knings-API i stÃ¤llet fÃ¶r att skriva linjebudgeten direkt, vilket fixar ett fortkÃ¶rande underhÃ¥llskostnadsbug orsakad av att de tvÃ¥ modsen kÃ¤mpar om samma tillstÃ¥nd.
-CHANGELOG_4_0_0_3 Antog CSLModsCommon fÃ¶r Options UI (versionsmÃ¤rke, Ã¤ndringslogg, kompatibilitetsvarnin gar, Ã¶versÃ¤ttningsfÃ¶rlopp).
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Externa anslutningar spawnar normalt extra dekorativ trafik som aldrig faktiskt kommer in i eller lämnar staden, bara för visuell atmosfär. Inaktivering tar bort den trafiken utan att påverka verklig import/export/passagerarflöde.
+SETTINGS_UOC_ENABLE Obegränsade externa anslutningar
+SETTINGS_UOC_ENABLE_TOOLTIP Tar bort vanillas gräns på 4 anslutningar för vägar, spår, fartygs- och flygrutter, och kopplar retrospektivt transportlinjer när en ny anslutning byggs nära en befintlig station. Gäller vid nästa nivåinläsning.
+SETTINGS_STTAI_ENABLE Kollisionsundvikande på enkelspårig järnväg
+SETTINGS_STTAI_ENABLE_TOOLTIP Reserverar ett enkelspårigt segment för ett tåg i taget och håller ett mötande tåg vid ingången tills segmentet är fritt. Original IPT4-funktion, finns inte i vanilla eller någon absorberad mod.
+SETTINGS_STOPSTACKER_ENABLE Stapling av busshållplatsplatser
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Låter en andra/tredje buss som närmar sig samma hållplats använda sin egen plats längre bak längs hållplatsspåret i stället för att stå i enkel fil bakom den främsta bussen, så att flera bussar kan lasta/lossa samtidigt. Original IPT4-funktion (förenklad clean-room-omimplementering), finns inte i vanilla eller någon absorberad mod.
+
+SETTINGS_SUPPORT_LABEL Om IPT4 har räddat din sparsfil eller förbättrat din prestanda, överväg att stödja utvecklingen!
+SETTINGS_SUPPORT_BUTTON Stödj mig på Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Avbunting / Expressbuss
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Aktiverar fordon-avbunting, expressbuss/spårvagn, spawn-intervall och aggressiv flottesizing. Alla buss/spårvagn-avstånds- och budgetfunktioner.
+SETTINGS_FEATURE_BUDGET_ENABLE Budgetfunktioner
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Aktiverar linje-budgetkontroll, auto linje-budget, biljettpris-multiplikator och pris som vägkostnad. Alla pengar/pris/flotte-funktioner.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Automatisk linjefärg
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Tilldelar automatiskt färger och namn till nya transportlinjer. Inkluderar färgstrategi, namngivningsstrategi och panelinställningar.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Fordonredigerare
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Aktiverar fordonsredigerar-panelen för att ändra fordonstyper, liverier och egenskaper. Kan placeras längst ner eller till höger.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Väntande passagerargränser
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Begränsar hur många medborgare som kan vänta på kollektivtrafik vid en enda hållplats. Inaktivera för att ta bort alla väntande gränser och låta spelet hantera hållplatskapacitet.
+SETTINGS_TRAINDISPLAY_SCOPE Visa overlay när
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Välj valt fordon, first-person-kamera eller båda.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Endast valt fordon
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Endast first-person-kamera
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Valt fordon eller first-person-kamera
+SETTINGS_TRAINDISPLAY_LAYOUT Panellayout
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Vilken layout overlayen använder. Båda visar samma information och respektar samma kryssrutor - bara formen skiljer sig.
+CHANGELOG_4_3_3_1 Fixade inställningar spara/ladda fortfarande bryta på vissa mod-stackar även efter bundling Newtonsoft.Json.dll: den tidigare lösningen försökte bara Assembly.LoadFrom i en ingångspunkt och var fortfarande beroende av lastordningen. IPT4 registrerar nu en global AssemblyResolve-krok och eager startar dess bundlade Newtonsoft.Json från alla mod/UI-ingångspunkter före CSLModsCommon berör JsonWriter, så det nya Options UI kvarstår på ett tillförlitligt sätt i stället för slumpmässigt bindning till en annan mods inkompatibel Json.NET-kopia.
+CHANGELOG_4_3_2_1 Fixade moden misslyckades att ladda helt ("failed to load the mod's dll or one of its dependencies") närhelst ingen annan installerad mod hänt att redan tillhandahålla Newtonsoft.Json: CSLModsCommon:s inställningsserialisering (JsonHelper/SerializationContext) behöver det, men vår bygg distribuerade aldrig Newtonsoft.Json.dll vid sidan av moden – det fungerade endast genom tillfällighet, åkandes på en annan mods kopia. Hittad genom att inaktivera alla andra moddar för ett rent test, vilket är exakt hur detta bör testas framåt.
+CHANGELOG_4_3_1_1 Fixade Options-panelens språkväljare som endast åter-translatede ramverkets egna strängar (Version/Changelog/...) medan varje sträng av denna mod stannade på spelets språk – vår översättningsloader nycklades av spelets språk och ignorerade moddens eget urval helt. Det följer nu moddens språkväljaré, faller tillbaka på spelets språk och sedan engelska, och åter-löser när prickväljaren ändras.
+CHANGELOG_4_3_1_2 Ifyllda 38 översättningsnycklar som fanns endast på engelska och portugisiska – varje annat språk (arabiska, bengali, tyska, spanska, franska, hindi, indonesiska, italienska, japanska, koreanska, polska, ryska, urdu och alla kinesiska varianter) föll tyst tillbaka till engelska för hela Train Display-avsnittet, Delete Lines-beskrivningen och de tre Express Bus-beskrivningarna.
+CHANGELOG_4_3_1_3 Tillagda 4 kopiera/klistra-verktygstips-nycklar som saknades från alla språkfiler inklusive engelska, så de skulle ha renderats som råa nycklar ("COPY_TIP") när dessa knappar åter-aktiveras.
+CHANGELOG_4_3_0_1 Tillagd Train Display Updated: ett litet on-screen-överlägg som visar linje/destination/tillstånd under följning av ett stött fordon. Konfigurerbar i Options: skärmposition, storlek, opacitet, vilka fält som visar, uppdateringsfrekvens, om det är begränsat till förstapersons-kamers moddar, och ett enkelt/mörkt/ljust färgtema.
+CHANGELOG_4_3_0_2 Fixade flera byggfel i den nya Train Display-integreringen: en tvetydig Utils-referens, två API:er som inte finns på denna spelversion (NetInfo.nameLocalized, ItemClass.Service.IntercityBus), och Enum.HasFlag-användning – som inte finns på .NET Framework 3.5, denna mods målramverk, och måste ersättas med manuell bitwise-kontroller.
+CHANGELOG_4_2_4_1 Fixade att moden alltid visade "Compatibility with Game Version: 0.0.0" – vi deklarerade aldrig ett stödt spelversionsintervall. Nu inställt på 1.21.1-f9 och upp.
+CHANGELOG_4_2_4_2 Fixade AutoLineColor färgstrategi-rulltänden som visar råa enum-namn (t.ex. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") i stället för översatt text: koden genererade en nyckel utan understreck medan översättningsfilen använde en. Omordnade också avsnittet så de två beroende reglangen sitter precis under färgstrategi-rullbären de tillhör, i stället för efter den orelaterade namngivningsrullbären.
+CHANGELOG_4_2_4_3 Bytt namn på spårvagnsavståndsöde lägen för att matcha bussarna (Inaktiverad/Försiktig/Realistisk) i stället för "Lättbana"/"Äkta spårvagn", och översatte de senaste bitarna av engelsk text kvar i den portugisiska beskrivningen.
+CHANGELOG_4_2_4_4 Fixade att checkboxbeskrivningar aldrig renderades någon stans i panelen närhelst ingen rubriktext ställdes in (vilket är varje checkbox i denna mod) – layoutkoden positionerade bara beskrivningsetiketten om en rubriketikett också fanns, även om beskrivningen redan skapades och fylldes med text.
+CHANGELOG_4_2_4_5 Fixade Options-flikbeskrivningar som får avskurna (särskilt på portugisiska, som kör längre än engelska) – flikar omsluter nu till en andra rad istället för klippning.
+CHANGELOG_4_2_4_6 Fixade Reset-knapparna (Unbunching, Ticket Prices) som ändrade de underliggande inställningarna omedelbar men uppdaterade inte redan visade reglang, så det såg ut som ingenting hände tills återöppnad Options.
+CHANGELOG_4_2_4_7 Fixade Delete Lines-verktygkryssrutorna som kvarstod som sparade inställningar i stället för att återställa efter användning – de var av misstag kopplade till ModSetting som en verklig preferens, när detta är avsett att vara en engångs "välj typer, klicka Radera"-åtgärd.
+CHANGELOG_4_2_3_1 Fixade att varje mod-translation visades som den råa nyckeln (t.ex. "SETTINGS_SPEED:0") på varje språk: vår egen översättningsloader matchade fortfarande insticksmodulen av den gamla ImprovedPublicTransportMod-typen i stället för Mod (klassen som faktiskt är IUserMod sedan CSLModsCommon-migrationen), så den hittade aldrig modmappen och laddade aldrig någon Translations/*.txt-fil. Härdade också fallbacks för vanilla-språk så att den inte längre misstänker Colossal:s "key:0" not-found-markör för en verklig translation.
+CHANGELOG_4_2_3_2 Borttagen alltid-tom "Key Bindings"-flik från Options – denna mod har inga nyckelbindningar att konfigurera.
+CHANGELOG_4_2_3_3 Reglage i Options visar nu sitt aktuella värde igen (förlorat i CSLModsCommon-migrationen – den nya reglagekontrollen visar det inte som standard).
+CHANGELOG_4_2_3_4 Fixade AutoLineColor "min färgskillnad"- och "max färgpickförsök"-reglage som stannade interaktiva även när färgstrategin ställdes på Inaktiverad eller Kategoriserad (ingen av dessa använder dessa inställningar).
+CHANGELOG_4_2_0_1 Tillagd Rescue Fullwidth Digits: normaliserar helbredds siffror i anpassade transportlinjenamn tillbaka till vanliga ASCII-siffror, vilket fixar en display/sorteringskonstighet från vissa icke-latinska tangentor.
+CHANGELOG_4_2_0_2 Tillagd en dedikerad Ticket Prices-flik till Options-panelen, så dag/natt tariffmultiplikatorer kan justeras utan att öppna ekonomipanelen i spelet.
+CHANGELOG_4_2_0_3 Fixade Rescue Fullwidth Digits-patchen att endast någonsin appliceras en gång vid mod-startup medan det ångras på varje nivåbortladdning, vilket tyst inaktivera det för varje sparning efter det första som laddas i en session.
+CHANGELOG_4_2_0_4 Fixade en taxi-tullinteger-overflow-bug (MileageTaxiServices) som kunde dränera den offentliga transportbudgeten med miljarder i ett steg: en taxi med skadad eller oinitialiserad ramdata (t.ex. direkt efter spawning) kunde beräkna en osannolik per-frame-avstånd, överflödande tariffens cast till int till ett enormt skräpvärde – detta matchar ett känt olöst problem rapporterat uppströms (runaway negativ taxi-inkomst). Nu ignoreras osannolika ramavstånd i stället för att debiteras.
+CHANGELOG_4_1_5_1 Fixade den verkliga orsaken till den tomma/svarta Options-panelen: CSLModsCommon:s egen UI-strängar (Version/Changelog/etc.) lever i en fysisk Localization/Common-mapp bredvid DLL:en som vår build aldrig distribuerade. Utan den gav ramverkets LocalizationManager tyst upp, vilket lämnade CurrentLocaleSource null och kraschade OptionsPanelBase.Awake() med en NullReferenceException omedelbar när den försökte visa etiketten för översättningsförlopp – vilken Unity absorberar tyst, avbryter panelen mid-build. Nu distribuerar .csproj den mappen, och GetTranslationProgress() kastar inte längre om den någonsin saknas igen.
+CHANGELOG_4_1_4_1 Fixade Options-panelen som visades som tom/svart: panelen byggdes bara när spelet växlade inställningsbehållarens synlighet av och på, men den är vanligtvis redan synlig när spelet öppnar denna mods sida, så panelen byggdes aldrig. Nu bygger den också omedelbar om behållaren redan är synlig.
+CHANGELOG_4_1_4_2 Fixade att alla CSLModsCommon UI-texturer (bakgrund, ikoner, växlar) misslyckades att ladda och återgick till en platshållare: projektets RootNamespace var fortfarande "ImprovedPublicTransport3" från den ursprungliga IPT3-förgreningen, så inbäddade resurser kompilerades under fel namn och matchades aldrig vid körtid.
+CHANGELOG_4_1_3_1 Fixade tre inställningssparingsbuggar kvar från CSLModsCommon-migrationen: var och en skrev det nya värdet till ModSetting korrekt men sparade sedan det gamla, nu-döda inställningsobjektet, så ändringen har aldrig faktiskt sparats på disk.
+CHANGELOG_4_1_3_2 Borttagen död kod från pre-CSLModsCommon-eran: det attributbaserade OptionsFramework, det monolitiska Settings.cs och den fristående VehicleEditorPositions-enum – alla helt ersatta av ModSetting och CSLModsCommonOptionsPanel.
+CHANGELOG_4_0_0_1 Forked från Improved Public Transport 3.
+CHANGELOG_4_0_0_2 Portade AutoLineBudget:s efterfrågningsbaserad flottstorlek för att samordna med IPT:s egen fordons-räknings-API i stället för att skriva linjebudgeten direkt, vilket fixar ett fortkörande underhållskostnadsbug orsakad av att de två modsen kämpar om samma tillstånd.
+CHANGELOG_4_0_0_3 Antog CSLModsCommon för Options UI (versionsmärke, ändringslogg, kompatibilitetsvarnin gar, översättningsförlopp).
 TRAINDISPLAY_LABEL_NAME Namn
 TRAINDISPLAY_LABEL_STATUS Status
 TRAINDISPLAY_NO_LINE Ingen linje
 TRAINDISPLAY_NO_DESTINATION Ingen destination
 TRAINDISPLAY_HIDDEN Dold
 TRAINDISPLAY_VEHICLE Fordon
-TRAINDISPLAY_STATE_RETURNING Ã…tervÃ¤nder
-TRAINDISPLAY_STATE_STOPPED Vid hÃ¥llplats
-TRAINDISPLAY_STATE_EN_ROUTE PÃ¥ vÃ¤g
-TRAINDISPLAY_STATE_ON_LINE PÃ¥ linjen
+TRAINDISPLAY_STATE_RETURNING Återvänder
+TRAINDISPLAY_STATE_STOPPED Vid hållplats
+TRAINDISPLAY_STATE_EN_ROUTE På väg
+TRAINDISPLAY_STATE_ON_LINE På linjen
 TRAINDISPLAY_STATE_IDLE Inaktiv
-AUTOLINECOLOR_REFRESH_BUTTON Uppdatera namn/fÃ¤rg
-AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Tilldela om det aktuella linjenamnet och fÃ¤rgen enligt aktiva AutoLineColor-instÃ¤llningar.
-AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Aktivera en fÃ¤rg- eller namnstrategi under InstÃ¤llningar innan du uppdaterar denna linje.
-CHANGELOG_4_3_3_2 HÃ¤rdad den bundlade Newtonsoft.Json-resolver sÃ¥ att den alltid fÃ¶redrar kopian som skeppas bredvid denna mod i stÃ¤llet fÃ¶r att returnera vilken kopia en annan mod hÃ¤nt att ladda fÃ¶rst (Real Time skeppas en starkt namngiven v13; CSLModsCommon behÃ¶ver den osignerade v9). Handing vÃ¥r kod den fel-bygget gjorde JsonHelper misslyckas tyst och returnera tomma objekt, vilket Ã¤r vad som lÃ¤mnade ramverkets egna sprÃ¥kkÃ¤llor tomma och sprÃ¥kvÃ¤ljaren visar rÃ¥a sprÃ¥k-id.
-CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian och Urdu visas nu i moddens sprÃ¥kvÃ¤ljare. De var redan fullt Ã¶versatta, men ramverket hade ingen sprÃ¥kfil fÃ¶r dem, sÃ¥ de var onÃ¥bara om inte sjÃ¤lva spelet kÃ¶rde pÃ¥ det sprÃ¥ket.
-CHANGELOG_4_3_3_4 Optimerad stoppassagerarebegrÃ¤nsaren: den lÃ¶ste instÃ¤llningsobjektet (tvÃ¥ ordbÃ¶ckerlookups) en gÃ¥ng per medborgareinstans inuti en loop som kÃ¶rs tusentals gÃ¥nger per frame. Det lÃ¶ses nu en gÃ¥ng per frame.
-CHANGELOG_4_3_3_5 Gjord mod-mapplookup oberoende av vilken klass som implementerar IUserMod. Det kopplandet hade redan tyst bryt Ã¶versÃ¤ttningsladdarÃ©n en gÃ¥ng och biljettpris-ikonatlaserna en andra gÃ¥ng, var efter en orelaterad omstrukturering.
-CHANGELOG_4_3_4_1 Fixade en startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") kastas av AutoLineColor innan kartan ens laddades. En andra hjÃ¤lparklass sÃ¥g fortfarande upp moden efter ImprovedPublicTransportMod-typen, som slutade vara IUserMod under CSLModsCommon-migrationen â€“ samma kopplande redan fixade pÃ¥ andra stÃ¤llen. BÃ¥da hjÃ¤lpare lÃ¶ser nu modmappen frÃ¥n denna sammansÃ¤ttning sjÃ¤lv, sÃ¥ en framtida omstrukturering kan inte tyst bryta det igen.
-CHANGELOG_4_3_5_1 Fixade Train Display-Ã¶verlÃ¤gget som aldrig visades under fÃ¶ljning av ett fordon. Det sÃ¥g upp kamerans fÃ¶ljda instans genom generiska "target"/"GetTarget"-kÃ¥ror, men spelet lagrar det i ett privat CameraController.m_targetInstance-fÃ¤lt som dessa kÃ¥ror aldrig matchade. OcksÃ¥ vÃ¤xlat "Endast i fÃ¶rstapersons-kamera" av som standard: vanligt fÃ¶ljningslÃ¤ge Ã¤r inte fÃ¶rstaperson, sÃ¥ att lÃ¤mna det pÃ¥ gjorde Ã¶verlÃ¤gget se bruten ut ur lÃ¥dan, till skillnad frÃ¥n den ursprungliga moden som visade den i nÃ¥gon fÃ¶ljningsvy.
-CHANGELOG_4_3_5_2 Ticket Prices-fliken visar nu den resulterande takten fÃ¶r varje transporttyp i stÃ¤llet fÃ¶r det live-passagerantal. Reglangen visar bara en procentsats, sÃ¥ det fanns tidigare ingen vÃ¤g att se vad en multiplikator faktiskt producerade â€“ och pÃ¥ en liten eller pausad stad lÃ¤ste passagerantal bara en permanent "0". Passagerarantal flyttades till etikettvikens verktygstip, tillsammans med den ursprungliga takten.
-TICKET_PRICE_LABEL_TOOLTIP Aktuellt pris: {0}\nOriginalpris: {1}\nPassagerare pÃ¥ vÃ¤g nu: {2}
-CHANGELOG_4_8_0_1 Tillagd SingleTrainTrackAI: enkelsporiga jÃ¤rnvÃ¤gsegment Ã¤r nu reserverade fÃ¶r en riktning Ã¥t gÃ¥ngen, sÃ¥ tvÃ¥ tÃ¥g som delar ett dubbelriktat spÃ¥r lÃ¶per inte lÃ¤ngre risk att kollidera. Clean-room omimplementering â€“ kÃ¤llmodulen (Workshop 949504539) har ingen deklarerad licens, sÃ¥ bara dess allmÃ¤nt dokumenterade koncept omimplementerades, pÃ¥ detta projekts egna Harmony-baserade patching i stÃ¤llet fÃ¶r rÃ¥a minnesdetours.
-CHANGELOG_4_8_0_2 Tillagd Stop Stacker: nÃ¤r mer Ã¤n ett fordon pÃ¥ samma linje konvergerar pÃ¥ ett stopp, anvÃ¤nder endast ledningsfordonet normalstoppositionen â€“ fÃ¶ljande fordon fÃ¥r sitt eget bÃ¤rs lÃ¤ngre bak lÃ¤ngs stoppfÃ¤ltet i stÃ¤llet fÃ¶r att stÃ¥ i enkelfil bakom ledningsfordonet. Clean-room omimplementering frÃ¥n kÃ¤llmoddens offentliga beskrivning endast (ingen kÃ¤llkod fanns tillgÃ¤nglig); endast buss och trÃ¥dbuss, matchar detta projekts befintliga BetterBusStopPosition-kroks punkt.
-CHANGELOG_4_8_0_3 Fixade intercitybussterminalen integrationen tyst aldrig aktiveras fÃ¶r spelare som Ã¤ger Sunset Harbor DLC: den detekterade DLC via reflektion in i ett privat spelsfÃ¤lt i stÃ¤llet fÃ¶r Steam DLC-kontrollen redan anvÃ¤nd pÃ¥ andra stÃ¤llen i detta projekt, och den reflektionsbaserade kontrollen kunde returnera false Ã¤ven nÃ¤r DLC var genuint installerad.
-CHANGELOG_4_8_0_4 Fixade "acceptera intercitybussar"-kryssrutan som fastnar oansluten pÃ¥ vissa terminaler: vanilla kan lÃ¤mna kryssrutan icke-interaktiv under fÃ¶rhÃ¥llanden denna mods omdÃ¶pta anvÃ¤ndning av den aldrig rÃ¤knade med. Den Ã¤r nu tvingad interaktiv nÃ¤rhelst denna mod kontrollerar den. OcksÃ¥ fixade en relaterad bug dÃ¤r en terminal som redan var korrekt instÃ¤lld kunde tyst fÃ¶rlora sin vÃ¤xel vid en senare kontroll.
-CHANGELOG_4_8_0_5 Fixade Sub-Buildings Tabs ibland visar en inaktuell flikremsa pÃ¥ en orelaterad byggnad: spelet Ã¥tervinner byggnads-ID efter en rivning, och cacheminnet anvÃ¤ndes fÃ¶r att lita pÃ¥ ett Ã¥tervunnet ID som fortfarande tillhÃ¶rde det tidigare byggnadsklustret. Det validerar nu byggnadens faktiska fÃ¶rÃ¤ldrakedja fÃ¶re Ã¥teranvÃ¤ndning av nÃ¥got frÃ¥n cacheminnet.
-CHANGELOG_4_8_0_6 Generell buggsvep Ã¶ver flera integrationer: en inverterad cache-fÃ¶rfallskontroll som slÃ¤ppte fÃ¤rsk data och tjÃ¤nade gammal data i stÃ¤llet, en off-by-one loopgrÃ¤ns som hoppade Ã¶ver den senaste transportlinjen fÃ¶r automatisk fÃ¤rgning och dublett-namnkontroller, ett fel ID-jÃ¤mfÃ¶relse som brÃ¶t "endast ett fordon pÃ¥ denna linje"-avstÃ¥ndsstyrning bypass, en prisolookup som permanent cachade ett misslyckande i stÃ¤llet fÃ¶r att fÃ¶rsÃ¶ka senare, och flera Harmony-patchar som kunde kasta pÃ¥ en null UI/prefab-referens.
-CHANGELOG_4_8_0_7 Reducerad upprepad reflektion och per-frame-lookups Ã¶ver flera integrationer: fordonsverkstipsben beskrivningar, enkelsporig segmentklassificering, och intercitybuss-objektklasslookup Ã¤r nu cachade i stÃ¤llet fÃ¶r omberÃ¤knade vid varje anrop, och en UI-uppdateringsknapp Ã¥ter-tilldelar inte lÃ¤ngre sin text varje enskild frame oavsett om nÃ¥got Ã¤ndrades.
-CHANGELOG_4_8_0_8 Nya installationer anvÃ¤nder nu den sÃ¤kra spellÃ¤ge-profilen: varje valfritt integrations- och lÃ¤ge startar av fÃ¶r maximal kompatibilitet med andra moddar. AnvÃ¤nd Rekommenderad (IPT-kÃ¤rna) eller Realistisk, eller vÃ¤nd individuella vÃ¤xlare. Intercity Bus Control och Sub-Buildings Tabs fÃ¶rblir tillgÃ¤ngliga och ingÃ¥r i Rekommenderad efter ovanstÃ¥ende korrigeringar.
-CHANGELOG_4_8_0_9 Options > Integrationer exponerar nu Advanced Stop Selection, Better Boarding, Mileage Taxi Services och Elevated Stops â€“ dessa var redan gated av instÃ¤llningar och profiler men hade ingen kryssruta, sÃ¥ bara JSON/profil kunde slÃ¥ pÃ¥ dem.
-CHANGELOG_4_8_0_10 Tillagd fullstÃ¤ndig Steam Workshop-sprÃ¥kpaket fÃ¶r alla beskrivnings-vÃ¤ljare sprÃ¥k, inklusive dansk, finska, norska, svenska, ungerska, rumÃ¤nska, bulgarsk, grekisk, ukrainsk, vietnamesisk och malaj, plus pt-br och es-419.
-CHANGELOG_4_8_5_1 Fixade Train Display-hickning/frysningar: Ã¥terkallad snappigare omedelbar re-poll vÃ¤gen och hÃ¶jd pollgolv sÃ¥ Ã¶verlÃ¤gget lÃ¶per inte lÃ¤ngre tÃ¤vlingen simulering pÃ¥ Maximum-prestanda.
-CHANGELOG_4_8_5_2 Optimerad Train Display rutastrÃ¤ng och stoppauto-namngivning: hÃ¶gst en tung namnsskaning per poll, misslyckade namnlÃ¶sa stopp skannas inte Ã¥ter varje intervall, och vÃ¤gnamn listor undviker extra listallokationer.
-CHANGELOG_4_8_5_3 Parkerad Commuter Destination (fortfarande buggy): tvingad av fÃ¶r alla profiler/sparningar och tog bort Options-vÃ¤xeln tills en senare omdesign. Framtid-endast spoiler Ã¥terstÃ¥r under Avancerad.
-CHANGELOG_4_8_5_4 Options-sprÃ¥kpaket: fullstÃ¤ndig Common JSON-uppsÃ¤ttning skeppas pÃ¥ deploy (35+ ramverkssprÃ¥l) sÃ¥ sprÃ¥krullbÃ¤ren missar inte lÃ¤ngre halva listan; sektionsbeskrivningskort behÃ¥ller en delad bakgrund med deras kontroller.
+AUTOLINECOLOR_REFRESH_BUTTON Uppdatera namn/färg
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Tilldela om det aktuella linjenamnet och färgen enligt aktiva AutoLineColor-inställningar.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Aktivera en färg- eller namnstrategi under Inställningar innan du uppdaterar denna linje.
+CHANGELOG_4_3_3_2 Härdad den bundlade Newtonsoft.Json-resolver så att den alltid föredrar kopian som skeppas bredvid denna mod i stället för att returnera vilken kopia en annan mod hänt att ladda först (Real Time skeppas en starkt namngiven v13; CSLModsCommon behöver den osignerade v9). Handing vår kod den fel-bygget gjorde JsonHelper misslyckas tyst och returnera tomma objekt, vilket är vad som lämnade ramverkets egna språkkällor tomma och språkväljaren visar råa språk-id.
+CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesian och Urdu visas nu i moddens språkväljare. De var redan fullt översatta, men ramverket hade ingen språkfil för dem, så de var onåbara om inte själva spelet körde på det språket.
+CHANGELOG_4_3_3_4 Optimerad stoppassagerarebegränsaren: den löste inställningsobjektet (två ordböckerlookups) en gång per medborgareinstans inuti en loop som körs tusentals gånger per frame. Det löses nu en gång per frame.
+CHANGELOG_4_3_3_5 Gjord mod-mapplookup oberoende av vilken klass som implementerar IUserMod. Det kopplandet hade redan tyst bryt översättningsladdarén en gång och biljettpris-ikonatlaserna en andra gång, var efter en orelaterad omstrukturering.
+CHANGELOG_4_3_4_1 Fixade en startup ModException ("Failed to find ImprovedPublicTransportMod assembly!") kastas av AutoLineColor innan kartan ens laddades. En andra hjälparklass såg fortfarande upp moden efter ImprovedPublicTransportMod-typen, som slutade vara IUserMod under CSLModsCommon-migrationen – samma kopplande redan fixade på andra ställen. Båda hjälpare löser nu modmappen från denna sammansättning själv, så en framtida omstrukturering kan inte tyst bryta det igen.
+CHANGELOG_4_3_5_1 Fixade Train Display-överlägget som aldrig visades under följning av ett fordon. Det såg upp kamerans följda instans genom generiska "target"/"GetTarget"-kåror, men spelet lagrar det i ett privat CameraController.m_targetInstance-fält som dessa kåror aldrig matchade. Också växlat "Endast i förstapersons-kamera" av som standard: vanligt följningsläge är inte förstaperson, så att lämna det på gjorde överlägget se bruten ut ur lådan, till skillnad från den ursprungliga moden som visade den i någon följningsvy.
+CHANGELOG_4_3_5_2 Ticket Prices-fliken visar nu den resulterande takten för varje transporttyp i stället för det live-passagerantal. Reglangen visar bara en procentsats, så det fanns tidigare ingen väg att se vad en multiplikator faktiskt producerade – och på en liten eller pausad stad läste passagerantal bara en permanent "0". Passagerarantal flyttades till etikettvikens verktygstip, tillsammans med den ursprungliga takten.
+TICKET_PRICE_LABEL_TOOLTIP Aktuellt pris: {0}\nOriginalpris: {1}\nPassagerare på väg nu: {2}
+CHANGELOG_4_8_0_1 Tillagd SingleTrainTrackAI: enkelsporiga järnvägsegment är nu reserverade för en riktning åt gången, så två tåg som delar ett dubbelriktat spår löper inte längre risk att kollidera. Clean-room omimplementering – källmodulen (Workshop 949504539) har ingen deklarerad licens, så bara dess allmänt dokumenterade koncept omimplementerades, på detta projekts egna Harmony-baserade patching i stället för råa minnesdetours.
+CHANGELOG_4_8_0_2 Tillagd Stop Stacker: när mer än ett fordon på samma linje konvergerar på ett stopp, använder endast ledningsfordonet normalstoppositionen – följande fordon får sitt eget bärs längre bak längs stoppfältet i stället för att stå i enkelfil bakom ledningsfordonet. Clean-room omimplementering från källmoddens offentliga beskrivning endast (ingen källkod fanns tillgänglig); endast buss och trådbuss, matchar detta projekts befintliga BetterBusStopPosition-kroks punkt.
+CHANGELOG_4_8_0_3 Fixade intercitybussterminalen integrationen tyst aldrig aktiveras för spelare som äger Sunset Harbor DLC: den detekterade DLC via reflektion in i ett privat spelsfält i stället för Steam DLC-kontrollen redan använd på andra ställen i detta projekt, och den reflektionsbaserade kontrollen kunde returnera false även när DLC var genuint installerad.
+CHANGELOG_4_8_0_4 Fixade "acceptera intercitybussar"-kryssrutan som fastnar oansluten på vissa terminaler: vanilla kan lämna kryssrutan icke-interaktiv under förhållanden denna mods omdöpta användning av den aldrig räknade med. Den är nu tvingad interaktiv närhelst denna mod kontrollerar den. Också fixade en relaterad bug där en terminal som redan var korrekt inställd kunde tyst förlora sin växel vid en senare kontroll.
+CHANGELOG_4_8_0_5 Fixade Sub-Buildings Tabs ibland visar en inaktuell flikremsa på en orelaterad byggnad: spelet återvinner byggnads-ID efter en rivning, och cacheminnet användes för att lita på ett återvunnet ID som fortfarande tillhörde det tidigare byggnadsklustret. Det validerar nu byggnadens faktiska föräldrakedja före återanvändning av något från cacheminnet.
+CHANGELOG_4_8_0_6 Generell buggsvep över flera integrationer: en inverterad cache-förfallskontroll som släppte färsk data och tjänade gammal data i stället, en off-by-one loopgräns som hoppade över den senaste transportlinjen för automatisk färgning och dublett-namnkontroller, ett fel ID-jämförelse som bröt "endast ett fordon på denna linje"-avståndsstyrning bypass, en prisolookup som permanent cachade ett misslyckande i stället för att försöka senare, och flera Harmony-patchar som kunde kasta på en null UI/prefab-referens.
+CHANGELOG_4_8_0_7 Reducerad upprepad reflektion och per-frame-lookups över flera integrationer: fordonsverkstipsben beskrivningar, enkelsporig segmentklassificering, och intercitybuss-objektklasslookup är nu cachade i stället för omberäknade vid varje anrop, och en UI-uppdateringsknapp åter-tilldelar inte längre sin text varje enskild frame oavsett om något ändrades.
+CHANGELOG_4_8_0_8 Nya installationer använder nu den säkra spelläge-profilen: varje valfritt integrations- och läge startar av för maximal kompatibilitet med andra moddar. Använd Rekommenderad (IPT-kärna) eller Realistisk, eller vänd individuella växlare. Intercity Bus Control och Sub-Buildings Tabs förblir tillgängliga och ingår i Rekommenderad efter ovanstående korrigeringar.
+CHANGELOG_4_8_0_9 Options > Integrationer exponerar nu Advanced Stop Selection, Better Boarding, Mileage Taxi Services och Elevated Stops – dessa var redan gated av inställningar och profiler men hade ingen kryssruta, så bara JSON/profil kunde slå på dem.
+CHANGELOG_4_8_0_10 Tillagd fullständig Steam Workshop-språkpaket för alla beskrivnings-väljare språk, inklusive dansk, finska, norska, svenska, ungerska, rumänska, bulgarsk, grekisk, ukrainsk, vietnamesisk och malaj, plus pt-br och es-419.
+CHANGELOG_4_8_5_1 Fixade Train Display-hickning/frysningar: återkallad snappigare omedelbar re-poll vägen och höjd pollgolv så överlägget löper inte längre tävlingen simulering på Maximum-prestanda.
+CHANGELOG_4_8_5_2 Optimerad Train Display rutasträng och stoppauto-namngivning: högst en tung namnsskaning per poll, misslyckade namnlösa stopp skannas inte åter varje intervall, och vägnamn listor undviker extra listallokationer.
+CHANGELOG_4_8_5_3 Parkerad Commuter Destination (fortfarande buggy): tvingad av för alla profiler/sparningar och tog bort Options-växeln tills en senare omdesign. Framtid-endast spoiler återstår under Avancerad.
+CHANGELOG_4_8_5_4 Options-språkpaket: fullständig Common JSON-uppsättning skeppas på deploy (35+ ramverkssprål) så språkrullbären missar inte längre halva listan; sektionsbeskrivningskort behåller en delad bakgrund med deras kontroller.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
-CHANGELOG_4_7_0_1 Fyra nya integrationer: Sub-Buildings Tabs (flikremsa fÃ¶r alla multi-byggnader-hubbar, inte bara flygplatser), Shared Stop Enabler (lÃ¥t mer Ã¤n en stopptype dela ett vÃ¤gsegment, av som standard), Commuter Destination (destinationsvisning â€“ fÃ¶r nÃ¤rvarande tvingad av i vÃ¤ntan pÃ¥ omdesign) och Taxi Stand Fix (lediga taxibilar syftar nÃ¤rmaste stoppet i stÃ¤llet fÃ¶r att vandra). Se Options > Integrationer fÃ¶r varje vÃ¤xel.
-CHANGELOG_4_7_0_2 Tillagd ett fordonskapacitetslÃ¤ge fÃ¶r intercitybussterminaler (Options > Integrationer > Intercity Bus Terminal Capacity): Inaktiverad behÃ¥ller denna mods befintliga praktiskt obegrÃ¤nsade terminal, Intermediate tillÃ¤mpar ett mÃ¥ttligt fast tak, Realistisk Ã¥terstÃ¤ller terminalens egen vanilla prefab-kapacitet. Befintliga sparningar Ã¤r standardinstÃ¤llda pÃ¥ Inaktiverad sÃ¥ uppgradering aldrig tyst fÃ¶rminsksar en terminals kapacitet.
-CHANGELOG_4_7_0_3 Fixade intercitybussterminalen "acceptera intercitybussar"-kryssrutan: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged stÃ¤ller acceptsInterCityTrains, vilket Ã¤r ett rent alias fÃ¶r isEmptying, sÃ¥ den omdÃ¶pta kryssrutan kunde tyst sÃ¤tta en bustermin al i spelets byggnads-shutdown-tillstÃ¥nd i stÃ¤llet fÃ¶r att faktiskt vÃ¤xla busstillÃ¥telse. En Harmony-prefix avlyssnar nu och omdirigerar den till per-byggnads-tillstÃ¥nd fÃ¶r buspatchade terminaler, vilket lÃ¤mnar verkliga tÃ¥gstationer orÃ¶rda.
-CHANGELOG_4_7_0_4 Tillagd ett "Originalt" fÃ¤rgtema till Train Display (Options > Train Display > Color Theme) som Ã¥terger layouten fÃ¶r kÃ¤lltÃ¥g-displayen â€“ Uppdaterad mod: en rubrikremsa med hastighet och status, plus en ruttemsa fÃ¤rgad fÃ¶r att matcha fordonnets faktiska linjefÃ¤rg.
-CHANGELOG_4_7_0_5 Fixade Simple, Dark och Light Train Display-temana renderande fel fÃ¤rger: GUI.Box fÃ¤rgad via GUI.backgroundColor producerar inte en platt fÃ¤rg, eftersom Unity:s standardhudboxstruktur inte Ã¤r ren vit. Ã–verlÃ¤gget ritar nu pÃ¥ en cached solid vit struktur med GUI.DrawTexture och GUI.color i stÃ¤llet.
-CHANGELOG_4_7_0_6 Fixade Ticket Prices-fliken alltid fallback till sin enkla anpassade reglangrÃ¤nrad i stÃ¤llet fÃ¶r visuell budgetitem: ett reflektiolokup fÃ¶r BudgetItem:s nattsioslider-fÃ¤lt hade ett stavfel, sÃ¥ det kastade alltid och fÃ¥ngades tyst.
-CHANGELOG_4_7_0_7 Reducerad upprepad per-frame UI-trÃ¤dlookups i tvÃ¥ Harmony-patchar som kÃ¶rs fÃ¶r varje synlig transportpanel (kryssrutan fÃ¶r intercitybuss pÃ¥ stadstjÃ¤nstpaneler, och varje stopps passagerarrÃ¤kning-etikett pÃ¥ linjepanelen) genom cacheminne fÃ¶r lÃ¶sta UI-referenser i stÃ¤llet fÃ¶r att sÃ¶ka om dem varje frame.
-CHANGELOG_4_7_0_8 Omorganiserad hela Options-menyn i flikar som matchar vad de faktiskt innehÃ¥ller (Flotta & Planering, Budget & Priser, LinjefÃ¤rger, Integrationer, och mer) i stÃ¤llet fÃ¶r det gamla Auto Line-fliken som hÃ¶ll sju orelaterade instÃ¤llningsgrupper. Ã…terstÃ¤lld Shortcuts-fliken borttagen i en tidigare version, redo fÃ¶r framtida integrationer som behÃ¶ver en, och lade till en GitHub-projektlÃ¤nk under Options > Avancerat.
-CHANGELOG_4_3_8_1 Inte lÃ¤ngre mÃ¤rkt BETA. UnderhÃ¥llsÃ¶verflÃ¶det som denna gaffling finns fÃ¶r att fixa lÃ¶ses vid roten och reparerar redan skadade sparningar, och alla 23 sprÃ¥k Ã¤r kompletta.
-CHANGELOG_4_3_7_1 Alla 23 sprÃ¥k i vÃ¤ljaren Ã¤r nu fullt Ã¶versatta. Tjeckisk, nederlÃ¤ndsk, slovakisk, thai och turkisk var valbara men hade ingen Ã¶versÃ¤ttningsfil, sÃ¥ de fÃ¶ll tyst tillbaka till engelska.
-CHANGELOG_4_3_7_2 Ã–versÃ¤ttningsfÃ¶rloppen som visades under sprÃ¥kvÃ¤ljaren lÃ¤ste en statisk statusfil som inte hade Ã¥ter genererats, sÃ¥ den rapporterade 76% fÃ¶r sexton sprÃ¥k som faktiskt var kompletta.
-CHANGELOG_4_3_6_1 Fixade den verkliga kÃ¤llan till ungefÃ¤r -21,4 miljoner utgift fÃ¶r offentlig transport: IPT:s veckounderhÃ¥ll byte dividerat med noll eller en stÃ¶dd fordonskapacitet, vÃ¤ndande NaN till int.MinValue, och summerad sedan varje fordon i en annan int. UnderhÃ¥llinmatningar anvÃ¤nder nu en sÃ¤ker vanilla-fallback, linjetotaler anvÃ¤nder 64-bit-aritmetik, och stora giltiga totaler debiteras endast genom begrÃ¤nsade positiva transaktioner.
-CHANGELOG_4_3_6_2 Befintliga sparningar repareras pÃ¥ inladdning genom att rensa endast negativ offentlig transport-inkomst- eller utgiftsbuckar kvar frÃ¥n detta Ã¶verflÃ¶de och korrigera deras matchande totaler. Giltiga ekonomihistoria och alla icke-transportsystem fÃ¶rblir orÃ¶rda.
-DEPOT_STATS_FERRIES_IN_USE FÃ¤rjor i drift
+CHANGELOG_4_7_0_1 Fyra nya integrationer: Sub-Buildings Tabs (flikremsa för alla multi-byggnader-hubbar, inte bara flygplatser), Shared Stop Enabler (låt mer än en stopptype dela ett vägsegment, av som standard), Commuter Destination (destinationsvisning – för närvarande tvingad av i väntan på omdesign) och Taxi Stand Fix (lediga taxibilar syftar närmaste stoppet i stället för att vandra). Se Options > Integrationer för varje växel.
+CHANGELOG_4_7_0_2 Tillagd ett fordonskapacitetsläge för intercitybussterminaler (Options > Integrationer > Intercity Bus Terminal Capacity): Inaktiverad behåller denna mods befintliga praktiskt obegränsade terminal, Intermediate tillämpar ett måttligt fast tak, Realistisk återställer terminalens egen vanilla prefab-kapacitet. Befintliga sparningar är standardinställda på Inaktiverad så uppgradering aldrig tyst förminsksar en terminals kapacitet.
+CHANGELOG_4_7_0_3 Fixade intercitybussterminalen "acceptera intercitybussar"-kryssrutan: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged ställer acceptsInterCityTrains, vilket är ett rent alias för isEmptying, så den omdöpta kryssrutan kunde tyst sätta en bustermin al i spelets byggnads-shutdown-tillstånd i stället för att faktiskt växla busstillåtelse. En Harmony-prefix avlyssnar nu och omdirigerar den till per-byggnads-tillstånd för buspatchade terminaler, vilket lämnar verkliga tågstationer orörda.
+CHANGELOG_4_7_0_4 Tillagd ett "Originalt" färgtema till Train Display (Options > Train Display > Color Theme) som återger layouten för källtåg-displayen – Uppdaterad mod: en rubrikremsa med hastighet och status, plus en ruttemsa färgad för att matcha fordonnets faktiska linjefärg.
+CHANGELOG_4_7_0_5 Fixade Simple, Dark och Light Train Display-temana renderande fel färger: GUI.Box färgad via GUI.backgroundColor producerar inte en platt färg, eftersom Unity:s standardhudboxstruktur inte är ren vit. Överlägget ritar nu på en cached solid vit struktur med GUI.DrawTexture och GUI.color i stället.
+CHANGELOG_4_7_0_6 Fixade Ticket Prices-fliken alltid fallback till sin enkla anpassade reglangränrad i stället för visuell budgetitem: ett reflektiolokup för BudgetItem:s nattsioslider-fält hade ett stavfel, så det kastade alltid och fångades tyst.
+CHANGELOG_4_7_0_7 Reducerad upprepad per-frame UI-trädlookups i två Harmony-patchar som körs för varje synlig transportpanel (kryssrutan för intercitybuss på stadstjänstpaneler, och varje stopps passagerarräkning-etikett på linjepanelen) genom cacheminne för lösta UI-referenser i stället för att söka om dem varje frame.
+CHANGELOG_4_7_0_8 Omorganiserad hela Options-menyn i flikar som matchar vad de faktiskt innehåller (Flotta & Planering, Budget & Priser, Linjefärger, Integrationer, och mer) i stället för det gamla Auto Line-fliken som höll sju orelaterade inställningsgrupper. Återställd Shortcuts-fliken borttagen i en tidigare version, redo för framtida integrationer som behöver en, och lade till en GitHub-projektlänk under Options > Avancerat.
+CHANGELOG_4_3_8_1 Inte längre märkt BETA. Underhållsöverflödet som denna gaffling finns för att fixa löses vid roten och reparerar redan skadade sparningar, och alla 23 språk är kompletta.
+CHANGELOG_4_3_7_1 Alla 23 språk i väljaren är nu fullt översatta. Tjeckisk, nederländsk, slovakisk, thai och turkisk var valbara men hade ingen översättningsfil, så de föll tyst tillbaka till engelska.
+CHANGELOG_4_3_7_2 Översättningsförloppen som visades under språkväljaren läste en statisk statusfil som inte hade åter genererats, så den rapporterade 76% för sexton språk som faktiskt var kompletta.
+CHANGELOG_4_3_6_1 Fixade den verkliga källan till ungefär -21,4 miljoner utgift för offentlig transport: IPT:s veckounderhåll byte dividerat med noll eller en stödd fordonskapacitet, vändande NaN till int.MinValue, och summerad sedan varje fordon i en annan int. Underhållinmatningar använder nu en säker vanilla-fallback, linjetotaler använder 64-bit-aritmetik, och stora giltiga totaler debiteras endast genom begränsade positiva transaktioner.
+CHANGELOG_4_3_6_2 Befintliga sparningar repareras på inladdning genom att rensa endast negativ offentlig transport-inkomst- eller utgiftsbuckar kvar från detta överflöde och korrigera deras matchande totaler. Giltiga ekonomihistoria och alla icke-transportsystem förblir orörda.
+DEPOT_STATS_FERRIES_IN_USE Färjor i drift
 DEPOT_STATS_BLIMPS_IN_USE Luftskepp i drift
 DEPOT_STATS_HELICOPTERS Helikoptrar i drift
-DEPOT_STATS_TROLLEYBUSES_IN_USE TrÃ¥dbussar i drift
+DEPOT_STATS_TROLLEYBUSES_IN_USE Trådbussar i drift
 DEPOT_STATS_VEHICLES_IN_USE Fordon i drift
-SETTINGS_EMPTY_BEFORE_DEPOT TÃ¶m passagerare innan Ã¥tergÃ¥ng till depÃ¥
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP NÃ¤r aktiverad lÃ¤mnar kollektivtrafiken inte sin linje fÃ¶r depÃ¥n fÃ¶rrÃ¤n den Ã¤r tom. Sedan Ã¥tervÃ¤nder den hem. Av som standard; Realistisk-profilen aktiverar det.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP Fordonstyper pÃ¥ Ã¶verlÃ¤gg
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Vilka kollektivtrafik-fordon kan visa Train Display-panelen nÃ¤r de Ã¤r valda.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Visa Ã¶verlÃ¤gget nÃ¤r denna fordonstyp Ã¤r vald.
+SETTINGS_EMPTY_BEFORE_DEPOT Töm passagerare innan återgång till depå
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP När aktiverad lämnar kollektivtrafiken inte sin linje för depån förrän den är tom. Sedan återvänder den hem. Av som standard; Realistisk-profilen aktiverar det.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP Fordonstyper på överlägg
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Vilka kollektivtrafik-fordon kan visa Train Display-panelen när de är valda.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Visa överlägget när denna fordonstyp är vald.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Bus
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY TrÃ¥dbuss
-SETTINGS_TRAINDISPLAY_TYPE_TRAM SpÃ¥rvagn
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Trådbuss
+SETTINGS_TRAINDISPLAY_TYPE_TRAM Spårvagn
 SETTINGS_TRAINDISPLAY_TYPE_METRO Tunnelbana
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN TÃ¥g
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN Tåg
 SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Fartyg / fÃ¤rja
+SETTINGS_TRAINDISPLAY_TYPE_SHIP Fartyg / färja
 SETTINGS_TRAINDISPLAY_TYPE_PLANE Flygplan / luftskepp / helikopter
 SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
 SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Linbana
@@ -489,106 +509,106 @@ SETTINGS_TRAINDISPLAY_TYPE_TOURS Rundturklubb
 SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Svart (halv-genomskinlig)
 SETTINGS_TRAINDISPLAY_SHOW_SPEED Visa hastighet (extra rad)
 SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Visa passagerare (extra rad)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Visa fÃ¶rfluten tid (extra rad)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP LÃ¤gger till en linjeadjacency-fÃ¤rgad rad Ã¶ver huvudpanelen med dessa extras. Av som standard.
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Visa förfluten tid (extra rad)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Lägger till en linjeadjacency-färgad rad över huvudpanelen med dessa extras. Av som standard.
 TRAINDISPLAY_LABEL_SPEED Hastighet
 TRAINDISPLAY_LABEL_TIME Tid
 SETTINGS_PERFORMANCE_PROFILE Prestandaprofil
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget fÃ¶r tung UI och sÃ¶kningar (Train Display-uppdatering, Commuter Destination-karta/lista, liknande arbete).\nLjus: minimera sprÃ¤ttrisken â€“ fÃ¤rre ikoner, lÃ¥ngsammare uppdatering.\nNormal: balanserad (standard).\nMaximal: fullstÃ¤ndig detalj och snabbare Ã¶verlÃ¤gg; kan kosta FPS pÃ¥ svagare datorer.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT LÃ¤tt (smidigare)
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Global budget för tung UI och sökningar (Train Display-uppdatering, Commuter Destination-karta/lista, liknande arbete).\nLjus: minimera sprättrisken – färre ikoner, långsammare uppdatering.\nNormal: balanserad (standard).\nMaximal: fullständig detalj och snabbare överlägg; kan kosta FPS på svagare datorer.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT Lätt (smidigare)
 SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (balanserad)
 SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maximal (full detalj)
 SETTINGS_TAB_PERFORMANCE Prestanda
 SETTINGS_PERFORMANCE_TIPS_GROUP Tips
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION AnvÃ¤nd LÃ¤tt om UI eller Ã¶verlÃ¤gg sprÃ¤ttar; Maximal bara om din dator Ã¤r stark. Ã„ndringar tillÃ¤mpas omedelbar pÃ¥ Train Display och Commuter Destination. Vissa andra integrationer behÃ¶ver fortfarande en kartomladdning.
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Använd Lätt om UI eller överlägg sprättar; Maximal bara om din dator är stark. Ändringar tillämpas omedelbar på Train Display och Commuter Destination. Vissa andra integrationer behöver fortfarande en kartomladdning.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
 SETTINGS_TAB_COMPATIBILITY Kompatibilitet
 SETTINGS_COMPAT_INTRO_GROUP Kontrollera lastordningen
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 sÃ¶ker igenom aktiverade Workshop/lokala mods efter kÃ¤nda konflikter (IPT1â€“3, TLM, ITM, absorberade fristÃ¥ende moduler) och obligatoriska beroenden (Harmony). KÃ¶r en kontroll efter att ha Ã¤ndrat prenumerationer.
-SETTINGS_COMPAT_RUN_CHECK SÃ¶k efter konflikter
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP JÃ¤mfÃ¶r aktiverade insticksmoduler mot IPT4:s lista Ã¶ver kÃ¤nda inkompatibla moduler (sammansÃ¤ttningsnamn + Workshop-ID) och Harmony-beroende.
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 söker igenom aktiverade Workshop/lokala mods efter kända konflikter (IPT1–3, TLM, ITM, absorberade fristående moduler) och obligatoriska beroenden (Harmony). Kör en kontroll efter att ha ändrat prenumerationer.
+SETTINGS_COMPAT_RUN_CHECK Sök efter konflikter
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Jämför aktiverade insticksmoduler mot IPT4:s lista över kända inkompatibla moduler (sammansättningsnamn + Workshop-ID) och Harmony-beroende.
 SETTINGS_COMPAT_RUN_CHECK_BUTTON Kontrollera nu
 SETTINGS_COMPAT_STATUS_GROUP Aktuellt resultat
-SETTINGS_COMPAT_STATUS_OK Ingen konflikt eller saknade beroenden upptÃ¤cktes vid den senaste kontrollen.
-SETTINGS_COMPAT_STATUS_WARN Ett eller flera problem hittades â€“ inaktivera de listade modsen (eller prenumerera pÃ¥ Harmony) och starta om spelet.
-SETTINGS_COMPAT_MATCHED_GENERIC Denna mod Ã¤r i konflikt med IPT4. Inaktivera eller avprenumerera den.
+SETTINGS_COMPAT_STATUS_OK Ingen konflikt eller saknade beroenden upptäcktes vid den senaste kontrollen.
+SETTINGS_COMPAT_STATUS_WARN Ett eller flera problem hittades – inaktivera de listade modsen (eller prenumerera på Harmony) och starta om spelet.
+SETTINGS_COMPAT_MATCHED_GENERIC Denna mod är i konflikt med IPT4. Inaktivera eller avprenumerera den.
 SETTINGS_COMPAT_MISSING_DEP Obligatoriskt beroende finns inte. Prenumerera och aktivera det och starta sedan om spelet.
-SETTINGS_COMPAT_NO_ISSUES Ingenting som Ã¤r i konflikt Ã¤r aktiverat just nu.
+SETTINGS_COMPAT_NO_ISSUES Ingenting som är i konflikt är aktiverat just nu.
 SETTINGS_COMPAT_BADGE_CONFLICT Konflikt
 SETTINGS_COMPAT_BADGE_MISSING Saknas
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP Vad du inte ska kÃ¶ra med IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Aktivera aldrig: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nAvprenumerera frÃ¥n fristÃ¥ende moduler som redan Ã¤r inbyggda i IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. â€“ full lista finns pÃ¥ Workshop-diskussionen).\nKrÃ¤vs: Harmony (CitiesHarmony, Workshop 2040656402).\nNÃ¤r du har inaktiverat en konflikt, startar du om spelet sÃ¥ Harmony-patchar avlastas pÃ¥ ett rent sÃ¤tt.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Skicka det valda fordonet tillbaka till dess depÃ¥/garage. Minskar linjelinjemÃ¥let.
-COMMUTER_STOP_WITH_WAITING {0} ({1} vÃ¤ntande)
+SETTINGS_COMPAT_GUIDE_GROUP Vad du inte ska köra med IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Aktivera aldrig: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nAvprenumerera från fristående moduler som redan är inbyggda i IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. – full lista finns på Workshop-diskussionen).\nKrävs: Harmony (CitiesHarmony, Workshop 2040656402).\nNär du har inaktiverat en konflikt, startar du om spelet så Harmony-patchar avlastas på ett rent sätt.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Skicka det valda fordonet tillbaka till dess depå/garage. Minskar linjelinjemålet.
+COMMUTER_STOP_WITH_WAITING {0} ({1} väntande)
 SETTINGS_TAB_FLEET_SHORT Flotta
-SETTINGS_TAB_STOPS_SHORT HÃ¥llplatser
-SETTINGS_TAB_OVERLAY_SHORT Ã–verlÃ¤gg
+SETTINGS_TAB_STOPS_SHORT Hållplatser
+SETTINGS_TAB_OVERLAY_SHORT Överlägg
 SETTINGS_TAB_SYSTEM_SHORT System
-SETTINGS_SUB_SPACING AvstÃ¥nd
-SETTINGS_SUB_SPACING_DESC HÃ¥ll fordon jÃ¤mnt fÃ¶rdelade. AvstÃ¥ndsstyrning Ã¤r det klassiska IPT-verktyget; Express Bus/SpÃ¥rvagn Ã¤r en alternativ stil.
+SETTINGS_SUB_SPACING Avstånd
+SETTINGS_SUB_SPACING_DESC Håll fordon jämnt fördelade. Avståndsstyrning är det klassiska IPT-verktyget; Express Bus/Spårvagn är en alternativ stil.
 SETTINGS_SUB_BUDGET Budget
-SETTINGS_SUB_COLOR FÃ¤rg
+SETTINGS_SUB_COLOR Färg
 SETTINGS_SUB_CAPS Tak
-SETTINGS_SUB_NET NÃ¤tverk
-SETTINGS_SUB_NET_DESC HÃ¥llplatsplacering pÃ¥ vÃ¤gar: upphÃ¶jda, delade typer, stacking, avancerade plattformar.
+SETTINGS_SUB_NET Nätverk
+SETTINGS_SUB_NET_DESC Hållplatsplacering på vägar: upphöjda, delade typer, stacking, avancerade plattformar.
 SETTINGS_SUB_VEHICLES Fordon
-SETTINGS_SUB_VEHICLES_DESC Ombordstigning, Ã¥tergÃ¥ng till depÃ¥, tÃ¥g pÃ¥ enkla spÃ¥r, taxi, frigÃ¶rare.
-SETTINGS_SUB_DEPOTS DepÃ¥er
-SETTINGS_SUB_DEPOTS_DESC Mjuka tak fÃ¶r hur mÃ¥nga fordon en depÃ¥ kan hÃ¥lla (vanilla Ã¤r ofta obegrÃ¤nsad).
-SETTINGS_SUB_OUTSIDE UtanfÃ¶r
-SETTINGS_SUB_OUTSIDE_DESC Intercity-terminaler och extern anslutningslast/passagerarvÃ¤ntan.
-SETTINGS_SUB_DISPLAY SkÃ¤rm
+SETTINGS_SUB_VEHICLES_DESC Ombordstigning, återgång till depå, tåg på enkla spår, taxi, frigörare.
+SETTINGS_SUB_DEPOTS Depåer
+SETTINGS_SUB_DEPOTS_DESC Mjuka tak för hur många fordon en depå kan hålla (vanilla är ofta obegränsad).
+SETTINGS_SUB_OUTSIDE Utanför
+SETTINGS_SUB_OUTSIDE_DESC Intercity-terminaler och extern anslutningslast/passagerarväntan.
+SETTINGS_SUB_DISPLAY Skärm
 SETTINGS_SUB_INFO Info
 SETTINGS_SUB_INFO_DESC Paneler och stadsinfo-verktyg (inte flottsimulering).
 SETTINGS_SUB_PERF Prestanda
 SETTINGS_SUB_COMPAT Kompatibilitet
 SETTINGS_SUB_KEYS Tangenter
 SETTINGS_FUTURE_GROUP Kommer senare
-SETTINGS_FUTURE_GROUP_DESCRIPTION FÃ¶rhandsgranskning av planerade funktioner. GrÃ¥markerad tills den Ã¤r klar â€“ ingen effekt Ã¤n.
-SETTINGS_FUTURE_REVERSIBLE_TRAM OmvÃ¤nd spÃ¥rvagns-AI (snart)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planerat: spÃ¥rvagnar gÃ¥r i omvÃ¤nd vid Ã¤ndhÃ¥llplatserna utan en slinga. Inte tillgÃ¤ngligt Ã¤n.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Förhandsvisning av planerade funktioner. Visas gråut tills de är klara; passagerardestination förblir tillgänglig för test.
+SETTINGS_FUTURE_REVERSIBLE_TRAM Omvänd spårvagns-AI (snart)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planerat: spårvagnar går i omvänd vid ändhållplatserna utan en slinga. Inte tillgängligt än.
 SETTINGS_FUTURE_BREAKDOWN Nedbrytningsverktyg (snart)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planerat: diagnostikverktyg fÃ¶r rutt/trafik fÃ¶r fastnad transit. Inte tillgÃ¤ngligt Ã¤n.
+SETTINGS_FUTURE_BREAKDOWN_TIP Planerat: diagnostikverktyg för rutt/trafik för fastnad transit. Inte tillgängligt än.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Kartdetalj:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Prestanda visar fÃ¤rre kartikoner och uppdaterar snabbare. FullstÃ¤ndig karta visar mÃ¥nga fler destinationsikoner pÃ¥ kartan; panelen uppdateras lÃ¥ngsammare sÃ¥ svagare datorer kan fortfarande anvÃ¤nda den.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Prestanda visar färre kartikoner och uppdaterar snabbare. Fullständig karta visar många fler destinationsikoner på kartan; panelen uppdateras långsammare så svagare datorer kan fortfarande använda den.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Prestanda (snabbare)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL FullstÃ¤ndig karta (fler ikoner, lÃ¥ngsammare uppdatering)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL Fullständig karta (fler ikoner, långsammare uppdatering)
 SETTINGS_KEYBINDINGS_GROUP Snabbknappar i spelet
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION GenvÃ¤gar medan en stad Ã¤r laddad. Klicka pÃ¥ en bindning och tryck sedan pÃ¥ en tangent fÃ¶r att binda om.
-SETTINGS_HOTKEY_TRAIN_DISPLAY VÃ¤xla tÃ¥gvisning
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Aktivera eller inaktivera hÃ¶rnets fordonÃ¶verlÃ¤gg.
-SETTINGS_HOTKEY_LINE_COLOR Omtilldela linjefÃ¤rg
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Medan en transportlinje Ã¤r vald kÃ¶r du Auto Line Color igen fÃ¶r den linjen (behÃ¶ver en fÃ¤rgstrategi aktiverad).
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Genvägar medan en stad är laddad. Klicka på en bindning och tryck sedan på en tangent för att binda om.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Växla tågvisning
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Aktivera eller inaktivera hörnets fordonöverlägg.
+SETTINGS_HOTKEY_LINE_COLOR Omtilldela linjefärg
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Medan en transportlinje är vald kör du Auto Line Color igen för den linjen (behöver en färgstrategi aktiverad).
 LINE_PANEL_COPY Kopiera
 LINE_PANEL_PASTE Klistra in
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe â€” everything optional stays OFF (best with many mods).\nâ˜… Vanilla â€” closest to the base game (no IPT extras).\nâ˜… Recommended â€” IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic â€” most features on (stronger sim, more cost).\nâ˜… Custom â€” you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe — everything optional stays OFF (best with many mods).\nâ˜… Vanilla — closest to the base game (no IPT extras).\nâ˜… Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic — most features on (stronger sim, more cost).\nâ˜… Custom — you choose every toggle; profiles never override Custom again until you pick another package.
 SETTINGS_QUICK_TIPS_GROUP Snabbtips
-SETTINGS_QUICK_TIPS_DESC SmÃ¥ pÃ¥minnelser â€“ ingen extra kod, bara hur man anvÃ¤nder det du redan har.
-SETTINGS_QUICK_TIP_1_TITLE BÃ¶rja enkelt
-SETTINGS_QUICK_TIP_1_BODY VÃ¤lj Rekommenderad och aktivera sedan bara vad du behÃ¶ver. SÃ¤ker Ã¤r bÃ¤st om du anvÃ¤nder mÃ¥nga andra mods.
-SETTINGS_QUICK_TIP_2_TITLE LÃ¥ngsam dator?
-SETTINGS_QUICK_TIP_2_BODY System â†’ Prestanda â†’ LÃ¤tt. Undvik ocksÃ¥ Commuter "FullstÃ¤ndig karta" om FPS sjunker.
-SETTINGS_QUICK_TIP_3_TITLE Efter att ha vÃ¤xlat
-SETTINGS_QUICK_TIP_3_BODY Vissa alternativ behÃ¶ver ladda om stad (verktygstipset sÃ¤ger det). System â†’ Kompatibilitet kontrollerar modbogsskningar.
-SETTINGS_OOC_RESET_TOOLTIP Ã…terstÃ¤ller extern anslutningsvÃ¤ntan, dekorativ trafik och relaterade alternativ till sÃ¤kra standardvÃ¤rden.
-SETTINGS_EBS_GROUP_BUS_DESC Expressbudsbussar kan avgÃ¥ tidigt nÃ¤r fÃ¥ passagerare stiger pÃ¥ â€“ valfri avancerad avstÃ¥ndsstyrning.
+SETTINGS_QUICK_TIPS_DESC Små påminnelser – ingen extra kod, bara hur man använder det du redan har.
+SETTINGS_QUICK_TIP_1_TITLE Börja enkelt
+SETTINGS_QUICK_TIP_1_BODY Välj Rekommenderad och aktivera sedan bara vad du behöver. Säker är bäst om du använder många andra mods.
+SETTINGS_QUICK_TIP_2_TITLE Långsam dator?
+SETTINGS_QUICK_TIP_2_BODY System â†’ Prestanda â†’ Lätt. Undvik också Commuter "Fullständig karta" om FPS sjunker.
+SETTINGS_QUICK_TIP_3_TITLE Efter att ha växlat
+SETTINGS_QUICK_TIP_3_BODY Vissa alternativ behöver ladda om stad (verktygstipset säger det). System â†’ Kompatibilitet kontrollerar modbogsskningar.
+SETTINGS_OOC_RESET_TOOLTIP Återställer extern anslutningsväntan, dekorativ trafik och relaterade alternativ till säkra standardvärden.
+SETTINGS_EBS_GROUP_BUS_DESC Expressbudsbussar kan avgå tidigt när få passagerare stiger på – valfri avancerad avståndsstyrning.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rader
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop Ã¤ndrar bara var bussar parkerar vid hÃ¥llplatsen. Alternativen nedan Ã¤r separata funktioner (upphÃ¶jda, delade hÃ¥llplatser, etc.) â€“ de Ã¤r klickbara med avsikt.
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop ändrar bara var bussar parkerar vid hållplatsen. Alternativen nedan är separata funktioner (upphöjda, delade hållplatser, etc.) – de är klickbara med avsikt.
 MOD_DESCRIPTION Improved control of public transportation.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Alltid-aktivt beteende
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Två små beteenden som alltid körts utan möjlighet att stänga av dem – tills nu. PÅ som standard så att befintliga installationer inte ser någon förändring – stäng av om du kör en fristående mod som gör samma sak, eller bara föredrar manuell kontroll.
+SETTINGS_AUTONAMESTOPS_AUTO Automatiskt namnge namnlösa hållplatser
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Första gången du väljer en hållplats utan namn ges den samma närliggande byggnadsnamn som hållplats-panelens egen dropdown skulle föreslå – utan att du behöver öppna den dropdownen. Rör aldrig ett namn du (eller detta) redan har satt.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Porterad från den fristående Rescue Fullwidth Digits-mod. Fixar transportlinjenamn som sparats med fullbreddssiffror (１２３ istället för 123) av vissa IME/inställningar, som annars visats felaktigt för alltid.
+SETTINGS_FUTURE_BUSWAYPOINT Buss-vägpunkthållplatser (snart)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planerat: markera en hållplats som enbart routing-vägpunkt – linjens väg går genom den men fordon stannar aldrig eller laddar/avladdar passagerare där. Hjälper styra vanilla pathfinding till den väg du egentligen avsåg. Ej tillgängligt än.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Avancerad hållplatsval: välj exakt spår
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Håll inne när du placerar en tåg/spårvagn-hållplatsanslutning för att rikta in dig på det exakta spåret istället för närmaste giltiga. Var hårdkodad till Vänster/Höger Shift; ombindning här täcker bara den sida du väljer.
+SETTINGS_LEGACY_GROUP Arv
+SETTINGS_LEGACY_GROUP_DESC Gamla växlar behålls bara så att installationer som redan hade dem på fortsätter att fungera exakt som förut. Låsta – de kan inte längre slås på eller av härifrån, och varje gameplay-profil lämnar dem avstängda framöver.
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

@@ -137,7 +137,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
 
         public static bool TransportLineCanLeaveStopWrapper(ref TransportLine transportLine, ushort nextStop, int waitTime) //the args are for the same signature
         {
-            if (currentVehicleID == 0)
+            if (!ModSetting.Instance.EnableUnbunching || currentVehicleID == 0)
             {
                 return true;
             }

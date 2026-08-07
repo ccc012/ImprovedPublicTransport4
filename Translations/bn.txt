@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE একক ট্র্যাক ট্রেন সংঘ�
 SETTINGS_STTAI_ENABLE_TOOLTIP একটি একক ট্র্যাক অংশ একবারে একটি ট্রেনের জন্য সংরক্ষণ করে, বিপরীত ট্রেনকে প্রবেশপথে ধরে রাখে যতক্ষণ না অংশটি পরিষ্কার হয়। মূল IPT4 বৈশিষ্ট্য, ভ্যানিলা বা কোনো শোষিত মডে উপস্থিত নেই।
 SETTINGS_STOPSTACKER_ENABLE বাস স্টপ বার্থ স্ট্যাকিং
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP একই স্টপে আসা দ্বিতীয়/তৃতীয় বাসকে সামনের বাসের পিছনে সারিবদ্ধ হওয়ার পরিবর্তে স্টপ লেনে আরও পিছনে নিজস্ব বার্থ ব্যবহার করতে দেয়, যাতে একাধিক বাস একসাথে যাত্রী তুলতে/নামাতে পারে। মূল IPT4 বৈশিষ্ট্য (সরলীকৃত পুনর্বাস্তবায়ন), ভ্যানিলা বা কোনো শোষিত মডে উপস্থিত নেই।
+
+SETTINGS_SUPPORT_LABEL যদি IPT4 আপনার সেভগেম বাঁচায় বা পারফরম্যান্স উন্নত করে, তবে এর ডেভেলপমেন্টকে সমর্থন করার কথা ভাবুন!
+SETTINGS_SUPPORT_BUTTON Ko-fi-এ আমাকে সমর্থন করুন
+SETTINGS_FEATURE_UNBUNCHING_ENABLE আনবঞ্চিং / এক্সপ্রেস বাস
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP গাড়ি আনবঞ্চিং, এক্সপ্রেস বাস/ট্রাম, স্পavn ইন্টারভাল এবং আক্রমণাত্মক ফ্লিট সাইজিং সক্ষম করে। বাস এবং ট্রামের সব স্পেসিং এবং বাজেট বৈশিষ্ট্য।
+SETTINGS_FEATURE_BUDGET_ENABLE বাজেট বৈশিষ্ট্য
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP লাইন বাজেট কন্ট্রোল, অটো লাইন বাজেট, টিকিট প্রাইস মাল্টিপ্লায়ার এবং পথ খরচ হিসাবে দাম সক্ষম করে। সব টাকা/দাম/ফ্লিট বৈশিষ্ট্য।
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE স্বয়ংক্রিয় লাইন রঙ
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP নতুন পরিবহন লাইনের রঙ এবং নাম স্বয়ংক্রিয়ভাবে বরাদ্দ করে। রঙ কৌশল, নামকরণ কৌশল এবং প্যানেল সেটিংস অন্তর্ভুক্ত।
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE গাড়ি সম্পাদক
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP গাড়ির ধরন, লিভারি এবং বৈশিষ্ট্য পরিবর্তনের জন্য গাড়ি সম্পাদক প্যানেল সক্ষম করে। নিচে বা ডানে স্থাপন করা যেতে পারে।
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE অপেক্ষমাণকারী যাত্রী সীমা
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP একক স্টপে কতজন নাগরিক সর্বজনীন পরিবহনের জন্য অপেক্ষা করতে পারে সেটি সীমাবদ্ধ করে। সমস্ত অপেক্ষা সীমা সরিয়ে গেমটিকে স্টপ ক্ষমতা পরিচালনা করার জন্য অক্ষম করুন।
+SETTINGS_TRAINDISPLAY_SCOPE ওভারলে কখন দেখাবে
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP নির্বাচিত গাড়ি, ফার্স্ট-পারসন ক্যামেরা, অথবা দুটোই নির্বাচন করুন।
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE শুধু নির্বাচিত গাড়ি
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON শুধু ফার্স্ট-পারসন ক্যামেরা
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH নির্বাচিত গাড়ি বা ফার্স্ট-পারসন ক্যামেরা
+SETTINGS_TRAINDISPLAY_LAYOUT প্যানেল লেআউট
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP ওভারলে কোন লেআউট ব্যবহার করে। দুটোই একই তথ্য দেখায় এবং একই চেকবক্স মেনে চলে - শুধু আকার ভিন্ন।
 CHANGELOG_4_3_3_1 সেটিংস সেভ/লোড ভাঙার বিষয় সমাধান করা হয়েছে Newtonsoft.Json.dll বান্ডেল করার পরেও।
 CHANGELOG_4_3_2_1 মড সম্পূর্ণভাবে লোড করতে ব্যর্থ হওয়ার বিষয় সমাধান করা হয়েছে যখনই অন্য কোনো মড Newtonsoft.Json প্রদান করে না।
 CHANGELOG_4_3_1_1 অপশন প্যানেলের ভাষা নির্বাচক শুধুমাত্র ফ্রেমওয়ার্কের নিজস্ব স্ট্রিং অনুবাদ করার বিষয় সমাধান করা হয়েছে।
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF পারফ
 SETTINGS_SUB_COMPAT সামঞ্জস্য
 SETTINGS_SUB_KEYS কী
 SETTINGS_FUTURE_GROUP শীঘ্রই আসছে
-SETTINGS_FUTURE_GROUP_DESCRIPTION পরিকল্পিত বৈশিষ্ট্যের পূর্বরূপ। প্রস্তুত না হওয়া পর্যন্ত ধূসর — এখনও কোনো প্রভাব নেই।
+SETTINGS_FUTURE_GROUP_DESCRIPTION পরিকল্পিত বৈশিষ্ট্যগুলোর পূর্বদর্শন। প্রস্তুত না হওয়া পর্যন্ত ধূসর হয়ে থাকে; যাত্রী গন্তব্য টেস্টিং-এর জন্য উপলব্ধ থাকে।
 SETTINGS_FUTURE_REVERSIBLE_TRAM বিপরীতযোগ্য ট্রাম AI (শীঘ্রই)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP পরিকল্পিত: ট্রামগুলি লুপ ছাড়াই টার্মিনিতে বিপরীত হয়। এখনও উপলব্ধ নয়।
 SETTINGS_FUTURE_BREAKDOWN ভাঙনের সরঞ্জাম (শীঘ্রই)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP বাইরের সংযোগ অপেক্ষ
 SETTINGS_EBS_GROUP_BUS_DESC কয়েকজন যাত্রী ওঠানামা করলে এক্সপ্রেস বাসগুলি আগেই ছেড়ে যেতে পারে — ঐচ্ছিক উন্নত ব্যবধান।
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP অতিরিক্ত সারি
 SETTINGS_SUB_NET_BBSP_NOTE উন্নত বাস স্টপ শুধুমাত্র বাসগুলি স্টপে কোথায় পার্ক করে তা পরিবর্তন করে। নিচের বিকল্পগুলি আলাদা বৈশিষ্ট্য (উন্নত, ভাগ করা স্টপ, ইত্যাদি) - তারা উদ্দেশ্যমূলকভাবে ক্লিকযোগ্য থাকে।
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP সর্বদা-সক্রিয় আচরণ
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC দুটি ক্ষুদ্র আচরণ যেগুলো এখন পর্যন্ত বন্ধ করার উপায় ছাড়াই চলেছে। ডিফল্টভাবে অন কর্তৃক Таким образом 현有安装看不到变化 — 如果您运行做同样事情的独立模组，或只是喜欢手动控制，请关闭它。
+SETTINGS_AUTONAMESTOPS_ENABLE অনামা স্টপগুলি স্বয়ংক্রিয়ভাবে নাম দিন
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP আপনি প্রথম بار একটি স্টপ নির্বাচন করলে যার কোন নাম নেই, সেটি নিকটবর্তী ভবনের একই নাম দেয় যা স্টপ প্যানেলের নিজস্ব ড্রপডাউন দিয়ে প্রস্তাব করা হতো — সেই ড্রপডাউনটি খুলতে না পারা। আপনি (বা এটি) ইতিমধ্যে সেট করা কোনো নাম ছোঁয়া হয় না।
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP স্বতন্ত্র Rescue Fullwidth Digits মড থেকে পোর্ট করা। কিছু IME/ইনপুট সেটআপ দ্বারা ফুল-প্রস্থ অঙ্ক (১২৩ বদলে 123) দিয়ে সংরক্ষিত পরিবহন লাইন নাম ঠিক করে, যা অন্যথায় চিরকাল ভুলভাবে প্রদর্শিত হতো।
+SETTINGS_FUTURE_BUSWAYPOINT বাস ওয়েপয়েন্ট স্টপ (শীঘ্রই)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP পরিকল্পিত: একটি স্টপকে কেবল রাউটিং ওয়েপয়েন্ট হিসেবে চিহ্নিত করুন — লাইনটির পথ সেটির মধ্য দিয়ে যায় কিন্তু যানবাহন কখনো সেখানে থামে না বা যাত্রী চড়া/উতরন করে না। সেটি আপনার আসল উদ্দেশ্য রাস্তায় ডিফল্ট পাথফাইন্ডিং চালাতে সাহায্য করে। এখনো উপলব্ধ নয়।
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT উন্নত স্টপ নির্বাচন: সঠিক ট্র্যাক বেছে নিন
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP ট্রেন/ট্রাম স্টপ সংযোগ স্থাপন করার সময় ধরে রাখুন সঠিক ট্র্যাক টার্গেট করতে নিকটতম বৈধ ট্র্যাকের পরিবর্তে। এটি বাম/ডান শিফ্ট-এ হার্ডকোডেড ছিল; এখানে রিবাইন্ডিং শুধুমাত্র আপনার বেছে নেওয়া পাশটি কভার করে।
+SETTINGS_LEGACY_GROUP লিগ্যাসি
+SETTINGS_LEGACY_GROUP_DESC পুরনো টগলগুলি শুধুমাত্র সেই ইনস্টলেশনগুলির জন্য রাখা হয়েছে যেগুলো ইতিমধ্যে সেটিকে অন করেছিল, যাতে সেগুলো আগের মতো সঠিকভাবে কাজ করে। লক করা — এখান থেকে আর অন/অফ করা যায় না, এবং প্রতিটি গেমপ্লে প্রোফাইল সেগুলো 앞으로 অফ রেখে দেবে।
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

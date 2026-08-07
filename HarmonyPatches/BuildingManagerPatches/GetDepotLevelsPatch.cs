@@ -24,7 +24,13 @@ namespace ImprovedPublicTransport.HarmonyPatches.BuildingManagerPatches
 
         private static bool Prefix(ref TransportLine.DepotLevels __result, ushort lineID)
         {
-            var info1 = Singleton<TransportManager>.instance.m_lines.m_buffer[lineID].Info;
+            var lines = Singleton<TransportManager>.instance.m_lines;
+            if (lineID == 0 || lineID >= lines.m_size)
+            {
+                return true;
+            }
+
+            var info1 = lines.m_buffer[lineID].Info;
             if (info1 == null || info1.GetSubService() != ItemClass.SubService.PublicTransportBus ||
                 info1.GetClassLevel() != ItemClass.Level.Level1)
             {

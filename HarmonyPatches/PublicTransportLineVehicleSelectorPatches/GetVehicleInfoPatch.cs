@@ -24,7 +24,8 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportLineVehicleSelec
 
         public static bool Prefix(PublicTransportLineVehicleSelector __instance)
         {
-            __instance.component.Hide();
+            if (__instance?.component != null)
+                __instance.component.Hide();
             return false;
         }
     }

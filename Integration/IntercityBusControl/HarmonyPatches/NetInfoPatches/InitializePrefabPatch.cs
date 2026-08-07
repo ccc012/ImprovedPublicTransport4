@@ -45,6 +45,7 @@ namespace IntercityBusControl.HarmonyPatches.NetInfoPatches
                     if (isBusPrimary && ai.m_transportLineInfo != null
                         && ai.m_transportLineInfo.name != Mod.IntercityBusLine) continue;
 
+                    StationPatcher.RecordOriginalState(info, ai);
                     ai.m_transportLineInfo = __instance;
                 }
             }

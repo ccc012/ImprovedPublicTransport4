@@ -21,6 +21,7 @@ namespace ImprovedPublicTransport.Data
       }
       set
       {
+        value = System.Math.Max(1, value);
         if (this._sampleLenght == value)
           return;
         this._sampleLenght = value;
@@ -31,10 +32,10 @@ namespace ImprovedPublicTransport.Data
     {
       get
       {
-        if (this._items.Count == 0)
-          return 0.0f;
         lock (this._items)
         {
+          if (this._items.Count == 0)
+            return 0.0f;
           // Manual average — LINQ enumerator alloc on every weekly/stats read.
           float sum = 0f;
           int n = 0;
@@ -55,14 +56,19 @@ namespace ImprovedPublicTransport.Data
 
     public MovingAverage(int sampleLenght)
     {
-      this._sampleLenght = sampleLenght;
-      this._items = new Queue<float>(sampleLenght);
+      this._sampleLenght = System.Math.Max(1, sampleLenght);
+      this._items = new Queue<float>(this._sampleLenght);
     }
 
     public MovingAverage(float[] array, int sampleLenght)
     {
-      this._sampleLenght = sampleLenght;
-      this._items = new Queue<float>((IEnumerable<float>) array);
+      this._sampleLenght = System.Math.Max(1, sampleLenght);
+      this._items = new Queue<float>();
+      if (array == null)
+        return;
+      int start = System.Math.Max(0, array.Length - this._sampleLenght);
+      for (int i = start; i < array.Length; i++)
+        this._items.Enqueue(array[i]);
     }
 
     public void Clear()
@@ -75,10 +81,8 @@ namespace ImprovedPublicTransport.Data
     {
       lock (this._items)
       {
-        if (this._items.Count == this._sampleLenght)
-        {
-          double num = (double) this._items.Dequeue();
-        }
+        while (this._items.Count >= this._sampleLenght)
+          this._items.Dequeue();
         this._items.Enqueue(value);
       }
     }

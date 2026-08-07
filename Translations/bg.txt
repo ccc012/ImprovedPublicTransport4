@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Предотвращение столкновений на
 SETTINGS_STTAI_ENABLE_TOOLTIP Резервирует однопутный участок для одного поезда за раз, удерживая встречный поезд у въезда, пока участок не освободится. Оригинальная функция IPT4, отсутствующая в оригинальной игре или любом поглощённом моде.
 SETTINGS_STOPSTACKER_ENABLE Многоместная посадка на автобусной остановке
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Позволяет второму/третьему автобусу, приближающемуся к той же остановке, использовать собственное место дальше по полосе остановки вместо того, чтобы вставать в очередь за ведущим автобусом, благодаря чему несколько автобусов могут одновременно высаживать и забирать пассажиров. Оригинальная функция IPT4 (упрощённая переработка без доступа к исходному коду), отсутствующая в оригинальной игре или любом поглощённом моде.
+
+SETTINGS_SUPPORT_LABEL Ако IPT4 е спасил играта ви или е подобрил перформанса, обмислете да подкрепите разработката му!
+SETTINGS_SUPPORT_BUTTON Подкрепете ме в Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Разделяне / Експресен автобус
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Включва разделяне на превозните средства, експресен автобус/трамвай, интервал на появяване и агресивно размериране на flota. Всички функции за разстояние и бюджет за автобуси и трамвае.
+SETTINGS_FEATURE_BUDGET_ENABLE Бюджетни функции
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Включва контрол на бюджета на линията, автоматичен бюджет на линията, множител на цената на билета и цена като разход за път. Всички парични/ценови/флотови функции.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Автоматичен цвят на линията
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Автоматично задава цветове и имена на новите транспортни линии. Включва цветова стратегия, стратегия за именуване и настройки на панела.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Редактор на превозните средства
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Включва панела на редактора на превозните средства за промяна на типове, ливери и свойства. Може да се позиционира в долна или десна част.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Лимити на чакащите пътници
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Ограничава колко граждани могат да чакат обществения превоз на една спирка. Изключете за да премахнете всички лимити за чакане и да оставите играта да управлява капацитета на спирките.
+SETTINGS_TRAINDISPLAY_SCOPE Показване на оверлея при
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Изберете избрано превозно средство, камера от първи лице или и двете.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Само избрано превозно средство
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Само камера от първи лице
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Избрано превозно средство или камера от първи лице
+SETTINGS_TRAINDISPLAY_LAYOUT Подредба на панела
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Коя подредба използва оверлеят. И двете показват същата информация и уважават същите чекбоксове - само формата е различна.
 CHANGELOG_4_3_3_1 Поправихме запазване на настройки/зареждане все още счупено на някои стекове на мода дори след пакетиране на Newtonsoft.Json.dll: предишната обходна работа только се опита Assembly.LoadFrom на един входна точка и все още зависи от ред на натоварване. IPT4 сега регистрира глобална кука на AssemblyResolve и тръгва нетърпеливо нейното пакетирано Newtonsoft.Json от всяка входна точка на мод/UI преди CSLModsCommon докосвам JsonWriter, така че новия интерфейс на Опциите трай надеждно вместо случайно свързване към несъвместимо копие на Json.NET на друг мод.
 CHANGELOG_4_3_2_1 Поправихме мода, който да не се зарежда напълно ("не успя да зареди DLL на мода или една от неговите зависимости"), всеки път, когато нито един друг инсталиран мод случайно да е предоставил Newtonsoft.Json: сериализацията на настройките на CSLModsCommon (JsonHelper/SerializationContext) се нуждае от него, но нашата изграждане никога не е разгръщала Newtonsoft.Json.dll до страната на мода - работеше само случайно, яздейки на копие на друг мод. Намерено чрез деактивиране на всеки друг мод за чист тест, което е точно начин, по който това трябва да бъде тествано напред.
 CHANGELOG_4_3_1_1 Поправихме селектора на език на панела на Опциите да пересърчи само низовете на собствения си фреймворк (Версия/Запис на промени/...) докато всеки низ на този мод остана на език на играта - нашия собствен заредител на превода ключирал язык на играта и игнорира собствения избор на мода напълно. Сега следва избора на езика на мода, отпада към езика на играта и след това английски, и преобновява всеки път, когато избирателят се променя.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Произв
 SETTINGS_SUB_COMPAT Съвм
 SETTINGS_SUB_KEYS Ключове
 SETTINGS_FUTURE_GROUP Идва по-късно
-SETTINGS_FUTURE_GROUP_DESCRIPTION Преглед на планирани функции. Избелено, докато е готово — още няма ефект.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Преглед на планирани функции. Показани в сиво докато са готови; дестинацията на пътниците остава достъпна за тестване.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Обратим трамвай AI (скоро)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Планирано: трамвайте се обръщат в терминалите без цикъл. Още не е достъпно.
 SETTINGS_FUTURE_BREAKDOWN Инструменти за разбивка (скоро)
@@ -577,18 +597,18 @@ SETTINGS_EBS_GROUP_BUS_DESC Express автобусите могат да зам�
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Допълнителни редове
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop само променя къде автобусите паркират на остановката. Опциите под са отделни функции (възвишена, дяла спирки, и т.н.) — те остават кликнати по намерение.
 MOD_DESCRIPTION Improved control of public transportation.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Постоянно активно поведение
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Две малки поведения, които винаги са работели без начин да се изключат – досега. Включени по подразбиране, така че съществуващите инсталации да не забележат промяна – изключете ги, ако използвате самостоятелен мод, който прави същото, или просто предпочитате ръчно управление.
+SETTINGS_AUTONAMESTOPS_ENABLE Автоматично именуване на необменени спирки
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Първият път, когато изберете спирка без име, ѝ дава същото име на ближавско здание, което падащото меню на панел на спирката би предложило – без да отваряте това меню. Никога не докосва име, което вие (или това) вече сте задали.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Пренесено от самостоятелния мод Rescue Fullwidth Digits. Поправя имена на транспортни линии, запазени с пълно-широка цифри (１２３ вместо 123) от някои IME/въвеждащи настройки, които иначе винаги се показват грешно.
+SETTINGS_FUTURE_BUSWAYPOINT Автобусни спирки-пътни точки (скоро)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Планирано: отбелязване на спирка като пътна точка само за маршрутизиране – пътят на линията минава през нея, но превозните средства никога не спрат и не качват/свалят пътници там. Помага за насочване на vanilla pathfinding към пътя, който наистина сте имали предвид. Все още не е достъпно.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Разширен избор на спирка: избор на точен път
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Дръжте докато поставяте връзка на спирка на влак/трамвай, за да насочите към точния път вместо най-близкия валиден. Беше хардкоднат на Ляв/Десен Shift; превръзкуването тук покрива само избраната страна.
+SETTINGS_LEGACY_GROUP Наследство
+SETTINGS_LEGACY_GROUP_DESC Стари превключватели се пазят само за да инсталациите, които вече ги имат включени, продължават да работят точно както преди. Заключени – те вече не могат да бъдат включени или изключени оттук, и всеки геймплей профил ги оставя изключени нататък.
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

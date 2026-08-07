@@ -111,24 +111,28 @@ namespace ImprovedPublicTransport.Data
 
     private static void OnSaveData()
     {
+      var cachedData = m_cachedVehicleData;
+      if (cachedData == null || SerializableDataExtension.instance == null)
+        return;
+
       FastList<byte> data = new FastList<byte>();
       try
       {
         SerializableDataExtension.WriteString(CachedVehicleData._dataVersion, data);
-        for (int index = 0; index < CachedVehicleData.MaxVehicleCount; ++index)
+        for (int index = 0; index < CachedVehicleData.MaxVehicleCount && index < cachedData.Length; ++index)
         {
-          if (!CachedVehicleData.m_cachedVehicleData[index].IsEmpty)
+          if (!cachedData[index].IsEmpty)
           {
             SerializableDataExtension.WriteInt32(index, data);
-            SerializableDataExtension.WriteInt32(CachedVehicleData.m_cachedVehicleData[index].LastStopNewPassengers, data);
-            SerializableDataExtension.WriteInt32(CachedVehicleData.m_cachedVehicleData[index].LastStopGonePassengers, data);
-            SerializableDataExtension.WriteInt32(CachedVehicleData.m_cachedVehicleData[index].PassengersThisWeek, data);
-            SerializableDataExtension.WriteInt32(CachedVehicleData.m_cachedVehicleData[index].PassengersLastWeek, data);
-            SerializableDataExtension.WriteInt32(CachedVehicleData.m_cachedVehicleData[index].IncomeThisWeek, data);
-            SerializableDataExtension.WriteInt32(CachedVehicleData.m_cachedVehicleData[index].IncomeLastWeek, data);
-            SerializableDataExtension.WriteFloatArray(CachedVehicleData.m_cachedVehicleData[index].PassengerData, data);
-            SerializableDataExtension.WriteFloatArray(CachedVehicleData.m_cachedVehicleData[index].IncomeData, data);
-            SerializableDataExtension.WriteUInt16(CachedVehicleData.m_cachedVehicleData[index].CurrentStop, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].LastStopNewPassengers, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].LastStopGonePassengers, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].PassengersThisWeek, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].PassengersLastWeek, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].IncomeThisWeek, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].IncomeLastWeek, data);
+            SerializableDataExtension.WriteFloatArray(cachedData[index].PassengerData, data);
+            SerializableDataExtension.WriteFloatArray(cachedData[index].IncomeData, data);
+            SerializableDataExtension.WriteUInt16(cachedData[index].CurrentStop, data);
           }
         }
         SerializableDataExtension.instance.SerializableData.SaveData(CachedVehicleData._dataID, data.ToArray());

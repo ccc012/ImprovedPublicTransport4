@@ -17,6 +17,7 @@ namespace ImprovedPublicTransport.UI.PreviewRenderer
         private readonly Camera _renderCamera;
         private Mesh _mesh;
         private Material _material;
+        private Material _fallbackMaterial;
         private float _rotation = 35f;
         private float _zoom = 3f;
         private bool _colorSet;
@@ -51,6 +52,7 @@ namespace ImprovedPublicTransport.UI.PreviewRenderer
             set
             {
                 // New size; set camera output sizes accordingly.
+                ReleaseRenderTexture();
                 _renderCamera.targetTexture = new RenderTexture((int)value.x, (int)value.y, 24, RenderTextureFormat.ARGB32);
                 _renderCamera.pixelRect = new Rect(0f, 0f, value.x, value.y);
             }
@@ -121,6 +123,33 @@ namespace ImprovedPublicTransport.UI.PreviewRenderer
         /// </summary>
         internal Shader TreeShader => Shader.Find("Custom/Trees/Default");
 
+        private void OnDestroy()
+        {
+            ReleaseRenderTexture();
+            if (_fallbackMaterial != null)
+            {
+                Destroy(_fallbackMaterial);
+                _fallbackMaterial = null;
+            }
+            if (_renderCamera != null)
+            {
+                Destroy(_renderCamera.gameObject);
+            }
+        }
+
+        private void ReleaseRenderTexture()
+        {
+            var texture = _renderCamera?.targetTexture;
+            if (texture == null)
+            {
+                return;
+            }
+
+            _renderCamera.targetTexture = null;
+            texture.Release();
+            Destroy(texture);
+        }
+
         /// <summary>
         /// Render the current mesh.
         /// </summary>
@@ -128,6 +157,23 @@ namespace ImprovedPublicTransport.UI.PreviewRenderer
         {
             // If no mesh, don't do anything here.
             if (_mesh == null)
+            {
+                return;
+            }
+
+            // Set material to use when previewing.
+            Material previewMaterial = _material;
+
+            // Override material for mssing or non-standard shaders.
+            if (_material?.shader != null && _material.shader != TreeShader && _material.shader != PropShader)
+            {
+                _fallbackMaterial ??= new Material(DiffuseShader);
+                _fallbackMaterial.mainTexture = _material.mainTexture;
+                previewMaterial = _fallbackMaterial;
+            }
+
+            // Don't render anything if we don't have a material.
+            if (previewMaterial?.shader == null)
             {
                 return;
             }
@@ -141,134 +187,128 @@ namespace ImprovedPublicTransport.UI.PreviewRenderer
             InfoManager.InfoMode currentMode = infoManager.CurrentMode;
             InfoManager.SubInfoMode currentSubMode = infoManager.CurrentSubMode;
 
-            // Set current game InfoManager to default (don't want to render with an overlay mode).
-            infoManager.SetCurrentMode(InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
-            infoManager.UpdateInfoMode();
-
             // Backup current exposure and sky tint.
-            float gameExposure = DayNightProperties.instance.m_Exposure;
-            Color gameSkyTint = DayNightProperties.instance.m_SkyTint;
+            DayNightProperties dayNightProperties = DayNightProperties.instance;
+            float gameExposure = dayNightProperties.m_Exposure;
+            Color gameSkyTint = dayNightProperties.m_SkyTint;
 
             // Backup current game lighting.
-            Light gameMainLight = RenderManager.instance.MainLight;
+            RenderManager renderManager = RenderManager.instance;
+            Light gameMainLight = renderManager.MainLight;
+            Light sunLight = dayNightProperties.sunLightSource;
+            Light moonLight = dayNightProperties.moonLightSource;
+            bool sunEnabled = sunLight.enabled;
+            bool moonEnabled = moonLight.enabled;
+            Light renderLight = sunLight;
+            Quaternion renderLightRotation = renderLight.transform.rotation;
+            float renderLightIntensity = renderLight.intensity;
+            Color renderLightColor = renderLight.color;
 
-            // Set exposure and sky tint for render.
-            DayNightProperties.instance.m_Exposure = 0.75f;
-            DayNightProperties.instance.m_SkyTint = new Color(0, 0, 0);
-            DayNightProperties.instance.Refresh();
-
-            // Set up our render lighting settings.
-            Light renderLight = DayNightProperties.instance.sunLightSource;
-            RenderManager.instance.MainLight = renderLight;
-
-            // Reset the bounding box to be the smallest that can encapsulate all verticies of the new mesh.
-            // That way the preview image is the largest size that fits cleanly inside the preview size.
-            Bounds currentBounds = new Bounds(Vector3.zero, Vector3.zero);
-            Vector3[] vertices;
-
-            // Is the mesh readable, i.e. not locked?
-            if (_mesh.isReadable)
+            try
             {
-                // Readable mesh - calculate our own bounds, as some preset bounds are unreliable.
-                // Use separate verticies instance instead of accessing Mesh.vertices each time (which is slow).
-                // >10x measured performance improvement by doing things this way instead.
-                vertices = _mesh.vertices;
-                for (int i = 0; i < vertices.Length; i++)
+                // Set current game InfoManager to default (don't want to render with an overlay mode).
+                infoManager.SetCurrentMode(InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
+                infoManager.UpdateInfoMode();
+
+                // Set exposure and sky tint for render.
+                dayNightProperties.m_Exposure = 0.75f;
+                dayNightProperties.m_SkyTint = new Color(0, 0, 0);
+                dayNightProperties.Refresh();
+
+                // Set up our render lighting settings.
+                renderManager.MainLight = renderLight;
+
+                // Reset the bounding box to be the smallest that can encapsulate all verticies of the new mesh.
+                // That way the preview image is the largest size that fits cleanly inside the preview size.
+                Bounds currentBounds = new Bounds(Vector3.zero, Vector3.zero);
+                Vector3[] vertices;
+
+                // Is the mesh readable, i.e. not locked?
+                if (_mesh.isReadable)
                 {
-                    currentBounds.Encapsulate(vertices[i]);
+                    // Readable mesh - calculate our own bounds, as some preset bounds are unreliable.
+                    // Use separate verticies instance instead of accessing Mesh.vertices each time (which is slow).
+                    // >10x measured performance improvement by doing things this way instead.
+                    vertices = _mesh.vertices;
+                    for (int i = 0; i < vertices.Length; i++)
+                    {
+                        currentBounds.Encapsulate(vertices[i]);
+                    }
                 }
-            }
-            else
-            {
-                // Locked mesh - use default bounds.
-                currentBounds = _mesh.bounds;
-            }
-
-            // Expand bounds slightly.
-            currentBounds.Expand(1f);
-
-            // Set our model rotation parameters, so we look at it obliquely.
-            const float xRotation = 20f;
-
-            // Apply model rotation with our camnera rotation into a quaternion.
-            Quaternion modelRotation = Quaternion.Euler(xRotation, 0f, 0f) * Quaternion.Euler(0f, CameraRotation, 0f);
-
-            // Set material to use when previewing.
-            Material previewMaterial = _material;
-
-            // Override material for mssing or non-standard shaders.
-            if (_material?.shader != null && _material.shader != TreeShader && _material.shader != PropShader)
-            {
-                previewMaterial = new Material(DiffuseShader)
+                else
                 {
-                    mainTexture = _material.mainTexture,
-                };
-            }
+                    // Locked mesh - use default bounds.
+                    currentBounds = _mesh.bounds;
+                }
 
-            // Don't render anything if we don't have a material.
-            if (_material != null)
-            {
+                // Expand bounds slightly.
+                currentBounds.Expand(1f);
+
+                // Set our model rotation parameters, so we look at it obliquely.
+                const float xRotation = 20f;
+
+                // Apply model rotation with our camnera rotation into a quaternion.
+                Quaternion modelRotation = Quaternion.Euler(xRotation, 0f, 0f) * Quaternion.Euler(0f, CameraRotation, 0f);
+
                 // Calculate rendering matrix and add mesh to scene.
                 Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, modelRotation, Vector3.one);
-                //TODO: set line color, also clean up how it's set up
-                MaterialPropertyBlock materialBlock = VehicleManager.instance.m_materialBlock;
-                materialBlock.Clear();
+                MaterialPropertyBlock materialBlock = new MaterialPropertyBlock();
                 if (_colorSet)
                 {
                     materialBlock.SetColor(VehicleManager.instance.ID_VehicleColor, _color);
                 }
 
                 Graphics.DrawMesh(_mesh, matrix, previewMaterial, 0, _renderCamera, 0, materialBlock, true, true);
+
+                // Set zoom to encapsulate entire model.
+                float magnitude = currentBounds.extents.magnitude;
+                float clipExtent = (magnitude + 16f) * 1.5f;
+                float clipCenter = magnitude * Zoom;
+
+                // Clip planes.
+                _renderCamera.nearClipPlane = Mathf.Max(clipCenter - clipExtent, 0.01f);
+                _renderCamera.farClipPlane = clipCenter + clipExtent;
+
+                // Rotate our camera around the model according to our current rotation.
+                _renderCamera.transform.position = Vector3.forward * clipCenter;
+
+                // Aim camera at middle of bounds.
+                _renderCamera.transform.LookAt(currentBounds.center);
+
+                // If game is currently in nighttime, enable sun and disable moon lighting.
+                if (gameMainLight == moonLight)
+                {
+                    sunLight.enabled = true;
+                    moonLight.enabled = false;
+                }
+
+                // Light settings.
+                renderLight.transform.eulerAngles = new Vector3(45f, 180f, 0f);
+                renderLight.intensity = 2f;
+                renderLight.color = Color.white;
+
+                // Render!
+                _renderCamera.RenderWithShader(previewMaterial.shader, string.Empty);
             }
-
-            // Set zoom to encapsulate entire model.
-            float magnitude = currentBounds.extents.magnitude;
-            float clipExtent = (magnitude + 16f) * 1.5f;
-            float clipCenter = magnitude * Zoom;
-
-            // Clip planes.
-            _renderCamera.nearClipPlane = Mathf.Max(clipCenter - clipExtent, 0.01f);
-            _renderCamera.farClipPlane = clipCenter + clipExtent;
-
-            // Rotate our camera around the model according to our current rotation.
-            _renderCamera.transform.position = Vector3.forward * clipCenter;
-
-            // Aim camera at middle of bounds.
-            _renderCamera.transform.LookAt(currentBounds.center);
-
-            // If game is currently in nighttime, enable sun and disable moon lighting.
-            if (gameMainLight == DayNightProperties.instance.moonLightSource)
+            finally
             {
-                DayNightProperties.instance.sunLightSource.enabled = true;
-                DayNightProperties.instance.moonLightSource.enabled = false;
+                // Restore game lighting.
+                renderManager.MainLight = gameMainLight;
+                sunLight.enabled = sunEnabled;
+                moonLight.enabled = moonEnabled;
+                renderLight.transform.rotation = renderLightRotation;
+                renderLight.intensity = renderLightIntensity;
+                renderLight.color = renderLightColor;
+
+                // Restore game exposure and sky tint.
+                dayNightProperties.m_Exposure = gameExposure;
+                dayNightProperties.m_SkyTint = gameSkyTint;
+                dayNightProperties.Refresh();
+
+                // Restore game InfoManager mode.
+                infoManager.SetCurrentMode(currentMode, currentSubMode);
+                infoManager.UpdateInfoMode();
             }
-
-            // Light settings.
-            renderLight.transform.eulerAngles = new Vector3(45f, 180f, 0f);
-            renderLight.intensity = 2f;
-            renderLight.color = Color.white;
-
-            // Render!
-            _renderCamera.RenderWithShader(previewMaterial.shader, string.Empty);
-
-            // Restore game lighting.
-            RenderManager.instance.MainLight = gameMainLight;
-
-            // Reset to moon lighting if the game is currently in nighttime.
-            if (gameMainLight == DayNightProperties.instance.moonLightSource)
-            {
-                DayNightProperties.instance.sunLightSource.enabled = false;
-                DayNightProperties.instance.moonLightSource.enabled = true;
-            }
-
-            // Restore game exposure and sky tint.
-            DayNightProperties.instance.m_Exposure = gameExposure;
-            DayNightProperties.instance.m_SkyTint = gameSkyTint;
-            DayNightProperties.instance.Refresh();
-
-            // Restore game InfoManager mode.
-            infoManager.SetCurrentMode(currentMode, currentSubMode);
-            infoManager.UpdateInfoMode();
         }
     }
 }

@@ -9,11 +9,11 @@ namespace ImprovedPublicTransport.LanguageFormat
         private readonly string _localeName;
         private readonly Dictionary<string, string> _dictionary;
 
-        public LanguageDictionaryWrapper(string localeName, Dictionary<string, string> dictionary)
-        {
-            this._localeName = localeName ?? throw new NullReferenceException("LanguageDictionaryWrapper: localeName can't be null!"); ;
-            this._dictionary = dictionary ?? throw new NullReferenceException("LanguageDictionaryWrapper: dictionary can't be null!");
-        }
+    public LanguageDictionaryWrapper(string localeName, Dictionary<string, string> dictionary)
+    {
+        this._localeName = localeName ?? throw new ArgumentNullException(nameof(localeName), "LanguageDictionaryWrapper: localeName can't be null!");
+        this._dictionary = dictionary ?? throw new ArgumentNullException(nameof(dictionary), "LanguageDictionaryWrapper: dictionary can't be null!");
+    }
 
         public bool HasTranslation(string id)
         {

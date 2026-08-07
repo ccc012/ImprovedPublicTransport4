@@ -186,21 +186,21 @@ namespace ImprovedPublicTransport.Util
     public static float ToSingle(string value)
     {
       float result = 0.0f;
-      float.TryParse(value, out result);
+      float.TryParse(value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out result);
       return result;
     }
 
     public static int ToInt32(string value)
     {
       int result = 0;
-      int.TryParse(value, out result);
+      int.TryParse(value, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out result);
       return result;
     }
 
     public static byte ToByte(string value)
     {
       byte result = 0;
-      byte.TryParse(value, out result);
+      byte.TryParse(value, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out result);
       return result;
     }
 

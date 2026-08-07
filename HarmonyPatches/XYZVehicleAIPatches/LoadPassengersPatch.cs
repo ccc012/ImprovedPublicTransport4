@@ -70,11 +70,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
             return true;
         }
 
-        public static void LoadPassengersPost(State __state)
+        public static void LoadPassengersPost(State __state, bool __runOriginal)
         {
-            if (SkipPostAccounting)
+            SkipPostAccounting = false;
+            if (!__runOriginal)
             {
-                SkipPostAccounting = false;
                 return;
             }
 

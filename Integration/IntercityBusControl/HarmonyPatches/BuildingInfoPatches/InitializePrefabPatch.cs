@@ -33,6 +33,7 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                         var ai = pair.Value?.GetAI() as TransportStationAI;
                         if (ai != null)
                         {
+                            StationPatcher.RecordOriginalState(pair.Value, ai);
                             ai.m_transportInfo = _transportInfo;
                         }
                     }
@@ -42,6 +43,7 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                         var ai = pair.Value?.GetAI() as TransportStationAI;
                         if (ai != null)
                         {
+                            StationPatcher.RecordOriginalState(pair.Value, ai);
                             ai.m_secondaryTransportInfo = _transportInfo;
                         }
                     }
@@ -70,6 +72,8 @@ namespace IntercityBusControl.HarmonyPatches.BuildingInfoPatches
                 {
                     throw new Exception("Intercity Bus Control - Sunset Harbor 'Intercity Bus' item class is not found! Is Sunset Harbor DLC installed & enabled?");
                 }
+
+                StationPatcher.RecordOriginalState(__instance, transportStationAi);
 
                 if (transportStationAi.m_transportLineInfo == null)
                 {

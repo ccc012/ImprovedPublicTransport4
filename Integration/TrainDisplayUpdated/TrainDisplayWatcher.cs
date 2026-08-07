@@ -23,23 +23,23 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                 return;
             }
 
-            // Stable throttle only — the 4.8 "snappier" path (immediate re-poll on vehicle change +
-            // sub-0.1s floors on Maximum) caused hitching/freezes for some players. Keep a hard
-            // 0.1s floor and honour the Options update-interval slider above that.
             if (Time.realtimeSinceStartup < _nextPollTime)
             {
                 return;
             }
 
-            // Profile is a multiplier on the slider value, not a floor - a floor stopped mattering
-            // the moment the slider's own value exceeded it, which was true at the slider's default
-            // against both Normal and Maximum, so switching profiles had no visible effect. The
-            // 0.1s floor below is the actual hitching guard and always applies regardless of profile.
-            var interval = TrainDisplayIntegration.GetUpdateInterval() * PerformanceProfile.TrainDisplayPollMultiplier;
-            interval = Mathf.Max(0.1f, interval);
-            _nextPollTime = Time.realtimeSinceStartup + interval;
+            _nextPollTime = Time.realtimeSinceStartup + PerformanceProfile.TrainDisplayRefreshSeconds;
 
-            if (!TrainDisplayIntegration.TryGetSelectedVehicle(out ushort vehicleId))
+            var scope = ModSetting.Instance.TrainDisplayScope;
+            ushort vehicleId = 0;
+            var found = scope != ModSetting.TrainDisplayScopes.SelectedVehicle
+                && FpsCameraIntegration.TryGetVehicle(out vehicleId);
+            if (!found && scope != ModSetting.TrainDisplayScopes.FirstPerson)
+            {
+                found = TrainDisplayIntegration.TryGetSelectedVehicle(out vehicleId);
+            }
+
+            if (!found)
             {
                 ClearOverlay();
                 return;
@@ -72,6 +72,12 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             _overlayData = default(TrainDisplayIntegration.OverlayData);
             _trackedVehicle = 0;
             _trackedSince = 0f;
+        }
+
+        private void OnDestroy()
+        {
+            ClearOverlay();
+            FpsCameraIntegration.Clear();
         }
     }
 }

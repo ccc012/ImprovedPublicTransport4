@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE سنگل ٹریک ٹرین تصادم سے بچاؤ
 SETTINGS_STTAI_ENABLE_TOOLTIP ایک وقت میں ایک ٹرین کے لیے سنگل ٹریک حصہ محفوظ کرتا ہے، جب تک حصہ صاف نہ ہو مخالف سمت کی ٹرین کو داخلی دروازے پر روکتا ہے۔ اصل IPT4 خصوصیت، ونیلا یا کسی جذب شدہ موڈ میں موجود نہیں۔
 SETTINGS_STOPSTACKER_ENABLE بس اسٹاپ برتھ اسٹیکنگ
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP ایک ہی اسٹاپ کی طرف آنے والی دوسری/تیسری بس کو سب سے آگے والی بس کے پیچھے قطار میں لگنے کے بجائے اسٹاپ لین میں مزید پیچھے اپنی برتھ استعمال کرنے دیتا ہے، تاکہ ایک سے زیادہ بسیں بیک وقت سواریاں چڑھا/اتار سکیں۔ اصل IPT4 خصوصیت (سادہ نئی تشکیل)، ونیلا یا کسی جذب شدہ موڈ میں موجود نہیں۔
+
+SETTINGS_SUPPORT_LABEL اگر IPT4 نے آپ کی سیو گیم بچائی ہے یا آپ کی کارکردگی کو بہتر بنایا ہے، تو اس کی ترقی کی حمایت کرنے کا خیال کریں!
+SETTINGS_SUPPORT_BUTTON Ko-fi پر مجھے سپورٹ کریں
+SETTINGS_FEATURE_UNBUNCHING_ENABLE آنبنچنگ / ایکسپریس بس
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP گاڑی آنبنچنگ، ایکسپریس بس/ٹرام، اسپان انٹروال، اور حملہ آور فلیٹ سائزنگ کو فعال کرتا ہے۔ بس/ٹرام کے تمام وقفے اور بجٹ فیچرز۔
+SETTINGS_FEATURE_BUDGET_ENABLE بجٹ فیچرز
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP لائن بجٹ کنٹرول، آٹو لائن بجٹ، ٹکٹ پرائس ملٹیplier، اور راستے کی لاگت کے طور پر قیمت کو فعال کرتا ہے۔ تمام پیسہ/قیمت/فلیٹ فیچرز۔
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE آٹو لائن کلر
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP نئی ٹرانسپورٹ لائنز کو آپ سے کلر اور نام ترتیب دیتا ہے۔ کلر سٹریٹیجی، نیمنگ سٹریٹیجی، اور پنل سیٹنگز شامل ہیں۔
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE وہیکل ایڈیٹر
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP وہیکل ٹائپ، لवरी، اور پراپرٹیز بدلنے کے لیے وہیکل ایڈیٹر پنل کو فعال کرتا ہے۔ اسے نیچے یا دائیں رکھا جا سکتا ہے۔
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE انتظار کرنے والے مسافروں کی حد
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP محدود کرتا ہے کہ ایک اسٹاپ پر عوامی نقل و حمل کے لیے کتنے شہری انتظار کرسکتے ہیں۔ تمام انتظار کی حددیں ہٹانے اور گیم کو اسٹاپ کی صلاحیت کا انتظام کرنے دینے کے لیے غیر فعال کریں۔
+SETTINGS_TRAINDISPLAY_SCOPE اوورلے کب دکھائے
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP منتخب گاڑی،uerst-پرسون کیمرہ، یا دونوں منتخب کریں۔
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE صرف منتخب گاڑی
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON صرف اول-پرسون کیمرہ
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH منتخب گاڑی یا اول-پرسون کیمرہ
+SETTINGS_TRAINDISPLAY_LAYOUT پینل لی آؤٹ
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP اوورلے کونسا لی آؤٹ استعمال کرتا ہے۔ دونوں وہی معلومات دکھاتے ہیں اور وہی چیک بکسز کا احترام کرتے ہیں - صرف شکل আলাদہ ہے۔
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Perf
 SETTINGS_SUB_COMPAT Compat
 SETTINGS_SUB_KEYS Keys
 SETTINGS_FUTURE_GROUP Coming later
-SETTINGS_FUTURE_GROUP_DESCRIPTION Preview of planned features. Greyed out until ready — no effect yet.
+SETTINGS_FUTURE_GROUP_DESCRIPTION مخطوطہ فیچرز کا پیش نظارہ۔ تیار ہونے تک سیریہ میں دکھایا جاتا ہے؛ مسافر کی منزل ٹیسٹنگ کے لیے دستیاب رہتی ہے۔
 SETTINGS_FUTURE_REVERSIBLE_TRAM Reversible tram AI (soon)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planned: trams reverse at termini without a loop. Not available yet.
 SETTINGS_FUTURE_BREAKDOWN Breakdown tools (soon)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP Resets outside-connection wait, dummy traffic, and re
 SETTINGS_EBS_GROUP_BUS_DESC Express buses may leave early when few passengers board — optional advanced spacing.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rows
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP ہمیشہ-آن رفتار
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC دو چھوٹے رفتار جو ہمیشہ چلے بغیر انہیں بند کرنے کے طریقے کے – اب تک. ڈیفالٹ طور پر آن تاکہ موجودہ تنصیبات کو کوئی تبدیلی نظر نہ آئے – بند کردیں اگر آپ ایک سنگل میڈ چلاتے ہیں جو اسی کام کرتا ہے، یا بس دستی کنٹرول ترجیح دیتے ہیں۔
+SETTINGS_AUTONAMESTOPS_ENABLE بے نام سٹاپس کو آٹو نام دیں
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP پہلی دفعہ جب آپ بغیر نام کے سٹاپ منتخب کرتے ہیں، اسے وہی قریبی عمارت کا نام دیتا ہے جو سٹاپ پینل کا اپنا ڈراپ ڈاؤن تجویز کرتا – بغیر اس ڈراپ ڈاؤن کو کھولے. کبھی اس نام کو نہیں چھوؤتا جو آپ (یا یہ) پہلے ہی سیٹ کر چکے ہوں۔
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP جدا Rescue Fullwidth Digits موڈ سے پورٹ کیا گیا۔ وہ ٹرانسپورٹ لائن نام ٹھیک کرتا جو کچھ IME/انپٹ سیٹ اپ کے ذریعے فول-وڈتھ ہندسوں (123 کی بجائے １２۳) سے محفوظ ہوئے تھے، جو ایسا نہ ہوتا تو ہمیشہ غلط دکھاتے۔
+SETTINGS_FUTURE_BUSWAYPOINT بس وے پوائنٹ اسٹاپس ( جلد )
+SETTINGS_FUTURE_BUSWAYPOINT_TIP منصوبہ: ایک اسٹاپ کو روٹنگ وے پوائنٹ کی طور پر نشان لگائیں – لائن کا راستہ اس سے گزرتا ہے لیکن گاڑیاں کبھی نہیں رکنتی یا مسافرون لوڈ/ان لوڈ کرتی ہیں وہاں। وینلا پاتھ فائڈنگ کو اس سڑک پر رہنمائی کرتا ہے جو آپ درحقیقت مراد رکھتے تھے۔ ابھی دستیاب نہیں۔
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT ترقی یافتہ اسٹاپ سلیکشن: ٹھیک ٹریک منتخب کریں
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP ٹرین/ٹرام اسٹاپ کنکشن رکھتے ہوئے دبائے رکھیں تاکہ ٹھیک ٹریک کو ٹارگٹ کریں بجائے سب سے قریب صحیح کے۔ بائیں/دائیں شفٹ پر ہارڈکوڈڈ تھا؛ یہاں دوبارہ باندھنا صرف منتخب طرف کو کवर کرتا ہے۔
+SETTINGS_LEGACY_GROUP ورثہ
+SETTINGS_LEGACY_GROUP_DESC پرانے ٹاگل صرف اس لئے رکھے گئے تاکہ تنصیبات جو پہلے سے انہیں آن کیے تھے وہ بالکل پہلے کی طرح کام کرتی رہیں۔ لاک – انہیں اب یہاں سے آن/آف نہیں کیا جاسکتا، اور ہر گیمپلی پروفائل انہیں آگے بھی آف رکھتی ہے۔
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

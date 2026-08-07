@@ -61,6 +61,10 @@ SETTINGS_RESET Resetuj
 SETTINGS_TAB_GENERAL Ogólne
 SETTINGS_ADVANCED_LINKS_GROUP Linki
 SETTINGS_GITHUB_REPO Kod źródłowy na GitHub
+SETTINGS_KOFI_LINK Wspieraj na Ko-fi
+SETTINGS_KOFI_GROUP Wspieraj IPT4
+SETTINGS_KOFI_DESCRIPTION Pomóż sfinansować dalszy rozwój IPT4.
+SETTINGS_KOFI_BUTTON Wspieraj mnie na Ko-fi
 SETTINGS_TAB_AUTOLINE Automatyczna linia
 SETTINGS_TAB_STOPS Przystanki i Stacje
 SETTINGS_TAB_UNBUNCHING Rozproszenie
@@ -315,6 +319,13 @@ SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Tylko podczas śledzenia
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Ukrywa nakładkę, chyba że kamera faktycznie śledzi obsługiwany pojazd.
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Tylko w widoku pierwszoosobowym
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Pokazuje nakładkę tylko podczas korzystania z moda kamery pierwszoosobowej (np. First Person Camera - Continued). Jeśli wyłączone, pojawia się zawsze podczas śledzenia obsługiwanego pojazdu w dowolnym trybie kamery.
+SETTINGS_TRAINDISPLAY_SCOPE Pokaż nakładkę gdy
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Wybierz wybrany pojazd, kamerę pierwszoosobową lub oba.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Tylko wybrany pojazd
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Tylko kamera pierwszoosobowa
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Wybrany pojazd lub kamera pierwszoosobowa
+SETTINGS_TRAINDISPLAY_LAYOUT Układ panelu
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Który układ używa nakładka. Oba pokazują te same informacje i szanują te same pola - różni się tylko kształt.
 SETTINGS_TRAINDISPLAY_THEME Motyw kolorystyczny:
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Wybierz kolory tła/tekstu nakładki.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Prosty
@@ -546,11 +557,21 @@ SETTINGS_SUB_PERF Wydajność
 SETTINGS_SUB_COMPAT Zgodność
 SETTINGS_SUB_KEYS Klawisze
 SETTINGS_FUTURE_GROUP Wkrótce
-SETTINGS_FUTURE_GROUP_DESCRIPTION Podgląd planowanych funkcji. Wyszarzone aż do gotowości — brak efektu na razie.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Podgląd planowanych funkcji. Wyszarzone aż do gotowości; cele podróży pasażerów pozostaje dostępne do testów.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Odwracalny tramwaj (wkrótce)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planowane: tramwaje się odwracają na pętlach końcowych bez pętli. Nie dostępne jeszcze.
 SETTINGS_FUTURE_BREAKDOWN Narzędzia diagnostyczne (wkrótce)
 SETTINGS_FUTURE_BREAKDOWN_TIP Planowane: diagnostyka tras/ruchu dla zablokowanego transportu. Nie dostępne jeszcze.
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Rozproszenie / Express Bus
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Włącza rozproszenie pojazdów, Express Bus/Tram, interwał spawnu i agresywne dimensionowanie floty. Wszystkie funkcje odstępów/budżetu dla autobusów i tramwajów.
+SETTINGS_FEATURE_BUDGET_ENABLE Funkcje Budżetu
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Włącza kontrolę budżetu linii, automatyczne dimensionowanie floty, personalizację cen biletów i opłatę jako koszt pathfindingu. Wszystkie funkcje pieniądze/ceny/flota.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Auto Kolor Linii
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Automatycznie przypisuje kolory i nazwy do nowych linii transportu. Zawiera strategię koloru, strategię nazewnictwa i paletę.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Edytor Pojazdów
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Włącza panel edytora pojazdów do zmiany typów, malowania i właściwości. Można ustawić na dole lub po prawej.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Limity pasażerów czekających
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Ogranicza liczbę obywateli mogących czekać na transport publiczny na jednym przystanku. Wyłącz, by usunąć wszystkie limity oczekiwania i pozwolić grze zarządzać pojemnością.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Szczegóły mapy:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Wydajność pokazuje mniej ikon mapy i odświeża się szybciej. Pełna mapa pokazuje wiele więcej ikon celów na mapie; panel aktualizuje się wolniej, aby słabsze komputery mogły go nadal używać.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Wydajność (szybciej)
@@ -576,18 +597,18 @@ SETTINGS_OOC_RESET_TOOLTIP Resetuje oczekiwanie połączeń zewnętrznych, ruch 
 SETTINGS_EBS_GROUP_BUS_DESC Autobusy ekspresowe mogą odjechać wcześnie, gdy mało pasażerów wsiada — opcjonalne zaawansowane rozproszenie.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Dodatkowe wiersze
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop zmienia tylko, gdzie autobusy parkują na przystanku. Opcje poniżej to osobne funkcje (podwyższone, wspólne przystanki itp.) — pozostają klikalne celowo.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Zawsze aktywne zachowanie
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Dwa małe zachowania, które zawsze działały bez możliwości wyłączenia – do teraz. Domyślnie włączone, by istniejące instalacje nie zauważyły zmiany – wyłącz, jeśli używasz niezależnego modu robiącego to samo, lub po prostu wolisz sterowanie manualne.
+SETTINGS_AUTONAMESTOPS_ENABLE Automatyczne nazywanie przystanków bez nazwy
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Przy pierwszym wybraniu przystanku bez nazwy, nadaje mu tę samą nazwę pobliskiego budynku, którą zaproponowałby menu rozwijane panelu przystanku – bez otwierania tego menu. Nigdy nie dotyka nazwy, którą Ty (lub to) już ustaliłeś.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Przeniesione z niezależnego moda Rescue Fullwidth Digits. Naprawia nazwy linii transportu zapisane z cyframi pełnej szerokości (１２３ zamiast 123) przez niektóre konfiguracje IME/wprowadzania, które inaczej wyświetlałyby się błędnie na zawsze.
+SETTINGS_FUTURE_BUSWAYPOINT Przystanki waypoint autobusowe (wkrótce)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planowane: oznaczyć przystanek jako waypoint tylko routingu – trasa linii przechodzi przez niego, ale pojazdy nigdy nie zatrzymują ani nie ładują/rozładują pasażerów. Pomaga kierować vanilla pathfinding na drogę, którą faktycznie zamierzałeś. Jeszcze niedostępne.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Zaawansowany wybór przystanku: wybierz dokładny tor
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Trzymaj podczas platzowania połączenia przystanku pociągu/tramwaju, by celować w dokładny tor zamiast najbliższego ważnego. Było zakodowane na Lewy/Prawy Shift; ponowne przypisanie tutaj obejmuje tylko wybraną stronę.
+SETTINGS_LEGACY_GROUP Dziedzictwo
+SETTINGS_LEGACY_GROUP_DESC Stare przełączniki zachowane tylko dla instalacji, które już je miały włączone, by działały dokładnie jak wcześniej. Zablokowane – nie mogą już być włączone/wyłączone stąd, i każdy profil gry zostawia je wyłączone na przyszłość.
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

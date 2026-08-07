@@ -43,7 +43,7 @@ namespace ImprovedPublicTransport
         public const string BaseModName = "Improved Public Transport 4 (local fork)";
         public const string ShortModName = "IPT";
 
-        public static bool InGame;
+        public static volatile bool InGame;
         public static GameObject IptGameObject;
         private GameObject _worldInfoPanel;
         // Keep in sync with AssemblyInfo / Workshop so log "Begin init version" matches the
@@ -492,12 +492,12 @@ namespace ImprovedPublicTransport
                     {
                         if (ModSetting.Instance.EnableCommuterDestination)
                         {
-                            CommuterDestination.PatchController.Activate();
+                            CommuterDestination.CommuterDestinationOverlay.Activate();
                             if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration applied.");
                         }
                         else
                         {
-                            CommuterDestination.PatchController.Deactivate();
+                            CommuterDestination.CommuterDestinationOverlay.Deactivate();
                             if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration disabled (toggle is off).");
                         }
                     }
@@ -646,7 +646,7 @@ namespace ImprovedPublicTransport
             {
                 if (ModSetting.Instance.TicketPriceCustomizerMode == ModSetting.TicketPriceCustomizerModes.Enabled)
                 {
-                    ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.SetPrices(new ModSetting.TicketPriceCustomizerSettings());
+                    ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.ResetToVanilla();
                     if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("TicketPriceCustomizer: Prices reset on unload.");
                 }
                 else
@@ -862,6 +862,7 @@ namespace ImprovedPublicTransport
                 try
                 {
                     IntercityBusControl.Patcher.UnpatchAll();
+                    IntercityBusControl.StationPatcher.RestorePrefabs();
                     IntercityBusControl.HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch.Reset();
                     IntercityBusControl.IntercityAcceptanceState.Deinit();
                     if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("IntercityBusControl: integration removed.");
@@ -922,7 +923,8 @@ namespace ImprovedPublicTransport
             // CommuterDestination cleanup
             try
             {
-                CommuterDestination.PatchController.Deactivate();
+                CommuterDestination.CommuterDestinationOverlay.Clear();
+                CommuterDestination.CommuterDestinationOverlay.Deactivate();
                 if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("CommuterDestination: integration removed.");
             }
             catch (Exception ex)

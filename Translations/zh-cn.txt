@@ -63,6 +63,10 @@ SETTINGS_RESET 重置
 SETTINGS_TAB_GENERAL 常规
 SETTINGS_ADVANCED_LINKS_GROUP 链接
 SETTINGS_GITHUB_REPO GitHub 上的源代码
+SETTINGS_KOFI_LINK 在 Ko-fi 上支持
+SETTINGS_KOFI_GROUP 支持 IPT4
+SETTINGS_KOFI_DESCRIPTION 帮助资助 IPT4 的持续开发。
+SETTINGS_KOFI_BUTTON 在 Ko-fi 上支持我
 SETTINGS_TAB_AUTOLINE 自动路线
 SETTINGS_TAB_STOPS 站点和车站
 SETTINGS_TAB_UNBUNCHING 车间分散
@@ -113,11 +117,21 @@ SETTINGS_SUB_PERF 性能
 SETTINGS_SUB_COMPAT 兼容性
 SETTINGS_SUB_KEYS 按键
 SETTINGS_FUTURE_GROUP 即将推出
-SETTINGS_FUTURE_GROUP_DESCRIPTION 计划功能的预览。灰显直至准备就绪——目前无效果。
+SETTINGS_FUTURE_GROUP_DESCRIPTION 计划功能的预览。灰显直至准备就绪；乘客目的地仍可用于测试。
 SETTINGS_FUTURE_REVERSIBLE_TRAM 可逆向电车 AI（即将推出）
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 计划中：电车在终点站反向而无需折返。尚不可用。
 SETTINGS_FUTURE_BREAKDOWN 故障诊断工具（即将推出）
 SETTINGS_FUTURE_BREAKDOWN_TIP 计划中：卡住的交通路线/交通诊断。尚不可用。
+SETTINGS_FEATURE_UNBUNCHING_ENABLE 车辆分散 / 快速巴士
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP 启用车辆分散、快速巴士/电车、生成间隔和激进车队大小。所有巴士和电车的间距/预算功能。
+SETTINGS_FEATURE_BUDGET_ENABLE 预算功能
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP 启用线路预算控制、自动线路预算、票价定制器和票价作为寻路成本。所有金钱/定价/车队规模功能。
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE 自动线路颜色
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP 自动为新运输线分配颜色和名称。包含颜色策略、命名策略和调色板设置。
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE 车辆编辑器
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP 启用车辆编辑器面板以更改车辆类型、涂装和属性。可放置在底部或右侧。
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE 等待乘客上限
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP 限制单个站点可等待公共交通的市民数量。禁用以移除所有等待上限并让游戏处理站点容量。
 SETTINGS_QUICK_TIPS_GROUP 快速提示
 SETTINGS_QUICK_TIPS_DESC 小提醒——无额外代码，仅说明如何使用现有功能。
 SETTINGS_QUICK_TIP_1_TITLE 从简单开始
@@ -384,6 +398,13 @@ SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING 仅在跟随时
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP 除非摄像机确实在跟随受支持的车辆，否则隐藏覆盖层。
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 仅在第一人称视角
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP 仅在使用第一人称摄像机 mod（例如 First Person Camera - Continued）时显示覆盖层。关闭时，在任何摄像机模式下跟随受支持的车辆都会显示。
+SETTINGS_TRAINDISPLAY_SCOPE 显示覆盖层的时机
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP 选择选中的车辆、第一人称车辆或两者兼有。
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE 仅选中的车辆
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON 仅第一人称摄像机
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH 选中的车辆或第一人称摄像机
+SETTINGS_TRAINDISPLAY_LAYOUT 面板布局
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP 覆盖层使用的布局。两者显示相同信息并遵循相同的复选框 - 仅形状不同。
 SETTINGS_TRAINDISPLAY_THEME 配色主题：
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP 选择覆盖层的背景/文本颜色。
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE 红色（柔和）
@@ -576,18 +597,18 @@ CHANGELOG_4_3_3_5 使 mod 文件夹查找独立于实现 IUserMod 的类。那�
 CHANGELOG_4_3_4_1 修复了 AutoLineColor 在地图甚至加载之前抛出的启动 ModException（「无法找到 ImprovedPublicTransportMod 程序集！」）。第二个帮助程序类仍然通过 ImprovedPublicTransportMod 类型查找 mod，在 CSLModsCommon 迁移期间它停止成为 IUserMod——同一耦合已在别处修复。两个帮助程序现在从此程序集本身解析 mod 文件夹，因此未来的重构无法再静默地破坏它。
 CHANGELOG_4_3_5_1 修复了跟随车辆时列车显示覆盖层从不出现的问题。它通过通用「target」/「GetTarget」探针查找摄像机的跟随实例，但游戏将其存储在私有 CameraController.m_targetInstance 字段中，这些探针从不匹配。还默认关闭了「仅在第一人称摄像机」：纯跟随模式不是第一人称，因此保持启用使覆盖层开箱即用时看起来被破坏，与显示它在任何跟随视图中的源 mod 不同。
 CHANGELOG_4_3_5_2 票价标签页现在显示每种运输类型的结果票价，而不是实时乘客数。滑块仅显示百分比，因此此前无法查看乘数实际产生的内容——在一个小型或暂停的城市上，乘客数就读取永久的「0」。乘客数移至标签的工具提示，伴随原始票价。
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP 常驻开启行为
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC 两个小行为一直运行且无法关闭——直到现在。默认开启以便现有安装无感知变更——若您运行做同样事的独立模组，或仅偏好手动控制，请关闭。
+SETTINGS_AUTONAMESTOPS_ENABLE 自动为无名站点命名
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP 首次选择无名站点时，赋予其站点面板下拉菜单会建议的同一附近建筑名——无需打开该菜单。绝不触动您(或本功能)已设定的名称。
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP 从独立模组 Rescue Fullwidth Digits 移植。修复因某些 IME/输入法设置导致全角数字(１２３ 而非 123)保存的运输线路名称，否则将永久错误显示。
+SETTINGS_FUTURE_BUSWAYPOINT 巴士路径点站点 (即将推出)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP 计划：将站点标记为仅路由路径点——线路路径经过但车辆从不停靠上下客。帮助引导原版寻路至您真正想要的道路。暂不可用。
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT 高级站点选择: 选取精确轨道
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP 放置列车/有轨电车站点连接时按住以瞄准精确轨道而非最近有效轨道。曾硬编码为左/右 Shift; 此处重新绑定仅覆盖选定的一边。
+SETTINGS_LEGACY_GROUP 遗留
+SETTINGS_LEGACY_GROUP_DESC 仅保留旧开关以便已开启的安装继续完全按原样工作。锁定——不再能从此开启/关闭，且每个游戏配置档案今后都将其保持关闭。
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

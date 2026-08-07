@@ -23,11 +23,11 @@ namespace ImprovedPublicTransport.Util
         /// slider's own default, Light/Maximum land on the same 0.40s/0.15s this used to hardcode,
         /// so nothing changes for a player who never touches the slider.
         /// </summary>
-        public static float TrainDisplayPollMultiplier => Current switch
+        public static float TrainDisplayRefreshSeconds => Current switch
         {
-            ModSetting.PerformanceProfiles.Light => 1.6f,
-            ModSetting.PerformanceProfiles.Maximum => 0.6f,
-            _ => 1f,
+            ModSetting.PerformanceProfiles.Light => 1f,
+            ModSetting.PerformanceProfiles.Maximum => 0.05f,
+            _ => 0.5f,
         };
 
         /// <summary>

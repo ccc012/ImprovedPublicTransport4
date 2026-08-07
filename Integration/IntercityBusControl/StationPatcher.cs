@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CF = ColossalFramework;
 using ImprovedPublicTransport;
 using ImprovedPublicTransport.Util;
 
@@ -16,6 +17,55 @@ namespace IntercityBusControl
         public static readonly HashSet<string> PrefabsDefaultReject = new HashSet<string>();
 
         private static bool _netInfoNotFoundLogged;
+        private static readonly Dictionary<BuildingInfo, OriginalPrefabState> OriginalPrefabStates =
+            new Dictionary<BuildingInfo, OriginalPrefabState>();
+
+        private sealed class OriginalPrefabState
+        {
+            public ItemClass Class;
+            public TransportStationAI AI;
+            public NetInfo TransportLineInfo;
+            public TransportInfo TransportInfo;
+            public TransportInfo SecondaryTransportInfo;
+        }
+
+        internal static void RecordOriginalState(BuildingInfo info, TransportStationAI ai)
+        {
+            if (info == null || ai == null || OriginalPrefabStates.ContainsKey(info))
+            {
+                return;
+            }
+
+            OriginalPrefabStates.Add(info, new OriginalPrefabState
+            {
+                Class = info.m_class,
+                AI = ai,
+                TransportLineInfo = ai.m_transportLineInfo,
+                TransportInfo = ai.m_transportInfo,
+                SecondaryTransportInfo = ai.m_secondaryTransportInfo
+            });
+        }
+
+        internal static void RestorePrefabs()
+        {
+            try
+            {
+                foreach (var pair in OriginalPrefabStates)
+                {
+                    if (pair.Key == null || pair.Value.AI == null)
+                        continue;
+                    pair.Key.m_class = pair.Value.Class;
+                    pair.Value.AI.m_transportLineInfo = pair.Value.TransportLineInfo;
+                    pair.Value.AI.m_transportInfo = pair.Value.TransportInfo;
+                    pair.Value.AI.m_secondaryTransportInfo = pair.Value.SecondaryTransportInfo;
+                }
+            }
+            finally
+            {
+                OriginalPrefabStates.Clear();
+                Reset();
+            }
+        }
 
         public static void Reset()
         {
@@ -66,6 +116,7 @@ namespace IntercityBusControl
 
                 int patched = 0;
                 int registered = 0;
+                var patchedPrefabs = new List<BuildingInfo>();
                 uint count = (uint)PrefabCollection<BuildingInfo>.LoadedCount();
                 for (uint i = 0; i < count; i++)
                 {
@@ -93,13 +144,41 @@ namespace IntercityBusControl
                     if (TryPatchStation(info, ai, intercityBusLine, intercityBusClass, intercityBusTransport))
                     {
                         patched++;
+                        patchedPrefabs.Add(info);
+                    }
+                }
+
+                // After patching prefabs, call CreateConnectionLines on all placed instances
+                // of the converted prefabs so they establish valid outside connection links.
+                // This fixes the bug where converted stations spawn a bus that immediately despawns.
+                int relinked = 0;
+                var buildingManager = CF.Singleton<BuildingManager>.instance;
+                foreach (var prefab in patchedPrefabs)
+                {
+                    for (ushort buildingId = 1; buildingId < buildingManager.m_buildings.m_buffer.Length; buildingId++)
+                    {
+                        ref var building = ref buildingManager.m_buildings.m_buffer[buildingId];
+                        if (building.Info == prefab && building.m_flags != Building.Flags.None)
+                        {
+                            try
+                            {
+                                UnlimitedOutsideConnections.Patch_TransportStationAI_CreateConnectionLines.CreateConnectionLines(
+                                    (TransportStationAI)prefab.m_buildingAI, buildingId, ref building);
+                                relinked++;
+                            }
+                            catch (Exception e)
+                            {
+                                Utils.LogWarning($"Intercity Bus Control - CreateConnectionLines failed for {prefab.name} (id={buildingId}): {e.Message}");
+                            }
+                        }
                     }
                 }
 
                 // Always log summary (not verbose-only) so playtests can confirm coverage.
                 Utils.Log(
                     $"Intercity Bus Control - PatchStations complete: {patched} converted, " +
-                    $"{registered} native registered, {PatchedBuildingNames.Count} total for UI toggle: " +
+                    $"{registered} native registered, {relinked} instances relinked, " +
+                    $"{PatchedBuildingNames.Count} total for UI toggle: " +
                     $"[{string.Join(", ", new List<string>(PatchedBuildingNames).ToArray())}].");
             }
             catch (Exception e)
@@ -174,6 +253,7 @@ namespace IntercityBusControl
                 return false;
             }
 
+            RecordOriginalState(info, ai);
             ai.m_transportLineInfo = intercityBusLine;
 
             if (isBusPrimary)

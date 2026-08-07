@@ -88,12 +88,18 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
                         name = StopListBoxRow.GenerateStopName(name, stop, -1);
                     }
 
-                    var tip = string.Format(Localization.Get("STOP_BUTTON_TOOLTIP"), name);
+                    var tip = lineID < 256 ? string.Format(Localization.Get("STOP_BUTTON_TOOLTIP"), name) : string.Empty;
                     if (!TooltipCache.TryGetValue(uiComponent, out var old) || old != tip)
                     {
                         TooltipCache[uiComponent] = tip;
                         uiComponent.tooltip = tip;
                     }
+
+                    // Vanilla's UpdateStopButtons keeps objectUserData as a ushort net-node id
+                    // so PublicTransportStopButton.OnMouseDown (and our OnMouseDown prefix) can
+                    // cast it directly. Storing an InstanceID here made the click path throw
+                    // InvalidCastException. Reuse the name lookup above, keep the numeric id.
+                    uiComponent.objectUserData = (object)stop;
                 }
 
                 stop = TransportLine.GetNextStop(stop);

@@ -33,13 +33,6 @@ STOP_LIST_BOX_ROW_TOOLTIP {0}\nPassageiros esperando: {1}\n\nBotão direito do m
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Sugestões de nomes.
 STOP_PANEL_REUSE_NAME_TOOLTIP Usar esse nome para todas as paradas nessa estação / local.
 STOP_PANEL_WAITING_PEOPLE Passageiros esperando: {0}
-COMMUTER_DESTINATION_PANEL_TITLE Destinos dos passageiros
-COMMUTER_DESTINATION_HEADER Principais destinos:
-COMMUTER_DESTINATION_NONE Nenhum passageiro esperando aqui agora.
-COMMUTER_DESTINATION_LOADING Calculando...
-COMMUTER_DESTINATION_BUTTON Destinos
-COMMUTER_DESTINATION_BUTTON_TOOLTIP Abre a lista secundária de destinos desta parada. Ícones no mapa aparecem ao selecionar a parada; a lista só abre por este botão.
-COMMUTER_STOP_WITH_WAITING {0} ({1} esperando)
 STOP_PANEL_BORED_TIMER Tempo até desistir: <color #{0}>{1}</color>
 STOP_PANEL_BORED_TIMER_TOOLTIP Passageiros desistirão da viagem se a contagem chegar a 0.
 STOP_PANEL_PASSENGERS_IN Embarques:
@@ -64,6 +57,9 @@ SETTINGS_TAB_GENERAL Geral
 SETTINGS_ADVANCED_LINKS_GROUP Links
 SETTINGS_GITHUB_REPO Código-fonte no GitHub
 SETTINGS_KOFI_LINK Apoiar no Ko-fi
+SETTINGS_KOFI_GROUP Apoie o IPT4
+SETTINGS_KOFI_DESCRIPTION Ajude a manter o desenvolvimento do IPT4.
+SETTINGS_KOFI_BUTTON Apoie-me no Ko-fi
 SETTINGS_TAB_AUTOLINE Linha automática
 SETTINGS_TAB_STOPS Limite de passageiros esperando
 SETTINGS_TAB_UNBUNCHING Distribuição
@@ -76,7 +72,7 @@ SETTINGS_SPEED Velocidade:
 SETTINGS_SPEED_TOOLTIP Escolha a unidade usada para exibição de velocidade na interface.
 SETTINGS_GAMEPLAY_PROFILE Perfil de jogabilidade
 SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Um clique aplica um pacote de opções. Leia cada linha:
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK * Seguro - tudo opcional OFF (melhor com muitos mods).\n* Padrao do jogo - sensacao de vanilla (sem extras IPT).\n* Recomendado - so o nucleo IPT: frota por orcamento, unbunching, intercity, abas, unstucker, paradas avancadas/elevadas.\n* Realista - a maioria das funcoes ligadas (mais simulacao, mais custo).\n* Personalizado - voce escolhe cada interruptor.
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK * Seguro - tudo opcional OFF (melhor com muitos mods).\n* Padrão do jogo - sensação de vanilla (sem extras IPT).\n* Recomendado - só o núcleo IPT: frota por orçamento, unbunching, intercity, abas, unstucker, paradas avançadas/elevadas.\n* Realista - a maioria das funcoes ligadas (mais simulacao, mais custo).\n* Personalizado - você escolhe cada interruptor.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Personalizado
 SETTINGS_GAMEPLAY_PROFILE_SAFE Seguro — tudo opcional off
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Padrão do jogo
@@ -114,7 +110,7 @@ SETTINGS_SUB_PERF Desemp.
 SETTINGS_SUB_COMPAT Compat
 SETTINGS_SUB_KEYS Teclas
 SETTINGS_FUTURE_GROUP Em breve
-SETTINGS_FUTURE_GROUP_DESCRIPTION Prévia de recursos planejados. Cinza até estarem prontos — ainda não fazem nada.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Prévia de recursos planejados. As opções cinza ainda não funcionam; Destinos dos passageiros continua disponível para testes.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Bonde reversível (em breve)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planejado: bondes revertem no terminal sem loop. Ainda não disponível.
 SETTINGS_HIDDENBEHAVIOUR_GROUP Comportamento sempre ativo
@@ -266,7 +262,7 @@ SETTINGS_EBS_GROUP_TRAM Serviço expresso com pulo de paradas (bonde)
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Distribuição de ônibus expresso: 
 SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Desativado' = os ônibus usam as configurações de distribuição acima.\n'Prudente' = para brevemente, verifica passageiros e pode partir se estiver vazio.\n'Realista' = pula completamente as paradas se não houver passageiros esperando.
 SETTINGS_EBS_ENABLE_SELFBAL Habilitar auto-equilíbrio de serviço
-SETTINGS_EBS_DESC_SELFBAL Permite que o Express Bus Service redistribua veiculos ao longo da linha para favorecer trechos mais movimentados e reduzir o tempo de espera.
+SETTINGS_EBS_DESC_SELFBAL Permite que o Express Bus Service redistribua veículos ao longo da linha para favorecer trechos mais movimentados e reduzir o tempo de espera.
 SETTINGS_EBS_TOOLTIP_SELFBAL Analisa segmentos de linha e pode redistribuir veículos para segmentos mais ocupados ou paradas terminais para equilibrar o serviço e reduzir tempos de espera.\n As decisões são probabilísticas e dependem da contagem de passageiros e probabilidades de redistribuição.
 SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Habilitar auto-equilíbrio de parada do meio de linha
 SETTINGS_EBS_DESC_SELFBAL_TARGETMID Permite que o auto-equilíbrio escolha uma parada movimentada no meio da linha em vez de apenas uma parada terminal ao redistribuir veiculos.
@@ -412,29 +408,29 @@ COPY_TIP Copiar as configurações desta linha.
 PASTE_TIP Colar as configurações de linha copiadas.
 COPY_BUILDING_TIP Copiar estas configurações para todas as linhas que atendem este edifício.
 COPY_DISTRICT_TIP Copiar estas configurações para todas as linhas deste distrito.
-SETTINGS_INTEGRATIONS_GROUP Integracoes Adicionais
+SETTINGS_INTEGRATIONS_GROUP Integrações Adicionais
 SETTINGS_INTERCITY_BUS_ENABLE Ativar Intercity Bus Control
-SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Ativa a camada integrada de compatibilidade do Intercity Bus Control e o patch das estacoes.
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Ativa a camada integrada de compatibilidade do Intercity Bus Control e o patch das estações.
 SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Ativar posicionamento preciso de paradas
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Permite colocar paragens em plataformas/vias alternativas de estações multi-via (mantenha a tecla de modo alternativo ao colocar). Entra em vigor no próximo carregamento do nível.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Permite colocar paradas em plataformas/vias alternativas de estações multi-via (mantenha a tecla de modo alternativo ao colocar). Entra em vigor no próximo carregamento do nível.
 SETTINGS_BETTERBOARDING_ENABLE Ativar embarque melhorado
 SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Melhora as decisões de embarque para os passageiros preferirem o veículo que realmente serve o seu destino. Entra em vigor no próximo carregamento do nível.
 SETTINGS_MILEAGETAXI_ENABLE Ativar táxis por quilometragem
 SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Cobra tarifas de táxi pela distância percorrida em vez de uma taxa fixa, para viagens longas renderem mais. Requer o DLC After Dark. Entra em vigor no próximo carregamento do nível.
-SETTINGS_ELEVATEDSTOPS_ENABLE Ativar paragens elevadas
+SETTINGS_ELEVATEDSTOPS_ENABLE Ativar paradas elevadas
 SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Permite paragens de transporte público em estradas/pontes elevadas e mantém a iluminação nesses troços. Entra em vigor no próximo carregamento do nível.
 SETTINGS_INTERCITY_BUS_CAPACITY Capacidade do Terminal Intermunicipal
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Quantos veículos um terminal de ônibus intermunicipal pode abrigar ao mesmo tempo.
-SETTINGS_TRAM_DEPOT_CAPACITY Capacidade do deposito de bonde
-SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo deposito de bonde com um limite praticamente sem teto de 100.000 veiculos. Realista e Intermediario aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
+SETTINGS_TRAM_DEPOT_CAPACITY Capacidade do depósito de bonde
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo depósito de bonde com um limite praticamente sem teto de 100.000 veículos. Realista e Intermediário aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
 SETTINGS_TAXI_DEPOT_CAPACITY Capacidade da garagem de taxi
-SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa toda garagem de taxi com um limite praticamente sem teto de 100.000 veiculos. Realista e Intermediario aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa toda garagem de taxi com um limite praticamente sem teto de 100.000 veículos. Realista e Intermediário aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
 SETTINGS_BUS_DEPOT_CAPACITY Capacidade da garagem de onibus
-SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa toda garagem de onibus (normal, biocombustivel e turismo) com um limite praticamente sem teto de 100.000 veiculos. Realista e Intermediario aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa toda garagem de onibus (normal, biocombustivel e turismo) com um limite praticamente sem teto de 100.000 veículos. Realista e Intermediário aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
 SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Capacidade do deposito de trolebus
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo deposito de trolebus com um limite praticamente sem teto de 100.000 veiculos. Realista e Intermediario aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo deposito de trolebus com um limite praticamente sem teto de 100.000 veículos. Realista e Intermediário aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
 SETTINGS_FERRY_DEPOT_CAPACITY Capacidade do galpao de balsas
-SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo galpao de balsas com um limite praticamente sem teto de 100.000 veiculos. Realista e Intermediario aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP O padrao do jogo deixa todo galpao de balsas com um limite praticamente sem teto de 100.000 veículos. Realista e Intermediário aplicam um teto fixo moderado; Desativado mantem o comportamento atual.
 SETTINGS_DEPOT_CAPACITY_DISABLED Desativado (sem limite)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermediário
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realista
@@ -448,10 +444,6 @@ SETTINGS_SHAREDSTOPENABLER_ENABLE Ativar Paradas compartilhadas
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite mais de um tipo de transporte (onibus, bonde, trolebus) no mesmo trecho, inclusive vias elevadas/pontes. Inclui ajuste de faixa e colocacao multi-tipo. Prefabs grandes podem pedir recarregar o mapa.
 SETTINGS_COMMUTERDESTINATION_ENABLE Ativar Destinos dos passageiros (Experimental)
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Devia mostrar, ao selecionar uma parada, ícones no mapa com os destinos dos passageiros. Experimental e conhecido por não ser confiável: na 4.8.8, os ícones/painel continuam falhando em aparecer mesmo depois de um bug real ter sido encontrado e corrigido. Desligado por padrão - ative só se quiser ajudar a testar e relatar o que você vê.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detalhe do mapa:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Desempenho mostra menos ícones e atualiza mais rápido. Mapa completo mostra bem mais destinos no mapa; o painel atualiza mais devagar (melhor para PCs fracos).
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Desempenho (mais rápido)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Mapa completo (mais ícones, mais lento)
 SETTINGS_KEYBINDINGS_GROUP Atalhos no jogo
 SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Atalhos com a cidade carregada. Clique numa tecla e pressione outra para reatribuir.
 SETTINGS_HOTKEY_TRAIN_DISPLAY Alternar Painel de rota do veículo
@@ -460,10 +452,32 @@ SETTINGS_HOTKEY_LINE_COLOR Reatribuir cor da linha
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Com uma linha de transporte selecionada, reexecuta o Auto Line Color (precisa de estratégia de cor ativa).
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Posicionamento preciso de paradas: escolher o trilho exato
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Segure ao criar uma conexão de parada de trem/bonde para mirar no trilho exato em vez do mais próximo válido. Antes era fixo em Shift esquerdo/direito; reatribuir aqui cobre só o lado que você escolher.
+SETTINGS_HOTKEY_OPEN_LINE_PANEL Abrir/fechar painel de linha
+SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP Abre o painel da linha de transporte selecionada. Aperte de novo para fechar.
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING Alternar distribuição da linha
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP Liga ou desliga a distribuição de veículos da linha selecionada.
+SETTINGS_HOTKEY_COPY_LINE_CONFIG Copiar configurações da linha
+SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP Copia veículos, orçamento, garagem, preço de passagem e cor da linha selecionada.
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG Colar configurações da linha
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP Cola as configurações copiadas na linha selecionada.
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS Copiar para linhas que servem os mesmos prédios
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP Copia as configurações da linha atual para todas as outras linhas que atendem os mesmos prédios/estações próximos.
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS Copiar para linhas que servem os mesmos distritos
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP Copia as configurações da linha atual para todas as outras linhas que atendem os mesmos distritos ou parques.
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES Selecionar tipos de veículo
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP Abre o painel de seleção de tipos de veículo da linha selecionada.
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR Alternar editor de veículos
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP Mostra ou oculta o editor de veículos.
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER Abrir painel de voos
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP Abre o painel de voos do aeroporto do prédio selecionado. Precisa do recurso Painel de voos ativo.
+SETTINGS_HOTKEY_PREV_VEHICLE Veículo anterior
+SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP Muda para o veículo anterior da linha no painel de veículo.
+SETTINGS_HOTKEY_NEXT_VEHICLE Próximo veículo
+SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP Muda para o próximo veículo da linha no painel de veículo.
 LINE_PANEL_COPY Copiar
 LINE_PANEL_PASTE Colar
-SETTINGS_OOC_ENABLE Conexoes externas otimizadas
-SETTINGS_OOC_ENABLE_TOOLTIP Trens, avioes e navios de carga esperam mais por uma carga mais completa antes de partir nas conexoes externas.
+SETTINGS_OOC_ENABLE Conexões externas otimizadas
+SETTINGS_OOC_ENABLE_TOOLTIP Trens, aviões e navios de carga esperam mais por uma carga mais completa antes de partir nas conexoes externas.
 SETTINGS_OOC_WAIT_MULTIPLIER Multiplicador de espera
 SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP O quanto mais que o padrao esperar por uma carga mais completa. Valores maiores significam menos viagens, porem mais completas.
 SETTINGS_OOC_PASSENGER_SCOPE Escopo de espera de passageiro
@@ -605,16 +619,15 @@ SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Mostrar tempo (faixa extra)
 SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adiciona uma faixa na cor da linha acima do painel principal com estas extras. Desligado por padrao.
 TRAINDISPLAY_LABEL_SPEED Velocidade
 TRAINDISPLAY_LABEL_TIME Tempo
+SETTINGS_TRAINDISPLAY_SCOPE Mostrar sobreposição em
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Escolha veículo selecionado, câmera em primeira pessoa ou ambos.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Só no veículo selecionado
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Só na câmera em primeira pessoa
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Veículo selecionado ou primeira pessoa
 SETTINGS_TRAINDISPLAY_LAYOUT Disposição do painel
 SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Qual arranjo o painel usa. Os dois mostram a mesma informação e respeitam as mesmas caixas de seleção abaixo - só o formato muda.
 SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Clássico (painel compacto de canto)
 SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detalhado (métricas no topo + lista de paradas)
-COMMUTERDESTINATION_PANEL_TITLE Destino dos passageiros (Experimental)
-COMMUTERDESTINATION_PANEL_DESTINATIONS destinos
-COMMUTERDESTINATION_PANEL_STOP Parada nº {0}
-COMMUTERDESTINATION_PANEL_WAITING Passageiros esperando: {0}
-COMMUTERDESTINATION_PANEL_PREVIOUS Anterior
-COMMUTERDESTINATION_PANEL_NEXT Próxima
 SETTINGS_FUTURE_ROUTEPANEL_BRANCH Detecção de ramificação/laço de linha (em breve)
 SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planejado: avisar no painel de rota do veículo quando uma linha volta sobre si mesma ou se divide em mais de dois ramos, em vez de assumir uma rota simples de ponta a ponta. Ainda não disponível.
 SETTINGS_FUTURE_ROUTEPANEL_TTS Anúncio de voz da próxima parada (em breve)
@@ -623,3 +636,31 @@ SETTINGS_FUTURE_STTAI_QUEUE Ordem justa de trens em via única (em breve)
 SETTINGS_FUTURE_STTAI_QUEUE_TIP Planejado: registrar há quanto tempo cada trem está esperando um trecho de via única, para quem chegou primeiro ser atendido primeiro, em vez de qualquer um que seja processado primeiro naquele ciclo. Ainda não disponível.
 SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Caixa de controle via orçamento continuar marcada quando gerida pelo IPT (em breve)
 SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planejado: hoje, quando o Dimensionamento automático da frota assume uma linha, a caixa "Controle via orçamento" desmarca sozinha para sinalizar isso - é proposital, mas confuso de ver. Isto vai separar "o cálculo do próprio jogo" de "o IPT está gerenciando esta linha" internamente, para a caixa poder continuar marcada o tempo todo. Ainda não disponível.
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Distribuição / Ônibus Expresso
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Ativa a distribuição de veículos, Ônibus/Bonde Expresso, intervalo de partida e dimensionamento agressivo de frota. Todas as funcionalidades de espaçamento/orçamento de ônibus e bondes.
+SETTINGS_FEATURE_BUDGET_ENABLE Funcionalidades de Orçamento
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Ativa Controle de Orçamento de Linha, Orçamento Automático de Linha, Personalizador de Preço de Passagem e tarifa-como-custo-de-rota. Todas as funcionalidades de dinheiro/preço/dimensionamento de frota.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Cor Automática de Linha
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Atribui automaticamente cores e nomes a novas linhas de transporte. Inclui estratégia de cor, de nome e paleta.
+SETTINGS_FEATURE_TRAINDISPLAY_ENABLE Painel de Rota do Veículo
+SETTINGS_FEATURE_TRAINDISPLAY_ENABLE_TOOLTIP Ativa a sobreposição do Painel de Rota do Veículo mostrando rotas, velocidades, passageiros e próximas paradas. Inclui layout, tema e opções por tipo de veículo.
+SETTINGS_FEATURE_COMMUTERDESTINATION_ENABLE Destinos dos Passageiros
+SETTINGS_FEATURE_COMMUTERDESTINATION_ENABLE_TOOLTIP Mostra ícones de destino no mapa para passageiros esperando na parada selecionada. Exibe destinos por prédio com contagem de passageiros.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Editor de Veículos
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Ativa o editor de veículos para trocar tipos, visual e propriedades. Pode ser posicionado embaixo ou à direita.
+SETTINGS_FEATURE_BETTERBOARDING_ENABLE Embarque Melhor
+SETTINGS_FEATURE_BETTERBOARDING_ENABLE_TOOLTIP Melhora a lógica de embarque de passageiros para reduzir aglomeração e equilibrar a carga entre veículos da mesma linha.
+SETTINGS_FEATURE_ADVSTOPSELECT_ENABLE Seleção Avançada de Parada
+SETTINGS_FEATURE_ADVSTOPSELECT_ENABLE_TOOLTIP Permite escolher qual plataforma/parada um veículo usa em paradas com várias plataformas. Adiciona um menu no painel do veículo.
+SETTINGS_FEATURE_MILEAGETAXI_ENABLE Serviços de Táxi por Distância
+SETTINGS_FEATURE_MILEAGETAXI_ENABLE_TOOLTIP Faz as tarifas de táxi basearem-se na distância em vez de valor fixo. Adiciona uma aba de Tarifas no painel de Economia.
+SETTINGS_FEATURE_ELEVATEDSTOPS_ENABLE Paradas Elevadas
+SETTINGS_FEATURE_ELEVATEDSTOPS_ENABLE_TOOLTIP Permite colocar paradas de ônibus/bonde em estradas e pontes elevadas. Adiciona um botão no painel de paradas.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Limites de Passageiros Esperando
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Limita quantos cidadãos podem esperar por transporte público em uma única parada. Desative para remover todos os limites e deixar o jogo lidar com a capacidade das paradas.
+SETTINGS_FUTURE_LINEMAP Gerar um mapa da rede de linhas (em breve)
+SETTINGS_FUTURE_LINEMAP_TIP Planejado: gerar um mapa de todas as linhas de transporte da cidade e salvá-lo numa pasta no seu computador, como um esquema simplificado. Ainda não disponível.
+SETTINGS_FUTURE_STOPPLACER Sugerir o melhor lugar para uma parada (em breve)
+SETTINGS_FUTURE_STOPPLACER_TIP Planejado: analisar a área ao redor de uma estrada/rede e sugerir o melhor lugar para colocar uma parada de ônibus ou outra, incluindo a distância entre paradas. Ainda não disponível.
+SETTINGS_FUTURE_LINEHISTORY Histórico de linhas (em breve)
+SETTINGS_FUTURE_LINEHISTORY_TIP Planejado: manter um registro das mudanças de cada linha ao longo do tempo para você ver como uma rota evoluiu. Ainda não disponível.

@@ -35,6 +35,10 @@ namespace ExpressBusServices
             CitizenManager cm = Singleton<CitizenManager>.instance;
             NetManager nm = Singleton<NetManager>.instance;
             Vector3 position = nm.m_nodes.m_buffer[currentStop].m_position;
+            if (nextStop == 0 || nextStop >= nm.m_nodes.m_buffer.Length)
+            {
+                return;
+            }
             Vector3 position2 = nm.m_nodes.m_buffer[nextStop].m_position;
             // Do NOT zero m_maxWaitTime here — this path is also used as a dry-run counter
             // (EBS popularity analysis). Clearing wait timers city-wide made passengers at

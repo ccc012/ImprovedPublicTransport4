@@ -296,6 +296,15 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             }
 
             s_sliderRows.Clear();
+            foreach (var atlas in s_customIconAtlases.Values)
+            {
+                if (atlas == null) continue;
+                var material = atlas.material;
+                var texture = material?.mainTexture;
+                if (material != null) UnityEngine.Object.Destroy(material);
+                if (texture != null) UnityEngine.Object.Destroy(texture);
+                UnityEngine.Object.Destroy(atlas);
+            }
             s_customIconAtlases.Clear();
             s_refreshAccumulator = 0f;
         }
@@ -434,7 +443,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
         }
 
         /// <summary>
-        /// Called every frame from ColorMonitor.OnUpdate. Refreshes passenger count labels
+        /// Called every frame from DayNightPriceWatcher.Update. Refreshes passenger count labels
         /// at most every <see cref="PerformanceProfile.TicketPricesRefreshSeconds"/> seconds, only when the tab is visible.
         /// </summary>
         public static void OnUpdate(float realTimeDelta)
@@ -494,6 +503,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     if (!texture.LoadImage(File.ReadAllBytes(pngPath)))
                     {
                         Utils.LogError($"TicketPricesTab: LoadImage failed for {pngPath}");
+                        UnityEngine.Object.Destroy(texture);
                         continue;
                     }
                     texture.name = info.SpriteName;
@@ -507,6 +517,8 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     if (uiView == null || uiView.defaultAtlas == null)
                     {
                         Utils.LogError($"TicketPricesTab: UIView or defaultAtlas not available for icon {info.SpriteName}");
+                        UnityEngine.Object.Destroy(texture);
+                        UnityEngine.Object.Destroy(atlas);
                         continue;
                     }
 

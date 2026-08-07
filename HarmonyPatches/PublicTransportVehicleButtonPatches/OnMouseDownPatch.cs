@@ -26,7 +26,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportVehicleButtonPat
 
         private static bool Prefix(UIComponent component, UIMouseEventParameter eventParam)
         {
-            var objectUserData = (ushort)(component as UIButton).objectUserData;
+            if (component is not UIButton button || button.objectUserData is not ushort objectUserData)
+            {
+                return true;
+            }
+
             var instanceID = InstanceID.Empty;
             instanceID.Vehicle = objectUserData;
             InstanceManager.GetPosition(instanceID, out var position, out _, out _);

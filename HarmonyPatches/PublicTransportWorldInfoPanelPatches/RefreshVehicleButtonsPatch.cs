@@ -85,7 +85,14 @@ namespace ImprovedPublicTransport.HarmonyPatches.PublicTransportWorldInfoPanelPa
                                       ?? prefab.name;
                         DescriptionCache[prefab] = description;
                     }
-                    ___m_vehicleButtons.items[index].tooltip = string.Format(_vehicleTooltipFormat, description);
+                    try
+                    {
+                        ___m_vehicleButtons.items[index].tooltip = string.Format(_vehicleTooltipFormat, description);
+                    }
+                    catch
+                    {
+                        // Non-fatal: tooltip format failure
+                    }
                 }
                 //end mod
                 num = instance.m_vehicles.m_buffer[(int)num].m_nextLineVehicle;

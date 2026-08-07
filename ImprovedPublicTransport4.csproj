@@ -92,6 +92,8 @@
     <None Update="Translations/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Remove="Translations/*.fixed.txt" />
+    <None Remove="Translations/*.bak" />
     <None Update="Resources/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -128,7 +130,7 @@
       <ModDirectory Condition="'$(OS)' != 'Windows_NT'">$(HOME)/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/$(ProjectName)/</ModDirectory>
     </PropertyGroup>
     <ItemGroup>
-      <LocaleFiles Include="$(ProjectDir)Translations/*.txt" />
+      <LocaleFiles Include="$(ProjectDir)Translations/*.txt" Exclude="$(ProjectDir)Translations/*.fixed.txt;$(ProjectDir)Translations/*.bak" />
       <TranslationFiles Include="$(ProjectDir)Translations/*.csv" />
       <ResourceFiles Include="$(ProjectDir)Resources/*" />
       <IconFiles Include="$(ProjectDir)Resources/*" />

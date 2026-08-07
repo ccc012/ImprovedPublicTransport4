@@ -272,22 +272,26 @@ namespace ImprovedPublicTransport.Data
           Info.m_trailers[index].m_probability = 100;
         }
       }
-      else if (Name.Contains("D3S Solaris Urbino 24 '15") && Info.m_trailers != null && Info.m_trailers.Length != 0)
-      {
-        Info.m_dampers = 0.6f;
-        var loaded = PrefabCollection<VehicleInfo>.FindLoaded(Name.Substring(0, Name.IndexOf(".", StringComparison.Ordinal)) + ".D3S Solaris Urbino 24 '15 (II)_Data");
-        if (loaded != null)
-        {
-          Utils.Log("Fixing " + Name);
-          Info.m_trailers[0].m_info.m_dampers = 0.6f;
-          loaded.m_attachOffsetFront = 1.07f;
-          loaded.m_dampers = 0.6f;
-          Info.m_trailers[1].m_info = loaded;
-          Info.m_trailers[1].m_invertProbability = 0;
-          Info.m_trailers[1].m_probability = 100;
-          ApplyBackEngine(loaded, 0);
-        }
-      }
+            else if (Name.Contains("D3S Solaris Urbino 24 '15") && Info.m_trailers != null && Info.m_trailers.Length >= 2)
+            {
+                Info.m_dampers = 0.6f;
+                int dotIndex = Name.IndexOf(".", StringComparison.Ordinal);
+                if (dotIndex >= 0)
+                {
+                    var loaded = PrefabCollection<VehicleInfo>.FindLoaded(Name.Substring(0, dotIndex) + ".D3S Solaris Urbino 24 '15 (II)_Data");
+                    if (loaded != null)
+                    {
+                        Utils.Log("Fixing " + Name);
+                        Info.m_trailers[0].m_info.m_dampers = 0.6f;
+                        loaded.m_attachOffsetFront = 1.07f;
+                        loaded.m_dampers = 0.6f;
+                        Info.m_trailers[1].m_info = loaded;
+                        Info.m_trailers[1].m_invertProbability = 0;
+                        Info.m_trailers[1].m_probability = 100;
+                        ApplyBackEngine(loaded, 0);
+                    }
+                }
+            }
       if (Info.m_trailers != null)
       {
         var length = Info.m_trailers.Length;
@@ -620,19 +624,30 @@ namespace ImprovedPublicTransport.Data
         return num;
         }
 
+    private static string VehicleDataDirectory
+    {
+      get
+      {
+        var root = ColossalFramework.IO.DataLocation.localApplicationData;
+        if (string.IsNullOrEmpty(root))
+          root = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Colossal Order"), "Cities_Skylines");
+        return Path.Combine(root, "IptVehicleData");
+      }
+    }
+
     private void LoadPrefabData()
     {
       try
       {
-        string str = "IptVehicleData";
-        if (!Directory.Exists(str))
-          Directory.CreateDirectory(str);
         string path2 = Utils.RemoveInvalidFileNameChars(Name + ".xml");
-        string path = Path.Combine(str, path2);
+        string path = Path.Combine(VehicleDataDirectory, path2);
         if (!File.Exists(path))
         {
+          string legacyPath = Path.Combine("IptVehicleData", path2);
+          if (File.Exists(legacyPath))
+            path = legacyPath;
         }
-        else
+        if (File.Exists(path))
         {
           Utils.Log("Found stored data for " + Name);
           using (StreamReader streamReader = new StreamReader(path))
@@ -661,14 +676,13 @@ namespace ImprovedPublicTransport.Data
 
       try
       {
-        const string str = "IptVehicleData";
-        if (!Directory.Exists(str))
+        if (!Directory.Exists(VehicleDataDirectory))
         {
-          Directory.CreateDirectory(str);
+          Directory.CreateDirectory(VehicleDataDirectory);
         }
 
         var path2 = Utils.RemoveInvalidFileNameChars(Name + ".xml");
-        var path = Path.Combine(str, path2);
+        var path = Path.Combine(VehicleDataDirectory, path2);
         var defaultPrefabData = new DefaultPrefabData();
         defaultPrefabData.Capacity = Capacity;
         defaultPrefabData.MaintenanceCost = MaintenanceCost;
@@ -711,19 +725,7 @@ namespace ImprovedPublicTransport.Data
         }
         else
         {
-          buffer[lastVehicle].m_flags &= Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned |
-                                         Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource |
-                                         Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 |
-                                         Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving |
-                                         Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff |
-                                         Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace |
-                                         Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack |
-                                         Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing |
-                                         Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName |
-                                         Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading |
-                                         Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic |
-                                         Vehicle.Flags.Underground | Vehicle.Flags.Transition |
-                                         Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive;
+          buffer[lastVehicle].m_flags &= ~Vehicle.Flags.Inverted;
         }
 
         buffer[lastVehicle].Info = newInfo;
@@ -735,19 +737,7 @@ namespace ImprovedPublicTransport.Data
       var buffer = Singleton<VehicleManager>.instance.m_vehicles.m_buffer;
       for (var index = 0; index < buffer.Length; ++index)
       {
-        if (buffer[index].m_flags == ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned |
-                                       Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget |
-                                       Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 |
-                                       Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped |
-                                       Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed |
-                                       Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing |
-                                       Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo |
-                                       Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing |
-                                       Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName |
-                                       Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading |
-                                       Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic |
-                                       Vehicle.Flags.Underground | Vehicle.Flags.Transition |
-                                       Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
+        if ((buffer[index].m_flags & (Vehicle.Flags.Created | Vehicle.Flags.Deleted)) != Vehicle.Flags.Created)
         {
           continue;
         }

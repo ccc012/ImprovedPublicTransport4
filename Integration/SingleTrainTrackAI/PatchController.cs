@@ -20,6 +20,9 @@ namespace SingleTrainTrackAI
             }
 
             HarmonyScope.PatchNamespace(GetHarmonyInstance(), "SingleTrainTrackAI");
+            // Cache invalidation for network edits isn't [HarmonyPatch]-annotated, so wire it
+            // manually - without it, sections/segments built before a rail edit keep stale bounds.
+            NetworkChangePatch.Apply();
             _active = true;
         }
 
@@ -27,6 +30,7 @@ namespace SingleTrainTrackAI
         {
             if (_active)
             {
+                NetworkChangePatch.Undo();
                 GetHarmonyInstance().UnpatchAll(HarmonyModID);
                 _active = false;
             }

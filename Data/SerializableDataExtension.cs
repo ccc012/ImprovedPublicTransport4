@@ -5,6 +5,8 @@
 // Assembly location: C:\Games\Steam\steamapps\workshop\content\255710\424106600\ImprovedPublicTransport.dll
 
 using System;
+using System.IO;
+using System.Text;
 using ICities;
 
 namespace ImprovedPublicTransport.Data
@@ -68,6 +70,7 @@ namespace ImprovedPublicTransport.Data
 
     public static byte ReadByte(byte[] data, ref int index)
     {
+      EnsureAvailable(data, index, 1);
       int num = (int) data[index];
       index = index + 1;
       return (byte) num;
@@ -80,6 +83,7 @@ namespace ImprovedPublicTransport.Data
 
     public static bool ReadBool(byte[] data, ref int index)
     {
+      EnsureAvailable(data, index, 1);
       int num = BitConverter.ToBoolean(data, index) ? 1 : 0;
       index = index + 1;
       return num != 0;
@@ -92,6 +96,7 @@ namespace ImprovedPublicTransport.Data
 
     public static ushort ReadUInt16(byte[] data, ref int index)
     {
+      EnsureAvailable(data, index, 2);
       int uint16 = (int) BitConverter.ToUInt16(data, index);
       index = index + 2;
       return (ushort) uint16;
@@ -104,6 +109,7 @@ namespace ImprovedPublicTransport.Data
 
     public static int ReadInt32(byte[] data, ref int index)
     {
+      EnsureAvailable(data, index, 4);
       int int32 = BitConverter.ToInt32(data, index);
       index = index + 4;
       return int32;
@@ -116,6 +122,7 @@ namespace ImprovedPublicTransport.Data
 
     public static float ReadFloat(byte[] data, ref int index)
     {
+      EnsureAvailable(data, index, 4);
       double single = (double) BitConverter.ToSingle(data, index);
       index = index + 4;
       return (float) single;
@@ -123,34 +130,40 @@ namespace ImprovedPublicTransport.Data
 
     public static void WriteString(string s, FastList<byte> data)
     {
+      if (s == null)
+        throw new ArgumentNullException(nameof(s));
       char[] charArray = s.ToCharArray();
       SerializableDataExtension.WriteInt32(charArray.Length, data);
-      for (ushort index = 0; (int) index < charArray.Length; ++index)
-        SerializableDataExtension.AddToData(BitConverter.GetBytes(charArray[(int) index]), data);
+      for (int index = 0; index < charArray.Length; ++index)
+        SerializableDataExtension.AddToData(BitConverter.GetBytes(charArray[index]), data);
     }
 
     public static string ReadString(byte[] data, ref int index)
     {
-      string empty = string.Empty;
-      int num = SerializableDataExtension.ReadInt32(data, ref index);
-      for (int index1 = 0; index1 < num; ++index1)
+      int length = SerializableDataExtension.ReadInt32(data, ref index);
+      EnsureCollectionLength(data, index, length, 2);
+      var builder = new StringBuilder(length);
+      for (int index1 = 0; index1 < length; ++index1)
       {
-        empty += BitConverter.ToChar(data, index).ToString();
+        builder.Append(BitConverter.ToChar(data, index));
         index = index + 2;
       }
-      return empty;
+      return builder.ToString();
     }
 
     public static void WriteFloatArray(float[] array, FastList<byte> data)
     {
+      if (array == null)
+        throw new ArgumentNullException(nameof(array));
       SerializableDataExtension.WriteInt32(array.Length, data);
-      for (ushort index = 0; (int) index < array.Length; ++index)
-        SerializableDataExtension.WriteFloat(array[(int) index], data);
+      for (int index = 0; index < array.Length; ++index)
+        SerializableDataExtension.WriteFloat(array[index], data);
     }
 
     public static float[] ReadFloatArray(byte[] data, ref int index)
     {
       int length = SerializableDataExtension.ReadInt32(data, ref index);
+      EnsureCollectionLength(data, index, length, 4);
       float[] numArray = new float[length];
       for (int index1 = 0; index1 < length; ++index1)
         numArray[index1] = SerializableDataExtension.ReadFloat(data, ref index);
@@ -161,6 +174,20 @@ namespace ImprovedPublicTransport.Data
     {
       foreach (byte num in bytes)
         data.Add(num);
+    }
+
+    private static void EnsureAvailable(byte[] data, int index, int byteCount)
+    {
+      if (data == null)
+        throw new ArgumentNullException(nameof(data));
+      if (index < 0 || byteCount < 0 || index > data.Length - byteCount)
+        throw new EndOfStreamException("Serialized IPT data is truncated or corrupt.");
+    }
+
+    private static void EnsureCollectionLength(byte[] data, int index, int length, int bytesPerItem)
+    {
+      if (length < 0 || length > (data.Length - index) / bytesPerItem)
+        throw new InvalidDataException("Serialized IPT collection length is invalid.");
     }
 
     public delegate void SaveDataEventHandler();

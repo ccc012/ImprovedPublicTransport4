@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Vyhybanie sa koliziam vlakov na jednokolajke
 SETTINGS_STTAI_ENABLE_TOOLTIP Rezervuje usek jednokolajnej trate pre jeden vlak naraz a drzi protiidúci vlak pri vjazde, kym sa usek neuvolni. Povodna funkcia IPT4, nie je v zakladnej hre ani v ziadnom pohltenom mode.
 SETTINGS_STOPSTACKER_ENABLE Skladanie stanovist autobusov
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Umoznuje druhemu/tretiemu autobusu prichadzajucemu na tu istu zastavku pouzit vlastne stanovisko dalej vzadu na jazdnom pruhu zastavky namiesto radenia za prvym autobusom, takze moze nastupovat/vystupovat viac autobusov naraz. Povodna funkcia IPT4 (zjednodusena reimplementacia bez pristupu k povodnemu kodu), nie je v zakladnej hre ani v ziadnom pohltenom mode.
+
+SETTINGS_SUPPORT_LABEL Ak IPT4 zachránil vašu uloženú hru alebo zlepšil výkon, zvážte podporu jeho vývoja!
+SETTINGS_SUPPORT_BUTTON Podporte ma na Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Rozbiehanie / Expresný autobus
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Povolí rozbiehanie vozidiel, expresný autobus/električku, interval spawnovania a agresívnu veľkosť vozového parku. Všechny funkcie rozestupov a rozpočtu pre autobusy a elektrické vozidlá.
+SETTINGS_FEATURE_BUDGET_ENABLE Rozpočtové funkcie
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Povolí kontrolu rozpočtu linky, automatický rozpočet linky, násobič ceny lístka a cenu ako náklady na cestu. Všechny peňazné/ cenové/vozoparkové funkcie.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Automatická farba linky
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Automaticky priradí farby a názvy novým dopravným linkám. Zahŕna farebnú stratégiu, stratégiu menovania a nastavenia panela.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Editor vozidiel
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Povolí panel editora vozidiel na zmenu typov vozidiel, livérií a vlastností. Môže byť umiestnený dole alebo vpravo.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Limity čakajúcich cestujúcich
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Obmedzuje, koľko občanov môže čakať na MHD na jednej zastávke. Zakázať pre odstránenie všetkých limitov čakania a nechať hru spravovať kapacitu zastávok.
+SETTINGS_TRAINDISPLAY_SCOPE Zobraziť overlay pri
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Vyberte vybrané vozidlo, first-person kameru alebo obe.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Iba vybrané vozidlo
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Iba first-person kamera
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Vybrané vozidlo alebo first-person kamera
+SETTINGS_TRAINDISPLAY_LAYOUT Rozloženie panela
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ktoré rozloženie overlay používa. Obidve zobrazujú rovnaké informácie a rešpektujú rovnaké zaškrtávacie políčka - líši sa len tvar.
 CHANGELOG_4_3_3_1 Opravené nastavenia uloženia/načítania stále sa pokúšali zlyhať na niektorých kôpkach modov, dokonca aj po zväzovaní Newtonsworth.Json.dll: predchádzajúce riešenie sa pokúšalo Assembly.LoadFrom iba v jednom vstupe a stále záviselo od poradia zaťaženia. IPT4 teraz registruje globálny háčik AssemblyResolve a vrúcne spúšťa svoj balený Newtonsworth.Json z každého vstupného bodu mod/UI, skôr ako CSLModsCommon sa dotkne JsonWriter, takže možnosti panela UI trvajú spoľahlivo namiesto náhodného viazania na nekompatibilnú Json.NET kópiu iného modu.
 CHANGELOG_4_3_2_1 Opravené selhanie zaťaženia modifikácie úplne ("failed to load the mod's dll or one of its dependencies"), kedykoľvek iný inštalovaný mod neposkytol náhodou Newtonsworth.Json: serializácia nastavení CSLModsCommon (JsonHelper/SerializationContext) jej potrebovala, ale naša zostava nikdy skutočne nedeployala Newtonsworth.Json.dll vedľa modu - vždy to fungovaló iba náhodou, jazda na kópii iného modula. Nájdené vypnutím všetkých ostatných modov na čistý test, čo je presne ako by to malo byť testované ideme.
 CHANGELOG_4_3_1_1 Opravené panel Možnosti výber jazyka iba znovu preložené rámca vlastne reťazce (Verzia/Changelog/...) zatiaľ čo každý reťazec tejto modifikácie ostal v jazyku hry - náš prekladateľ zaťaženia klúčový vypnutý jazyk hry a ignoroval mód vlastný výber úplne. Teraz sa riadí výberom jazyka modu s návratom k jazyku hry a potom angličtine, a znovu sa vyriešili vždy, keď sa výber zmení.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Výkon
 SETTINGS_SUB_COMPAT Kompatibilita
 SETTINGS_SUB_KEYS Klávesy
 SETTINGS_FUTURE_GROUP Prichádza neskôr
-SETTINGS_FUTURE_GROUP_DESCRIPTION Náhľad na plánované funkcie. Sivá, kým nebude pripravené — zatiaľ bez efektu.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Prehľad plánovaných funkcií. Zobrazené zašedlé kým nie sú pripravené; cieľová stanica cestujúceho zostáva dostupná na testovanie.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Reversibilná električka AI (čoskoro)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Plánované: elektricky sa otáčajú na termínoch bez slučky. Zatiaľ nie je dostupné.
 SETTINGS_FUTURE_BREAKDOWN Nástroje poruchy (čoskoro)
@@ -585,11 +605,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Prenesené zo samostatného modu R
 CHANGELOG_4_8_6_1 Znovu aktivovaná Cieľová destinácia cestujúcich: prepínač v Možnostiach je späť a funguje naživo, bez potreby opätovného načítania.
 CHANGELOG_4_8_6_2 Preverená každá voliteľná integrácia kvôli skutočnému „vypnuté znamená vypnuté": Zvýšené zastávky trvalo prepisovali dáta prefabu cesty bez možnosti to vrátiť späť a Automatická veľkosť flotily pokračovala v riadení liniek na pozadí aj po deaktivácii uprostred relácie. Obe sa teraz po vypnutí úplne vrátia k vanilla správaniu.
 CHANGELOG_4_8_6_3 Nájdené dve správania, ktoré vždy bežali bez možnosti ich vypnúť — automatické pomenovanie nepomenovaných zastávok a Záchrana širokých číslic (Gansaku) — a pridané prepínače pre obe pod Options → Rozšírené. V predvolenom nastavení zapnuté, takže sa nič nezmení, pokiaľ ich nevypnete.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_FUTURE_BUSWAYPOINT Autobusové waypoint zastávky (brzy)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Plánované: označiť zastávku len ako smerovací waypoint – trasa linky cez ňu prechádza, ale vozidlá nikde nezastavujú ani nenakladajú/vykladajú cestujúcich. Pomáha naviesť vanilla pathfinding na tú cestu, ktorú ste naozaj mysleli. Ešte nedostupné.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Rozšírený výber zastávky: výber presnej koľaje
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Držte pri umiestňovaní spojenia zastávky vlaku/električky, aby ste zamierili presnú koľaj namiesto najblízšej platnej. Bolo hardcoded na Ľavá/Pravá Shift; rebinding tu pokrýva len vybranú stranu.
+SETTINGS_LEGACY_GROUP Dedičstvo
+SETTINGS_LEGACY_GROUP_DESC Staré prepínače sú zachované len pre inštalácie, ktoré ich už mali zapnuté, aby fungovali presne ako predtým. Zamknuté – už sa nedajú zapnúť/vypnúť odsudz, a každý herný profil ich necháva vypnuté ďalej.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

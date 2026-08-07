@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Tek hatli tren carpisma onleme
 SETTINGS_STTAI_ENABLE_TOOLTIP Tek hatli bir bolumu bir seferde bir tren icin ayirir, bolum bosalana kadar karsi yondeki treni girişte bekletir. Orijinal IPT4 ozelligi, vanilyada veya emilen herhangi bir modda bulunmaz.
 SETTINGS_STOPSTACKER_ENABLE Otobus duragi bindirme yuvasi
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Ayni durağa yaklasan ikinci/ucuncu otobusun, onculuk eden otobusun arkasinda tek sira halinde beklemek yerine durak seridinde daha geride kendi yuvasini kullanmasini saglayarak birden fazla otobusun ayni anda yolcu indirip bindirmesine olanak tanir. Orijinal IPT4 ozelligi (basitlestirilmis yeniden uygulama), vanilyada veya emilen herhangi bir modda bulunmaz.
+
+SETTINGS_SUPPORT_LABEL Eğer IPT4 oyununuzu kurtardı veya performansınızı iyileştirdiğinde, geliştirilmesini desteklemeyi düşünün!
+SETTINGS_SUPPORT_BUTTON Ko-fi'da beni destekle
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Ayrıştırma / Ekspres Otobüs
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Araç ayrıştırma, ekspres otobüs/tramvay, spawn aralığı ve agresif filo boyutlandırmasını etkinleştirir. Tüm otobüs/tramvay aralık ve bütçe özellikleri.
+SETTINGS_FEATURE_BUDGET_ENABLE Bütçe Özellikleri
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Hat bütçesi kontrolü, otomatik hat bütçesi, bilet fiyatı çarpanı ve yol maliyeti olarak fiyatı etkinleştirir. Tüm para/fiyat/filo özellikleri.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Otomatik Hat Rengi
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Yeni ulaşım hatlarına otomatik olarak renk ve isim atar. Renk stratejisi, isimlendirme stratejisi ve panel ayarları dahildir.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Araç Düzenleyici
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Araç türleri, livery'ler ve özellikleri değiştirmek için araç düzenleyici panelini etkinleştirir. Alt veya sağ kısımda konumlandırılabilir.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Bekleyen Yolcu Sınırları
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Tek bir durakta toplu taşıma bekleyen vatandaş sayısını sınırlar. Tüm bekleme sınırlarını kaldırmak ve oyunun durağı kapasitesini yönetmesine izin vermek için devre dışı bırakın.
+SETTINGS_TRAINDISPLAY_SCOPE Overlay ne zaman gösterilsin
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Seçili araç, first-person kamera veya her ikisini seçin.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Sadece seçili araç
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Sadece first-person kamera
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Seçili araç veya first-person kamera
+SETTINGS_TRAINDISPLAY_LAYOUT Panel düzeni
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Overlay'in hangi düzeni kullandığını belirler. Her ikisi de aynı bilgileri gösterir ve aynı onay kutularına saygı duyar - sadece şekil farklıdır.
 CHANGELOG_4_3_3_1 Ayarların kaydedilmesi/yüklenmesi hala bazı mod yığınlarında bozuldu, hatta Newtonsworth.Json.dll paketlenildikten sonra: önceki geçici çözüm sadece bir giriş noktasında Assembly.LoadFrom denedi ve yine de yükleme sırasına bağlıydı. IPT4 şimdi global AssemblyResolve kancası kaydeder ve paketlenmiş Newtonsworth.Json'unu her mod/UI giriş noktasından CSLModsCommon JsonWriter'a dokunmadan önce hızlı bir şekilde başlatır, böylece Seçenekler UI paneli başka bir mod'un uyumsuz Json.NET kopyasına rastgele bağlanmak yerine güvenilir bir şekilde devam eder.
 CHANGELOG_4_3_2_1 Başka bir yüklü mod rastulameyse mod yükleme tamamen başarısız ("mod's dll veya bağımlılıklarından birini yükleyemedi") sabitlendi: CSLModsCommon ayarları serileştirme (JsonHelper/SerializationContext) buna ihtiyaç duydu, ancak oluşturma hiçbir zaman gerçekten Newtonsworth.Json.dll'yi mod'un yanına konuşlandırmadı - her zaman sadece başka bir mod'un kopyasında çalıştı. Tüm diğer modları devre dışı bırakarak temiz bir test için bulundu, bu tam da bundan sonra test edilmesi gereken yöntemdir.
 CHANGELOG_4_3_1_1 Seçenekler panelinin dil seçicisi sabitlendi, sadece çerçevenin kendi dizeleri (Sürüm/Changelog/...) yeniden çevrildi, oysa bu mod'un her dizesi oyun dilinde kaldı - çeviri yükleyicimiz oyun dilinden ayrı olarak anahtarlanmış ve mod'un kendi seçimini tamamen görmezden geldi. Şimdi mod'un dil seçimine uyar ve oyun diline geri döner, ardından İngilizce'ye döner ve seçici değiştiğinde yeniden çözer.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Perf
 SETTINGS_SUB_COMPAT Uyum
 SETTINGS_SUB_KEYS Tuşlar
 SETTINGS_FUTURE_GROUP Daha Sonra Geliyor
-SETTINGS_FUTURE_GROUP_DESCRIPTION Planlı özelliklerin önizlemesi. Hazır olana kadar gri - henüz hiçbir etkisi yok.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Planlanan özelliklerin önizlemesi. Hazır olana kadar gri renkte gösterilir; yolcu hedefi test için kullanılabilir.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Ters Çevrilebilir Tramvay Yapay Zekası (yakinda)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planlı: tramvaylar döngü olmadan terminal istasyonlarında ters döner. Henüz mevcut değil.
 SETTINGS_FUTURE_BREAKDOWN Arıza Araçları (yakinda)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP Dış bağlantı bekleme, sahte trafik ve ilgili geç
 SETTINGS_EBS_GROUP_BUS_DESC Ekspres otobüsler, birkaç yolcu bindiyse erken ayrılabilir — isteğe bağlı gelişmiş aralık.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ekstra satırlar
 SETTINGS_SUB_NET_BBSP_NOTE Daha İyi Otobüs Durağı sadece otobüslerin durakta nerede durduğunu değiştirir. Aşağıdaki seçenekler ayrı özelliklerdir (yükseltilmiş, paylaşımlı duraklar, vb.) — amaçlı olarak tıklanabilir kaliyor. only changes where buses park at the stop. Options below are separate features (elevated, shared stops, etc.) — they stay clickable on purpose.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Her zaman aktif davranış
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Şimdiye kadar kapatma yolu olmadan her zaman çalışan iki küçük davranış. Varsayılan olarak açık böylece mevcut kurulumlar hiçbir değişiklik görmez – aynı şeyi yapan tek başına bir mod çalıştırıyorsanız veya sadece manuel kontrolü tercih ediyorsanız kapatın.
+SETTINGS_AUTONAMESTOPS_ENABLE İsimsiz durakları otomatik adlandır
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP İsimsiz bir durağı ilk seçtiğinizde, durak panelinin kendi açılır menüsü önerdiği aynı yakındaki bina adını verir – o menüyü açmanıza gerek kalmadan. Siz (veya bu) zaten ayarladığınız bir isme asla dokunmaz.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Bağımsız Rescue Fullwidth Digits modundan taşındı. Bazı IME/girdi kurulumları tarafından tam genişlikli rakamlarla (123 yerine １２３) kaydedilmiş toplu taşıma hattı isimlerini düzeltir, aksi takdirde sonsuza dek yanlış görüntülenirler.
+SETTINGS_FUTURE_BUSWAYPOINT Otobüs waypoint durağı (yakında)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planlandı: bir durağı yalnızca rota waypoint'i olarak işaretle – hat yolu ondan geçer ama araçlar asla durmaz veya yolcu yükler/indirir. Gerçekte kastettiğiniz yola vanilla pathfinding'i yönlendirmeye yardımcı olur. Henüz kullanılamıyor.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Gelişmiş Durak Seçimi: tam hatı seç
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Tren/tram durağı bağlantısı yerleştirirken basılı tutun, en yakın geçerli hat yerine tam hattı hedeflemek için. Sol/Sağ Shift'te hardcoded idi; burada yeniden bağlama sadece seçtiğiniz tarafı kapsar.
+SETTINGS_LEGACY_GROUP Miras
+SETTINGS_LEGACY_GROUP_DESC Eski anahtarlar, onları zaten açık olan kurulumların eskisi gibi tam olarak çalışmaya devam etmesi için tutulur. Kilitli – artık buradan açılıp/kapatılamazlar, ve her oyun profili onları ileri de kapalı bırakır.
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

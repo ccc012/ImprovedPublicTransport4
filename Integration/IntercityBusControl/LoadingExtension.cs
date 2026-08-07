@@ -54,7 +54,6 @@ namespace IntercityBusControl
         public override void OnReleased()
         {
             base.OnReleased();
-            InitializePrefabPatch.Reset();
             try
             {
                 if (_loadMode == AppMode.Game)
@@ -64,6 +63,8 @@ namespace IntercityBusControl
                         return;
                     }
                     Patcher.UnpatchAll();
+                    StationPatcher.RestorePrefabs();
+                    InitializePrefabPatch.Reset();
                 }
             }
             catch (Exception e)

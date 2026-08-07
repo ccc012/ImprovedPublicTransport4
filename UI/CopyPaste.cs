@@ -89,7 +89,7 @@ namespace ImprovedPublicTransport.UI
 
             var targetLines = new List<ushort>();
             TransportManager manager = Singleton<TransportManager>.instance;
-            for (ushort otherLine = 1; otherLine < manager.m_lines.m_buffer.Length; otherLine++)
+            for (int otherLine = 1; otherLine < manager.m_lines.m_buffer.Length; otherLine++)
             {
                 if (otherLine == lineID)
                 {
@@ -102,9 +102,9 @@ namespace ImprovedPublicTransport.UI
                     continue;
                 }
 
-                if (LineServesAnyBuilding(otherLine, sourceBuildings))
+                if (LineServesAnyBuilding((ushort)otherLine, sourceBuildings))
                 {
-                    targetLines.Add(otherLine);
+                    targetLines.Add((ushort)otherLine);
                 }
             }
 
@@ -131,7 +131,7 @@ namespace ImprovedPublicTransport.UI
 
             var targetLines = new List<ushort>();
             TransportManager manager = Singleton<TransportManager>.instance;
-            for (ushort otherLine = 1; otherLine < manager.m_lines.m_buffer.Length; otherLine++)
+            for (int otherLine = 1; otherLine < manager.m_lines.m_buffer.Length; otherLine++)
             {
                 if (otherLine == lineID)
                 {
@@ -144,9 +144,9 @@ namespace ImprovedPublicTransport.UI
                     continue;
                 }
 
-                if (LineServesAnyArea(otherLine, districts, parks))
+                if (LineServesAnyArea((ushort)otherLine, districts, parks))
                 {
-                    targetLines.Add(otherLine);
+                    targetLines.Add((ushort)otherLine);
                 }
             }
 

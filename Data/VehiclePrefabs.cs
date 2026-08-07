@@ -43,6 +43,8 @@ namespace ImprovedPublicTransport.Data
         [CanBeNull]
         public PrefabData FindByName([NotNull] string prefabName)
         {
+            if (_allPrefabData == null)
+                return null;
             _allPrefabData.TryGetValue(prefabName, out var result);
             return result;
         }
@@ -50,6 +52,8 @@ namespace ImprovedPublicTransport.Data
         [CanBeNull]
         public PrefabData FindByIndex(int prefabDataIndex)
         {
+            if (_prefabDataByIndex == null)
+                return null;
             _prefabDataByIndex.TryGetValue(prefabDataIndex, out var result);
             return result;
         }

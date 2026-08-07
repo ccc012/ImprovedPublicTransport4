@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Penghindaran perlanggaran kereta laluan tunggal
 SETTINGS_STTAI_ENABLE_TOOLTIP Mereservasi segmen laluan tunggal untuk satu kereta pada satu waktu, menahan kereta berlawanan arah di pintu masuk sampai segmen bersih. Fitur asli IPT4, tiada di vanilla atau mod yang diserap.
 SETTINGS_STOPSTACKER_ENABLE Penumpukan laluan perhentian bas
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Memungkinkan bas kedua/ketiga yang mendekati perhentian yang sama menggunakan laluan sendiri lebih jauh ke belakang di laluan perhentian alih-alih mengantre satu per satu di belakang bas terdepan, sehingga lebih dari satu bas dapat menaikkan/menurunkan penumpang sekaligus. Fitur asli IPT4 (implementasi ulang yang disederhanakan), tiada di vanilla atau mod yang diserap.
+
+SETTINGS_SUPPORT_LABEL Jika IPT4 menyelamatkan savegame anda atau memperbaiki prestasi, pertimbangkan untuk menyokong pembangunannya!
+SETTINGS_SUPPORT_BUTTON Sokong saya di Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Unbunching / Bas Ekspres
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Mengaktifkan unbunching kenderaan, bas/tream ekspres, interval spawn, dan saizan armada agresif. Semua ciri jarak & bajet bas/tream.
+SETTINGS_FEATURE_BUDGET_ENABLE Ciri Bajet
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Mengaktifkan kawalan bajet laluan, bajet laluan auto, penukar harga tiket, dan harga sebagai kos laluan. Semua ciri wang/harga/armada.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Warna Laluan Auto
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Secara automatik menetapkan warna dan nama ke laluan pengangkutan baharu. Termasuk strategi warna, strategi penamaan, dan tetapan panel.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Editor Kenderaan
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Mengaktifkan panel editor kenderaan untuk menukar jenis kenderaan, livery, dan ciri-ciri. Boleh diletakkan di bahagian bawah atau kanan.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Had Penumpang Menunggu
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Mengadkan berapa orang warga yang boleh menunggu pengangkutan awam di satu hentian. Nyahaktifkan untuk membuang semua had menunggu dan biarkan permainan menguruskan kapasiti hentian.
+SETTINGS_TRAINDISPLAY_SCOPE Tunjukkan overlay bila
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Pilih kenderaan terpilih, kamera first-person, atau kedua-duanya.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Kenderaan terpilih sahaja
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Kamera first-person sahaja
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Kenderaan terpilih atau kamera first-person
+SETTINGS_TRAINDISPLAY_LAYOUT Susun atur panel
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Susun atur mana yang overlay gunakan. Kedua-duanya memaparkan maklumat yang sama dan menghormati checkbox yang sama - hanya bentuk yang berbeza.
 CHANGELOG_4_3_3_1 Diperbaiki simpan/muat tetapan masih memecah pada beberapa timbunan mod walaupun selepas membungkus Newtonsoft.Json.dll: penyelesaian masalah sebelumnya hanya mencuba Assembly.LoadFrom dalam satu titik masuk dan masih bergantung pada susunan beban.
 CHANGELOG_4_3_2_1 Diperbaiki mod gagal dimuat sepenuhnya ("gagal memuat DLL mod atau salah satu bergantungnya") apabila tiada mod tersemat lain yang berlaku menyediakan Newtonsoft.Json: penjadwal siri CSLModsCommon (JsonHelper/SerializationContext) memerlukannya, tetapi pembinaan kami tidak pernah sebenarnya menjalankan Newtonsoft.Json.dll sebelah mod.
 CHANGELOG_4_3_1_1 Diperbaiki pemilih bahasa panel Options hanya menterjemahkan rentetan rangka kerja sendiri (Versi/Changelog/...) manakala setiap rentetan mod ini tetap dalam bahasa permainan - pemuat terjemahan kami mengesahkan bahasa permainan dan mengabaikan pilihan mod sendiri sepenuhnya.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Prestasi
 SETTINGS_SUB_COMPAT Keselarasan
 SETTINGS_SUB_KEYS Kunci
 SETTINGS_FUTURE_GROUP Akan datang kemudian
-SETTINGS_FUTURE_GROUP_DESCRIPTION Pratinjau ciri yang dirancang. Dilunturkan sehingga bersedia — tiada kesan lagi.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Pratonton ciri yang dirancang. Dipaparkan kelabu sehingga sedia; destinasi penumpang kekal tersedia untuk ujian.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Trem AI boleh kembali (tidak lama)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Dirancang: trem kembali di terminal tanpa gelung. Belum tersedia.
 SETTINGS_FUTURE_BREAKDOWN Alat analisis gangguan (tidak lama)
@@ -585,11 +605,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Dipindahkan daripada mod Rescue Fu
 CHANGELOG_4_8_6_1 Destinasi Komuter diaktifkan semula: togol Pilihan kembali dan berfungsi secara langsung, tiada muat semula diperlukan.
 CHANGELOG_4_8_6_2 Mengaudit setiap integrasi pilihan untuk "mati bermakna mati" yang sebenar: Elevated Stops Enabler menulis semula data prafabrikasi jalan secara kekal tanpa cara untuk membatalkannya, dan Auto Line Budget terus menguruskan laluan di latar belakang selepas dimatikan pada pertengahan sesi. Kedua-duanya kini kembali sepenuhnya kepada tingkah laku asal apabila dimatikan.
 CHANGELOG_4_8_6_3 Menemui dua tingkah laku yang sentiasa berjalan tanpa cara untuk mematikannya - penamaan automatik perhentian tanpa nama, dan Rescue Fullwidth Digits (Gansaku) - dan menambah togol untuk kedua-duanya di bawah Pilihan → Lanjutan. Hidup secara lalai, jadi tiada apa yang berubah melainkan anda mematikannya.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_FUTURE_BUSWAYPOINT Hentian waypoint bas (selepas ini)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Diranangkan: tanda perhentian sebagai waypoint laluan sahaja — laluan garisan melalui tapi kenderaan tidak pernah berhenti atau naik/turun penumpang di situ. Membantu pemandu vanilla pathfinding ke jalan yang anda sebenarnya maksudkan. Belum tersedia.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Pemilihan Perhentian Lanjutan: pilih trek tepat
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Pegang semasa meletakkan sambungan perhentian keretapi/tram untuk sasarkan trek tepat bukan yang paling hampir sah. Dikodkan keras ke Shift Kiri/Kanan; rebinding di sini hanya meliputi sisi yang dipilih.
+SETTINGS_LEGACY_GROUP Warisan
+SETTINGS_LEGACY_GROUP_DESC Toggle lama hanya disimpan agar pemasangan yang sudah mengaktifkannya terus berfungsi persis seperti sebelum. Dikunci — tidak boleh lagi dinyalakan/dimatikan di sini, dan setiap profil gameplay meninggalkan mereka mati ke hadapan.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

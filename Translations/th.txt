@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE การป้องกันการชนกันข�
 SETTINGS_STTAI_ENABLE_TOOLTIP จองส่วนรางเดี่ยวสำหรับรถไฟทีละขบวน โดยให้รถไฟที่วิ่งสวนทางรอที่ทางเข้าจนกว่าส่วนนั้นจะว่าง คุณสมบัติดั้งเดิมของ IPT4 ไม่มีในเกมต้นฉบับหรือม็อดที่ถูกรวมเข้ามา
 SETTINGS_STOPSTACKER_ENABLE การซ้อนช่องจอดป้ายรถเมล์
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP ให้รถบัสคันที่สอง/สามที่กำลังเข้าใกล้ป้ายเดียวกันใช้ช่องจอดของตัวเองที่ถัดไปตามเลนจอดป้าย แทนที่จะต่อแถวอยู่หลังรถบัสคันหน้า ทำให้รถบัสมากกว่าหนึ่งคันสามารถรับส่งผู้โดยสารพร้อมกันได้ คุณสมบัติดั้งเดิมของ IPT4 (นำมาปรับใช้ใหม่แบบง่ายขึ้น) ไม่มีในเกมต้นฉบับหรือม็อดที่ถูกรวมเข้ามา
+
+SETTINGS_SUPPORT_LABEL หาก IPT4 ช่วยเซฟเกมของคุณหรือปรับปรุงประสิทธิภาพ โปรดพิจารณาสนับสนุนการพัฒนา!
+SETTINGS_SUPPORT_BUTTON สนับสนุนผมที่ Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE ยกเลิกการรวมกลุ่ม / รถบัสด่วน
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP เปิดใช้งานการยกเลิกการรวมกลุ่มยานพาหนะ รถบัส/รถรางด่วน ช่วงเวลาการ spawn และการปรับขนาดฝูงรถอย่างรุนแรง ฟีเจอร์ระยะห่างและงบประมาณรถบัส/รถรางทั้งหมด
+SETTINGS_FEATURE_BUDGET_ENABLE ฟีเจอร์งบประมาณ
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP เปิดใช้งานการควบคุมงบประมาณเส้นทาง งบประมาณเส้นทางอัตโนมัติ ตัวคูณราคาตั๋ว และราคาเป็นต้นทุนเส้นทาง ฟีเจอร์เงิน/ราคา/ฝูงรถทั้งหมด
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE สีเส้นทางอัตโนมัติ
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP กำหนดสีและชื่อให้เส้นทางขนส่งใหม่อัตโนมัติ รวมถึงกลยุทธ์สี กลยุทธ์การตั้งชื่อ และการตั้งค่าแผง
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE ตัวแก้ไขยานพาหนะ
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP เปิดใช้งานแผงตัวแก้ไขยานพาหนะสำหรับเปลี่ยนประเภท ลิเวอรี่ และคุณสมบัติ สามารถวางได้ที่ด้านล่างหรือขวา
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE ขีดจำกัดผู้โดยสารรอ
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP จำกัดจำนวนพลเมืองที่รอขนส่งสาธารณะได้ที่ป้ายเดียว ปิดใช้งานเพื่อลบขีดจำกัดการรอทั้งหมดและให้เกมจัดการความจุป้าย
+SETTINGS_TRAINDISPLAY_SCOPE แสดงโอเวอร์เลย์เมื่อ
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP เลือกยานพาหนะที่เลือก กล้องมุมมองบุคคลที่หนึ่ง หรือทั้งสอง
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE เฉพาะยานพาหนะที่เลือก
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON เฉพาะกล้องมุมมองบุคคลที่หนึ่ง
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH ยานพาหนะที่เลือกหรือกล้องมุมมองบุคคลที่หนึ่ง
+SETTINGS_TRAINDISPLAY_LAYOUT เลย์เอาต์แผง
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP เลย์เอาต์ที่โอเวอร์เลย์ใช้ ทั้งสองแสดงข้อมูลเดียวกันและเคารพชेकบ็อกซ์เดียวกัน - แตกต่างเพียงรูปร่าง
 CHANGELOG_4_3_3_1 การตั้งค่าคงไว้/โหลดซ่อมแซมเดิมเพราะพยายามล้มเหลวบนกองโมดหนึ่งแม้จะหลังจากการรวมกิจ Newtonsworth.Json.dll: วิธี workaround ก่อนหน้านี้พยายาม Assembly.LoadFrom ในจุดเข้าหนึ่งเท่านั้นและยังคงขึ้นอยู่กับลำดับการโหลด IPT4 ตอนนี้ลงทะเบียน hook AssemblyResolve ทั่วโลกและ eagerly บูต Newtonsworth.Json ที่บรรจุไว้จากจุดเข้า mod/UI ทั้งหมดก่อน CSLModsCommon สัมผัส JsonWriter ดังนั้นแผง UI ตัวเลือกยังคง reliably แทนที่จะ bind สุ่มกับสำเนา Json.NET ที่เข้ากันไม่ได้ของโมด
 CHANGELOG_4_3_2_1 ซ่อมแซมโมด Fail to load ทั้งหมด ("ล้มเหลวในการโหลด dll ของโมดหรือหนึ่งในการพึ่งพา") ทุกครั้งที่ไม่มีโมดติดตั้งอื่น ๆ เสียบ Newtonsworth.Json: การสร้าง serialization (JsonHelper/SerializationContext) ของ CSLModsCommon ต้อง แต่การสร้างของเราไม่เคยใช้งาน Newtonsworth.Json.dll อย่างแท้จริงถัดจากโมด - มันใช้งานได้ตลอดเวลาโดยบังเอิญ ขี่บนสำเนา mod คนอื่น พบโดยปิดโมดอื่น ๆ ทั้งหมดสำหรับการทดสอบล้อม ซึ่งถูกต้องเท่าที่ควรทดสอบ ไปข้างหน้า
 CHANGELOG_4_3_1_1 ซ่อมแซมแผง Opciones selector ภาษาเท่านั้นแปลสตริง framework ของตัวเอง (เวอร์ชัน/Changelog/...) ในขณะที่ทุกสตริงของ mod นี้ยังคงอยู่ในภาษาเกม - loader แปลของเรา keyed ปิดภาษาเกมและไม่สนใจตัวเลือกของโมดทั่วไปเลย ตอนนี้มันติดตามตัวเลือกภาษาของโมดด้วยการลงจอดไปยังภาษาเกมและอังกฤษและการแก้ไขครั้งใหม่ทุกครั้งที่ตัวเลือกการเปลี่ยน
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF ประสิทธิภาพ
 SETTINGS_SUB_COMPAT ความเข้ากันได้
 SETTINGS_SUB_KEYS ปุ่ม
 SETTINGS_FUTURE_GROUP มาในภายหลัง
-SETTINGS_FUTURE_GROUP_DESCRIPTION ตัวอย่างของคุณสมบัติที่วางแผนไว้ เป็นสีเทาจนกว่าจะพร้อม ยังไม่มีผลใดๆ
+SETTINGS_FUTURE_GROUP_DESCRIPTION พรีวิวฟีเจอร์ที่วางแผนไว้ แสดงเป็นสีเทาจนกว่าจะพร้อม จุดหมายปลายทางผู้โดยสารยังคงพร้อมสำหรับทดสอบ
 SETTINGS_FUTURE_REVERSIBLE_TRAM AI รถรางแบบกลับด้านได้ (ในไม่ช้า)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP วางแผน: รถรางจะเลี้ยวกลับที่ปลายทางโดยไม่ต้องมีลูป ยังไม่พร้อมใช้งาน
 SETTINGS_FUTURE_BREAKDOWN เครื่องมือวิเคราะห์ (ในไม่ช้า)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP รีเซ็ตการรอการเชื�
 SETTINGS_EBS_GROUP_BUS_DESC รถบัส express อาจออกเดินทางเร็วขึ้นเมื่อมีผู้โดยสารน้อยคนขึ้น ระยะห่างขั้นสูงเป็นทางเลือก
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP แถบเพิ่มเติม
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop จะเปลี่ยนตำแหน่งจอดรถบัสในจุดหยุดเท่านั้น ตัวเลือกด้านล่างเป็นคุณสมบัติที่แยกจากกัน (ยกระดับ, จุดหยุดร่วม, เป็นต้น) จึงเก็บกลุ่มคลิกไว้โดยจงใจ
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP พฤติกรรมที่ทำงานตลอดเวลา
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC พฤติกรรมเล็กๆ สองอย่างที่ทำงานตลอดมาโดยไม่มีทางปิด – จนถึงตอนนี้ เปิดอยู่ดีตั้งแต่แรก เพื่อให้การติดตั้งเดิมไม่เห็นการเปลี่ยนแปลง – ปิดได้ถ้าคุณใช้มอดอิสระที่ทำอย่างเดียวกัน หรือถ้าคุณชอบควบคุมด้วยตนเอง
+SETTINGS_AUTONAMESTOPS_ENABLE ตั้งชื่อป้ายหยุดที่ไม่มีชื่ออัตโนมัติ
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP ครั้งแรกที่คุณเลือกป้ายหยุดที่ไม่มีชื่อ จะได้ชื่ออาคารใกล้เคียงเดียวกันที่เมนูแบบเลื่อนลงของแผงป้ายหยุดจะแนะนำ – โดยไม่ต้องเปิดเมนูนั้น ไม่ได้สัมผัสชื่อที่คุณ (หรือสิ่งนี้) ตั้งค่าไว้แล้ว
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP นำเข้าจากมอดอิสระ Rescue Fullwidth Digits แก้ไขชื่อสายขนส่งที่บันทึกด้วยตัวเลขกว้างเต็ม (１２３ แทน 123) โดยการตั้งค่า IME/อินพุตบางอย่าง ซึ่งมิฉะนั้นจะแสดงผิดตลอดกาล
+SETTINGS_FUTURE_BUSWAYPOINT จุดทางรถบัส (เร็วๆ นี้)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP วางแผน: ตั้งเครื่องหมายป้ายหยุดเป็นจุดทางของเส้นทางเพียงอย่างเดียว – เส้นทางของสายผ่านแต่มียานไม่เคยหยุดหรือขึ้น/ลงผู้โดยสารที่นั่น ช่วยให้ pathfinding แบบ vanilla นำทางไปยังถนนที่คุณตั้งใจจริง ยังไม่พร้อมใช้งาน
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT การเลือกป้ายหยุดขั้นสูง: เลือกรางที่แน่นอน
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP ถือไว้ขณะวางการเชื่อมต่อป้ายหยุดรถไฟ/รถราง เพื่อมุ่งเป้ารางที่แน่นอนแทนรางที่ใกล้ที่สุดและถูกต้อง เคยเป็น hardcoded ที่ Shift ซ้าย/ขวา; การผูกปุ่มใหม่ที่นี่ครอบคลุมด้านที่เลือกเท่านั้น
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_LEGACY_GROUP_DESC ท็อกเกิลเก่าเก็บไว้เพื่อให้การติดตั้งที่เปิดอยู่แล้วทำงานเหมือนเดิม ล็อก – ไม่สามารถเปิด/ปิดได้จากที่นี่อีกต่อไป และทุกโปรไฟล์เกมปล่อยให้ปิดไปเรื่อยๆ
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Reflection;
 using ColossalFramework;
@@ -69,8 +69,10 @@ namespace ImprovedPublicTransport.Settings
                 case ModSetting.GameplayProfiles.Recommended:
                     ApplyAllIntegrationsOff(settings);
                     // IPT original / low-conflict core only.
+                    settings.EnableBudgetFeatures = true;
                     settings.BudgetControl = ModSetting.BudgetControlModes.Enabled;
                     settings.Unbunching = true;
+                    settings.EnableUnbunching = true;
                     settings.ShowLineInfo = true;
                     settings.EnableSubBuildingsTabs = true;
                     settings.EnableIntercityBusControl = true;
@@ -83,8 +85,11 @@ namespace ImprovedPublicTransport.Settings
                     ApplyAllIntegrationsOff(settings);
                     settings.WalkingSpeedMode = ModSetting.WalkingSpeedModes.Realistic;
                     settings.BbspLogic = ModSetting.BbspLogicModes.OriginalLogic;
+                    settings.EnableBudgetFeatures = true;
+                    settings.EnableAutoLineColor = true;
                     settings.BudgetControl = ModSetting.BudgetControlModes.Enabled;
                     settings.Unbunching = true;
+                    settings.EnableUnbunching = true;
                     settings.ShowLineInfo = true;
                     settings.TicketPriceCustomizerMode = ModSetting.TicketPriceCustomizerModes.Enabled;
                     settings.AutoLineBudgetMode = ModSetting.AutoLineBudgetModes.Enabled;
@@ -167,6 +172,11 @@ namespace ImprovedPublicTransport.Settings
             settings.BbspLogic = ModSetting.BbspLogicModes.Disabled;
             settings.BudgetControl = ModSetting.BudgetControlModes.Disabled;
             settings.Unbunching = false;
+            settings.EnableUnbunching = false;
+            settings.EnableBudgetFeatures = false;
+            settings.EnableAutoLineColor = false;
+            settings.EnableTrainDisplay = false;
+            settings.EnableStopsAndStations = false;
             // ShowLineInfo is a UI convenience: show/hide transit line info in the interface.
             // Safe profile keeps it ON (helps compatibility, doesn't affect simulation).
             // Vanilla profile disables it (matches base game feel with no IPT extras).
@@ -560,6 +570,32 @@ namespace ImprovedPublicTransport.Settings
             }
         }
 
+        /// <summary>Live-apply Mileage Taxi Harmony patches (toggle mid-session). Without this,
+        /// the taxi fare-by-distance patches stayed applied with the checkbox off.</summary>
+        public static void OnMileageTaxiChanged(bool enabled)
+        {
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            try
+            {
+                if (enabled)
+                {
+                    MileageTaxiServices.PatchController.Activate();
+                }
+                else
+                {
+                    MileageTaxiServices.PatchController.Deactivate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError($"SettingsActions: failed to update MileageTaxi: {ex.Message}");
+            }
+        }
+
         /// <summary>Live-apply Stop Stacker Harmony patches (toggle mid-session).</summary>
         public static void OnStopStackerChanged(bool enabled)
         {
@@ -659,6 +695,8 @@ namespace ImprovedPublicTransport.Settings
                 else
                 {
                     IntercityBusControl.Patcher.UnpatchAll();
+                    IntercityBusControl.StationPatcher.RestorePrefabs();
+                    IntercityBusControl.HarmonyPatches.BuildingInfoPatches.InitializePrefabPatch.Reset();
                     // Safe: Deinit is idempotent and only clears sparse sets / event hooks.
                     IntercityBusControl.IntercityAcceptanceState.Deinit();
                     if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs)
@@ -684,14 +722,11 @@ namespace ImprovedPublicTransport.Settings
             {
                 if (enabled)
                 {
-                    CommuterDestination.PatchController.Activate();
+                    CommuterDestination.CommuterDestinationOverlay.Activate();
                 }
                 else
                 {
-                    // Deactivate() already clears the map overlay; there is no separate panel to
-                    // close any more (upstream's floating destination list was dropped in favour of
-                    // IPT4's own stop panel).
-                    CommuterDestination.PatchController.Deactivate();
+                    CommuterDestination.CommuterDestinationOverlay.Deactivate();
                 }
             }
             catch (Exception ex)
@@ -867,9 +902,9 @@ namespace ImprovedPublicTransport.Settings
                 {
                     if (r != 1)
                         return;
-                    Singleton<SimulationManager>.instance.AddAction(() =>
+                    SimulationManager.instance.AddAction(() =>
                     {
-                        SimulationManager.instance.AddAction(DeleteLines);
+                        DeleteLines();
                     });
                 });
         }
@@ -1021,8 +1056,142 @@ namespace ImprovedPublicTransport.Settings
             DeleteLinesSelection.Clear();
             CSLModsCommon.Manager.OptionsPanelManager.Refresh();
         }
+
+    public static void OnUnbunchingChanged(bool enabled)
+    {
+        var settings = ModSetting.Instance;
+        if (!enabled)
+        {
+            // Reset children even outside a game so they don't stay on and apply on next load.
+            settings.ExpressBusUnbunchingMode = ModSetting.ExpressBusServicesModes.None;
+            settings.ExpressTramUnbunchingMode = ModSetting.ExpressTramServicesModes.Disabled;
+        }
+
+        if (!ImprovedPublicTransportMod.InGame)
+        {
+            return;
+        }
+
+        try
+        {
+            if (!enabled)
+            {
+                ExpressBusServices.ServiceBalancerUtil.ResetRedeploymentRecords();
+            }
+            Settings.SettingsActions.OnExpressBusSettingsChanged();
+        }
+        catch (Exception ex)
+        {
+            Utils.LogError($"SettingsActions: failed to update Unbunching: {ex.Message}");
+        }
+    }
+
+    public static void OnBudgetFeaturesChanged(bool enabled)
+    {
+        var settings = ModSetting.Instance;
+        if (!enabled)
+        {
+            // Reset children even outside a game so they don't stay on and apply on next load.
+            settings.BudgetControl = ModSetting.BudgetControlModes.Disabled;
+            settings.AutoLineBudgetMode = ModSetting.AutoLineBudgetModes.Disabled;
+            settings.TicketPriceCustomizerMode = ModSetting.TicketPriceCustomizerModes.Disabled;
+            settings.EnableTicketPathfindingCost = false;
+        }
+
+        if (!ImprovedPublicTransportMod.InGame)
+        {
+            return;
+        }
+
+        try
+        {
+            Settings.SettingsActions.OnBudgetModeChanged((int)ModSetting.Instance.BudgetControl);
+            Settings.SettingsActions.OnAutoLineBudgetModeChanged((int)ModSetting.Instance.AutoLineBudgetMode);
+            Settings.SettingsActions.OnTicketPriceCustomizerChanged((int)ModSetting.Instance.TicketPriceCustomizerMode);
+            Settings.SettingsActions.OnTicketPathfindingCostChanged(settings.EnableTicketPathfindingCost);
+        }
+        catch (Exception ex)
+        {
+            Utils.LogError($"SettingsActions: failed to update Budget Features: {ex.Message}");
+        }
+    }
+
+    public static void OnAutoLineColorChanged(bool enabled)
+    {
+        var settings = ModSetting.Instance;
+        if (!enabled)
+        {
+            // Reset children even outside a game so they don't stay on and apply on next load.
+            settings.AutoLineColorColorStrategy = ModSetting.AutoLineColorStrategy.Disabled;
+            settings.AutoLineColorNamingStrategyMode = ModSetting.AutoLineColorNamingStrategy.Disabled;
+        }
+
+        if (!ImprovedPublicTransportMod.InGame)
+        {
+            return;
+        }
+
+        try
+        {
+            // AutoLineColor patches are load-time only; applying mid-session needs a city reload.
+            NotifyReloadRequired("Auto Line Color");
+        }
+        catch (Exception ex)
+        {
+            Utils.LogError($"SettingsActions: failed to update Auto Line Color: {ex.Message}");
+        }
+    }
+
+    public static void OnTrainDisplayChanged()
+    {
+        if (!ImprovedPublicTransportMod.InGame)
+        {
+            return;
+        }
+
+        try
+        {
+            var settings = ModSetting.Instance;
+            settings.TrainDisplayMode = settings.EnableTrainDisplay
+                ? ModSetting.TrainDisplayModes.Enabled
+                : ModSetting.TrainDisplayModes.Disabled;
+            // TrainDisplayWatcher reads TrainDisplayRuntimeConfig (backed by ModSetting) every
+            // Update, so the overlay turns on/off live without a reload.
+        }
+        catch (Exception ex)
+        {
+            Utils.LogError($"SettingsActions: failed to update Train Display: {ex.Message}");
+        }
+    }
+
+
+    public static void OnStopsAndStationsChanged(bool enabled)
+    {
+        if (!ImprovedPublicTransportMod.InGame)
+        {
+            return;
+        }
+
+        // Passenger cap enforcement reads EnableStopsAndStations live every simulation frame
+        // (PassengerCountLimiter.OnBeforeSimulationFrame), so no patch toggling is needed here.
+    }
+
+    public static void OnVehicleEditorChanged(bool enabled)
+    {
+        if (!ImprovedPublicTransportMod.InGame)
+        {
+            return;
+        }
+
+        try
+        {
+            var settings = ModSetting.Instance;
+            settings.HideVehicleEditor = !enabled;
+        }
+        catch (Exception ex)
+        {
+            Utils.LogError($"SettingsActions: failed to update Vehicle Editor: {ex.Message}");
+        }
     }
 }
-
-
-
+}

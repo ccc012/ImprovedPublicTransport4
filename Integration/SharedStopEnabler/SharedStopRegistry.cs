@@ -15,7 +15,25 @@ namespace SharedStopEnabler
     internal static class SharedStopRegistry
     {
         private static readonly List<SharedStopSegment> SharedStopSegments = new List<SharedStopSegment>();
+        private static readonly List<SegmentFlagsSnapshot> SegmentFlagSnapshots = new List<SegmentFlagsSnapshot>();
+        private static readonly List<PropFlagsSnapshot> PropFlagSnapshots = new List<PropFlagsSnapshot>();
         private static bool _segmentsInitialized;
+
+        private sealed class SegmentFlagsSnapshot
+        {
+            public NetInfo.Segment Target;
+            public NetSegment.Flags ForwardBefore;
+            public NetSegment.Flags ForwardAfter;
+            public NetSegment.Flags BackwardBefore;
+            public NetSegment.Flags BackwardAfter;
+        }
+
+        private sealed class PropFlagsSnapshot
+        {
+            public NetLaneProps.Prop Target;
+            public NetLane.Flags Before;
+            public NetLane.Flags After;
+        }
 
         public static bool IsSharedStopSegment(ushort segment)
         {
@@ -71,7 +89,7 @@ namespace SharedStopEnabler
 
         /// <summary>Line IDs still recorded as using this lane, or null if the segment/lane is not
         /// tracked at all.</summary>
-        public static List<ushort> LanesStillUsing(ushort segment, uint lane)
+        public static ushort[] LanesStillUsing(ushort segment, uint lane)
         {
             var existing = SharedStopSegments.FirstOrDefault(s => s.Segment == segment);
             if (existing == null || !existing.Lanes.TryGetValue(lane, out var lines))
@@ -79,7 +97,7 @@ namespace SharedStopEnabler
                 return null;
             }
 
-            return lines;
+            return lines.ToArray();
         }
 
         /// <summary>Keeps bookkeeping in sync when a segment is split by road editing (e.g. adding
@@ -97,6 +115,30 @@ namespace SharedStopEnabler
         {
             SharedStopSegments.Clear();
             _segmentsInitialized = false;
+            SegmentFlagSnapshots.Clear();
+            PropFlagSnapshots.Clear();
+        }
+
+        public static void RestoreSegmentFlags()
+        {
+            for (int i = SegmentFlagSnapshots.Count - 1; i >= 0; i--)
+            {
+                var snapshot = SegmentFlagSnapshots[i];
+                var forwardMask = snapshot.ForwardBefore ^ snapshot.ForwardAfter;
+                if ((snapshot.Target.m_forwardForbidden & forwardMask) == (snapshot.ForwardAfter & forwardMask))
+                    snapshot.Target.m_forwardForbidden = (snapshot.Target.m_forwardForbidden & ~forwardMask) | (snapshot.ForwardBefore & forwardMask);
+                var backwardMask = snapshot.BackwardBefore ^ snapshot.BackwardAfter;
+                if ((snapshot.Target.m_backwardForbidden & backwardMask) == (snapshot.BackwardAfter & backwardMask))
+                    snapshot.Target.m_backwardForbidden = (snapshot.Target.m_backwardForbidden & ~backwardMask) | (snapshot.BackwardBefore & backwardMask);
+            }
+
+            for (int i = PropFlagSnapshots.Count - 1; i >= 0; i--)
+            {
+                var snapshot = PropFlagSnapshots[i];
+                var mask = snapshot.Before ^ snapshot.After;
+                if ((snapshot.Target.m_flagsForbidden & mask) == (snapshot.After & mask))
+                    snapshot.Target.m_flagsForbidden = (snapshot.Target.m_flagsForbidden & ~mask) | (snapshot.Before & mask);
+            }
         }
 
         /// <summary>
@@ -201,6 +243,9 @@ namespace SharedStopEnabler
                         continue;
                     }
 
+                    var forwardBefore = segment.m_forwardForbidden;
+                    var backwardBefore = segment.m_backwardForbidden;
+
                     if (segment.m_forwardRequired == NetSegment.Flags.StopLeft && segment.m_backwardRequired == NetSegment.Flags.StopRight)
                     {
                         segment.m_backwardForbidden &= ~NetSegment.Flags.StopRight2;
@@ -221,6 +266,18 @@ namespace SharedStopEnabler
                         segment.m_backwardForbidden &= ~NetSegment.Flags.StopBoth;
                         segment.m_forwardForbidden &= ~NetSegment.Flags.StopBoth;
                     }
+
+                    if (forwardBefore != segment.m_forwardForbidden || backwardBefore != segment.m_backwardForbidden)
+                    {
+                        SegmentFlagSnapshots.Add(new SegmentFlagsSnapshot
+                        {
+                            Target = segment,
+                            ForwardBefore = forwardBefore,
+                            ForwardAfter = segment.m_forwardForbidden,
+                            BackwardBefore = backwardBefore,
+                            BackwardAfter = segment.m_backwardForbidden
+                        });
+                    }
                 }
 
                 foreach (var lane in netInfo.m_lanes)
@@ -237,6 +294,7 @@ namespace SharedStopEnabler
                             continue;
                         }
 
+                        var before = laneProp.m_flagsForbidden;
                         if (laneProp.m_prop.name == "Tram Stop")
                         {
                             laneProp.m_flagsForbidden |= NetLane.Flags.Stop;
@@ -244,6 +302,16 @@ namespace SharedStopEnabler
                         else if (laneProp.m_prop.name == "Bus Stop Large" || laneProp.m_prop.name == "Bus Stop Small")
                         {
                             laneProp.m_flagsForbidden &= ~NetLane.Flags.Stop2;
+                        }
+
+                        if (before != laneProp.m_flagsForbidden)
+                        {
+                            PropFlagSnapshots.Add(new PropFlagsSnapshot
+                            {
+                                Target = laneProp,
+                                Before = before,
+                                After = laneProp.m_flagsForbidden
+                            });
                         }
                     }
                 }

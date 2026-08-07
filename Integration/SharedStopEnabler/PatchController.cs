@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 using HarmonyLib;
 using ImprovedPublicTransport.Util;
 using Utils = ImprovedPublicTransport.Util.Utils;
@@ -28,49 +27,24 @@ namespace SharedStopEnabler
             SharedStopRegistry.InitSegments();
             SharedStopElevated.Apply();
             HarmonyScope.PatchNamespace(GetHarmonyInstance(), "SharedStopEnabler");
-            PatchTransportToolGetStopPosition();
+            ImprovedPublicTransport.Integration.AdvancedStopSelection.PatchController.SetSharedStopEnablerActive(true);
             _active = true;
             SharedStopRegistry.RecalculateSharedStopSegments();
         }
 
         public static void Deactivate()
         {
+            ImprovedPublicTransport.Integration.AdvancedStopSelection.PatchController.SetSharedStopEnablerActive(false);
             if (_active)
             {
                 GetHarmonyInstance().UnpatchAll(HarmonyModID);
                 _active = false;
             }
 
+            SharedStopRegistry.RestoreSegmentFlags();
             SharedStopRegistry.Reset();
             SharedStopElevated.ResetFlags();
         }
 
-        /// <summary>
-        /// TransportTool.GetStopPosition is private; patch manually like upstream.
-        /// Soft-fail if the method signature changed.
-        /// </summary>
-        private static void PatchTransportToolGetStopPosition()
-        {
-            try
-            {
-                var gspMethod = typeof(TransportTool).GetMethod(
-                    "GetStopPosition",
-                    BindingFlags.Instance | BindingFlags.NonPublic);
-                var gspTranspiler = typeof(TransportToolGetStopPositionTranspiler).GetMethod(
-                    nameof(TransportToolGetStopPositionTranspiler.Transpiler),
-                    BindingFlags.Static | BindingFlags.Public);
-                if (gspMethod == null || gspTranspiler == null)
-                {
-                    Utils.LogWarning("SharedStopEnabler: GetStopPosition method not found; placement share may be limited.");
-                    return;
-                }
-
-                GetHarmonyInstance().Patch(gspMethod, transpiler: new HarmonyMethod(gspTranspiler));
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError($"SharedStopEnabler: failed to patch GetStopPosition: {ex.Message}");
-            }
-        }
     }
 }

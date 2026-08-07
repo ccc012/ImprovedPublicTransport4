@@ -136,7 +136,7 @@ namespace SharedStopEnabler
                 }
 
                 var stillSharing = SharedStopRegistry.LanesStillUsing(segment, lane);
-                if (stillSharing == null || stillSharing.Count == 0)
+                if (stillSharing == null || stillSharing.Length == 0)
                 {
                     return;
                 }

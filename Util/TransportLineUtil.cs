@@ -163,13 +163,16 @@ namespace ImprovedPublicTransport.Util
                 && (vehicle.m_flags & Vehicle.Flags.Deleted) == 0)
             {
                 vehicle.m_flags |= Vehicle.Flags.GoingBack;
-                try
+                if (vehicle.m_sourceBuilding != 0)
                 {
-                    info.m_vehicleAI.SetTarget(vehicleID, ref vehicle, vehicle.m_sourceBuilding);
-                }
-                catch
-                {
-                    // Non-fatal: SetTransportLine alone is enough for vanilla public-transport AIs.
+                    try
+                    {
+                        info.m_vehicleAI.SetTarget(vehicleID, ref vehicle, vehicle.m_sourceBuilding);
+                    }
+                    catch
+                    {
+                        // Non-fatal: SetTransportLine alone is enough for vanilla public-transport AIs.
+                    }
                 }
             }
         }

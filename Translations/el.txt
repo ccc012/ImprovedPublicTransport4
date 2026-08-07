@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Αποφυγή σύγκρουσης σε μονή τροχ
 SETTINGS_STTAI_ENABLE_TOOLTIP Δεσμεύει τμήμα μονής τροχιάς για ένα τρένο τη φορά, κρατώντας το αντίθετο στην είσοδο μέχρι να αδειάσει. Πρωτότυπη λειτουργία IPT4, δεν υπάρχει στο vanilla ή σε απορροφημένο mod.
 SETTINGS_STOPSTACKER_ENABLE Στοίβαξη θέσεων στάσης λεωφορείου
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Επιτρέπει σε δεύτερο/τρίτο λεωφορείο που πλησιάζει την ίδια στάση να χρησιμοποιεί δική του θέση πιο πίσω στη λωρίδα στάσης αντί να περιμένει σε μονή σειρά πίσω από το πρώτο, ώστε περισσότερα λεωφορεία να φορτώνουν/ξεφορτώνουν μαζί. Πρωτότυπη λειτουργία IPT4 (απλοποιημένη clean-room επανυλοποίηση), δεν υπάρχει στο vanilla ή σε απορροφημένο mod.
+
+SETTINGS_SUPPORT_LABEL Αν το IPT4 έχει σώσει το savegame σας ή βελτιώσει την απόδοσή σας, σκεφτείτε να υποστηρίξετε την ανάπτυξή του!
+SETTINGS_SUPPORT_BUTTON Υποστηρίξτε με στο Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Αποσύμπληξη / Express λεωφορείο
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Ενεργοποιεί την αποσύμπληξη οχημάτων, express λεωφορείο/τραμ, διάστημα spawn και επιθετικό μέγεθος στόλου. Όλες οι λειτουργίες απόστασης/προϋπολογισμού για λεωφορεία και τραμ.
+SETTINGS_FEATURE_BUDGET_ENABLE Χαρακτηριστικά προϋπολογισμού
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Ενεργοποιεί τον έλεγχο προϋπολογισμού γραμμής, αυτόματο προϋπολογισμό γραμμής, πολλαπλασιαστή τιμής εισιτηρίου και τιμή ως κόστος διαδρομής. Όλες οι λειτουργίες χρήματος/τιμολόγησης/στόλου.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Αυτόματο χρώμα γραμμής
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Αντιστοιχίζει αυτόματα χρώματα και ονόματα σε νέες γραμμές μεταφορών. Περιλαμβάνει στρατηγική χρωμάτων, στρατηγική ονοματοδοσίας και ρυθμίσεις πάνελ.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Επεξεργαστής οχημάτων
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Ενεργοποιεί το πάνελ επεξεργαστή οχημάτων για αλλαγή τύπων οχημάτων, liveries και ιδιοτήτων. Μπορεί να τοποθετηθεί στο κάτω ή δεξιό μέρος.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Όρια επιβατών που περιμένουν
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Περιορίζει πόσα άτομα μπορούν να περιμένουν τη δημόσια μεταφορά σε μια στάση. Απενεργοποιήστε για να καταργήσετε όλα τα όρια αναμονής και να αφήσετε το παιχνίδι να διαχειρίζεται τη χωρητικότητα των στασιών.
+SETTINGS_TRAINDISPLAY_SCOPE Εμφάνιση overlay όταν
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Επιλέξτε επιλεγμένο όχημα, κάμερα first-person ή και τα δύο.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Μόνο επιλεγμένο όχημα
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Μόνο κάμερα first-person
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Επιλεγμένο όχημα ή κάμερα first-person
+SETTINGS_TRAINDISPLAY_LAYOUT Διάταξη πάνελ
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ποια διάταξη χρησιμοποιεί το overlay. Και τα δύο εμφανίζουν τις ίδιες πληροφορίες και σέβονται τα ίδια checkboxes - διαφέρει μόνο το σχήμα.
 CHANGELOG_4_3_3_1 Fixed settings save/load still breaking on some mod stacks even after bundling Newtonsoft.Json.dll: the previous workaround only tried Assembly.LoadFrom in one entrypoint and still depended on load order. IPT4 now registers a global AssemblyResolve hook and eagerly boots its bundled Newtonsoft.Json from every mod/UI entrypoint before CSLModsCommon touches JsonWriter, so the new Options UI persists reliably instead of randomly binding to another mod's incompatible Json.NET copy.
 CHANGELOG_4_3_2_1 Fixed the mod failing to load entirely ("failed to load the mod's dll or one of its dependencies") whenever no other installed mod happened to already provide Newtonsoft.Json: CSLModsCommon's settings serialization (JsonHelper/SerializationContext) needs it, but our build never actually deployed Newtonsoft.Json.dll alongside the mod - it only ever worked by coincidence, riding on another mod's copy. Found by disabling every other mod for a clean test, which is exactly how this should be tested going forward.
 CHANGELOG_4_3_1_1 Fixed the Options panel's language selector only re-translating the framework's own strings (Version/Changelog/...) while every string of this mod stayed in the game's language - our translation loader keyed off the game language and ignored the mod's own selection entirely. It now follows the mod's language picker, falling back to the game language and then English, and re-resolves whenever the picker changes.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Απόδοση
 SETTINGS_SUB_COMPAT Συμβατότητα
 SETTINGS_SUB_KEYS Πλήκτρα
 SETTINGS_FUTURE_GROUP Έρχεται αργότερα
-SETTINGS_FUTURE_GROUP_DESCRIPTION Προεπισκόπηση σχεδιαζόμενων χαρακτηριστικών. Αποχρωματισμένο μέχρι να είναι έτοιμο — ακόμα χωρίς εφέ.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Προεπισκόπηση σχεδιαζόμενων λειτουργιών. Εμφανίζονται σβήστες μέχρι να είναι έτοιμες· η προοδός επιβατών παραμένει διαθέσιμη για δοκιμή.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Αντιστρεψιμό τραμ AI (σύντομα)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Σχεδιαζόμενο: τα τραμ αντιστρέφονται στα άκρα χωρίς βρόχο. Δεν διατίθεται ακόμα.
 SETTINGS_FUTURE_BREAKDOWN Εργαλεία βλάβης (σύντομα)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP Επαναφέρει την αναμονή εξωτε
 SETTINGS_EBS_GROUP_BUS_DESC Τα λεωφορεία εξπρές μπορεί να φύγουν νωρίτερα όταν λίγοι επιβάτες επιβιβάζονται — προαιρετική προηγμένη διακοπή.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Επιπλέον σειρές
 SETTINGS_SUB_NET_BBSP_NOTE Το Better Bus Stop αλλάζει μόνο πού παρκάρουν τα λεωφορεία στη στάση. Οι παρακάτω επιλογές είναι ξεχωριστά χαρακτηριστικά (υπερυψωμένο, κοινές στάσεις, κλπ.) — παραμένουν κλικάρι σκόπιμα.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Συνεχώς ενεργή συμπεριφορά
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Μικρές δύο συμπεριφορές που έτρεχαν πάντα χωρίς τρόπο να τις απενεργοποιήσετε – μέχρι τώρα. Ενεργές από προεπιλογή, ώστε οι υπάρχουσες εγκαταστάσεις να δουν καμία αλλαγή – απενεργοποιήστε αν τρέχετε ένα autonomous mod που κάνει το ίδιο πράγμα, ή απλώς προτιμάτε χειριστήριο έλεγχο.
+SETTINGS_AUTONAMESTOPS_ENABLE Αυτόματη ονομασία ανώνυμων στάσεων
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Η πρώτη φορά που επιλέγετε μια στάση χωρίς όνομα, της δίνει το ίδιο όνομα κοντινού κτήριου που θα πρότεινε το δικό της μενού αναπτύξεως του πανελ στάσης – χωρίς να ανοίξετε εκείνο το μενού. Ποτέ δεν αγγίζει ένα όνομα που εσείς (ή αυτό) ήδη ορίσατε.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Μεταφέρθηκε από το autonomous mod Rescue Fullwidth Digits. Διορθώνει ονόματα γραμμών μεταφορών που αποθηκεύτηκαν με πλήρεις ψηφία (１２３ αντί για 123) από ορισμένες ρυθμίσεις IME/εισόδου, που αλλιώς θα εμφανίζονταν λάθος για πάντα.
+SETTINGS_FUTURE_BUSWAYPOINT Στάσεις λεωφορείων waypoint (σύντομα)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Σχεδιασμένο: σημειώστε μια στάση ως απλώς waypoint δρομολόγησης – η διαδρομή της γραμμής περνάει αλλά τα οχήματα δεν σταματούν ποτέ ή φορτώνουν/εκφορτώνουν επιβάτες εκεί. Βοηθά να καθοδηγήσει το vanilla pathfinding στον δρόμο που πράγματι ήθελατε. Δεν είναι διαθέσιμο ακόμα.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Προηγμένη επιλογή στάσης: επιλογή ακριβούς ρεύματος
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Κρατήστε κατατεθειμένο ενώ τοποθετείτε μια σύνδεση στάσης τρένου/τραμ για να στοχεύσετε το ακριβές ρεύμα αντί για το πλησιέστερο έγκυρο. Ήταν hardcoded στο Αριστερό/Δεξί Shift; η ανατίθεση εδώ καλύπτει μόνο την πλευρά που επιλέξατε.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_LEGACY_GROUP_DESC Παλιά διακόπτες διατηρούνται μόνο για να οι εγκαταστάσεις που ήδη τα είχαν ενεργοποιημένα συνεχίσουν να δουλεύουν ακριβώς ως πριν. Κλειδωμένα – δεν μπορούν πλέον να ενεργοποιηθούν/απενεργοποιηθούν εδώ, και κάθε προφίλ παιχνιδιού τα αφήνει απενεργοποιημένα και στο μέλλον.
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

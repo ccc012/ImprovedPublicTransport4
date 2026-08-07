@@ -201,18 +201,23 @@ public sealed class CliExecutor : IDisposable {
         };
 
         _process.Exited += (_, _) => {
-            _stopwatch.Stop();
-            outputWaitHandle.WaitOne(2000);
-            errorWaitHandle.WaitOne(2000);
-            _exitCallback?.Invoke(new CliResult(
-                _process.ExitCode,
-                _output.ToString(),
-                _error.ToString(),
-                _process.StartInfo.FileName,
-                _process.StartInfo.Arguments,
-                _stopwatch.Elapsed));
-
-            DisposeProcess();
+            try {
+                _stopwatch.Stop();
+                outputWaitHandle.WaitOne(2000);
+                errorWaitHandle.WaitOne(2000);
+                _exitCallback?.Invoke(new CliResult(
+                    _process.ExitCode,
+                    _output.ToString(),
+                    _error.ToString(),
+                    _process.StartInfo.FileName,
+                    _process.StartInfo.Arguments,
+                    _stopwatch.Elapsed));
+            }
+            finally {
+                outputWaitHandle.Close();
+                errorWaitHandle.Close();
+                DisposeProcess();
+            }
         };
 
         _process.Start();

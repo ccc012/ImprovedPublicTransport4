@@ -102,7 +102,10 @@ namespace ImprovedPublicTransport.Data
     public void BoardPassengers(int newPassengers, int ticketPrice, ushort stop)
     {
       this.LastStopNewPassengers = newPassengers;
-      this.IncomeThisWeek += newPassengers * ticketPrice;
+      long income = (long)this.IncomeThisWeek + (long)newPassengers * ticketPrice;
+      this.IncomeThisWeek = income > int.MaxValue
+        ? int.MaxValue
+        : income < int.MinValue ? int.MinValue : (int)income;
       this.CurrentStop = stop;
     }
     

@@ -57,6 +57,8 @@ namespace ImprovedPublicTransport.Integration.AutoLineBudget
             foreach (var lineID in _managedLines)
             {
                 CachedTransportLineData.SetBudgetControlState(lineID, true);
+                CachedTransportLineData.SetTargetVehicleCount(lineID, TransportManager.instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount());
+                CachedTransportLineData.ClearEnqueuedVehicles(lineID);
             }
             _managedLines.Clear();
         }

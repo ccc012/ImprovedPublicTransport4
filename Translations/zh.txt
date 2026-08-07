@@ -433,7 +433,7 @@ SETTINGS_SUB_PERF 性能
 SETTINGS_SUB_COMPAT 兼容性
 SETTINGS_SUB_KEYS 快捷键
 SETTINGS_FUTURE_GROUP 即将推出
-SETTINGS_FUTURE_GROUP_DESCRIPTION 计划功能预览。在准备就绪前显示为灰色 - 暂无效果。
+SETTINGS_FUTURE_GROUP_DESCRIPTION 计划功能预览。就绪前显示为灰色；乘客目的地保持可用于测试。
 SETTINGS_FUTURE_REVERSIBLE_TRAM 可反向电车 AI（即将推出）
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 计划：电车在终点站无需循环即可反向。尚不可用。
 SETTINGS_FUTURE_BREAKDOWN 故障排除工具（即将推出）
@@ -449,6 +449,26 @@ SETTINGS_QUICK_TIP_3_BODY 某些选项需要重新加载城市（提示会说明
 SETTINGS_OOC_RESET_TOOLTIP 将外部连接等待、装饰性交通和相关切换重置为安全默认值。
 SETTINGS_EBS_GROUP_BUS_DESC 当上车乘客较少时，快速巴士可能会提前出发 - 可选的高级间距功能。
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 额外行
+
+SETTINGS_SUPPORT_LABEL 如果 IPT4 挽救了你的存档或提升了性能，请考虑支持它的开发！
+SETTINGS_SUPPORT_BUTTON 在 Ko-fi 上支持我
+SETTINGS_FEATURE_UNBUNCHING_ENABLE 防挤堆 / 快速公交
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP 启用车辆防挤堆、快速公交/有轨电车、生成间隔和激进车队规模。所有公交/有轨电车的间距和预算功能。
+SETTINGS_FEATURE_BUDGET_ENABLE 预算功能
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP 启用线路预算控制、自动线路预算、票价倍数和作为路径成本的票价。所有金钱/定价/车队功能。
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE 自动线路颜色
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP 自动为新公交线路分配颜色和名称。包含颜色策略、命名策略和面板设置。
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE 车辆编辑器
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP 启用车辆编辑器面板以更改车辆类型、涂装和属性。可放置在底部或右侧。
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE 等候乘客上限
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP 限制单个站点可等候公共交通的市民数量。禁用以移除所有等候上限，让游戏管理站点容量。
+SETTINGS_TRAINDISPLAY_SCOPE 显示覆盖层当
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP 选择选中的车辆、第一人称相机或两者。
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE 仅选中的车辆
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON 仅第一人称相机
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH 选中的车辆或第一人称相机
+SETTINGS_TRAINDISPLAY_LAYOUT 面板布局
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP 覆盖层使用哪种布局。两者显示相同信息并遵守相同复选框 - 仅形状不同。
 CHANGELOG_4_3_3_1 修复设置保存/加载在某些 mod 堆栈上仍然出现问题，即使在捆绑 Newtonsoft.Json.dll 之后也是如此：之前的解决方法仅在一个入口点尝试了 Assembly.LoadFrom，仍然依赖加载顺序。IPT4 现在注册一个全局 AssemblyResolve 钩子，在每个 mod/UI 入口点之前主动启动其捆绑的 Newtonsoft.Json，然后才 CSLModsCommon 接触 JsonWriter，因此新的选项 UI 可以可靠地持久化，而不是随机绑定到另一个 mod 的不兼容 Json.NET 副本。
 CHANGELOG_4_3_2_1 修复了只要没有其他已安装的 mod 碰巧提供 Newtonsoft.Json，mod 就会完全无法加载（「无法加载 mod 的 dll 或其某个依赖项」）的问题：CSLModsCommon 的设置序列化（JsonHelper/SerializationContext）需要它，但我们的构建从未实际在 mod 旁部署 Newtonsoft.Json.dll - 它仅通过搭便车使用另一个 mod 的副本而已。通过禁用所有其他 mod 进行干净测试时发现，这正是今后应该进行测试的方式。
 CHANGELOG_4_3_1_1 修复了选项面板的语言选择器仅重新翻译框架自己的字符串（版本/变更日志/...），而此 mod 的每个字符串仍然停留在游戏语言的问题 - 我们的翻译加载器以游戏语言为关键而忽略了 mod 自己的选择。现在它遵循 mod 的语言选择器，回退到游戏语言，然后回退到英语，并在选择器更改时重新解析。

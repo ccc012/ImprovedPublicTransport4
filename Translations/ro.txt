@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Evitarea coliziunilor pe cale ferată simplă
 SETTINGS_STTAI_ENABLE_TOOLTIP Rezervă un segment pe o singură cale pentru un tren pe rând, ținând trenul opus la intrare până ce segmentul e liber. Funcție originală IPT4, nu există în vanilla sau vreun mod absorbit.
 SETTINGS_STOPSTACKER_ENABLE Stivuire locuri la stația de autobuz
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Permite unui al doilea/treilea autobuz care se apropie de aceeași stație să folosească propriul loc mai în spate pe banda stației în loc să stea la coadă în spatele primului, astfel că mai multe autobuze pot încărca/descărca odată. Funcție originală IPT4 (reimplementare clean-room simplificată), nu există în vanilla sau vreun mod absorbit.
+
+SETTINGS_SUPPORT_LABEL Dacă IPT4 v-a salvat savegame-ul sau a îmbunătățit performanța, luați în considerare să susțineți dezvoltarea sa!
+SETTINGS_SUPPORT_BUTTON Susțineți-mă pe Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Debunching / Autobuz Express
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Activează debunching-ul vehiculelor, autobuzul/tramvaiul express, intervalul de spawn și dimensionarea agresivă a flotei. Toate funcțiile de spațiere și buget pentru autobuze și tramvaie.
+SETTINGS_FEATURE_BUDGET_ENABLE Funcții de buget
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Activează controlul bugetului liniei, bugetul automat al liniei, multiplicatorul prețului biletului și prețul ca cost de cale. Toate funcțiile de bani/preț/flotă.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Culoare automată linie
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Atribuie automat culori și nume noilor linii de transport. Include strategia de culoare, strategia de numire și setările panoului.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Editor vehicule
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Activează panoul editorului de vehicule pentru a schimba tipurile de vehicule, livreele și proprietățile. Poate fi poziționat în jos sau dreapta.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Limite pasageri așteptători
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Limitează câți cetățeni pot aștepta transportul public la o singură stație. Dezactivați pentru a elimina toate limitele de așteptare și a lăsa jocul să gestioneze capacitatea stațiilor.
+SETTINGS_TRAINDISPLAY_SCOPE Afișează overlay-ul când
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Selectați vehiculul selectat, camera first-person sau ambele.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Doar vehiculul selectat
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Doar camera first-person
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Vehiculul selectat sau camera first-person
+SETTINGS_TRAINDISPLAY_LAYOUT Aranjament panou
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ce aranjament folosește overlay-ul. Ambele afișează aceleași informații și respectă aceleași casete bifate - doar forma difere.
 CHANGELOG_4_3_3_1 A fost corectată persistența problemelor la salvarea/încărcarea setărilor pe unele combinații de moduri, chiar și după includerea Newtonsoft.Json.dll: soluția anterioară încerca Assembly.LoadFrom doar dintr-un singur punct de intrare și tot depindea de ordinea de încărcare. IPT4 înregistrează acum un hook global AssemblyResolve și încarcă din timp propria copie de Newtonsoft.Json din fiecare punct de intrare mod/UI înainte ca CSLModsCommon să atingă JsonWriter, astfel încât noua interfață Opțiuni persistă fiabil în loc să se lege aleatoriu de o copie incompatibilă Json.NET a altui mod.
 CHANGELOG_4_3_2_1 A fost corectată eroarea prin care modul nu se încărca deloc ("failed to load the mod's dll or one of its dependencies") ori de câte ori niciun alt mod instalat nu furniza deja Newtonsoft.Json: serializarea setărilor din CSLModsCommon (JsonHelper/SerializationContext) are nevoie de aceasta, dar build-ul nostru nu a livrat niciodată efectiv Newtonsoft.Json.dll alături de mod - funcționa doar din întâmplare, pe seama copiei altui mod. Descoperit prin dezactivarea tuturor celorlalte moduri pentru un test curat, exact modul în care ar trebui testat de acum înainte.
 CHANGELOG_4_3_1_1 A fost corectat selectorul de limbă din panoul Opțiuni, care retraducea doar șirurile proprii ale framework-ului (Versiune/Jurnal de modificări/...) în timp ce toate șirurile modului rămâneau în limba jocului - încărcătorul de traduceri se baza pe limba jocului și ignora complet selecția proprie a modului. Acum urmează selectorul de limbă al modului, revenind la limba jocului și apoi la engleză, și se rezolvă din nou de fiecare dată când selectorul se schimbă.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Perf
 SETTINGS_SUB_COMPAT Compat
 SETTINGS_SUB_KEYS Taste
 SETTINGS_FUTURE_GROUP Viitor
-SETTINGS_FUTURE_GROUP_DESCRIPTION Previzualizare a caracteristicilor planificate. Estompată până ce este gata — fără efect încă.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Previzualizare a funcțiilor planificate. Afișat gri până sunt gata; destinația pasagerilor rămâne disponibilă pentru testare.
 SETTINGS_FUTURE_REVERSIBLE_TRAM IA tramvai reversibil (în curând)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planificat: tramvaiele se inversează la capete fără buclă. Nu este disponibil încă.
 SETTINGS_FUTURE_BREAKDOWN Instrumente de diagnosticare (în curând)
@@ -585,11 +605,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portat din modul independent Rescu
 CHANGELOG_4_8_6_1 A fost reactivată Destinația navetiștilor: comutatorul din Opțiuni este din nou disponibil și funcționează live, fără a fi nevoie de reîncărcare.
 CHANGELOG_4_8_6_2 A fost verificată fiecare integrare opțională pentru un "dezactivat înseamnă cu adevărat dezactivat": Elevated Stops Enabler rescria permanent datele prefab ale drumurilor fără nicio modalitate de a anula, iar Auto Line Budget continua să gestioneze liniile în fundal după ce era dezactivat la mijlocul sesiunii. Ambele revin acum complet la comportamentul vanilla când sunt dezactivate.
 CHANGELOG_4_8_6_3 Au fost găsite două comportamente care rulau mereu fără nicio modalitate de a le opri - denumirea automată a stațiilor fără nume și Rescue Fullwidth Digits (Gansaku) - și au fost adăugate comutatoare pentru ambele sub Opțiuni → Avansat. Activate implicit, deci nimic nu se schimbă decât dacă le dezactivezi.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_FUTURE_BUSWAYPOINT Stații waypoint autobuz (în curând)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planificat: marchează o stație ca punct de trecere al rutării doar – traseul liniei trece prin ea, dar vehiculele nu opresc niciodată și nu încarcă/descarcă pasageri acolo. Ajută la ghidarea pathfinding-ului vanilla pe strada pe care ai vrut-o. Inca indisponibil.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Selectare avansată stație: alege linia exactă
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Ține apăsat în timp ce plasezi o conexiune stație tren/tram pentru a ținti linia exactă în locul celei mai apropiate valide. Era hardcodat pe Shift stânga/dreapta; reasignarea aici acoperă doar pagina aleasă.
+SETTINGS_LEGACY_GROUP Moștenire
+SETTINGS_LEGACY_GROUP_DESC Comutatoare vechi păstrate doar pentru ca instalările care le aveau deja activate să continue să funcționeze exact ca înainte. Blocate – nu mai pot fi activate/dezactivate de aici, și fiecare profil de joc le lasă dezactivate în viitor.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

@@ -10,19 +10,23 @@ namespace ImprovedPublicTransport
         public static event BuildingExtension.DepotRemoved OnDepotRemoved;
 
         private static Dictionary<ItemClassTriplet, HashSet<ushort>> _depotMap;
+        private static readonly ushort[] _depotBuffer = new ushort[128];
 
         public static void Init()
         {
             _depotMap = new Dictionary<ItemClassTriplet, HashSet<ushort>>();
-            for (ushort index = 0; index < BuildingManager.instance.m_buildings.m_buffer.Length; ++index)
+            int bufferLength = BuildingManager.instance.m_buildings.m_buffer.Length;
+            for (int index = 0; index < bufferLength; ++index)
             {
-                ObserveBuilding(index);
+                ObserveBuilding((ushort)index);
             }
         }
 
         public static void Deinit()
         {
-            _depotMap = new Dictionary<ItemClassTriplet, HashSet<ushort>>();
+            _depotMap = null;
+            OnDepotAdded = null;
+            OnDepotRemoved = null;
         }
 
         public override void OnBuildingCreated(ushort id)
@@ -43,28 +47,14 @@ namespace ImprovedPublicTransport
                 return;
             }
 
-            // Snapshot transport infos before the buffer slot is fully wiped / reused.
-            DepotUtil.GetStats(ref BuildingManager.instance.m_buildings.m_buffer[id],
-                out TransportInfo primaryInfo, out TransportInfo secondaryInfo);
-
             foreach (var depots in _depotMap)
             {
                 if (!depots.Value.Remove(id))
                 {
                     continue;
                 }
-                OnReleasedForInfo(id, primaryInfo);
-                OnReleasedForInfo(id, secondaryInfo);
+                OnDepotRemoved?.Invoke(depots.Key.Service, depots.Key.SubService, depots.Key.Level);
             }
-        }
-
-        private void OnReleasedForInfo(ushort id, TransportInfo transportInfo)
-        {
-            if (transportInfo == null)
-            {
-                return;
-            }
-            OnDepotRemoved?.Invoke(transportInfo.GetService(), transportInfo.GetSubService(), transportInfo.GetClassLevel());
         }
 
         private static void ObserveBuilding(ushort buildingId)
@@ -83,7 +73,7 @@ namespace ImprovedPublicTransport
 
         private static void ObserveForInfo(ushort buildingId, TransportInfo transportInfo)
         {
-            if (_depotMap == null || transportInfo == null || !DepotUtil.IsValidDepot(buildingId, transportInfo))
+            if (_depotMap == null || transportInfo == null || buildingId >= BuildingManager.instance.m_buildings.m_buffer.Length || !DepotUtil.IsValidDepot(buildingId, transportInfo))
             {
                 return;
             }

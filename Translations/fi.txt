@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Yksiraiteisen junan törmäyksen välttäminen
 SETTINGS_STTAI_ENABLE_TOOLTIP Varaa yksiraiteisen osuuden yhdelle junalle kerrallaan ja pitää vastakkaisen junan sisäänkäynnillä, kunnes osuus on vapaa. Alkuperäinen IPT4-ominaisuus, ei vaniljassa eikä missään absorboidussa modissa.
 SETTINGS_STOPSTACKER_ENABLE Bussipysäkin paikkojen pinoaminen
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Antaa toisen/kolmannen samaan pysäkkiin saapuvan bussin käyttää omaa paikkaansa kauempana takana pysäkkikaistalla jonottamisen sijaan etummaisen bussin takana, jotta useampi bussi voi lastata/purkaa samanaikaisesti. Alkuperäinen IPT4-ominaisuus (yksinkertaistettu clean-room-uudelleentoteutus), ei vaniljassa eikä missään absorboidussa modissa.
+
+SETTINGS_SUPPORT_LABEL Jos IPT4 on pelastanut tallennuksesi tai parantanut suorituskykyäsi, harkitse sen kehityksen tukemista!
+SETTINGS_SUPPORT_BUTTON Tue minua Ko-fi:lla
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Ryhmittely / Pikabussi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Ottaa käyttöön ajoneuvojen ryhmittelyn, pikabussin/ratikan, spawn-väliajan ja aggressiivisen kantojoukon koon. Kaikki bussi/ratikka-väliajan ja budjettitoiminnot.
+SETTINGS_FEATURE_BUDGET_ENABLE Budjettitoiminnot
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Ottaa käyttöön linjan budjettien hallinnan, automaattisen linjabudjetin, lipun hinnan kerroin ja hinnan polun kustannuksena. Kaikki raha/hinta/kantojoukko-toiminnot.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Automaattinen linjan väri
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Määrittää automaattisesti värit ja nimet uusille liikennelinjoille. Sisältää väristrategian, nimeämisstrategian ja paneelin asetukset.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Ajoneuvoeditori
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Ottaa käyttöön ajoneuvoeditori-paneelin ajoneuvotyyppien, liverien ja ominaisuuksien muuttamiseen. Voidaan sijoittaa alhaalle tai oikealle.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Odottavien matkustajien rajat
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Rajoittaa, kuinka monta kansalaista voi odottaa joukkoliikennettä yhdellä pysäkillä. Poista käyttööstä poistaaksesi kaikki odotuksen rajat ja antaaksesi pelin hallita pysäkin kapasiteettia.
+SETTINGS_TRAINDISPLAY_SCOPE Näytä overlay kun
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Valitse valittu ajoneuvo, first-person-kamera tai molemmat.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Vain valittu ajoneuvo
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Vain first-person-kamera
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Valittu ajoneuvo tai first-person-kamera
+SETTINGS_TRAINDISPLAY_LAYOUT Paneelin asettelu
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Mikä asettelu overlay käyttää. Molemmat näyttävät samat tiedot ja noudattavat samoja valintaruutuja - vain muoto eroaa.
 CHANGELOG_4_3_3_1 Korjattu asetukset tallenna/lataa silti rikkoutuu joissa modi pinot.
 CHANGELOG_4_3_2_1 Korjattu modi epäonnistui lataa kokonaan: Newtonsoft.Json.dll vienti virhe.
 CHANGELOG_4_3_1_1 Korjattu Options paneeli kielivalitsin vain uudelleen kääntää kehys omia merkkijonoja.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Suorituskyky
 SETTINGS_SUB_COMPAT Yhteensopivuus
 SETTINGS_SUB_KEYS Näppäimet
 SETTINGS_FUTURE_GROUP Tulossa myöhemmin
-SETTINGS_FUTURE_GROUP_DESCRIPTION Esikatselu suunnitelluista ominaisuuksista. Harmaa kunnes valmis — ei vaikutusta vielä.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Suunniteltujen toimintojen esikatselu. Näytetään harmaana kunnes valmiita; matkustajan kohde on edelleen testattavissa.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Käännettävä raitiovaunu-tekoäly (pian)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Suunniteltu: raitiovaunut kääntyvät pääteasemilla ilman silmukkaa. Ei vielä saatavilla.
 SETTINGS_FUTURE_BREAKDOWN Vianetsintä työkalut (pian)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP Nollaa ulkoyhteyden odotus, koristeellinen liikenne j
 SETTINGS_EBS_GROUP_BUS_DESC Pikabussit saattavat lähteä aiemmin kun vain muutama matkustaja nousta - valinnainen edistynyt välistys.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Ylimääräiset rivit
 SETTINGS_SUB_NET_BBSP_NOTE Parempi bussipysäkki muuttaa vain missä bussit pysähtyvät pysäkillä. Alla olevat asetukset ovat erillisiä ominaisuuksia (korotettu, jaetut pysäkit, jne.) — ne pysyvät klikattavissa tarkoituksella.
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP Aina päällä oleva toiminta
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Kaksi pientä toimintaa, jotka aina ovat pyörineet ilman mahdollisuutta sulkea ne – until now. Oletusarvoisesti päällä, jotta olemassa olevat asennukset eivät huomaa muutosta – pois päältä, jos suoritat itsenäisen modin, joka tekee saman asian, tai vain suositset manuaalista hallintaa.
+SETTINGS_AUTONAMESTOPS_ENABLE Nimeä nimettömät pysäkit automaattisesti
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Ensimmäinen kerran, kun valitset pysäkin ilman nimeä, se saa samannimisen lähellä olevan rakennuksen nimen, mitä pysäkkipaneelin oma valikko ehdottaisi – ilman, että sinun tarvitsee avata sitä valikkoa. Ei koskaan koske nimeä, jonka sinä (tai tämä) olet jo asettanut.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Viety itsenäisestä Rescue Fullwidth Digits -modista. Korjaa liikennelinjan nimet, jotka on tallennettu täysleveyden numerilla (１２３ sijasta 123) joidenkin IME/syöteasetusten vuoksi, jotka muuten näkyvät virheellisesti ikuisesti.
+SETTINGS_FUTURE_BUSWAYPOINT Bussi reittipiste-pysäkit (tulossa)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Suunniteltu: merkkaa pysäkki vain reitityspisteeksi – linjan reitti menee sen läpi, mutta ajoneuvot eivät pysähdy tai lataa/pura matkustajia siellä. Auttaa ohjaamaan vanilla pathfinding sen tiehen, jota olet tarkoituksellisesti aikonut. Ei vielä saatavilla.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Edistynyt pysäkkivalinta: valitse tarkka raide
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Pidä painettuna junan/ratikan pysäkkiliitoksen asettelussa, jotta kohdistat tarkkaan radan sijaan lähimpään kelvolliseen. Oli kiinteästi koodattu vasen/oikea Shift; uudelleensidonta täällä kattaa vain valitun puolen.
+SETTINGS_LEGACY_GROUP Perintö
+SETTINGS_LEGACY_GROUP_DESC Vanhat välitykset säilytetään vain siksi, että asennukset, joilla ne jo ovat päällä, jatkavat toimimista täsmälleen kuten aiemmin. Lukittu – niitä ei voi enää kytkeä päälle/pois täältä, ja jokainen peliprofiili jättää ne pois päältä edelleen.
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

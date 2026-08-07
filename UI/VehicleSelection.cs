@@ -160,7 +160,10 @@ namespace ImprovedPublicTransport.UI
                 {
                     // Clear other vehicle list selection if this is active.
                     _availableVehiclePanel.ClearSelection();
-                    _previewPanel.lineColor = TransportManager.instance.m_lines.m_buffer[CurrentLine].m_color;
+                    var lines = TransportManager.instance.m_lines;
+                    _previewPanel.lineColor = CurrentLine != 0 && CurrentLine < lines.m_size
+                        ? lines.m_buffer[CurrentLine].m_color
+                        : Color.white;
                     _previewPanel.SetTarget(value.Info);
                 }
                 else
@@ -187,7 +190,10 @@ namespace ImprovedPublicTransport.UI
                 {
                     // Clear other vehicle list selection if this is active.
                     _selectedVehiclePanel.ClearSelection();
-                    _previewPanel.lineColor = TransportManager.instance.m_lines.m_buffer[CurrentLine].m_color;
+                    var lines = TransportManager.instance.m_lines;
+                    _previewPanel.lineColor = CurrentLine != 0 && CurrentLine < lines.m_size
+                        ? lines.m_buffer[CurrentLine].m_color
+                        : Color.white;
                     _previewPanel.SetTarget(value.Info);
                 }
                 else

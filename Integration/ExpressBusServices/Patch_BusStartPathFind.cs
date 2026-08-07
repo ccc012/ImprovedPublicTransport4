@@ -50,10 +50,11 @@ namespace ExpressBusServices
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                __result = false;
-                return false;
+                // Fail-open: an exception here must not freeze the bus by blocking its pathfind.
+                ImprovedPublicTransport.Util.Utils.LogError($"Patch_BusStartPathFind: {ex.Message}");
+                return true;
             }
         }
     }

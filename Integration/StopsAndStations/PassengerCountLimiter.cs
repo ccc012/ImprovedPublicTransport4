@@ -104,6 +104,19 @@ namespace StopsAndStations
         /// </summary>
         public override void OnBeforeSimulationFrame()
         {
+            // No city loaded (main menu): nothing to enforce, skip entirely.
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
+            // Master switch: when passenger caps are disabled, skip the whole pass - the game does
+            // not limit waiting passengers on its own.
+            if (!ModSetting.Instance.EnableStopsAndStations)
+            {
+                return;
+            }
+
             // Resolved once per frame instead of per citizen instance: ModSetting.Instance walks two
             // dictionaries (manager lookup + setting lookup) on every access, and this loop runs
             // thousands of iterations per frame.

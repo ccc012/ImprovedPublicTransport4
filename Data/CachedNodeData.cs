@@ -95,22 +95,26 @@ namespace ImprovedPublicTransport.Data
 
     private static void OnSaveData()
     {
+      var cachedData = m_cachedNodeData;
+      if (cachedData == null || SerializableDataExtension.instance == null)
+        return;
+
       FastList<byte> data = new FastList<byte>();
       try
       {
         SerializableDataExtension.WriteString(CachedNodeData._dataVersion, data);
-        for (int index = 0; index < 32768; ++index)
+        for (int index = 0; index < cachedData.Length; ++index)
         {
-          if (!CachedNodeData.m_cachedNodeData[index].IsEmpty)
+          if (!cachedData[index].IsEmpty)
           {
             SerializableDataExtension.WriteInt32(index, data);
-            SerializableDataExtension.WriteInt32(CachedNodeData.m_cachedNodeData[index].PassengersIn, data);
-            SerializableDataExtension.WriteInt32(CachedNodeData.m_cachedNodeData[index].PassengersOut, data);
-            SerializableDataExtension.WriteInt32(CachedNodeData.m_cachedNodeData[index].LastWeekPassengersIn, data);
-            SerializableDataExtension.WriteInt32(CachedNodeData.m_cachedNodeData[index].LastWeekPassengersOut, data);
-            SerializableDataExtension.WriteFloatArray(CachedNodeData.m_cachedNodeData[index].PassengerInData, data);
-            SerializableDataExtension.WriteFloatArray(CachedNodeData.m_cachedNodeData[index].PassengerOutData, data);
-            SerializableDataExtension.WriteBool(CachedNodeData.m_cachedNodeData[index].Unbunching, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].PassengersIn, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].PassengersOut, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].LastWeekPassengersIn, data);
+            SerializableDataExtension.WriteInt32(cachedData[index].LastWeekPassengersOut, data);
+            SerializableDataExtension.WriteFloatArray(cachedData[index].PassengerInData, data);
+            SerializableDataExtension.WriteFloatArray(cachedData[index].PassengerOutData, data);
+            SerializableDataExtension.WriteBool(cachedData[index].Unbunching, data);
           }
         }
         SerializableDataExtension.instance.SerializableData.SaveData(CachedNodeData._dataID, data.ToArray());

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CSLModsCommon.Manager; 
 public class UpdateManager : ManagerBase {
-    private Dictionary<Type, ManagerBase> _managerLookup;
+    private readonly object _lookupLock = new();
     private Dictionary<Type, ManagerBase> _simulationPhaseManagers;
     private Dictionary<Type, ManagerBase> _serializationPhaseManagers;
     private Dictionary<Type, ISimulation> _simulationInterfaces;
@@ -14,7 +14,6 @@ public class UpdateManager : ManagerBase {
 
     protected override void OnCreate() {
         base.OnCreate();
-        _managerLookup = Domain.ManagerLookup;
         _simulationPhaseManagers = new Dictionary<Type, ManagerBase>();
         _serializationPhaseManagers = new Dictionary<Type, ManagerBase>();
         _simulationInterfaces = new Dictionary<Type, ISimulation>();
@@ -40,45 +39,48 @@ public class UpdateManager : ManagerBase {
     }
 
     public void InvokeSerialize() {
-        foreach (var serializationLookupValue in _serializationInterfaces.Values) _serializationManager.SerializeData(serializationLookupValue);
+        foreach (var serializationLookupValue in Snapshot(_serializationInterfaces)) _serializationManager.SerializeData(serializationLookupValue);
     }
 
     public void InvokeDeserialize() {
-        foreach (var serializationLookupValue in _serializationInterfaces.Values) _serializationManager.DeserializeData(serializationLookupValue);
+        foreach (var serializationLookupValue in Snapshot(_serializationInterfaces)) _serializationManager.DeserializeData(serializationLookupValue);
     }
 
     public void InvokeBindThreadingContext(IThreading threading) {
-        foreach (var value in _simulationInterfaces.Values) value.OnBindThreadingContext(threading);
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnBindThreadingContext(threading);
     }
 
     public void InvokePreSimulationTick() {
-        foreach (var value in _simulationInterfaces.Values) value.OnPreSimulationTick();
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnPreSimulationTick();
     }
 
     public void InvokePreSimulationFrame() {
-        foreach (var value in _simulationInterfaces.Values) value.OnPreSimulationFrame();
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnPreSimulationFrame();
     }
 
     public void InvokePostSimulationFrame() {
-        foreach (var value in _simulationInterfaces.Values) value.OnPostSimulationFrame();
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnPostSimulationFrame();
     }
 
     public void InvokePostSimulationTick() {
-        foreach (var value in _simulationInterfaces.Values) value.OnPostSimulationTick();
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnPostSimulationTick();
     }
 
     public void InvokeThreadingUpdate(float realTimeDelta, float simulationTimeDelta) {
-        foreach (var value in _simulationInterfaces.Values) value.OnThreadingUpdate(realTimeDelta, simulationTimeDelta);
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnThreadingUpdate(realTimeDelta, simulationTimeDelta);
     }
 
     public void InvokeUnbindThreadingContext() {
-        foreach (var value in _simulationInterfaces.Values) value.OnUnbindThreadingContext();
+        foreach (var value in Snapshot(_simulationInterfaces)) value.OnUnbindThreadingContext();
     }
 
     private void AddToLookup(Dictionary<Type, ManagerBase> lookup, Type type) {
-        if (_managerLookup.TryGetValue(type, out var manager) && !lookup.ContainsKey(type)) {
-            lookup[type] = manager;
-            RegisterInterfaces(manager);
+        if (Domain.TryGetManager(type, out var manager)) {
+            lock (_lookupLock) {
+                if (lookup.ContainsKey(type)) return;
+                lookup[type] = manager;
+                RegisterInterfaces(manager);
+            }
         }
     }
 
@@ -97,6 +99,14 @@ public class UpdateManager : ManagerBase {
                 _serializationInterfaces[type] = serializeManager;
                 Logger.Debug($"UpdateManager: Registered {type} as ISerializable");
             }
+        }
+    }
+
+    private T[] Snapshot<T>(Dictionary<Type, T> lookup) {
+        lock (_lookupLock) {
+            var values = new T[lookup.Count];
+            lookup.Values.CopyTo(values, 0);
+            return values;
         }
     }
 }

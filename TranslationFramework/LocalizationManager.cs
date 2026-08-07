@@ -51,6 +51,12 @@ namespace ImprovedPublicTransport.TranslationFramework
             CSLModsCommon.Manager.LocalizationManager.ModActiveLocaleChanged += OnModActiveLocaleChanged;
         }
 
+        public void Deinit()
+        {
+            LocaleManager.eventLocaleChanged -= SetCurrentLanguage;
+            CSLModsCommon.Manager.LocalizationManager.ModActiveLocaleChanged -= OnModActiveLocaleChanged;
+        }
+
         private void OnModActiveLocaleChanged(string localeId, CSLModsCommon.Manager.LocalizationManager manager) => SetCurrentLanguage();
 
         private void SetCurrentLanguage()

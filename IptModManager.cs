@@ -66,127 +66,25 @@ namespace ImprovedPublicTransport
             const string Alt = "Improved Public Transport 4";
             const IncompatibilityModLevel Ban = IncompatibilityModLevel.EnableNotAllowed;
 
-            // ---- IPT family / line managers (must never run with IPT4) ----
-            rule.AddWithWorkshop("ImprovedPublicTransport", Ban, "Improved Public Transport (original)",
-                    "IPT1 is replaced entirely by IPT4 — both patch the same transit systems.",
-                    424106600u)
-                .AddWithWorkshop("ImprovedPublicTransport2", Ban, "Improved Public Transport 2 (IPT2)",
-                    "IPT2 is an earlier generation IPT4 replaces — double-patching breaks fleet/budget control.",
-                    928128676u)
-                .AddWithWorkshop("ImprovedPublicTransport3", Ban, "Improved Public Transport 3 (IPT3)",
-                    "IPT4 is a local fork of IPT3 that replaces it entirely — never run both.",
-                    3690061052u)
-                .AddWithWorkshop("TransportLinesManager", Ban, "Transport Lines Manager",
-                    "TLM and IPT both own per-line vehicle count/budget — together they cause budget glitches and fight over fleets.",
-                    1312767991u, 3007903394u)
-                .AddWithWorkshop("ImprovedTransportManager", Ban, "Improved Transport Manager (ITM)",
-                    "Klyte45's unfinished TLM/IPT2 successor — same per-line budget/fleet domain as IPT4.",
-                    2888964436u);
-
-            // ---- Overlapping unbunching / colour tools ----
-            rule.AddWithWorkshop("VehicleUnbuncher", Ban, "Vehicle Unbuncher",
-                    "Unbunching/spawn spacing is built into IPT4 — running both fights over the same vehicles.",
-                    508703774u)
-                .AddWithWorkshop("VehicleUnbuncher2", Ban, "Vehicle Unbuncher (Overhatted / alt)",
-                    "Same unbunching domain as IPT4's built-in spacing.",
-                    531401164u)
-                .AddWithWorkshop("TransportLineColorMod", Ban, "Transport Line Color Mod",
-                    "Line colour tools overlap IPT4 Auto Line Color — both write the same line colours.",
-                    409865621u)
-                .AddWithWorkshop("AutomaticVehicleNumbersAdjuster", Ban, "Automatic Vehicle Numbers Adjuster",
-                    "Same job as IPT4 Auto Line Budget (fleet sizing from demand).",
-                    1218121337u)
-                .AddWithWorkshop("ExtendedPublicTransportUI", Ban, "Extended Public Transport UI (+400)",
-                    "Line-limit / extended PT UI covered by base game + IPT4.",
-                    411164732u);
-
-            // ---- Absorbed integrations (unsubscribe standalones) ----
-            rule.AddWithWorkshop("AdvancedStopSelection", Ban, "Advanced Stop Selection Revisited",
-                    "Stop platform selection is built into IPT4 — unsubscribe the standalone.",
-                    2862973068u)
-                .AddWithWorkshop("MultiTrackStationEnabler", Ban, "Advanced Stop Selection (original)",
-                    "Superseded original; functionality is in IPT4.",
-                    1394468624u)
-                .AddWithWorkshop("AutoLineBudget", Ban, "Auto Line Budget 21",
-                    "Fleet sizing is in IPT4 Options — both writing budgets caused runaway costs.",
-                    2349240408u)
-                .AddWithWorkshop("AutoLineColor", Ban, "AutoLineColor Redux",
-                    "Automatic line colouring is built into IPT4.",
-                    1415090282u)
-                .AddWithWorkshop("AutoLineColorOriginal", Ban, "AutoLineColor (Phil Scott original)",
-                    "Original AutoLineColor — IPT4 includes Redux-class colour/naming.",
-                    408706691u)
-                .AddWithWorkshop("AutoLineColorEnkafan", Ban, "Auto Line Color (enkafan)",
-                    "Legacy colour mod overlaps IPT4 Auto Line Color.",
-                    408760323u)
-                .AddWithWorkshop("BetterTrainBoarding", Ban, "Better Train Boarding",
-                    "Boarding logic is built into IPT4 Better Boarding.",
-                    2773460744u)
-                .AddWithWorkshop("BetterBusStopPosition", Ban, "Better Bus Stop Position",
-                    "Stop positioning is built into IPT4.",
-                    3491515535u)
-                .AddWithWorkshop("CommuterDestination.CS1", Ban, "Commuter Destination",
-                    "Commuter Destination UI/icons are built into IPT4.",
-                    2475986859u)
-                .AddWithWorkshop("ElevatedStopsEnabler", Ban, "Elevated Stops Enabler (Revisited)",
-                    "Elevated stop support is built into IPT4.",
-                    2862992091u, 634913093u)
-                .AddWithWorkshop("ExpressBusServices", Ban, "Express Bus Services",
-                    "Express bus/tram AI is built into IPT4.",
-                    2262054175u)
-                .AddWithWorkshop("FlightTracker", Ban, "Flight Tracker",
-                    "Flight Tracker panel is built into IPT4.",
-                    3033809468u)
-                .AddWithWorkshop("RegionalBuses", Ban, "Intercity Bus Control",
-                    "Intercity bus terminal control is built into IPT4.",
-                    2499771767u)
-                .AddWithWorkshop("MileageTaxiServices", Ban, "Mileage Taxi Services",
-                    "Taxi fare-by-distance is built into IPT4.",
-                    3492156582u)
-                .AddWithWorkshop("PublicTransportUnstucker", Ban, "Public Transport Unstucker",
-                    "Unstucker patches are built into IPT4.",
-                    2774427140u)
-                .AddWithWorkshop("RealisticWalkingSpeed", Ban, "Realistic Walking Speed",
-                    "Walking/cycling speed modes are built into IPT4.",
-                    1412844620u)
-                .AddWithWorkshop("SharedStopEnabler", Ban, "Shared Stop Enabler",
-                    "Shared stops (including elevated) are built into IPT4 — do not run the standalone.",
-                    2096382380u)
-                .AddWithWorkshop("StopsAndStations", Ban, "Stops & Stations",
-                    "Waiting-passenger caps are built into IPT4.",
-                    1776052533u)
-                .AddWithWorkshop("SubBuildingsTabBar", Ban, "Sub-Buildings Tabs",
-                    "Sub-building tab strip is built into IPT4.",
-                    608517757u)
-                .AddWithWorkshop("TicketPriceCustomizer", Ban, "Ticket Price Customizer",
-                    "Ticket price UI/multipliers are built into IPT4.",
-                    1393820309u)
-                .AddWithWorkshop("TransitVehicleSpawnDelay", Ban, "Transit Vehicle Spawn Delay",
-                    "Redundant: IPT4's own DepotAI.StartTransfer patch enforces a per-line minimum spawn interval (Options > Unbunching > \"Spawn time interval\"), spacing out burst spawns from the depot the same way this mod does.",
-                    2654110611u)
-                // No longer banned as of 4.8.8: its own author (Will) pointed out Train Display -
-                // Updated does zero Harmony patching, so there is no real state conflict with IPT4's
-                // own vehicle route panel - only the possibility of two overlays being visible at
-                // once, which the player can already resolve by disabling either one. Both stay
-                // credited in the Workshop description either way.
-                .AddWithWorkshop("TrainDisplayMod", Ban, "Train Display (original Asmape)",
-                    "Original Train Display — use IPT4's integrated overlay instead.",
-                    2380878816u)
-                .AddWithWorkshop("CargoHoldFix", Ban, "Optimised Outside Connections",
-                    "Outside-connection cargo wait tuning is built into IPT4.",
-                    1721492498u)
-                .AddWithWorkshop("UnlimitedOutsideConnectionsRevisited", Ban, "Unlimited Outside Connections Revisited",
-                    "Unlimited outside connections is built into IPT4.",
-                    2367735356u)
-                .AddWithWorkshop("TaxiStandFix", Ban, "Taxi Stand Fix",
-                    "Taxi stand idle routing is built into IPT4.",
-                    3712889232u)
-                .AddWithWorkshop("SingleTrainTrackAI", Ban, "SingleTrainTrackAI",
-                    "Single-track reservation is built into IPT4 (clean-room) — both can double-brake trains.",
-                    949504539u)
-                .AddWithWorkshop("RescueFullwidthDigits", Ban, "Rescue Fullwidth Digits",
-                    "Fullwidth digit normalisation for line names is built into IPT4.",
-                    1174585364u);
+            // Bans only the mods that actually conflict with IPT4's absorbed/clean-room
+            // implementations. All 14 here are checked by name + Workshop ID + listed conflicting
+            // methods (where relevant); one alternative-assembly fork of Commuter Destination is
+            // also blocked by name. Other mods stay unlisted to avoid false positives — see the
+            // Compatibility tab description for the full reasoning.
+            rule.AddWithWorkshop("SharedStopEnabler", Ban, "SharedStopEnabler", "Conflicts with IPT4 shared-stop implementation.", 2096382380u)
+                .AddWithWorkshop("SingleTrainTrackAI", Ban, "SingleTrainTrackAI", "Clean-room implementation already in IPT4 — both can double-brake trains.", 949504539u)
+                .AddWithWorkshop("RealisticWalkingSpeed", Ban, "Realistic Walking Speed", "Walking/cycling speed modes are built into IPT4.", 1412844620u)
+                .AddWithWorkshop("UnlimitedOutsideConnections", Ban, "Unlimited Outside Connections", "Unlimited outside connections is built into IPT4.", 2367735356u)
+                .AddWithWorkshop("ExpressBusServices", Ban, "Express Bus Services", "Express bus/tram AI is built into IPT4.", 2262054175u)
+                .AddWithWorkshop("AdvancedStopSelection", Ban, "Advanced Stop Selection Revisited", "Stop platform selection is built into IPT4.", 2862973068u)
+                .AddWithWorkshop("BetterBusStopPosition", Ban, "Better Bus Stop Position", "Stop positioning is built into IPT4.", 3491515535u)
+                .AddWithWorkshop("BetterTrainBoarding", Ban, "Better Train Boarding", "Boarding logic is built into IPT4.", 2773460744u)
+                .AddWithWorkshop("ElevatedStopsEnabler", Ban, "Elevated Stops Enabler (Revisited)", "Elevated stop support is built into IPT4.", 2862992091u, 634913093u)
+                .AddWithWorkshop("MileageTaxiServices", Ban, "Mileage Taxi Services", "Taxi fare-by-distance is built into IPT4.", 3492156582u)
+                .AddWithWorkshop("OptimisedOutsideConnections", Ban, "Optimised Outside Connections", "Outside-connection cargo wait tuning is built into IPT4.", 1721492498u)
+                .AddWithWorkshop("PublicTransportUnstucker", Ban, "Public Transport Unstucker", "Unstucker patches are built into IPT4.", 2774427140u)
+                .AddWithWorkshop("TransitVehicleSpawnDelay", Ban, "Transit Vehicle Spawn Delay", "Redundant: IPT4 DepotAI.StartTransfer enforces a per-line spawn interval (Unbunching spawn time).", 2654110611u)
+                .AddWithWorkshop("CommuterDestination.CS1", Ban, "Commuter Destination", "Commuter Destination UI/icons are built into IPT4.", 2475986859u);
 
             // Known alternate assembly names for absorbed mods (forks / renames).
             rule.Add(new IncompatibleModItem("CommuterDestination", Ban, "Commuter Destination (alt assembly)",

@@ -89,7 +89,7 @@ public class TextDocument {
     public void Redo() {
         if (!CanRedo) return;
         _isUndoing = true;
-        var last = _undoStack.Last();
+        var last = _redoStack.Last();
         _redoStack.RemoveAt(_redoStack.Count - 1);
 
         // push current to undo

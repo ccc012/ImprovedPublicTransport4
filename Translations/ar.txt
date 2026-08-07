@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE تجنب تصادم القطارات في المسار ا�
 SETTINGS_STTAI_ENABLE_TOOLTIP يحجز مقطعا من مسار واحد لقطار واحد في كل مرة، ويوقف القطار المعاكس عند المدخل حتى يصبح المقطع خاليا. ميزة اصلية من IPT4، غير موجودة في اللعبة الاساسية او في اي مود مدمج.
 SETTINGS_STOPSTACKER_ENABLE تكديس مواقف محطات الحافلات
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP يتيح للحافلة الثانية أو الثالثة القادمة إلى نفس المحطة استخدام موقفها الخاص في مكان ابعد على مسار المحطة بدلا من الاصطفاف خلف الحافلة الاولى، بحيث يمكن لاكثر من حافلة الصعود والنزول في نفس الوقت. ميزة اصلية من IPT4 (اعادة تنفيذ مبسطة دون الوصول للكود الاصلي)، غير موجودة في اللعبة الاساسية او في اي مود مدمج.
+
+SETTINGS_SUPPORT_LABEL إذا أنقذ IPT4 حفظ لعبتك أو حسن أداءك، ففكر في دعم تطويره!
+SETTINGS_SUPPORT_BUTTON ادعمني على Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE تفريق / حافلة سريعة
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP يُمكّن تفريق المركبات، الحافلة/الترام السريع، فاصل وقت الظهور، وتحديد حجم الأسطول بقوة. جميع ميزات تباعد وميزانية الحافلات والترام.
+SETTINGS_FEATURE_BUDGET_ENABLE ميزات الميزانية
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP يُمكّن التحكم بميزانية الخط، الميزانية التلقائية للخط، مضاعف سعر التذكرة، والسعر كتكلفة مسار. جميع ميزات المال/التسعير/الأسطول.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE لون الخط التلقائي
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP يُعيّن الألوان والأسماء تلقائيًا لخطوط النقل الجديدة. يشمل استراتيجية اللون، استراتيجية التسمية، وإعدادات اللوحة.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE محرر المركبات
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP يُمكّن لوحة محرر المركبات لتغيير أنواع المركبات، الطلاء، والخصائص. يمكن وضعه في الأسفل أو اليمين.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE حدود الركاب المنتظرين
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP يحد عدد المواطنين الذين يمكنهم انتظار النقل العام في محطة واحدة. عطّل لإزالة جميع حدود الانتظار ودع اللعبة تدير سعة المحطة.
+SETTINGS_TRAINDISPLAY_SCOPE إظهار الطبقة عند
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP اختر المركبة المحددة، كاميرا المنظور الأول، أو كلاهما.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE المركبة المحددة فقط
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON كاميرا المنظور الأول فقط
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH المركبة المحددة أو كاميرا المنظور الأول
+SETTINGS_TRAINDISPLAY_LAYOUT تخطيط اللوحة
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP أي تخطيط تستخدمه الطبقة. كلاهما يعرض نفس المعلومات ويحترم نفس خانات الاختيار - فقط الشكل مختلف.
 CHANGELOG_4_3_3_1 تم إصلاح مشكلة كسر حفظ/تحميل الإعدادات على بعض مجموعات الإضافات حتى بعد توصيل Newtonsoft.Json.dll: محاولة الحل السابقة حاولت فقط Assembly.LoadFrom في نقطة دخول واحدة وكانت لا تزال تعتمد على ترتيب التحميل. يسجل IPT4 الآن خطاف AssemblyResolve عالمي ويبدأ بفعل Newtonsoft.Json المجمع من كل نقطة دخول mod/UI قبل أن تلمس CSLModsCommon JsonWriter، لذلك تستمر واجهة الخيارات الجديدة بموثوقية بدلاً من الربط العشوائي بنسخة Json.NET غير المتوافقة من إضافة أخرى.
 CHANGELOG_4_3_2_1 تم إصلاح فشل المود في التحميل بالكامل ("failed to load the mod's dll or one of its dependencies") كلما لم يكن هناك مود آخر مثبت يوفر بالفعل Newtonsoft.Json: تسلسل إعدادات CSLModsCommon (JsonHelper/SerializationContext) يحتاجه، لكن بناءنا لم يقم فعليًا بنشر Newtonsoft.Json.dll مع المود - كان يعمل فقط بالصدفة معتمدًا على نسخة مود آخر. تم اكتشاف ذلك بتعطيل كل مود آخر لإجراء اختبار نظيف، وهذه هي الطريقة الصحيحة لاختباره مستقبلاً.
 CHANGELOG_4_3_1_1 تم إصلاح مُحدد اللغة في لوحة الخيارات الذي كان يعيد ترجمة نصوص الإطار الخاصة به فقط (Version/Changelog/...) بينما ظلت كل نصوص هذا المود بلغة اللعبة - كان محمّل الترجمة لدينا يعتمد على لغة اللعبة ويتجاهل اختيار المود نفسه تمامًا. الآن يتبع منتقي لغة المود، مع الرجوع إلى لغة اللعبة ثم الإنجليزية، ويُعاد حله كلما تغيّر المنتقي.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF الأداء
 SETTINGS_SUB_COMPAT التوافقية
 SETTINGS_SUB_KEYS المفاتيح
 SETTINGS_FUTURE_GROUP سيأتي لاحقاً
-SETTINGS_FUTURE_GROUP_DESCRIPTION معاينة للميزات المخطط لها. مظلمة حتى تصبح جاهزة — بلا تأثير حتى الآن.
+SETTINGS_FUTURE_GROUP_DESCRIPTION معاينة للميزات المخطط لها. تظهر رمادية حتى تصبح جاهزة؛ وجهة الركاب تظل متاحة للاختبار.
 SETTINGS_FUTURE_REVERSIBLE_TRAM ذكاء الترام القابل للعكس (قريباً)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP مخطط: الترامات تعكس عند محطات النهاية دون حلقة. غير متاح حتى الآن.
 SETTINGS_FUTURE_BREAKDOWN أدوات الانهيار (قريباً)
@@ -585,11 +605,11 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP سلوك دائم التفعيل
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC سلوكان صغيران كانا يعملان دائمًا دون إمكانية إيقافهما حتى الآن. مفعّلان افتراضيًا حتى لا تلاحظ التركيبات الحالية أي تغيير - قم بإيقافهما إذا كنت تستخدم مودًا مستقلاً يقوم بنفس الشيء، أو ببساطة تفضل التحكم اليدوي.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE إنقاذ الأرقام العريضة (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP منقول من مود Rescue Fullwidth Digits المستقل. يصلح أسماء خطوط النقل التي تم حفظها بأرقام عريضة (１٢٣ بدلاً من 123) بسبب بعض إعدادات IME/الإدخال، والتي تظهر بشكل خاطئ إلى الأبد لولا ذلك.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_FUTURE_BUSWAYPOINT محطات نقاط الطريق للحافلات (قريباً)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP مخطط: تمييز محطة كنقطة طريق للمسار فقط - مسار الخط يمر بها لكن المركبات لا تتوقف أبداً ولا تحمل/تنزل ركاب هناك. يساعد في توجيه البحث عن المسار الافتراضي للطريق الذي تقصده فعلياً. غير متوفر بعد.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT اختيار المحطة المتقدم: اختر المسار الدقيق
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP اضغط مع الاستمرار أثناء وضع اتصال محطة قطار/ترام لاستهداف المسار الدقيق بدلاً من أقرب مسار صالح. كان مشفراً بشكل ثابت على Shift يسار/يمين؛ إعادة الربط هنا يغطي الجانب المحدد فقط.
+SETTINGS_LEGACY_GROUP إرث
+SETTINGS_LEGACY_GROUP_DESC مفاتيح تبديل قديمة محتفظ بها فقط لكي تستمر التركيبات التي كانت مفعلة بالفعل في العمل كما كانت تماماً. مقفلة - لا يمكن تشغيلها أو إيقافها من هنا بعد الآن، وكل ملف تعريف لعب يتركها مطفأة مستقبلاً.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

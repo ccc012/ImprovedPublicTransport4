@@ -37,6 +37,13 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
         {
             var lineId = __instance.m_lineNumber;
 
+            // Master switch: when unbunching is disabled, fall back to vanilla CanLeaveStop.
+            if (!ModSetting.Instance.EnableUnbunching)
+            {
+                __result = false;
+                return true;
+            }
+
             if (nextStop == 0)
             {
                 __result = true;

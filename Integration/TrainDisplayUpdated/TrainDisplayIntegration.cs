@@ -1064,27 +1064,6 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             }
         }
 
-        private static string ResolveNextStopName(ushort lineId, Vehicle vehicle)
-        {
-            if ((TrainDisplayRuntimeConfig.VisibleFields & ModSetting.TrainDisplayFields.Destination) == 0)
-            {
-                return string.Empty;
-            }
-
-            var stop = vehicle.m_targetBuilding;
-            if (stop != 0)
-            {
-                var id = new InstanceID { NetNode = stop };
-                var stopName = StopAutoNamer.EnsureNamed(id);
-                if (!string.IsNullOrEmpty(stopName))
-                {
-                    return stopName;
-                }
-            }
-
-            return Localization.Get("TRAINDISPLAY_NO_DESTINATION");
-        }
-
         private static string ResolveTransportModeName(VehicleInfo info)
         {
             if (info?.m_class == null)

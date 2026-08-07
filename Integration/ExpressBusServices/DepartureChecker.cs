@@ -62,32 +62,31 @@ namespace ExpressBusServices
 
         public static bool BusIsIntercityBus(Vehicle vehicleData)
         {
-            ItemClass itemClass = vehicleData.Info.m_class;
-            return TransportStationAI.IsIntercity(itemClass);
+            return vehicleData.Info?.m_class is ItemClass itemClass && TransportStationAI.IsIntercity(itemClass);
         }
 
         public static bool VehicleIsTram(Vehicle vehicleData)
         {
-            ItemClass itemClass = vehicleData.Info.m_class;
-            return itemClass.m_service == ItemClass.Service.PublicTransport && itemClass.m_subService == ItemClass.SubService.PublicTransportTram;
+            ItemClass itemClass = vehicleData.Info?.m_class;
+            return itemClass != null && itemClass.m_service == ItemClass.Service.PublicTransport && itemClass.m_subService == ItemClass.SubService.PublicTransportTram;
         }
 
         public static bool VehicleIsMetro(Vehicle vehicleData)
         {
-            ItemClass itemClass = vehicleData.Info.m_class;
-            return itemClass.m_service == ItemClass.Service.PublicTransport && itemClass.m_subService == ItemClass.SubService.PublicTransportMetro;
+            ItemClass itemClass = vehicleData.Info?.m_class;
+            return itemClass != null && itemClass.m_service == ItemClass.Service.PublicTransport && itemClass.m_subService == ItemClass.SubService.PublicTransportMetro;
         }
 
         public static bool VehicleIsNotBus(Vehicle vehicleData)
         {
-            ItemClass itemClass = vehicleData.Info.m_class;
-            return itemClass.m_service != ItemClass.Service.PublicTransport || itemClass.m_subService != ItemClass.SubService.PublicTransportBus;
+            ItemClass itemClass = vehicleData.Info?.m_class;
+            return itemClass == null || itemClass.m_service != ItemClass.Service.PublicTransport || itemClass.m_subService != ItemClass.SubService.PublicTransportBus;
         }
 
         public static bool VehicleIsNotTrolleyBus(Vehicle vehicleData)
         {
-            ItemClass itemClass = vehicleData.Info.m_class;
-            return itemClass.m_service != ItemClass.Service.PublicTransport || itemClass.m_subService != ItemClass.SubService.PublicTransportTrolleybus;
+            ItemClass itemClass = vehicleData.Info?.m_class;
+            return itemClass == null || itemClass.m_service != ItemClass.Service.PublicTransport || itemClass.m_subService != ItemClass.SubService.PublicTransportTrolleybus;
         }
 
         /// <summary>

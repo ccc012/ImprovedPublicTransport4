@@ -106,7 +106,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
 
         public static void Postfix(ushort __state)
         {
-            if (!CachedTransportLineData._init || !((SimulationManager.instance.m_currentFrameIndex & 4095U) >= 3840U) ||
+            if (!CachedTransportLineData._init || !((SimulationManager.instance.m_currentFrameIndex & 4095U) == 3840U) ||
                 !TransportManager.instance.m_lines.m_buffer[__state].Complete)
             {
                 return;
@@ -192,43 +192,47 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             }
         }
 
-        public static int CalculateTargetVehicleCount(ushort lineID)
+    public static int CalculateTargetVehicleCount(ushort lineID)
+    {
+        var instance = TransportManager.instance;
+        if (!CachedTransportLineData._init)
         {
-            var instance = TransportManager.instance;
-            if (!CachedTransportLineData._init)
-            {
-                // Never report 0 while cache is still loading — that despawns the whole fleet.
-                return instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount();
-            }
+            return instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount();
+        }
 
-            var lineInfo = instance.m_lines.m_buffer[lineID].Info;
-            int targetVehicleCount;
-            if (CachedTransportLineData.GetBudgetControlState(lineID) ||
-                (lineInfo?.m_class != null && lineInfo.m_class.m_service == ItemClass.Service.Disaster))
+        var lineInfo = instance.m_lines.m_buffer[lineID].Info;
+        int targetVehicleCount;
+        if (CachedTransportLineData.GetBudgetControlState(lineID) ||
+            (lineInfo?.m_class != null && lineInfo.m_class.m_service == ItemClass.Service.Disaster))
+        {
+            targetVehicleCount = instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount();
+            CachedTransportLineData.SetTargetVehicleCount(lineID, targetVehicleCount);
+        }
+        else
+        {
+            targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineID);
+            if (targetVehicleCount <= 0)
             {
                 targetVehicleCount = instance.m_lines.m_buffer[lineID].CalculateTargetVehicleCount();
                 CachedTransportLineData.SetTargetVehicleCount(lineID, targetVehicleCount);
             }
-            else
-            {
-                targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineID);
-            }
-
-            var activeVehicles = TransportLineUtil.CountLineActiveVehicles(lineID, out _);
-            var enqueued = CachedTransportLineData.EnqueuedVehiclesCount(lineID);
-            var need = targetVehicleCount - enqueued - activeVehicles;
-            for (var i = 0; i < need; i++)
-            {
-                var prefab = CachedTransportLineData.GetRandomPrefab(lineID);
-                if (prefab == null)
-                {
-                    break;
-                }
-
-                CachedTransportLineData.EnqueueVehicle(lineID, prefab);
-            }
-            return targetVehicleCount;
         }
+
+        var activeVehicles = TransportLineUtil.CountLineActiveVehicles(lineID, out _);
+        var enqueued = CachedTransportLineData.EnqueuedVehiclesCount(lineID);
+        var need = targetVehicleCount - enqueued - activeVehicles;
+        for (var i = 0; i < need; i++)
+        {
+            var prefab = CachedTransportLineData.GetRandomPrefab(lineID);
+            if (prefab == null)
+            {
+                break;
+            }
+
+            CachedTransportLineData.EnqueueVehicle(lineID, prefab);
+        }
+        return targetVehicleCount;
+    }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static int FetchResourceStub(EconomyManager economyManager, EconomyManager.Resource resource,

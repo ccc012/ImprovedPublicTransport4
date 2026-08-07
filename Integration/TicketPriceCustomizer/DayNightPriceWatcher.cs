@@ -10,6 +10,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
     public class DayNightPriceWatcher : MonoBehaviour
     {
         private bool _lastIsNight;
+        private bool _ticketPricesTabFailed;
 
         private void Start()
         {
@@ -18,6 +19,19 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
         private void Update()
         {
+            if (!_ticketPricesTabFailed)
+            {
+                try
+                {
+                    TicketPricesTab.OnUpdate(Time.deltaTime);
+                }
+                catch (System.Exception ex)
+                {
+                    _ticketPricesTabFailed = true;
+                    Util.Utils.LogError($"TicketPricesTab.OnUpdate failed - disabling its per-frame refresh: {ex}");
+                }
+            }
+
             bool isNight = Singleton<SimulationManager>.instance.m_isNightTime;
             if (isNight == _lastIsNight) return;
 

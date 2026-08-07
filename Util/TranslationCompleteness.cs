@@ -16,6 +16,7 @@ namespace ImprovedPublicTransport.Util
     {
         private static Dictionary<string, string> _englishCache;
         private static string _translationsPath;
+        private static readonly Dictionary<string, Result> _localeCache = new Dictionary<string, Result>(StringComparer.OrdinalIgnoreCase);
 
         public readonly struct Result
         {
@@ -39,6 +40,20 @@ namespace ImprovedPublicTransport.Util
                 return default;
             }
 
+            // Translation files do not change at runtime - cache the per-locale result so the
+            // Options panel rebuild does not re-read the .txt on every open.
+            if (_localeCache.TryGetValue(localeStem, out var cached))
+            {
+                return cached;
+            }
+
+            var result = Compute(localeStem);
+            _localeCache[localeStem] = result;
+            return result;
+        }
+
+        private static Result Compute(string localeStem)
+        {
             var english = LoadEnglish();
             if (english == null || english.Count == 0)
             {

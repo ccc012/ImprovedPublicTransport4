@@ -28,6 +28,14 @@ namespace ImprovedPublicTransport.Util
 
         private void Update()
         {
+            // Heartbeat is a diagnostics tool, not a production log line - only emit it when the
+            // player has enabled verbose logging. It used to run unconditionally every 15s, which
+            // grew output_log.txt forever on every install.
+            if (!Diagnostics.VerboseRuntimeLogs)
+            {
+                return;
+            }
+
             var now = Time.unscaledTime;
             if (now < _nextBeatRealtime)
             {
@@ -107,9 +115,11 @@ namespace ImprovedPublicTransport.Util
                     Flag("CommuterDestination", s.EnableCommuterDestination);
                     Flag("AutoNameStops", s.EnableAutoNameStops);
                     Flag("RescueFullwidthDigits", s.EnableRescueFullwidthDigits);
-                    // AutoLineColor/naming and StopsAndStations waiting-passenger limits have no single
-                    // on/off flag (strategy enums / always-registered ThreadingExtensionBase) - noted
-                    // separately since "active=[]" would otherwise wrongly read as "nothing running".
+                    Flag("Unbunching", s.EnableUnbunching);
+                    Flag("BudgetFeatures", s.EnableBudgetFeatures);
+                    Flag("AutoLineColor", s.EnableAutoLineColor);
+                    Flag("TrainDisplayMaster", s.EnableTrainDisplay);
+                    Flag("StopsAndStations", s.EnableStopsAndStations);
                     sb.Append("] colorStrategy=").Append(s.AutoLineColorColorStrategy);
                     sb.Append(" namingStrategy=").Append(s.AutoLineColorNamingStrategyMode);
                 }

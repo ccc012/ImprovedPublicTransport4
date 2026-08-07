@@ -21,6 +21,7 @@ namespace ImprovedPublicTransport
         public enum TicketPriceCustomizerModes { Disabled = 0, Enabled = 1 }
         public enum AutoLineBudgetModes { Disabled = 0, Enabled = 1 }
         public enum TrainDisplayModes { Disabled = 0, Enabled = 1 }
+        public enum TrainDisplayScopes { SelectedVehicle = 0, FirstPerson = 1, Both = 2 }
         /// <summary>Which arrangement the overlay is drawn in. Both use the same data and fields.</summary>
         public enum TrainDisplayLayouts { Classic = 0, Detailed = 1 }
         public enum TrainDisplayOverlayPositions { TopLeft = 0, TopRight = 1, BottomLeft = 2, BottomRight = 3 }
@@ -63,7 +64,7 @@ namespace ImprovedPublicTransport
         public enum ExpressTramServicesModes { Disabled = 0, LightRail = 1, TrueTram = 2 }
         public enum AutoLineColorStrategy { Disabled = 0, RandomHue = 1, RandomColor = 2, CategorisedColor = 3, NamedColors = 4 }
         public enum AutoLineColorNamingStrategy { Disabled = 0, Districts = 1, London = 2, Roads = 3, NamedColors = 4 }
-        public enum VehicleEditorPositions { Bottom = 0, Right = 1 }
+        public enum VehicleEditorPositions { Bottom = 0, Right = 1, Hidden = 2 }
         // One-click presets. Numeric values for Custom/Vanilla/Realistic stay stable so older
         // settings JSON files keep mapping correctly. Safe/Recommended are additive.
         // Safe = install default (everything off). Recommended = IPT core. Realistic = most on.
@@ -123,6 +124,7 @@ namespace ImprovedPublicTransport
         public bool EnableTicketPathfindingCost { get; set; } = false;
         public AutoLineBudgetModes AutoLineBudgetMode { get; set; } = AutoLineBudgetModes.Disabled;
         public TrainDisplayModes TrainDisplayMode { get; set; } = TrainDisplayModes.Disabled;
+        public TrainDisplayScopes TrainDisplayScope { get; set; } = TrainDisplayScopes.Both;
         // Classic keeps the layout every existing install already has; Detailed is opt-in.
         public TrainDisplayLayouts TrainDisplayLayout { get; set; } = TrainDisplayLayouts.Classic;
         // Original Train Display (3233229958) sits bottom-left; one corner panel only.
@@ -197,6 +199,14 @@ namespace ImprovedPublicTransport
         public bool EnableSharedStopEnabler { get; set; } = false;
         public bool EnableCommuterDestination { get; set; } = false;
 
+        // --- Feature Toggles (master switches for major feature groups) ---
+        public bool EnableUnbunching { get; set; } = false;
+        public bool EnableBudgetFeatures { get; set; } = false;
+        public bool EnableAutoLineColor { get; set; } = false;
+        public bool EnableTrainDisplay { get; set; } = false;
+        public bool EnableVehicleEditor { get; set; } = false;
+        public bool EnableStopsAndStations { get; set; } = false;
+
         /// <summary>
         /// When true, PT vehicles with passengers cannot leave their line for the depot until empty.
         /// Default off; Realistic profile turns it on.
@@ -233,6 +243,24 @@ namespace ImprovedPublicTransport
         public int StatisticWeeks { get; set; } = 10; // hidden
 
         public string WhatsNewLastSeenVersion { get; set; } = "0.0.0";
+
+        // Persisted custom hotkey combinations. Empty string = default (not customised).
+        // Stored as "key|mods" (e.g. "116|5" = KeyCode.T + Control|Shift). IptHotkeys reads
+        // these on Register() and writes them on Unregister() so rebinds survive restarts.
+        public string HotkeyTrainDisplay { get; set; } = "";
+        public string HotkeyRefreshLineColor { get; set; } = "";
+        public string HotkeyAdvancedStopAlternate { get; set; } = "";
+        public string HotkeyOpenLinePanel { get; set; } = "";
+        public string HotkeyToggleLineUnbunching { get; set; } = "";
+        public string HotkeyCopyLineConfig { get; set; } = "";
+        public string HotkeyPasteLineConfig { get; set; } = "";
+        public string HotkeyCopyToBuildings { get; set; } = "";
+        public string HotkeyCopyToDistricts { get; set; } = "";
+        public string HotkeySelectVehicleTypes { get; set; } = "";
+        public string HotkeyToggleVehicleEditor { get; set; } = "";
+        public string HotkeyOpenFlightTracker { get; set; } = "";
+        public string HotkeyPrevVehicle { get; set; } = "";
+        public string HotkeyNextVehicle { get; set; } = "";
 
         public TicketPriceCustomizerSettings TicketPriceCustomizer { get; set; } = new();
 

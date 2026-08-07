@@ -22,9 +22,13 @@ namespace AutoLineColor.Coloring
             var result = new UsedColors(lines.Length);
             var dict = result._dict;
 
-            for (ushort i = 0; i < lines.Length; i++)
+            int len = lines.Length;
+            for (int i = 0; i < len; i++)
             {
                 if (excludeLineId != 0 && i == excludeLineId)
+                    continue;
+
+                if (i >= len)
                     continue;
 
                 ref var l = ref lines[i];

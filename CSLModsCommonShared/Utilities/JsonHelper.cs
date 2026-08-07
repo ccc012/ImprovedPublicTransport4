@@ -13,7 +13,7 @@ public static class JsonHelper {
     public static JsonSerializerSettings Settings { get; } = new() {
         Formatting = Newtonsoft.Json.Formatting.Indented,
         NullValueHandling = NullValueHandling.Ignore,
-        TypeNameHandling = TypeNameHandling.Auto
+        TypeNameHandling = TypeNameHandling.None
     };
 
     public static T DeserializeFromJsonFile<T>(string filePath) where T : new() {

@@ -19,15 +19,6 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             @"\s*[:：]?\s*\d+\s*(/\s*\d+)?\s*$",
             RegexOptions.Compiled);
 
-        // GetLocalizedStats can be called often while a depot tooltip is open; avoid rebuilding
-        // the same "LABEL: n/max" string every frame when nothing changed.
-        private static ushort _cacheBuildingId;
-        private static int _cacheCount = -1;
-        private static int _cacheMax = -1;
-        private static int? _cacheCount2;
-        private static int? _cacheMax2;
-        private static string _cacheResult;
-
         public static void Apply()
         {
             PatchUtil.Patch(
@@ -101,14 +92,6 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                     max2 = secondaryMax;
                 }
 
-                if (buildingID == _cacheBuildingId && count == _cacheCount && max == _cacheMax
-                    && count2 == _cacheCount2 && max2 == _cacheMax2
-                    && !string.IsNullOrEmpty(_cacheResult))
-                {
-                    __result = _cacheResult;
-                    return;
-                }
-
                 var line = BuildOccupancyLine(__instance.m_transportInfo, count, max);
                 if (count2.HasValue && max2.HasValue)
                 {
@@ -120,12 +103,6 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                 }
 
                 __result = AppendOrReplaceVehicleLine(__result, line);
-                _cacheBuildingId = buildingID;
-                _cacheCount = count;
-                _cacheMax = max;
-                _cacheCount2 = count2;
-                _cacheMax2 = max2;
-                _cacheResult = __result;
             }
             catch (Exception ex)
             {

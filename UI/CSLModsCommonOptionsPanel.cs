@@ -56,7 +56,6 @@ namespace ImprovedPublicTransport.UI
         private CSLModsCommon.UI.SettingsCard.CheckBoxCard _expressBusMiddleStopBalancingCard;
         private CSLModsCommon.UI.SettingsCard.CheckBoxCard _expressBusMinibusCard;
         private CheckBoxCard _ticketPathCostCard;
-        private UIComponent _vehicleEditorPositionControl;
         private readonly List<UIComponent> _trainDisplayChildControls = new List<UIComponent>();
         private readonly List<UIComponent> _oocChildControls = new List<UIComponent>();
 
@@ -64,16 +63,17 @@ namespace ImprovedPublicTransport.UI
         {
             var enabled = strategy != ModSetting.AutoLineColorStrategy.Disabled
                 && strategy != ModSetting.AutoLineColorStrategy.CategorisedColor;
-            if (_colorDiffSlider != null) _colorDiffSlider.isEnabled = enabled;
-            if (_colorPickAttemptsSlider != null) _colorPickAttemptsSlider.isEnabled = enabled;
+            OptionsNestedTabs.SetEnabled(_colorDiffSlider, enabled);
+            OptionsNestedTabs.SetEnabled(_colorPickAttemptsSlider, enabled);
         }
 
         private void UpdateExpressBusControlsEnabled(ModSetting.ExpressBusServicesModes mode)
         {
-            var enabled = mode != ModSetting.ExpressBusServicesModes.None;
-            if (_expressBusSelfBalancingCard != null) _expressBusSelfBalancingCard.Control.isEnabled = enabled;
-            if (_expressBusMiddleStopBalancingCard != null) _expressBusMiddleStopBalancingCard.Control.isEnabled = enabled;
-            if (_expressBusMinibusCard != null) _expressBusMinibusCard.Control.isEnabled = enabled;
+            var busEnabled = mode != ModSetting.ExpressBusServicesModes.None;
+            OptionsNestedTabs.SetEnabled(_expressBusSelfBalancingCard?.Control, busEnabled);
+            OptionsNestedTabs.SetEnabled(_expressBusMiddleStopBalancingCard?.Control,
+                busEnabled && ModSetting.Instance.ExpressBusEnableSelfBalancing);
+            OptionsNestedTabs.SetEnabled(_expressBusMinibusCard?.Control, busEnabled);
         }
 
         protected override void AddExtraPage()
@@ -136,6 +136,10 @@ namespace ImprovedPublicTransport.UI
         /// Live incompatibility / dependency scan for players — surfaces CSLModsCommon's detector
         /// on a dedicated tab so it is not buried under Advanced.
         /// </summary>
+        /// <summary>Re-runs the plugin compatibility scan at most once every 60s instead of on
+        /// every Options-panel rebuild (the rebuild runs every time the mod page is reopened).</summary>
+        private static float _nextCompatRefreshRealtime;
+
         private void FillCompatibilityPage(ScrollContainer page)
         {
             var intro = AddSection(page, Localization.Get("SETTINGS_COMPAT_INTRO_GROUP"),
@@ -161,7 +165,13 @@ namespace ImprovedPublicTransport.UI
             try
             {
                 var mgr = Domain.DefaultDomain.GetOrCreateManager<CompatibilityManager>();
-                mgr.RefreshQuiet();
+                // Scan plugins at most once per 60s; the panel rebuild runs on every Options open,
+                // and re-scanning dozens of plugin assemblies on each rebuild is pure waste.
+                if (Time.unscaledTime >= _nextCompatRefreshRealtime)
+                {
+                    mgr.RefreshQuiet();
+                    _nextCompatRefreshRealtime = Time.unscaledTime + 60f;
+                }
 
                 var status = mgr.CurrentStatus;
                 var ok = status.IsOnlyFlag(CompatibilityStatus.Normal) && !mgr.ShouldRestartGame;
@@ -228,8 +238,6 @@ namespace ImprovedPublicTransport.UI
             var section = AddSection(page, Localization.Get("SETTINGS_KEYBINDINGS_GROUP"),
                 Localization.Get("SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION"));
 
-            // Bound actions live on IptHotkeys; rebinding updates the same KeyBinding instances
-            // that KeyBindingManager dispatches (no save format change required for v1).
             section.AddKeyBinding(IptHotkeys.TrainDisplayToggle,
                 Localization.Get("SETTINGS_HOTKEY_TRAIN_DISPLAY"),
                 Localization.Get("SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP"));
@@ -239,18 +247,44 @@ namespace ImprovedPublicTransport.UI
             section.AddKeyBinding(IptHotkeys.AdvancedStopSelectionAlternateKey,
                 Localization.Get("SETTINGS_HOTKEY_ADVSTOPSELECT_ALT"),
                 Localization.Get("SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.LinePanelToggle,
+                Localization.Get("SETTINGS_HOTKEY_OPEN_LINE_PANEL"),
+                Localization.Get("SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.LineUnbunchingToggle,
+                Localization.Get("SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING"),
+                Localization.Get("SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.LineConfigCopy,
+                Localization.Get("SETTINGS_HOTKEY_COPY_LINE_CONFIG"),
+                Localization.Get("SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.LineConfigPaste,
+                Localization.Get("SETTINGS_HOTKEY_PASTE_LINE_CONFIG"),
+                Localization.Get("SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.CopyToServedBuildings,
+                Localization.Get("SETTINGS_HOTKEY_COPY_TO_BUILDINGS"),
+                Localization.Get("SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.CopyToServedDistricts,
+                Localization.Get("SETTINGS_HOTKEY_COPY_TO_DISTRICTS"),
+                Localization.Get("SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.SelectVehicleTypesKey,
+                Localization.Get("SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES"),
+                Localization.Get("SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.VehicleEditorToggle,
+                Localization.Get("SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR"),
+                Localization.Get("SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.FlightTrackerToggle,
+                Localization.Get("SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER"),
+                Localization.Get("SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.PreviousVehicle,
+                Localization.Get("SETTINGS_HOTKEY_PREV_VEHICLE"),
+                Localization.Get("SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP"));
+            section.AddKeyBinding(IptHotkeys.NextVehicleBinding,
+                Localization.Get("SETTINGS_HOTKEY_NEXT_VEHICLE"),
+                Localization.Get("SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP"));
         }
 
         protected override void FillAdvancedPage(ScrollContainer page)
         {
             var setting = ModSetting.Instance;
-
-            // Links first (was always near the top of Advanced before the restructure).
-            var links = AddSection(page, Localization.Get("SETTINGS_ADVANCED_LINKS_GROUP"));
-            links.AddButton(Localization.Get("SETTINGS_GITHUB_REPO"), null, CSLModsCommon.Localization.SharedTranslations.Website, null,
-                onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenURL("https://github.com/ccc012/ImprovedPublicTransport4"));
-            links.AddButton(Localization.Get("SETTINGS_KOFI_LINK"), null, CSLModsCommon.Localization.SharedTranslations.Website, null,
-                onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenURL("https://ko-fi.com/ccc02"));
 
             var future = AddSection(page, Localization.Get("SETTINGS_FUTURE_GROUP"),
                 Localization.Get("SETTINGS_FUTURE_GROUP_DESCRIPTION"));
@@ -261,23 +295,20 @@ namespace ImprovedPublicTransport.UI
             AddFutureSpoiler(future, "SETTINGS_FUTURE_ROUTEPANEL_TTS", "SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_STTAI_QUEUE", "SETTINGS_FUTURE_STTAI_QUEUE_TIP");
             AddFutureSpoiler(future, "SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED", "SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_LINEMAP", "SETTINGS_FUTURE_LINEMAP_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_STOPPLACER", "SETTINGS_FUTURE_STOPPLACER_TIP");
+            AddFutureSpoiler(future, "SETTINGS_FUTURE_LINEHISTORY", "SETTINGS_FUTURE_LINEHISTORY_TIP");
+            future.AddCheckBox(setting.EnableCommuterDestination, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE"), null, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableCommuterDestination = isChecked;
+                    SettingsActions.OnCommuterDestinationChanged(isChecked);
+                });
 
-            // Two behaviours that always ran with no way to turn them off - added here for
-            // compatibility with other mods/players who prefer manual control over the same thing.
-            var hidden = AddSection(page, Localization.Get("SETTINGS_HIDDENBEHAVIOUR_GROUP"),
-                Localization.Get("SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC"));
-            hidden.AddCheckBox(setting.EnableAutoNameStops, Localization.Get("SETTINGS_AUTONAMESTOPS_ENABLE"), null, Localization.Get("SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP"),
-                (_, isChecked) =>
-                {
-                    ModSetting.Instance.EnableAutoNameStops = isChecked;
-                    Settings.SettingsActions.NotifyReloadRequired("Auto-name stops");
-                });
-            hidden.AddCheckBox(setting.EnableRescueFullwidthDigits, Localization.Get("SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE"), null, Localization.Get("SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP"),
-                (_, isChecked) =>
-                {
-                    ModSetting.Instance.EnableRescueFullwidthDigits = isChecked;
-                    Settings.SettingsActions.NotifyReloadRequired("Rescue Fullwidth Digits");
-                });
+            // Links first (was always near the top of Advanced before the restructure).
+            var links = AddSection(page, Localization.Get("SETTINGS_ADVANCED_LINKS_GROUP"));
+            links.AddButton(Localization.Get("SETTINGS_GITHUB_REPO"), null, CSLModsCommon.Localization.SharedTranslations.Website, null,
+                onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenURL("https://github.com/ccc012/ImprovedPublicTransport4"));
 
             // Legacy toggle, one-way: kept so saves from installs that already had this on keep
             // working exactly as before, but no longer offered to anyone going forward - no new
@@ -313,16 +344,19 @@ namespace ImprovedPublicTransport.UI
 
         private static void AddFutureSpoiler(SettingsSection section, string titleKey, string tipKey)
         {
-            var card = section.AddCheckBox(
-                false,
-                Localization.Get(titleKey),
-                null,
-                Localization.Get(tipKey),
-                (_, __) => { /* intentional no-op — not implemented yet */ });
+            var card = section.AddCheckBox(false, Localization.Get(titleKey), null, Localization.Get(tipKey), (_, __) => { });
             if (card?.Control != null)
             {
                 OptionsNestedTabs.SetEnabled(card.Control, false);
             }
+        }
+
+        protected override void FillGeneralHeader(ScrollContainer page)
+        {
+            var support = AddSection(page, Localization.Get("SETTINGS_KOFI_GROUP"), Localization.Get("SETTINGS_KOFI_DESCRIPTION"));
+            support.AddButton(Localization.Get("SETTINGS_KOFI_LINK"), null, Localization.Get("SETTINGS_KOFI_BUTTON"), 260f, 46f,
+                onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenURL("https://ko-fi.com/K4C824D8BB"),
+                beforeLayoutAction: card => card.Control.BgColors.SetValues(new Color32(19, 107, 57, 255)));
         }
 
         protected override void FillGeneralPage(ScrollContainer page)
@@ -388,6 +422,15 @@ namespace ImprovedPublicTransport.UI
         private void FillFleetSpacingSub(ScrollContainer page)
         {
             var setting = ModSetting.Instance;
+            var unbunchingControls = new List<UIComponent>();
+
+            void UpdateUnbunchingEnabled(bool enabled)
+            {
+                foreach (var c in unbunchingControls)
+                {
+                    OptionsNestedTabs.SetEnabled(c, enabled);
+                }
+            }
 
             var intro = AddSection(page, Localization.Get("SETTINGS_SUB_SPACING"),
                 Localization.Get("SETTINGS_SUB_SPACING_DESC"));
@@ -395,12 +438,19 @@ namespace ImprovedPublicTransport.UI
 
             var unbunchingSection = AddSection(page, Localization.Get("SETTINGS_UNBUNCHING"),
                 Localization.Get("EXPLANATION_UNBUNCHING"));
-            unbunchingSection.AddSliderWithValue(Localization.Get("SETTINGS_UNBUNCHING_AGGRESSION"),
+            unbunchingSection.AddCheckBox(setting.EnableUnbunching, Localization.Get("SETTINGS_FEATURE_UNBUNCHING_ENABLE"), null, Localization.Get("SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableUnbunching = isChecked;
+                    SettingsActions.OnUnbunchingChanged(isChecked);
+                    UpdateUnbunchingEnabled(isChecked);
+                });
+            unbunchingControls.Add(unbunchingSection.AddSliderWithValue(Localization.Get("SETTINGS_UNBUNCHING_AGGRESSION"),
                 Localization.Get("SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP"),
                 0f, 52f, 1f, setting.IntervalAggressionFactor,
-                v => ModSetting.Instance.IntervalAggressionFactor = (byte)v);
+                v => ModSetting.Instance.IntervalAggressionFactor = (byte)v)?.Control);
 
-            unbunchingSection.AddSliderWithValue(Localization.Get("SETTINGS_VEHICLE_COUNT"), Localization.Get("SETTINGS_VEHICLE_COUNT_TOOLTIP"),
+            unbunchingControls.Add(unbunchingSection.AddSliderWithValue(Localization.Get("SETTINGS_VEHICLE_COUNT"), Localization.Get("SETTINGS_VEHICLE_COUNT_TOOLTIP"),
                 0f, 100f, 1f, setting.DefaultVehicleCount,
                 v =>
                 {
@@ -411,11 +461,11 @@ namespace ImprovedPublicTransport.UI
                 {
                     SettingsActions.VehicleCountSlider = card.Control;
                     SettingsActions.OnBudgetModeChanged((int)ModSetting.Instance.BudgetControl);
-                });
+                })?.Control);
 
-            unbunchingSection.AddSliderWithValue(Localization.Get("SETTINGS_SPAWN_TIME_INTERVAL"), Localization.Get("SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP"),
+            unbunchingControls.Add(unbunchingSection.AddSliderWithValue(Localization.Get("SETTINGS_SPAWN_TIME_INTERVAL"), Localization.Get("SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP"),
                 0f, 100f, 1f, setting.SpawnTimeInterval,
-                v => ModSetting.Instance.SpawnTimeInterval = (int)v, "s");
+                v => ModSetting.Instance.SpawnTimeInterval = (int)v, "s")?.Control);
 
             unbunchingSection.AddButton(
                 Localization.Get("SETTINGS_RESET"),
@@ -425,7 +475,7 @@ namespace ImprovedPublicTransport.UI
 
             var ebsBusSection = AddSection(page, Localization.Get("SETTINGS_EBS_GROUP_BUS"),
                 Localization.Get("SETTINGS_EBS_GROUP_BUS_DESC"));
-            ebsBusSection.AddDropDown<ModSetting.ExpressBusServicesModes>(Localization.Get("SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE"), Localization.Get("SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE"),
+            unbunchingControls.Add(ebsBusSection.AddDropDown<ModSetting.ExpressBusServicesModes>(Localization.Get("SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE"), Localization.Get("SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE"),
                 DropDownHelper.FromEnum<ModSetting.ExpressBusServicesModes>(e => Localization.Get("SETTINGS_EBS_MODE_" + (e == ModSetting.ExpressBusServicesModes.None ? "NONE" : e.ToString().ToUpperInvariant()))),
                 item => item.Value == setting.ExpressBusUnbunchingMode,
                 item =>
@@ -433,11 +483,12 @@ namespace ImprovedPublicTransport.UI
                     ModSetting.Instance.ExpressBusUnbunchingMode = item.Value;
                     UpdateExpressBusControlsEnabled(item.Value);
                     SettingsActions.OnExpressBusSettingsChanged();
-                }, null);
+                }, null)?.Control);
             _expressBusSelfBalancingCard = ebsBusSection.AddCheckBox(setting.ExpressBusEnableSelfBalancing, Localization.Get("SETTINGS_EBS_ENABLE_SELFBAL"), null, Localization.Get("SETTINGS_EBS_TOOLTIP_SELFBAL"),
                 (_, isChecked) =>
                 {
                     ModSetting.Instance.ExpressBusEnableSelfBalancing = isChecked;
+                    UpdateExpressBusControlsEnabled(ModSetting.Instance.ExpressBusUnbunchingMode);
                     SettingsActions.OnExpressBusSettingsChanged();
                 });
             _expressBusMiddleStopBalancingCard = ebsBusSection.AddCheckBox(setting.ExpressBusAllowMiddleStopBalancing, Localization.Get("SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID"), null, Localization.Get("SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID"),
@@ -456,7 +507,7 @@ namespace ImprovedPublicTransport.UI
 
             var ebsTramSection = AddSection(page, Localization.Get("SETTINGS_EBS_GROUP_TRAM"),
                 Localization.Get("SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING"));
-            ebsTramSection.AddDropDown<ModSetting.ExpressTramServicesModes>(
+            unbunchingControls.Add(ebsTramSection.AddDropDown<ModSetting.ExpressTramServicesModes>(
                 Localization.Get("SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE"),
                 null,
                 DropDownHelper.FromEnum<ModSetting.ExpressTramServicesModes>(e => Localization.Get("SETTINGS_EBS_TRAM_MODE_" + (e == ModSetting.ExpressTramServicesModes.Disabled ? "NONE" : e == ModSetting.ExpressTramServicesModes.LightRail ? "LIGHT_RAIL" : "TRAM"))),
@@ -465,7 +516,9 @@ namespace ImprovedPublicTransport.UI
                 {
                     ModSetting.Instance.ExpressTramUnbunchingMode = item.Value;
                     SettingsActions.OnExpressBusSettingsChanged();
-                }, null);
+                }, null)?.Control);
+
+            UpdateUnbunchingEnabled(setting.EnableUnbunching);
         }
 
         /// <summary>Everything that touches money: budget control, ticket prices, demand-driven
@@ -474,18 +527,35 @@ namespace ImprovedPublicTransport.UI
         private void FillBudgetPage(ScrollContainer page)
         {
             var setting = ModSetting.Instance;
-            var budgetSection = AddSection(page, Localization.Get("SETTINGS_BUDGET"));
+            var budgetControls = new List<UIComponent>();
 
-            budgetSection.AddDropDown<ModSetting.BudgetControlModes>(Localization.Get("SETTINGS_ENABLE_BUDGET_CONTROL"), Localization.Get("SETTINGS_BUDGET_CONTROL_TOOLTIP"),
+            void UpdateBudgetChildrenEnabled(bool enabled)
+            {
+                foreach (var c in budgetControls)
+                {
+                    OptionsNestedTabs.SetEnabled(c, enabled);
+                }
+            }
+
+            var budgetSection = AddSection(page, Localization.Get("SETTINGS_BUDGET"));
+            budgetSection.AddCheckBox(setting.EnableBudgetFeatures, Localization.Get("SETTINGS_FEATURE_BUDGET_ENABLE"), null, Localization.Get("SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableBudgetFeatures = isChecked;
+                    SettingsActions.OnBudgetFeaturesChanged(isChecked);
+                    UpdateBudgetChildrenEnabled(isChecked);
+                });
+
+            budgetControls.Add(budgetSection.AddDropDown<ModSetting.BudgetControlModes>(Localization.Get("SETTINGS_ENABLE_BUDGET_CONTROL"), Localization.Get("SETTINGS_BUDGET_CONTROL_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.BudgetControlModes>(e => Localization.Get(e == ModSetting.BudgetControlModes.Disabled ? "SETTINGS_BUDGET_CONTROL_DISABLED" : "SETTINGS_BUDGET_CONTROL_ENABLED")),
                 item => item.Value == setting.BudgetControl,
                 item =>
                 {
                     ModSetting.Instance.BudgetControl = item.Value;
                     SettingsActions.OnBudgetModeChanged((int)item.Value);
-                }, null);
+                }, null)?.Control);
 
-            budgetSection.AddDropDown<ModSetting.TicketPriceCustomizerModes>(Localization.Get("SETTINGS_BUDGET_TICKET_PRICES"), Localization.Get("SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP"),
+            budgetControls.Add(budgetSection.AddDropDown<ModSetting.TicketPriceCustomizerModes>(Localization.Get("SETTINGS_BUDGET_TICKET_PRICES"), Localization.Get("SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.TicketPriceCustomizerModes>(e => Localization.Get(e == ModSetting.TicketPriceCustomizerModes.Disabled ? "SETTINGS_BUDGET_TICKET_PRICES_DISABLED" : "SETTINGS_BUDGET_TICKET_PRICES_ENABLED")),
                 item => item.Value == setting.TicketPriceCustomizerMode,
                 item =>
@@ -493,7 +563,7 @@ namespace ImprovedPublicTransport.UI
                     ModSetting.Instance.TicketPriceCustomizerMode = item.Value;
                     SettingsActions.OnTicketPriceCustomizerChanged((int)item.Value);
                     UpdateTicketPathCostEnabled(item.Value);
-                }, null);
+                }, null)?.Control);
 
             // Optional “fare as toll” — only when ticket prices are on.
             _ticketPathCostCard = budgetSection.AddCheckBox(
@@ -506,16 +576,19 @@ namespace ImprovedPublicTransport.UI
                     ModSetting.Instance.EnableTicketPathfindingCost = isChecked;
                     SettingsActions.OnTicketPathfindingCostChanged(isChecked);
                 });
+            budgetControls.Add(_ticketPathCostCard?.Control);
             UpdateTicketPathCostEnabled(setting.TicketPriceCustomizerMode);
 
-            budgetSection.AddDropDown<ModSetting.AutoLineBudgetModes>(Localization.Get("SETTINGS_AUTO_LINE_BUDGET"), Localization.Get("SETTINGS_AUTO_LINE_BUDGET_TOOLTIP"),
+            budgetControls.Add(budgetSection.AddDropDown<ModSetting.AutoLineBudgetModes>(Localization.Get("SETTINGS_AUTO_LINE_BUDGET"), Localization.Get("SETTINGS_AUTO_LINE_BUDGET_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.AutoLineBudgetModes>(e => Localization.Get(e == ModSetting.AutoLineBudgetModes.Disabled ? "SETTINGS_AUTO_LINE_BUDGET_DISABLED" : "SETTINGS_AUTO_LINE_BUDGET_ENABLED")),
                 item => item.Value == setting.AutoLineBudgetMode,
                 item =>
                 {
                     ModSetting.Instance.AutoLineBudgetMode = item.Value;
                     SettingsActions.OnAutoLineBudgetModeChanged((int)item.Value);
-                }, null);
+                }, null)?.Control);
+
+            UpdateBudgetChildrenEnabled(setting.EnableBudgetFeatures);
         }
 
         /// <summary>AutoLineColor's own settings, split out of the old "Auto Line" tab so it is not
@@ -523,34 +596,53 @@ namespace ImprovedPublicTransport.UI
         private void FillLineColorsPage(ScrollContainer page)
         {
             var setting = ModSetting.Instance;
+            var colorControls = new List<UIComponent>();
+
+            void UpdateColorChildrenEnabled(bool enabled)
+            {
+                foreach (var c in colorControls)
+                {
+                    OptionsNestedTabs.SetEnabled(c, enabled);
+                }
+            }
+
             var autoColorSection = AddSection(page, Localization.Get("SETTINGS_TAB_LINECOLORS"));
-            autoColorSection.AddDropDown<ModSetting.AutoLineColorStrategy>(Localization.Get("AUTOLINECOLOR_COLOR_STRATEGY"), Localization.Get("AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP"),
+            autoColorSection.AddCheckBox(setting.EnableAutoLineColor, Localization.Get("SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE"), null, Localization.Get("SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableAutoLineColor = isChecked;
+                    SettingsActions.OnAutoLineColorChanged(isChecked);
+                    UpdateColorChildrenEnabled(isChecked);
+                });
+            colorControls.Add(autoColorSection.AddDropDown<ModSetting.AutoLineColorStrategy>(Localization.Get("AUTOLINECOLOR_COLOR_STRATEGY"), Localization.Get("AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.AutoLineColorStrategy>(e => Localization.Get(GetAutoLineColorStrategyKey(e))),
                 item => item.Value == setting.AutoLineColorColorStrategy,
                 item =>
                 {
                     ModSetting.Instance.AutoLineColorColorStrategy = item.Value;
                     UpdateColorDiffSlidersEnabled(item.Value);
-                }, null);
+                }, null)?.Control);
             // Only RandomHue/RandomColor/NamedColors actually use these two settings (they go through
             // ColorSelector.DifferenceThreshold) - Disabled and CategorisedColor (ColorSelector.LeastUsed) ignore them.
             // Kept right under the strategy dropdown they belong to, rather than after the unrelated naming dropdown.
-            autoColorSection.AddSliderWithValue(Localization.Get("AUTOLINECOLOR_MIN_COLOR_DIFF"), Localization.Get("AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP"),
+            colorControls.Add(autoColorSection.AddSliderWithValue(Localization.Get("AUTOLINECOLOR_MIN_COLOR_DIFF"), Localization.Get("AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP"),
                 1f, 50f, 1f, setting.AutoLineColorMinColorDiffPercentage,
                 v => ModSetting.Instance.AutoLineColorMinColorDiffPercentage = (int)v, "%",
-                beforeLayoutAction: card => _colorDiffSlider = card.Control);
-            autoColorSection.AddSliderWithValue(Localization.Get("AUTOLINECOLOR_MAX_COLOR_PICK"), Localization.Get("AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP"),
+                beforeLayoutAction: card => _colorDiffSlider = card.Control)?.Control);
+            colorControls.Add(autoColorSection.AddSliderWithValue(Localization.Get("AUTOLINECOLOR_MAX_COLOR_PICK"), Localization.Get("AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP"),
                 1f, 50f, 1f, setting.AutoLineColorMaxDiffColorPickAttempt,
                 v => ModSetting.Instance.AutoLineColorMaxDiffColorPickAttempt = (int)v,
                 beforeLayoutAction: card =>
                 {
                     _colorPickAttemptsSlider = card.Control;
                     UpdateColorDiffSlidersEnabled(setting.AutoLineColorColorStrategy);
-                });
-            autoColorSection.AddDropDown<ModSetting.AutoLineColorNamingStrategy>(Localization.Get("AUTOLINECOLOR_NAMING_STRATEGY"), Localization.Get("AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP"),
+                })?.Control);
+            colorControls.Add(autoColorSection.AddDropDown<ModSetting.AutoLineColorNamingStrategy>(Localization.Get("AUTOLINECOLOR_NAMING_STRATEGY"), Localization.Get("AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.AutoLineColorNamingStrategy>(e => Localization.Get("AUTOLINECOLOR_NAMING_" + (e == ModSetting.AutoLineColorNamingStrategy.NamedColors ? "COLORS" : e.ToString().ToUpperInvariant()))),
                 item => item.Value == setting.AutoLineColorNamingStrategyMode,
-                item => ModSetting.Instance.AutoLineColorNamingStrategyMode = item.Value, null);
+                item => ModSetting.Instance.AutoLineColorNamingStrategyMode = item.Value, null)?.Control);
+
+            UpdateColorChildrenEnabled(setting.EnableAutoLineColor);
         }
 
         /// <summary>Stops → Network: stop geometry / multi-type / elevated (ex-Integrations).</summary>
@@ -614,7 +706,7 @@ namespace ImprovedPublicTransport.UI
                 (_, isChecked) =>
                 {
                     ModSetting.Instance.EnableMileageTaxi = isChecked;
-                    SettingsActions.NotifyReloadRequired("Mileage Taxi Services");
+                    SettingsActions.OnMileageTaxiChanged(isChecked);
                 });
             vehicles.AddCheckBox(setting.EnablePublicTransportUnstucker, Localization.Get("SETTINGS_PTU_ENABLE"), null, Localization.Get("SETTINGS_PTU_TOOLTIP"),
                 (_, isChecked) =>
@@ -625,6 +717,22 @@ namespace ImprovedPublicTransport.UI
 
             AddDepotCapacitySection(page, setting);
             AddOutsideWorldSection(page, setting);
+
+            // Two small behaviours that used to have no off-switch; kept here under Network.
+            var conveniences = AddSection(page, Localization.Get("SETTINGS_HIDDENBEHAVIOUR_GROUP"),
+                Localization.Get("SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC"));
+            conveniences.AddCheckBox(setting.EnableAutoNameStops, Localization.Get("SETTINGS_AUTONAMESTOPS_ENABLE"), null, Localization.Get("SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableAutoNameStops = isChecked;
+                    SettingsActions.NotifyReloadRequired("Auto-name stops");
+                });
+            conveniences.AddCheckBox(setting.EnableRescueFullwidthDigits, Localization.Get("SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE"), null, Localization.Get("SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableRescueFullwidthDigits = isChecked;
+                    SettingsActions.NotifyReloadRequired("Rescue Fullwidth Digits");
+                });
         }
 
         private void AddDepotCapacitySection(ScrollContainer page, ModSetting setting)
@@ -717,6 +825,7 @@ namespace ImprovedPublicTransport.UI
                 Localization.Get("SETTINGS_RESET"),
                 () => SettingsActions.OnResetOutsideConnectionsClick());
 
+
             UpdateOocChildrenEnabled(setting.EnableOptimisedOutsideConnections);
         }
 
@@ -736,28 +845,29 @@ namespace ImprovedPublicTransport.UI
             ui.AddDropDown<ModSetting.VehicleEditorPositions>(
                 Localization.Get("SETTINGS_VEHICLE_EDITOR_POSITION"),
                 Localization.Get("SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP"),
-                DropDownHelper.FromEnum<ModSetting.VehicleEditorPositions>(e => Localization.Get(e == ModSetting.VehicleEditorPositions.Bottom ? "SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM" : "SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT")),
-                item => item.Value == setting.VehicleEditorPosition,
-                item => ModSetting.Instance.VehicleEditorPosition = item.Value,
+                DropDownHelper.FromEnum<ModSetting.VehicleEditorPositions>(e => Localization.Get(e switch
+                {
+                    ModSetting.VehicleEditorPositions.Right => "SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT",
+                    ModSetting.VehicleEditorPositions.Hidden => "SETTINGS_VEHICLE_EDITOR_HIDE",
+                    _ => "SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM",
+                })),
+                item => setting.HideVehicleEditor
+                    ? item.Value == ModSetting.VehicleEditorPositions.Hidden
+                    : item.Value == setting.VehicleEditorPosition,
+                item =>
+                {
+                    var enabled = item.Value != ModSetting.VehicleEditorPositions.Hidden;
+                    ModSetting.Instance.EnableVehicleEditor = enabled;
+                    ModSetting.Instance.HideVehicleEditor = !enabled;
+                    if (enabled)
+                    {
+                        ModSetting.Instance.VehicleEditorPosition = item.Value;
+                    }
+
+                    SettingsActions.OnVehicleEditorChanged(enabled);
+                },
                 null,
-                30f,
-                card =>
-                {
-                    if (card?.Control != null)
-                    {
-                        _vehicleEditorPositionControl = card.Control;
-                        OptionsNestedTabs.SetEnabled(card.Control, !setting.HideVehicleEditor);
-                    }
-                });
-            ui.AddCheckBox(setting.HideVehicleEditor, Localization.Get("SETTINGS_VEHICLE_EDITOR_HIDE"), null, Localization.Get("SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP"),
-                (_, isChecked) =>
-                {
-                    ModSetting.Instance.HideVehicleEditor = isChecked;
-                    if (_vehicleEditorPositionControl != null)
-                    {
-                        OptionsNestedTabs.SetEnabled(_vehicleEditorPositionControl, !isChecked);
-                    }
-                });
+                30f);
             ui.AddCheckBox(setting.ShowLineInfo, Localization.Get("SETTINGS_AUTOSHOW_LINE_INFO"), null, Localization.Get("SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP"),
                 (_, isChecked) => ModSetting.Instance.ShowLineInfo = isChecked);
 
@@ -783,12 +893,6 @@ namespace ImprovedPublicTransport.UI
                     ModSetting.Instance.EnableSubBuildingsTabs = isChecked;
                     SettingsActions.OnSubBuildingsTabsChanged(isChecked);
                 });
-            info.AddCheckBox(setting.EnableCommuterDestination, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE"), null, Localization.Get("SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP"),
-                (_, isChecked) =>
-                {
-                    ModSetting.Instance.EnableCommuterDestination = isChecked;
-                    SettingsActions.OnCommuterDestinationChanged(isChecked);
-                });
         }
 
         private void UpdateTicketPathCostEnabled(ModSetting.TicketPriceCustomizerModes mode)
@@ -812,14 +916,39 @@ namespace ImprovedPublicTransport.UI
         private void FillStopsPage(ScrollContainer page)
         {
             var setting = ModSetting.Instance;
+            var childControls = new List<UIComponent>();
+
+            void UpdateChildrenEnabled(bool enabled)
+            {
+                foreach (var control in childControls)
+                {
+                    OptionsNestedTabs.SetEnabled(control, enabled);
+                }
+            }
+
             // One combined description at the top instead of repeating a full explanation under each
             // of the 14 sliders below (same pattern as the Delete Lines tab) - they are all the same
             // kind of setting (a per-vehicle-type waiting-passenger cap), so a single explanation up
             // front says everything the per-slider ones did, without the visual repetition.
             var section = AddSection(page, Localization.Get("SETTINGS_STOPS"), Localization.Get("SETTINGS_STOPSANDSTATIONS_DESCRIPTION"));
 
+            // Master switch: passenger caps off = whole section disabled (game handles it).
+            section.AddCheckBox(setting.EnableStopsAndStations, Localization.Get("SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE"), null, Localization.Get("SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP"),
+                (_, isChecked) =>
+                {
+                    ModSetting.Instance.EnableStopsAndStations = isChecked;
+                    SettingsActions.OnStopsAndStationsChanged(isChecked);
+                    UpdateChildrenEnabled(isChecked);
+                });
+
             void PassengerSlider(string headerKey, float min, float max, float step, int current, Action<int> setter)
-                => section.AddSliderWithValue(Localization.Get(headerKey), null, min, max, step, current, v => setter((int)v));
+            {
+                var card = section.AddSliderWithValue(Localization.Get(headerKey), null, min, max, step, current, v => setter((int)v));
+                if (card?.Control != null)
+                {
+                    childControls.Add(card.Control);
+                }
+            }
 
             PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS", 10f, 500f, 5f, setting.MaxWaitingPassengersBus, v => ModSetting.Instance.MaxWaitingPassengersBus = v);
             PassengerSlider("SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS", 10f, 500f, 5f, setting.MaxWaitingPassengersTrolleybus, v => ModSetting.Instance.MaxWaitingPassengersTrolleybus = v);
@@ -837,6 +966,8 @@ namespace ImprovedPublicTransport.UI
 
             section.AddButton(null, Localization.Get("SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP"), Localization.Get("SETTINGS_RESET"),
                 () => SettingsActions.OnResetStopsButtonClick());
+
+            UpdateChildrenEnabled(setting.EnableStopsAndStations);
         }
 
         private void FillTrainDisplayPage(ScrollContainer page)
@@ -853,6 +984,10 @@ namespace ImprovedPublicTransport.UI
                     UpdateTrainDisplayChildrenEnabled(item.Value);
                 }, null);
 
+            TrackTrainChild(section.AddDropDown<ModSetting.TrainDisplayScopes>(Localization.Get("SETTINGS_TRAINDISPLAY_SCOPE"), Localization.Get("SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP"),
+                DropDownHelper.FromEnum<ModSetting.TrainDisplayScopes>(e => Localization.Get("SETTINGS_TRAINDISPLAY_SCOPE_" + e.ToString().ToUpperInvariant())),
+                item => item.Value == setting.TrainDisplayScope,
+                item => ModSetting.Instance.TrainDisplayScope = item.Value, null));
             TrackTrainChild(section.AddDropDown<ModSetting.TrainDisplayLayouts>(Localization.Get("SETTINGS_TRAINDISPLAY_LAYOUT"), Localization.Get("SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.TrainDisplayLayouts>(e => Localization.Get("SETTINGS_TRAINDISPLAY_LAYOUT_" + e.ToString().ToUpperInvariant())),
                 item => item.Value == setting.TrainDisplayLayout,
@@ -867,10 +1002,6 @@ namespace ImprovedPublicTransport.UI
             TrackTrainChild(section.AddSliderWithValue(Localization.Get("SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY"), Localization.Get("SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP"),
                 25f, 100f, 5f, setting.TrainDisplayOverlayOpacity * 100f,
                 v => ModSetting.Instance.TrainDisplayOverlayOpacity = v / 100f, "%"));
-            TrackTrainChild(section.AddSliderWithValue(Localization.Get("SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL"), Localization.Get("SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP"),
-                // Min 100ms — sub-100ms was part of the 4.8 hitch reports when the panel was "snappier".
-                100f, 1000f, 50f, Mathf.Max(100f, setting.TrainDisplayUpdateInterval * 1000f),
-                v => ModSetting.Instance.TrainDisplayUpdateInterval = Mathf.Max(0.1f, v / 1000f), " ms"));
             TrackTrainChild(section.AddDropDown<ModSetting.TrainDisplayColorThemes>(Localization.Get("SETTINGS_TRAINDISPLAY_THEME"), Localization.Get("SETTINGS_TRAINDISPLAY_THEME_TOOLTIP"),
                 DropDownHelper.FromEnum<ModSetting.TrainDisplayColorThemes>(e => Localization.Get("SETTINGS_TRAINDISPLAY_THEME_" + e.ToString().ToUpperInvariant())),
                 item => item.Value == setting.TrainDisplayColorTheme,

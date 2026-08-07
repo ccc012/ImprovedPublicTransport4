@@ -61,6 +61,10 @@ SETTINGS_RESET 重設
 SETTINGS_TAB_GENERAL 一般
 SETTINGS_ADVANCED_LINKS_GROUP 連結
 SETTINGS_GITHUB_REPO GitHub 上的原始碼
+SETTINGS_KOFI_LINK 在 Ko-fi 上支持
+SETTINGS_KOFI_GROUP 支持 IPT4
+SETTINGS_KOFI_DESCRIPTION 幫助資助 IPT4 的持續開發。
+SETTINGS_KOFI_BUTTON 在 Ko-fi 上支持我
 SETTINGS_TAB_AUTOLINE 自動路線
 SETTINGS_TAB_STOPS 站點和車站
 SETTINGS_TAB_UNBUNCHING 車間分散
@@ -315,6 +319,13 @@ SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING 僅在跟隨時
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP 除非攝影機確實在跟隨受支援的車輛，否則隱藏浮層。
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 僅在第一人稱視角
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP 僅在使用第一人稱攝影機模組（例如 First Person Camera - Continued）時顯示浮層。關閉時，在任何攝影機模式下跟隨受支援的車輛都會顯示。
+SETTINGS_TRAINDISPLAY_SCOPE 顯示浮層的時機
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP 選擇選中的車輛、第一人稱車輛或兩者兼有。
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE 僅選中的車輛
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON 僅第一人稱攝影機
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH 選中的車輛或第一人稱攝影機
+SETTINGS_TRAINDISPLAY_LAYOUT 面板佈局
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP 浮層使用的佈局。兩者顯示相同資訊並遵循相同的核取方塊 - 僅形狀不同。
 SETTINGS_TRAINDISPLAY_THEME 配色主題：
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP 選擇浮層的背景/文字顏色。
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE 簡約
@@ -385,6 +396,9 @@ SETTINGS_STTAI_ENABLE 單線鐵路列車防撞
 SETTINGS_STTAI_ENABLE_TOOLTIP 一次為一列火車保留單線區段,在區段清空之前讓對向火車在入口處等待。IPT4原創功能,原版遊戲或任何已吸收的模組中都沒有。
 SETTINGS_STOPSTACKER_ENABLE 公車站台多泊位堆疊
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 讓第二輛、第三輛駛向同一站點的公車在站台車道後方使用自己的泊位,而不是排在頭車後面單列等待,從而讓多輛公車同時上下客。IPT4原創功能(簡化的重新實作),原版遊戲或任何已吸收的模組中都沒有。
+
+SETTINGS_SUPPORT_LABEL 如果 IPT4 拯救了你的存檔或提升了效能，請考慮支持它的開發！
+SETTINGS_SUPPORT_BUTTON 在 Ko-fi 上支持我
 CHANGELOG_4_3_3_1 修正了設定保存/載入仍然在某些模組堆疊上中斷的問題，即使在捆綁 Newtonsoft.Json.dll 之後也是如此：前面的解決方案只在一個進入點嘗試 Assembly.LoadFrom，仍然依賴載入順序。IPT4 現在註冊一個全域 AssemblyResolve 掛鉤，並在 CSLModsCommon 觸及 JsonWriter 之前從每個模組/UI 進入點急切地啟動其捆綁的 Newtonsoft.Json，因此新選項 UI 會可靠地持久化，而不是隨機繫結到另一個模組不相容的 Json.NET 副本。
 CHANGELOG_4_3_2_1 修正了只要沒有其他已安裝模組恰好已提供 Newtonsoft.Json 就導致模組完全無法載入（「無法載入模組的 dll 或其其中一個依賴項」）的問題：CSLModsCommon 的設定序列化 (JsonHelper/SerializationContext) 需要它，但我們的建置從未實際在模組旁部署 Newtonsoft.Json.dll——它只是意外地透過另一個模組的副本運作。此問題透過停用每個其他模組進行乾淨測試而發現，這正是今後應該進行測試的方式。
 CHANGELOG_4_3_1_1 修正了選項面板的語言選擇器只重新翻譯框架自有字串（版本、變更日誌...），而此模組的每個字串都保持遊戲語言的問題——我們的翻譯加載器透過遊戲語言進行鍵處理，完全忽略了模組自有的選擇。現在它遵循模組語言選擇器，必要時回退到遊戲語言，然後回退到英文，並在選擇器變更時重新解析。
@@ -546,7 +560,7 @@ SETTINGS_SUB_PERF 性能
 SETTINGS_SUB_COMPAT 相容性
 SETTINGS_SUB_KEYS 快捷鍵
 SETTINGS_FUTURE_GROUP 即將推出
-SETTINGS_FUTURE_GROUP_DESCRIPTION 計畫功能預覽。在準備完成前為灰色顯示 — 尚無效果。
+SETTINGS_FUTURE_GROUP_DESCRIPTION 計畫功能預覽。就緒前顯示為灰色；乘客目的地保持可用於測試。
 SETTINGS_FUTURE_REVERSIBLE_TRAM 可逆電車 AI（即將推出）
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 計畫：電車在終點站無需迴圈即可反向。尚無法使用。
 SETTINGS_FUTURE_BREAKDOWN 故障排查工具（即將推出）
@@ -566,6 +580,16 @@ LINE_PANEL_PASTE 貼上
 SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ 安全 — 所有選擇性設定保持關閉（最適合使用多個模組）。\n★ 原版 — 最接近基礎遊戲（無 IPT 額外功能）。\n★ 推薦 — 僅 IPT 核心：預算車隊、疏解、城際、子標籤、卡死修復、進階停靠、高架停靠。\n★ 寫實 — 大多數功能開啟（更強的模擬、更高成本）。\n★ 自訂 — 你選擇每個開關；在你選擇其他套件之前，設定檔永遠不會再覆蓋自訂。
 SETTINGS_QUICK_TIPS_GROUP 快速提示
 SETTINGS_QUICK_TIPS_DESC 小提醒 — 沒有額外代碼，只是如何使用你已擁有的功能。
+SETTINGS_FEATURE_UNBUNCHING_ENABLE 車輛疏解 / 快速巴士
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP 啟用車輛疏解、快速巴士/電車、生成間隔和激進車隊大小。所有巴士和電車的間距/預算功能。
+SETTINGS_FEATURE_BUDGET_ENABLE 預算功能
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP 啟用線路預算控制、自動線路預算、票價自定義和票價作為尋路成本。所有金錢/定價/車隊功能。
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE 自動路線顏色
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP 自動為新運輸線分配顏色和名稱。包含顏色策略、命名策略和調色盤。
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE 車輛編輯器
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP 啟用車輛編輯器面板以更改車輛類型、塗裝和屬性。可放置在底部或右側。
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE 等候乘客上限
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP 限制單一站點可等待大眾運輸的市民數量。停用以移除所有等候上限並讓遊戲處理站點容量。
 SETTINGS_QUICK_TIP_1_TITLE 從簡單開始
 SETTINGS_QUICK_TIP_1_BODY 選擇推薦，然後只打開你需要的功能。如果使用許多其他模組，安全模式最佳。
 SETTINGS_QUICK_TIP_2_TITLE 電腦速度慢？
@@ -576,18 +600,18 @@ SETTINGS_OOC_RESET_TOOLTIP 將外部連接等候、裝飾性過境交通和相�
 SETTINGS_EBS_GROUP_BUS_DESC 快速巴士在乘客很少時可能會提前離開 — 可選的進階間距。
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 額外列
 SETTINGS_SUB_NET_BBSP_NOTE 改進公車站位置僅會改變公車在停靠處的停靠位置。下方的選項是獨立功能（高架、共享停靠等）— 它們刻意保持可點擊。
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP 常駐開啟行為
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC 兩個小行為持續執行且無法關閉——直到現在。預設開啟以便現有安裝無感知變更——若您運行做同樣事的獨立模組，或僅偏好手動控制，請關閉。
+SETTINGS_AUTONAMESTOPS_ENABLE 自動為無名站點命名
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP 首次選擇無名站點時，賦予其站點面板下拉選單會建議的同一附近建築名——無需開啟該選單。絕不觸動您(或本功能)已設定的名稱。
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP 從獨立模組 Rescue Fullwidth Digits 移植。修復因某些 IME/輸入法設定導致全形數字(１２３ 而非 123)儲存的運輸路線名稱，否則將永久錯誤顯示。
+SETTINGS_FUTURE_BUSWAYPOINT 巴士路徑點站點 (即將推出)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP 計畫：將站點標記為僅路由路徑點——路線路徑經過但車輛從不停靠上下客。幫助引導原版尋路至您真正想要的道路。暫不可用。
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT 進階站點選擇: 選取精確軌道
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP 放置列車/路面電車站點連線時按住以瞄準精確軌道而非最近有效軌道。曾硬編碼為左/右 Shift; 此處重新綁定僅覆蓋選定的一方。
+SETTINGS_LEGACY_GROUP 遺留
+SETTINGS_LEGACY_GROUP_DESC 僅保留舊開關以便已開啟的安裝繼續完全按原樣運作。鎖定——不再能由此開啟/關閉，且每個遊戲設定檔今後都將其保持關閉。
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

@@ -54,6 +54,7 @@ public abstract partial class OptionsPanelBase : LiteContainer {
     };
 
     protected virtual void CacheManagers() { }
+    protected virtual void FillGeneralHeader(ScrollContainer page) { }
     protected virtual void FillGeneralPage(ScrollContainer page) { }
     protected virtual void FillKeyBindingPage(ScrollContainer page) { }
     protected virtual void FillDebugPage(ScrollContainer page) { }
@@ -172,6 +173,7 @@ public abstract partial class OptionsPanelBase : LiteContainer {
 
     private void AddGeneralPage() {
         _generalPage = AddPage(General, SharedTranslations.General);
+        FillGeneralHeader(_generalPage);
         var modInfoSection = AddSection(_generalPage, SharedTranslations.ModInfo);
         var flag = _modManagerBase.CurrentBuildChannel switch {
             BuildChannel.Beta => SharedTranslations.BETA,

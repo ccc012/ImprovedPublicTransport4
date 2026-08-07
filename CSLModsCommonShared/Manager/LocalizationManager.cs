@@ -33,6 +33,7 @@ public class LocalizationManager : ManagerBase {
     private ModSettingBase _modSetting;
     private bool _sourcesLoaded;
     private bool _processing;
+    private static bool _sessionScanComplete;
 
     public string GameActiveLocaleId => LocaleManager.exists ? GetLocaleId(LocaleManager.instance.language) : GetLocaleId(new SavedString(Settings.localeID, Settings.gameSettingsFile, DefaultSettings.localeID).value);
     public DropDownItem<string>[] LanguageOptions { get; private set; }
@@ -108,6 +109,13 @@ public class LocalizationManager : ManagerBase {
     /// <summary>Load (or reload) common locale JSON. Safe to call more than once.</summary>
     public void EnsureSourcesLoaded()
     {
+        // The Options panel rebuilds on every open; once locales are fully loaded this session,
+        // skip the plugin/directory scans that this method re-runs on every rebuild.
+        if (_sessionScanComplete)
+        {
+            return;
+        }
+
         _modDirectory = ResolveModDirectory();
 
         // If en-US is already loaded but the on-disk Common folder has more packs than we know about
@@ -162,6 +170,12 @@ public class LocalizationManager : ManagerBase {
             {
                 Logger.Error($"LocalizationManager: embedded fallback failed: {ex.Message}");
             }
+        }
+
+        // Complete for this session - the Options panel rebuild must not re-scan plugins/dirs.
+        if (LocaleSources.Count > 0 && LocaleSources.ContainsKey(LocaleEntry.EnLocaleID))
+        {
+            _sessionScanComplete = true;
         }
     }
 

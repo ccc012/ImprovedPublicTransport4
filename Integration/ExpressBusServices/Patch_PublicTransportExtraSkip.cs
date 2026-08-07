@@ -27,6 +27,18 @@ namespace ExpressBusServices
         private static readonly MethodInfo TrolleyLoad =
             AccessTools.Method(typeof(TrolleybusAI), "LoadPassengers");
 
+        private delegate bool BusStartPathFindDelegate(BusAI instance, ushort vehicleID, ref Vehicle vehicleData);
+        private delegate void BusPassengersDelegate(BusAI instance, ushort vehicleID, ref Vehicle vehicleData, ushort currentStop, ushort nextStop);
+        private delegate bool TrolleyStartPathFindDelegate(TrolleybusAI instance, ushort vehicleID, ref Vehicle vehicleData);
+        private delegate void TrolleyPassengersDelegate(TrolleybusAI instance, ushort vehicleID, ref Vehicle vehicleData, ushort currentStop, ushort nextStop);
+
+        private static readonly BusStartPathFindDelegate BusStartPathFindCall = CreateDelegate<BusStartPathFindDelegate>(BusStartPathFind);
+        private static readonly BusPassengersDelegate BusUnloadCall = CreateDelegate<BusPassengersDelegate>(BusUnload);
+        private static readonly BusPassengersDelegate BusLoadCall = CreateDelegate<BusPassengersDelegate>(BusLoad);
+        private static readonly TrolleyStartPathFindDelegate TrolleyStartPathFindCall = CreateDelegate<TrolleyStartPathFindDelegate>(TrolleyStartPathFind);
+        private static readonly TrolleyPassengersDelegate TrolleyUnloadCall = CreateDelegate<TrolleyPassengersDelegate>(TrolleyUnload);
+        private static readonly TrolleyPassengersDelegate TrolleyLoadCall = CreateDelegate<TrolleyPassengersDelegate>(TrolleyLoad);
+
         [HarmonyTargetMethod]
         [UsedImplicitly]
         public static MethodBase TargetRelevantMethod()
@@ -71,47 +83,43 @@ namespace ExpressBusServices
 
             vehicleData.m_targetBuilding = nextStop;
             BusStopSkippingLookupTable.Notify_BusShouldSkipLoading(vehicleID);
-            var pathfindParams = new object[] { vehicleID, vehicleData };
-            var unloadParams = new object[] { vehicleID, vehicleData, currentStop, nextStop };
             try
             {
                 if (__instance is BusAI busAi)
                 {
-                    if (BusStartPathFind == null || BusUnload == null || BusLoad == null)
+                    if (BusStartPathFindCall == null || BusUnloadCall == null || BusLoadCall == null)
                     {
                         vehicleData.m_targetBuilding = currentStop;
                         return true;
                     }
 
-                    if (!(bool)BusStartPathFind.Invoke(busAi, pathfindParams))
+                    if (!BusStartPathFindCall(busAi, vehicleID, ref vehicleData))
                     {
                         // something bad happened; cancel
                         vehicleData.m_targetBuilding = currentStop;
                         return true;
                     }
 
-                    vehicleData = (Vehicle)pathfindParams[1];
-                    BusUnload.Invoke(busAi, unloadParams);
-                    BusLoad.Invoke(busAi, unloadParams);
+                    BusUnloadCall(busAi, vehicleID, ref vehicleData, currentStop, nextStop);
+                    BusLoadCall(busAi, vehicleID, ref vehicleData, currentStop, nextStop);
                 }
                 else if (__instance is TrolleybusAI trolleyAi)
                 {
-                    if (TrolleyStartPathFind == null || TrolleyUnload == null || TrolleyLoad == null)
+                    if (TrolleyStartPathFindCall == null || TrolleyUnloadCall == null || TrolleyLoadCall == null)
                     {
                         vehicleData.m_targetBuilding = currentStop;
                         return true;
                     }
 
-                    if (!(bool)TrolleyStartPathFind.Invoke(trolleyAi, pathfindParams))
+                    if (!TrolleyStartPathFindCall(trolleyAi, vehicleID, ref vehicleData))
                     {
                         // something bad happened; cancel
                         vehicleData.m_targetBuilding = currentStop;
                         return true;
                     }
 
-                    vehicleData = (Vehicle)pathfindParams[1];
-                    TrolleyUnload.Invoke(trolleyAi, unloadParams);
-                    TrolleyLoad.Invoke(trolleyAi, unloadParams);
+                    TrolleyUnloadCall(trolleyAi, vehicleID, ref vehicleData, currentStop, nextStop);
+                    TrolleyLoadCall(trolleyAi, vehicleID, ref vehicleData, currentStop, nextStop);
                 }
                 else
                 {
@@ -129,6 +137,23 @@ namespace ExpressBusServices
             // Clearing WaitingPath here cancelled the path we just started and forced a repath
             // (mid-street reverse then continue). Leave WaitingPath alone; do not drop the line.
             return false;
+        }
+
+        private static T CreateDelegate<T>(MethodInfo method) where T : class
+        {
+            if (method == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                return Delegate.CreateDelegate(typeof(T), method) as T;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private static bool ExtraSkippingIsDisallowed(VehicleAI __instance, ushort vehicleID, ref Vehicle vehicleData, out ushort currentApproachingStop)

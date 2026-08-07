@@ -7,7 +7,6 @@ using ICities;
 using UnityEngine;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using ImprovedPublicTransport.Integration.TicketPriceCustomizer;
 using ImprovedPublicTransport;
 using Utils = ImprovedPublicTransport.Util.Utils;
 
@@ -25,7 +24,6 @@ namespace AutoLineColor
         private IUsedColors _usedColors;
         private int _lastColorStrategy = -1;
         private int _lastNamingStrategy = -1;
-        private static bool _ticketPricesTabFailed;
 
         [CanBeNull]
         public static ColorMonitor Instance { get; private set; }
@@ -110,22 +108,15 @@ namespace AutoLineColor
 
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
         {
+            // No city loaded (main menu): nothing to monitor, skip entirely.
+            if (!ImprovedPublicTransportMod.InGame)
+            {
+                return;
+            }
+
             TransportManager theTransportManager;
             SimulationManager theSimulationManager;
             TransportLine[] lines;
-
-            if (!_ticketPricesTabFailed)
-            {
-                try
-                {
-                    TicketPricesTab.OnUpdate(realTimeDelta);
-                }
-                catch (Exception ex)
-                {
-                    _ticketPricesTabFailed = true;
-                    Logger.Error($"TicketPricesTab.OnUpdate failed - disabling its per-frame refresh: {ex}");
-                }
-            }
 
             try
             {
@@ -180,9 +171,10 @@ namespace AutoLineColor
                 // Cheap pre-pass: only build UsedColors + process when at least one line needs work.
                 // Avoids allocating a full colour histogram every 10s on a finished transit map.
                 var anyWork = false;
-                for (ushort i = 0; i < lines.Length; i++)
+                int len = lines.Length;
+                for (int i = 0; i < len; i++)
                 {
-                    if (LineNeedsProcess(lines[i], theTransportManager, i))
+                    if (LineNeedsProcess(lines[i], theTransportManager, (ushort)i))
                     {
                         anyWork = true;
                         break;
@@ -194,9 +186,10 @@ namespace AutoLineColor
 
                 _usedColors = UsedColors.FromLines(lines);
 
-                for (ushort i = 0; i < lines.Length; i++)
+                for (int i = 0; i < len; i++)
                 {
-                    ProcessLine(i, lines[i], false, theSimulationManager, theTransportManager);
+                    if (i < lines.Length)
+                        ProcessLine((ushort)i, lines[i], false, theSimulationManager, theTransportManager);
                 }
             }
             catch (Exception ex)

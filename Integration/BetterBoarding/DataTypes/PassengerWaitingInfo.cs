@@ -85,7 +85,7 @@ namespace BetterBoarding.DataTypes
                             {
                                 // within range; will this citizen ever board the vehicle?
                                 var citizenInfo = currentCitizenInstance.Info;
-                                if (citizenInfo.m_citizenAI.TransportArriveAtSource(currentCitizenID, ref currentCitizenInstance, CurrentStopPosition, NextStopPosition))
+                                    if (citizenInfo?.m_citizenAI != null && citizenInfo.m_citizenAI.TransportArriveAtSource(currentCitizenID, ref currentCitizenInstance, CurrentStopPosition, NextStopPosition))
                                 {
                                     // will board; remember this citizen for later!
                                     _paxInfoDict[currentCitizenID] = new PassengerInfo(currentCitizenID, vector, currentCitizenInstance.m_waitCounter);

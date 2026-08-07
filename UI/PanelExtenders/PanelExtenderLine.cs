@@ -411,7 +411,15 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 // are absent) - the indexer throws KeyNotFoundException for anything missing,
                 // which aborted UpdateBindings() every ~0.25s while a Taxi/CableCar line panel
                 // was open (vehicle list, panel sizing, depot dropdown all silently skipped).
-                bool depotMarkedDirty = _updateDepots.TryGetValue(triplet, out var dirty) && dirty;
+                bool depotMarkedDirty = false;
+                lock (_updateDepots)
+                {
+                    if (_updateDepots.TryGetValue(triplet, out var dirty) && dirty)
+                    {
+                        depotMarkedDirty = true;
+                        _updateDepots[triplet] = false;
+                    }
+                }
                 if (subService != _cachedSubService || level != _cachedLevel || depotNotValid || depotMarkedDirty || depotDistrictNamesChanged)
                 {
                     PopulateDepotDropDown(info);
@@ -528,12 +536,16 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 _updateDepots.Clear();
             if (_colorTextField != null)
             {
+                _colorTextField.eventTextSubmitted -= OnColorTextSubmitted;
                 _colorField.eventSelectedColorReleased -= OnColorChanged;
                 Destroy(_colorTextField.gameObject);
             }
 
             if (_stopCountLabel != null)
+            {
+                _stopCountLabel.eventMouseEnter -= OnMouseEnter;
                 Destroy(_stopCountLabel.gameObject);
+            }
             if (_iptContainer != null)
                 Destroy(_iptContainer.gameObject);
             PrefabPanelManager.Close();
@@ -1020,16 +1032,20 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 if (budgetControlState)
                     return;
                 CachedTransportLineData.ClearEnqueuedVehicles(lineId);
+                CachedTransportLineData.SetTargetVehicleCount(lineId, 0);
             });
         }
 
         private void OnUnbunchingClick(UIComponent component, UIMouseEventParameter p)
         {
-            ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-            if (lineId == 0)
-                return;
-            bool unbunchingState = CachedTransportLineData.GetUnbunchingState(lineId);
-            CachedTransportLineData.SetUnbunchingState(lineId, !unbunchingState);
+            SimulationManager.instance.AddAction(() =>
+            {
+                ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
+                if (lineId == 0)
+                    return;
+                bool unbunchingState = CachedTransportLineData.GetUnbunchingState(lineId);
+                CachedTransportLineData.SetUnbunchingState(lineId, !unbunchingState);
+            });
         }
 
         private void OnAddVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
@@ -1037,32 +1053,42 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             SimulationManager.instance.AddAction(() =>
             {
                 ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-                if (lineId == 0)
+                var transportManager = Singleton<TransportManager>.instance;
+                if (lineId == 0 || transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
                     return;
 
                 ushort depot = CachedTransportLineData.GetDepot(lineId);
-                TransportInfo info = TransportManager.instance.m_lines.m_buffer[lineId].Info;
-                if (info == null)
+                TransportInfo info = transportManager.m_lines.m_buffer[lineId].Info;
+                if (info == null || CachedTransportLineData.GetTargetVehicleCount(lineId) == int.MaxValue)
                     return;
-
-                CachedTransportLineData.SetBudgetControlState(lineId, false);
 
                 if (depot == 0)
                 {
-                    CachedTransportLineData.IncreaseTargetVehicleCount(lineId);
+                    CachedTransportLineData.SetBudgetControlState(lineId, false);
+                    CachedTransportLineData.SetTargetVehicleCount(lineId, 1);
                     return;
                 }
 
-                if (!DepotUtil.CanAddVehicle(depot,
-                    ref Singleton<BuildingManager>.instance.m_buildings.m_buffer[depot], info))
+                var buildingManager = Singleton<BuildingManager>.instance;
+                if (buildingManager == null || depot >= buildingManager.m_buildings.m_buffer.Length ||
+                    (buildingManager.m_buildings.m_buffer[depot].m_flags & Building.Flags.Created) == 0 ||
+                    !DepotUtil.CanAddVehicle(depot, ref buildingManager.m_buildings.m_buffer[depot], info))
                     return;
 
-                string prefabName =
-                    !(component as VehicleListBoxRow != null)
-                        ? CachedTransportLineData.GetRandomPrefab(lineId)
-                        : (component as VehicleListBoxRow).Prefab.Name;
+                var row = component as VehicleListBoxRow;
+                string prefabName = row?.Prefab?.Name ?? CachedTransportLineData.GetRandomPrefab(lineId);
+                VehicleInfo prefab = string.IsNullOrEmpty(prefabName)
+                    ? null
+                    : PrefabCollection<VehicleInfo>.FindLoaded(prefabName);
+                if (prefab?.m_class == null || info.m_class == null ||
+                    prefab.m_class.m_service != info.m_class.m_service ||
+                    prefab.m_class.m_subService != info.m_class.m_subService ||
+                    prefab.m_class.m_level != info.m_class.m_level)
+                    return;
+
+                CachedTransportLineData.SetBudgetControlState(lineId, false);
+                CachedTransportLineData.SetTargetVehicleCount(lineId, CachedTransportLineData.GetTargetVehicleCount(lineId) + 1);
                 CachedTransportLineData.EnqueueVehicle(lineId, prefabName);
-                CachedTransportLineData.IncreaseTargetVehicleCount(lineId);
             });
         }
 
@@ -1079,8 +1105,20 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                     return;
 
                 CachedTransportLineData.SetBudgetControlState(lineId, false);
-                int[] selectedIndexes = _vehiclesInQueueListBox != null ? _vehiclesInQueueListBox.SelectedIndexes : new int[0];
-                HashSet<ushort> selectedVehicles = _lineVehicleListBox?.SelectedVehicles ?? new HashSet<ushort>();
+                
+                int[] selectedIndexes = new int[0];
+                HashSet<ushort> selectedVehicles = new HashSet<ushort>();
+                
+                lock (_vehiclesInQueueListBox)
+                {
+                    if (_vehiclesInQueueListBox != null)
+                        selectedIndexes = _vehiclesInQueueListBox.SelectedIndexes;
+                }
+                lock (_lineVehicleListBox)
+                {
+                    if (_lineVehicleListBox != null)
+                        selectedVehicles = new HashSet<ushort>(_lineVehicleListBox.SelectedVehicles);
+                }
                 int targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineId);
 
                 if (selectedIndexes.Length > 0)
@@ -1151,10 +1189,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
         private void OnSelectedDepotChanged(UIComponent component, ushort selectedItem)
         {
-            ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-            if (lineId == 0)
-                return;
-            CachedTransportLineData.SetDepot(lineId, selectedItem);
+            SimulationManager.instance.AddAction(() =>
+            {
+                ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
+                if (lineId == 0)
+                    return;
+                CachedTransportLineData.SetDepot(lineId, selectedItem);
+            });
         }
 
         private void OnDepotMarkerClicked(UIComponent component, UIMouseEventParameter eventParam)
@@ -1200,9 +1241,14 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 });
         }
 
+        private readonly object _updateDepotsLock = new();
+
         private void OnDepotChanged(ItemClass.Service service, ItemClass.SubService subService, ItemClass.Level level)
         {
-            _updateDepots[new ItemClassTriplet(service, subService, level)] = true;
+            lock (_updateDepotsLock)
+            {
+                _updateDepots[new ItemClassTriplet(service, subService, level)] = true;
+            }
         }
 
         private void PopulateDepotDropDown(TransportInfo info)

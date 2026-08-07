@@ -32,10 +32,16 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             TransferManager.TransferOffer offer)
         {
             var lineID = offer.TransportLine;
+            var lines = TransportManager.instance.m_lines;
+            if (lineID == 0 || lineID >= lines.m_size)
+            {
+                return true;
+            }
+
             //TODO: fish boats?
             //TODO: also check reason? - see DepotAI
-            var info = TransportManager.instance.m_lines.m_buffer[lineID].Info;
-            if (lineID <= 0 || info?.m_class == null || info.m_class.m_service == ItemClass.Service.Disaster)
+            var info = lines.m_buffer[lineID].Info;
+            if (info?.m_class == null || info.m_class.m_service == ItemClass.Service.Disaster)
             {
                 return true; //if it's not a proper transport line, let's not modify the behavior
             }

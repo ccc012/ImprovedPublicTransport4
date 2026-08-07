@@ -59,10 +59,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private UILabel _distance;
     private UIProgressBar _distanceTraveled;
     private UILabel _distanceProgress;
-    private FieldInfo _cachedCurrentProgress;
-    private FieldInfo _cachedTotalProgress;
-    private FieldInfo _cachedProgressVehicle;
-
     // Re-applied every LateUpdate (see below) so we always win the race against vanilla's own
     // Update() writing the same labels - see the comment on LateUpdate(). Populated inside
     // UpdateBindings() every time _distance.text is set there. _cachedStatusText is ONLY set
@@ -82,6 +78,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private float? _cachedProgressValue;
     private Color32? _cachedProgressColor;
     private string _cachedProgressText;
+    private ushort _observedVehicleId;
+    private ushort _observedLineId;
+    private bool _observedStopped;
+    private bool _snapshotInitialized;
 
     private bool _endOfFrameLoopRunning;
 
@@ -94,16 +94,52 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       }
 
       if (!this._publicTransportVehicleWorldInfoPanel.component.isVisible)
+      {
+        this.ClearOwnedFields();
+        this._snapshotInitialized = false;
         return;
+      }
 
       var now = UnityEngine.Time.unscaledTime;
-      if (now >= this._nextBindingsRealtime)
+      if (!this.TryObserveVehicle(out var vehicleId, out var lineId, out var stopped, out var routeProgress))
       {
-        // Everything else in UpdateBindings (passenger stats, earnings, depot/progress lookups,
-        // and - notably - WorldInfoCurrentLineIDQuery's UnityEngine.Object.FindObjectsOfType scene
-        // scan) is real work, not just label text - stays throttled like the other panel extenders.
+        this.ClearOwnedFields();
+        this._snapshotInitialized = false;
+        return;
+      }
+
+      var stateChanged = !this._snapshotInitialized
+        || this._observedVehicleId != vehicleId
+        || this._observedLineId != lineId
+        || this._observedStopped != stopped;
+      this._observedVehicleId = vehicleId;
+      this._observedLineId = lineId;
+      this._observedStopped = stopped;
+      this._snapshotInitialized = true;
+
+      if (stateChanged || now >= this._nextBindingsRealtime)
+      {
+        // Passenger stats, earnings and other panel bindings remain throttled; vehicle identity and
+        // progress-bar transitions are observed separately each frame below.
         this._nextBindingsRealtime = now + 0.2f;
+        if (stateChanged)
+        {
+          this.ClearOwnedFields();
+        }
         this.UpdateBindings();
+      }
+
+      if (stopped)
+      {
+        this.UpdateBoardingProgress(vehicleId);
+      }
+      else if (routeProgress)
+      {
+        this.UpdateProgress();
+        if (this._cachedProgressValue.HasValue)
+        {
+          this._cachedProgressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+        }
       }
 
       this.ReapplyCachedFields();
@@ -130,7 +166,15 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         if (this._publicTransportVehicleWorldInfoPanel != null
             && this._publicTransportVehicleWorldInfoPanel.component.isVisible)
         {
-          this.ReapplyCachedFields();
+          if (this.IsSnapshotCurrent())
+          {
+            this.ReapplyCachedFields();
+          }
+          else
+          {
+            this.ClearOwnedFields();
+            this._snapshotInitialized = false;
+          }
         }
       }
 
@@ -174,27 +218,163 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
       if (this._distanceTraveled != null)
       {
-        if (this._cachedProgressValue.HasValue)
+        // Only reapply progress for stopped vehicles (boarding/unbunching).
+        // For moving vehicles, let vanilla handle the progress bar entirely.
+        var manager = Singleton<VehicleManager>.instance;
+        bool isStopped = false;
+        bool isRouteProgress = false;
+        if (manager != null && this._observedVehicleId != 0 && this._observedVehicleId < manager.m_vehicles.m_buffer.Length)
         {
-          this._distanceTraveled.value = this._cachedProgressValue.Value;
+          ref var vehicle = ref manager.m_vehicles.m_buffer[this._observedVehicleId];
+          if (vehicle.Info != null)
+          {
+            isStopped = (vehicle.m_flags & Vehicle.Flags.Stopped) != 0;
+            var subService = vehicle.Info.m_class?.m_subService ?? ItemClass.SubService.None;
+            isRouteProgress = subService == ItemClass.SubService.PublicTransportShip
+              || subService == ItemClass.SubService.PublicTransportPlane;
+          }
         }
 
-        if (this._cachedProgressColor.HasValue)
+        if (isStopped)
         {
-          this._distanceTraveled.progressColor = this._cachedProgressColor.Value;
-        }
-      }
+          if (this._cachedProgressValue.HasValue)
+          {
+            this._distanceTraveled.value = this._cachedProgressValue.Value;
+          }
 
-      if (this._distanceProgress != null && this._cachedProgressText != null)
-      {
-        this._distanceProgress.text = this._cachedProgressText;
+          if (this._cachedProgressColor.HasValue)
+          {
+            this._distanceTraveled.progressColor = this._cachedProgressColor.Value;
+          }
+        }
+        else if (!isRouteProgress)
+        {
+          // Moving ordinary vehicle: hand the whole bar back to vanilla. Clear our cached colour
+          // so it cannot stick green, and force the default (white) colour - the vanilla sprite
+          // turns that into the normal blue bar.
+          this._cachedProgressColor = null;
+          this._cachedProgressValue = null;
+          this._cachedProgressText = null;
+          this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+        }
+
+        if (this._cachedProgressText != null)
+        {
+          this._distanceProgress.text = this._cachedProgressText;
+        }
       }
 
     }
 
+    private void ClearProgressOwnership()
+    {
+      this._cachedProgressValue = null;
+      this._cachedProgressColor = null;
+      this._cachedProgressText = null;
+    }
+
+    private void UpdateBoardingProgress(ushort vehicleId)
+    {
+      var manager = Singleton<VehicleManager>.instance;
+      if (manager == null || vehicleId == 0 || vehicleId >= manager.m_vehicles.m_buffer.Length)
+      {
+        this.ClearProgressOwnership();
+        return;
+      }
+
+      ref var vehicle = ref manager.m_vehicles.m_buffer[vehicleId];
+      if (vehicle.Info == null || (vehicle.m_flags & Vehicle.Flags.Stopped) == 0)
+      {
+        this.ClearProgressOwnership();
+        return;
+      }
+
+      var boardingTime = vehicle.Info.m_vehicleType == VehicleInfo.VehicleType.Plane
+        ? CanLeaveStopPatch.AirplaneBoardingTime
+        : CanLeaveStopPatch.BoardingTime;
+      var progress = Mathf.Clamp01(vehicle.m_waitCounter / (float)boardingTime);
+      this._distanceTraveled.progressColor = Color.green;
+      this._distanceTraveled.value = progress;
+      this._distanceProgress.text = LocaleFormatter.FormatPercentage(Mathf.RoundToInt(progress * 100f));
+      this._cachedProgressValue = progress;
+      this._cachedProgressColor = Color.green;
+      this._cachedProgressText = this._distanceProgress.text;
+    }
+
+    private void ClearOwnedFields()
+    {
+      this._cachedStatusText = null;
+      this._cachedDistanceText = null;
+      this.ClearProgressOwnership();
+      this._statusTextHidden = false;
+      if (this._status != null)
+      {
+        this._status.textColor = this._statusVisibleTextColor;
+      }
+    }
+
+    private bool TryObserveVehicle(out ushort vehicleId, out ushort lineId, out bool stopped, out bool routeProgress)
+    {
+      vehicleId = 0;
+      lineId = 0;
+      stopped = false;
+      routeProgress = false;
+
+      var current = WorldInfoPanel.GetCurrentInstanceID();
+      if (current.Type != InstanceType.Vehicle || current.Vehicle == 0)
+      {
+        return false;
+      }
+
+      var manager = Singleton<VehicleManager>.instance;
+      if (manager == null || current.Vehicle >= manager.m_vehicles.m_buffer.Length)
+      {
+        return false;
+      }
+
+      vehicleId = manager.m_vehicles.m_buffer[current.Vehicle].GetFirstVehicle(current.Vehicle);
+      if (vehicleId == 0 || vehicleId >= manager.m_vehicles.m_buffer.Length)
+      {
+        return false;
+      }
+
+      ref var vehicle = ref manager.m_vehicles.m_buffer[vehicleId];
+      if (vehicle.Info == null)
+      {
+        return false;
+      }
+
+      lineId = vehicle.m_transportLine;
+      if (lineId == 0)
+      {
+        return true;
+      }
+
+      stopped = (vehicle.m_flags & Vehicle.Flags.Stopped) != 0;
+      var subService = vehicle.Info.m_class?.m_subService ?? ItemClass.SubService.None;
+      routeProgress = subService == ItemClass.SubService.PublicTransportShip
+        || subService == ItemClass.SubService.PublicTransportPlane;
+      return true;
+    }
+
+    private bool IsSnapshotCurrent()
+    {
+      return this._snapshotInitialized
+        && this.TryObserveVehicle(out var vehicleId, out var lineId, out var stopped, out _)
+        && vehicleId == this._observedVehicleId
+        && lineId == this._observedLineId
+        && stopped == this._observedStopped;
+    }
+
     private void Init()
     {
-      this._publicTransportVehicleWorldInfoPanel = GameObject.Find("(Library) PublicTransportVehicleWorldInfoPanel").GetComponent<PublicTransportVehicleWorldInfoPanel>();
+      var panelObject = GameObject.Find("(Library) PublicTransportVehicleWorldInfoPanel");
+      if (panelObject == null)
+      {
+        return;
+      }
+
+      this._publicTransportVehicleWorldInfoPanel = panelObject.GetComponent<PublicTransportVehicleWorldInfoPanel>();
       if (!((UnityEngine.Object) this._publicTransportVehicleWorldInfoPanel != (UnityEngine.Object) null))
         return;
       this._status = this._publicTransportVehicleWorldInfoPanel.Find<UILabel>("Status");
@@ -211,9 +391,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
       this._distance = this._publicTransportVehicleWorldInfoPanel.Find<UILabel>("Distance");
       this._distanceTraveled = Utils.GetPrivate<UIProgressBar>((object) this._publicTransportVehicleWorldInfoPanel, "m_DistanceTraveled");
       this._distanceProgress = Utils.GetPrivate<UILabel>((object) this._publicTransportVehicleWorldInfoPanel, "m_DistanceProgress");
-      this._cachedCurrentProgress = this._publicTransportVehicleWorldInfoPanel.GetType().GetField("m_cachedCurrentProgress", BindingFlags.Instance | BindingFlags.NonPublic);
-      this._cachedTotalProgress = this._publicTransportVehicleWorldInfoPanel.GetType().GetField("m_cachedTotalProgress", BindingFlags.Instance | BindingFlags.NonPublic);
-      this._cachedProgressVehicle = this._publicTransportVehicleWorldInfoPanel.GetType().GetField("m_cachedProgressVehicle", BindingFlags.Instance | BindingFlags.NonPublic);
+      if (this._distanceTraveled == null || this._distanceProgress == null)
+      {
+        this.ClearOwnedFields();
+        return;
+      }
       this.AddPanelControls();
       this._initialized = true;
     }
@@ -221,17 +403,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
     private void UpdateBindings()
     {
-      var lineId = WorldInfoCurrentLineIDQuery.Query(out var vehicleID);
-      var currentInstanceId = WorldInfoPanel.GetCurrentInstanceID();
-      if (currentInstanceId.Type == InstanceType.Vehicle && currentInstanceId.Vehicle != 0)
+      VehicleManager vm = Singleton<VehicleManager>.instance;
+      var vehicleID = this._observedVehicleId;
+      var lineId = this._observedLineId;
+      if (vm == null || vehicleID == 0 || vehicleID >= vm.m_vehicles.m_buffer.Length)
       {
-        ushort selectedVehicle = currentInstanceId.Vehicle;
-        var manager = Singleton<VehicleManager>.instance;
-        var firstVehicle = manager.m_vehicles.m_buffer[selectedVehicle].GetFirstVehicle(selectedVehicle);
-        if (firstVehicle != 0)
-        {
-          vehicleID = firstVehicle;
-        }
+        this.ClearOwnedFields();
+        return;
       }
 
       if ((int) lineId == 0)
@@ -244,21 +422,24 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         // for us to describe), so nothing below sets them. Without clearing the cache, LateUpdate
         // would keep reapplying whatever the previous line-vehicle's text was onto this vehicle's
         // panel every frame.
-        this._cachedStatusText = null;
-        this._cachedDistanceText = null;
-        this._cachedProgressValue = null;
-        this._cachedProgressColor = null;
-        this._cachedProgressText = null;
-        // Vanilla owns Status entirely here, so it must be left legible - otherwise a vehicle that
-        // was hidden while on a line would stay invisible after being taken off one.
-        this._statusTextHidden = false;
+        this.ClearOwnedFields();
       }
       else
       {
         this._publicTransportVehicleWorldInfoPanel.component.height = 377f;
         this._editType.isVisible = !ModSetting.Instance.HideVehicleEditor;
-          var lineInfo = Singleton<TransportManager>.instance.m_lines.m_buffer[(int) lineId].Info;
-          if (lineInfo == null) return;
+          var transportManager = Singleton<TransportManager>.instance;
+          if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
+          {
+            this.ClearOwnedFields();
+            return;
+          }
+          var lineInfo = transportManager.m_lines.m_buffer[(int) lineId].Info;
+          if (lineInfo == null)
+          {
+            this.ClearOwnedFields();
+            return;
+          }
           ItemClass itemClass = lineInfo.m_class;
           ItemClass.SubService subService = itemClass.m_subService;
           ItemClass.Service service = itemClass.m_service;
@@ -296,11 +477,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         }
         this._distanceTraveled.parent.Show();
         this._distanceProgress.parent.Show();
-        VehicleManager vm = Singleton<VehicleManager>.instance;
-        if (vehicleID == 0) return;
         ref var vehicle = ref vm.m_vehicles.m_buffer[(int)vehicleID];
-        if (vehicle.Info == null) return;
-        if ((vehicle.m_flags & Vehicle.Flags.Stopped) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
+        if (vehicle.Info == null)
+        {
+          this.ClearOwnedFields();
+          return;
+        }
+        if ((vehicle.m_flags & Vehicle.Flags.Stopped) != 0)
         {
           var vehicleCache = CachedVehicleData.m_cachedVehicleData;
           this._statusTextHidden = false;
@@ -310,54 +493,21 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           this._distance.text = this._status.text;
           this._cachedStatusText = this._status.text;
           this._cachedDistanceText = this._distance.text;
-          var boardingTime = vehicle.Info.m_vehicleType == VehicleInfo.VehicleType.Plane
-            ? CanLeaveStopPatch.AirplaneBoardingTime
-            : CanLeaveStopPatch.BoardingTime;
-          
-          var timeSinceBoardingFinished = vehicle.m_waitCounter - boardingTime;
-          float progress;
-          if (timeSinceBoardingFinished <= 0)
-          {
-            progress = (boardingTime + timeSinceBoardingFinished) / (float)boardingTime;
-            progress = Mathf.Clamp01(progress);
-          }
-          else
-          {
-            var maxUnbunchingTime = Mathf.Max(1f, (float) Mathf.Min(ModSetting.Instance.IntervalAggressionFactor, CanLeaveStopPatch.MaxUnbunchingTime));
-            progress = timeSinceBoardingFinished / maxUnbunchingTime;
-            progress = Mathf.Clamp01(progress);
-          }
-          this._distanceTraveled.progressColor = Color.green;
-          this._distanceTraveled.value = progress;
-          this._distanceProgress.text = LocaleFormatter.FormatPercentage( Mathf.RoundToInt(progress * 100f));
-          this._cachedProgressValue = progress;
-          this._cachedProgressColor = Color.green;
-          this._cachedProgressText = this._distanceProgress.text;
           this.ApplyTargetStop(lineId, ref vehicle);
         }
         else
         {
           string text = Localization.Get("VEHICLE_PANEL_STATUS_NEXT_STOP");
-          if (subService == ItemClass.SubService.PublicTransportShip)
-            this.UpdateProgress();
-          else if (subService == ItemClass.SubService.PublicTransportPlane)
+          if (subService == ItemClass.SubService.PublicTransportPlane)
           {
             if ((vm.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.Landing) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive) || (vm.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.TakingOff) != ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive) || (vm.m_vehicles.m_buffer[(int) vehicleID].m_flags & Vehicle.Flags.Flying) == ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted | Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 | Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped | Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed | Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing | Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack | Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting | Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel | Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic | Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding | Vehicle.Flags.LeftHandDrive))
             {
               text = this._status.text;
             }
-            this.UpdateProgress();
           }
-          else
-          {
-            // Only Ship/Plane call UpdateProgress() above (it caches value/text itself) - every
-            // other subService's progress %/fill stays fully vanilla-controlled while moving, so
-            // there is nothing of ours to reapply in LateUpdate. Clearing here (rather than
-            // leaving a stale boarding-phase or previous-vehicle value cached) stops LateUpdate
-            // from forcing a stale number back onto vanilla's own live progress display.
-            this._cachedProgressValue = null;
-            this._cachedProgressText = null;
-          }
+          // Vanilla owns all three progress fields while ordinary vehicles are moving. Ship and
+          // plane route progress is filled by the lightweight per-frame UpdateProgress call.
+          this.ClearProgressOwnership();
           // "Próxima parada" is just a static label here (VEHICLE_PANEL_STATUS_NEXT_STOP never
           // changes while moving) - it carries no information, so rather than fight vanilla's own
           // competing per-frame write of it, we make it transparent (see the _statusTextHidden
@@ -366,8 +516,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
           this._cachedStatusText = null;
           this.ApplyTargetStop(lineId, ref vehicle);
           this._distance.text = ColossalFramework.Globalization.Locale.Get(this._distance.localeID);
-          this._distanceTraveled.progressColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
-          this._cachedProgressColor = this._distanceTraveled.progressColor;
           // _status stays hidden (set above) - intentionally not re-caching its text here.
           this._cachedDistanceText = this._distance.text;
         }
@@ -383,7 +531,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         this._passengersLastWeek.text = vData.PassengersLastWeek.ToString();
         this._passengersAverage.text = vData.PassengersAverage.ToString();
         PrefabData prefabData = VehiclePrefabs.instance.FindByIndex(vehicle.Info.m_prefabDataIndex);
-        if (prefabData == null) return;
+        if (prefabData == null)
+        {
+          return;
+        }
         int num1 = vData.IncomeThisWeek - prefabData.MaintenanceCost;
         UILabel earningsCurrentWeek = this._earningsCurrentWeek;
         float num2 = (float) num1 * 0.01f;
@@ -656,26 +807,28 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     private void UpdateProgress()
     {
       VehicleManager instance = Singleton<VehicleManager>.instance;
-      ushort vehicle = WorldInfoPanel.GetCurrentInstanceID().Vehicle;
-      ushort firstVehicle = instance.m_vehicles.m_buffer[(int) vehicle].GetFirstVehicle(vehicle);
+      ushort firstVehicle = this._observedVehicleId;
+      if (instance == null || firstVehicle == 0 || firstVehicle >= instance.m_vehicles.m_buffer.Length)
+      {
+        this.ClearProgressOwnership();
+        return;
+      }
+
       float current;
       float max;
-      if (GetProgressStatus(firstVehicle, ref instance.m_vehicles.m_buffer[(int) firstVehicle], out current, out max) || (int) firstVehicle != (int) (ushort) this._cachedProgressVehicle.GetValue((object) this._publicTransportVehicleWorldInfoPanel))
+      if (!GetProgressStatus(firstVehicle, ref instance.m_vehicles.m_buffer[(int) firstVehicle], out current, out max)
+          || float.IsNaN(current)
+          || float.IsInfinity(current)
+          || float.IsNaN(max)
+          || float.IsInfinity(max)
+          || max <= 0f)
       {
-        this._cachedCurrentProgress.SetValue((object) this._publicTransportVehicleWorldInfoPanel, (object) current);
-        this._cachedTotalProgress.SetValue((object) this._publicTransportVehicleWorldInfoPanel, (object) max);
-        this._cachedProgressVehicle.SetValue((object) this._publicTransportVehicleWorldInfoPanel, (object) firstVehicle);
-      }
-      else
-      {
-        current = (float) this._cachedCurrentProgress.GetValue((object) this._publicTransportVehicleWorldInfoPanel);
-        max = (float) this._cachedTotalProgress.GetValue((object) this._publicTransportVehicleWorldInfoPanel);
-      }
-      if ((double) max == 0.0)
+        this.ClearProgressOwnership();
         return;
+      }
       this._distanceTraveled.parent.Show();
       this._distanceProgress.parent.Show();
-      float num = current / max;
+      float num = Mathf.Clamp01(current / max);
       int p = Mathf.RoundToInt(num * 100f);
       this._distanceTraveled.value = num;
       this._distanceProgress.text = LocaleFormatter.FormatPercentage(p);
@@ -687,7 +840,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
     {
         ushort transportLine = data.m_transportLine;
         ushort targetBuilding = data.m_targetBuilding;
-        if ((int) transportLine != 0 && (int) targetBuilding != 0)
+        var transportManager = Singleton<TransportManager>.instance;
+        var pathManager = Singleton<PathManager>.instance;
+        if (transportManager != null
+            && pathManager != null
+            && transportLine != 0
+            && transportLine < transportManager.m_lines.m_buffer.Length
+            && targetBuilding != 0)
         {
             float min;
             float max1;
@@ -696,18 +855,9 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                 .GetStopProgress(targetBuilding, out min, out max1, out total);
             uint path = data.m_path;
             bool valid;
-            if ((int) path == 0 || (data.m_flags & Vehicle.Flags.WaitingPath) !=
-                ~(Vehicle.Flags.Created | Vehicle.Flags.Deleted | Vehicle.Flags.Spawned | Vehicle.Flags.Inverted |
-                    Vehicle.Flags.TransferToTarget | Vehicle.Flags.TransferToSource | Vehicle.Flags.Emergency1 |
-                    Vehicle.Flags.Emergency2 | Vehicle.Flags.WaitingPath | Vehicle.Flags.Stopped |
-                    Vehicle.Flags.Leaving | Vehicle.Flags.Arriving | Vehicle.Flags.Reversed |
-                    Vehicle.Flags.TakingOff | Vehicle.Flags.Flying | Vehicle.Flags.Landing |
-                    Vehicle.Flags.WaitingSpace | Vehicle.Flags.WaitingCargo | Vehicle.Flags.GoingBack |
-                    Vehicle.Flags.WaitingTarget | Vehicle.Flags.Importing | Vehicle.Flags.Exporting |
-                    Vehicle.Flags.Parking | Vehicle.Flags.CustomName | Vehicle.Flags.OnGravel |
-                    Vehicle.Flags.WaitingLoading | Vehicle.Flags.Congestion | Vehicle.Flags.DummyTraffic |
-                    Vehicle.Flags.Underground | Vehicle.Flags.Transition | Vehicle.Flags.InsideBuilding |
-                    Vehicle.Flags.LeftHandDrive))
+            if (path == 0
+                || path >= pathManager.m_pathUnits.m_buffer.Length
+                || (data.m_flags & Vehicle.Flags.WaitingPath) != 0)
             {
                 current = min;
                 valid = false;

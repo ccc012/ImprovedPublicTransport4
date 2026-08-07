@@ -509,6 +509,8 @@ namespace ImprovedPublicTransport.UI
                 return;
             ushort transportLine = Singleton<NetManager>.instance.m_nodes.m_buffer[(int) this.m_InstanceID.NetNode]
                 .m_transportLine;
+            if (transportLine == 0)
+                return;
             InstanceID instanceID = new InstanceID();
             instanceID.TransportLine = transportLine;
             this.Hide();
@@ -595,8 +597,19 @@ namespace ImprovedPublicTransport.UI
                 WorldInfoPanel.HideAllWorldInfoPanels();
                 NetManager instance = Singleton<NetManager>.instance;
                 ushort transportLine = instance.m_nodes.m_buffer[(int) this.m_InstanceID.NetNode].m_transportLine;
+                if (transportLine == 0)
+                {
+                    this.Hide();
+                    return;
+                }
+                TransportLine transportLineInstance = Singleton<TransportManager>.instance.m_lines.m_buffer[(int) transportLine];
+                if (transportLineInstance.Info == null)
+                {
+                    this.Hide();
+                    return;
+                }
                 this.m_VehicleType.spriteName = PublicTransportWorldInfoPanel.GetVehicleTypeIcon(
-                    Singleton<TransportManager>.instance.m_lines.m_buffer[(int) transportLine].Info.m_transportType);
+                    transportLineInstance.Info.m_transportType);
                 this.m_StopIndex = TransportLineUtil.GetStopIndex(transportLine, this.m_InstanceID.NetNode);
                 this.m_StopName.text = Singleton<InstanceManager>.instance.GetName(this.m_InstanceID) ??
                                        string.Format(Localization.Get("STOP_LIST_BOX_ROW_STOP"),
@@ -749,7 +762,9 @@ namespace ImprovedPublicTransport.UI
             else
             {
                 this.m_unbunching.Enable();
-                this.m_unbunching.isChecked = CachedNodeData.m_cachedNodeData[(int) netNode].Unbunching;
+                this.m_unbunching.isChecked = nodeCache != null && netNode != 0 && netNode < nodeCache.Length
+                    ? nodeCache[netNode].Unbunching
+                    : ModSetting.Instance.Unbunching;
                 this.m_unbunching.label.text = Localization.Get("UNBUNCHING_ENABLED");
                 this.m_unbunching.size = new Vector2(this.m_unbunching.label.width + 22f, 16f);
                 this.m_closeStopsUnbunching.Show();

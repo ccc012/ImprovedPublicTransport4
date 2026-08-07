@@ -33,31 +33,6 @@ namespace IntercityBusControl
                     Harmony harmonyInstance = new Harmony(HarmonyId);
                     HarmonyScope.PatchNamespace(harmonyInstance, "IntercityBusControl");
 
-                    // Belt-and-suspenders: attribute Prefix on UpdateBindings was not reliably
-                    // blocking OnAccepts echos in playtest (both False and True logged as player
-                    // click). Re-assert Prefix/Finalizer via explicit Method patch.
-                    var updateBindings = AccessTools.Method(typeof(CityServiceWorldInfoPanel), "UpdateBindings");
-                    if (updateBindings != null)
-                    {
-                        var prefix = AccessTools.Method(
-                            typeof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch),
-                            nameof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch.Prefix));
-                        var finalizer = AccessTools.Method(
-                            typeof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch),
-                            nameof(HarmonyPatches.CityServiceWorldInfoPanelPatches.UpdateBindingsPatch.Finalizer));
-                        if (prefix != null)
-                        {
-                            harmonyInstance.Patch(updateBindings, prefix: new HarmonyMethod(prefix));
-                        }
-
-                        if (finalizer != null)
-                        {
-                            harmonyInstance.Patch(updateBindings, finalizer: new HarmonyMethod(finalizer));
-                        }
-
-                        Utils.Log("IntercityBusControl: UpdateBindings Prefix/Finalizer explicitly patched for checkbox lock.");
-                    }
-
                     _patched = true;
                 }
             }

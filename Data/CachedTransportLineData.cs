@@ -12,6 +12,7 @@ namespace ImprovedPublicTransport.Data
     {
         private static readonly string _dataID = "ImprovedPublicTransport";
         private static readonly string _dataVersion = "v004";
+        private static readonly object[] QueueLocks = Enumerable.Range(0, 256).Select(_ => new object()).ToArray();
 
         public static bool _init;
         public static LineData[] _lineData;
@@ -39,12 +40,15 @@ namespace ImprovedPublicTransport.Data
                         _lineData[index].TargetVehicleCount =
                             ModSetting.Instance.DefaultVehicleCount;
                     _lineData[index].BudgetControl = ModSetting.Instance.BudgetControl == ModSetting.BudgetControlModes.Enabled;
-                    _lineData[index].Depot = DepotUtil.GetClosestDepot(index,
-                        instance1.m_nodes.m_buffer[instance2.m_lines.m_buffer[index].GetStop(0)].m_position);
+                    var firstStop = instance2.m_lines.m_buffer[index].GetStop(0);
+                    _lineData[index].Depot = firstStop == 0 || firstStop >= instance1.m_nodes.m_buffer.Length
+                        ? (ushort)0
+                        : DepotUtil.GetClosestDepot(index, instance1.m_nodes.m_buffer[firstStop].m_position);
                     _lineData[index].Unbunching = ModSetting.Instance.Unbunching;
                 }
             }
-            SerializableDataExtension.instance.EventSaveData += OnSaveData;
+            if (SerializableDataExtension.instance != null)
+                SerializableDataExtension.instance.EventSaveData += OnSaveData;
 
             _init = true;
         }
@@ -52,7 +56,8 @@ namespace ImprovedPublicTransport.Data
         public static void Deinit()
         {
             _lineData = null;
-            SerializableDataExtension.instance.EventSaveData -= OnSaveData;
+            if (SerializableDataExtension.instance != null)
+                SerializableDataExtension.instance.EventSaveData -= OnSaveData;
             _init = false;
         }
 
@@ -68,7 +73,7 @@ namespace ImprovedPublicTransport.Data
             {
                 Utils.Log("Try to load transport line data.");
                 var str = SerializableDataExtension.ReadString(data1, ref index1);
-                if (string.IsNullOrEmpty(str) || str.Length != 4)
+                if (!IsKnownVersion(str))
                 {
                     Utils.LogWarning("Unknown data found.");
                     return false;
@@ -76,29 +81,28 @@ namespace ImprovedPublicTransport.Data
                 Utils.Log("Found transport line data version: " + str);
                 var instance1 = Singleton<NetManager>.instance;
                 var instance2 = Singleton<TransportManager>.instance;
-                while (index1 < data1.Length)
+                while (index1 < data1.Length && lineID < data.Length)
                 {
                     if (instance2.m_lines.m_buffer[lineID].Complete)
                     {
-                        var int32 = BitConverter.ToInt32(data1, index1);
+                        var int32 = SerializableDataExtension.ReadInt32(data1, ref index1);
                         data[lineID].TargetVehicleCount = int32;
                     }
-                    index1 += 4;
-                    var num = Mathf.Min(BitConverter.ToSingle(data1, index1),
+                    else
+                        SerializableDataExtension.ReadInt32(data1, ref index1);
+                    var num = Mathf.Min(SerializableDataExtension.ReadFloat(data1, ref index1),
                         ModSetting.Instance.SpawnTimeInterval);
                     if (num > 0.0)
                         data[lineID].NextSpawnTime = SimHelper.SimulationTime + num;
-                    index1 += 4;
-                    var boolean = BitConverter.ToBoolean(data1, index1);
+                    var boolean = SerializableDataExtension.ReadBool(data1, ref index1);
                     data[lineID].BudgetControl = boolean;
-                    ++index1;
-                    var uint16 = BitConverter.ToUInt16(data1, index1);
+                    var uint16 = SerializableDataExtension.ReadUInt16(data1, ref index1);
+                    var firstStop = instance2.m_lines.m_buffer[lineID].GetStop(0);
                     data[lineID].Depot = uint16 != 0
                         ? uint16
-                        : DepotUtil.GetClosestDepot(lineID,
-                            instance1.m_nodes.m_buffer[instance2.m_lines.m_buffer[lineID].GetStop(0)]
-                                .m_position);
-                    index1 += 2;
+                        : firstStop == 0 || firstStop >= instance1.m_nodes.m_buffer.Length
+                            ? (ushort)0
+                            : DepotUtil.GetClosestDepot(lineID, instance1.m_nodes.m_buffer[firstStop].m_position);
                     if (str == "v001")
                     {
                         var name = SerializableDataExtension.ReadString(data1, ref index1);
@@ -112,8 +116,7 @@ namespace ImprovedPublicTransport.Data
                     }
                     else
                     {
-                        var int32 = BitConverter.ToInt32(data1, index1);
-                        index1 += 4;
+                        var int32 = ReadCollectionCount(data1, ref index1);
                         for (var index2 = 0; index2 < int32; ++index2)
                         {
                             var name = SerializableDataExtension.ReadString(data1, ref index1);
@@ -125,22 +128,19 @@ namespace ImprovedPublicTransport.Data
                     }
                     if (str != "v001")
                     {
-                        var int32 = BitConverter.ToInt32(data1, index1);
-                        index1 += 4;
+                        var int32 = ReadCollectionCount(data1, ref index1);
                         for (var index2 = 0; index2 < int32; ++index2)
                         {
                             var name = SerializableDataExtension.ReadString(data1, ref index1);
-                            if (boolean)
+                            if (!boolean)
                             {
-                                continue;
+                                data[lineID].QueuedVehicles ??= new Queue<string>();
+                                if (PrefabCollection<VehicleInfo>.FindLoaded(name) != null)
+                                {
+                                    lock (data[lineID].QueuedVehicles) 
+                                        data[lineID].QueuedVehicles.Enqueue(name);
+                                }
                             }
-                            data[lineID].QueuedVehicles ??= new Queue<string>();
-                            if (PrefabCollection<VehicleInfo>.FindLoaded(name) == null)
-                            {
-                                continue;
-                            }
-                            lock (data[lineID].QueuedVehicles) 
-                                data[lineID].QueuedVehicles.Enqueue(name);
                         }
                     }
                     if (str == "v003")
@@ -158,6 +158,19 @@ namespace ImprovedPublicTransport.Data
                 data = new LineData[256];
                 return false;
             }
+        }
+
+        private static bool IsKnownVersion(string version)
+        {
+            return version == "v001" || version == "v002" || version == "v003" || version == "v004";
+        }
+
+        private static int ReadCollectionCount(byte[] data, ref int index)
+        {
+            var count = SerializableDataExtension.ReadInt32(data, ref index);
+            if (count < 0 || count > data.Length - index)
+                throw new InvalidOperationException("Serialized IPT collection count is invalid.");
+            return count;
         }
 
         private static void OnSaveData()
@@ -211,7 +224,7 @@ namespace ImprovedPublicTransport.Data
 
         public static int GetTargetVehicleCount(ushort lineID)
         {
-            return IsValidLineId(lineID) ? _lineData[lineID].TargetVehicleCount : 0;
+            return IsValidLineId(lineID) ? Mathf.Clamp(_lineData[lineID].TargetVehicleCount, 0, int.MaxValue - 1) : 0;
         }
                 
         public static void SetLineDefaults(ushort lineID)
@@ -342,19 +355,24 @@ namespace ImprovedPublicTransport.Data
         {
             if (!IsValidLineId(lineID) || string.IsNullOrEmpty(prefabName))
                 return;
-            _lineData[lineID].QueuedVehicles ??= new Queue<string>();
-            lock (_lineData[lineID].QueuedVehicles)
+            lock (QueueLocks[lineID])
+            {
+                _lineData[lineID].QueuedVehicles ??= new Queue<string>();
                 _lineData[lineID].QueuedVehicles.Enqueue(prefabName);
+            }
         }
 
         public static string Dequeue(ushort lineID)
         {
-            if (!IsValidLineId(lineID) || _lineData[lineID].QueuedVehicles is not { Count: not 0 })
-            {
+            if (!IsValidLineId(lineID))
                 return null;
-            }
-            lock (_lineData[lineID].QueuedVehicles)
+
+            lock (QueueLocks[lineID])
+            {
+                if (_lineData[lineID].QueuedVehicles is not { Count: > 0 })
+                    return null;
                 return _lineData[lineID].QueuedVehicles.Dequeue();
+            }
         }
 
         public static void DequeueVehicle(ushort lineID)
@@ -370,12 +388,14 @@ namespace ImprovedPublicTransport.Data
 
         public static void DequeueVehicles(ushort lineID, int[] indexes, bool decreaseVehicleCount = true)
         {
-            if (!IsValidLineId(lineID) || _lineData[lineID].QueuedVehicles is not { Count: not 0 } || indexes == null || indexes.Length == 0)
+            if (!IsValidLineId(lineID) || indexes == null || indexes.Length == 0)
             {
                 return;
             }
-            lock (_lineData[lineID].QueuedVehicles)
+            lock (QueueLocks[lineID])
             {
+                if (_lineData[lineID].QueuedVehicles is not { Count: > 0 })
+                    return;
                 var stringList = new List<string>(_lineData[lineID].QueuedVehicles);
                 var validIndexes = new List<int>(indexes.Length);
                 foreach (int selectedIndex in indexes)
@@ -407,25 +427,26 @@ namespace ImprovedPublicTransport.Data
 
         public static string[] GetEnqueuedVehicles(ushort lineID)
         {
-            if (!IsValidLineId(lineID) || _lineData[lineID].QueuedVehicles is not { Count: not 0 })
+            if (!IsValidLineId(lineID))
                 return new string[0];
-            lock (_lineData[lineID].QueuedVehicles)
-                return _lineData[lineID].QueuedVehicles.ToArray();
+            lock (QueueLocks[lineID])
+                return _lineData[lineID].QueuedVehicles?.ToArray() ?? new string[0];
         }
 
         public static int EnqueuedVehiclesCount(ushort lineID)
         {
-            if (!IsValidLineId(lineID) || _lineData[lineID].QueuedVehicles == null)
+            if (!IsValidLineId(lineID))
                 return 0;
-            return _lineData[lineID].QueuedVehicles.Count;
+            lock (QueueLocks[lineID])
+                return _lineData[lineID].QueuedVehicles?.Count ?? 0;
         }
 
         public static void ClearEnqueuedVehicles(ushort lineID)
         {
-            if (!IsValidLineId(lineID) || _lineData[lineID].QueuedVehicles is not { Count: > 0 })
+            if (!IsValidLineId(lineID))
                 return;
-            lock (_lineData[lineID].QueuedVehicles)
-                _lineData[lineID].QueuedVehicles.Clear();
+            lock (QueueLocks[lineID])
+                _lineData[lineID].QueuedVehicles?.Clear();
         }
 
     }

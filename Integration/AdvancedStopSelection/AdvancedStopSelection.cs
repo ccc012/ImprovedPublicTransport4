@@ -1,60 +1,51 @@
-﻿using HarmonyLib;
-using ICities;
-using ColossalFramework.PlatformServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Resources;
-using UnityEngine;
+using HarmonyLib;
 using ImprovedPublicTransport.Util;
 
 namespace ImprovedPublicTransport.Integration.AdvancedStopSelection
 {
     public static class Patcher
     {
-        private static CodeInstruction GetLDArg(MethodBase method, string argName)
-        {
-            var idx = Array.FindIndex(method.GetParameters(), p => p.Name == argName);
-
-            if (idx == -1)
-                return null;
-            else if (!method.IsStatic)
-                idx += 1;
-
-            return idx switch
-            {
-                0 => new CodeInstruction(OpCodes.Ldarg_0),
-                1 => new CodeInstruction(OpCodes.Ldarg_1),
-                2 => new CodeInstruction(OpCodes.Ldarg_2),
-                3 => new CodeInstruction(OpCodes.Ldarg_3),
-                _ => new CodeInstruction(OpCodes.Ldarg_S, idx)
-            };
-        }
+        private static readonly FieldInfo StopFlagField = AccessTools.Field(typeof(TransportInfo), nameof(TransportInfo.m_stopFlag));
+        private static readonly MethodInfo GetAlternateModeMethod = AccessTools.Method(typeof(Patcher), nameof(GetAlternateMode));
+        private static readonly MethodInfo FilterStopFlagMethod = AccessTools.Method(typeof(Patcher), nameof(FilterStopFlag));
 
         public static IEnumerable<CodeInstruction> TransportToolGetStopPositionTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions, MethodBase original)
         {
+            var codes = new List<CodeInstruction>(instructions);
             var alternateModeLocal = generator.DeclareLocal(typeof(bool));
-            yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.GetAlternateMode)));
+            yield return new CodeInstruction(OpCodes.Call, GetAlternateModeMethod);
             yield return new CodeInstruction(OpCodes.Stloc, alternateModeLocal);
 
             bool segmentNotZeroPassed = false;
-            Label segmentElseLabel = default;
             bool buildingCheckPatched = false;
             bool transportLine1CheckPatched = false;
             bool transportLine2CheckPatched = false;
-            CodeInstruction prevInstruction = null;
-            CodeInstruction prevPrevInstruction = null;
-            var segmentArg = GetLDArg(original, "segment");
-            var buildingArg = GetLDArg(original, "building");
-            foreach (var instruction in instructions)
+            int stopFlagsPatched = 0;
+            Label segmentElseLabel = default;
+            CodeInstruction previous = null;
+            CodeInstruction previousPrevious = null;
+            var segmentArg = GetLoadArgument(original, "segment");
+            var buildingArg = GetLoadArgument(original, "building");
+            var transportInfoLocals = FindTransportInfoLocals(codes);
+
+            foreach (var instruction in codes)
             {
                 yield return instruction;
 
-                if(!segmentNotZeroPassed)
+                if (instruction.LoadsField(StopFlagField))
                 {
-                    if(prevPrevInstruction != null && prevPrevInstruction.opcode == OpCodes.Ret && prevInstruction != null && prevInstruction.opcode == segmentArg.opcode && prevInstruction.operand == segmentArg.operand && instruction.opcode == OpCodes.Brfalse)
+                    yield return new CodeInstruction(OpCodes.Call, FilterStopFlagMethod);
+                    stopFlagsPatched++;
+                }
+
+                if (!segmentNotZeroPassed)
+                {
+                    if (previousPrevious != null && previousPrevious.opcode == OpCodes.Ret
+                        && SameInstruction(previous, segmentArg) && IsBrfalse(instruction))
                     {
                         segmentNotZeroPassed = true;
                         segmentElseLabel = (Label)instruction.operand;
@@ -62,21 +53,23 @@ namespace ImprovedPublicTransport.Integration.AdvancedStopSelection
                 }
                 else
                 {
-                    if (!transportLine1CheckPatched && prevInstruction != null && prevInstruction.opcode == OpCodes.Ldloc_S && prevInstruction.operand is LocalBuilder local1 && local1.LocalIndex == 12 && instruction.opcode == OpCodes.Brfalse)
+                    if (!transportLine1CheckPatched && transportInfoLocals.Count > 0
+                        && LoadsLocal(previous, transportInfoLocals[0]) && IsBrfalse(instruction))
                     {
                         yield return new CodeInstruction(OpCodes.Ldloc, alternateModeLocal);
                         yield return new CodeInstruction(OpCodes.Brtrue, instruction.operand);
                         transportLine1CheckPatched = true;
                     }
-
-                    if (!transportLine2CheckPatched && prevInstruction != null && prevInstruction.opcode == OpCodes.Ldloc_S && prevInstruction.operand is LocalBuilder local2 && local2.LocalIndex == 13 && instruction.opcode == OpCodes.Brfalse)
+                    else if (!transportLine2CheckPatched && transportInfoLocals.Count > 1
+                        && LoadsLocal(previous, transportInfoLocals[1]) && IsBrfalse(instruction))
                     {
                         yield return new CodeInstruction(OpCodes.Ldloc, alternateModeLocal);
                         yield return new CodeInstruction(OpCodes.Brtrue, instruction.operand);
                         transportLine2CheckPatched = true;
                     }
 
-                    if (!buildingCheckPatched && prevInstruction != null && prevInstruction.labels.Contains(segmentElseLabel) && prevInstruction.opcode == buildingArg.opcode && prevInstruction.operand == buildingArg.operand && instruction.opcode == OpCodes.Brfalse)
+                    if (!buildingCheckPatched && previous != null && previous.labels.Contains(segmentElseLabel)
+                        && SameInstruction(previous, buildingArg) && IsBrfalse(instruction))
                     {
                         yield return new CodeInstruction(OpCodes.Ldloc, alternateModeLocal);
                         yield return new CodeInstruction(OpCodes.Brtrue, instruction.operand);
@@ -84,59 +77,155 @@ namespace ImprovedPublicTransport.Integration.AdvancedStopSelection
                     }
                 }
 
-                prevPrevInstruction = prevInstruction;
-                prevInstruction = instruction;
+                previousPrevious = previous;
+                previous = instruction;
             }
 
             if (!transportLine1CheckPatched || !transportLine2CheckPatched || !buildingCheckPatched)
-                Utils.LogError($"AdvancedStopSelection: transpiler did not find all expected IL patterns (t1={transportLine1CheckPatched}, t2={transportLine2CheckPatched}, bldg={buildingCheckPatched}). The patch may be incomplete — a game update may have changed local variable indices.");
+                Utils.LogError($"AdvancedStopSelection: GetStopPosition pattern incomplete (t1={transportLine1CheckPatched}, t2={transportLine2CheckPatched}, building={buildingCheckPatched}).");
+            if (stopFlagsPatched == 0)
+                Utils.LogError("SharedStopEnabler: GetStopPosition m_stopFlag pattern not found.");
         }
+
+        public static NetLane.Flags FilterStopFlag(NetLane.Flags stopFlag)
+        {
+            return ModSetting.Instance.EnableSharedStopEnabler ? NetLane.Flags.None : stopFlag;
+        }
+
         private static bool GetAlternateMode()
         {
-            return ImprovedPublicTransport.Settings.IptHotkeys.AdvancedStopSelectionAlternateKey.Combination.IsPressed();
+            return ModSetting.Instance.EnableAdvancedStopSelection
+                && Settings.IptHotkeys.AdvancedStopSelectionAlternateKey.Combination.IsPressed();
+        }
+
+        private static List<int> FindTransportInfoLocals(IEnumerable<CodeInstruction> instructions)
+        {
+            var result = new List<int>();
+            CodeInstruction previous = null;
+            foreach (var instruction in instructions)
+            {
+                if (previous != null && previous.opcode == OpCodes.Callvirt && previous.operand is MethodInfo method
+                    && (method.Name == nameof(BuildingAI.GetTransportLineInfo) || method.Name == nameof(BuildingAI.GetSecondaryTransportLineInfo)))
+                {
+                    int index = GetStoredLocalIndex(instruction);
+                    if (index >= 0 && !result.Contains(index))
+                        result.Add(index);
+                }
+                previous = instruction;
+            }
+            return result;
+        }
+
+        private static int GetStoredLocalIndex(CodeInstruction instruction)
+        {
+            if (instruction.opcode == OpCodes.Stloc_0) return 0;
+            if (instruction.opcode == OpCodes.Stloc_1) return 1;
+            if (instruction.opcode == OpCodes.Stloc_2) return 2;
+            if (instruction.opcode == OpCodes.Stloc_3) return 3;
+            if (instruction.opcode != OpCodes.Stloc && instruction.opcode != OpCodes.Stloc_S) return -1;
+            if (instruction.operand is LocalBuilder local) return local.LocalIndex;
+            if (instruction.operand is byte value) return value;
+            return instruction.operand is int index ? index : -1;
+        }
+
+        private static bool LoadsLocal(CodeInstruction instruction, int index)
+        {
+            if (instruction == null) return false;
+            if (index == 0 && instruction.opcode == OpCodes.Ldloc_0) return true;
+            if (index == 1 && instruction.opcode == OpCodes.Ldloc_1) return true;
+            if (index == 2 && instruction.opcode == OpCodes.Ldloc_2) return true;
+            if (index == 3 && instruction.opcode == OpCodes.Ldloc_3) return true;
+            if (instruction.opcode != OpCodes.Ldloc && instruction.opcode != OpCodes.Ldloc_S) return false;
+            if (instruction.operand is LocalBuilder local) return local.LocalIndex == index;
+            if (instruction.operand is byte value) return value == index;
+            return instruction.operand is int operand && operand == index;
+        }
+
+        private static CodeInstruction GetLoadArgument(MethodBase method, string name)
+        {
+            var parameters = method.GetParameters();
+            int index = Array.FindIndex(parameters, parameter => parameter.Name == name);
+            if (index < 0) return null;
+            if (!method.IsStatic) index++;
+            if (index == 0) return new CodeInstruction(OpCodes.Ldarg_0);
+            if (index == 1) return new CodeInstruction(OpCodes.Ldarg_1);
+            if (index == 2) return new CodeInstruction(OpCodes.Ldarg_2);
+            if (index == 3) return new CodeInstruction(OpCodes.Ldarg_3);
+            return new CodeInstruction(OpCodes.Ldarg_S, index);
+        }
+
+        private static bool SameInstruction(CodeInstruction left, CodeInstruction right)
+        {
+            return left != null && right != null && left.opcode == right.opcode && Equals(left.operand, right.operand);
+        }
+
+        private static bool IsBrfalse(CodeInstruction instruction)
+        {
+            return instruction.opcode == OpCodes.Brfalse || instruction.opcode == OpCodes.Brfalse_S;
         }
     }
 
     internal static class PatchController
     {
-        private const string HarmonyId = "ipt3.advancedstopselection.mod";
+        private const string HarmonyId = "IPT4.TransportTool.GetStopPosition";
         private static Harmony _harmony;
+        private static bool _advancedActive;
+        private static bool _sharedActive;
 
-        public static void PatchAll()
+        public static void Activate()
         {
-            if (_harmony != null)
-                return; // already patched
+            _advancedActive = true;
+            UpdatePatch();
+        }
 
-            _harmony = new Harmony(HarmonyId);
+        public static void Deactivate()
+        {
+            _advancedActive = false;
+            UpdatePatch();
+        }
+
+        internal static void SetSharedStopEnablerActive(bool active)
+        {
+            _sharedActive = active;
+            UpdatePatch();
+        }
+
+        private static void UpdatePatch()
+        {
+            if (_advancedActive || _sharedActive)
+                EnsurePatched();
+            else
+                Unpatch();
+        }
+
+        private static void EnsurePatched()
+        {
+            if (_harmony != null) return;
+            var original = AccessTools.Method(typeof(TransportTool), "GetStopPosition");
+            var transpiler = AccessTools.Method(typeof(Patcher), nameof(Patcher.TransportToolGetStopPositionTranspiler));
+            if (original == null || transpiler == null)
+            {
+                Utils.LogError("TransportTool.GetStopPosition unified patch method not found.");
+                return;
+            }
+
             try
             {
-                var original = AccessTools.Method(typeof(TransportTool), "GetStopPosition");
-                var transpiler = new HarmonyMethod(AccessTools.Method(typeof(Patcher), nameof(Patcher.TransportToolGetStopPositionTranspiler)));
-                _harmony.Patch(original, null, null, transpiler);
-                if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("AdvancedStopSelection: patch applied.");
+                _harmony = new Harmony(HarmonyId);
+                _harmony.Patch(original, transpiler: new HarmonyMethod(transpiler));
             }
             catch (Exception ex)
             {
-                Utils.LogError($"AdvancedStopSelection: failed to apply patch: {ex.Message}");
-                try { _harmony?.UnpatchAll(HarmonyId); } catch { }
-                _harmony = null;
+                Utils.LogError($"TransportTool.GetStopPosition unified patch failed: {ex.Message}");
+                Unpatch();
             }
         }
 
-        public static void UnpatchAll()
+        private static void Unpatch()
         {
-            try
-            {
-                _harmony?.UnpatchAll(HarmonyId);
-            }
-            catch { }
+            if (_harmony == null) return;
+            try { _harmony.UnpatchAll(HarmonyId); } catch { }
             _harmony = null;
-            if (ImprovedPublicTransport.Util.Diagnostics.VerboseTranspileLogs) Utils.Log("AdvancedStopSelection: patch removed.");
         }
-
-        // Convenience aliases used by IPT lifecycle
-        public static void Activate() => PatchAll();
-        public static void Deactivate() => UnpatchAll();
     }
-
 }

@@ -22,36 +22,24 @@ namespace ImprovedPublicTransport.Query
             try
             {
                 var panels = UnityEngine.Object.FindObjectsOfType<PublicTransportWorldInfoPanel>();
-                if (panels != null)
+                for (int i = 0; i < panels.Length; i++)
                 {
-                    foreach (var panel in panels)
+                    var panel = panels[i];
+                    if (panel?.component == null || !panel.component.isVisible)
                     {
-                        if (panel == null || !panel.component.isVisible)
+                        continue;
+                    }
+
+                    if (LinePanelInstanceIdField?.GetValue(panel) is InstanceID panelId)
+                    {
+                        if (panelId.Type == InstanceType.TransportLine && IsValidLine(panelId.TransportLine))
                         {
-                            continue;
+                            return panelId.TransportLine;
                         }
 
-                        if (LinePanelInstanceIdField?.GetValue(panel) is InstanceID panelId)
+                        if (panelId.Type == InstanceType.Vehicle && TryGetVehicleLine(panelId.Vehicle, out firstVehicle, out ushort line))
                         {
-                            if (panelId.Type == InstanceType.TransportLine && panelId.TransportLine != 0)
-                            {
-                                return panelId.TransportLine;
-                            }
-
-                            if (panelId.Type == InstanceType.Vehicle && panelId.Vehicle != 0)
-                            {
-                                firstVehicle = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[panelId.Vehicle]
-                                    .GetFirstVehicle(panelId.Vehicle);
-                                if (firstVehicle != 0)
-                                {
-                                    var line = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[firstVehicle]
-                                        .m_transportLine;
-                                    if (line != 0)
-                                    {
-                                        return line;
-                                    }
-                                }
-                            }
+                            return line;
                         }
                     }
                 }
@@ -62,22 +50,63 @@ namespace ImprovedPublicTransport.Query
             }
 
             // 2) Global world-info selection.
-            var currentInstanceId = WorldInfoPanel.GetCurrentInstanceID();
-            if (currentInstanceId.Type == InstanceType.TransportLine)
+            try
             {
-                return currentInstanceId.TransportLine;
-            }
+                var currentInstanceId = WorldInfoPanel.GetCurrentInstanceID();
+                if (currentInstanceId.Type == InstanceType.TransportLine)
+                {
+                    return IsValidLine(currentInstanceId.TransportLine) ? currentInstanceId.TransportLine : (ushort)0;
+                }
 
-            if (currentInstanceId.Type != InstanceType.Vehicle || currentInstanceId.Vehicle == 0)
+                return currentInstanceId.Type == InstanceType.Vehicle &&
+                       TryGetVehicleLine(currentInstanceId.Vehicle, out firstVehicle, out ushort line)
+                    ? line
+                    : (ushort)0;
+            }
+            catch (System.Exception ex)
             {
+                UnityEngine.Debug.LogError($"WorldInfoCurrentLineIDQuery: Exception in global selection: {ex.Message}");
+                firstVehicle = 0;
                 return 0;
             }
-
-            firstVehicle = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[currentInstanceId.Vehicle]
-                .GetFirstVehicle(currentInstanceId.Vehicle);
-            return firstVehicle != 0
-                ? Singleton<VehicleManager>.instance.m_vehicles.m_buffer[firstVehicle].m_transportLine
-                : (ushort)0;
         }
+
+        private static bool IsValidLine(ushort line)
+        {
+            var manager = Singleton<TransportManager>.instance;
+            return line != 0 && manager != null && line < manager.m_lines.m_buffer.Length &&
+                   (manager.m_lines.m_buffer[line].m_flags & TransportLine.Flags.Created) != 0 &&
+                   manager.m_lines.m_buffer[line].Info != null;
+        }
+
+        private static bool TryGetVehicleLine(ushort vehicle, out ushort firstVehicle, out ushort line)
+        {
+            firstVehicle = 0;
+            line = 0;
+            var manager = Singleton<VehicleManager>.instance;
+            if (vehicle == 0 || manager == null || vehicle >= manager.m_vehicles.m_buffer.Length)
+            {
+                return false;
+            }
+
+            if ((manager.m_vehicles.m_buffer[vehicle].m_flags &
+                 (Vehicle.Flags.Created | Vehicle.Flags.Deleted)) != Vehicle.Flags.Created)
+            {
+                return false;
+            }
+
+            firstVehicle = manager.m_vehicles.m_buffer[vehicle].GetFirstVehicle(vehicle);
+            if (firstVehicle == 0 || firstVehicle >= manager.m_vehicles.m_buffer.Length ||
+                (manager.m_vehicles.m_buffer[firstVehicle].m_flags &
+                 (Vehicle.Flags.Created | Vehicle.Flags.Deleted)) != Vehicle.Flags.Created)
+            {
+                firstVehicle = 0;
+                return false;
+            }
+
+            line = manager.m_vehicles.m_buffer[firstVehicle].m_transportLine;
+            return IsValidLine(line);
+        }
+
     }
 }

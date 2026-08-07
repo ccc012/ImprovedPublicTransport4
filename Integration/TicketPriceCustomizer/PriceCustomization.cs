@@ -202,6 +202,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     SetLinePrice(i, info, ref transportManager.m_lines.m_buffer[i], (ushort)Mathf.Clamp(kvp.Value, 0, UInt16.MaxValue));
                 }
             }
+
+            s_basePrices.Clear();
+            s_cachedTransportInfos.Clear();
+            s_missingTransportInfoWarned.Clear();
         }
 
         private static void SetPrice(float multiplier, string type)

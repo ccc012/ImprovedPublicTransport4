@@ -57,7 +57,8 @@ namespace ExpressBusServices
         public static bool FindRedeployToTerminus(ushort vehicleID, ushort transportLineID, ushort currentTerminusStopId, out ushort terminusStopId)
         {
             terminusStopId = 0;
-            if (!EBSModConfig.UseServiceSelfBalancing)
+            if (EBSModConfig.CurrentExpressBusMode == EBSModConfig.ExpressMode.NONE
+                || !EBSModConfig.UseServiceSelfBalancing)
             {
                 // option not enabled; skip everything!
                 MarkIsRedeployingToTerminus(vehicleID, false);
@@ -313,6 +314,11 @@ namespace ExpressBusServices
 
         public static void MarkRedeployToNewTerminus(ushort vehicleID, ushort targetStopId)
         {
+            if (EBSModConfig.CurrentExpressBusMode == EBSModConfig.ExpressMode.NONE)
+            {
+                ForgetVehicle(vehicleID);
+                return;
+            }
             // Never store an invalid stop — StartPathFind would IndexOutOfRange on it.
             if (targetStopId == 0 || !TransportStopSafety.IsLiveStopNode(targetStopId))
             {
@@ -325,6 +331,12 @@ namespace ExpressBusServices
         public static bool ReadRedeploymentInstructions(ushort vehicleID, out ushort redeploymentTarget, bool removeEntry = false)
         {
             redeploymentTarget = 0;
+            if (EBSModConfig.CurrentExpressBusMode == EBSModConfig.ExpressMode.NONE)
+            {
+                redeploymentInstructions.Remove(vehicleID);
+                MarkIsRedeployingToTerminus(vehicleID, false);
+                return false;
+            }
             if (!redeploymentInstructions.ContainsKey(vehicleID))
             {
                 // no instructions

@@ -266,13 +266,16 @@ namespace AutoLineColor.Naming
             var names = new List<string>();
             var theTransportManager = Singleton<TransportManager>.instance;
             var lines = theTransportManager.m_lines.m_buffer;
-            for (ushort lineIndex = 0; lineIndex < lines.Length; lineIndex++)
+            int len = lines.Length;
+            for (int lineIndex = 0; lineIndex < len; lineIndex++)
             {
                 if (lineIndex == excludeLineId)
                     continue;
+                if (lineIndex >= len)
+                    continue;
                 if (!lines[lineIndex].HasCustomName())
                     continue;
-                var name = theTransportManager.GetLineName(lineIndex);
+                var name = theTransportManager.GetLineName((ushort)lineIndex);
                 if (!string.IsNullOrEmpty(name))
                 {
                     names.Add(name);

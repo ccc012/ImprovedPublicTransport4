@@ -1,4 +1,4 @@
-MOD_DESCRIPTION Verbesserte Steuerung des Ã¶ffentlichen Nahverkehrs.
+MOD_DESCRIPTION Verbesserte Steuerung des öffentlichen Nahverkehrs.
 CURRENT_WEEK Aktuelle Woche
 LAST_WEEK Letzte Woche
 AVERAGE Durchschnitt
@@ -6,73 +6,77 @@ AVERAGE_TOOLTIP Durchschnitt der letzten {0} Wochen.
 CITY_SERVICE_PANEL_TITLE_STATION_STOPS Bahnhofshaltestellen
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Depotfahrzeuge
 CITYSERVICE_ACCEPTINTERCITYBUSES Fernbusse erlauben
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Erlaubt Fernbussen die Nutzung dieser Station. Deaktivieren fÃ¼r reine Stadtbushaltestellen.
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Erlaubt Fernbussen die Nutzung dieser Station. Deaktivieren für reine Stadtbushaltestellen.
 EXPLANATION_BUDGET_CONTROL Budgetsteuerung: Die Fahrzeuganzahl wird durch das Budget gesteuert.
-EXPLANATION_UNBUNCHING FahrzeugentbÃ¼ndelung: Das Spiel versucht, einen Abstand zwischen Fahrzeugen zu erzeugen.
+EXPLANATION_UNBUNCHING Fahrzeugentbündelung: Das Spiel versucht, einen Abstand zwischen Fahrzeugen zu erzeugen.
 LINE_PANEL_STOPS Haltestellen: {0}
-LINE_PANEL_SPAWNTIMER NÃ¤chstes Fahrzeug in {0} Sekunden.
-LINE_PANEL_DEPOT_WARNING <color #FF0000>Das ausgewÃ¤hlte Depot hat keine Fahrzeuge mehr.</color>
+LINE_PANEL_SPAWNTIMER Nächstes Fahrzeug in {0} Sekunden.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>Das ausgewählte Depot hat keine Fahrzeuge mehr.</color>
 LINE_PANEL_BUDGET_CONTROL Budgetsteuerung
-LINE_PANEL_BUDGET_CONTROL_TOOLTIP Aktiviert oder deaktiviert die Budgetsteuerung fÃ¼r diese Linie.
-LINE_PANEL_UNBUNCHING_TOOLTIP Aktiviert oder deaktiviert die FahrzeugentbÃ¼ndelung fÃ¼r diese Linie.\nEntbÃ¼ndelung ist deaktiviert, wenn die EntbÃ¼ndelungsaggressivitÃ¤t auf 0 gesetzt ist.
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP Aktiviert oder deaktiviert die Budgetsteuerung für diese Linie.
+LINE_PANEL_UNBUNCHING_TOOLTIP Aktiviert oder deaktiviert die Fahrzeugentbündelung für diese Linie.\nEntbündelung ist deaktiviert, wenn die Entbündelungsaggressivität auf 0 gesetzt ist.
 LINE_PANEL_DEPOT Depot:
 LINE_PANEL_NO_DEPOT_FOUND Kein Depot gefunden.
-LINE_PANEL_DEPOT_MARKER_TOOLTIP Zum ausgewÃ¤hlten Depot springen.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
-LINE_PANEL_SELECT_TYPES Typen auswÃ¤hlen
-LINE_PANEL_SELECT_TYPES_TOOLTIP Ã–ffnet/schlieÃŸt das Typenauswahl-Panel.\nWenn dieser Knopf deaktiviert ist, mÃ¼ssen Sie zuerst ein Depot auswÃ¤hlen.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Zum ausgewählten Depot springen.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
+LINE_PANEL_SELECT_TYPES Typen auswählen
+LINE_PANEL_SELECT_TYPES_TOOLTIP Öffnet/schließt das Typenauswahl-Panel.\nWenn dieser Knopf deaktiviert ist, müssen Sie zuerst ein Depot auswählen.
 LINE_PANEL_LINE_STOPS Linienhaltestellen
 LINE_PANEL_LINE_VEHICLES Fahrzeuge auf dieser Linie
 LINE_PANEL_ENQUEUED Fahrzeuge in Warteschlange
-LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} FahrgÃ¤ste warten auf dieser Linie.
-LINE_PANEL_ADD_VEHICLE Fahrzeug hinzufÃ¼gen
-LINE_PANEL_ADD_VEHICLE_TOOLTIP FÃ¼gt ein neues Fahrzeug zur Linie hinzu.\nWenn dieser Knopf deaktiviert ist, hat das ausgewÃ¤hlte Depot keine Fahrzeuge mehr.
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} Fahrgäste warten auf dieser Linie.
+LINE_PANEL_ADD_VEHICLE Fahrzeug hinzufügen
+LINE_PANEL_ADD_VEHICLE_TOOLTIP Fügt ein neues Fahrzeug zur Linie hinzu.\nWenn dieser Knopf deaktiviert ist, hat das ausgewählte Depot keine Fahrzeuge mehr.
 LINE_PANEL_REMOVE_VEHICLE Fahrzeug entfernen
 STOP_LIST_BOX_ROW_STOP Haltestelle #{0}
-STOP_LIST_BOX_ROW_TOOLTIP {0}\nWartende FahrgÃ¤ste: {1}\n\nRechtsklick zum Springen zu dieser Haltestelle.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nWartende Fahrgäste: {1}\n\nRechtsklick zum Springen zu dieser Haltestelle.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
 STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Liste vorgeschlagener Haltestellennamen.
-STOP_PANEL_REUSE_NAME_TOOLTIP Diesen Namen fÃ¼r alle anderen Haltestellen an diesem Bahnhof / dieser Position festlegen.
-STOP_PANEL_WAITING_PEOPLE Wartende FahrgÃ¤ste: {0}
+STOP_PANEL_REUSE_NAME_TOOLTIP Diesen Namen für alle anderen Haltestellen an diesem Bahnhof / dieser Position festlegen.
+STOP_PANEL_WAITING_PEOPLE Wartende Fahrgäste: {0}
 COMMUTER_DESTINATION_PANEL_TITLE Fahrgastziel
 COMMUTER_DESTINATION_HEADER Wichtigste Ziele:
 COMMUTER_DESTINATION_NONE Gerade wartet hier niemand.
 COMMUTER_DESTINATION_LOADING Wird berechnet...
 COMMUTER_DESTINATION_BUTTON Ziele
-COMMUTER_DESTINATION_BUTTON_TOOLTIP Zeigt, wohin die an dieser Haltestelle wartenden FahrgÃ¤ste unterwegs sind.
+COMMUTER_DESTINATION_BUTTON_TOOLTIP Zeigt, wohin die an dieser Haltestelle wartenden Fahrgäste unterwegs sind.
 STOP_PANEL_BORED_TIMER Zeit bis zur Ungeduld: <color #{0}>{1}</color>
-STOP_PANEL_BORED_TIMER_TOOLTIP FahrgÃ¤ste verlassen diese Haltestelle, wenn der Countdown auf null sinkt.
-STOP_PANEL_PASSENGERS_IN FahrgÃ¤ste ein:
-STOP_PANEL_PASSENGERS_IN_TOOLTIP FahrgÃ¤ste, die hier in das Transportfahrzeug einsteigen.
-STOP_PANEL_PASSENGERS_OUT FahrgÃ¤ste aus:
-STOP_PANEL_PASSENGERS_OUT_TOOLTIP FahrgÃ¤ste, die hier aus dem Transportfahrzeug aussteigen.
+STOP_PANEL_BORED_TIMER_TOOLTIP Fahrgäste verlassen diese Haltestelle, wenn der Countdown auf null sinkt.
+STOP_PANEL_PASSENGERS_IN Fahrgäste ein:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Fahrgäste, die hier in das Transportfahrzeug einsteigen.
+STOP_PANEL_PASSENGERS_OUT Fahrgäste aus:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Fahrgäste, die hier aus dem Transportfahrzeug aussteigen.
 STOP_PANEL_PASSENGERS_TOTAL Gesamt:
-STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Gesamtzahl der hier befÃ¶rderten FahrgÃ¤ste.
-STOP_PANEL_UNBUNCHING_TOOLTIP Aktiviert oder deaktiviert die FahrzeugentbÃ¼ndelung an dieser Haltestelle.\nEntbÃ¼ndelung ist deaktiviert, wenn die EntbÃ¼ndelungsaggressivitÃ¤t auf 0 gesetzt ist.
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Gesamtzahl der hier beförderten Fahrgäste.
+STOP_PANEL_UNBUNCHING_TOOLTIP Aktiviert oder deaktiviert die Fahrzeugentbündelung an dieser Haltestelle.\nEntbündelung ist deaktiviert, wenn die Entbündelungsaggressivität auf 0 gesetzt ist.
 STOP_PANEL_UPDATE_CLOSE_STOPS Nahegelegene Haltestellen aktualisieren
-STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Den EntbÃ¼ndelungszustand fÃ¼r alle anderen Haltestellen an diesem Bahnhof / dieser Position festlegen.
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Den Entbündelungszustand für alle anderen Haltestellen an diesem Bahnhof / dieser Position festlegen.
 STOP_PANEL_PREVIOUS Vorherige Haltestelle
-STOP_PANEL_PREVIOUS_TOOLTIP Zur vorherigen Haltestelle springen.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
-STOP_PANEL_DELETE_STOP Haltestelle lÃ¶schen
-STOP_PANEL_DELETE_STOP_TOOLTIP Dieser Knopf ist aktiv, wÃ¤hrend die Alt-Taste gedrÃ¼ckt gehalten wird.\nAuf eigene Gefahr verwenden!!!
-STOP_PANEL_NEXT NÃ¤chste Haltestelle
-STOP_PANEL_NEXT_TOOLTIP Zur nÃ¤chsten Haltestelle springen.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
-STOP_BUTTON_TOOLTIP {0}\n\nKlicken zum Springen zu dieser Haltestelle.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.\nMit gedrÃ¼ckter Alt-Taste beim Klicken wird das Haltestelleninfofenster nicht geÃ¶ffnet.
-SETTINGS_DELETE LÃ¶schen
-SETTINGS_RESET ZurÃ¼cksetzen
+STOP_PANEL_PREVIOUS_TOOLTIP Zur vorherigen Haltestelle springen.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
+STOP_PANEL_DELETE_STOP Haltestelle löschen
+STOP_PANEL_DELETE_STOP_TOOLTIP Dieser Knopf ist aktiv, während die Alt-Taste gedrückt gehalten wird.\nAuf eigene Gefahr verwenden!!!
+STOP_PANEL_NEXT Nächste Haltestelle
+STOP_PANEL_NEXT_TOOLTIP Zur nächsten Haltestelle springen.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
+STOP_BUTTON_TOOLTIP {0}\n\nKlicken zum Springen zu dieser Haltestelle.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.\nMit gedrückter Alt-Taste beim Klicken wird das Haltestelleninfofenster nicht geöffnet.
+SETTINGS_DELETE Löschen
+SETTINGS_RESET Zurücksetzen
 SETTINGS_TAB_GENERAL Allgemein
 SETTINGS_ADVANCED_LINKS_GROUP Links
 SETTINGS_GITHUB_REPO Quellcode auf GitHub
+SETTINGS_KOFI_LINK Unterstützen auf Ko-fi
+SETTINGS_KOFI_GROUP IPT4 unterstützen
+SETTINGS_KOFI_DESCRIPTION Helfen Sie, die Entwicklung von IPT4 fortzusetzen.
+SETTINGS_KOFI_BUTTON Mich auf Ko-fi unterstützen
 SETTINGS_TAB_AUTOLINE Automatische Linie
-SETTINGS_TAB_STOPS Haltestellen und BahnhÃ¶fe
-SETTINGS_TAB_UNBUNCHING EntbÃ¼ndelung
-SETTINGS_TAB_DELETE Linien lÃ¶schen
+SETTINGS_TAB_STOPS Haltestellen und Bahnhöfe
+SETTINGS_TAB_UNBUNCHING Entbündelung
+SETTINGS_TAB_DELETE Linien löschen
 SETTINGS_TAB_FLEET Flotte & Planung
 SETTINGS_TAB_BUDGET Budget & Preise
 SETTINGS_TAB_LINECOLORS Linienfarben
 SETTINGS Einstellungen
 SETTINGS_SPEED Geschwindigkeit anzeigen in: 
-SETTINGS_SPEED_TOOLTIP WÃ¤hlen Sie die Einheit fÃ¼r die Geschwindigkeitsanzeige in der BenutzeroberflÃ¤che.
+SETTINGS_SPEED_TOOLTIP Wählen Sie die Einheit für die Geschwindigkeitsanzeige in der Benutzeroberfläche.
 SETTINGS_GAMEPLAY_PROFILE Spielprofil
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Wendet mehrere Einstellungen auf einmal an. Sicher (Standard) lÃ¤sst alles aus fÃ¼r maximale KompatibilitÃ¤t mit anderen Mods. Vanilla entspricht dem Basisspiel. Empfohlen aktiviert nur den IPT-Kern (Budget-Flottensteuerung, Unbunching, Intercity, UntergebÃ¤ude-Tabs, Unstucker, erweiterte Haltestellenauswahl, erhÃ¶hte Haltestellen). Realistisch aktiviert die meisten Integrationen. Benutzerdefiniert kaskadiert nie - du steuerst jeden Schalter selbst.
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Wendet mehrere Einstellungen auf einmal an. Sicher (Standard) lässt alles aus für maximale Kompatibilität mit anderen Mods. Vanilla entspricht dem Basisspiel. Empfohlen aktiviert nur den IPT-Kern (Budget-Flottensteuerung, Unbunching, Intercity, Untergebäude-Tabs, Unstucker, erweiterte Haltestellenauswahl, erhöhte Haltestellen). Realistisch aktiviert die meisten Integrationen. Benutzerdefiniert kaskadiert nie - du steuerst jeden Schalter selbst.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Benutzerdefiniert
 SETTINGS_GAMEPLAY_PROFILE_SAFE Sicher (alles aus)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Standard
@@ -93,170 +97,170 @@ SETTINGS_BUDGET Budget
 SETTINGS_ENABLE_BUDGET_CONTROL Linien-Budgetsteuerung
 SETTINGS_BUDGET_CONTROL_DISABLED Deaktiviert
 SETTINGS_BUDGET_CONTROL_ENABLED Aktiviert
-SETTINGS_BUDGET_CONTROL_TOOLTIP Wenn aktiviert, wird die Fahrzeuganzahl fÃ¼r Transportlinien durch das Budget gesteuert; aktualisiert alle bestehenden Linien und leert die Fahrzeugwarteschlange.
+SETTINGS_BUDGET_CONTROL_TOOLTIP Wenn aktiviert, wird die Fahrzeuganzahl für Transportlinien durch das Budget gesteuert; aktualisiert alle bestehenden Linien und leert die Fahrzeugwarteschlange.
 SETTINGS_BUDGET_TICKET_PRICES Ticketpreis-Anpasser:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Deaktiviert
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Aktiviert
-SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Wenn aktiviert, fÃ¼gt es dem Wirtschaftsfenster einen neuen Reiter mit Schiebereglern hinzu, um die Ticketpreise fÃ¼r jeden Verkehrstyp anzupassen.
-SETTINGS_AUTO_LINE_BUDGET Automatische FlottengrÃ¶ÃŸe:
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Wenn aktiviert, fügt es dem Wirtschaftsfenster einen neuen Reiter mit Schiebereglern hinzu, um die Ticketpreise für jeden Verkehrstyp anzupassen.
+SETTINGS_AUTO_LINE_BUDGET Automatische Flottengröße:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Deaktiviert
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Aktiviert
-SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Wenn aktiviert, passen Linien im Budgetmodus ihre Fahrzeuganzahl automatisch an die tatsÃ¤chliche Fahrgastnachfrage an, anstatt den Vanilla-Budgetregler zu verwenden. Linien im manuellen Modus werden nie verÃ¤ndert.
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Wenn aktiviert, passen Linien im Budgetmodus ihre Fahrzeuganzahl automatisch an die tatsächliche Fahrgastnachfrage an, anstatt den Vanilla-Budgetregler zu verwenden. Linien im manuellen Modus werden nie verändert.
 SETTINGS_AUTO_LINE Automatische Linie
-SETTINGS_AUTOSHOW_LINE_INFO Linieninfo automatisch Ã¶ffnen
+SETTINGS_AUTOSHOW_LINE_INFO Linieninfo automatisch öffnen
 SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Zeigt das Linieninfo-Fenster automatisch an, nachdem eine neue Linie erstellt wurde.
 AUTOLINECOLOR_STRATEGY_DISABLED Deaktiviert
-AUTOLINECOLOR_STRATEGY_RANDOM_HUE ZufÃ¤lliger Farbton
-AUTOLINECOLOR_STRATEGY_RANDOM_COLOR ZufÃ¤llige Farbe
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE Zufälliger Farbton
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Zufällige Farbe
 AUTOLINECOLOR_STRATEGY_CATEGORISED Kategorisiert
 AUTOLINECOLOR_STRATEGY_NAMED Benannte Farben
 AUTOLINECOLOR_NAMING_DISABLED Deaktiviert
 AUTOLINECOLOR_NAMING_DISTRICTS Stadtteile
 AUTOLINECOLOR_NAMING_LONDON London
-AUTOLINECOLOR_NAMING_ROADS StraÃŸen
+AUTOLINECOLOR_NAMING_ROADS Straßen
 AUTOLINECOLOR_NAMING_COLORS Benannte Farben
 AUTOLINECOLOR_COLOR_STRATEGY Farbstrategie:
-AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Wie Farben neuen Linien zugewiesen werden:\n'ZufÃ¤lliger Farbton' = gleiche SÃ¤ttigung/Helligkeit, verschiedene FarbtÃ¶ne;\n 'ZufÃ¤llige Farbe' = vollstÃ¤ndig zufÃ¤lliges RGB;\n 'Kategorisiert' = Farben nach Fahrzeugtyp;\n 'Benannte Farben' = vordefinierte Farbpalette.
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Wie Farben neuen Linien zugewiesen werden:\n'Zufälliger Farbton' = gleiche Sättigung/Helligkeit, verschiedene Farbtöne;\n 'Zufällige Farbe' = vollständig zufälliges RGB;\n 'Kategorisiert' = Farben nach Fahrzeugtyp;\n 'Benannte Farben' = vordefinierte Farbpalette.
 AUTOLINECOLOR_NAMING_STRATEGY Benennungsstrategie:
-AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Wie Namen neuen Linien zugewiesen werden:\n 'Keine' = keine automatische Benennung;\n 'Stadtteile' = basierend auf bedienten Stadtteilen;\n 'London' = nummerierte Routen (London-Bus-Stil);\n 'StraÃŸen' = basierend auf StraÃŸennamen;\n 'Benannte Farben' = basierend auf Farbnamen.
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Wie Namen neuen Linien zugewiesen werden:\n 'Keine' = keine automatische Benennung;\n 'Stadtteile' = basierend auf bedienten Stadtteilen;\n 'London' = nummerierte Routen (London-Bus-Stil);\n 'Straßen' = basierend auf Straßennamen;\n 'Benannte Farben' = basierend auf Farbnamen.
 AUTOLINECOLOR_MIN_COLOR_DIFF Minimaler Farbunterschied (%):
-AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimaler Farbunterschied in Prozent bei der Auswahl zufÃ¤lliger Farben.
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Minimaler Farbunterschied in Prozent bei der Auswahl zufälliger Farben.
 AUTOLINECOLOR_MAX_COLOR_PICK Maximale Versuche:
-AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximale Versuche, eine unterscheidbare Farbe auszuwÃ¤hlen.
-SETTINGS_UI BenutzeroberflÃ¤chen-Einstellungen
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Maximale Versuche, eine unterscheidbare Farbe auszuwählen.
+SETTINGS_UI Benutzeroberflächen-Einstellungen
 SETTINGS_VEHICLE_EDITOR_POSITION Fahrzeug-Editor-Position: 
-SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP WÃ¤hlen Sie, ob das Fahrzeug-Editor-Panel am unteren oder rechten Bildschirmrand erscheint.
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Wählen Sie, ob das Fahrzeug-Editor-Panel am unteren oder rechten Bildschirmrand erscheint.
 SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Unten
 SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Rechts
 SETTINGS_VEHICLE_EDITOR_HIDE Fahrzeug-Editor ausblenden
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Den Fahrzeug-Editor in Fahrzeugpanels ausblenden.
-SETTINGS_STOPS Ã–ffentliche Verkehrshaltestellen
-SETTINGS_STOPSANDSTATIONS_DESCRIPTION Wie viele Fahrgaste jedes Verkehrsmittels an einer einzelnen Haltestelle warten kÃ¶nnen, bevor sie als voll gilt. HÃ¶here Werte verringern Beschwerden Ã¼ber ÃœberfÃ¼llung an stark frequentierten Haltestellen, auf Kosten einer weniger realistischen WarteschlangengrÃ¶ÃŸe.
+SETTINGS_STOPS Öffentliche Verkehrshaltestellen
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION Wie viele Fahrgaste jedes Verkehrsmittels an einer einzelnen Haltestelle warten können, bevor sie als voll gilt. Höhere Werte verringern Beschwerden über Überfüllung an stark frequentierten Haltestellen, auf Kosten einer weniger realistischen Warteschlangengröße.
 SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Setzt alle oben genannten Fahrgastgrenzwerte je Haltestelle auf ihre Standardwerte zuruck.
-SETTINGS_ENABLE_STOPS_AND_STATIONS Haltestellen und BahnhÃ¶fe aktivieren
-SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Passen Sie die maximale Anzahl an BÃ¼rgern an, die an verschiedenen Haltestellen und BahnhÃ¶fen auf Ã¶ffentliche Verkehrsmittel warten kÃ¶nnen. In der Registerkarte Haltestellen konfigurieren.
-SETTINGS_STOPSANDSTATIONS_ENABLE Haltestellen und BahnhÃ¶fe aktivieren
-SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP FahrgastbeschrÃ¤nkungen an Haltestellen aktivieren oder deaktivieren.
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximale FahrgÃ¤ste an einer Linienhaltestelle:
+SETTINGS_ENABLE_STOPS_AND_STATIONS Haltestellen und Bahnhöfe aktivieren
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Passen Sie die maximale Anzahl an Bürgern an, die an verschiedenen Haltestellen und Bahnhöfen auf öffentliche Verkehrsmittel warten können. In der Registerkarte Haltestellen konfigurieren.
+SETTINGS_STOPSANDSTATIONS_ENABLE Haltestellen und Bahnhöfe aktivieren
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Fahrgastbeschränkungen an Haltestellen aktivieren oder deaktivieren.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Maximale Fahrgäste an einer Linienhaltestelle:
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Linienbus
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximale FahrgÃ¤ste an einer Linienbushaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Maximale Fahrgäste an einer Linienbushaltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Oberleitungsbus
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximale FahrgÃ¤ste an einer Oberleitungsbushaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Maximale Fahrgäste an einer Oberleitungsbushaltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Evakuierungsbus
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximale FahrgÃ¤ste an einer Evakuierungsbushaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Maximale Fahrgäste an einer Evakuierungsbushaltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Sightseeing-Bus
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximale FahrgÃ¤ste an einer Sightseeing-Bushaltestelle
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM StraÃŸenbahn
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximale FahrgÃ¤ste an einer StraÃŸenbahnhaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Maximale Fahrgäste an einer Sightseeing-Bushaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Straßenbahn
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Maximale Fahrgäste an einer Straßenbahnhaltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO U-Bahn
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximale FahrgÃ¤ste an einer U-Bahnstation
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Maximale Fahrgäste an einer U-Bahnstation
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Zug
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximale FahrgÃ¤ste an einem Bahnhof
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Maximale Fahrgäste an einem Bahnhof
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximale FahrgÃ¤ste an einer Monorail-Haltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Maximale Fahrgäste an einer Monorail-Haltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Schiff
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximale FahrgÃ¤ste an einem Schiffshafen
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY FÃ¤hre
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximale FahrgÃ¤ste an einer FÃ¤hrhaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Maximale Fahrgäste an einem Schiffshafen
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Fähre
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Maximale Fahrgäste an einer Fährhaltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Flugzeug
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximale FahrgÃ¤ste an einem Flughafenterminal
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Maximale Fahrgäste an einem Flughafenterminal
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Seilbahn
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximale FahrgÃ¤ste an einer Seilbahnhaltestelle
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON HeiÃŸluftballon
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximale FahrgÃ¤ste an einer HeiÃŸluftballon-Haltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Maximale Fahrgäste an einer Seilbahnhaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Heißluftballon
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Maximale Fahrgäste an einer Heißluftballon-Haltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Hubschrauber
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximale FahrgÃ¤ste an einer Hubschrauberhaltestelle
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Maximale Fahrgäste an einer Hubschrauberhaltestelle
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Luftschiff
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximale FahrgÃ¤ste an einer Luftschiffhaltestelle
-SETTINGS_UNBUNCHING EntbÃ¼ndelung
-SETTINGS_UNBUNCHING_AGGRESSION EntbÃ¼ndelungsaggressivitÃ¤t:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Wie stark soll die FahrzeugentbÃ¼ndelung wirken?\nMÃ¶gliche Werte: 0â€“52. Ein Wert von 0 deaktiviert die EntbÃ¼ndelung.\nHÃ¶here Werte beeinflussen den Verkehr stark und kÃ¶nnen dazu fÃ¼hren, dass Fahrzeuge despawnen.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximale Fahrgäste an einer Luftschiffhaltestelle
+SETTINGS_UNBUNCHING Entbündelung
+SETTINGS_UNBUNCHING_AGGRESSION Entbündelungsaggressivität:
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Wie stark soll die Fahrzeugentbündelung wirken?\nMögliche Werte: 0–52. Ein Wert von 0 deaktiviert die Entbündelung.\nHöhere Werte beeinflussen den Verkehr stark und können dazu führen, dass Fahrzeuge despawnen.
 SETTINGS_VEHICLE_COUNT Fahrzeuge auf neuen Linien:
-SETTINGS_VEHICLE_COUNT_TOOLTIP Die Anzahl der Fahrzeuge, die neuen Linien automatisch hinzugefÃ¼gt werden, wenn die Budgetsteuerung deaktiviert ist.
+SETTINGS_VEHICLE_COUNT_TOOLTIP Die Anzahl der Fahrzeuge, die neuen Linien automatisch hinzugefügt werden, wenn die Budgetsteuerung deaktiviert ist.
 SETTINGS_SPAWN_TIME_INTERVAL Spawn-Zeitintervall:
 SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Zeit in Sekunden zwischen Fahrzeug-Spawns.
-SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Setzt alle Regler auf den Standardwert zurÃ¼ck.
-UNBUNCHING_ENABLED FahrzeugentbÃ¼ndelung
-UNBUNCHING_DISABLED EntbÃ¼ndelung ist deaktiviert.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Setzt alle Regler auf den Standardwert zurück.
+UNBUNCHING_ENABLED Fahrzeugentbündelung
+UNBUNCHING_DISABLED Entbündelung ist deaktiviert.
 UNBUNCHING_TARGET_GAP Zielabstand: {0}
 SETTINGS_EBS_GROUP_BUS Schnellbus-Dienste
-SETTINGS_EBS_GROUP_TRAM SchnellstraÃŸenbahn-Dienste
+SETTINGS_EBS_GROUP_TRAM Schnellstraßenbahn-Dienste
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Schnellbus: 
-SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Deaktiviert' = Busse verwenden die obigen EntbÃ¼ndelungseinstellungen.\n'Prudential' = HÃ¤lt kurz an, prÃ¼ft FahrgÃ¤ste, kann abfahren wenn leer.\n'Aggressive' = Ãœberspringt Haltestellen vollstÃ¤ndig, wenn keine FahrgÃ¤ste warten.
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Deaktiviert' = Busse verwenden die obigen Entbündelungseinstellungen.\n'Prudential' = Hält kurz an, prüft Fahrgäste, kann abfahren wenn leer.\n'Aggressive' = Überspringt Haltestellen vollständig, wenn keine Fahrgäste warten.
 SETTINGS_EBS_ENABLE_SELFBAL Dienst-Selbstausgleich aktivieren
-SETTINGS_EBS_DESC_SELFBAL Erlaubt dem Express-Busdienst, Fahrzeuge entlang der Linie neu zu verteilen, um stÃ¤rker ausgelastete Abschnitte zu bevorzugen und Wartezeiten zu verkÃ¼rzen.
-SETTINGS_EBS_TOOLTIP_SELFBAL Analysiert Linienabschnitte und kann Fahrzeuge auf stÃ¤rker ausgelastete Abschnitte oder Endstationen umverteilen, um den Betrieb zu verbessern und Wartezeiten zu reduzieren.\nEntscheidungen sind probabilistisch und hÃ¤ngen von Fahrgastzahlen und Umverteilungswahrscheinlichkeiten ab.
-SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Selbstausgleich fÃ¼r Mittenstationen aktivieren
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID Erlaubt dem Selbstausgleich, beim Umverteilen von Fahrzeugen eine stark frequentierte Haltestelle in der Linienmitte statt nur eine Endhaltestelle zu wÃ¤hlen.
-SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID ErmÃ¶glicht dem Selbstausgleich, Fahrzeuge zu einer stark frequentierten Mittenstation (statt einer Endstation) umzuverteilen.\nWird nur berÃ¼cksichtigt, wenn die belebteste Haltestelle mehr als 30 wartende FahrgÃ¤ste hat, dann mit ~50% Wahrscheinlichkeit gewÃ¤hlt und abhÃ¤ngig von der Gesamtumverteilungswahrscheinlichkeit.
+SETTINGS_EBS_DESC_SELFBAL Erlaubt dem Express-Busdienst, Fahrzeuge entlang der Linie neu zu verteilen, um stärker ausgelastete Abschnitte zu bevorzugen und Wartezeiten zu verkürzen.
+SETTINGS_EBS_TOOLTIP_SELFBAL Analysiert Linienabschnitte und kann Fahrzeuge auf stärker ausgelastete Abschnitte oder Endstationen umverteilen, um den Betrieb zu verbessern und Wartezeiten zu reduzieren.\nEntscheidungen sind probabilistisch und hängen von Fahrgastzahlen und Umverteilungswahrscheinlichkeiten ab.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Selbstausgleich für Mittenstationen aktivieren
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Erlaubt dem Selbstausgleich, beim Umverteilen von Fahrzeugen eine stark frequentierte Haltestelle in der Linienmitte statt nur eine Endhaltestelle zu wählen.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Ermöglicht dem Selbstausgleich, Fahrzeuge zu einer stark frequentierten Mittenstation (statt einer Endstation) umzuverteilen.\nWird nur berücksichtigt, wenn die belebteste Haltestelle mehr als 30 wartende Fahrgäste hat, dann mit ~50% Wahrscheinlichkeit gewählt und abhängig von der Gesamtumverteilungswahrscheinlichkeit.
 SETTINGS_EBS_ENABLE_MINIBUS Minibus-Modus aktivieren
-SETTINGS_EBS_DESC_MINIBUS LÃ¤sst Busse mit kleinerer KapazitÃ¤t frÃ¼her abfahren, wenn nur wenige FahrgÃ¤ste ein- oder aussteigen.
-SETTINGS_EBS_TOOLTIP_MINIBUS Busse mit KapazitÃ¤t â‰¤20 kÃ¶nnen frÃ¼her von einer Haltestelle abfahren, wenn ein- und aussteigende FahrgÃ¤ste an dieser Haltestelle â‰¤5 sind.
-SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE SchnellstraÃŸenbahn: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Deaktiviert' = StraÃŸenbahnen verwenden die obigen EntbÃ¼ndelungseinstellungen.\n'Stadtbahn' = HÃ¤lt an jeder Haltestelle, wartet immer die volle Zeit (erzwungene Disziplin).\n'Echte StraÃŸenbahn' = HÃ¤lt nur, wenn FahrgÃ¤ste ein- oder aussteigen.
+SETTINGS_EBS_DESC_MINIBUS Lässt Busse mit kleinerer Kapazität früher abfahren, wenn nur wenige Fahrgäste ein- oder aussteigen.
+SETTINGS_EBS_TOOLTIP_MINIBUS Busse mit Kapazität ≤20 können früher von einer Haltestelle abfahren, wenn ein- und aussteigende Fahrgäste an dieser Haltestelle ≤5 sind.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Schnellstraßenbahn: 
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Deaktiviert' = Straßenbahnen verwenden die obigen Entbündelungseinstellungen.\n'Stadtbahn' = Hält an jeder Haltestelle, wartet immer die volle Zeit (erzwungene Disziplin).\n'Echte Straßenbahn' = Hält nur, wenn Fahrgäste ein- oder aussteigen.
 SETTINGS_EBS_MODE_NONE Deaktiviert
 SETTINGS_EBS_MODE_AGGRESSIVE Aggressiv
 SETTINGS_EBS_MODE_PRUDENTIAL Umsichtig
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Stadtbahn-Modus
 SETTINGS_EBS_TRAM_MODE_NONE Deaktiviert
-SETTINGS_EBS_TRAM_MODE_TRAM Echter StraÃŸenbahn-Modus 
-SETTINGS_PTU_GROUP Ã–ffentlicher Verkehr â€” Unstucker
+SETTINGS_EBS_TRAM_MODE_TRAM Echter Straßenbahn-Modus 
+SETTINGS_PTU_GROUP Öffentlicher Verkehr — Unstucker
 SETTINGS_PTU_ENABLE Feststeckende Passagiere automatisch entfernen
-SETTINGS_PTU_TOOLTIP Entfernt automatisch Passagiere, die beim Einsteigen in Ã¶ffentliche Verkehrsmittel feststecken, damit das Fahrzeug normal abfahren kann und eingefrorene Abfahrten verhindert werden.
-SETTINGS_LINE_DELETION_TOOL Linien-LÃ¶sch-Werkzeug
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION WÃ¤hlen Sie unten die Verkehrsarten aus und drÃ¼cken Sie dann LÃ¶schen, um alle Linien dieser Arten aus der aktuellen Stadt zu entfernen. Diese Auswahl ist temporÃ¤r - sie beginnt immer unmarkiert und wird nach dem LÃ¶schen zurÃ¼ckgesetzt; sie wird nicht als Einstellung gespeichert.
-SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP LÃ¶scht alle Linien der ausgewÃ¤hlten Typen. Funktioniert nur, wenn die Stadt geladen ist.
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE LINIENLÃ–SCHUNG BESTÃ„TIGEN
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Sie sind dabei, alle Linien zu lÃ¶schen.\nMÃ¶chten Sie fortfahren?
-SETTINGS_DELETE_BUS_TOOLTIP LÃ¶scht alle regulÃ¤ren Buslinien.
+SETTINGS_PTU_TOOLTIP Entfernt automatisch Passagiere, die beim Einsteigen in öffentliche Verkehrsmittel feststecken, damit das Fahrzeug normal abfahren kann und eingefrorene Abfahrten verhindert werden.
+SETTINGS_LINE_DELETION_TOOL Linien-Lösch-Werkzeug
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Wählen Sie unten die Verkehrsarten aus und drücken Sie dann Löschen, um alle Linien dieser Arten aus der aktuellen Stadt zu entfernen. Diese Auswahl ist temporär - sie beginnt immer unmarkiert und wird nach dem Löschen zurückgesetzt; sie wird nicht als Einstellung gespeichert.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Löscht alle Linien der ausgewählten Typen. Funktioniert nur, wenn die Stadt geladen ist.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE LINIENLÖSCHUNG BESTÄTIGEN
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Sie sind dabei, alle Linien zu löschen.\nMöchten Sie fortfahren?
+SETTINGS_DELETE_BUS_TOOLTIP Löscht alle regulären Buslinien.
 SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Sightseeing-Busse
-SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP LÃ¶scht alle Sightseeing-Buslinien.
-SETTINGS_DELETE_TRAM_TOOLTIP LÃ¶scht alle StraÃŸenbahnlinien.
-SETTINGS_DELETE_TROLLEYBUS_TOOLTIP LÃ¶scht alle Oberleitungsbuslinien.
-SETTINGS_DELETE_TRAIN_TOOLTIP LÃ¶scht alle Zuglinien.
-SETTINGS_DELETE_METRO_TOOLTIP LÃ¶scht alle U-Bahnlinien.
-SETTINGS_DELETE_MONORAIL_TOOLTIP LÃ¶scht alle Monorail-Linien.
-SETTINGS_DELETE_FERRY_LABEL FÃ¤hren
-SETTINGS_DELETE_SHIP_TOOLTIP LÃ¶scht alle FÃ¤hrlinien.
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Löscht alle Sightseeing-Buslinien.
+SETTINGS_DELETE_TRAM_TOOLTIP Löscht alle Straßenbahnlinien.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Löscht alle Oberleitungsbuslinien.
+SETTINGS_DELETE_TRAIN_TOOLTIP Löscht alle Zuglinien.
+SETTINGS_DELETE_METRO_TOOLTIP Löscht alle U-Bahnlinien.
+SETTINGS_DELETE_MONORAIL_TOOLTIP Löscht alle Monorail-Linien.
+SETTINGS_DELETE_FERRY_LABEL Fähren
+SETTINGS_DELETE_SHIP_TOOLTIP Löscht alle Fährlinien.
 SETTINGS_DELETE_HELICOPTER_LABEL Hubschrauber
-SETTINGS_DELETE_HELICOPTER_TOOLTIP LÃ¶scht alle Hubschrauberlinien.
+SETTINGS_DELETE_HELICOPTER_TOOLTIP Löscht alle Hubschrauberlinien.
 SETTINGS_DELETE_BLIMP_LABEL Luftschiffe
-SETTINGS_DELETE_BLIMP_TOOLTIP LÃ¶scht alle Luftschifflinien.
+SETTINGS_DELETE_BLIMP_TOOLTIP Löscht alle Luftschifflinien.
 VEHICLE_EDITOR_TITLE Fahrzeug-Editor
 VEHICLE_EDITOR_SUB_TITLE {0} Fahrzeuge
-VEHICLE_EDITOR_CAPACITY FahrgastkapazitÃ¤t
-VEHICLE_EDITOR_CAPACITY_TAXI ReisekapazitÃ¤t
-VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Anzahl der FahrgÃ¤ste pro Arbeitsschicht.
+VEHICLE_EDITOR_CAPACITY Fahrgastkapazität
+VEHICLE_EDITOR_CAPACITY_TAXI Reisekapazität
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Anzahl der Fahrgäste pro Arbeitsschicht.
 VEHICLE_EDITOR_MAINTENANCE Wartungskosten
-VEHICLE_EDITOR_MAX_SPEED HÃ¶chstgeschwindigkeit
+VEHICLE_EDITOR_MAX_SPEED Höchstgeschwindigkeit
 VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Triebwagen an beiden Enden
 VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Aktiviert oder deaktiviert Triebwagen an beiden Enden des Zuges.
 VEHICLE_EDITOR_APPLY Anwenden
 VEHICLE_EDITOR_DEFAULT Standard
-VEHICLE_LIST_BOX_ROW_TOOLTIP1 Rechtsklick, um diesem Fahrzeug zu folgen.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Rechtsklick, um diesem Fahrzeug zu folgen.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
 VEHICLE_LIST_BOX_ROW_TOOLTIP2 Umschalt + Klick, um dieses Fahrzeug in die Warteschlange zu stellen.
 VEHICLE_PANEL_EDIT_TYPE Fahrzeugtyp bearbeiten
 VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Diesen Fahrzeugtyp mit dem Fahrzeug-Editor bearbeiten.
-VEHICLE_PANEL_STATUS_NEXT_STOP NÃ¤chste Haltestelle:
-VEHICLE_PANEL_STATUS_UNBUNCHING EntbÃ¼ndelung lÃ¤uft
+VEHICLE_PANEL_STATUS_NEXT_STOP Nächste Haltestelle:
+VEHICLE_PANEL_STATUS_UNBUNCHING Entbündelung läuft
 VEHICLE_PANEL_LAST_STOP_EXCHANGE Fahrgastwechsel letzte Haltestelle: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
-VEHICLE_PANEL_PASSENGERS FahrgÃ¤ste:
+VEHICLE_PANEL_PASSENGERS Fahrgäste:
 VEHICLE_PANEL_EARNINGS Einnahmen:
 VEHICLE_PANEL_EARNINGS_TOOLTIP Ergebnis aus Fahrkarten-Einnahmen minus Fahrzeugwartungskosten.
 VEHICLE_PANEL_PREVIOUS Vorheriges Fahrzeug
-VEHICLE_PANEL_PREVIOUS_TOOLTIP Zum vorherigen Fahrzeug springen.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Zum vorherigen Fahrzeug springen.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
 VEHICLE_PANEL_REMOVE_VEHICLE Fahrzeug entfernen
-VEHICLE_PANEL_NEXT NÃ¤chstes Fahrzeug
-VEHICLE_PANEL_NEXT_TOOLTIP Zum nÃ¤chsten Fahrzeug springen.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.
-VEHICLE_SELECTION_CAPACITY KapazitÃ¤t
-VEHICLE_SELECTION_ADD_VEHICLE Dieses Fahrzeug zur Liste der erlaubten Fahrzeuge hinzufÃ¼gen
-VEHICLE_SELECTION_ADD_ALL Alle geeigneten Fahrzeuge zur Liste der erlaubten Fahrzeuge hinzufÃ¼gen
+VEHICLE_PANEL_NEXT Nächstes Fahrzeug
+VEHICLE_PANEL_NEXT_TOOLTIP Zum nächsten Fahrzeug springen.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.
+VEHICLE_SELECTION_CAPACITY Kapazität
+VEHICLE_SELECTION_ADD_VEHICLE Dieses Fahrzeug zur Liste der erlaubten Fahrzeuge hinzufügen
+VEHICLE_SELECTION_ADD_ALL Alle geeigneten Fahrzeuge zur Liste der erlaubten Fahrzeuge hinzufügen
 VEHICLE_SELECTION_REMOVE_VEHICLE Dieses Fahrzeug aus der Liste der erlaubten Fahrzeuge entfernen
 VEHICLE_SELECTION_REMOVE_ALL Alle Fahrzeuge aus der Liste der erlaubten Fahrzeuge entfernen
-VEHICLE_SELECTION_AVAILABLE_VEHICLES VerfÃ¼gbare Fahrzeuge
-VEHICLE_SELECTION_SELECTED_VEHICLES AusgewÃ¤hlte Fahrzeuge
+VEHICLE_SELECTION_AVAILABLE_VEHICLES Verfügbare Fahrzeuge
+VEHICLE_SELECTION_SELECTED_VEHICLES Ausgewählte Fahrzeuge
 VEHICLE_SELECTION_ANY_VEHICLE Beliebiges Fahrzeug
-VEHICLE_BUTTON_TOOLTIP {0}\n\nKlicken zum Springen zu diesem Fahrzeug.\nMit gedrÃ¼ckter Umschalttaste beim Klicken wird auch hereingezoomt.\nMit gedrÃ¼ckter Alt-Taste beim Klicken wird das Fahrzeuginfofenster nicht geÃ¶ffnet.
+VEHICLE_BUTTON_TOOLTIP {0}\n\nKlicken zum Springen zu diesem Fahrzeug.\nMit gedrückter Umschalttaste beim Klicken wird auch hereingezoomt.\nMit gedrückter Alt-Taste beim Klicken wird das Fahrzeuginfofenster nicht geöffnet.
 TRANSPORT_LINE_VEHICLECOUNT Fahrzeuganzahl: {0}
 FLIGHT_TRACKER_NAME Flugverfolger
 FLIGHT_STATUS_NONE Keiner
@@ -270,10 +274,10 @@ TICKET_PRICE_BUS Busfahrkartenpreis:
 TICKET_PRICE_INTERCITY_BUS Fernbus-Fahrkartenpreis: 
 TICKET_PRICE_METRO U-Bahn-Fahrkartenpreis: 
 TICKET_PRICE_TRAIN Zugfahrkartenpreis: 
-TICKET_PRICE_TRAM StraÃŸenbahn-Fahrkartenpreis: 
+TICKET_PRICE_TRAM Straßenbahn-Fahrkartenpreis: 
 TICKET_PRICE_MONORAIL Monorail-Fahrkartenpreis: 
 TICKET_PRICE_SHIP Schiff-Fahrkartenpreis: 
-TICKET_PRICE_FERRY FÃ¤hr-Fahrkartenpreis: 
+TICKET_PRICE_FERRY Fähr-Fahrkartenpreis: 
 TICKET_PRICE_PLANE Flugzeug-Fahrkartenpreis: 
 TICKET_PRICE_CABLECAR Seilbahn-Fahrkartenpreis: 
 TICKET_PRICE_SIGHTSEEING_BUS Sightseeing-Bus-Fahrkartenpreis: 
@@ -281,26 +285,26 @@ TICKET_PRICE_TROLLEYBUS Oberleitungsbus-Fahrkartenpreis:
 TICKET_PRICE_BLIMP Luftschiff-Fahrkartenpreis: 
 TICKET_PRICE_HELICOPTER Hubschrauber-Fahrkartenpreis: 
 ECONOMY_TAB_TICKET_PRICES Fahrkartenpreise
-ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Gesamtzahl der aktuellen FahrgÃ¤ste fÃ¼r diesen Verkehrstyp.
-WHATSNEW_3_0_0_1 FÃ¼r Race Day aktualisiert; jetzt kompatibel mit More Vehicles Renewed.
-WHATSNEW_3_0_0_2 Die folgenden Mods wurden in IPT3 integriert:\n â€¢ Advanced Stop Selection Revisited\n â€¢ Auto Line Color Redux\n â€¢ Better Bus Stop Position\n â€¢ Better Train Boarding\n â€¢ Elevated Stops Enabler Revisited  \n â€¢ Express Bus Services\n â€¢ Flight Tracker\n â€¢ Intercity Bus Control\n â€¢ Mileage Taxi Services\n â€¢ Realistic Walking Speed\n â€¢ Stops and Stations\n â€¢ Ticket Price Customizer
-WHATSNEW_3_0_1 Public Transport Unstucker jetzt in IPT3 integriert.\nSiehe Version 3.0 fÃ¼r alle anderen integrierten Mods. Deabonnieren Sie die Original-Mods, um Konflikte zu vermeiden.
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Gesamtzahl der aktuellen Fahrgäste für diesen Verkehrstyp.
+WHATSNEW_3_0_0_1 Für Race Day aktualisiert; jetzt kompatibel mit More Vehicles Renewed.
+WHATSNEW_3_0_0_2 Die folgenden Mods wurden in IPT3 integriert:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+WHATSNEW_3_0_1 Public Transport Unstucker jetzt in IPT3 integriert.\nSiehe Version 3.0 für alle anderen integrierten Mods. Deabonnieren Sie die Original-Mods, um Konflikte zu vermeiden.
 SETTINGS_TAB_TRAINDISPLAY Zuganzeige
 SETTINGS_TAB_INTEGRATIONS Integrationen
 SETTINGS_TRAINDISPLAY_GROUP Zuganzeige-Overlay
-SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Konfigurieren Sie die integrierte Anzeige, die beim Verfolgen unterstÃ¼tzter Verkehrsfahrzeuge erscheint.
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Konfigurieren Sie die integrierte Anzeige, die beim Verfolgen unterstützter Verkehrsfahrzeuge erscheint.
 SETTINGS_TRAINDISPLAY_ENABLE Zuganzeige aktivieren
 SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Die integrierte Zuganzeige ein- oder ausschalten.
 SETTINGS_TRAINDISPLAY_MODE_DISABLED Deaktiviert
 SETTINGS_TRAINDISPLAY_MODE_ENABLED Aktiviert
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Position der Anzeige:
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP WÃ¤hlen Sie, wo die Anzeige auf dem Bildschirm erscheint.
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Wählen Sie, wo die Anzeige auf dem Bildschirm erscheint.
 SETTINGS_TRAINDISPLAY_POS_TOPLEFT Oben links
 SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Oben rechts
 SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Unten links
 SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Unten rechts
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE GrÃ¶ÃŸe der Anzeige:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Skaliert die GrÃ¶ÃŸe der Anzeige.
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Größe der Anzeige:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Skaliert die Größe der Anzeige.
 SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Deckkraft der Anzeige:
 SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Legt fest, wie transparent die Anzeige ist.
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Aktualisierungsintervall:
@@ -312,79 +316,86 @@ SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Das Ziel in der Anzeige einblende
 SETTINGS_TRAINDISPLAY_SHOW_STATE Status anzeigen
 SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Den Fahrzeugstatus in der Anzeige einblenden.
 SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Nur beim Verfolgen
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Blendet die Anzeige aus, sofern die Kamera nicht tatsÃ¤chlich einem unterstÃ¼tzten Fahrzeug folgt.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Blendet die Anzeige aus, sofern die Kamera nicht tatsächlich einem unterstützten Fahrzeug folgt.
 SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Nur in der Egoperspektive
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Zeigt die Anzeige nur bei Verwendung eines Egoperspektive-Mods (z. B. First Person Camera - Continued). Wenn deaktiviert, erscheint sie immer, wenn einem unterstÃ¼tzten Fahrzeug in einem beliebigen Kameramodus gefolgt wird.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Zeigt die Anzeige nur bei Verwendung eines Egoperspektive-Mods (z. B. First Person Camera - Continued). Wenn deaktiviert, erscheint sie immer, wenn einem unterstützten Fahrzeug in einem beliebigen Kameramodus gefolgt wird.
+SETTINGS_TRAINDISPLAY_SCOPE Anzeige anzeigen, wenn
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Wählen Sie ausgewähltes Fahrzeug, Ego-Perspektive oder beides.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Nur ausgewähltes Fahrzeug
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Nur Ego-Perspektive
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Ausgewähltes Fahrzeug oder Ego-Perspektive
+SETTINGS_TRAINDISPLAY_LAYOUT Anzeige-Layout
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Welches Arrangement die Anzeige verwendet. Beide zeigen die gleichen Informationen und befolgen die gleichen Feld-Checkboxen - nur die Form unterscheidet sich.
 SETTINGS_TRAINDISPLAY_THEME Farbschema:
-SETTINGS_TRAINDISPLAY_THEME_TOOLTIP WÃ¤hlen Sie die Hintergrund-/Textfarben der Anzeige.
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Wählen Sie die Hintergrund-/Textfarben der Anzeige.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Einfach
 SETTINGS_TRAINDISPLAY_THEME_DARK Dunkel
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Hell
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
 SETTINGS_TRAINDISPLAY_THEME_BLUE Blau
-SETTINGS_TRAINDISPLAY_THEME_GREEN GrÃ¼n
+SETTINGS_TRAINDISPLAY_THEME_GREEN Grün
 SETTINGS_TRAINDISPLAY_THEME_AMBER Bernstein
 COPY_TIP Einstellungen dieser Linie kopieren.
-PASTE_TIP Kopierte Linieneinstellungen einfÃ¼gen.
-COPY_BUILDING_TIP Diese Einstellungen auf alle Linien Ã¼bertragen, die dieses GebÃ¤ude bedienen.
-COPY_DISTRICT_TIP Diese Einstellungen auf alle Linien in diesem Bezirk Ã¼bertragen.
+PASTE_TIP Kopierte Linieneinstellungen einfügen.
+COPY_BUILDING_TIP Diese Einstellungen auf alle Linien übertragen, die dieses Gebäude bedienen.
+COPY_DISTRICT_TIP Diese Einstellungen auf alle Linien in diesem Bezirk übertragen.
 SETTINGS_INTEGRATIONS_GROUP Integrierte Erweiterungen
 SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control aktivieren
-SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Aktiviert die integrierte Intercity-Bus-Control-KompatibilitÃ¤t und das Patchen von BahnhÃ¶fen.
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Aktiviert die integrierte Intercity-Bus-Control-Kompatibilität und das Patchen von Bahnhöfen.
 SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Erweiterte Haltestellenauswahl aktivieren
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP ErmÃ¶glicht Haltestellen auf alternativen Bahnsteigen/Gleisen von Mehrgleis-Stationen (Alternativmodus-Taste beim Platzieren halten). Wirkt nach dem nÃ¤chsten Level-Laden.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Ermöglicht Haltestellen auf alternativen Bahnsteigen/Gleisen von Mehrgleis-Stationen (Alternativmodus-Taste beim Platzieren halten). Wirkt nach dem nächsten Level-Laden.
 SETTINGS_BETTERBOARDING_ENABLE Besseres Einsteigen aktivieren
-SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Verbessert Einsteigeentscheidungen, damit FahrgÃ¤ste das Fahrzeug bevorzugen, das ihr Ziel wirklich bedient. Wirkt nach dem nÃ¤chsten Level-Laden.
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Verbessert Einsteigeentscheidungen, damit Fahrgäste das Fahrzeug bevorzugen, das ihr Ziel wirklich bedient. Wirkt nach dem nächsten Level-Laden.
 SETTINGS_MILEAGETAXI_ENABLE Kilometer-Taxi-Dienste aktivieren
-SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Berechnet TaxigebÃ¼hren nach gefahrener Distanz statt Pauschale, damit lÃ¤ngere Fahrten mehr einbringen. BenÃ¶tigt After Dark DLC. Wirkt nach dem nÃ¤chsten Level-Laden.
-SETTINGS_ELEVATEDSTOPS_ENABLE ErhÃ¶hte Haltestellen aktivieren
-SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP ErmÃ¶glicht Ã–PNV-Haltestellen auf HochstraÃŸen/BrÃ¼cken und behÃ¤lt die StraÃŸenbeleuchtung dort bei. Wirkt nach dem nÃ¤chsten Level-Laden.
-SETTINGS_INTERCITY_BUS_CAPACITY KapazitÃ¤t des Fernbusterminals
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Berechnet Taxigebühren nach gefahrener Distanz statt Pauschale, damit längere Fahrten mehr einbringen. Benötigt After Dark DLC. Wirkt nach dem nächsten Level-Laden.
+SETTINGS_ELEVATEDSTOPS_ENABLE Erhöhte Haltestellen aktivieren
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Ermöglicht ÖPNV-Haltestellen auf Hochstraßen/Brücken und behält die Straßenbeleuchtung dort bei. Wirkt nach dem nächsten Level-Laden.
+SETTINGS_INTERCITY_BUS_CAPACITY Kapazität des Fernbusterminals
 SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Wie viele Fahrzeuge ein Fernbusterminal gleichzeitig aufnehmen kann.
 SETTINGS_TRAM_DEPOT_CAPACITY Kapazitat des Strassenbahndepots
 SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Standardmassig hat jedes Strassenbahndepot ein praktisch unbegrenztes Limit von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine moderate feste Obergrenze an; Deaktiviert behalt das bestehende Verhalten bei.
 SETTINGS_TAXI_DEPOT_CAPACITY Kapazitat des Taxidepots
 SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Standardmassig hat jedes Taxidepot ein praktisch unbegrenztes Limit von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine moderate feste Obergrenze an; Deaktiviert behalt das bestehende Verhalten bei.
 SETTINGS_BUS_DEPOT_CAPACITY Buslager-Kapazitat
-SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP StandardmaÃŸig lasst das Spiel jedes Buslager (normal, Biokraftstoff und Reisebus) bei einer praktisch unbegrenzten Kapazitat von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine maÃŸige feste Obergrenze an; Deaktiviert behalt das bisherige Verhalten bei.
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Standardmaßig lasst das Spiel jedes Buslager (normal, Biokraftstoff und Reisebus) bei einer praktisch unbegrenzten Kapazitat von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine maßige feste Obergrenze an; Deaktiviert behalt das bisherige Verhalten bei.
 SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Oberleitungsbus-Lager-Kapazitat
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP StandardmaÃŸig lasst das Spiel jedes Oberleitungsbus-Lager bei einer praktisch unbegrenzten Kapazitat von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine maÃŸige feste Obergrenze an; Deaktiviert behalt das bisherige Verhalten bei.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Standardmaßig lasst das Spiel jedes Oberleitungsbus-Lager bei einer praktisch unbegrenzten Kapazitat von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine maßige feste Obergrenze an; Deaktiviert behalt das bisherige Verhalten bei.
 SETTINGS_FERRY_DEPOT_CAPACITY Fahren-Lager-Kapazitat
-SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP StandardmaÃŸig lasst das Spiel jedes Fahrenlager bei einer praktisch unbegrenzten Kapazitat von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine maÃŸige feste Obergrenze an; Deaktiviert behalt das bisherige Verhalten bei.
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Standardmaßig lasst das Spiel jedes Fahrenlager bei einer praktisch unbegrenzten Kapazitat von 100.000 Fahrzeugen. Realistisch und Mittel wenden stattdessen eine maßige feste Obergrenze an; Deaktiviert behalt das bisherige Verhalten bei.
 SETTINGS_DEPOT_CAPACITY_DISABLED Deaktiviert (unbegrenzt)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Mittel
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistisch
 SETTINGS_FLIGHTTRACKER_ENABLE Flight Tracker aktivieren
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Aktiviert die integrierten Flight-Tracker-Patches und die UI-UnterstÃ¼tzung.
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Aktiviert die integrierten Flight-Tracker-Patches und die UI-Unterstützung.
 SETTINGS_SUBBUILDINGSTABS_ENABLE Unterbau-Registerkarten aktivieren
-SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Zeigt eine Registerkartenleiste im Infofenster eines GebÃ¤udes an, wenn es UntergebÃ¤ude hat (z. B. ein Flughafen mit integrierter U-Bahn-Station), um zwischen ihnen zu wechseln.
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Zeigt eine Registerkartenleiste im Infofenster eines Gebäudes an, wenn es Untergebäude hat (z. B. ein Flughafen mit integrierter U-Bahn-Station), um zwischen ihnen zu wechseln.
 SETTINGS_TAXISTANDFIX_ENABLE Taxistand-Korrektur aktivieren
-SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Schickt untÃ¤tige Taxis zum nÃ¤chsten Taxistand, anstatt sie ziellos umherfahren zu lassen. Erfordert das After-Dark-DLC.
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Schickt untätige Taxis zum nächsten Taxistand, anstatt sie ziellos umherfahren zu lassen. Erfordert das After-Dark-DLC.
 SETTINGS_SHAREDSTOPENABLER_ENABLE Geteilte Haltestellen aktivieren
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Erlaubt mehr als einem Verkehrsmittel (Bus, StraÃŸenbahn, Oberleitungsbus), am selben StraÃŸensegment zu halten. StandardmÃ¤ÃŸig deaktiviert - was diese reduzierte Version auslÃ¤sst, steht im GitHub des Mods.
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Erlaubt mehr als einem Verkehrsmittel (Bus, Straßenbahn, Oberleitungsbus), am selben Straßensegment zu halten. Standardmäßig deaktiviert - was diese reduzierte Version auslässt, steht im GitHub des Mods.
 SETTINGS_COMMUTERDESTINATION_ENABLE Pendlerziel aktivieren (Neugestaltung ausstehend)
 SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Zeigt, wohin die an einer Haltestelle wartenden Fahrgäste unterwegs sind — ein kleines Panel plus eine Kartenüberlagerung. Nur lesend, keine Abhängigkeit außer Harmony.
-SETTINGS_OOC_ENABLE Optimierte AuÃŸenverbindungen
-SETTINGS_OOC_ENABLE_TOOLTIP GÃ¼terzÃ¼ge, Flugzeuge und Schiffe warten an AuÃŸenverbindungen lÃ¤nger auf eine vollere Ladung, bevor sie abfahren.
+SETTINGS_OOC_ENABLE Optimierte Außenverbindungen
+SETTINGS_OOC_ENABLE_TOOLTIP Güterzüge, Flugzeuge und Schiffe warten an Außenverbindungen länger auf eine vollere Ladung, bevor sie abfahren.
 SETTINGS_OOC_WAIT_MULTIPLIER Wartemultiplikator
-SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Wie viel lÃ¤nger als im Standardspiel auf eine vollere Ladung gewartet wird. HÃ¶here Werte bedeuten weniger, aber vollere Fahrten.
-SETTINGS_OOC_PASSENGER_SCOPE Wartebereich fÃ¼r FahrgÃ¤ste
-SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Wo der obige Wartemultiplikator fÃ¼r BÃ¼rger gilt, die auf Ã¶ffentliche Verkehrsmittel warten. Nur AuÃŸenverbindungen betrifft nur BÃ¼rger, die an einer AuÃŸenverbindung warten; stadtweit verlangsamt auch das gewÃ¶hnliche inlÃ¤ndische Warten fÃ¼r jeden BÃ¼rger (entspricht dem tatsÃ¤chlichen Verhalten der Quell-Mod).
-SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Nur AuÃŸenverbindungen
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Wie viel länger als im Standardspiel auf eine vollere Ladung gewartet wird. Höhere Werte bedeuten weniger, aber vollere Fahrten.
+SETTINGS_OOC_PASSENGER_SCOPE Wartebereich für Fahrgäste
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Wo der obige Wartemultiplikator für Bürger gilt, die auf öffentliche Verkehrsmittel warten. Nur Außenverbindungen betrifft nur Bürger, die an einer Außenverbindung warten; stadtweit verlangsamt auch das gewöhnliche inländische Warten für jeden Bürger (entspricht dem tatsächlichen Verhalten der Quell-Mod).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Nur Außenverbindungen
 SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE Stadtweit
 SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Deaktiviert (Standard)
 SETTINGS_OOC_DISABLE_DUMMY Dekorativen Durchgangsverkehr deaktivieren
-SETTINGS_OOC_DISABLE_DUMMY_ROAD Dekorativen StraÃŸenverkehr deaktivieren
+SETTINGS_OOC_DISABLE_DUMMY_ROAD Dekorativen Straßenverkehr deaktivieren
 SETTINGS_OOC_DISABLE_DUMMY_TRAIN Dekorativen Zugverkehr deaktivieren
 SETTINGS_OOC_DISABLE_DUMMY_PLANE Dekorativen Flugverkehr deaktivieren
 SETTINGS_OOC_DISABLE_DUMMY_SHIP Dekorativen Schiffsverkehr deaktivieren
-SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP AuÃŸenverbindungen erzeugen normalerweise zusÃ¤tzlichen dekorativen Verkehr, der die Stadt nie tatsÃ¤chlich betritt oder verlÃ¤sst, rein fÃ¼r die visuelle AtmosphÃ¤re. Das Deaktivieren entfernt diesen Verkehr, ohne den echten Import-/Export-/Passagierfluss zu beeintrÃ¤chtigen.
-SETTINGS_UOC_ENABLE Unbegrenzte AuÃŸenverbindungen
-SETTINGS_UOC_ENABLE_TOOLTIP Entfernt das Standardlimit von 4 Verbindungen fÃ¼r StraÃŸen, Bahngleise, Schiffs- und Flugrouten und verknÃ¼pft rÃ¼ckwirkend Transportlinien, wenn in der NÃ¤he einer bestehenden Station eine neue Verbindung gebaut wird. Wird beim nÃ¤chsten Laden wirksam.
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Außenverbindungen erzeugen normalerweise zusätzlichen dekorativen Verkehr, der die Stadt nie tatsächlich betritt oder verlässt, rein für die visuelle Atmosphäre. Das Deaktivieren entfernt diesen Verkehr, ohne den echten Import-/Export-/Passagierfluss zu beeinträchtigen.
+SETTINGS_UOC_ENABLE Unbegrenzte Außenverbindungen
+SETTINGS_UOC_ENABLE_TOOLTIP Entfernt das Standardlimit von 4 Verbindungen für Straßen, Bahngleise, Schiffs- und Flugrouten und verknüpft rückwirkend Transportlinien, wenn in der Nähe einer bestehenden Station eine neue Verbindung gebaut wird. Wird beim nächsten Laden wirksam.
 SETTINGS_STTAI_ENABLE Kollisionsvermeidung auf eingleisiger Strecke
-SETTINGS_STTAI_ENABLE_TOOLTIP Reserviert einen eingleisigen Streckenabschnitt fÃ¼r jeweils einen Zug und hÃ¤lt einen entgegenkommenden Zug am Eingang, bis der Abschnitt frei ist. UrsprÃ¼ngliche IPT4-Funktion, weder im Standardspiel noch in einem absorbierten Mod vorhanden.
+SETTINGS_STTAI_ENABLE_TOOLTIP Reserviert einen eingleisigen Streckenabschnitt für jeweils einen Zug und hält einen entgegenkommenden Zug am Eingang, bis der Abschnitt frei ist. Ursprüngliche IPT4-Funktion, weder im Standardspiel noch in einem absorbierten Mod vorhanden.
 SETTINGS_STOPSTACKER_ENABLE Bushaltestellen-Stapelung
-SETTINGS_STOPSTACKER_ENABLE_TOOLTIP ErmÃ¶glicht es einem zweiten/dritten Bus, der dieselbe Haltestelle anfÃ¤hrt, einen eigenen Halteplatz weiter hinten auf der Haltestellenspur zu nutzen, statt sich hinter dem fÃ¼hrenden Bus anzustellen, sodass mehrere Busse gleichzeitig ein- und aussteigen lassen kÃ¶nnen. UrsprÃ¼ngliche IPT4-Funktion (vereinfachte Neuimplementierung ohne Zugriff auf den Originalcode), weder im Standardspiel noch in einem absorbierten Mod vorhanden.
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Ermöglicht es einem zweiten/dritten Bus, der dieselbe Haltestelle anfährt, einen eigenen Halteplatz weiter hinten auf der Haltestellenspur zu nutzen, statt sich hinter dem führenden Bus anzustellen, sodass mehrere Busse gleichzeitig ein- und aussteigen lassen können. Ursprüngliche IPT4-Funktion (vereinfachte Neuimplementierung ohne Zugriff auf den Originalcode), weder im Standardspiel noch in einem absorbierten Mod vorhanden.
 CHANGELOG_4_3_3_1 Das Speichern/Laden von Einstellungen brach bei manchen Mod-Kombinationen weiterhin, selbst nachdem Newtonsoft.Json.dll gebündelt wurde: Der bisherige Workaround versuchte Assembly.LoadFrom nur an einem Einstiegspunkt und hing weiterhin von der Ladereihenfolge ab. IPT4 registriert jetzt einen globalen AssemblyResolve-Hook und startet sein gebündeltes Newtonsoft.Json eifrig von jedem Mod-/UI-Einstiegspunkt, bevor CSLModsCommon auf JsonWriter zugreift, sodass die neue Options-UI zuverlässig speichert, statt sich zufällig an die inkompatible Json.NET-Kopie eines anderen Mods zu binden.
 CHANGELOG_4_3_2_1 Behoben, dass der Mod komplett nicht lud ("failed to load the mod's dll or one of its dependencies"), wann immer kein anderer installierter Mod bereits Newtonsoft.Json bereitstellte: Die Einstellungsserialisierung von CSLModsCommon (JsonHelper/SerializationContext) benötigt es, aber unser Build hat Newtonsoft.Json.dll nie tatsächlich zusammen mit dem Mod bereitgestellt - es funktionierte nur zufällig, weil es sich auf die Kopie eines anderen Mods stützte. Gefunden durch Deaktivieren aller anderen Mods für einen sauberen Test, genau so sollte das künftig getestet werden.
 CHANGELOG_4_3_1_1 Behoben, dass der Sprachwähler des Optionsfensters nur die eigenen Strings des Frameworks (Version/Changelog/...) neu übersetzte, während sämtliche Strings dieses Mods in der Sprache des Spiels blieben - unser Übersetzungslader orientierte sich an der Spielsprache und ignorierte die eigene Auswahl des Mods vollständig. Er folgt jetzt dem Sprachwähler des Mods, mit Rückfall auf die Spielsprache und dann Englisch, und löst bei jeder Änderung des Wählers neu auf.
@@ -421,13 +432,13 @@ TRAINDISPLAY_NO_LINE Keine Linie
 TRAINDISPLAY_NO_DESTINATION Kein Ziel
 TRAINDISPLAY_HIDDEN Ausgeblendet
 TRAINDISPLAY_VEHICLE Fahrzeug
-TRAINDISPLAY_STATE_RETURNING RÃ¼ckkehr
+TRAINDISPLAY_STATE_RETURNING Rückkehr
 TRAINDISPLAY_STATE_STOPPED An Haltestelle
 TRAINDISPLAY_STATE_EN_ROUTE Unterwegs
 TRAINDISPLAY_STATE_ON_LINE Auf Linie
-TRAINDISPLAY_STATE_IDLE UntÃ¤tig
+TRAINDISPLAY_STATE_IDLE Untätig
 AUTOLINECOLOR_REFRESH_BUTTON Name/Farbe aktualisieren
-AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Weist Namen und Farbe dieser Linie gemÃ¤ÃŸ den aktiven AutoLineColor-Einstellungen neu zu.
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Weist Namen und Farbe dieser Linie gemäß den aktiven AutoLineColor-Einstellungen neu zu.
 AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Aktivieren Sie in den Optionen eine Farb- oder Namensstrategie, bevor Sie diese Linie aktualisieren.
 CHANGELOG_4_3_3_2 Den gebündelten Newtonsoft.Json-Resolver gehärtet, sodass er immer die neben diesem Mod ausgelieferte Kopie bevorzugt, statt die Kopie zurückzugeben, die zufällig zuerst von einem anderen Mod geladen wurde (Real Time liefert eine stark benannte v13; CSLModsCommon benötigt die unsignierte v9). Dem eigenen Code den falschen Build zu übergeben ließ JsonHelper stillschweigend fehlschlagen und leere Objekte zurückgeben, wodurch die eigenen Locale-Quellen des Frameworks leer blieben und der Sprachwähler rohe Locale-IDs anzeigte.
 CHANGELOG_4_3_3_3 Bengali, Hindi, Indonesisch und Urdu erscheinen jetzt im Sprachwähler des Mods. Sie waren bereits vollständig übersetzt, aber das Framework hatte keine Locale-Datei dafür, sodass sie unerreichbar waren, sofern das Spiel selbst nicht in dieser Sprache lief.
@@ -436,14 +447,14 @@ CHANGELOG_4_3_3_5 Die Suche nach dem Mod-Ordner unabhängig davon gemacht, welch
 CHANGELOG_4_3_4_1 Eine beim Start von AutoLineColor geworfene ModException ("Failed to find ImprovedPublicTransportMod assembly!") behoben, die noch vor dem Laden der Karte auftrat. Eine zweite Hilfsklasse suchte den Mod immer noch über den Typ ImprovedPublicTransportMod, der während der CSLModsCommon-Migration aufhörte, IUserMod zu sein - dieselbe Kopplung, die andernorts bereits behoben wurde. Beide Hilfsklassen lösen den Mod-Ordner jetzt aus dieser Assembly selbst auf, sodass ein künftiges Refactoring dies nicht mehr stillschweigend kaputt machen kann.
 CHANGELOG_4_3_5_1 Behoben, dass die Train-Display-Überlagerung beim Verfolgen eines Fahrzeugs nie erschien. Sie suchte die verfolgte Instanz der Kamera über generische "target"/"GetTarget"-Sonden, aber das Spiel speichert sie in einem privaten Feld CameraController.m_targetInstance, das diese Sonden nie trafen. Außerdem wurde "Nur bei First-Person-Kamera" standardmäßig deaktiviert: der einfache Verfolgungsmodus ist keine Ich-Perspektive, sodass die Überlagerung ohne diese Änderung von Anfang an defekt wirkte, anders als der ursprüngliche Mod, der sie in jeder Verfolgungsansicht zeigte.
 CHANGELOG_4_3_5_2 Der Tab Ticketpreise zeigt jetzt für jeden Transporttyp den resultierenden Fahrpreis an statt der aktuellen Fahrgastzahl. Die Schieberegler zeigen nur einen Prozentsatz an, sodass es zuvor keine Möglichkeit gab zu sehen, was ein Multiplikator tatsächlich bewirkt - und in einer kleinen oder pausierten Stadt zeigte die Fahrgastzahl dauerhaft nur "0" an. Die Fahrgastzahl wurde in den Tooltip des Labels verschoben, neben den ursprünglichen Fahrpreis.
-TICKET_PRICE_LABEL_TOOLTIP Aktueller Fahrpreis: {0}\nUrsprÃ¼nglicher Fahrpreis: {1}\nFahrgÃ¤ste unterwegs: {2}
-CHANGELOG_4_8_0_1 Added SingleTrainTrackAI hinzugefÃ¼gt: Eingleisige Bahnabschnitte werden jetzt jeweils nur fÃ¼r eine Richtung reserviert, sodass zwei ZÃ¼ge auf einem bidirektionalen Gleis nicht mehr kollidieren kÃ¶nnen. Clean-Room-Neuimplementierung - der Quell-Mod (Workshop 949504539) hat keine deklarierte Lizenz, daher wurde nur das Ã¶ffentlich dokumentierte Konzept neu umgesetzt, mit dem Harmony-basierten Patching dieses Projekts statt roher Speicher-Detours.
-CHANGELOG_4_8_0_2 Stop Stacker hinzugefÃ¼gt: Wenn mehr als ein Fahrzeug derselben Linie an einer Haltestelle zusammentrifft, nutzt nur das fÃ¼hrende Fahrzeug die normale Halteposition - nachfolgende Fahrzeuge erhalten ihren eigenen Platz weiter hinten auf der Spur, statt sich im GÃ¤nsemarsch dahinter anzustellen. Clean-Room-Neuimplementierung allein anhand der Ã¶ffentlichen Beschreibung des Quell-Mods (kein Quellcode verfÃ¼gbar); nur Bus und Oberleitungsbus, passend zum bestehenden BetterBusStopPosition-Hook-Punkt dieses Projekts.
-CHANGELOG_4_8_0_3 Behoben: Die Integration des Fernbusterminals aktivierte sich stillschweigend nie fÃ¼r Spieler mit der Sunset Harbor-DLC: Sie erkannte die DLC per Reflection Ã¼ber ein privates Spielfeld statt Ã¼ber die anderswo in diesem Projekt bereits verwendete Steam-DLC-PrÃ¼fung, und diese reflection-basierte PrÃ¼fung konnte false zurÃ¼ckgeben, selbst wenn die DLC tatsÃ¤chlich installiert war.
-CHANGELOG_4_8_0_4 Behoben: Das KontrollkÃ¤stchen "Fernbusse akzeptieren" blieb auf manchen Terminals reaktionslos hÃ¤ngen: Vanilla kann das KontrollkÃ¤stchen unter Bedingungen nicht interaktiv lassen, die die umbenannte Verwendung dieses Mods nie berÃ¼cksichtigt hat. Es wird jetzt immer interaktiv erzwungen, sobald dieser Mod es steuert. AuÃŸerdem wurde ein verwandter Fehler behoben, bei dem ein bereits korrekt eingerichtetes Terminal bei einer spÃ¤teren PrÃ¼fung stillschweigend seinen Schalter verlieren konnte.
-CHANGELOG_4_8_0_5 Behoben: Sub-Buildings Tabs zeigte gelegentlich eine veraltete Tableiste an einem nicht zugehÃ¶rigen GebÃ¤ude an: Das Spiel vergibt GebÃ¤ude-IDs nach einem Abriss neu, und der Cache vertraute darauf, dass eine wiederverwendete ID noch zum vorherigen GebÃ¤udekomplex gehÃ¶rt. Er Ã¼berprÃ¼ft jetzt die tatsÃ¤chliche Ã¼bergeordnete Kette des GebÃ¤udes neu, bevor er etwas aus dem Cache wiederverwendet.
-CHANGELOG_4_8_0_6 Allgemeine Fehlerbereinigung bei mehreren Integrationen: eine invertierte Cache-AblaufprÃ¼fung, die aktuelle Daten verwarf und stattdessen veraltete Daten auslieferte, eine Off-by-one-Schleifengrenze, die die letzte Verkehrslinie bei der automatischen EinfÃ¤rbung und der PrÃ¼fung auf doppelte Namen auslieÃŸ, ein falscher ID-Vergleich, der die "nur ein Fahrzeug auf dieser Linie"-Umgehung der Klumpenvermeidung brach, eine Preisabfrage, die einen Fehlschlag dauerhaft cachte statt es spÃ¤ter erneut zu versuchen, sowie mehrere Harmony-Patches, die bei einer null UI-/Prefab-Referenz eine Ausnahme auslÃ¶sen konnten.
-CHANGELOG_4_8_0_7 Weniger wiederholte Reflection- und Pro-Frame-Abfragen bei mehreren Integrationen: Fahrzeug-Tooltip-Beschreibungen, die Klassifizierung eingleisiger Abschnitte und die Item-Class-Abfrage fÃ¼r Fernbusse werden jetzt zwischengespeichert statt bei jedem Aufruf neu berechnet, und eine UI-AktualisierungsschaltflÃ¤che weist ihren Text nicht mehr jeden einzelnen Frame neu zu, unabhÃ¤ngig davon, ob sich etwas geÃ¤ndert hat.
+TICKET_PRICE_LABEL_TOOLTIP Aktueller Fahrpreis: {0}\nUrsprünglicher Fahrpreis: {1}\nFahrgäste unterwegs: {2}
+CHANGELOG_4_8_0_1 Added SingleTrainTrackAI hinzugefügt: Eingleisige Bahnabschnitte werden jetzt jeweils nur für eine Richtung reserviert, sodass zwei Züge auf einem bidirektionalen Gleis nicht mehr kollidieren können. Clean-Room-Neuimplementierung - der Quell-Mod (Workshop 949504539) hat keine deklarierte Lizenz, daher wurde nur das öffentlich dokumentierte Konzept neu umgesetzt, mit dem Harmony-basierten Patching dieses Projekts statt roher Speicher-Detours.
+CHANGELOG_4_8_0_2 Stop Stacker hinzugefügt: Wenn mehr als ein Fahrzeug derselben Linie an einer Haltestelle zusammentrifft, nutzt nur das führende Fahrzeug die normale Halteposition - nachfolgende Fahrzeuge erhalten ihren eigenen Platz weiter hinten auf der Spur, statt sich im Gänsemarsch dahinter anzustellen. Clean-Room-Neuimplementierung allein anhand der öffentlichen Beschreibung des Quell-Mods (kein Quellcode verfügbar); nur Bus und Oberleitungsbus, passend zum bestehenden BetterBusStopPosition-Hook-Punkt dieses Projekts.
+CHANGELOG_4_8_0_3 Behoben: Die Integration des Fernbusterminals aktivierte sich stillschweigend nie für Spieler mit der Sunset Harbor-DLC: Sie erkannte die DLC per Reflection über ein privates Spielfeld statt über die anderswo in diesem Projekt bereits verwendete Steam-DLC-Prüfung, und diese reflection-basierte Prüfung konnte false zurückgeben, selbst wenn die DLC tatsächlich installiert war.
+CHANGELOG_4_8_0_4 Behoben: Das Kontrollkästchen "Fernbusse akzeptieren" blieb auf manchen Terminals reaktionslos hängen: Vanilla kann das Kontrollkästchen unter Bedingungen nicht interaktiv lassen, die die umbenannte Verwendung dieses Mods nie berücksichtigt hat. Es wird jetzt immer interaktiv erzwungen, sobald dieser Mod es steuert. Außerdem wurde ein verwandter Fehler behoben, bei dem ein bereits korrekt eingerichtetes Terminal bei einer späteren Prüfung stillschweigend seinen Schalter verlieren konnte.
+CHANGELOG_4_8_0_5 Behoben: Sub-Buildings Tabs zeigte gelegentlich eine veraltete Tableiste an einem nicht zugehörigen Gebäude an: Das Spiel vergibt Gebäude-IDs nach einem Abriss neu, und der Cache vertraute darauf, dass eine wiederverwendete ID noch zum vorherigen Gebäudekomplex gehört. Er überprüft jetzt die tatsächliche übergeordnete Kette des Gebäudes neu, bevor er etwas aus dem Cache wiederverwendet.
+CHANGELOG_4_8_0_6 Allgemeine Fehlerbereinigung bei mehreren Integrationen: eine invertierte Cache-Ablaufprüfung, die aktuelle Daten verwarf und stattdessen veraltete Daten auslieferte, eine Off-by-one-Schleifengrenze, die die letzte Verkehrslinie bei der automatischen Einfärbung und der Prüfung auf doppelte Namen ausließ, ein falscher ID-Vergleich, der die "nur ein Fahrzeug auf dieser Linie"-Umgehung der Klumpenvermeidung brach, eine Preisabfrage, die einen Fehlschlag dauerhaft cachte statt es später erneut zu versuchen, sowie mehrere Harmony-Patches, die bei einer null UI-/Prefab-Referenz eine Ausnahme auslösen konnten.
+CHANGELOG_4_8_0_7 Weniger wiederholte Reflection- und Pro-Frame-Abfragen bei mehreren Integrationen: Fahrzeug-Tooltip-Beschreibungen, die Klassifizierung eingleisiger Abschnitte und die Item-Class-Abfrage für Fernbusse werden jetzt zwischengespeichert statt bei jedem Aufruf neu berechnet, und eine UI-Aktualisierungsschaltfläche weist ihren Text nicht mehr jeden einzelnen Frame neu zu, unabhängig davon, ob sich etwas geändert hat.
 CHANGELOG_4_8_0_8 Neuinstallationen verwenden jetzt standardmäßig das sichere (Safe) Gameplay-Profil: Jede optionale Integration und jeder Modus startet deaktiviert, für maximale Kompatibilität mit anderen Mods. Verwende Empfohlen (IPT-Kern) oder Realistisch, oder schalte einzelne Optionen um. Intercity Bus Control und Sub-Buildings Tabs bleiben verfügbar und sind nach den obigen Korrekturen in Empfohlen enthalten.
 CHANGELOG_4_8_0_9 Optionen > Integrationen zeigt jetzt Advanced Stop Selection, Better Boarding, Mileage Taxi Services und Elevated Stops an - diese waren bereits durch Einstellungen und Profile gesteuert, hatten aber keine Checkbox, sodass sie nur über JSON/Profil aktiviert werden konnten.
 CHANGELOG_4_8_0_10 Vollständige Steam-Workshop-Sprachpakete für jede Sprache der Beschreibungsauswahl hinzugefügt, einschließlich Dänisch, Finnisch, Norwegisch, Schwedisch, Ungarisch, Rumänisch, Bulgarisch, Griechisch, Ukrainisch, Vietnamesisch und Malaiisch, sowie pt-br und es-419.
@@ -452,19 +463,19 @@ CHANGELOG_4_8_5_2 Routenleiste und automatische Haltestellenbenennung des Train 
 CHANGELOG_4_8_5_3 Commuter Destination pausiert (noch fehlerhaft): für alle Profile/Spielstände zwangsweise deaktiviert und der Options-Schalter bis zu einer späteren Neugestaltung entfernt. Ein reiner Zukunftshinweis bleibt unter Erweitert erhalten.
 CHANGELOG_4_8_5_4 Options-Sprachpakete: Der vollständige gemeinsame JSON-Satz wird bei der Bereitstellung mitgeliefert (35+ Framework-Sprachen), sodass im Sprach-Dropdown nicht mehr die Hälfte der Liste fehlt; Beschreibungskarten der Abschnitte behalten einen gemeinsamen Hintergrund mit ihren Steuerelementen.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
-CHANGELOG_4_7_0_1 Vier neue Integrationen: Unterbau-Registerkarten (Registerkartenleiste fÃ¼r jeden GebÃ¤udekomplex mit mehreren GebÃ¤uden, nicht nur FlughÃ¤fen), Geteilte Haltestellen (ermÃ¶glicht es mehr als einem Haltestellentyp, sich ein StraÃŸensegment zu teilen, standardmÃ¤ÃŸig deaktiviert), Fahrgastziel (zeigt, wohin die an einer Haltestelle wartenden Einwohner tatsÃ¤chlich unterwegs sind) und Taxistand-Korrektur (leere Taxis fahren zum nÃ¤chsten Taxistand, statt umherzuirren). Die einzelnen Schalter dazu finden sich unter Optionen > Integrationen.
-CHANGELOG_4_7_0_2 FÃ¼r Fernbusterminals wurde ein FahrzeugkapazitÃ¤tsmodus hinzugefÃ¼gt (Optionen > Integrationen > KapazitÃ¤t des Fernbusterminals): Deaktiviert behÃ¤lt das bisherige, faktisch unbegrenzte Terminal dieses Mods bei, Mittel wendet eine moderate feste Obergrenze an, Realistisch stellt die eigene Vanilla-Prefab-KapazitÃ¤t des Terminals wieder her. Bestehende SpielstÃ¤nde verwenden standardmÃ¤ÃŸig Deaktiviert, damit ein Update die KapazitÃ¤t eines Terminals nie stillschweigend verkleinert.
-CHANGELOG_4_7_0_3 Die Checkbox "InterstÃ¤dtische Busse akzeptieren" des Fernbusterminals wurde korrigiert: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged setzt acceptsInterCityTrains, was ein reiner Alias fÃ¼r isEmptying ist, sodass die umbenannte Checkbox ein Busterminal stillschweigend in den GebÃ¤ude-Abschaltzustand des Spiels versetzen konnte, statt tatsÃ¤chlich die Busannahme umzuschalten. Ein Harmony-Prefix fÃ¤ngt dies nun ab und leitet es bei bus-gepatchten Terminals auf einen gebÃ¤udebezogenen Zustand um, wÃ¤hrend echte BahnhÃ¶fe unangetastet bleiben.
-CHANGELOG_4_7_0_4 Der Train Display wurde ein "Original"-Farbschema hinzugefÃ¼gt (Optionen > Train Display > Farbschema), das das Layout des ursprÃ¼nglichen Mods Train Display - Updated nachbildet: ein Kopfbereich mit Geschwindigkeit und Status sowie ein Routenstreifen in der tatsÃ¤chlichen Linienfarbe des Fahrzeugs.
-CHANGELOG_4_7_0_5 Die Train-Display-Themes Einfach, Dunkel und Hell zeigten falsche Farben an: GUI.Box, Ã¼ber GUI.backgroundColor eingefÃ¤rbt, erzeugt keine einheitliche Farbe, da die Standard-Skin-Box-Textur von Unity nicht rein weiÃŸ ist. Das Overlay zeichnet nun stattdessen mit GUI.DrawTexture und GUI.color auf eine zwischengespeicherte, vollstÃ¤ndig weiÃŸe Textur.
-CHANGELOG_4_7_0_6 Der Tab Fahrkartenpreise fiel immer auf seine einfache benutzerdefinierte Schieberegler-Zeile zurÃ¼ck, anstatt die Vanilla-BudgetItem-Optik zu verwenden: Eine Reflection-Abfrage fÃ¼r das Nachtpreis-Schieberegler-Feld von BudgetItem enthielt einen Tippfehler, wodurch sie stets fehlschlug und der Fehler stillschweigend abgefangen wurde.
-CHANGELOG_4_7_0_7 Wiederholte Suchen im UI-Baum pro Frame wurden in zwei Harmony-Patches reduziert, die fÃ¼r jedes sichtbare Verkehrspanel laufen (die Fernbus-Checkbox auf den Panels der stÃ¤dtischen Dienste und das Fahrgastzahl-Label jeder Haltestelle im Linienpanel), indem die aufgelÃ¶sten UI-Referenzen jetzt zwischengespeichert werden, statt sie bei jedem Frame erneut zu suchen.
-CHANGELOG_4_7_0_8 Das gesamte OptionsmenÃ¼ wurde in Tabs umstrukturiert, die tatsÃ¤chlich zu ihrem Inhalt passen (Flotte & Planung, Budget & Preise, Linienfarben, Integrationen und mehr), statt der alten Registerkarte Automatische Linie mit sieben unzusammenhÃ¤ngenden Einstellungsgruppen. Die in einer frÃ¼heren Version entfernte Registerkarte TastenkÃ¼rzel wurde wiederhergestellt und steht fÃ¼r kÃ¼nftige Integrationen bereit, die eine solche benÃ¶tigen, und unter Optionen > Erweitert wurde ein Link zum GitHub-Projekt hinzugefÃ¼gt.
-CHANGELOG_4_3_8_1 Nicht mehr als BETA gekennzeichnet. Der WartungsÃ¼berlauf, fÃ¼r dessen Behebung dieser Fork existiert, ist an der Wurzel gelÃ¶st und reparatiert bereits beschÃ¤digte SpielstÃ¤nde; alle 23 Sprachen sind vollstÃ¤ndig.
-CHANGELOG_4_3_7_1 Alle 23 Sprachen in der Auswahl sind jetzt vollstÃ¤ndig Ã¼bersetzt. Tschechisch, NiederlÃ¤ndisch, Slowakisch, Thai und TÃ¼rkisch waren auswÃ¤hlbar, hatten aber keine Ãœbersetzungsdatei und fielen stillschweigend auf Englisch zurÃ¼ck.
-CHANGELOG_4_3_7_2 Der Ãœbersetzungsfortschritt unter der Sprachauswahl las eine statische Statusdatei, die nicht neu erzeugt worden war, und zeigte daher fÃ¼r sechzehn Sprachen 76 % an, obwohl sie tatsÃ¤chlich vollstÃ¤ndig waren.
-CHANGELOG_4_3_6_1 Die eigentliche Ursache der Ausgaben von etwa -21,4 Millionen im Ã–PNV wurde behoben: Die wÃ¶chentliche Wartungsberechnung von IPT teilte durch eine FahrzeugkapazitÃ¤t von null oder eine nicht unterstÃ¼tzte KapazitÃ¤t, verwandelte NaN in int.MinValue und summierte anschlieÃŸend jedes Fahrzeug in einem weiteren int. UngÃ¼ltige Werte verwenden jetzt einen sicheren Vanilla-Fallback, Liniensummen nutzen 64-Bit-Arithmetik, und groÃŸe gÃ¼ltige BetrÃ¤ge werden nur Ã¼ber begrenzte positive Transaktionen abgebucht.
-CHANGELOG_4_3_6_2 Bereits betroffene SpielstÃ¤nde werden beim Laden repariert: Nur die negativen Einnahmen- oder Ausgabenposten des Ã–PNV, die dieser Ãœberlauf hinterlassen hat, werden auf null gesetzt und ihre zugehÃ¶rigen Summen korrigiert. GÃ¼ltige Wirtschaftsdaten und alle anderen Dienste bleiben unverÃ¤ndert.
+CHANGELOG_4_7_0_1 Vier neue Integrationen: Unterbau-Registerkarten (Registerkartenleiste für jeden Gebäudekomplex mit mehreren Gebäuden, nicht nur Flughäfen), Geteilte Haltestellen (ermöglicht es mehr als einem Haltestellentyp, sich ein Straßensegment zu teilen, standardmäßig deaktiviert), Fahrgastziel (zeigt, wohin die an einer Haltestelle wartenden Einwohner tatsächlich unterwegs sind) und Taxistand-Korrektur (leere Taxis fahren zum nächsten Taxistand, statt umherzuirren). Die einzelnen Schalter dazu finden sich unter Optionen > Integrationen.
+CHANGELOG_4_7_0_2 Für Fernbusterminals wurde ein Fahrzeugkapazitätsmodus hinzugefügt (Optionen > Integrationen > Kapazität des Fernbusterminals): Deaktiviert behält das bisherige, faktisch unbegrenzte Terminal dieses Mods bei, Mittel wendet eine moderate feste Obergrenze an, Realistisch stellt die eigene Vanilla-Prefab-Kapazität des Terminals wieder her. Bestehende Spielstände verwenden standardmäßig Deaktiviert, damit ein Update die Kapazität eines Terminals nie stillschweigend verkleinert.
+CHANGELOG_4_7_0_3 Die Checkbox "Interstädtische Busse akzeptieren" des Fernbusterminals wurde korrigiert: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged setzt acceptsInterCityTrains, was ein reiner Alias für isEmptying ist, sodass die umbenannte Checkbox ein Busterminal stillschweigend in den Gebäude-Abschaltzustand des Spiels versetzen konnte, statt tatsächlich die Busannahme umzuschalten. Ein Harmony-Prefix fängt dies nun ab und leitet es bei bus-gepatchten Terminals auf einen gebäudebezogenen Zustand um, während echte Bahnhöfe unangetastet bleiben.
+CHANGELOG_4_7_0_4 Der Train Display wurde ein "Original"-Farbschema hinzugefügt (Optionen > Train Display > Farbschema), das das Layout des ursprünglichen Mods Train Display - Updated nachbildet: ein Kopfbereich mit Geschwindigkeit und Status sowie ein Routenstreifen in der tatsächlichen Linienfarbe des Fahrzeugs.
+CHANGELOG_4_7_0_5 Die Train-Display-Themes Einfach, Dunkel und Hell zeigten falsche Farben an: GUI.Box, über GUI.backgroundColor eingefärbt, erzeugt keine einheitliche Farbe, da die Standard-Skin-Box-Textur von Unity nicht rein weiß ist. Das Overlay zeichnet nun stattdessen mit GUI.DrawTexture und GUI.color auf eine zwischengespeicherte, vollständig weiße Textur.
+CHANGELOG_4_7_0_6 Der Tab Fahrkartenpreise fiel immer auf seine einfache benutzerdefinierte Schieberegler-Zeile zurück, anstatt die Vanilla-BudgetItem-Optik zu verwenden: Eine Reflection-Abfrage für das Nachtpreis-Schieberegler-Feld von BudgetItem enthielt einen Tippfehler, wodurch sie stets fehlschlug und der Fehler stillschweigend abgefangen wurde.
+CHANGELOG_4_7_0_7 Wiederholte Suchen im UI-Baum pro Frame wurden in zwei Harmony-Patches reduziert, die für jedes sichtbare Verkehrspanel laufen (die Fernbus-Checkbox auf den Panels der städtischen Dienste und das Fahrgastzahl-Label jeder Haltestelle im Linienpanel), indem die aufgelösten UI-Referenzen jetzt zwischengespeichert werden, statt sie bei jedem Frame erneut zu suchen.
+CHANGELOG_4_7_0_8 Das gesamte Optionsmenü wurde in Tabs umstrukturiert, die tatsächlich zu ihrem Inhalt passen (Flotte & Planung, Budget & Preise, Linienfarben, Integrationen und mehr), statt der alten Registerkarte Automatische Linie mit sieben unzusammenhängenden Einstellungsgruppen. Die in einer früheren Version entfernte Registerkarte Tastenkürzel wurde wiederhergestellt und steht für künftige Integrationen bereit, die eine solche benötigen, und unter Optionen > Erweitert wurde ein Link zum GitHub-Projekt hinzugefügt.
+CHANGELOG_4_3_8_1 Nicht mehr als BETA gekennzeichnet. Der Wartungsüberlauf, für dessen Behebung dieser Fork existiert, ist an der Wurzel gelöst und reparatiert bereits beschädigte Spielstände; alle 23 Sprachen sind vollständig.
+CHANGELOG_4_3_7_1 Alle 23 Sprachen in der Auswahl sind jetzt vollständig übersetzt. Tschechisch, Niederländisch, Slowakisch, Thai und Türkisch waren auswählbar, hatten aber keine Übersetzungsdatei und fielen stillschweigend auf Englisch zurück.
+CHANGELOG_4_3_7_2 Der Übersetzungsfortschritt unter der Sprachauswahl las eine statische Statusdatei, die nicht neu erzeugt worden war, und zeigte daher für sechzehn Sprachen 76 % an, obwohl sie tatsächlich vollständig waren.
+CHANGELOG_4_3_6_1 Die eigentliche Ursache der Ausgaben von etwa -21,4 Millionen im ÖPNV wurde behoben: Die wöchentliche Wartungsberechnung von IPT teilte durch eine Fahrzeugkapazität von null oder eine nicht unterstützte Kapazität, verwandelte NaN in int.MinValue und summierte anschließend jedes Fahrzeug in einem weiteren int. Ungültige Werte verwenden jetzt einen sicheren Vanilla-Fallback, Liniensummen nutzen 64-Bit-Arithmetik, und große gültige Beträge werden nur über begrenzte positive Transaktionen abgebucht.
+CHANGELOG_4_3_6_2 Bereits betroffene Spielstände werden beim Laden repariert: Nur die negativen Einnahmen- oder Ausgabenposten des ÖPNV, die dieser Überlauf hinterlassen hat, werden auf null gesetzt und ihre zugehörigen Summen korrigiert. Gültige Wirtschaftsdaten und alle anderen Dienste bleiben unverändert.
 DEPOT_STATS_FERRIES_IN_USE Fähren im Einsatz
 DEPOT_STATS_BLIMPS_IN_USE Luftschiffe im Einsatz
 DEPOT_STATS_HELICOPTERS Hubschrauber im Einsatz
@@ -546,11 +557,21 @@ SETTINGS_SUB_PERF Leistung
 SETTINGS_SUB_COMPAT Kompatibilität
 SETTINGS_SUB_KEYS Tasten
 SETTINGS_FUTURE_GROUP Kommt später
-SETTINGS_FUTURE_GROUP_DESCRIPTION Vorschau auf geplante Funktionen. Grau dargestellt bis bereit – noch keine Auswirkung.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Vorschau auf geplante Funktionen. Grau dargestellt bis bereit; Fahrgastziele bleiben zum Testen verfügbar.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Umkehrbare Straßenbahn-KI (bald)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Geplant: Straßenbahnen kehren an Endhaltestellen um, ohne eine Schleife zu benötigen. Noch nicht verfügbar.
 SETTINGS_FUTURE_BREAKDOWN Fehlerdiagnose-Tools (bald)
 SETTINGS_FUTURE_BREAKDOWN_TIP Geplant: Diagnose von Routen-/Verkehrsproblemen für steckengebliebene Fahrzeuge. Noch nicht verfügbar.
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Entbündelung / Express Bus
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Aktiviert Fahrzeugentbündelung, Express Bus/Tram, Spawn-Zeitintervall und aggressive Flottengrößen. Alle Abstands-/Budget-Funktionen für Busse und Straßenbahnen.
+SETTINGS_FEATURE_BUDGET_ENABLE Budget-Funktionen
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Aktiviert Linienbudget, Auto-Linienbudget, Ticketpreis-Anpasser und Fahrpreis-als-Pfadkosten. Alle Geld-/Preis-/Flottenfunktionen.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Auto-Linienfarbe
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Weist automatisch Farben und Namen neuen Verkehrslinien zu. Enthält Farbstrategie, Namensstrategie und Palette-Einstellungen.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Fahrzeug-Editor
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Aktiviert das Fahrzeug-Editor-Panel zum Ändern von Fahrzeugtypen, Lackierungen und Eigenschaften. Position unten oder rechts wählbar.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Wartepassagier-Obergrenzen
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Begrenzt, wie viele Bürger an einer einzelnen Haltestelle auf öffentlichen Verkehr warten können. Deaktivieren entfernt alle Warteschlangen-Obergrenzen und lässt das Spiel die Kapazität handhaben.
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Kartendetail:
 SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Leistung zeigt weniger Kartensymbole und aktualisiert schneller. Vollständige Karte zeigt viel mehr Zielmarkierungen auf der Karte; das Panel aktualisiert sich langsamer, damit schwächere PCs es immer noch verwenden können.
 SETTINGS_COMMUTERDESTINATION_MAP_PERF Leistung (schneller)
@@ -563,7 +584,7 @@ SETTINGS_HOTKEY_LINE_COLOR Linienfarbe neu zuweisen
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Führen Sie Auto-Linienfarbe für diese Linie erneut aus, während eine Transportlinie ausgewählt ist (erfordert aktivierte Farbstrategie).
 LINE_PANEL_COPY Kopieren
 LINE_PANEL_PASTE Einfügen
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe â€” everything optional stays OFF (best with many mods).\nâ˜… Vanilla â€” closest to the base game (no IPT extras).\nâ˜… Recommended â€” IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic â€” most features on (stronger sim, more cost).\nâ˜… Custom â€” you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
 SETTINGS_QUICK_TIPS_GROUP Schnelle Tipps
 SETTINGS_QUICK_TIPS_DESC Kleine Erinnerungen – kein zusätzlicher Code, nur wie man das Vorhandene nutzt.
 SETTINGS_QUICK_TIP_1_TITLE Einfach beginnen
@@ -585,11 +606,11 @@ SETTINGS_HIDDENBEHAVIOUR_GROUP Immer aktives Verhalten
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Zwei kleine Verhaltensweisen, die bisher immer liefen, ohne dass man sie abschalten konnte. Standardmäßig aktiviert, damit bestehende Installationen keine Änderung bemerken - abschalten, wenn ein eigenständiger Mod dasselbe tut oder man einfach manuelle Kontrolle bevorzugt.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portiert aus dem eigenständigen Mod Rescue Fullwidth Digits. Behebt Transportlinien-Namen, die durch manche IME-/Eingabe-Setups mit Vollbreiten-Ziffern (１２３ statt 123) gespeichert wurden und sonst dauerhaft falsch angezeigt würden.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
+SETTINGS_FUTURE_BUSWAYPOINT Bus-Wegpunkt-Haltestellen (bald)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Geplant: eine Haltestelle nur als Routing-Wegpunkt markieren - der Linienweg führt hindurch, aber Fahrzeuge halten nie und laden keine Fahrgäste ein/aus. Hilft, Vanilla-Pfadfindung auf die tatsächlich gewollte Straße zu lenken. Noch nicht verfügbar.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: exaktes Gleis wählen
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Beim Platzieren einer Zug-/Tram-Haltestellenverbindung gedrückt halten, um das exakte Gleis anzuvisieren statt das nächstgültige. War fest auf Links/Rechts-Shift; Neubinden hier deckt nur die gewählte Seite ab.
 SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_LEGACY_GROUP_DESC Alte Umschalter bleiben nur erhalten, damit Installationen, die sie bereits aktiv hatten, weiterhin genau wie zuvor funktionieren. Gesperrt - sie können hier nicht mehr ein- oder ausgeschaltet werden, und jedes Spielprofil lässt sie künftig deaktiviert.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

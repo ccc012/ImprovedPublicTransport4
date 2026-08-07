@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using ColossalFramework;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
 
         private static float _nextEnforceRealtime;
         private static float _nextDepotListRefreshRealtime;
-        private static bool _actionQueued;
+        private static int _actionQueued;
         private static ushort[] _cappedDepotIds = new ushort[0];
         private static int _cappedDepotCount;
 
@@ -65,14 +66,13 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             }
 
             float now = Time.realtimeSinceStartup;
-            if (now < _nextEnforceRealtime || _actionQueued)
+            if (now < _nextEnforceRealtime || Interlocked.CompareExchange(ref _actionQueued, 1, 0) != 0)
             {
                 return;
             }
 
             // Placeholder; EnforceExcessVehicles sets the real next interval based on work done.
             _nextEnforceRealtime = now + EnforceIntervalIdleSeconds;
-            _actionQueued = true;
             Singleton<SimulationManager>.instance.AddAction(() =>
             {
                 try
@@ -85,7 +85,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                 }
                 finally
                 {
-                    _actionQueued = false;
+                    Interlocked.Exchange(ref _actionQueued, 0);
                 }
             });
         }
@@ -300,7 +300,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             int count = 0;
 
             // First pass: count
-            for (ushort buildingID = 1; buildingID < size; buildingID++)
+            for (int buildingID = 1; buildingID < size; buildingID++)
             {
                 if (IsCappedDepot(ref buffer[buildingID]))
                 {
@@ -314,11 +314,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
             }
 
             int write = 0;
-            for (ushort buildingID = 1; buildingID < size && write < count; buildingID++)
+            for (int buildingID = 1; buildingID < size && write < count; buildingID++)
             {
                 if (IsCappedDepot(ref buffer[buildingID]))
                 {
-                    _cappedDepotIds[write++] = buildingID;
+                    _cappedDepotIds[write++] = (ushort)buildingID;
                 }
             }
 

@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE Kollisjonsunngåelse på enkeltsporet jernbane
 SETTINGS_STTAI_ENABLE_TOOLTIP Reserverer et enkeltsporet segment for ett tog om gangen og holder et motsatt tog ved inngangen til segmentet er fritt. Original IPT4-funksjon, finnes ikke i vanilla eller noen absorbert mod.
 SETTINGS_STOPSTACKER_ENABLE Stabling av busstopp-plasser
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Lar en andre/tredje buss som nærmer seg samme stopp bruke sin egen plass lenger bak langs stoppsporet i stedet for å stå i enkeltfil bak den fremste bussen, slik at flere busser kan laste/losse samtidig. Original IPT4-funksjon (forenklet clean-room-reimplementering), finnes ikke i vanilla eller noen absorbert mod.
+
+SETTINGS_SUPPORT_LABEL Hvis IPT4 har reddet lagringsfilen din eller forbedret ytelsen, vurder å støtte utviklingen!
+SETTINGS_SUPPORT_BUTTON Støtt meg på Ko-fi
+SETTINGS_FEATURE_UNBUNCHING_ENABLE Avbunting / Ekspressbuss
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Aktiverer kjøretøyavbunting, ekspressbuss/trikk, spawn-intervall og agresiv flåtestørrelse. Alle buss/trikk-avstands- og budsjettfunksjoner.
+SETTINGS_FEATURE_BUDGET_ENABLE Budsjettfunksjoner
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Aktiverer linjebudsjettkontroll, auto linjebudsjett, billettpris-multiplikator og pris som rutekostnad. Alle penger/pris/flåte-funksjoner.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Automatisk linjefarge
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Tildeler automatisk farger og navn til nye transportlinjer. Inkluderer fargestategi, navnegivningsstrategi og panelerinnstillinger.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Kjøretøyeditor
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Aktiverer kjøretøyeditor-panelet for å endre kjøretøytyper, liverier og egenskaper. Kan plasseres nederst eller til høyre.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Ventende passasjergrenser
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Begrenser hvor mange borgere som kan vente på kollektivtransport ved en enkelt holdeplass. Deaktiver for å fjerne alle ventegrenser og la spillet håndtere holdeplaskapasitet.
+SETTINGS_TRAINDISPLAY_SCOPE Vis overlay når
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Velg valgt kjøretøy, first-person-kamera eller begge deler.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Bare valgt kjøretøy
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Bare first-person-kamera
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Valgt kjøretøy eller first-person-kamera
+SETTINGS_TRAINDISPLAY_LAYOUT Panel-oppsett
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Hvilket oppsett overlayet bruker. Begge viser samme informasjon og respekterer samme avhukingsbokser - bare formen er forskjellig.
 CHANGELOG_4_3_3_1 Fikset at lagring/lasting av innstillinger fortsatt brøt på enkelte modkombinasjoner selv etter at Newtonsoft.Json.dll ble bundlet: den forrige løsningen prøvde bare Assembly.LoadFrom fra ett inngangspunkt og var fortsatt avhengig av lasterekkefølgen. IPT4 registrerer nå en global AssemblyResolve-hook og laster inn sin bundlede Newtonsoft.Json tidlig fra alle mod-/UI-inngangspunkter før CSLModsCommon rører JsonWriter, slik at det nye Options-UI-et lagres pålitelig i stedet for tilfeldig å binde seg til en annen mods inkompatible Json.NET-kopi.
 CHANGELOG_4_3_2_1 Fikset at moden feilet helt under lasting («failed to load the mod's dll or one of its dependencies») når ingen annen installert mod tilfeldigvis allerede leverte Newtonsoft.Json: CSLModsCommons innstillingsserialisering (JsonHelper/SerializationContext) trenger den, men build-en vår leverte faktisk aldri Newtonsoft.Json.dll sammen med moden – det fungerte bare ved tilfeldighet, ved å haike på en annen mods kopi. Oppdaget ved å deaktivere alle andre mods for en ren test, som er nøyaktig slik dette bør testes fremover.
 CHANGELOG_4_3_1_1 Fikset at Options-panelets språkvelger bare oversatte rammeverkets egne strenger (Versjon/Endringslogg/...) mens hver streng i denne moden forble på spillets språk – vår oversettelseslaster hentet nøkkel fra spillspråket og ignorerte modens eget valg fullstendig. Den følger nå modens språkvelger, med fallback til spillspråket og deretter engelsk, og løser oversettelser på nytt hver gang velgeren endres.
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF Ytelse
 SETTINGS_SUB_COMPAT Kompat.
 SETTINGS_SUB_KEYS Taster
 SETTINGS_FUTURE_GROUP Kommer senere
-SETTINGS_FUTURE_GROUP_DESCRIPTION Forhåndsvisning av planlagte funksjoner. Grået ut til de er klare – har ingen effekt ennå.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Forhåndsvisning av planlagte funksjoner. Vises gråt ut til de er klare; passasjerdestinasjon forblir tilgjengelig for testing.
 SETTINGS_FUTURE_REVERSIBLE_TRAM Reversibel trikk-AI (snart)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planlagt: trikker snur ved endestasjoner uten sløyfe. Ikke tilgjengelig ennå.
 SETTINGS_FUTURE_BREAKDOWN Feilsøkingsverktøy (snart)
@@ -585,11 +605,11 @@ SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portert fra den frittstående mode
 CHANGELOG_4_8_6_1 Gjenaktiverte Passasjerdestinasjon: Innstillinger-bryteren er tilbake og fungerer live, uten behov for omlasting.
 CHANGELOG_4_8_6_2 Reviderte hver valgfrie integrasjon for et reelt «av betyr av»: Forhøyede stopp-aktivering skrev permanent om veiprefabdata uten mulighet til å angre det, og Automatisk flåtestørrelse fortsatte å styre linjer i bakgrunnen etter å ha blitt deaktivert midt i en økt. Begge tilbakestilles nå fullstendig til vanilla-atferd når de slås av.
 CHANGELOG_4_8_6_3 Fant to atferder som alltid kjørte uten mulighet til å slå dem av – autonavngiving av unavngitte stopp, og Redd fullbreddesifre (Gansaku) – og la til brytere for begge under Options → Avansert. På som standard, slik at ingenting endres med mindre du slår dem av.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_FUTURE_BUSWAYPOINT Buss-waypoint-stopp (snart)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planlagt: merk en stopp som kun en ruting-waypoint – linjens bane går gjennom, men kjøretøy stopper aldrig eller laster av/på passasjerer der. Hjelper styre vanilla pathfinding til den veien du egentlig mente. Ikke tilgjengelig ennå.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Avansert stoppvalg: velg nøyaktig bane
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold nere mens du plasserer en tog/trikk-stoppforbindelse for å målrette den nøyaktige banen i stedet for nærmeste gyldige. Var hardkodet til Venstre/Høyre Shift; ombinding her dekker kun den valgte siden.
+SETTINGS_LEGACY_GROUP Arv
+SETTINGS_LEGACY_GROUP_DESC Gamle brytere beholdes bare slik at installasjoner som allerede hadde dem på fortsetter å fungere akkurat som før. Låst – de kan ikke lenger skrus på/av herfra, og hver gameplay-profil lar dem være skrudd av fremover.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.

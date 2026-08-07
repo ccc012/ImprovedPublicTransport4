@@ -385,6 +385,26 @@ SETTINGS_STTAI_ENABLE 単線区間の列車衝突回避
 SETTINGS_STTAI_ENABLE_TOOLTIP 単線区間を一度に1本の列車に予約し、区間が空くまで対向列車を入口で待機させます。IPT4独自の機能で、バニラや吸収した他のMODには存在しません。
 SETTINGS_STOPSTACKER_ENABLE バス停の多段乗降スペース
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 同じ停留所に向かう2台目・3台目のバスが、先頭のバスの後ろに一列で並ぶ代わりに、停留所レーンの後方に自分専用の乗降スペースを使えるようにし、複数のバスが同時に乗客の乗り降りをできるようにします。IPT4独自の機能(オリジナルコードを参照しない簡略化された再実装)で、バニラや吸収した他のMODには存在しません。
+
+SETTINGS_SUPPORT_LABEL IPT4がセーブデータを救ったりパフォーマンスを改善した場合、開発支援をご検討ください！
+SETTINGS_SUPPORT_BUTTON Ko-fiで支援する
+SETTINGS_FEATURE_UNBUNCHING_ENABLE アンバンチング / エクスプレスバス
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP 車両のアンバンチング、エクスプレスバス/トラム、スポーン間隔、積極的なフリートサイズ調整を有効化。バス/トラムの全間隔・予算機能。
+SETTINGS_FEATURE_BUDGET_ENABLE 予算機能
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP ライン予算管理、自動ライン予算、チケット価格倍率、経路コストとしての運賃を有効化。全ての金銭/価格/フリート機能。
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE 自動ライン色
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP 新しい輸送路線に自動的に色と名前を割り当てます。色戦略、命名戦略、パレット設定を含みます。
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE 車両エディタ
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP 車両タイプ、リーバリー、プロパティ変更のための車両エディタパネルを有効化。画面下部または右側に配置可能。
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE 待機乗客上限
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP 1つの停留所で公共交通を待機できる市民数を制限。無効にすると全待機上限が撤廃され、ゲーム側が停留所容量を管理します。
+SETTINGS_TRAINDISPLAY_SCOPE オーバーレイ表示条件
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP 選択車両、一人称視点カメラ、または両方を選択。
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE 選択車両のみ
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON 一人称視点カメラのみ
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH 選択車両または一人称視点カメラ
+SETTINGS_TRAINDISPLAY_LAYOUT パネルレイアウト
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP オーバーレイが使用するレイアウト。両方とも同じ情報を表示し同じチェックボックスを尊重 - 形状のみ異なる。
 CHANGELOG_4_3_3_1 設定の保存/読み込みが壊れ続ける問題を修正。
 CHANGELOG_4_3_2_1 設定保存がいくつかのmod スタックで壊れる問題を修正。
 CHANGELOG_4_3_1_1 Options パネルの言語セレクタが一部の文字列のみを翻訳する問題を修正。
@@ -546,7 +566,7 @@ SETTINGS_SUB_PERF 性能
 SETTINGS_SUB_COMPAT 互換
 SETTINGS_SUB_KEYS キー
 SETTINGS_FUTURE_GROUP 近日実装予定
-SETTINGS_FUTURE_GROUP_DESCRIPTION 計画された機能のプレビュー。準備できるまでグレーアウトされます—まだ効果はありません。
+SETTINGS_FUTURE_GROUP_DESCRIPTION 計画中機能のプレビュー。準備できるまでグレーアウト表示 — 乗客目的地はテスト用に利用可能。
 SETTINGS_FUTURE_REVERSIBLE_TRAM リバーシブル路面電車AI(近日中)
 SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 計画中: 路面電車がループなしで両端で方向転換します。まだ利用できません。
 SETTINGS_FUTURE_BREAKDOWN ブレークダウン ツール(近日中)
@@ -576,18 +596,18 @@ SETTINGS_OOC_RESET_TOOLTIP 都市間接続の待機、ダミー交通、およ�
 SETTINGS_EBS_GROUP_BUS_DESC エクスプレスバスは乗客が少ない場合は早期に出発することがあります —オプションの高度な間隔。
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 追加行
 SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop はバスが停留所に駐車する場所を変更するだけです。以下のオプションは別の機能(高架、共有停留所など)です—意図的にクリック可能なままにしています。
-SETTINGS_HIDDENBEHAVIOUR_GROUP Always-on behaviour
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Two small behaviours that always ran with no way to turn them off until now. On by default so existing installs see no change - turn off if you run a standalone mod that does the same thing, or just prefer manual control.
-SETTINGS_AUTONAMESTOPS_ENABLE Auto-name unnamed stops
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP The first time you select a stop with no name, gives it the same nearby-building name the stop panel's own dropdown would suggest - without you having to open that dropdown. Never touches a name you (or this) already set.
+SETTINGS_HIDDENBEHAVIOUR_GROUP 常時有効な動作
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC これまでオフにする方法がなかった2つの小さな動作。デフォルトでオンのため既存のインストールには変更なし – 同じことをするスタンドアロンmodを使っている場合や、手動制御を好む場合はオフにしてください。
+SETTINGS_AUTONAMESTOPS_ENABLE 名前なし停留所を自動命名
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP 名前のない停留所を初めて選択したとき、停留所パネルのドロップダウンが提案する同じ近くの建物名を与えます – ドロップダウンを開く必要はありません。あなた(またはこれ)がすでに設定した名前には触れません。
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Ported from the standalone Rescue Fullwidth Digits mod. Fixes transport line names that got saved with fullwidth digits (１２３ instead of 123) by some IME/input setups, which otherwise display incorrectly forever.
-SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
-SETTINGS_LEGACY_GROUP Legacy
-SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP スタンドアロンの Rescue Fullwidth Digits mod から移植。一部の IME/入力設定で全角数字 (１２３ ではなく 123) で保存されてしまった輸送線名を修正し、そうでなければ永遠に誤って表示されます。
+SETTINGS_FUTURE_BUSWAYPOINT バスウェイポイント停留所 (近日)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP 予定: 停留所をルーティング用ウェイポイントのみとしてマーク – 線路は通るが車両は止まらず乗客を乗降させない。実際に意図した道路へ vanilla pathfinding を導くのに役立ちます。まだ利用不可。
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT 高度な停留所選択: 正確な線路を選択
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP 列車/路面電車の停留所接続を配置中に押し続け、最寄りの有効な線路ではなく正確な線路をターゲットにする。左/右 Shift にハードコードされていた; ここでの再割り当ては選択した片側のみをカバー。
+SETTINGS_LEGACY_GROUP レガシー
+SETTINGS_LEGACY_GROUP_DESC すでにオンにしていたインストールが以前とまったく同じように動作し続けられるよう、古いトグルのみを保持。ロック済み – ここからはオン/オフできず、すべてのゲームプレイプロファイルで今後はオフのまま。
 CHANGELOG_4_8_6_1 Re-enabled Commuter Destination: the Options toggle is back and works live, no reload needed.
 CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off": Elevated Stops Enabler was permanently rewriting road prefab data with no way to undo it, and Auto Line Budget kept managing lines in the background after being disabled mid-session. Both now fully revert to vanilla behavior when turned off.
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.

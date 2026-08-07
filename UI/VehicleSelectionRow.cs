@@ -77,7 +77,7 @@ namespace ImprovedPublicTransport.UI
             if (data is PrefabData thisItem)
             {
                 _info = thisItem.Info;
-                var capacity = _info.m_vehicleAI.GetPassengerCapacity(true);
+                var capacity = _info?.m_vehicleAI?.GetPassengerCapacity(true) ?? 0;
                 var allowedNameLength = 15;
                 string trimmedName;
                 if (thisItem.DisplayName.Length <= allowedNameLength)

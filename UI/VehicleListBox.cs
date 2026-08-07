@@ -102,13 +102,12 @@ namespace ImprovedPublicTransport.UI
       }
       set
       {
-        if (value == null || this.SelectedItems == value)
+        if (value == null)
           return;
         for (int index = 0; index < this._items.Length; ++index)
         {
           VehicleListBoxRow vehicleListBoxRow = this._items[index];
-          if (value.Contains(vehicleListBoxRow.Prefab.Name))
-            vehicleListBoxRow.IsSelected = true;
+          vehicleListBoxRow.IsSelected = value.Contains(vehicleListBoxRow.Prefab.Name);
         }
       }
     }
