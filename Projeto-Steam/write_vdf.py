@@ -34,27 +34,12 @@ PREVIEW = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "PreviewImage.jpg")
 
 CHANGENOTE = [
- u"Version 4.8.9 - master switches, hotkeys, destination overlay rewrite, hardening",
+ u"Version 4.8.9.1 - crash armour for font stack overflow + Add Vehicle click debounce",
  u"",
- u"FEATURE MASTER SWITCHES",
- u"- Six master toggles in Options (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations). Off by default; turning one off locks its children and stops related patches.",
+ u"- Hardened dynamic-font re-entrancy (StackOverflow / Action Font loop seen on heavy saves).",
+ u"- Debounce and safer line capture on Add/Remove Vehicle clicks (GitHub issue #2).",
  u"",
- u"HOTKEYS",
- u"- Thirteen rebindable hotkeys: open line panel, toggle unbunching, copy/paste line config, vehicle editor, Flight Tracker, prev/next vehicle, and more (Options → Key bindings).",
- u"",
- u"COMMUTER DESTINATION",
- u"- Rebuilt as a clean-room map overlay (circles + passenger counts). Old panel port removed. Still Experimental and off by default.",
- u"",
- u"INTERCITY / TRAIN DISPLAY / COMPAT",
- u"- Intercity Bus Control restores original station prefabs when disabled.",
- u"- Train Display: fixed interval per performance profile, scope dropdown (Selected / First person / Both), detects First Person Camera - Continued.",
- u"- Options → System → Compat lists recommended companion mods with Workshop open buttons.",
- u"- Workshop vehicles that ship as Placement.Procedural are no longer hidden from selectable vehicle lists.",
- u"",
- u"HARDENING",
- u"- Thread-safety and bounds checks in shared core and save data. Express Bus pathfinding fails open instead of freezing a bus.",
- u"",
- u"Remember to unsubscribe the standalone versions of the absorbed mods - running both patches the same game code twice.",
+ u"Content-only update. No description change.",
 ]
 
 

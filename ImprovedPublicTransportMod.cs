@@ -48,7 +48,7 @@ namespace ImprovedPublicTransport
         private GameObject _worldInfoPanel;
         // Keep in sync with AssemblyInfo / Workshop so log "Begin init version" matches the
         // assembly Version cities reports on load (was still "4.0.0-dev" long after 4.8.0).
-        private const string Version = "4.8.9"; // Feature master switches, hotkey system, clean-room CommuterDestination overlay, thread-safety hardening
+        private const string Version = "4.8.9.1"; // Font SO guard + Add Vehicle click debounce (issue #2)
 
         public override void OnCreated(ICities.ILoading loading)
         {

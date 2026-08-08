@@ -14,6 +14,30 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.9.1] Font stack-overflow armour + Add Vehicle click debounce
+
+Hotfix for GitHub issue #2 (crash while spam-clicking Add Vehicle on a heavy save).
+
+### Hardening
+
+- **`FontRequestCharactersGuardPatch`**: re-entrancy guard extended from
+  `UIDynamicFont.RequestCharacters` only to also cover all three
+  `Font.RequestCharactersInTexture` overloads (the path that showed up as pure
+  `Action<Font>` recursion / `StackOverflowException` in the reporter's log).
+  Separate flags for UI vs native; Harmony finalizers clear ownership on throw
+  so a stuck guard cannot mute font requests for the rest of the session.
+- **`PanelExtenderLine.OnAddVehicleClick` / `OnRemoveVehicleClick`**: 120 ms
+  UI-thread debounce; resolve `lineId` on click and capture it into the sim
+  action (no re-query if the panel closes mid-click); Created/bounds checks on
+  the sim thread.
+
+Reporter stack naming `WorldInfoCurrentLineIDQuery` was **not** present in the
+attached logs — the fatal signature was font `textureRebuilt` re-entrancy under
+a dirty atlas on a large asset pack. Debounce is defensive UX; the font guard
+is the crash armour.
+
+---
+
 ## [4.8.9] Feature master switches, hotkey system, clean-room CommuterDestination overlay, thread-safety hardening
 
 Not a module bump - no new integrations were absorbed. This release is a
