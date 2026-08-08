@@ -67,12 +67,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         private UITextField _colorTextField;
         private UIButton _autoColorRefreshBtn;
 
-        // UI-thread debounce for Add/Remove Vehicle (issue #2 spam-click). Does not block
-        // intentional multi-add; only drops clicks closer than this in real time.
-        private const float VehicleClickMinInterval = 0.12f;
-        private float _nextAddVehicleClickTime;
-        private float _nextRemoveVehicleClickTime;
-
         public PanelExtenderLine()
         {
             Dictionary<ItemClassTriplet, bool> dictionary = new Dictionary<ItemClassTriplet, bool>();
@@ -1056,27 +1050,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
         private void OnAddVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
         {
-            // Resolve line on the UI thread and debounce before queueing sim work.
-            // Capturing lineId here avoids a sim-thread re-query if the panel closes mid-click;
-            // debounce stops frame-rate spam from flooding the sim action queue (issue #2).
-            float now = Time.realtimeSinceStartup;
-            if (now < _nextAddVehicleClickTime)
-                return;
-            _nextAddVehicleClickTime = now + VehicleClickMinInterval;
-
-            ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-            if (lineId == 0)
-                return;
-
-            var row = component as VehicleListBoxRow;
-            string prefabFromRow = row?.Prefab?.Name;
-
             SimulationManager.instance.AddAction(() =>
             {
+                ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
                 var transportManager = Singleton<TransportManager>.instance;
-                if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
-                    return;
-                if ((transportManager.m_lines.m_buffer[lineId].m_flags & TransportLine.Flags.Created) == 0)
+                if (lineId == 0 || transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
                     return;
 
                 ushort depot = CachedTransportLineData.GetDepot(lineId);
@@ -1097,9 +1075,8 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                     !DepotUtil.CanAddVehicle(depot, ref buildingManager.m_buildings.m_buffer[depot], info))
                     return;
 
-                string prefabName = !string.IsNullOrEmpty(prefabFromRow)
-                    ? prefabFromRow
-                    : CachedTransportLineData.GetRandomPrefab(lineId);
+                var row = component as VehicleListBoxRow;
+                string prefabName = row?.Prefab?.Name ?? CachedTransportLineData.GetRandomPrefab(lineId);
                 VehicleInfo prefab = string.IsNullOrEmpty(prefabName)
                     ? null
                     : PrefabCollection<VehicleInfo>.FindLoaded(prefabName);
@@ -1117,24 +1094,13 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
         private void OnRemoveVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
         {
-            float now = Time.realtimeSinceStartup;
-            if (now < _nextRemoveVehicleClickTime)
-                return;
-            _nextRemoveVehicleClickTime = now + VehicleClickMinInterval;
-
-            ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-            if (lineId == 0)
-                return;
-
             SimulationManager.instance.AddAction(() =>
             {
-                var transportManager = Singleton<TransportManager>.instance;
-                if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
-                    return;
-                if ((transportManager.m_lines.m_buffer[lineId].m_flags & TransportLine.Flags.Created) == 0)
+                ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
+                if (lineId == 0)
                     return;
 
-                TransportInfo info = transportManager.m_lines.m_buffer[lineId].Info;
+                TransportInfo info = Singleton<TransportManager>.instance.m_lines.m_buffer[lineId].Info;
                 if (info == null)
                     return;
 
