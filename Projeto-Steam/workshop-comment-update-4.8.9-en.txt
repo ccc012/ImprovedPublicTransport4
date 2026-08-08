@@ -1,0 +1,19 @@
+[h1]Update 4.8.9 is live[/h1]
+Subscribers should get the update automatically (Steam may need a moment — restart the game if the version in Options still shows 4.8.8).
+
+[b]What's new (short):[/b]
+[b]Six feature master switches[/b] in Options (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations) — off by default; turning one off locks its children and stops related patches.
+[b]Thirteen rebindable hotkeys[/b] (line panel, unbunching, copy/paste, vehicle editor, Flight Tracker, prev/next vehicle, and more).
+[b]Passenger destination display[/b] rebuilt as a clean-room map overlay (circles + counts). Still Experimental and off by default.
+[b]Intercity Bus Control[/b] restores original station prefabs when disabled.
+[b]Train Display[/b]: fixed interval per performance profile, scope dropdown (Selected / First person / Both).
+[b]Compat tab[/b] lists recommended companion mods with Workshop links.
+Thread-safety / save-data hardening; Express Bus pathfinding fails open.
+
+Full notes on the Workshop changenote and on GitHub:
+https://github.com/ccc012/ImprovedPublicTransport4/releases/tag/v4.8.9
+
+[b]Reminder:[/b] unsubscribe standalones of absorbed mods so nothing double-patches.
+
+If something breaks after the update, say what you were doing and attach:
+[code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
