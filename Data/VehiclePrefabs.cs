@@ -211,12 +211,21 @@ namespace ImprovedPublicTransport.Data
             var trolleybusList = new List<PrefabData>();
             var helicopterList = new List<PrefabData>();
 
+            var proceduralCount = 0;
             for (var index = 0; index < PrefabCollection<VehicleInfo>.PrefabCount(); ++index)
             {
                 var prefab = PrefabCollection<VehicleInfo>.GetPrefab((uint)index);
-                if (prefab == null || prefab.m_placementStyle == ItemClass.Placement.Procedural)
+                if (prefab == null)
                 {
                     continue;
+                }
+
+                // Workshop transport assets (trains, metros, buses with procedural livery) frequently
+                // ship as Placement.Procedural. Treating them as first-class PT vehicles keeps them
+                // selectable in the line "Select Vehicle" list, the vehicle editor, etc.
+                if (prefab.m_placementStyle == ItemClass.Placement.Procedural)
+                {
+                    ++proceduralCount;
                 }
 
                 var service = prefab.m_class.m_service;
@@ -396,6 +405,12 @@ namespace ImprovedPublicTransport.Data
             _intercityBusPrefabData = intercityBusList.ToArray();
             _trolleybusPrefabData = trolleybusList.ToArray();
             _helicopterPrefabData = helicopterList.ToArray();
+
+            if (proceduralCount > 0)
+            {
+                UnityEngine.Debug.LogWarning("IPT: " + proceduralCount +
+                                             " Procedural-style vehicle prefabs are now selectable (previously filtered out).");
+            }
         }
 
         [NotNull]

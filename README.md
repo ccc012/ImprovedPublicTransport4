@@ -2,7 +2,7 @@
 ---
 # Improved Public Transport 4
 
-**Version 4.8.8** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
+**Version 4.8.9** (Stable channel) · Cities: Skylines 1 · targets 1.21.1-f9
 
 IPT4 is a fork of [Improved Public Transport 3](https://github.com/TheMadisonian/ImprovedPublicTransport3)
 that absorbs other public-transport mods into a **single assembly**. The goal is not

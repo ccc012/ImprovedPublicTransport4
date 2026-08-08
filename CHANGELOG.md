@@ -14,6 +14,201 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.9] Feature master switches, hotkey system, clean-room CommuterDestination overlay, thread-safety hardening
+
+Not a module bump - no new integrations were absorbed. This release is a
+control-surface and hardening pass over what 4.8.8 shipped: every optional
+feature finally has a real kill switch, the one feature that kept failing
+its real-play test (CommuterDestination) was deleted and rebuilt from
+scratch against vanilla APIs only, and the shared data layer got locks and
+bounds checks. Plus the first "recommended companion mods" section in
+Options - a small list of mods IPT4 *integrates with* rather than absorbs.
+
+### Added - six feature master switches
+
+`ModSetting` gains six master toggles (all default `false`):
+`EnableUnbunching`, `EnableBudgetFeatures`, `EnableAutoLineColor`,
+`EnableTrainDisplay`, `EnableVehicleEditor`, `EnableStopsAndStations`.
+Each gates its whole feature: when off, the related Harmony patches do not
+run (e.g. `CanLeaveStopPatch`/`CanLeavePatch` return straight to vanilla
+when `!EnableUnbunching`, `PassengerCountLimiter` skips when
+`!EnableStopsAndStations`) and the feature's child Options are locked via
+`OptionsNestedTabs.SetEnabled` so a player cannot configure something that
+is switched off. Gameplay profiles updated to match: Recommended/Realistic
+turn the switches on, Vanilla turns everything off. Live handlers in
+`SettingsActions` (`OnUnbunchingChanged`, `OnBudgetFeaturesChanged`,
+`OnAutoLineColorChanged`, `OnTrainDisplayChanged`,
+`OnStopsAndStationsChanged`, `OnVehicleEditorChanged`,
+`OnMileageTaxiChanged`) apply most of them mid-session without a reload.
+
+### Added - 13 configurable hotkeys with persistence
+
+`IptHotkeys` grows to 15 bindings: OpenLinePanel, ToggleLineUnbunching,
+CopyLineConfig, PasteLineConfig, CopyToServedBuildings, CopyToDistricts,
+SelectVehicleTypes, ToggleVehicleEditor, OpenFlightTracker, PrevVehicle,
+NextVehicle. Bindings persist in `ModSetting.Hotkey*` as `"key(int)|mods(int)"`;
+`""` means default, `"0|0"` means unbound. The handlers are real - they open
+the line panel for the selected line, toggle unbunching on the cache,
+copy/paste line configuration, call `PrefabPanelManager`, flip
+`WorldInfoPanel.ChangeInstanceID`, etc.
+
+### Rewritten - CommuterDestination as a clean-room overlay (panel port deleted)
+
+The 4.8.8 "straight port" of Jameskmonger's CSL-ShowCommuterDestination
+was still not reliably drawing icons in real play, so the entire
+integration folder was deleted (~1,100 lines across 10 files, including
+the upstream-port License) and replaced by a single new
+`Integration/CommuterDestination/CommuterDestinationOverlay.cs` (721
+lines) written against vanilla APIs only. It scans
+`CitizenManager.m_citizenGrid` in a 64m radius for citizens flagged
+`WaitingTransport` (confirmed via `TransportArriveAtSource`), aggregates
+by `m_targetBuilding`, and draws circles plus count labels through
+`IRenderableManager` with distance/backface culling, a pool of 64
+`UILabel`s, clustering above the profile cap (500/1000/2000) and a
+per-profile refresh (0/5/1s). Stop selection is driven from IPT4's own
+`OnMouseDownPatch` (Alt clears); the floating panel, Prev/Next buttons
+and `OpenStopDestinationPanelPatch` are gone. Still labeled
+(Experimental) and off by default until confirmed working in real play.
+
+### Changed - Intercity Bus Control restores original prefabs on disable
+
+`StationPatcher` records each converted station's original prefab state
+(`OriginalPrefabStates`/`RecordOriginalState`) and `RestorePrefabs()`
+reverts the conversion when the integration is disabled - previously a
+converted station stayed converted forever. After patching,
+`CreateConnectionLines` are relinked on real buildings whose prefab was
+converted (fixes converted stations spawning buses on spawn). The manual
+`UpdateBindings` patch is removed (attribute-based checking resolves it)
+and `LoadingExtension` resets on Game unload.
+
+### Fixed - CheckTransportLineVehicles stopped blocking vanilla's culling
+
+The patch previously short-circuited everything. Now if no line has a
+prefab filter it returns `true` (vanilla decides), and vehicles on lines
+*without* a filter, when the selected vehicle differs from the current one
+and the depot level is compatible, are released via
+`ReleaseLineVehicles()` so vehicle type switching actually works.
+
+### Changed - Train Display: fixed per-profile interval, scope dropdown, First Person Camera hook
+
+The update-interval slider is removed - refresh is now per-profile
+(Light 1s / default 0.5s / Max 0.05s via
+`PerformanceProfile.TrainDisplayRefreshSeconds`). The two old checkboxes
+("Only while following", "First person only") are replaced by a scope
+dropdown (SelectedVehicle / FirstPerson / Both). New
+`FpsCameraIntegration.cs` locates the external FPSCamera mod's
+`FPSCamController`/`VehicleCam`/`FollowID` via reflection (no compile-time
+reference) so the overlay can follow the first-person vehicle; the cache
+is discarded on `Clear()`.
+
+### Fixed - thread-safety hardening in the shared core and data layer
+
+`CSLModsCommonShared/Manager/Domain.cs` is now lock-guarded
+(`AllDomainsLock`, `_managerLock`, `TryGetManager`, event snapshots,
+cleanup on failure, `Dispose` removes from AllDomains); `UpdateManager`
+iterates snapshots and drops `ManagerLookup`; `MovingAverage` locks its
+getter, clamps `SampleLength` to >= 1 and only keeps the last N samples.
+`CachedTransportLineData` adds 256 per-queue locks, `IsKnownVersion`
+(v001-v004) instead of a length check, bounds-checked loops, primitive
+reads via `ReadInt32/Float/Bool/UInt16` instead of BitConverter, depot
+fallback 0, and a corrected `QueuedVehicles` read for v002+ (the queue
+only populates when `!BudgetControl` and the prefab exists - reading older
+saves now yields a different, more faithful result; save version stays
+"v004"). `SerializableDataExtension` converts truncated buffers to
+`EndOfStreamException` and validates string/float-array/collection
+lengths - corrupted saves now fail with an explicit diagnosis.
+`JsonHelper` switches `TypeNameHandling` Auto to None (security
+hardening). `VehicleData.IncomeThisWeek` computes in `long` with clamp.
+
+### Fixed - vehicle panel progress bar refactor (green boarding bar)
+
+`PanelExtenderVehicle` drops the FieldInfo/reflection access to
+`_cachedCurrentProgress` and observes state per frame (`TryObserveVehicle`
+captures vehicleId/lineId/stopped/routeProgress). When the vehicle is
+stopped at a stop it draws a green boarding bar (driven by
+`CanLeaveStopPatch.BoardingTime`); when moving it returns to the vanilla
+white bar (except Ship/Plane). NaN/Infinity clamped via
+`Mathf.Clamp01`; null guards on TransportManager/PathManager; `Init`
+tolerates a missing panel object; failsafe when reopening the panel.
+
+### Fixed - Express Bus Services fail-open and direct delegate calls
+
+`Patch_BusStartPathFind` no longer freezes the bus on failure - it logs
+and lets the bus proceed. `ServiceBalancerUtil` exits early on `NONE`
+mode and never leaves a pending instruction. `Patch_PublicTransportExtraSkip`
+calls the original via `Delegate.CreateDelegate` instead of
+`MethodInfo.Invoke` + object[] arrays.
+
+### Changed - compatibility ban list cut to 14 entries
+
+`IptModManager`'s ban list goes from dozens of entries to 14 (the
+absorbed mods + a "CommuterDestination alt" assembly rule), reducing false
+positives from mods that merely share names.
+
+### Added - Recommended companion mods section (Options → System → Compat)
+
+New section listing 6 mods IPT4 integrates with rather than absorbs -
+CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued,
+One-Way Train Tracks and Commuter Destination - each with a Workshop open
+button. The section notes that some IPT4 features only activate when the
+companion is installed (e.g. the Train Display overlay in first-person
+view needs First Person Camera - Continued).
+
+### Fixed - Procedural-style vehicle prefabs no longer filtered out
+
+`Data/VehiclePrefabs.cs` drops the `Placement.Procedural` skip - many
+Workshop PT vehicles (trains, metros, buses with procedural livery) ship
+with that placement style and were silently absent from the selectable
+vehicle lists. A one-time log reports how many such prefabs were made
+selectable.
+
+### Swept - translations (46 added / 73 removed / 53 reworded in en.txt)
+
+Master-switch keys, Train Display scope keys, 11 hotkey pairs, Ko-fi group
+and link, "coming soon" future-feature entries; removed dead tab/switch
+keys (`SETTINGS_TAB_*`, old `COMMUTER_DESTINATION_*` overlay keys,
+`SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING*`/`FIRST_PERSON_ONLY*`,
+`SETTINGS_EBS_DESC_SELFBAL*`, `SETTINGS_INTERCITY_BUS_CAPACITY*`, etc.);
+reworded en.txt for consistency ("colour"→"color", "behaviour"→"behavior",
+"kerb"→"curb", EBS "Prudential/Aggressive"→"Prudent/Realistic" and
+"Express skip"→"Prudent", Train Display theme names, "ticket sells"→"ticket
+sales", "till"→"until"). `pt-br.fixed.txt` deleted - its content is
+consolidated into `pt-br.txt`. All locale files brought to key parity with
+English fallback for the new keys.
+
+### Documented - Transfer Manager CE interaction risk
+
+New section in the incompatible-mods Workshop post: both mods patch
+`TransportStationAI.CreateIncomingVehicle`/`CreateOutgoingVehicle`, and
+depending on Harmony load order TMCE's airport-gate prefix can skip IPT4's
+own intercity-accept toggle check. Narrow (needs a specific non-default
+TMCE setting on an airport gate), not yet player-reported. TMCE has no
+LICENSE file, so it is not an absorption candidate - needs its own
+defensive fix in a future version.
+
+### Housekeeping
+
+- `BuildingExtension.Deinit` clears `_depotMap` and events (ghost
+  references on reload); `OnBuildingReleased` uses the key triplet.
+- `PreviewRenderer` releases RenderTexture/material/camera on destroy,
+  restores lighting in try/finally, uses its own MaterialPropertyBlock.
+- `TicketPricesTab` destroys custom icon materials/atlases (texture leak
+  on reload); `DayNightPriceWatcher` drives the refresh per frame.
+- `TextDocument.Redo()` read `_undoStack` instead of `_redoStack` - undo
+  corrupted the redo history. Fixed.
+- `Utils` parses floats/ints with `NumberStyles.InvariantCulture`.
+- `TranslationCompleteness` caches per locale (no .txt re-read per panel
+  open); `LocalizationManager` gains a `Deinit()` for clean locale
+  unsubscribe on reload.
+- SingleTrainTrackAI invalidates section/segment classification caches
+  when the network is edited (`NetworkChangePatch` on Create/Release
+  segment/node).
+- `Util/CompatibilityGuard.cs` added (detects TMCE/TME patching
+  `TaxiAI.SimulationStep` to disable only Taxi Stand Fix) but currently
+  has no call sites - dead code until `RunLevelChecks()` is wired in.
+
+---
+
 ## [4.8.8] Real-play bug sweep: vehicle pathing, CommuterDestination, budget control, crash guard
 
 Not a feature release. Every entry below came from actually playing 4.8.7

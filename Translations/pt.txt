@@ -153,6 +153,21 @@ SETTINGS_COMPAT_BADGE_MISSING Faltando
 SETTINGS_COMPAT_BADGE_OK OK
 SETTINGS_COMPAT_GUIDE_GROUP O que não usar com o IPT4
 SETTINGS_COMPAT_GUIDE_DESCRIPTION Nunca ative: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nDesinscreva os mods avulsos já embutidos no IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop, Commuter Destination, etc. — lista completa na discussão da Workshop).\nObrigatório: Harmony (CitiesHarmony, Workshop 2040656402).\nDepois de desligar um conflito, reinicie o jogo para descarregar os patches do Harmony.
+SETTINGS_COMPAT_RECOMMENDED_GROUP Mods companheiros recomendados
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Os mods companheiros NÃO são absorvidos pelo IPT4 - integram-se com ele, por isso instale os dois: o IPT4 e o mod da lista.\nAlguns recursos do IPT4 só ativam quando o companheiro está instalado (ex.: a sobreposição do Train Display em primeira pessoa precisa do First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Abrir na Workshop
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exporta uma imagem completa do mapa da sua cidade (png/jpeg/bmp/svg) e heightmaps através do seu próprio visualizador externo.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Transforma paragens de autocarro lotadas em paragens partilhadas legíveis: marcadores de cais B1/B2/B3 visíveis, áreas de espera e informação ao vivo; vários autocarros carregam e descarregam ao mesmo tempo.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Melhora a utilização das faixas e do estacionamento, personaliza cruzamentos, estradas e vias ferroviárias, com pathfinding avançado.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Siga cidadãos e veículos em primeira pessoa. Necessário para a sobreposição do Train Display do IPT4 em primeira pessoa.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adiciona carris de comboio de sentido único simples e duplos, carris simples de estação e carris simples de dois sentidos.
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Mostra para onde querem ir todos os passageiros que esperam numa paragem de transporte público. Recomendado enquanto o ecrã de destinos do próprio IPT4 não estiver funcional - será absorvido pelo IPT4 mais tarde e depois removido desta lista.
 SETTINGS_TICKET_PATHFINDING_COST Preferir linhas mais baratas (experimental)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Com tarifas ligadas, cidadãos podem preferir um pouco as linhas mais baratas — como escolher rota mais em conta. Experimental e sutil. Desligado por padrão.
 SETTINGS_SPEED_KPH km/h
@@ -575,6 +590,14 @@ CHANGELOG_4_8_8_3 O perfil de desempenho do painel de rota do veículo (Leve/Nor
 CHANGELOG_4_8_8_4 Corrigidos vários problemas de deslocação de veículos perto de depósitos e paragens, incluindo autocarros a entrar no terreno/pontes e uma viragem em U prematura ocasional.
 CHANGELOG_4_8_8_5 Adicionada proteção contra um crash real que alguns jogadores podiam sofrer em certos jogos guardados - não causado por este mod, mas protegido de qualquer forma por patchar o mesmo método do jogo.
 CHANGELOG_4_8_8_6 Este painel agora mostra uma percentagem real, calculada automaticamente, de quanto do texto próprio do mod está traduzido no seu idioma, em vez de um número que podia ficar desatualizado.
+CHANGELOG_4_8_9_1 Seis interruptores mestre de funcionalidades nas Opções (Desagrupamento, Orçamento, Cor automática de linha, Train Display, Editor de veículos, Paragens e estações). Desligados por defeito; desligar um também trava as sub-opções e para os patches relacionados.
+CHANGELOG_4_8_9_2 Treze novos atalhos configuráveis (abrir painel da linha, alternar desagrupamento, copiar/colar config da linha, editor de veículos, Flight Tracker, veículo anterior/seguinte, e mais), todos reatribuíveis em Opções → Atalhos.
+CHANGELOG_4_8_9_3 Visualização de destinos dos passageiros reconstruída como sobreposição limpa no mapa (círculos + contagens). Porta do painel antigo removida. Continua Experimental e desligada por defeito até ficar sólida em jogo real.
+CHANGELOG_4_8_9_4 O Intercity Bus Control agora restaura os prefabs originais das estações ao desativar, e religa as conexões externas para as estações convertidas deixarem de se comportar mal com o interruptor desligado.
+CHANGELOG_4_8_9_5 Train Display: o intervalo fica fixo por perfil de desempenho (sem slider), novo menu de âmbito (Veículo selecionado / Primeira pessoa / Ambos), e o First Person Camera - Continued é detetado para a sobreposição seguir a vista em primeira pessoa.
+CHANGELOG_4_8_9_6 Endurecimento de thread-safety e limites no núcleo partilhado e nos dados de gravação (locks de filas, leituras de buffer mais seguras, erros mais claros em gravações corrompidas). O pathfinding do Express Bus falha em aberto em vez de congelar o autocarro.
+CHANGELOG_4_8_9_7 Opções → Sistema → Compat: lista de mods companheiros recomendados (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) com botões para abrir no Workshop.
+CHANGELOG_4_8_9_8 Veículos do Workshop que vêm como Placement.Procedural deixam de ser escondidos das listas de veículos selecionáveis.
 CHANGELOG_4_7_0_1 Quatro novas integrações: Abas de Sub-Predios (barra de separadores para qualquer complexo com varios predios, nao so aeroportos), Paragens Partilhadas (permite que mais de um tipo de paragem compartilhe o mesmo trecho de via, desativado por padrão), Destino dos Passageiros (mostra para onde os cidadaos esperando numa paragem estao realmente indo) e Correcao de Pontos de Táxi (táxis ociosos vao para o ponto mais proximo em vez de ficar vagando). Veja Opções > Integrações para cada opcao.
 CHANGELOG_4_7_0_2 Adicionado um modo de capacidade de veículos para terminais de autocarros intermunicipais (Opções > Integrações > Capacidade do Terminal de Autocarro Intermunicipal): Desativado mantém o terminal deste mod, ate entao praticamente sem limite; Intermediário aplica um limite fixo moderado; Realista restaura a capacidade original do prefab vanilla do terminal. Saves existentes usam Desativado por padrão, entao uma atualização nunca reduz silenciosamente a capacidade de um terminal.
 CHANGELOG_4_7_0_3 Corrigida a caixa de selecao "aceitar autocarros intermunicipais" do terminal de autocarro intermunicipal: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged define acceptsInterCityTrains, que e um simples alias de isEmptying, entao a caixa renomeada conseguia colocar silenciosamente um terminal de autocarro no estado de desativacao de edificio do jogo em vez de realmente alternar a aceitacao de autocarro. Um prefix do Harmony agora intercepta isso e redireciona para um estado por edificio nos terminais com patch de autocarro, sem afetar as estações de comboio de verdade.
@@ -656,3 +679,11 @@ SETTINGS_FUTURE_STOPPLACER Sugerir o melhor local para uma paragem (em breve)
 SETTINGS_FUTURE_STOPPLACER_TIP Planeado: analisar a área à volta de uma estrada/rede e sugerir o melhor local para colocar uma paragem de autocarro ou outra, incluindo a distância entre paragens. Ainda não disponível.
 SETTINGS_FUTURE_LINEHISTORY Histórico de linhas (em breve)
 SETTINGS_FUTURE_LINEHISTORY_TIP Planejado: manter um registo das mudanças de cada linha ao longo do tempo para ver como uma rota evoluiu. Ainda não disponível.
+SETTINGS_TRAINDISPLAY_SCOPE Mostrar sobreposição quando
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Apenas veículo selecionado
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Apenas câmera em primeira pessoa
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH Veículo selecionado ou câmera em primeira pessoa
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Escolha veículo selecionado, câmera em primeira pessoa, ou ambos.
+SETTINGS_KOFI_GROUP Apoiar IPT4
+SETTINGS_KOFI_DESCRIPTION Ajude a financiar o desenvolvimento contínuo do IPT4.
+SETTINGS_KOFI_BUTTON Apoie-me no Ko-fi

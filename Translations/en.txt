@@ -142,6 +142,21 @@ SETTINGS_COMPAT_BADGE_MISSING Missing
 SETTINGS_COMPAT_BADGE_OK OK
 SETTINGS_COMPAT_GUIDE_GROUP What not to run with IPT4
 SETTINGS_COMPAT_GUIDE_DESCRIPTION Never enable: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nUnsubscribe standalones already built into IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — full list is on the Workshop discussion).\nRequired: Harmony (CitiesHarmony, Workshop 2040656402).\nAfter disabling a conflict, restart the game so Harmony patches unload cleanly.
+SETTINGS_COMPAT_RECOMMENDED_GROUP Recommended companion mods
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Companion mods are NOT absorbed by IPT4 - they integrate with it, so install both: IPT4 and the mod from the list.\nSome IPT4 features only activate when the companion is installed (e.g. the Train Display overlay in first-person view needs First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Open on Workshop
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exports a full image of your city map (png/jpeg/bmp/svg) plus heightmaps via its own external viewer.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Turns crowded bus stops into readable shared stops: visible B1/B2/B3 berth markers, waiting areas and live info; several buses can load and unload at the same time.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Improves lane and parking usage, customizes junctions, roads and rails, and adds advanced pathfinding.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Follow citizens and vehicles in first-person view. Required for the IPT4 Train Display overlay in first-person mode.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adds single and double one-way train tracks, single station tracks and two-way single tracks.
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Shows where all passengers waiting at a public transport stop want to go. Recommended while IPT4's own destination display is not ready yet - it will be absorbed by IPT4 later and then removed from this list.
 SETTINGS_TICKET_PATHFINDING_COST Prefer cheaper lines (experimental)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP When ticket prices are on, cims may slightly prefer lines that cost less — like choosing a cheaper route. Experimental and subtle. Off by default.
 SETTINGS_SPEED_KPH kph
@@ -523,6 +538,14 @@ CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximu
 CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.
 CHANGELOG_4_8_8_5 Guarded against a real crash some players could hit on certain saves - not caused by this mod, but guarded anyway since it patches the same game method.
 CHANGELOG_4_8_8_6 This panel now shows a real, auto-computed percentage of how much of the mod's own text is translated into your language, instead of a number that could go stale.
+CHANGELOG_4_8_9_1 Six feature master switches in Options (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations). Off by default; turning one off also locks its child settings and stops the related patches.
+CHANGELOG_4_8_9_2 Thirteen new configurable hotkeys (open line panel, toggle unbunching, copy/paste line config, vehicle editor, Flight Tracker, prev/next vehicle, and more), all rebindable under Options → Key bindings.
+CHANGELOG_4_8_9_3 Passenger destination display rebuilt as a clean-room map overlay (circles + counts). Old panel port removed. Still Experimental and off by default until confirmed solid in real play.
+CHANGELOG_4_8_9_4 Intercity Bus Control now restores original station prefabs when disabled, and relinks external connections so converted stations stop misbehaving after the toggle is off.
+CHANGELOG_4_8_9_5 Train Display: interval is now fixed per performance profile (no slider), new scope dropdown (Selected vehicle / First person / Both), and First Person Camera - Continued is detected so the overlay can follow first-person view.
+CHANGELOG_4_8_9_6 Thread-safety and bounds hardening across the shared core and save data (queue locks, safer buffer reads, clearer errors on corrupted saves). Express Bus pathfinding fails open instead of freezing a bus.
+CHANGELOG_4_8_9_7 Options → System → Compat: Recommended companion mods list (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) with Workshop open buttons.
+CHANGELOG_4_8_9_8 Workshop vehicles that ship as Placement.Procedural are no longer hidden from the selectable vehicle lists.
 CHANGELOG_4_7_0_1 Four new integrations: Sub-Buildings Tabs (tab bar for any multi-building hub, not just airports), Shared Stop Enabler (lets more than one stop type share a road segment, off by default), Commuter Destination (destination display - currently forced off pending redesign) and Taxi Stand Fix (idle taxis head to the nearest stand instead of wandering). See Options > Integrations for each toggle.
 CHANGELOG_4_7_0_2 Added a vehicle capacity mode for intercity bus terminals (Options > Integrations > Intercity Bus Terminal Capacity): Disabled keeps this mod's existing effectively-uncapped terminal, Intermediate applies a moderate fixed cap, Realistic restores the terminal's own vanilla prefab capacity. Existing saves default to Disabled so upgrading never silently shrinks a terminal's capacity.
 CHANGELOG_4_7_0_3 Fixed the intercity bus terminal's "accept intercity buses" checkbox: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged sets acceptsInterCityTrains, which is a pure alias for isEmptying, so the relabeled checkbox was able to silently put a bus terminal into the game's building-shutdown state instead of actually toggling bus acceptance. A Harmony prefix now intercepts and redirects it to per-building state for bus-patched terminals, leaving real train stations untouched.

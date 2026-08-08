@@ -613,3 +613,81 @@ CHANGELOG_4_8_6_2 Audited every optional integration for a real "off means off":
 CHANGELOG_4_8_6_3 Found two behaviors that always ran with no way to turn them off - auto-naming unnamed stops, and Rescue Fullwidth Digits (Gansaku) - and added toggles for both under Options → Advanced. On by default, so nothing changes unless you turn them off.
 CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+CHANGELOG_4_8_9_1 Έξι κύριοι διακόπτες λειτουργιών στις Επιλογές (Αποσύμπληξη, Προϋπολογισμός, Αυτόματο Χρώμα Γραμμής, Οθόνη Τρένου, Επεξεργαστής Οχημάτων, Στάσεις & Σταθμοί). Από προεπιλογή ανενεργοί· απενεργοποιώντας έναν κλειδώνει και τις θυγατρικές του ρυθμίσεις και σταματά τα σχετικά patches.
+CHANGELOG_4_8_9_2 Δεκατρία νέα παραμετροποιήσιμα hotkeys (άνοιγμα πάνελ γραμμής, εναλλαγή αποσύμπληξης, αντιγραφή/επικόλληση ρυθμίσεων γραμμής, επεξεργαστής οχημάτων, Flight Tracker, προηγούμενο/επόμενο όχημα και άλλα), όλα επαναπροσδιορίσιμα στις Επιλογές → Συντομεύσεις.
+CHANGELOG_4_8_9_3 Η εμφάνιση προορισμού επιβατών ξαναχτίστηκε ως καθαρό overlay χάρτη (κύκλοι + μετρητές). Το παλιό port πάνελ αφαιρέθηκε. Ακόμα πειραματικό και ανενεργό από προεπιλογή μέχρι να επιβεβαιωθεί σταθερό σε πραγματικό παιχνίδι.
+CHANGELOG_4_8_9_4 Ο Έλεγχος Υπεραστικών Λεωφορείων επαναφέρει τα αρχικά πρότυπα σταθμών όταν απενεργοποιηθεί και επανασυνδέει τις εξωτερικές συνδέσεις, ώστε οι μετατρεπόμενοι σταθμοί να σταματούν να συμπεριφέρονται λανθασμένα μετά την απενεργοποίηση.
+CHANGELOG_4_8_9_5 Οθόνη Τρένου: το διάστημα είναι πλέον σταθερό ανά προφίλ απόδοσης (χωρίς ρυθμιστικό), νέο dropdown εύρους (Επιλεγμένο όχημα / Πρώτο πρόσωπο / Και τα δύο) και εντοπίζεται το First Person Camera - Continued ώστε το overlay να ακολουθεί την πρώτου προσώπου προβολή.
+CHANGELOG_4_8_9_6 Ενίσχυση ασφάλειας νημάτων και σκλήρυνση ορίων στον κοινόχρηστο πυρήνα και τα δεδομένα αποθήκευσης (κλείδωμα ουράς, ασφαλέστερες αναγνώσεις buffer, σαφέστερα σφάλματα σε κατεστραμμένες αποθηκεύσεις). Η εύρεση διαδρομής του Express λεωφορείου αποτυγχάνει ανοιχτά αντί να παγώνει ένα λεωφορείο.
+CHANGELOG_4_8_9_7 Επιλογές → Σύστημα → Συμβατότητα: Λίστα προτεινόμενων companion mods (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) με κουμπιά ανοίγματος Workshop.
+CHANGELOG_4_8_9_8 Οχήματα Workshop που διατίθενται ως Placement.Procedural δεν είναι πλέον κρυμμένα από τις λίστες επιλέξιμων οχημάτων.
+
+# === Added fallback translations (auto-generated) ===
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): found and fixed a real bug where two of the mod's own patches were silently colliding on the same click - but real-play testing still shows the icons/panel not reliably appearing. Stays off by default and Experimental until this is fully sorted out.
+CHANGELOG_4_8_8_2 Budget control checkbox no longer unchecks itself the moment you tick it.
+CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximum) now actually changes its update rate - previously had no visible effect for most players.
+CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.
+CHANGELOG_4_8_8_5 Guarded against a real crash some players could hit on certain saves - not caused by this mod, but guarded anyway since it patches the same game method.
+CHANGELOG_4_8_8_6 This panel now shows a real, auto-computed percentage of how much of the mod's own text is translated into your language, instead of a number that could go stale.
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Companion mods are NOT absorbed by IPT4 - they integrate with it, so install both: IPT4 and the mod from the list.\nSome IPT4 features only activate when the companion is installed (e.g. the Train Display overlay in first-person view needs First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_GROUP Recommended companion mods
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Shows where all passengers waiting at a public transport stop want to go. Recommended while IPT4's own destination display is not ready yet - it will be absorbed by IPT4 later and then removed from this list.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Follow citizens and vehicles in first-person view. Required for the IPT4 Train Display overlay in first-person mode.
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exports a full image of your city map (png/jpeg/bmp/svg) plus heightmaps via its own external viewer.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adds single and double one-way train tracks, single station tracks and two-way single tracks.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Turns crowded bus stops into readable shared stops: visible B1/B2/B3 berth markers, waiting areas and live info; several buses can load and unload at the same time.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Improves lane and parking usage, customizes junctions, roads and rails, and adds advanced pathfinding.
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Open on Workshop
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control checkbox stays checked when smart-managed (soon)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: right now, once Automatic fleet sizing takes over a line, its Budget control checkbox unchecks itself to signal that - by design, but confusing to look at. This will separate "the game's own budget math" from "IPT is managing this line" internally, so the checkbox can stay checked the whole time. Not available yet.
+SETTINGS_FUTURE_LINEHISTORY Line history log (soon)
+SETTINGS_FUTURE_LINEHISTORY_TIP Planned: keep a log of each line's changes over time so you can look back at how a route evolved. Not available yet.
+SETTINGS_FUTURE_LINEMAP Generate a line network map (soon)
+SETTINGS_FUTURE_LINEMAP_TIP Planned: generate a map of all the city's transport lines and save it to a folder on your computer, like a simple schematic overview. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (soon)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: warn on the vehicle route panel when a line loops back on itself or splits into more than two branches, instead of assuming a simple end-to-end route. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
+SETTINGS_FUTURE_STOPPLACER Suggest the best place for a stop (soon)
+SETTINGS_FUTURE_STOPPLACER_TIP Planned: analyze the area around a road/network and suggest the best spot to place a bus stop or other stop, including the distance between stops. Not available yet.
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.
+SETTINGS_HOTKEY_COPY_LINE_CONFIG Copy line settings
+SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP Copy vehicle, budget, depot, ticket price and color settings from the currently selected line.
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS Copy to lines serving same buildings
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP Copy the current line's settings to all other lines that serve the same nearby buildings or stations.
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS Copy to lines serving same districts
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP Copy the current line's settings to all other lines that serve the same districts or park areas.
+SETTINGS_HOTKEY_NEXT_VEHICLE Next vehicle
+SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP Switch to the next vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER Open flight tracker
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP Open the airport flight tracker panel for the currently selected building. Needs the Flight Tracker feature enabled.
+SETTINGS_HOTKEY_OPEN_LINE_PANEL Open/close line panel
+SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP Open the panel of the currently selected transport line. Press again to close it.
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG Paste line settings
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP Paste previously copied line settings onto the currently selected line.
+SETTINGS_HOTKEY_PREV_VEHICLE Previous vehicle
+SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP Switch to the previous vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES Select vehicle types
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP Open the vehicle type selector panel for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING Toggle line unbunching
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP Enable or disable vehicle unbunching for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR Toggle vehicle editor
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP Show or hide the vehicle editor panel.
+SETTINGS_KOFI_BUTTON Support me on Ko-fi
+SETTINGS_KOFI_DESCRIPTION Help fund continued IPT4 development.
+SETTINGS_KOFI_GROUP Support IPT4
+SETTINGS_KOFI_LINK Support on Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Mod text translated
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text - menus, tooltips, in-game panels - is translated into your language. This is different from "Translation Progress" above, which only covers a handful of generic buttons like OK and Cancel, not this mod's actual content. If you still see some English here, a full translation for your language is on its way.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
+TRAINDISPLAY_LABEL_NEXTSTOP Next stop

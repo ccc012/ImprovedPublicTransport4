@@ -1,4 +1,4 @@
-MOD_DESCRIPTION Verbeterde controle van openbaar vervoer.
+﻿MOD_DESCRIPTION Verbeterde controle van openbaar vervoer.
 CURRENT_WEEK Huidige week
 LAST_WEEK Vorige week
 AVERAGE Gemiddelde
@@ -8,7 +8,7 @@ CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Voertuigen in depot
 CITYSERVICE_ACCEPTINTERCITYBUSES Intercity-bussen toestaan
 CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Sta intercity-bussen toe om dit station te gebruiken. Zet dit uit voor alleen lokale bussen.
 EXPLANATION_BUDGET_CONTROL Begroting: Het aantal voertuigen wordt gecontroleerd door de begroting.
-EXPLANATION_UNBUNCHING Voertuigspreiding: Het spel probeert een gat tussen voertuigen te creëren.
+EXPLANATION_UNBUNCHING Voertuigspreiding: Het spel probeert een gat tussen voertuigen te creÃ«ren.
 LINE_PANEL_STOPS Haltes: {0}
 LINE_PANEL_SPAWNTIMER Volgende voertuig over {0} seconden.
 LINE_PANEL_DEPOT_WARNING <color #FF0000>Het geselecteerde depot heeft geen voertuigen meer.</color>
@@ -76,7 +76,7 @@ SETTINGS Instellingen
 SETTINGS_SPEED Snelheid tonen in:
 SETTINGS_SPEED_TOOLTIP Kies de eenheid voor snelheidsweergave in de UI.
 SETTINGS_GAMEPLAY_PROFILE Gameplayprofiel
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Past een reeks instellingen in één keer toe. Veilig (standaard) laat alles uit voor maximale compatibiliteit. Vanilla komt overeen met het basisspel. Aanbevolen schakelt alleen de IPT-kern in (budget vloot, unbunching, intercity, subgebouw-tabs, unstucker, geavanceerde haltekeuze, verhoogde haltes). Realistisch schakelt de meeste integraties in. Aangepast cascaderert nooit - jij beheert elke schakelaar.
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Past een reeks instellingen in Ã©Ã©n keer toe. Veilig (standaard) laat alles uit voor maximale compatibiliteit. Vanilla komt overeen met het basisspel. Aanbevolen schakelt alleen de IPT-kern in (budget vloot, unbunching, intercity, subgebouw-tabs, unstucker, geavanceerde haltekeuze, verhoogde haltes). Realistisch schakelt de meeste integraties in. Aangepast cascaderert nooit - jij beheert elke schakelaar.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Aangepast
 SETTINGS_GAMEPLAY_PROFILE_SAFE Veilig (alles uit)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
@@ -174,7 +174,7 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Zeppelin
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Maximaal aantal passagiers dat op een blimphalte wacht
 SETTINGS_UNBUNCHING Spreiding
 SETTINGS_UNBUNCHING_AGGRESSION Spreidingsaggressiviteit:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Hoe sterk moet voertuigspreiding werken?\nMogelijke waarden: 0–52. Een waarde van 0 schakelt spreiding uit.\nHogere waarden zullen het verkeer sterk beïnvloeden en voertuigen kunnen verdwijnen.
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Hoe sterk moet voertuigspreiding werken?\nMogelijke waarden: 0â€“52. Een waarde van 0 schakelt spreiding uit.\nHogere waarden zullen het verkeer sterk beÃ¯nvloeden en voertuigen kunnen verdwijnen.
 SETTINGS_VEHICLE_COUNT Voertuigen op nieuwe lijnen:
 SETTINGS_VEHICLE_COUNT_TOOLTIP Het aantal voertuigen dat automatisch aan nieuwe lijnen wordt toegevoegd wanneer lijntbegroting uitgeschakeld is.
 SETTINGS_SPAWN_TIME_INTERVAL Spawntijd interval:
@@ -195,7 +195,7 @@ SETTINGS_EBS_DESC_SELFBAL_TARGETMID Laat zelf-balancering een drukke middelste h
 SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Laat zelf-balancering voertuigen naar een drukke middelste halte herverdelen (in plaats van eindstation).\nAlferneem alleen wanneer de drukste halte meer dan 30 wachtende passagiers heeft, dan gekozen met ongeveer 50% kans en onderhevig aan algemene herverdelingskansen.
 SETTINGS_EBS_ENABLE_MINIBUS Minibus-modus inschakelen
 SETTINGS_EBS_DESC_MINIBUS Maakt dat kleinere bussen eerder vertrekken wanneer slechts enkele passagiers in- of uitstappen.
-SETTINGS_EBS_TOOLTIP_MINIBUS Bussen met capaciteit ≤20 kunnen eerder vertrekken van een halte wanneer instappende + uitstappende passagiers ≤5.
+SETTINGS_EBS_TOOLTIP_MINIBUS Bussen met capaciteit â‰¤20 kunnen eerder vertrekken van een halte wanneer instappende + uitstappende passagiers â‰¤5.
 SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Express tram:
 SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING "Uitgeschakeld" = Trams gebruiken spreidingsinstellingen van hierboven.\n"Lichte spoor" = Stopt op elke halte, wacht altijd volledige timer (afgedwongen discipline).\n"Echte tram" = Stopt alleen wanneer passagiers in- of uitstappen.
 SETTINGS_EBS_MODE_NONE Uitgeschakeld
@@ -287,14 +287,14 @@ TICKET_PRICE_HELICOPTER Helikopterkaartjesprijs:
 ECONOMY_TAB_TICKET_PRICES Kaartjesprijzen
 ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Totaal hudig passagiersamtal voor dit vervoerstype.
 WHATSNEW_3_0_0_1 Bijgewerkt voor Race Day; nu compatibel met More Vehicles Renewed.
-WHATSNEW_3_0_0_2 De volgende mods zijn geïntegreerd in IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
-WHATSNEW_3_0_1 Openbaarvervoer Unstucking is nu geïntegreerd in IPT3.\nZie versie 3.0 voor alle andere geïntegreerde mods. Meld je af van originals om conflicten te voorkomen.
+WHATSNEW_3_0_0_2 De volgende mods zijn geÃ¯ntegreerd in IPT3:\n â€¢ Advanced Stop Selection Revisited\n â€¢ Auto Line Color Redux\n â€¢ Better Bus Stop Position\n â€¢ Better Train Boarding\n â€¢ Elevated Stops Enabler Revisited  \n â€¢ Express Bus Services\n â€¢ Flight Tracker\n â€¢ Intercity Bus Control\n â€¢ Mileage Taxi Services\n â€¢ Public Transport Unstucker\n â€¢ Realistic Walking Speed\n â€¢ Stops and Stations\n â€¢ Ticket Price Customizer
+WHATSNEW_3_0_1 Openbaarvervoer Unstucking is nu geÃ¯ntegreerd in IPT3.\nZie versie 3.0 voor alle andere geÃ¯ntegreerde mods. Meld je af van originals om conflicten te voorkomen.
 SETTINGS_TAB_TRAINDISPLAY Treinweergave
 SETTINGS_TAB_INTEGRATIONS Integraties
 SETTINGS_TRAINDISPLAY_GROUP Treinweergave-overlay
-SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configureer de geïntegreerde overlay die wordt weergegeven wanneer u ondersteunde vervoervoertuigen volgt.
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configureer de geÃ¯ntegreerde overlay die wordt weergegeven wanneer u ondersteunde vervoervoertuigen volgt.
 SETTINGS_TRAINDISPLAY_ENABLE Treinweergave inschakelen
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Schakelt de geïntegreerde Treinweergave-overlay in of uit.
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Schakelt de geÃ¯ntegreerde Treinweergave-overlay in of uit.
 SETTINGS_TRAINDISPLAY_MODE_DISABLED Uitgeschakeld
 SETTINGS_TRAINDISPLAY_MODE_ENABLED Ingeschakeld
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Overlay-positie:
@@ -339,9 +339,9 @@ COPY_TIP Kopieer de instellingen van deze lijn.
 PASTE_TIP Plak de gekopieerde lijninstelling.
 COPY_BUILDING_TIP Kopieer deze instellingen naar alle lijnen die dit gebouw bedienen.
 COPY_DISTRICT_TIP Kopieer deze instellingen naar alle lijnen in deze wijk.
-SETTINGS_INTEGRATIONS_GROUP Geïntegreerde add-ons
+SETTINGS_INTEGRATIONS_GROUP GeÃ¯ntegreerde add-ons
 SETTINGS_INTERCITY_BUS_ENABLE Intercity-buscontrole inschakelen
-SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Schakelt de geïntegreerde compatibiliteitslaag voor intercity-buscontrole en stationpatching in.
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Schakelt de geÃ¯ntegreerde compatibiliteitslaag voor intercity-buscontrole en stationpatching in.
 SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Geavanceerde haltekeuze inschakelen
 SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Laat je haltes plaatsen op alternatieve perrons/sporen van multi-spoorstations (houd de alternatieve-modus-toets in tijdens plaatsen). Werkt na de volgende level-load.
 SETTINGS_BETTERBOARDING_ENABLE Beter instappen inschakelen
@@ -366,15 +366,15 @@ SETTINGS_DEPOT_CAPACITY_DISABLED Uitgeschakeld (onbeperkt)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Gemiddeld
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realistisch
 SETTINGS_FLIGHTTRACKER_ENABLE Vluchttracker inschakelen
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Schakelt de geïntegreerde Flight Tracker-patches en UI-ondersteuning in.
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Schakelt de geÃ¯ntegreerde Flight Tracker-patches en UI-ondersteuning in.
 SETTINGS_SUBBUILDINGSTABS_ENABLE Subgebouwtabbladen inschakelen
 SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Toont een tabbladstrook op het infopaneel van een gebouw wanneer het subgebouwen heeft (bijv. een vliegveld met ingebouwd metrostation), zodat je ertussen kunt wisselen.
 SETTINGS_TAXISTANDFIX_ENABLE Taxistandplaatscorrectie inschakelen
 SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Stuurt vrije taxi's naar de dichtstbijzijnde taxistandplaats in plaats van ze willekeurig te laten rondrijden. Vereist de After Dark-DLC.
 SETTINGS_SHAREDSTOPENABLER_ENABLE Gedeelde haltes inschakelen
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Laat meer dan één vervoerstype (bus, tram, trolleybus) op hetzelfde wegsegment stoppen. Standaard uitgeschakeld - zie de GitHub van de mod voor wat deze verkorte versie weglaat.
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Laat meer dan Ã©Ã©n vervoerstype (bus, tram, trolleybus) op hetzelfde wegsegment stoppen. Standaard uitgeschakeld - zie de GitHub van de mod voor wat deze verkorte versie weglaat.
 SETTINGS_COMMUTERDESTINATION_ENABLE Forensbestemming inschakelen (herontwerp in afwachting)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Toont waar de wachtende passagiers bij een halte naartoe gaan — een klein paneel plus een kaartoverlay. Alleen-lezen, geen afhankelijkheid behalve Harmony.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Toont waar de wachtende passagiers bij een halte naartoe gaan â€” een klein paneel plus een kaartoverlay. Alleen-lezen, geen afhankelijkheid behalve Harmony.
 SETTINGS_OOC_ENABLE Geoptimaliseerde externe verbindingen
 SETTINGS_OOC_ENABLE_TOOLTIP Vrachttreinen, vliegtuigen en schepen wachten langer op een vollere lading voordat ze bij externe verbindingen vertrekken.
 SETTINGS_OOC_WAIT_MULTIPLIER Wachtvermenigvuldiger
@@ -396,15 +396,15 @@ SETTINGS_STTAI_ENABLE Botsingspreventie op enkelspoor
 SETTINGS_STTAI_ENABLE_TOOLTIP Reserveert een enkelsporig segment voor een trein tegelijk en houdt een tegemoetkomende trein bij de ingang tegen totdat het segment vrij is. Originele IPT4-functie, niet aanwezig in vanilla of een geabsorbeerde mod.
 SETTINGS_STOPSTACKER_ENABLE Bushalteplaats stapelen
 SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Laat een tweede/derde bus die naar dezelfde halte onderweg is een eigen plaats verderop in de haltestrook gebruiken in plaats van achter de voorste bus aan te sluiten, zodat meerdere bussen tegelijk kunnen in- en uitstappen. Originele IPT4-functie (vereenvoudigde herimplementatie zonder toegang tot de originele code), niet aanwezig in vanilla of een geabsorbeerde mod.
-CHANGELOG_4_3_3_1 Instellingen opslaan/laden vastgesteld op sommige modstacks door bundeling van Newtonsworth.Json.dll: vorige omweg probeerde alleen Assembly.LoadFrom in één ingangspunt en hing nog steeds af van laadvolgorde. IPT4 registreert nu een globale AssemblyResolve-haak en start greetig met zijn gebundelde Newtonsworth.Json van elk mod/UI-ingangspunt voordat CSLModsCommon JsonWriter aanraakt, zodat het UIpaneel Opties betrouwbaar aanhoudt in plaats van willekeurig te binden aan een inkompatibele Json.NET-kopie van een ander modwerk.
-CHANGELOG_4_3_2_1 Vast gelopen bij het laden van mod helemaal ("failed to load the mod's dll of one of its dependencies") telkens wanneer geen ander geïnstalleerd mod toevallig Newtonsworth.Json gaf: CSLModsCommon instellingen serialisatie (JsonHelper/SerializationContext) nodig het, maar onze build heeft nooit daadwerkelijk Newtonsworth.Json.dll naast de mod ingezet - het werkte altijd per ongeluk, rijdend op een ander kopie van mod. Gevonden door alle andere mods uit te schakelen voor een schone test, wat precies hoe het van nu af aan zou moeten worden getest.
+CHANGELOG_4_3_3_1 Instellingen opslaan/laden vastgesteld op sommige modstacks door bundeling van Newtonsworth.Json.dll: vorige omweg probeerde alleen Assembly.LoadFrom in Ã©Ã©n ingangspunt en hing nog steeds af van laadvolgorde. IPT4 registreert nu een globale AssemblyResolve-haak en start greetig met zijn gebundelde Newtonsworth.Json van elk mod/UI-ingangspunt voordat CSLModsCommon JsonWriter aanraakt, zodat het UIpaneel Opties betrouwbaar aanhoudt in plaats van willekeurig te binden aan een inkompatibele Json.NET-kopie van een ander modwerk.
+CHANGELOG_4_3_2_1 Vast gelopen bij het laden van mod helemaal ("failed to load the mod's dll of one of its dependencies") telkens wanneer geen ander geÃ¯nstalleerd mod toevallig Newtonsworth.Json gaf: CSLModsCommon instellingen serialisatie (JsonHelper/SerializationContext) nodig het, maar onze build heeft nooit daadwerkelijk Newtonsworth.Json.dll naast de mod ingezet - het werkte altijd per ongeluk, rijdend op een ander kopie van mod. Gevonden door alle andere mods uit te schakelen voor een schone test, wat precies hoe het van nu af aan zou moeten worden getest.
 CHANGELOG_4_3_1_1 Vaste taal selector paneel Opties alleen hertaling framework eigen strings (Versie/Changelog/...) terwijl elke snaar van deze mod in de taal van het spel bleef - onze vertaling loader sleutel uit de spelsprache en negeerde het mod eigen selectie volledig. Het volgt nu de mod taalkiezer, valt terug op spelsprache en vervolgens Engels, en re-Resolves telkens de kiezer verandert.
 CHANGELOG_4_3_1_2 Gevuld in 38 vertaling sleutels die alleen in Engels en Portugees bestonden - elk ander taal (Arabisch, Bengaals, Duits, Spaans, Frans, Hindi, Indonesisch, Italiaans, Japans, Koreaans, Pools, Russisch, Urdu en alle Chinese varianten) viel stilletjes terug naar Engels voor heel Treinweergave sectie, Verwijder Lijnenbeschrijving en de drie Express Bus beschrijvingen.
 CHANGELOG_4_3_1_3 Toegevoegd 4 kopieer/plak tooltip toetsen die ontbraken aan elk taalbestand inclusief Engels, dus ze zouden hebben weergegeven als ruwe sleutels ("COPY_TIP") zodra deze knoppen opnieuw zijn ingeschakeld.
 CHANGELOG_4_3_0_1 Toegevoegd Trein Display Updated: een klein scherm overlay met lijn/bestemming/status terwijl een ondersteund voertuig wordt gevolgd. Configureerbaar in Opties: schermlocatie, grootte, dekking, welke velden tonen, updatefrequentie, of het beperkt is tot eerstepersonencameramod en een Simpel/Donker/Licht kleurschema.
 CHANGELOG_4_3_0_2 Vaste verschillende bouwfouten in de nieuwe Treinweergave integratie: een dubbelzinnige Utils verwijzing, twee API's die niet bestaan op deze versie van het spel (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) en Enum.HasFlag gebruik - die niet op .NET Framework 3.5 bestaan, deze mod doel framework, en moest worden vervangen door handmatige bitwijs controles.
 CHANGELOG_4_2_4_1 Vast gesteld mod altijd "Compatibiliteit met Game versie: 0.0.0" - we hebben nooit een ondersteunde game versie bereik verklaard. Nu ingesteld op 1.21.1-f9 en hoger.
-CHANGELOG_4_2_4_2 Vast AutoLineColor kleurfstrategie dropdown toont ruwe enum namen (bijv. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") in plaats van vertaalde tekst: code genereerde een sleutel zonder onderstrepingsteken terwijl vertaalbestand één gebruikt. Ook herschikt de sectie zodat twee afhankelijke schuifregelaars direct onder de kleurfstrategie dropdown zitten, in plaats van na de onverwante naamgeving dropdown.
+CHANGELOG_4_2_4_2 Vast AutoLineColor kleurfstrategie dropdown toont ruwe enum namen (bijv. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") in plaats van vertaalde tekst: code genereerde een sleutel zonder onderstrepingsteken terwijl vertaalbestand Ã©Ã©n gebruikt. Ook herschikt de sectie zodat twee afhankelijke schuifregelaars direct onder de kleurfstrategie dropdown zitten, in plaats van na de onverwante naamgeving dropdown.
 CHANGELOG_4_2_4_3 Hernoemd tram unbunching Modi om bussen (Uitgeschakeld/Voorzichtig/Realistisch) in plaats van "Lichte spoor"/"Echte tram" te matchen, en vertaalde de laatste stukken Engelse tekst overgebleven in Portugese beschrijving.
 CHANGELOG_4_2_4_4 Vast selectievakje beschrijvingen nooit rendering overal in paneel wanneer geen koptek tekst was ingesteld (wat elk selectievakje in deze mod is) - layout code alleen gepositioneerd beschrijving label als koptek label ook bestond, ook al beschrijving reeds gemaakt en ingevuld met tekst.
 CHANGELOG_4_2_4_5 Vast Opties tabblad bijschriften afgesneden (vooral in Portugees, dat langer dan Engels loopt) - tabbladen nu verpakken naar een tweede regel in plaats van knippen.
@@ -417,14 +417,14 @@ CHANGELOG_4_2_3_4 Vast AutoLineColor "min kleurverschil" en "max kleurkeus pogin
 CHANGELOG_4_2_0_1 Toegevoegd Rescue Fullwidth Digits: normalizeert fullwidth cijfers in custom transport lijn namen terug naar normaal ASCII cijfers, fixing een display/sortering kwittie van enkele non-Latin toetsenbord ingangen.
 CHANGELOG_4_2_0_2 Toegevoegd een speciaal Ticket prijzen tabblad naar de Opties paneel, dus dag/nacht tarief vermenigvuldigers kunnen worden afgesteld zonder openen in-game Economie paneel.
 CHANGELOG_4_2_0_3 Vast Rescue Fullwidth Digits patch alleen ooit eenmaal bij mod startup toegepast terwijl undo-ed op elke level unload, stilletjes uitschakelen voor elke save nadat het eerste geladen in een sessie.
-CHANGELOG_4_2_0_4 Vast een taxi-tarief integer-overflow bug (MileageTaxiServices) die kon drain openbaar vervoer begroting door miljarden in één stap: een taxi met beschadigd of ongeïnitialiseerd frame gegevens (bijv. recht na spawning) kan berekenen implausible per-frame afstand, overflowing het tarief is cast naar int in enorme vuilnis waarde - dit evenaart een bekend onopgelost probleem gerapporteerd upstream (runaway negatief taxi inkomen). Nu implausible raamafstanden worden verwijderd in plaats van aangerekend.
+CHANGELOG_4_2_0_4 Vast een taxi-tarief integer-overflow bug (MileageTaxiServices) die kon drain openbaar vervoer begroting door miljarden in Ã©Ã©n stap: een taxi met beschadigd of ongeÃ¯nitialiseerd frame gegevens (bijv. recht na spawning) kan berekenen implausible per-frame afstand, overflowing het tarief is cast naar int in enorme vuilnis waarde - dit evenaart een bekend onopgelost probleem gerapporteerd upstream (runaway negatief taxi inkomen). Nu implausible raamafstanden worden verwijderd in plaats van aangerekend.
 CHANGELOG_4_1_5_1 Vast echte oorzaak van lege/zwarte Opties paneel: CSLModsCommon eigen UI strings (Versie/Changelog/etc.) wonen in een fysieke Lokalisatie/Gemeenschappelijke map naast DLL dat onze build nooit ingezet. Zonder het het framework LocalizationManager stilletjes gaf op, verlaten CurrentLocaleSource null en crashen OptionsPanelBase.Awake() met een NullReferenceException onmiddellijk het geprobeerd de vertaal-voortgangs label te tonen - die Unity stilletje slikt, afbreking panel midden bouw. Nu .csproj zet die map, en GetTranslationProgress() niet langer gooien als het ooit ontbreekt opnieuw.
 CHANGELOG_4_1_4_1 Vast Opties paneel toon blanco/zwart: paneel was alleen ooit gebouwd wanneer game omgeschakeld instellingen container zichtbaarheid uit en op, maar het is meestal reeds zichtbaar wanneer het spel opent deze mod pagina, dus paneel nooit gebouwd. Nu het ook bouwt onmiddellijk als de container al zichtbaar is.
 CHANGELOG_4_1_4_2 Vast elk CSLModsCommon UI textuur (background, icons, toggles) niet laden en vallen terug op placeholder: project RootNamespace was nog steeds "ImprovedPublicTransport3" van origineel IPT3 vork, dus ingebed middelen waren gecompileerd onder de verkeerde naam en nooit gematcht op runtime.
 CHANGELOG_4_1_3_1 Vast drie instellingen sparen bugs verlaten over van CSLModsCommon migratie (Wat is New ontslag, Opties Reset knop, per-uur kaartje prijs editor): elk schreef nieuwe waarde naar ModSetting juist maar opgeslagen vervolgens oud, nu dood instellingen object, dus de wijziging nooit daadwerkelijk aangehouden naar schijf.
-CHANGELOG_4_1_3_2 Verwijderde dode code van vóór CSLModsCommon era: de attribute-gebaseerde OptionsFramework, het monolithische Settings.cs, en de standalone VehicleEditorPositions enum - alles volledig vervangen door ModSetting en CSLModsCommonOptionsPanel.
+CHANGELOG_4_1_3_2 Verwijderde dode code van vÃ³Ã³r CSLModsCommon era: de attribute-gebaseerde OptionsFramework, het monolithische Settings.cs, en de standalone VehicleEditorPositions enum - alles volledig vervangen door ModSetting en CSLModsCommonOptionsPanel.
 CHANGELOG_4_0_0_1 Bevolgd van Improved Public Transport 3.
-CHANGELOG_4_0_0_2 Geporteerd AutoLineBudget eis gebaseerde flotille grootte om coördinaten met IPT eigen voertuig aantal API in plaats van schrijven de lijn budget rechtstreeks, fixing een runaway onderhoudskost bug veroorzaakt door de twee mods vechtende over dezelfde staat.
+CHANGELOG_4_0_0_2 Geporteerd AutoLineBudget eis gebaseerde flotille grootte om coÃ¶rdinaten met IPT eigen voertuig aantal API in plaats van schrijven de lijn budget rechtstreeks, fixing een runaway onderhoudskost bug veroorzaakt door de twee mods vechtende over dezelfde staat.
 CHANGELOG_4_0_0_3 Aangenomen CSLModsCommon voor de Opties UI (versie badge, changelog, compatibiliteit waarschuwingen, vertaal voortgang).
 TRAINDISPLAY_LABEL_NAME Naam
 TRAINDISPLAY_LABEL_STATUS Status
@@ -448,22 +448,22 @@ CHANGELOG_4_3_4_1 Vast startup ModException ("Kan niet vinden ImprovedPublicTran
 CHANGELOG_4_3_5_1 Vast Trein Display overlay nooit verschijning volgen voertuig. Deze keek camera gevolgd instantie door generieke "target"/"GetTarget" sondes, maar spel slaat op in private CameraController.m_targetInstance veld dat die sondes nooit gekoppeld. Ook geschakeld "Alleen in eerstepersonenamera" uit standaard: gewone volgen modus is niet eerste-persoon, dus het uit maken de overlay ziet er gebroken uit-van-de-box, in tegenstelling tot de originele mod die toont dit in een volgen view.
 CHANGELOG_4_3_5_2 Het tabblad Ticket prijzen toont nu het resulterende tarief voor elk vervoer type in plaats van het levend passagier aantal. De schuifregelaars alleen percentage toon, dus er was eerder geen manier zien wat een vermenigvuldiger daadwerkelijk opgesteld - en op een klein of gepauzeerd stad het passagier aantal gewoon lees een permanente "0". Het passagier aantal verplaatst naar het etiket tooltip, samen met het originele tarief.
 TICKET_PRICE_LABEL_TOOLTIP Huuidi tarief: {0}\nOrigineel tarief: {1}\nPassagiers rijden nu: {2}
-CHANGELOG_4_8_0_1 SingleTrainTrackAI toegevoegd: enkelsporige spoorsegmenten worden nu telkens voor één richting tegelijk gereserveerd, zodat twee treinen die een tweerichtingsspoor delen niet meer het risico lopen te botsen. Clean-room herimplementatie - de bron-mod (Workshop 949504539) heeft geen verklaarde licentie, dus alleen het publiekelijk gedocumenteerde concept is opnieuw geïmplementeerd, met de eigen Harmony-gebaseerde patchmethode van dit project in plaats van ruwe geheugen-detours.
-CHANGELOG_4_8_0_2 Stop Stacker toegevoegd: wanneer meer dan één voertuig van dezelfde lijn samenkomt bij een halte, gebruikt alleen het voorste voertuig de normale haltepositie - volgende voertuigen krijgen hun eigen plek verderop in de rijstrook in plaats van achter elkaar in de rij te staan. Clean-room herimplementatie op basis van alleen de publieke beschrijving van de bron-mod (geen broncode beschikbaar); alleen bus en trolleybus, passend bij het bestaande BetterBusStopPosition-aanknopingspunt van dit project.
-CHANGELOG_4_8_0_3 Opgelost: de integratie van de interlokale bushalte-terminal werd stilzwijgend nooit geactiveerd voor spelers met de Sunset Harbor-DLC: deze detecteerde de DLC via reflection op een privéveld van het spel in plaats van de Steam-DLC-controle die elders in dit project al wordt gebruikt, en die op reflection gebaseerde controle kon false teruggeven, zelfs als de DLC daadwerkelijk was geïnstalleerd.
+CHANGELOG_4_8_0_1 SingleTrainTrackAI toegevoegd: enkelsporige spoorsegmenten worden nu telkens voor Ã©Ã©n richting tegelijk gereserveerd, zodat twee treinen die een tweerichtingsspoor delen niet meer het risico lopen te botsen. Clean-room herimplementatie - de bron-mod (Workshop 949504539) heeft geen verklaarde licentie, dus alleen het publiekelijk gedocumenteerde concept is opnieuw geÃ¯mplementeerd, met de eigen Harmony-gebaseerde patchmethode van dit project in plaats van ruwe geheugen-detours.
+CHANGELOG_4_8_0_2 Stop Stacker toegevoegd: wanneer meer dan Ã©Ã©n voertuig van dezelfde lijn samenkomt bij een halte, gebruikt alleen het voorste voertuig de normale haltepositie - volgende voertuigen krijgen hun eigen plek verderop in de rijstrook in plaats van achter elkaar in de rij te staan. Clean-room herimplementatie op basis van alleen de publieke beschrijving van de bron-mod (geen broncode beschikbaar); alleen bus en trolleybus, passend bij het bestaande BetterBusStopPosition-aanknopingspunt van dit project.
+CHANGELOG_4_8_0_3 Opgelost: de integratie van de interlokale bushalte-terminal werd stilzwijgend nooit geactiveerd voor spelers met de Sunset Harbor-DLC: deze detecteerde de DLC via reflection op een privÃ©veld van het spel in plaats van de Steam-DLC-controle die elders in dit project al wordt gebruikt, en die op reflection gebaseerde controle kon false teruggeven, zelfs als de DLC daadwerkelijk was geÃ¯nstalleerd.
 CHANGELOG_4_8_0_4 Opgelost: het selectievakje "interlokale bussen accepteren" bleef op sommige terminals onreageerbaar vastzitten: vanilla kan het selectievakje niet-interactief laten onder omstandigheden waar het van naam veranderde gebruik door deze mod nooit rekening mee hield. Het wordt nu altijd geforceerd interactief zodra deze mod het beheert. Ook is een gerelateerde bug opgelost waarbij een terminal die al correct was ingesteld bij een latere controle stilzwijgend zijn schakelaar kon verliezen.
 CHANGELOG_4_8_0_5 Opgelost: Sub-Buildings Tabs toonde af en toe een verouderde tabbladenbalk op een niet-gerelateerd gebouw: het spel hergebruikt gebouw-ID's na een sloop, en de cache vertrouwde erop dat een hergebruikte ID nog steeds bij de vorige gebouwcluster hoorde. Nu wordt de daadwerkelijke bovenliggende keten van het gebouw opnieuw gevalideerd voordat er iets uit de cache wordt hergebruikt.
-CHANGELOG_4_8_0_6 Algemene bugronde over meerdere integraties: een omgekeerde cache-vervalcontrole die verse data verwierp en in plaats daarvan verouderde data leverde, een off-by-one lusgrens die de laatste vervoerslijn oversloeg bij automatische kleuring en controles op dubbele namen, een verkeerde ID-vergelijking die de "slechts één voertuig op deze lijn"-omzeiling voor samenklontering brak, een prijsopzoeking die een mislukking permanent cachete in plaats van later opnieuw te proberen, en verschillende Harmony-patches die konden vastlopen op een lege UI/prefab-referentie.
+CHANGELOG_4_8_0_6 Algemene bugronde over meerdere integraties: een omgekeerde cache-vervalcontrole die verse data verwierp en in plaats daarvan verouderde data leverde, een off-by-one lusgrens die de laatste vervoerslijn oversloeg bij automatische kleuring en controles op dubbele namen, een verkeerde ID-vergelijking die de "slechts Ã©Ã©n voertuig op deze lijn"-omzeiling voor samenklontering brak, een prijsopzoeking die een mislukking permanent cachete in plaats van later opnieuw te proberen, en verschillende Harmony-patches die konden vastlopen op een lege UI/prefab-referentie.
 CHANGELOG_4_8_0_7 Minder herhaalde reflection- en per-frame-opzoekingen bij meerdere integraties: voertuig-tooltipbeschrijvingen, classificatie van enkelsporige segmenten en de item-class-opzoeking voor interlokale bussen worden nu gecachet in plaats van bij elke aanroep opnieuw berekend, en een UI-vernieuwingsknop wijst zijn tekst niet meer elk frame opnieuw toe, ongeacht of er iets veranderd is.
 CHANGELOG_4_8_0_8 Nieuwe installaties gebruiken nu het Veilige gameplayprofiel: elke optionele integratie en modus begint uitgeschakeld voor maximale compatibiliteit met andere mods. Gebruik Aanbevolen (IPT-kern) of Realistisch, of schakel afzonderlijke opties om. Intercity Bus Control en Subgebouw-tabbladen blijven beschikbaar en zijn na bovenstaande fixes opgenomen in Aanbevolen.
-CHANGELOG_4_8_0_9 Opties > Integraties toont nu Geavanceerde Haltekeuze, Beter Instappen, Kilometrage Taxidiensten en Verhoogde Haltes — deze werden al geregeld via instellingen en profielen, maar hadden geen selectievakje, dus konden alleen via JSON/profiel worden ingeschakeld.
-CHANGELOG_4_8_0_10 Volledige Steam Workshop-taalpakketten toegevoegd voor elke taal van de beschrijvingskiezer, waaronder Deens, Fins, Noors, Zweeds, Hongaars, Roemeens, Bulgaars, Grieks, Oekraïens, Vietnamees en Maleis, plus pt-br en es-419.
+CHANGELOG_4_8_0_9 Opties > Integraties toont nu Geavanceerde Haltekeuze, Beter Instappen, Kilometrage Taxidiensten en Verhoogde Haltes â€” deze werden al geregeld via instellingen en profielen, maar hadden geen selectievakje, dus konden alleen via JSON/profiel worden ingeschakeld.
+CHANGELOG_4_8_0_10 Volledige Steam Workshop-taalpakketten toegevoegd voor elke taal van de beschrijvingskiezer, waaronder Deens, Fins, Noors, Zweeds, Hongaars, Roemeens, Bulgaars, Grieks, OekraÃ¯ens, Vietnamees en Maleis, plus pt-br en es-419.
 CHANGELOG_4_8_5_1 Haperingen/bevriezingen in Trein Display opgelost: het snellere, directe herpeilpad is teruggedraaid en de peilminima zijn verhoogd, zodat de overlay niet meer wedijvert met de simulatie bij Maximale prestatie.
-CHANGELOG_4_8_5_2 Route-strook en automatische haltenaamgeving van Trein Display geoptimaliseerd: hoogstens één zware naamscan per peiling, mislukte naamloze haltes worden niet elk interval opnieuw gescand, en routenaamlijsten vermijden extra lijsttoewijzingen.
+CHANGELOG_4_8_5_2 Route-strook en automatische haltenaamgeving van Trein Display geoptimaliseerd: hoogstens Ã©Ã©n zware naamscan per peiling, mislukte naamloze haltes worden niet elk interval opnieuw gescand, en routenaamlijsten vermijden extra lijsttoewijzingen.
 CHANGELOG_4_8_5_3 Forensenbestemming gepauzeerd (nog steeds buggy): geforceerd uitgeschakeld voor alle profielen/saves en de Opties-schakelaar verwijderd tot een latere herontwerp. Alleen-toekomstige spoiler blijft onder Geavanceerd.
 CHANGELOG_4_8_5_4 Taalpakketten in Opties: volledige Common JSON-set wordt bij implementatie meegeleverd (35+ frameworktalen), zodat de taalkeuzelijst niet langer de helft van de lijst mist; beschrijvingskaarten van secties behouden een gedeelde achtergrond met hun besturingselementen.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
-CHANGELOG_4_7_0_1 Vier nieuwe integraties: Subgebouwtabbladen (tabbalk voor elk complex met meerdere gebouwen, niet alleen luchthavens), Gedeelde haltes (laat meer dan één haltetype hetzelfde wegsegment delen, standaard uitgeschakeld), Bestemming forensen (toont waar de wachtende inwoners bij een halte daadwerkelijk naartoe gaan) en Taxistandplaatscorrectie (vrije taxi's rijden naar de dichtstbijzijnde standplaats in plaats van doelloos rond te rijden). Zie Opties > Integraties voor elke schakelaar.
+CHANGELOG_4_7_0_1 Vier nieuwe integraties: Subgebouwtabbladen (tabbalk voor elk complex met meerdere gebouwen, niet alleen luchthavens), Gedeelde haltes (laat meer dan Ã©Ã©n haltetype hetzelfde wegsegment delen, standaard uitgeschakeld), Bestemming forensen (toont waar de wachtende inwoners bij een halte daadwerkelijk naartoe gaan) en Taxistandplaatscorrectie (vrije taxi's rijden naar de dichtstbijzijnde standplaats in plaats van doelloos rond te rijden). Zie Opties > Integraties voor elke schakelaar.
 CHANGELOG_4_7_0_2 Een voertuigcapaciteitsmodus toegevoegd voor intercitybusterminals (Opties > Integraties > Capaciteit intercitybusterminal): Uitgeschakeld behoudt de bestaande, feitelijk onbeperkte terminal van deze mod, Gemiddeld past een gematigd vast maximum toe, Realistisch herstelt de eigen vanille-prefabcapaciteit van de terminal. Bestaande spellen gebruiken standaard Uitgeschakeld, zodat een update de capaciteit van een terminal nooit stilzwijgend verkleint.
 CHANGELOG_4_7_0_3 Het selectievakje "intercitybussen accepteren" van de intercitybusterminal gerepareerd: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged stelt acceptsInterCityTrains in, wat een pure alias is voor isEmptying, waardoor het hernoemde selectievakje een busterminal stilzwijgend in de afsluitstatus van het spel kon zetten in plaats van daadwerkelijk de busacceptatie om te schakelen. Een Harmony-prefix onderschept dit nu en leidt het om naar een status per gebouw voor terminals met een buspatch, zonder echte treinstations te raken.
 CHANGELOG_4_7_0_4 Een "Origineel" kleurthema toegevoegd aan Train Display (Opties > Train Display > Kleurthema) dat de lay-out van de bronmod Train Display - Updated nabootst: een kopstrook met snelheid en status, plus een routestrook in de werkelijke lijnkleur van het voertuig.
@@ -516,7 +516,7 @@ SETTINGS_TICKET_PATHFINDING_COST Routevindingstarieven (haltestroken)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimenteel. Schrijft een kleine routevindingskosten naar openbarvervoerhaltestroken op basis van gemiddelde kaartjesprijzen (hetzelfde veld dat wegtollen gebruiken). Burgers geven misschien iets voorkeur aan goedkopere lijnen. Vereist dat kaartjesprijzen zijn ingeschakeld. Standaard uit.
 SETTINGS_TAB_COMPATIBILITY Compatibiliteit
 SETTINGS_COMPAT_INTRO_GROUP Controleer uw laadvolgorde
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scant ingeschakelde Workshop/lokale mods op bekende conflicten (IPT1–3, TLM, ITM, opgenomen standalones) en vereiste afhankelijkheden (Harmony). Voer een controle uit na het wijzigen van abonnementen.
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scant ingeschakelde Workshop/lokale mods op bekende conflicten (IPT1â€“3, TLM, ITM, opgenomen standalones) en vereiste afhankelijkheden (Harmony). Voer een controle uit na het wijzigen van abonnementen.
 SETTINGS_COMPAT_RUN_CHECK Controleren op conflicten
 SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Vergelijkt ingeschakelde plugins met IPT4's bekende incompatibiliteitenlijst (assemblynaam + Workshop-ID) en Harmony-afhankelijkheid.
 SETTINGS_COMPAT_RUN_CHECK_BUTTON Nu controleren
@@ -563,7 +563,7 @@ SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Gepland: trams keren op eindpunten zonder lu
 SETTINGS_FUTURE_BREAKDOWN Storingshulpmiddelen (binnenkort)
 SETTINGS_FUTURE_BREAKDOWN_TIP Gepland: route-/verkeersdiagnose voor vastgelopen vervoer. Nog niet beschikbaar.
 SETTINGS_FEATURE_UNBUNCHING_ENABLE Ontknopen / Express Bus
-SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Schakelt voertuigontknopen, Express Bus/Tram, spawninterval en agressieve vlootgrootte in. Alle spatiëring/budget-functies voor bussen en trams.
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Schakelt voertuigontknopen, Express Bus/Tram, spawninterval en agressieve vlootgrootte in. Alle spatiÃ«ring/budget-functies voor bussen en trams.
 SETTINGS_FEATURE_BUDGET_ENABLE Budget-functies
 SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Schakelt lijnbudget, autolijnbudget, kaartjespersonalisatie en tarief-als-pathfinding-kosten in. Alle geld/prijs/vloot-functies.
 SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Automatische Lijnkleur
@@ -582,35 +582,110 @@ SETTINGS_HOTKEY_TRAIN_DISPLAY Trein Display in-/uitschakelen
 SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Schakel de voertuigoverlay in de hoek in of uit.
 SETTINGS_HOTKEY_LINE_COLOR Lijnkleur opnieuw toewijzen
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Voer Automatische Lijnkleur opnieuw uit voor de geselecteerde lijn terwijl een vervoerslijn geselecteerd is (vereist een ingeschakelde kleurstrategie).
-LINE_PANEL_COPY Kopiëren
+LINE_PANEL_COPY KopiÃ«ren
 LINE_PANEL_PASTE Plakken
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe â€” everything optional stays OFF (best with many mods).\nâ˜… Vanilla â€” closest to the base game (no IPT extras).\nâ˜… Recommended â€” IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic â€” most features on (stronger sim, more cost).\nâ˜… Custom â€” you choose every toggle; profiles never override Custom again until you pick another package.
 SETTINGS_QUICK_TIPS_GROUP Snelle tips
-SETTINGS_QUICK_TIPS_DESC Kleine herinneringen — geen extra code, gewoon hoe je gebruikt wat je al hebt.
+SETTINGS_QUICK_TIPS_DESC Kleine herinneringen â€” geen extra code, gewoon hoe je gebruikt wat je al hebt.
 SETTINGS_QUICK_TIP_1_TITLE Begin simpel
 SETTINGS_QUICK_TIP_1_BODY Kies Aanbevolen en schakel alleen in wat je nodig hebt. Veilig is het beste als je veel andere mods gebruikt.
 SETTINGS_QUICK_TIP_2_TITLE Trage pc?
-SETTINGS_QUICK_TIP_2_BODY Systeem → Prestatie → Licht. Vermijd ook forensen-'Volledige kaart' als de FPS daalt.
+SETTINGS_QUICK_TIP_2_BODY Systeem â†’ Prestatie â†’ Licht. Vermijd ook forensen-'Volledige kaart' als de FPS daalt.
 SETTINGS_QUICK_TIP_3_TITLE Na schakelaars
-SETTINGS_QUICK_TIP_3_BODY Sommige opties vereisen het herladen van de stad (tooltip vermeldt dit). Systeem → Compat. controleert conflicterende mods.
+SETTINGS_QUICK_TIP_3_BODY Sommige opties vereisen het herladen van de stad (tooltip vermeldt dit). Systeem â†’ Compat. controleert conflicterende mods.
 SETTINGS_OOC_RESET_TOOLTIP Zet wachttijd voor buitenverbindingen, dummyverkeer en gerelateerde schakelaars terug naar de veilige standaardwaarden.
-SETTINGS_EBS_GROUP_BUS_DESC Expresbussen kunnen vroeg vertrekken wanneer er weinig passagiers instappen — optionele geavanceerde spreiding.
+SETTINGS_EBS_GROUP_BUS_DESC Expresbussen kunnen vroeg vertrekken wanneer er weinig passagiers instappen â€” optionele geavanceerde spreiding.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Extra rijen
-SETTINGS_SUB_NET_BBSP_NOTE Betere bushalte positie verandert alleen waar bussen bij de halte parkeren. Onderstaande opties zijn aparte functies (verhoogd, gedeelde haltes, enz.) — ze blijven bewust klikbaar.
+SETTINGS_SUB_NET_BBSP_NOTE Betere bushalte positie verandert alleen waar bussen bij de halte parkeren. Onderstaande opties zijn aparte functies (verhoogd, gedeelde haltes, enz.) â€” ze blijven bewust klikbaar.
 SETTINGS_HIDDENBEHAVIOUR_GROUP Altijd actief gedrag
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Twee kleine gedragingen die tot nu toe altijd actief waren zonder mogelijkheid om ze uit te zetten. Standaard ingeschakeld, zodat bestaande installaties geen verandering zien - schakel uit als je een losstaande mod gebruikt die hetzelfde doet, of gewoon liever handmatige controle hebt.
 SETTINGS_AUTONAMESTOPS_ENABLE Naamloze haltes automatisch benoemen
 SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP De eerste keer dat je een halte zonder naam selecteert, krijgt deze dezelfde naam van een nabijgelegen gebouw die de eigen vervolgkeuzelijst van het haltepaneel zou voorstellen - zonder dat je die vervolgkeuzelijst hoeft te openen. Raakt nooit een naam aan die jij (of deze functie) al hebt ingesteld.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Overgenomen van de losstaande Rescue Fullwidth Digits-mod. Herstelt namen van vervoerslijnen die met dubbelbrede cijfers (１２３ in plaats van 123) zijn opgeslagen door bepaalde IME/invoerinstellingen, wat anders voor altijd verkeerd wordt weergegeven.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Overgenomen van de losstaande Rescue Fullwidth Digits-mod. Herstelt namen van vervoerslijnen die met dubbelbrede cijfers (ï¼‘ï¼’ï¼“ in plaats van 123) zijn opgeslagen door bepaalde IME/invoerinstellingen, wat anders voor altijd verkeerd wordt weergegeven.
 CHANGELOG_4_8_6_1 Bestemming forensen opnieuw ingeschakeld: de schakelaar in Opties is terug en werkt live, geen herladen nodig.
 CHANGELOG_4_8_6_2 Elke optionele integratie gecontroleerd op een echte "uit betekent uit": Elevated Stops Enabler herschreef permanent weg-prefabgegevens zonder manier om dit ongedaan te maken, en Auto Line Budget bleef lijnen op de achtergrond beheren nadat het midden in een sessie was uitgeschakeld. Beide keren nu volledig terug naar standaardgedrag wanneer uitgeschakeld.
-CHANGELOG_4_8_6_3 Twee gedragingen gevonden die altijd actief waren zonder mogelijkheid om ze uit te zetten - automatisch benoemen van naamloze haltes, en Rescue Fullwidth Digits (Gansaku) - en voor beide schakelaars toegevoegd onder Opties → Geavanceerd. Standaard ingeschakeld, dus er verandert niets tenzij je ze uitzet.
+CHANGELOG_4_8_6_3 Twee gedragingen gevonden die altijd actief waren zonder mogelijkheid om ze uit te zetten - automatisch benoemen van naamloze haltes, en Rescue Fullwidth Digits (Gansaku) - en voor beide schakelaars toegevoegd onder Opties â†’ Geavanceerd. Standaard ingeschakeld, dus er verandert niets tenzij je ze uitzet.
 SETTINGS_FUTURE_BUSWAYPOINT Bus-waypoint-haltes (binnenkort)
 SETTINGS_FUTURE_BUSWAYPOINT_TIP Gepland: een halte merken als alleen routing-waypoint - het lijnpad gaat erdoor maar voertuigen stoppen nooit of laden/lossen passagiers in/uit. Helpt vanilla pathfinding sturen naar de daadwerkelijk bedoelde weg. Nog niet beschikbaar.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Geavanceerde halteselectie: exact spoor kiezen
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Ingedrukt houden tijdens het plaatsen van een trein/tram-halteverbinding om het exacte spoor te targeting in plaats van het dichtstbijzijnde geldige. Was hardcoded op Links/Rechts Shift; herbinden hier dekt alleen de gekozen kant.
 SETTINGS_LEGACY_GROUP Verouderd
 SETTINGS_LEGACY_GROUP_DESC Oude schakelaars alleen bewaard zodat installaties die ze al aan hadden blijven precies zo werken als voorheen. Vergrendeld - ze kunnen hier niet meer aan of uitgezet worden, en elk gameplay-profiel laat ze voor de toekomst uit.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options â†’ Advanced â†’ Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+
+# === Added fallback translations (auto-generated) ===
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): found and fixed a real bug where two of the mod's own patches were silently colliding on the same click - but real-play testing still shows the icons/panel not reliably appearing. Stays off by default and Experimental until this is fully sorted out.
+CHANGELOG_4_8_8_2 Budget control checkbox no longer unchecks itself the moment you tick it.
+CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximum) now actually changes its update rate - previously had no visible effect for most players.
+CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.
+CHANGELOG_4_8_8_5 Guarded against a real crash some players could hit on certain saves - not caused by this mod, but guarded anyway since it patches the same game method.
+CHANGELOG_4_8_8_6 This panel now shows a real, auto-computed percentage of how much of the mod's own text is translated into your language, instead of a number that could go stale.
+
+CHANGELOG_4_8_9_1 Zes functie-master schakelaars in Opties (Spreiding, Begroting, Automatische Lijnkleur, Treinweergave, Voertuigeditor, Haltes & Stations). Standaard uit; uitschakelen van een schakelaar vergrendelt ook de onderliggende instellingen en stopt de bijbehorende patches.
+CHANGELOG_4_8_9_2 Dertien nieuwe configureerbare sneltoetsen (lijnpaneel openen, spreiding in-/uitschakelen, lijninstellingen kopierecken/plakken, voertuigeditor, Flight Tracker, vorige/volgend voertuig, en meer), alleen te wijzigen onder Opties → Toetsbindingen.
+CHANGELOG_4_8_9_3 Passagiersbestemmingweergave herbouwd als een clean-room kaartoverlay (cirkels + tellingen). Oude paneelpoort verwijderd. Nog steeds Experimenteel en standaard uit tot het in echt spelen bevestigd stabiel is.
+CHANGELOG_4_8_9_4 Intercity-buscontrole herstelt nu de originele station-prefabs bij uitschakelen, en koppelt externe verbindingen opnieuw zodat geconverteerde stations zich niet misdragen nadat de schakelaar uit is.
+CHANGELOG_4_8_9_5 Treinweergave: interval is nu vast per prestatieprofiel (geen schuifregelaar), nieuwe scope-dropdown (Geselecteerd voertuig / Eerstepersoonskamera / Beide), en First Person Camera - Continued wordt gedetecteerd zodat de overlay het eerstepersoonsvolg kan volgen.
+CHANGELOG_4_8_9_6 Thread-veiligheid en randjesverharding over de gedeelde kern en opslaggegevens (wachtrijen vergrendelingen, veiliger buffer lezen, duidelijkere fouten op beschadigde opslag). Express-bus routezoeken faalt open in plaats van een bevriezen bus.
+CHANGELOG_4_8_9_7 Opties → Systeem → Compat: Aanbevolen begeleide mods-lijst (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) met Workshop-open knoppen.
+CHANGELOG_4_8_9_8 Workshop-voertuigen die worden geleverd als Placement.Procedural worden niet langer verborgen in de selecteerbare voertuiglijsten.
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Companion mods are NOT absorbed by IPT4 - they integrate with it, so install both: IPT4 and the mod from the list.\nSome IPT4 features only activate when the companion is installed (e.g. the Train Display overlay in first-person view needs First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_GROUP Recommended companion mods
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Shows where all passengers waiting at a public transport stop want to go. Recommended while IPT4's own destination display is not ready yet - it will be absorbed by IPT4 later and then removed from this list.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Follow citizens and vehicles in first-person view. Required for the IPT4 Train Display overlay in first-person mode.
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exports a full image of your city map (png/jpeg/bmp/svg) plus heightmaps via its own external viewer.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adds single and double one-way train tracks, single station tracks and two-way single tracks.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Turns crowded bus stops into readable shared stops: visible B1/B2/B3 berth markers, waiting areas and live info; several buses can load and unload at the same time.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Improves lane and parking usage, customizes junctions, roads and rails, and adds advanced pathfinding.
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Open on Workshop
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control checkbox stays checked when smart-managed (soon)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: right now, once Automatic fleet sizing takes over a line, its Budget control checkbox unchecks itself to signal that - by design, but confusing to look at. This will separate "the game's own budget math" from "IPT is managing this line" internally, so the checkbox can stay checked the whole time. Not available yet.
+SETTINGS_FUTURE_LINEHISTORY Line history log (soon)
+SETTINGS_FUTURE_LINEHISTORY_TIP Planned: keep a log of each line's changes over time so you can look back at how a route evolved. Not available yet.
+SETTINGS_FUTURE_LINEMAP Generate a line network map (soon)
+SETTINGS_FUTURE_LINEMAP_TIP Planned: generate a map of all the city's transport lines and save it to a folder on your computer, like a simple schematic overview. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (soon)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: warn on the vehicle route panel when a line loops back on itself or splits into more than two branches, instead of assuming a simple end-to-end route. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
+SETTINGS_FUTURE_STOPPLACER Suggest the best place for a stop (soon)
+SETTINGS_FUTURE_STOPPLACER_TIP Planned: analyze the area around a road/network and suggest the best spot to place a bus stop or other stop, including the distance between stops. Not available yet.
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.
+SETTINGS_HOTKEY_COPY_LINE_CONFIG Copy line settings
+SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP Copy vehicle, budget, depot, ticket price and color settings from the currently selected line.
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS Copy to lines serving same buildings
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP Copy the current line's settings to all other lines that serve the same nearby buildings or stations.
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS Copy to lines serving same districts
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP Copy the current line's settings to all other lines that serve the same districts or park areas.
+SETTINGS_HOTKEY_NEXT_VEHICLE Next vehicle
+SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP Switch to the next vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER Open flight tracker
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP Open the airport flight tracker panel for the currently selected building. Needs the Flight Tracker feature enabled.
+SETTINGS_HOTKEY_OPEN_LINE_PANEL Open/close line panel
+SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP Open the panel of the currently selected transport line. Press again to close it.
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG Paste line settings
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP Paste previously copied line settings onto the currently selected line.
+SETTINGS_HOTKEY_PREV_VEHICLE Previous vehicle
+SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP Switch to the previous vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES Select vehicle types
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP Open the vehicle type selector panel for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING Toggle line unbunching
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP Enable or disable vehicle unbunching for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR Toggle vehicle editor
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP Show or hide the vehicle editor panel.
+SETTINGS_MODTRANSLATION_GROUP Mod text translated
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text - menus, tooltips, in-game panels - is translated into your language. This is different from "Translation Progress" above, which only covers a handful of generic buttons like OK and Cancel, not this mod's actual content. If you still see some English here, a full translation for your language is on its way.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
+TRAINDISPLAY_LABEL_NEXTSTOP Next stop

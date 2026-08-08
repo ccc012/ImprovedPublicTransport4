@@ -231,6 +231,32 @@ namespace ImprovedPublicTransport.UI
             var guide = AddSection(page, Localization.Get("SETTINGS_COMPAT_GUIDE_GROUP"),
                 Localization.Get("SETTINGS_COMPAT_GUIDE_DESCRIPTION"));
             _ = guide;
+
+            // Companion mods: optional dependencies that integrate with IPT4 instead of being
+            // absorbed by it. The user keeps both mods installed; future IPT4 features will
+            // only activate when the companion is present (e.g. the Train Display overlay in
+            // first-person view needs First Person Camera - Continued).
+            var recommended = AddSection(page, Localization.Get("SETTINGS_COMPAT_RECOMMENDED_GROUP"),
+                Localization.Get("SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION"));
+            AddRecommendedMod(recommended, "SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW", "SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC", "845665815");
+            AddRecommendedMod(recommended, "SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER", "SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC", "3751418194");
+            AddRecommendedMod(recommended, "SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE", "SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC", "1637663252");
+            AddRecommendedMod(recommended, "SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA", "SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC", "3198388677");
+            AddRecommendedMod(recommended, "SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS", "SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC", "724382534");
+            AddRecommendedMod(recommended, "SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST", "SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC", "2475986859");
+        }
+
+        /// <summary>Adds a companion-mod row: name, what it does, and a Workshop link button.
+        /// Companion mods are NOT absorbed by IPT4 - both mods run side by side.</summary>
+        private static void AddRecommendedMod(SettingsSection section, string nameKey, string descriptionKey, string workshopId)
+        {
+            section.AddButton(
+                Localization.Get(nameKey),
+                Localization.Get(descriptionKey),
+                Localization.Get("SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON"),
+                280f, 40f,
+                onButtonClicked: _ => CSLModsCommon.Utilities.URLHelper.OpenSteamURL(
+                    "https://steamcommunity.com/sharedfiles/filedetails/?id=" + workshopId));
         }
 
         protected override void FillKeyBindingPage(ScrollContainer page)

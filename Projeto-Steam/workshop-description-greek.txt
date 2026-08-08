@@ -1,42 +1,47 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]Ένας mod αντί για δεκαπέντε.[/b] Πλήρης έλεγχος γραμμών μεταφοράς: μέγεθος στόλου, τύποι οχημάτων, στάσεις, ναύλοι. Μικροί mod ενοποιημένοι.
+[b]Έκδοση 4.8.9[/b] · Κατασκευασμένο για έκδοση παιχνιδιού 1.21.1-f9
 
 [h1]Γιατί υπάρχει αυτό[/h1]
-Δύο mods αντικαθιστούν ο ένας τον άλλο για μέγεθος στόλου, χάνοντας χρήματα. Λύση: ένα assembly, ένα patch.
+Η συντήρηση των μεταφορών ανέβηκε στο [b]-42.000.000.000[/b] — δύο mod που αλλάζουν το μέγεθος του στόλου ανεξάρτητα, αντικαθιστώντας ο ένας τον άλλο. Αυτό το mod διορθώνει τη σύγκρουση ενοποιώντας τον έλεγχο.
 [hr][/hr]
 [h1]Τι μπορείτε να κάνετε με αυτό[/h1]
-[h2]Αναλάβετε τον έλεγχο κάθε γραμμής[/h2]
-Όλα τα είδη (λεωφορείο, τραμ, μετρό, τρένο, πλοίο, αεροπλάνο, ταξί κτλ): [b]ορίστε μέγεθος στόλου[/b] ή auto-προϋπολογισμό, [b]επιλέξτε οχήματα[/b], [b]επεξεργαστείτε μεμονωμένα[/b], [b]διαλέξτε αμαξοστάσιο[/b].
-[h2]Διορθώστε τον συνωστισμό[/h2]
-Τρία επίπεδα: [b]Disabled[/b] (vanilla), [b]Prudent[/b] (ομαλές), [b]Realistic[/b]. [b]Express[/b] για άδειες στάσεις.
+[h2]Αναλάβετε τον έλεγχο οποιασδήποτε γραμμής[/h2]
+Κάθε τύπος γραμμής αποκτά: [b]έλεγχο στόλου[/b] (εικονικό ή βάσει προϋπολογισμού), [b]επιλογή οχήματος[/b], [b]ατομικές επεξεργασίες[/b] και [b]επιλογή αποθήκης[/b].
+[h2]Διορθώστε τη συσσώρευση[/h2]
+Τρία επίπεδα κατά της συσσώρευσης: [b]Απενεργοποιημένο[/b] (vanilla), [b]Συνετό[/b] (αποστάσεις), [b]Ρεαλιστικό[/b] (πραγματικά διαστήματα). Η λειτουργία [b]Express[/b] παραλείπει άδειες στάσεις.
 [h2]Ορίστε τους δικούς σας ναύλους[/h2]
-Τιμές στην καρτέλα [b]Τιμές[/b], με προαιρετική [b]ημέρας/νύχτας[/b]. Επηρεάζουν ζήτηση.
+Τιμολογήστε κάθε τύπο μεταφοράς στον πίνακα [b]Οικονομία[/b], με επιλογές [b]τιμολόγησης ημέρας/νύχτας[/b]. Οι τιμές επηρεάζουν τη ζήτηση φυσικά.
 [h2]Δείτε τι συμβαίνει[/h2]
-[b]Πίνακας στάσης[/b], [b]Train Display[/b] (ζωντανή επικάλυψη), [b]αυτόματα χρώματα/ονόματα[/b], [b]Flight Tracker[/b].
+[b]Πληροφορίες στάσης[/b] (επιβάτες, όχημα, συνωστισμός), [b]πίνακας διαδρομής οχήματος[/b] (ζωντανός παραμετροποιήσιμος overlay), [b]αυτόματα χρώματα/ονόματα γραμμών[/b] για σαφήνεια, [b]πίνακας πτήσεων αεροδρομίου[/b] (αφίξεις/αναχωρήσεις).
 [h2]Καθαρίστε το δίκτυό σας[/h2]
-[b]Μαζική διαγραφή γραμμών[/b], [b]καλύτερη θέση στάσεων[/b], [b]unstucker[/b] για κολλημένα οχήματα.
-[h2]Νέα στην 4.8[/h2]
-[b]Single Train Track AI[/b], [b]Ξεχωριστές θέσεις στάσης λεωφορείων[/b], [b]Intercity Bus Control[/b] διορθώθηκε, [b]Sub-Buildings Tabs[/b] διορθώθηκε. Δείτε changelog για λεπτομέρειες.
+[b]Μαζική διαγραφή γραμμών[/b] (ανά τύπο, με επιβεβαίωση), [b]τοποθέτηση ανυψωμένων στάσεων[/b] και [b]αποφυγή κόλληματος[/b] για κολλημένα οχήματα.
+[h2]4.8.9: κύριοι διακόπτες, συντομεύσεις, επανασχεδιασμός overlay προορισμού[/h2]
+Δεν είναι νέος ενσωματωμένος mod — έλεγχος και ενίσχυση. [b]Έξι κύριοι διακόπτες λειτουργιών[/b] (Κατά Συσσώρευσης, Προϋπολογισμός, Αυτόματο Χρώμα Γραμμής, Προβαλή Τρένου, Επεξεργαστής Οχημάτων, Στάσεις & Σταθμοί): ανενεργοί από προεπιλογή; η απενεργοποίηση ενός κλειδώνει τα θυγατρικά και σταματάει τα σχετικά patches. [b]Δεκατρείς αναδιατάξιμες συντομεύσεις[/b] (πίνακας γραμμών, κατά συσσώρευσης, αντιγραφή/επικόλληση, επεξεργαστής οχημάτων, Flight Tracker, προηγούμενο/επόμενο όχημα και άλλα). [b]Προβολή προορισμού επιβατών[/b] ξαναγραμμένη ως καθαρό overlay χάρτη (κύκλοι + μετρητές); παλιό port πίνακα αφαιρέθηκε — ακόμα [b]Πειραματικό, ανενεργό από προεπιλογή[/b]. [b]Intercity Bus Control[/b] επαναφέρει τα αρχικά prefabs σταθμόν όταν απενεργοποιηθεί. [b]Train Display[/b]: σταθερό διάστημα ανά προφίλ απόδοσης, αναπτυσσόμενο μενού εύρους (Επιλεγμένο / Πρώτο Πρόσωπο / Και τα δύο), εντοπίζει First Person Camera - Continued. Ασφάλεια νημάτων και ενίσχυση δεδομένων αποθήκευσης; η εύρεση διαδρομής Express Bus αποτυγχάνει ανοιχτά. [b]Καρτέλα Συμβατότητας[/b] παραθέτει προτεινόμενους mod συντρόφους με συνδέσμους Workshop. Οχήματα Workshop με Placement.Procedural δεν κρύβονται πλέον από τις λίστες οχημάτων. Πλήρης τεχνικός κατάλογος αλλαγών στο GitHub.
 [hr][/hr]
-[h1]Mods που απορροφήθηκαν στο IPT4 — και ποιοι τα έφτιαξαν[/h1]
-[b]Καταργήστε αυτόνομες εκδόσεις[/b] — και τα δύο patches αντικρούονται. Κάθε mod παρακάτω πιστώνεται στον δημιουργό του.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-Περισσότερα έχουν διακόπτη. Vanilla fixes πάντα ενεργά. Ταξί χρειάζεται [b]After Dark[/b]. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Ξεχωριστές θέσεις στάσης λεωφορείων[/b] — πρωτότυπος.
+[h1]Mod που ενσωματώθηκαν στο IPT4 — και ποιος τα έκανε[/h1]
+[b]Απεγγραφή αυτόνομων εκδόσεων[/b] για να αποφύγετε διπλό patching. Κάθε mod παρακάτω είναι έργο κάποιου — αναγνωρίστε τον στη σελίδα του αν είναι χρήσιμο.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+Τα περισσότερα έχουν διακόπτες επιλογών. Οι επιλογές περιγράφουν τι κάνει το καθένα, όχι το όνομα του πηγαίου mod. Το [b]After Dark[/b] απαιτείται για εισοδήματα ταξί. Το [b]Taxi Stand Fix[/b], το [b]Single Train Track AI[/b] και το [b]στοίβασμα θέσεων στάσεων λεωφορείων[/b] είναι αρχικός κώδικας (χωρίς πηγαία mod).
 [hr][/hr]
 [h1]Απαιτήσεις & συμβατότητα[/h1]
-Απαιτείται [b]Harmony[/b] (ID 2040656402). [b]Μη συμβατό:[/b] IPT2, IPT3, Transport Lines Manager, αυτόνομο AutoLineBudget, duplicates — προειδοποιεί αν βρεθεί.
+Απαιτείται [b]Harmony[/b] (ID 2040656402). [b]Δεν είναι συμβατό με:[/b] IPT2, IPT3, Transport Lines Manager, αυτόνομο AutoLineBudget ή αυτόνομο αντίγραφο οποιουδήποτε mod παραπάνω — σας προειδοποιεί εντός παιχνιδιού αν εντοπιστεί.
 [hr][/hr]
 [h1]Γλώσσες[/h1]
-[b]Όλες οι 23 γλώσσες πλήρως μεταφρασμένες[/b] — κάθε σειρά. Ακολουθεί τη γλώσσα του παιχνιδιού ή επιλέξτε μία.
+Ακολουθεί τη γλώσσα του παιχνιδιού σας ή επιλέξτε μία στις επιλογές. Τα Αγγλικά και τα Πορτογαλικά διατηρούνται πλήρως ενημερωμένα σε κάθε έκδοση; άλλες γλώσσες ενημερώνονται σε παρτίδες και μπορεί να καθυστερούν μία ή δύο εκδόσεις σε ολοκαίνουργια κείμενα — επιστρέφει στα Αγγλικά χαριτωμένα μεταξύ άλλων.
 [hr][/hr]
 [h1]Ξεκινώντας[/h1]
-Εγγραφή [b]Harmony[/b], ακύρωση παλιών, IPT4 ενεργό, φόρτωση πόλης, κλικ γραμμής. Επιλογές: [b]Ρυθμίσεις → Mod → IPT4[/b]. Ναύλοι: [b]Οικονομία[/b]. [b]Παλιά saves λειτουργούν[/b] — όπως IPT2/IPT3.
+Εγγραφείτε στο [b]Harmony[/b], απεγγραφή αυτόνομων εκδόσεων, ενεργοποίηση IPT4. Επιλογές: [b]Ρυθμίσεις → Ρυθμίσεις Mod → Improved Public Transport 4[/b]. Ναύλοι: [b]Οικονομία[/b] πίνακας. [b]Υπάρχουντες αποθηκεύσεις συμβατές[/b].
 [hr][/hr]
 [h1]Σταθερότητα[/h1]
-Σταθερό. [b]Κρατήστε backup[/b]. Πρόβλημα: [i]τι έκανες[/i] + log:
+Σταθερό. Επιλύθηκε το bug διακυμάνσεων συντήρησης; κατεστραμμένες αποθηκεύσεις επιδιορθώνονται αυτόματα. [b]Κρατήστε αντίγραφο ασφαλείας ούτως ή άλλως[/b]. Σε προβλήματα, αναφέρετε [i]τι κάνατε[/i] και επισυνάψτε:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
+Το „Δεν λειτουργεί" μόνο δεν μπορεί να διαγνωστεί.
 [hr][/hr]
-[h1]Κώδικας και πιστώσεις[/h1]
-[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url] · [b]GPL-3.0[/b] · [b]DontCryJustDie[/b] (2015), [b]BloodyPenguin[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] · UI: [b]algernon[/b], [b]Mbyron26[/b]
+[h1]Πηγή και ευχαριστίες[/h1]
+Πηγαίος κώδικας και τεχνικός κατάλογος αλλαγών: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+Το IPT4 είναι [b]GPL-3.0[/b] και στηρίζεται στο έργο άλλων: ο [b]DontCryJustDie[/b] έγραψε το αρχικό IPT (2015), ο [b]BloodyPenguin[/b] έγραψε το [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], ο [b]Madisonian[/b] έγραψε το [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], το οποίο αυτό κάνει fork. Τα ενσωματωμένα mod αναφέρονται παραπάνω; UI frameworks από τους [b]algernon[/b] και [b]Mbyron26[/b]. Σας ευχαριστώ όλους σας.
+[hr][/hr]
+[h1]Υποστήριξη[/h1]
+Αν σας αρέσει το IPT4 και θέλετε να υποστηρίξετε μελλοντικά εργαλεία, σκεφτείτε ένα φιλοδώρημα στο [url=https://ko-fi.com/ccc02]Ko-fi[/url].

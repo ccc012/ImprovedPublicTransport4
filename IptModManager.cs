@@ -66,11 +66,22 @@ namespace ImprovedPublicTransport
             const string Alt = "Improved Public Transport 4";
             const IncompatibilityModLevel Ban = IncompatibilityModLevel.EnableNotAllowed;
 
-            // Bans only the mods that actually conflict with IPT4's absorbed/clean-room
-            // implementations. All 14 here are checked by name + Workshop ID + listed conflicting
-            // methods (where relevant); one alternative-assembly fork of Commuter Destination is
-            // also blocked by name. Other mods stay unlisted to avoid false positives — see the
-            // Compatibility tab description for the full reasoning.
+            // Critical: same fleet/budget domain as IPT4 (or earlier IPT generations).
+            rule.AddWithWorkshop("ImprovedPublicTransport", Ban, "Improved Public Transport (original)",
+                    "IPT1 is replaced entirely by IPT4 — both patch the same transit systems.", 424106600u)
+                .AddWithWorkshop("ImprovedPublicTransport2", Ban, "Improved Public Transport 2 (IPT2)",
+                    "IPT2 is an earlier generation IPT4 replaces — double-patching breaks fleet/budget control.", 928128676u)
+                .AddWithWorkshop("ImprovedPublicTransport3", Ban, "Improved Public Transport 3 (IPT3)",
+                    "IPT4 is a fork of IPT3 that replaces it entirely — never run both.", 3690061052u)
+                .AddWithWorkshop("TransportLinesManager", Ban, "Transport Lines Manager",
+                    "TLM and IPT both own per-line vehicle count/budget — together they fight over fleets.", 1312767991u, 3007903394u)
+                .AddWithWorkshop("ImprovedTransportManager", Ban, "Improved Transport Manager (ITM)",
+                    "Klyte45 unfinished TLM/IPT2 successor — same per-line budget/fleet domain as IPT4.", 2888964436u)
+                .AddWithWorkshop("AutoLineBudget", Ban, "Auto Line Budget 21",
+                    "Fleet sizing is built into IPT4 — both writing budgets caused runaway maintenance costs.", 2349240408u);
+
+            // Absorbed / clean-room standalones (name + Workshop ID). Commuter Destination alt
+            // assemblies registered separately below. Other mods stay unlisted to avoid false positives.
             rule.AddWithWorkshop("SharedStopEnabler", Ban, "SharedStopEnabler", "Conflicts with IPT4 shared-stop implementation.", 2096382380u)
                 .AddWithWorkshop("SingleTrainTrackAI", Ban, "SingleTrainTrackAI", "Clean-room implementation already in IPT4 — both can double-brake trains.", 949504539u)
                 .AddWithWorkshop("RealisticWalkingSpeed", Ban, "Realistic Walking Speed", "Walking/cycling speed modes are built into IPT4.", 1412844620u)
@@ -95,6 +106,16 @@ namespace ImprovedPublicTransport
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 8, 9), new DateTime(2026, 8, 7), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_9_1"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_9_2"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_9_3"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_9_4"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_9_5"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_9_6"))
+                .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_9_7"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_9_8"))
+            ,
             new ChangelogCollection(new Version(4, 8, 8), new DateTime(2026, 8, 3), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_1"))
                 .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_8_2"))

@@ -1,4 +1,4 @@
-MOD_DESCRIPTION Pengangkutan awam diperbaiki: kawalan laluan, armada, integrasi dan lagi.
+﻿MOD_DESCRIPTION Pengangkutan awam diperbaiki: kawalan laluan, armada, integrasi dan lagi.
 CURRENT_WEEK Minggu ini
 LAST_WEEK Minggu lepas
 AVERAGE Purata
@@ -170,7 +170,7 @@ SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Zeppelin
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Jumlah maksimum penumpang menunggu di perhentian zeppelin
 SETTINGS_UNBUNCHING Elak berumpun
 SETTINGS_UNBUNCHING_AGGRESSION Keagresifan elak berumpun:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Seberapa kuat elak berumpun kenderaan bertindak?\nNilai yang mungkin: 0–52. Nilai 0 medilumpuhkankan elak berumpun.\nNilai lebih tinggi akan sangat memengaruhi trafik dan dapat menyebabkan kenderaan hilang.
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Seberapa kuat elak berumpun kenderaan bertindak?\nNilai yang mungkin: 0â€“52. Nilai 0 medilumpuhkankan elak berumpun.\nNilai lebih tinggi akan sangat memengaruhi trafik dan dapat menyebabkan kenderaan hilang.
 SETTINGS_VEHICLE_COUNT Kenderaan di laluan baru:
 SETTINGS_VEHICLE_COUNT_TOOLTIP Jumlah kenderaan yang akan automatik ditambahkan ke laluan baru saat Kawalan Bajet Laluan dilumpuhkan.
 SETTINGS_SPAWN_TIME_INTERVAL Interval waktu kemunculan:
@@ -191,7 +191,7 @@ SETTINGS_EBS_DESC_SELFBAL_TARGETMID Memungkinkan penyeimbangan automatik memilih
 SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Benarkan penyeimbang automatik menempatkan ulang kenderaan ke perhentian tengah laluan yang sibuk (bukan perhentian akhir).\nHanya dipertimbangkan saat perhentian tersibuk memiliki lebih dari 30 penumpang menunggu, lalu dipilih dengan probabilitas ~50% dan tunduk pada peluang penempatan ulang keseluruhan.
 SETTINGS_EBS_ENABLE_MINIBUS Dayakan Mode Minibus
 SETTINGS_EBS_DESC_MINIBUS Membuat bas berkapasiti kecil berangkat lebih awal saat hanya sedikit penumpang yang naik atau turun.
-SETTINGS_EBS_TOOLTIP_MINIBUS Bas dengan kapasiti ≤20 dapat berangkat lebih awal dari perhentian saat penumpang naik + turun di perhentian tersebut ≤5.
+SETTINGS_EBS_TOOLTIP_MINIBUS Bas dengan kapasiti â‰¤20 dapat berangkat lebih awal dari perhentian saat penumpang naik + turun di perhentian tersebut â‰¤5.
 SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Trem Ekspres:
 SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Dilumpuhkan' = Trem menggunakan tetapan elak berumpun di atas.\n'Kereta Ringan' = Berhenti di setiap perhentian, selalu menunggu penuh waktu (disiplin ketat).\n'Trem Sejati' = Berhenti hanya saat penumpang naik/turun.
 SETTINGS_EBS_MODE_NONE Dilumpuhkan
@@ -283,7 +283,7 @@ TICKET_PRICE_HELICOPTER Harga tiket helikopter:
 ECONOMY_TAB_TICKET_PRICES Harga Tiket
 ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Jumlah penumpang saat ini untuk jenis pengangkutan ini.
 WHATSNEW_3_0_0_1 Diperbarui untuk Race Day; kini kompatibel dengan More Vehicles Renewed.
-WHATSNEW_3_0_0_2 Mod berikut telah diintegrasikan ke dalam IPT3:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bas Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bas Services\n • Flight Tracker\n • Intercity Bas Control\n • Mileage Taxi Services\n • Public Transport Unstucker\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
+WHATSNEW_3_0_0_2 Mod berikut telah diintegrasikan ke dalam IPT3:\n â€¢ Advanced Stop Selection Revisited\n â€¢ Auto Line Color Redux\n â€¢ Better Bas Stop Position\n â€¢ Better Train Boarding\n â€¢ Elevated Stops Enabler Revisited  \n â€¢ Express Bas Services\n â€¢ Flight Tracker\n â€¢ Intercity Bas Control\n â€¢ Mileage Taxi Services\n â€¢ Public Transport Unstucker\n â€¢ Realistic Walking Speed\n â€¢ Stops and Stations\n â€¢ Ticket Price Customizer
 WHATSNEW_3_0_1 Public Transport Unstucker kini terintegrasi ke dalam IPT3.\nLihat versi 3.0 untuk semua mod terintegrasi lainnya. Berhenti berlangganan dari yang asli untuk menghindari konflik.
 SETTINGS_TAB_TRAINDISPLAY Tampilan Kereta
 SETTINGS_TAB_INTEGRATIONS Integrasi
@@ -363,7 +363,7 @@ SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Mengirim teksi yang menganggur menuju pangk
 SETTINGS_SHAREDSTOPENABLER_ENABLE Dayakan Pemberdaya Perhentian Bersama
 SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Memungkinkan lebih dari satu jenis pengangkutan (bas, trem, bas listrik) berhenti di segmen jalan yang sama. Dilumpuhkan secara default - lihat GitHub mod untuk mengetahui apa yang tidak disertakan versi ringkas ini.
 SETTINGS_COMMUTERDESTINATION_ENABLE Dayakan destinasi penumpang (redesain menunggu)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Menunjukkan ke mana penumpang yang menunggu di perhentian akan pergi — panel kecil ditambah overlay peta. Hanya baca, tiada kebergantungan selain Harmony.
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Menunjukkan ke mana penumpang yang menunggu di perhentian akan pergi â€” panel kecil ditambah overlay peta. Hanya baca, tiada kebergantungan selain Harmony.
 SETTINGS_OOC_ENABLE Sambungan luar yang dioptimalkan
 SETTINGS_OOC_ENABLE_TOOLTIP Kereta, pesawat, dan kapal kargo menunggu lebih lama untuk muatan yang lebih penuh sebelum berangkat di sambungan luar.
 SETTINGS_OOC_WAIT_MULTIPLIER Pengali tunggu
@@ -471,7 +471,7 @@ CHANGELOG_4_8_5_1 Diperbaiki Paparan Kereta mengeleng/beku: dikembalikan laluan 
 CHANGELOG_4_8_5_2 Dioptimumkan strip laluan Paparan Kereta dan penamaan perhentian automatik: pada kebanyakan satu imbasan nama berat setiap jajakan, perhentian tidak dinamakan gagal tidak dijajaki semula setiap selang, dan senarai nama laluan elakkan peruntukan senarai tambahan.
 CHANGELOG_4_8_5_3 Destinasi Penumpang Diparkir (masih berepijat): dipaksa mati untuk semua profil/simpanan dan dialih keluar togol Options sehingga penulisan semula kemudian. Spoiler berkabaran masa hadapan tetap di bawah Lanjutan.
 CHANGELOG_4_8_5_4 Pek bahasa Options: set JSON Common penuh dihantar pada tentas (35+ bahasa rangka kerja) jadi dropdown bahasa tidak lagi terlepas separuh senarai; kad deskripsi bahagian menyimpan latar belakang bersama dengan kawalan mereka.
-CHANGELOG_4_8_5_5 Kurangkan spam log daripada ubah sasaran pemijaran depot (Verbose sahaja) dan pengapit selang kemaskini Paparan Kereta ke julat selamat 100ms–1000ms dalam Options.
+CHANGELOG_4_8_5_5 Kurangkan spam log daripada ubah sasaran pemijaran depot (Verbose sahaja) dan pengapit selang kemaskini Paparan Kereta ke julat selamat 100msâ€“1000ms dalam Options.
 CHANGELOG_4_7_0_1 Empat penyepaduan baru: Sub-Buildings Tabs, Shared Stop Enabler, Commuter Destination dan Taxi Stand Fix. Lihat Options > Penyepaduan untuk togol setiap satu.
 CHANGELOG_4_7_0_2 Tambah mod kapasiti kenderaan untuk terminal bas antara bandar (Options > Penyepaduan > Kapasiti Terminal Antara bandar): Dilumpuhkan menyimpan terminal efektif tidak terbatas mod ini, Menengah menerapkan had tetap moderat, Realistik memulihkan kapasiti prefab vanilla terminal sendiri.
 CHANGELOG_4_7_0_3 Diperbaiki kotak semak "terima bas antara bandar" terminal bas antara bandar: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged menetapkan acceptsInterCityTrains, yang adalah alias tulen untuk isEmptying, jadi kotak semak yang dilabel semula berupaya diam-diam meletakkan terminal bas ke keadaan penutupan bangunan permainan sebagai ganti benar-benar mengalih asas penerimaan bas.
@@ -514,7 +514,7 @@ SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Menambah strip berwarna laluan di atas
 TRAINDISPLAY_LABEL_SPEED Kelajuan
 TRAINDISPLAY_LABEL_TIME Masa
 SETTINGS_PERFORMANCE_PROFILE Profil prestasi
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Bajet global untuk UI berat dan imbasan (segarkan Paparan Kereta, Peta Destinasi Penumpang/senarai, kerja serupa).\nRingan: meminimalkan risiko selesa — ikon lebih sedikit, segarkan lebih perlahan.\nNormal: seimbang (lalai).\nMaksimum: perincian paling penuh dan tindanan lebih kerap; boleh mengorbankan FPS pada PC lebih lemah.
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Bajet global untuk UI berat dan imbasan (segarkan Paparan Kereta, Peta Destinasi Penumpang/senarai, kerja serupa).\nRingan: meminimalkan risiko selesa â€” ikon lebih sedikit, segarkan lebih perlahan.\nNormal: seimbang (lalai).\nMaksimum: perincian paling penuh dan tindanan lebih kerap; boleh mengorbankan FPS pada PC lebih lemah.
 SETTINGS_PERFORMANCE_PROFILE_LIGHT Ringan (lebih lancar)
 SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (seimbang)
 SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maksimum (perincian penuh)
@@ -522,16 +522,16 @@ SETTINGS_TAB_PERFORMANCE Prestasi
 SETTINGS_PERFORMANCE_TIPS_GROUP Petua
 SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Gunakan Ringan jika UI atau tindanan mengeleng; Maksimum hanya jika PC Anda kuat. Perubahan digunakan serta-merta pada Paparan Kereta dan Destinasi Penumpang. Beberapa penyepaduan lain masih perlu muat semula peta.
 SETTINGS_TICKET_PATHFINDING_COST Laluan lebih murah lebih disukai (eksperimental)
-SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Apabila harga tiket aktif, penduduk kota boleh sedikit memilih laluan yang lebih murah — seperti memilih laluan lebih murah. Eksperimental dan halus. Mati secara lalai.
+SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Apabila harga tiket aktif, penduduk kota boleh sedikit memilih laluan yang lebih murah â€” seperti memilih laluan lebih murah. Eksperimental dan halus. Mati secara lalai.
 SETTINGS_TAB_COMPATIBILITY Keselarasan
 SETTINGS_COMPAT_INTRO_GROUP Periksa susunan beban Anda
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 mengimbas mod Workshop/tempatan yang didayakan untuk konflik yang diketahui (IPT1–3, TLM, ITM, mod mandiri yang diserap) dan bergantungan yang diperlukan (Harmony). Jalankan semakan selepas mengubah langganan.
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 mengimbas mod Workshop/tempatan yang didayakan untuk konflik yang diketahui (IPT1â€“3, TLM, ITM, mod mandiri yang diserap) dan bergantungan yang diperlukan (Harmony). Jalankan semakan selepas mengubah langganan.
 SETTINGS_COMPAT_RUN_CHECK Imbas untuk konflik
 SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Bandingkan pemalam yang didayakan terhadap senarai IPT4 yang tidak serasi (nama perakitan + ID Workshop) dan bergantungan Harmony.
 SETTINGS_COMPAT_RUN_CHECK_BUTTON Periksa sekarang
 SETTINGS_COMPAT_STATUS_GROUP Hasil semasa
 SETTINGS_COMPAT_STATUS_OK Tiada konflik atau bergantungan yang hilang dikesan pada imbasan terakhir.
-SETTINGS_COMPAT_STATUS_WARN Satu atau lebih masalah ditemui — lumphkan mod yang disenaraikan (atau langgan Harmony) dan mulai semula permainan.
+SETTINGS_COMPAT_STATUS_WARN Satu atau lebih masalah ditemui â€” lumphkan mod yang disenaraikan (atau langgan Harmony) dan mulai semula permainan.
 SETTINGS_COMPAT_MATCHED_GENERIC Mod ini bercanggah dengan IPT4. Lumphkan atau berhenti melanggannya.
 SETTINGS_COMPAT_MISSING_DEP Bergantungan yang diperlukan tidak hadir. Langgan dan dayakan, kemudian mulai semula.
 SETTINGS_COMPAT_NO_ISSUES Tiada apa pun yang bercanggah diaktifkan sekarang.
@@ -539,7 +539,7 @@ SETTINGS_COMPAT_BADGE_CONFLICT Konflik
 SETTINGS_COMPAT_BADGE_MISSING Hilang
 SETTINGS_COMPAT_BADGE_OK OK
 SETTINGS_COMPAT_GUIDE_GROUP Apa yang tidak dijalankan dengan IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Jangan pernah dayakan: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nBerhenti melanggan mod mandiri yang sudah diinstitusikan ke dalam IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, dll. – senarai penuh ada di perbincangan Workshop).\nDiperlukan: Harmony (CitiesHarmony, Workshop 2040656402).\nSelepas melumpuhkan konflik, mulai semula permainan jadi tampal Harmony muat semula dengan bersih.
+SETTINGS_COMPAT_GUIDE_DESCRIPTION Jangan pernah dayakan: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nBerhenti melanggan mod mandiri yang sudah diinstitusikan ke dalam IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, dll. â€“ senarai penuh ada di perbincangan Workshop).\nDiperlukan: Harmony (CitiesHarmony, Workshop 2040656402).\nSelepas melumpuhkan konflik, mulai semula permainan jadi tampal Harmony muat semula dengan bersih.
 LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Hantar kenderaan yang dipilih kembali ke depot/garasi. Mengurangkan kiraan sasaran laluan.
 COMMUTER_STOP_WITH_WAITING {0} ({1} menunggu)
 SETTINGS_TAB_FLEET_SHORT Armada
@@ -583,33 +583,112 @@ SETTINGS_HOTKEY_LINE_COLOR Tetapkan semula warna laluan
 SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP Sementara laluan pengangkutan dipilih, jalankan semula Warna Laluan Automatik untuk laluan itu (memerlukan strategi warna didayakan).
 LINE_PANEL_COPY Salin
 LINE_PANEL_PASTE Tampal
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Selamat — setiap pilihan tetap MATI (terbaik dengan banyak mod).\n★ Vanilla — paling dekat dengan permainan dasar (tiada tambahan IPT).\n★ Disyorkan — teras IPT sahaja: armada bajet, unbunching, intercity, sub-tab, unstucker, perhentian lanjutan, perhentian layang.\n★ Realistik — kebanyakan ciri pada (simulasi lebih kuat, kos lebih banyak).\n★ Tersuai — Anda pilih setiap togol; profil tidak pernah ganti Tersuai lagi sehingga Anda pilih pakej lain.
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Selamat â€” setiap pilihan tetap MATI (terbaik dengan banyak mod).\nâ˜… Vanilla â€” paling dekat dengan permainan dasar (tiada tambahan IPT).\nâ˜… Disyorkan â€” teras IPT sahaja: armada bajet, unbunching, intercity, sub-tab, unstucker, perhentian lanjutan, perhentian layang.\nâ˜… Realistik â€” kebanyakan ciri pada (simulasi lebih kuat, kos lebih banyak).\nâ˜… Tersuai â€” Anda pilih setiap togol; profil tidak pernah ganti Tersuai lagi sehingga Anda pilih pakej lain.
 SETTINGS_QUICK_TIPS_GROUP Petua cepat
-SETTINGS_QUICK_TIPS_DESC Peringatan kecil — tiada kod tambahan, hanya cara menggunakan apa yang Anda sudah ada.
+SETTINGS_QUICK_TIPS_DESC Peringatan kecil â€” tiada kod tambahan, hanya cara menggunakan apa yang Anda sudah ada.
 SETTINGS_QUICK_TIP_1_TITLE Mula mudah
 SETTINGS_QUICK_TIP_1_BODY Pilih Disyorkan, kemudian dayakan hanya apa yang Anda perlukan. Selamat terbaik jika Anda menggunakan banyak mod lain.
 SETTINGS_QUICK_TIP_2_TITLE PC perlahan?
-SETTINGS_QUICK_TIP_2_BODY Sistem → Prestasi → Ringan. Juga elakkan Destinasi Penumpang "Peta penuh" jika FPS jatuh.
+SETTINGS_QUICK_TIP_2_BODY Sistem â†’ Prestasi â†’ Ringan. Juga elakkan Destinasi Penumpang "Peta penuh" jika FPS jatuh.
 SETTINGS_QUICK_TIP_3_TITLE Selepas togol
-SETTINGS_QUICK_TIP_3_BODY Beberapa pilihan perlu muat semula bandar (tooltip mengatakan demikian). Sistem → Keselarasan memeriksa mod yang bercanggah.
+SETTINGS_QUICK_TIP_3_BODY Beberapa pilihan perlu muat semula bandar (tooltip mengatakan demikian). Sistem â†’ Keselarasan memeriksa mod yang bercanggah.
 SETTINGS_OOC_RESET_TOOLTIP Tetapkan semula menunggu sambungan luar, trafik hias, dan togol berkaitan ke lalai Selamat.
-SETTINGS_EBS_GROUP_BUS_DESC Bas ekspres boleh berangkat awal apabila beberapa penumpang naik — jarak jauh lanjutan pilihan.
+SETTINGS_EBS_GROUP_BUS_DESC Bas ekspres boleh berangkat awal apabila beberapa penumpang naik â€” jarak jauh lanjutan pilihan.
 SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Baris tambahan
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop hanya mengubah di mana bas berhenti di perhentian. Pilihan di bawah adalah ciri-ciri berasingan (perhentian layang, perhentian bersama, dll.) — mereka tetap boleh diklik dengan sengaja.
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop hanya mengubah di mana bas berhenti di perhentian. Pilihan di bawah adalah ciri-ciri berasingan (perhentian layang, perhentian bersama, dll.) â€” mereka tetap boleh diklik dengan sengaja.
 SETTINGS_HIDDENBEHAVIOUR_GROUP Tingkah laku sentiasa hidup
 SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Dua tingkah laku kecil yang sentiasa berjalan tanpa cara untuk mematikannya sehingga kini. Hidup secara lalai supaya pemasangan sedia ada tidak melihat sebarang perubahan - matikan jika anda menggunakan mod berasingan yang melakukan perkara yang sama, atau hanya lebih suka kawalan manual.
 SETTINGS_AUTONAMESTOPS_ENABLE Namakan automatik perhentian tanpa nama
 SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Kali pertama anda memilih perhentian tanpa nama, ia diberikan nama bangunan berdekatan yang sama seperti yang akan dicadangkan oleh menu lungsur panel perhentian - tanpa perlu membuka menu lungsur itu. Tidak pernah menyentuh nama yang telah anda (atau ciri ini) tetapkan.
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Dipindahkan daripada mod Rescue Fullwidth Digits yang berasingan. Membetulkan nama laluan pengangkutan yang disimpan dengan digit lebar penuh (１２３ dan bukannya 123) oleh sesetengah persediaan IME/input, yang jika tidak akan dipaparkan secara salah selama-lamanya.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Dipindahkan daripada mod Rescue Fullwidth Digits yang berasingan. Membetulkan nama laluan pengangkutan yang disimpan dengan digit lebar penuh (ï¼‘ï¼’ï¼“ dan bukannya 123) oleh sesetengah persediaan IME/input, yang jika tidak akan dipaparkan secara salah selama-lamanya.
 CHANGELOG_4_8_6_1 Destinasi Komuter diaktifkan semula: togol Pilihan kembali dan berfungsi secara langsung, tiada muat semula diperlukan.
 CHANGELOG_4_8_6_2 Mengaudit setiap integrasi pilihan untuk "mati bermakna mati" yang sebenar: Elevated Stops Enabler menulis semula data prafabrikasi jalan secara kekal tanpa cara untuk membatalkannya, dan Auto Line Budget terus menguruskan laluan di latar belakang selepas dimatikan pada pertengahan sesi. Kedua-duanya kini kembali sepenuhnya kepada tingkah laku asal apabila dimatikan.
-CHANGELOG_4_8_6_3 Menemui dua tingkah laku yang sentiasa berjalan tanpa cara untuk mematikannya - penamaan automatik perhentian tanpa nama, dan Rescue Fullwidth Digits (Gansaku) - dan menambah togol untuk kedua-duanya di bawah Pilihan → Lanjutan. Hidup secara lalai, jadi tiada apa yang berubah melainkan anda mematikannya.
+CHANGELOG_4_8_6_3 Menemui dua tingkah laku yang sentiasa berjalan tanpa cara untuk mematikannya - penamaan automatik perhentian tanpa nama, dan Rescue Fullwidth Digits (Gansaku) - dan menambah togol untuk kedua-duanya di bawah Pilihan â†’ Lanjutan. Hidup secara lalai, jadi tiada apa yang berubah melainkan anda mematikannya.
 SETTINGS_FUTURE_BUSWAYPOINT Hentian waypoint bas (selepas ini)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Diranangkan: tanda perhentian sebagai waypoint laluan sahaja — laluan garisan melalui tapi kenderaan tidak pernah berhenti atau naik/turun penumpang di situ. Membantu pemandu vanilla pathfinding ke jalan yang anda sebenarnya maksudkan. Belum tersedia.
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Diranangkan: tanda perhentian sebagai waypoint laluan sahaja â€” laluan garisan melalui tapi kenderaan tidak pernah berhenti atau naik/turun penumpang di situ. Membantu pemandu vanilla pathfinding ke jalan yang anda sebenarnya maksudkan. Belum tersedia.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Pemilihan Perhentian Lanjutan: pilih trek tepat
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Pegang semasa meletakkan sambungan perhentian keretapi/tram untuk sasarkan trek tepat bukan yang paling hampir sah. Dikodkan keras ke Shift Kiri/Kanan; rebinding di sini hanya meliputi sisi yang dipilih.
 SETTINGS_LEGACY_GROUP Warisan
-SETTINGS_LEGACY_GROUP_DESC Toggle lama hanya disimpan agar pemasangan yang sudah mengaktifkannya terus berfungsi persis seperti sebelum. Dikunci — tidak boleh lagi dinyalakan/dimatikan di sini, dan setiap profil gameplay meninggalkan mereka mati ke hadapan.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+SETTINGS_LEGACY_GROUP_DESC Toggle lama hanya disimpan agar pemasangan yang sudah mengaktifkannya terus berfungsi persis seperti sebelum. Dikunci â€” tidak boleh lagi dinyalakan/dimatikan di sini, dan setiap profil gameplay meninggalkan mereka mati ke hadapan.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options â†’ Advanced â†’ Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+
+# === Added fallback translations (auto-generated) ===
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): found and fixed a real bug where two of the mod's own patches were silently colliding on the same click - but real-play testing still shows the icons/panel not reliably appearing. Stays off by default and Experimental until this is fully sorted out.
+CHANGELOG_4_8_8_2 Budget control checkbox no longer unchecks itself the moment you tick it.
+CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximum) now actually changes its update rate - previously had no visible effect for most players.
+CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.
+CHANGELOG_4_8_8_5 Guarded against a real crash some players could hit on certain saves - not caused by this mod, but guarded anyway since it patches the same game method.
+CHANGELOG_4_8_8_6 This panel now shows a real, auto-computed percentage of how much of the mod's own text is translated into your language, instead of a number that could go stale.
+
+CHANGELOG_4_8_9_1 Enam suis indukan ciri dalam Pilihan (Unbunching, Bajet, Warna Laluan Auto, Paparan Kereta, Penyunting Kenderaan, Perhentian & Stasiun). Dimatikan secara lalai; mematikan satu juga mengunci tetapan anaknya dan menghentikan patch berkaitan.
+CHANGELOG_4_8_9_2 Tiga belas pintasan baru yang boleh dikonfigurasikan (buka panel laluan, togol unbunching, salin/tampal konfigurasi laluan, penyunting kenderaan, Flight Tracker, kenderaan sebelumnya/berikutnya, dan lain-lain), semua boleh diikat semula di bawah Pilihan → Ikatan kekunci.
+CHANGELOG_4_8_9_3 Paparan destinasi penumpang dibina semula sebagai overlay peta clean-room (bulatan + kiraan). Port panel lama dibuang. Masih Eksperimental dan dimatikan secara lalai sehingga disahkan kukuh dalam permainan sebenar.
+CHANGELOG_4_8_9_4 Kawalan Bas Antara bandar kini memulihkan prefab stasion asal apabila dimatikan, dan menyambung semula sambungan luar supaya stasiun yang ditukar tidak salah kelakuan selepas togol dimatikan.
+CHANGELOG_4_8_9_5 Paparan Kereta: selang sekarang ditetapkan mengikut profil prestasi (tiada peluncur), dropdown skop baru (Kenderaan terpilih / Kamera orang pertama / Kedua-duanya), dan First Person Camera - Continued dikesan supaya overlay dapat mengikuti paparan orang pertama.
+CHANGELOG_4_8_9_6 Pengukuhan keselamatan thread dan had merentasi teras dikongsi dan data simpanan (kunci barisan, pembacaan penyangga lebih selamat, ralat lebih jelas pada simpanan rosak). Pathfinding Bas Ekspres gagal terbuka dan bukan membekukan bas.
+CHANGELOG_4_8_9_7 Pilihan → Sistem → Keserasian: Senarai mod Companion disyorkan (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) dengan butang buka Workshop.
+CHANGELOG_4_8_9_8 Kenderaan Workshop yang menghantar sebagai Placement.Procedural tidak lagi tersembunyi dari senarai kenderaan yang boleh dipilih.
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Companion mods are NOT absorbed by IPT4 - they integrate with it, so install both: IPT4 and the mod from the list.\nSome IPT4 features only activate when the companion is installed (e.g. the Train Display overlay in first-person view needs First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_GROUP Recommended companion mods
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Shows where all passengers waiting at a public transport stop want to go. Recommended while IPT4's own destination display is not ready yet - it will be absorbed by IPT4 later and then removed from this list.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Follow citizens and vehicles in first-person view. Required for the IPT4 Train Display overlay in first-person mode.
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exports a full image of your city map (png/jpeg/bmp/svg) plus heightmaps via its own external viewer.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adds single and double one-way train tracks, single station tracks and two-way single tracks.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Turns crowded bus stops into readable shared stops: visible B1/B2/B3 berth markers, waiting areas and live info; several buses can load and unload at the same time.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Improves lane and parking usage, customizes junctions, roads and rails, and adds advanced pathfinding.
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Open on Workshop
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control checkbox stays checked when smart-managed (soon)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: right now, once Automatic fleet sizing takes over a line, its Budget control checkbox unchecks itself to signal that - by design, but confusing to look at. This will separate "the game's own budget math" from "IPT is managing this line" internally, so the checkbox can stay checked the whole time. Not available yet.
+SETTINGS_FUTURE_LINEHISTORY Line history log (soon)
+SETTINGS_FUTURE_LINEHISTORY_TIP Planned: keep a log of each line's changes over time so you can look back at how a route evolved. Not available yet.
+SETTINGS_FUTURE_LINEMAP Generate a line network map (soon)
+SETTINGS_FUTURE_LINEMAP_TIP Planned: generate a map of all the city's transport lines and save it to a folder on your computer, like a simple schematic overview. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (soon)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: warn on the vehicle route panel when a line loops back on itself or splits into more than two branches, instead of assuming a simple end-to-end route. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
+SETTINGS_FUTURE_STOPPLACER Suggest the best place for a stop (soon)
+SETTINGS_FUTURE_STOPPLACER_TIP Planned: analyze the area around a road/network and suggest the best spot to place a bus stop or other stop, including the distance between stops. Not available yet.
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.
+SETTINGS_HOTKEY_COPY_LINE_CONFIG Copy line settings
+SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP Copy vehicle, budget, depot, ticket price and color settings from the currently selected line.
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS Copy to lines serving same buildings
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP Copy the current line's settings to all other lines that serve the same nearby buildings or stations.
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS Copy to lines serving same districts
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP Copy the current line's settings to all other lines that serve the same districts or park areas.
+SETTINGS_HOTKEY_NEXT_VEHICLE Next vehicle
+SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP Switch to the next vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER Open flight tracker
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP Open the airport flight tracker panel for the currently selected building. Needs the Flight Tracker feature enabled.
+SETTINGS_HOTKEY_OPEN_LINE_PANEL Open/close line panel
+SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP Open the panel of the currently selected transport line. Press again to close it.
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG Paste line settings
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP Paste previously copied line settings onto the currently selected line.
+SETTINGS_HOTKEY_PREV_VEHICLE Previous vehicle
+SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP Switch to the previous vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES Select vehicle types
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP Open the vehicle type selector panel for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING Toggle line unbunching
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP Enable or disable vehicle unbunching for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR Toggle vehicle editor
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP Show or hide the vehicle editor panel.
+SETTINGS_KOFI_BUTTON Support me on Ko-fi
+SETTINGS_KOFI_DESCRIPTION Help fund continued IPT4 development.
+SETTINGS_KOFI_GROUP Support IPT4
+SETTINGS_KOFI_LINK Support on Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Mod text translated
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text - menus, tooltips, in-game panels - is translated into your language. This is different from "Translation Progress" above, which only covers a handful of generic buttons like OK and Cancel, not this mod's actual content. If you still see some English here, a full translation for your language is on its way.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
+TRAINDISPLAY_LABEL_NEXTSTOP Next stop

@@ -154,6 +154,21 @@ SETTINGS_COMPAT_BADGE_MISSING Faltando
 SETTINGS_COMPAT_BADGE_OK OK
 SETTINGS_COMPAT_GUIDE_GROUP O que não usar com o IPT4
 SETTINGS_COMPAT_GUIDE_DESCRIPTION Nunca ative: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nDesinscreva os mods avulsos já embutidos no IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop, Commuter Destination, etc. — lista completa na discussão da Workshop).\nObrigatório: Harmony (CitiesHarmony, Workshop 2040656402).\nDepois de desligar um conflito, reinicie o jogo para descarregar os patches do Harmony.
+SETTINGS_COMPAT_RECOMMENDED_GROUP Mods companheiros recomendados
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Mods companheiros NÃO são absorvidos pelo IPT4 - eles se integram a ele, então instale a ambos: o IPT4 e o mod da lista.\nAlguns recursos do IPT4 só ativam com o companheiro instalado (ex.: a sobreposição do Train Display em primeira pessoa precisa do First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Abrir na Workshop
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exporta uma imagem completa do mapa da sua cidade (png/jpeg/bmp/svg) e heightmaps pelo próprio visualizador externo.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Transforma pontos de ônibus lotados em pontos compartilhados legíveis: marcadores de baias B1/B2/B3 visíveis, áreas de espera e informações ao vivo; vários ônibus embarcam e desembarcam ao mesmo tempo.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Melhora o uso de faixas e estacionamento, personaliza cruzamentos, estradas e ferrovias e acrescenta pathfinding avançado.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Siga cidadãos e veículos em primeira pessoa. Necessário para a sobreposição do Train Display do IPT4 em primeira pessoa.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adiciona trilhos de trem de mão única simples e dupla, trilhos únicos de estação e trilhos de duas vias de mão única.
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Mostra o destino de todos os passageiros esperando em um ponto de transporte público. Recomendado enquanto o display de destinos do próprio IPT4 não estiver pronto — será absorvido pelo IPT4 depois e removido desta lista.
 SETTINGS_TICKET_PATHFINDING_COST Preferir linhas mais baratas (experimental)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Com tarifas ligadas, cidadãos podem preferir um pouco as linhas mais baratas — como escolher rota mais em conta. Experimental e sutil. Desligado por padrão.
 SETTINGS_SPEED_KPH km/h
@@ -578,6 +593,14 @@ CHANGELOG_4_8_8_3 O perfil de desempenho do painel de rota do veículo (Leve/Nor
 CHANGELOG_4_8_8_4 Corrigidos vários problemas de deslocamento de veículos perto de depósitos e paradas, incluindo ônibus entrando no terreno/pontes e uma curva em U prematura ocasional.
 CHANGELOG_4_8_8_5 Adicionada proteção contra um crash real que alguns jogadores podiam sofrer em certos saves - não causado por este mod, mas protegido mesmo assim por dar patch no mesmo método do jogo.
 CHANGELOG_4_8_8_6 Este painel agora mostra uma porcentagem real, calculada automaticamente, de quanto do texto próprio do mod está traduzido no seu idioma, em vez de um número que podia ficar desatualizado.
+CHANGELOG_4_8_9_1 Seis interruptores mestre de recursos nas Opções (Desagrupamento, Orçamento, Cor automática de linha, Train Display, Editor de veículos, Paradas e estações). Desligados por padrão; desligar um também trava as sub-opções e para os patches relacionados.
+CHANGELOG_4_8_9_2 Treze novos atalhos configuráveis (abrir painel da linha, alternar desagrupamento, copiar/colar config da linha, editor de veículos, Flight Tracker, veículo anterior/próximo, e mais), todos reatribuíveis em Opções → Atalhos.
+CHANGELOG_4_8_9_3 Visualização de destinos dos passageiros reconstruída como sobreposição limpa no mapa (círculos + contagens). Porta do painel antigo removida. Continua Experimental e desligada por padrão até ficar sólida em jogo real.
+CHANGELOG_4_8_9_4 O Intercity Bus Control agora restaura os prefabs originais das estações ao desativar, e religa as conexões externas para as estações convertidas pararem de se comportar mal com o interruptor desligado.
+CHANGELOG_4_8_9_5 Train Display: o intervalo fica fixo por perfil de desempenho (sem slider), novo menu de escopo (Veículo selecionado / Primeira pessoa / Ambos), e o First Person Camera - Continued é detectado para a sobreposição seguir a vista em primeira pessoa.
+CHANGELOG_4_8_9_6 Endurecimento de thread-safety e limites no núcleo compartilhado e nos dados de save (locks de filas, leituras de buffer mais seguras, erros mais claros em saves corrompidos). O pathfinding do Express Bus falha em aberto em vez de congelar o ônibus.
+CHANGELOG_4_8_9_7 Opções → Sistema → Compat: lista de mods companheiros recomendados (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) com botões para abrir no Workshop.
+CHANGELOG_4_8_9_8 Veículos do Workshop que vêm como Placement.Procedural deixam de ser escondidos das listas de veículos selecionáveis.
 CHANGELOG_4_7_0_1 Quatro novas integracoes: Abas de Sub-Predios (barra de abas para qualquer complexo com varios predios, nao so aeroportos), Paradas Compartilhadas (permite que mais de um tipo de parada compartilhe o mesmo trecho de via, desativado por padrao), Destino dos Passageiros (mostra para onde os cidadaos esperando numa parada estao realmente indo) e Correcao de Pontos de Taxi (taxis ociosos vao para o ponto mais proximo em vez de ficar vagando). Veja Opcoes > Integracoes para cada opcao.
 CHANGELOG_4_7_0_2 Adicionado um modo de capacidade de veiculos para terminais de onibus intermunicipais (Opcoes > Integracoes > Capacidade do Terminal de Onibus Intermunicipal): Desativado mantem o terminal deste mod, ate entao praticamente sem limite; Intermediario aplica um limite fixo moderado; Realista restaura a capacidade original do prefab vanilla do terminal. Saves existentes usam Desativado por padrao, entao uma atualizacao nunca reduz silenciosamente a capacidade de um terminal.
 CHANGELOG_4_7_0_3 Corrigida a caixa de selecao "aceitar onibus intermunicipais" do terminal de onibus intermunicipal: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged define acceptsInterCityTrains, que e um simples alias de isEmptying, entao a caixa renomeada conseguia colocar silenciosamente um terminal de onibus no estado de desativacao de edificio do jogo em vez de realmente alternar a aceitacao de onibus. Um prefix do Harmony agora intercepta isso e redireciona para um estado por edificio nos terminais com patch de onibus, sem afetar as estacoes de trem de verdade.

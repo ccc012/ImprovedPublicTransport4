@@ -1,43 +1,47 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]15개의 모드를 하나로.[/b] 대중교통 노선의 완전한 제어: 차량 수, 차량 유형, 정류장, 요금. 작은 모드들을 통합.
+[b]Version 4.8.9[/b] · 게임 버전 1.21.1-f9 대응
 
-[h1]이 모드가 존재하는 이유[/h1]
-교통 유지비가 약 [b]-42,000,000,000[/b]까지 치솟았습니다 — 정상 작동하는 두 모드가 각각 독립적으로 차량 수를 결정하며 서로 덮어썼기 때문. 해결책은 하나의 시스템으로 통합하는 것. 그것이 IPT4입니다.
+[h1]왜 만들어졌는가[/h1]
+대중교통 유지보수가 [b]-42,000,000,000[/b]까지 치솟았습니다 — 두 개의 모드가 각각 독립적으로 차량 수를 변경하며 서로를 덮어썼기 때문입니다. 이 모드는 제어를 중앙 집중화하여 이 충돌을 해결합니다.
 [hr][/hr]
-[h1]이 모드로 할 수 있는 것[/h1]
-[h2]모든 노선을 직접 관리하세요[/h2]
-모든 노선에 완벽한 제어 패널: [b]차량 수를 직접 설정[/b]하거나 예산에 맞춰 자동 조정, [b]운행 차량 선택[/b], [b]차량 개별 편집[/b], 노선별 [b]차고지 선택[/b].
-[h2]차량 뭉침 방지[/h2]
-노선당 세 가지 레벨: [b]비활성화[/b], [b]안정[/b](부드러운 간격), [b]현실적[/b](실제 간격). 또는 빈 정류장을 건너뛰는 [b]급행[/b] 모드.
-[h2]직접 요금 설정[/h2]
-[b]티켓 가격[/b] 탭에서 각 교통 수단 가격을 독립 책정, 선택적으로 [b]주간/야간 요금[/b]. 가격은 수요에 영향을 줍니다.
+[h1]할 수 있는 것[/h1]
+[h2]모든 노선을 제어하세요[/h2]
+모든 노선 유형에 다음이 추가됩니다: [b]차량 수 제어[/b] (수동 또는 예산 기반), [b]차량 선택[/b], [b]개별 편집[/b], [b]차고지 선택[/b].
+[h2]군집현상 수정[/h2]
+3가지 안티-군집 수준: [b]비활성화[/b] (바닐라), [b]신중[/b] (간격 조정), [b]현실적[/b] (실제 운행 간격). [b]급행[/b] 모드는 빈 정류장을 건너뜁니다.
+[h2]자체 요금 설정[/h2]
+[b]경제[/b] 패널에서 각 교통 유형의 요금을 설정하세요. [b]주간/야간 요금[/b] 옵션 포함. 요금은 자연스러운 수요를 창출합니다.
 [h2]상황 파악[/h2]
-[b]정류장 정보 패널[/b], [b]Train Display[/b](실시간 경로 오버레이), [b]자동 노선 색상 및 이름[/b], [b]Flight Tracker[/b].
+[b]정류장 정보[/b] (승객, 차량, 혼잡도), [b]차량 경로 패널[/b] (실시간 설정 가능 오버레이), [b]자동 노선 색상/이름[/b], [b]공항 비행기 안내판[/b] (도착/출발).
 [h2]네트워크 정리[/h2]
-[b]노선 일괄 삭제[/b], 고가 선로를 포함한 [b]더 나은 정류장 배치[/b], 막힌 차량을 해제하는 [b]고립 해제 도구[/b].
-[h2]4.8의 새로운 기능[/h2]
-[b]단선 철도 AI[/b] — 공유 단선 구간을 한 방향으로만 예약해 충돌 방지. [b]Stop Stacker[/b] — 두 번째 버스에 전용 정차 공간. [b]Intercity Bus Control[/b] DLC 확인 수정. [b]Sub-Buildings Tabs[/b] 드문 버그 수정. 그 외 버그 수정 및 성능 향상 — 전체 목록은 기술 변경 로그 참조.
+[b]노선 일괄 삭제[/b] (유형별, 확인 필요), [b]고가 정류장 배치[/b], [b]정체 차량 해제[/b].
+[h2]4.8.9: 마스터 스위치, 단축키, 목적지 오버레이 재작성[/h2]
+새로 흡수된 모드가 아닙니다 — 제어와 견고화입니다. [b]6개 기능 마스터 스위치[/b] (안티-군집, 예산, 자동 노선 색상, 기차 표시, 차량 에디터, 정류장 및 역): 기본값은 꺼짐. 하나를 끄면 하위 기능도 잠기고 관련 패치가 중지됩니다. [b]13개 리바인딩 가능 단축키[/b] (노선 패널, 안티-군집, 복사/붙여넣기, 차량 에디터, 비행기 추적기, 이전/다음 차량 등). [b]승객 목적지 표시[/b]가 클린룸 맵 오버레이로 재구축됨 (원 + 인원수). 이전 패널 포팅은 제거됨 — 여전히 [b]실험적 기능, 기본값 꺼짐[/b]. [b]Intercity Bus Control[/b] 비활성화 시 원래 역 프리팹을 복원합니다. [b]Train Display[/b]: 성능 프로필별 고정 간격, 범위 드롭다운 (선택됨 / 1인칭 / 모두), First Person Camera - Continued 감지. 스레드 안전성 및 세이브 데이터 견고화. 급행 버스 경로 탐색은 페일 오픈. [b]호환성 탭[/b]에 권장 동반 모드와 워크샵 링크가 표시됩니다. Placement.Procedural로 표시된 워크샵 차량이 차량 목록에서 더 이상 숨겨지지 않습니다. 기술적 변경 이력 전체는 GitHub에서 확인하세요.
 [hr][/hr]
-[h1]IPT4에 흡수된 모드[/h1]
-[b]단독 버전 구독을 취소하세요[/b] — 두 가지 실행 시 같은 코드에 두 번 패치됩니다. 아래는 다른 사람들의 작품입니다. 유용했다면 제작자 페이지에서 감사를 표하세요.
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-대부분 옵션에서 개별 온오프 가능. 택시 주행 수입에는 [b]After Dark[/b] 필요. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]Stop Stacker[/b]는 오리지널 코드(소스 모드에 라이선스 없음).
+[h1]IPT4에 흡수된 모드와 제작자[/h1]
+[b]독립 실행형을 구독 해제[/b]하시고 이중 패치를 피하세요. 아래의 각 모드는 누군가의 작품입니다 — 도움이 되었다면 해당 페이지에서 평가해주세요.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1721475771]Advanced Vehicle Options[/url] ([b]BloodyPenguin[/b])
+대부분 옵션 토글이 있습니다. 옵션은 원본 모드 이름이 아닌 각 기능의 설명입니다. [b]After Dark[/b]은 택시 수입에 필요합니다. [b]Taxi Stand Fix[/b], [b]Single Train Track AI[/b], [b]버스 정류장 배치 스태킹[/b]은 독자적 코드입니다 (원본 모드 없음).
 [hr][/hr]
 [h1]요구 사항 및 호환성[/h1]
-[b]Harmony[/b] (ID 2040656402) 필요. [b]호환되지 않음:[/b] IPT2, IPT3, Transport Lines Manager 또는 위 모드의 단독 복사본 — 발견 시 게임 내 경고.
+[b]Harmony[/b] (ID 2040656402) 필요. [b]호환되지 않음:[/b] IPT2, IPT3, Transport Lines Manager, 독립 실행형 AutoLineBudget, 또는 위 모드 중 하나의 독립 실행형 복사본 — 감지되면 게임 내에서 경고합니다.
 [hr][/hr]
 [h1]언어[/h1]
-[b]전체 23개 언어 완벽 번역[/b] — 메뉴뿐만 아니라 모든 텍스트. 게임 언어를 따르거나 옵션에서 선택.
+게임 언어를 따르거나 옵션에서 선택할 수 있습니다. 영어와 포르투갈어는 모든 릴리스에서 완전히 최신 상태로 유지됩니다. 다른 언어는 배치로 업데이트되며 새 텍스트는 1~2 릴리스 뒤처질 수 있습니다 — 그동안은 영어로 대체됩니다.
 [hr][/hr]
 [h1]시작하기[/h1]
-[b]Harmony[/b] 구독, 단독 모드 구독 취소, IPT4 활성화, 노선 클릭. 옵션: [b]옵션 → 모드 설정 → IPT4[/b]; 요금: [b]재정[/b] 패널. [b]기존 저장 파일 작동함[/b].
+[b]Harmony[/b]를 구독하고, 독립 실행형을 구독 해제하고, IPT4를 활성화하세요. 옵션: [b]설정 → 모드 설정 → Improved Public Transport 4[/b]. 요금: [b]경제[/b] 패널. [b]기존 세이브 호환[/b].
 [hr][/hr]
 [h1]안정성[/h1]
-안정적인 채널. 유지비 폭주 버그 근본 수정, 손상 저장 파일 자동 복구. [b]백업 저장 유지[/b] 권장. 문제 발생 시 [i]무엇을 하고 있었는지[/i] 설명하고 첨부:
+안정적입니다. 폭주하는 유지보수 버그 수정됨; 손상된 세이브 데이터가 자동 복구됩니다. [b]세이브 데이터는 백업하세요[/b]. 문제 발생 시 [i]무엇을 하고 있었는지[/i] 보고하고 다음을 첨부해주세요:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-로그 없이는 진단할 수 없습니다.
+"작동하지 않음"만으로는 원인을 진단할 수 없습니다.
 [hr][/hr]
 [h1]소스 및 크레딧[/h1]
-[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]. IPT4는 [b]GPL-3.0[/b]: [b]DontCryJustDie[/b]가 오리지널 IPT (2015) 작성, [b]BloodyPenguin[/b]이 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url] 작성, [b]Madisonian[/b]이 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url] 작성. UI 프레임워크: [b]algernon[/b], [b]Mbyron26[/b]. 모두에게 감사드립니다.
+소스 및 기술적 변경 이력: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4는 [b]GPL-3.0[/b]이며 다른 사람들의 작업 위에 서 있습니다: [b]DontCryJustDie[/b]가 원본 IPT(2015)를 개발, [b]BloodyPenguin[/b]이 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]를, [b]Madisonian[/b]이 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]를 개발. 이것이 그 포크입니다. 흡수된 모드는 위에 크레딧되어 있습니다. UI 프레임워크는 [b]algernon[/b]과 [b]Mbyron26[/b]의 작업입니다. 모두들 감사합니다.
+[hr][/hr]
+[h1]지원[/h1]
+IPT4가 마음에 드시고 향후 도구를 지원하고 싶으시다면, [url=https://ko-fi.com/ccc02]Ko-fi[/url]에서 팁을 고려해주세요.

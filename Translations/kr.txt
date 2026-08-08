@@ -1,615 +1,694 @@
-MOD_DESCRIPTION 대중 교통 향상 모드(IPT)
-CURRENT_WEEK 이번 주
-LAST_WEEK 저번 주
-AVERAGE 평균
-AVERAGE_TOOLTIP {0} 주간의 평균 수치입니다
-CITY_SERVICE_PANEL_TITLE_STATION_STOPS 정거장 역
-CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES 차고지 차량
-CITYSERVICE_ACCEPTINTERCITYBUSES 광역버스 허용
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP 광역버스가 이 역을 사용하도록 허용합니다. 지역 버스만 사용하려면 비활성화하세요.
-EXPLANATION_BUDGET_CONTROL 차량 예산 : 차량이 지정된 예산에 맞게 조절됩니다.
-EXPLANATION_UNBUNCHING 차량 간격유지 : 게임에서 차량이 일정한 간격을 유지하려고 노력합니다.
-LINE_PANEL_STOPS 정거장 수 : {0}
-LINE_PANEL_SPAWNTIMER 새 차량이 {0} 초 후 출발합니다.
-LINE_PANEL_DEPOT_WARNING <color #FF0000>선택한 차량기지에 남은 차량이 없습니다.</color>
-LINE_PANEL_BUDGET_CONTROL 차량 예산
-LINE_PANEL_BUDGET_CONTROL_TOOLTIP 이 노선의 차량 예산 기능을 키거나 끌 수 있습니다
-LINE_PANEL_UNBUNCHING_TOOLTIP 이 노선의 차량 간격 유지기능을 키거나 끌 수 있습니다.\n이 기능을 끌 경우 차량 간격이 0으로 조정됩니다.
-LINE_PANEL_DEPOT 차고지 :
-LINE_PANEL_NO_DEPOT_FOUND 차량기지를 찾을 수 없습니다.
-LINE_PANEL_DEPOT_MARKER_TOOLTIP 선택된 차고지로 이동합니다.\n쉬프트키를 누른 채 클릭하면 확대 됩니다.
-LINE_PANEL_SELECT_TYPES 종류 선택
-LINE_PANEL_SELECT_TYPES_TOOLTIP 종류 선택창을 열거나 닫습니다.\n이 기능으로 비활성화한 차량은 이 노선에 등장하지 않습니다.
-LINE_PANEL_LINE_STOPS 정류장 목록
-LINE_PANEL_LINE_VEHICLES 노선 차량 목록
-LINE_PANEL_ENQUEUED 대기 차량
-LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} 명의 승객이 이 노선에서 기다리고 있습니다.
-LINE_PANEL_ADD_VEHICLE 차량 추가
-LINE_PANEL_ADD_VEHICLE_TOOLTIP 노선에 차량을 추가합니다
-LINE_PANEL_REMOVE_VEHICLE 차량 제거
-STOP_LIST_BOX_ROW_STOP 정거장 #{0}
-STOP_LIST_BOX_ROW_TOOLTIP {0}\n대기중인 승객 : {1}\n\n우클릭으로 해당 역으로 이동 할 수 있습니다.\n쉬프트 키를 누른 채 클릭하면 확대됩니다.
-STOP_PANEL_SUGGESTED_NAMES_TOOLTIP 제안된 역 명칭 목록입니다.
-STOP_PANEL_REUSE_NAME_TOOLTIP 이 이름으로 모든 정거장역을 설정합니다.
-STOP_PANEL_WAITING_PEOPLE 대기중인 승객 : {0}
-COMMUTER_DESTINATION_PANEL_TITLE 통근 목적지
-COMMUTER_DESTINATION_HEADER 주요 목적지:
-COMMUTER_DESTINATION_NONE 현재 이곳에서 대기 중인 승객이 없습니다.
-COMMUTER_DESTINATION_LOADING 계산 중...
-COMMUTER_DESTINATION_BUTTON 목적지
-COMMUTER_DESTINATION_BUTTON_TOOLTIP 이 정류장에서 기다리는 승객이 어디로 향하는지 보여줍니다.
-STOP_PANEL_BORED_TIMER 불만표출까지 남은 시간 : <color #{0}>{1}</color>
-STOP_PANEL_BORED_TIMER_TOOLTIP 승객들은 카운트가 0이되면 떠나기 시작합니다.
-STOP_PANEL_PASSENGERS_IN 탑승자 수 :
-STOP_PANEL_PASSENGERS_IN_TOOLTIP 대중교통 차량에 탑승한 승객 수 입니다.
-STOP_PANEL_PASSENGERS_OUT 하차자 수 :
-STOP_PANEL_PASSENGERS_OUT_TOOLTIP 대중교통 차량에서 하차한 승객 수 입니다.
-STOP_PANEL_PASSENGERS_TOTAL 총 이용객 :
-STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP 서비스를 제공받은 승객 수입니다.
-STOP_PANEL_UNBUNCHING_TOOLTIP 이 정거장의 차량 간격유지 기능을 활성 및 비활성화 합니다.\n비 활성화 할 경우 차량 간격이 0으로 설정됩니다.
-STOP_PANEL_UPDATE_CLOSE_STOPS 인근 정거장 업데이트
-STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP 차량 간격유지 상태를 모든 정거장에 적용합니다.
-STOP_PANEL_PREVIOUS 이전 정거장
-STOP_PANEL_PREVIOUS_TOOLTIP 이전 전거장으로 이동합니다.\n쉬프트 키를 누른 채 클릭하면 확대 됩니다.
-STOP_PANEL_DELETE_STOP 역 삭제
-STOP_PANEL_DELETE_STOP_TOOLTIP 이 버튼은 알트키를 누르고 있어야지만 작동합니다\n이 기능 사용은 당신에게 책임이 있습니다!!!
-STOP_PANEL_NEXT 다음 정거장
-STOP_PANEL_NEXT_TOOLTIP 다음 정거장으로 이동합니다.\n쉬프트 키를 누른 채 클릭하면 확대 됩니다.
+﻿MOD_DESCRIPTION ëŒ€ì¤‘ êµí†µ í–¥ìƒ ëª¨ë“œ(IPT)
+CURRENT_WEEK ì´ë²ˆ ì£¼
+LAST_WEEK ì €ë²ˆ ì£¼
+AVERAGE í‰ê· 
+AVERAGE_TOOLTIP {0} ì£¼ê°„ì˜ í‰ê·  ìˆ˜ì¹˜ìž…ë‹ˆë‹¤
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS ì •ê±°ìž¥ ì—­
+CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES ì°¨ê³ ì§€ ì°¨ëŸ‰
+CITYSERVICE_ACCEPTINTERCITYBUSES ê´‘ì—­ë²„ìŠ¤ í—ˆìš©
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP ê´‘ì—­ë²„ìŠ¤ê°€ ì´ ì—­ì„ ì‚¬ìš©í•˜ë„ë¡ í—ˆìš©í•©ë‹ˆë‹¤. ì§€ì—­ ë²„ìŠ¤ë§Œ ì‚¬ìš©í•˜ë ¤ë©´ ë¹„í™œì„±í™”í•˜ì„¸ìš”.
+EXPLANATION_BUDGET_CONTROL ì°¨ëŸ‰ ì˜ˆì‚° : ì°¨ëŸ‰ì´ ì§€ì •ëœ ì˜ˆì‚°ì— ë§žê²Œ ì¡°ì ˆë©ë‹ˆë‹¤.
+EXPLANATION_UNBUNCHING ì°¨ëŸ‰ ê°„ê²©ìœ ì§€ : ê²Œìž„ì—ì„œ ì°¨ëŸ‰ì´ ì¼ì •í•œ ê°„ê²©ì„ ìœ ì§€í•˜ë ¤ê³  ë…¸ë ¥í•©ë‹ˆë‹¤.
+LINE_PANEL_STOPS ì •ê±°ìž¥ ìˆ˜ : {0}
+LINE_PANEL_SPAWNTIMER ìƒˆ ì°¨ëŸ‰ì´ {0} ì´ˆ í›„ ì¶œë°œí•©ë‹ˆë‹¤.
+LINE_PANEL_DEPOT_WARNING <color #FF0000>ì„ íƒí•œ ì°¨ëŸ‰ê¸°ì§€ì— ë‚¨ì€ ì°¨ëŸ‰ì´ ì—†ìŠµë‹ˆë‹¤.</color>
+LINE_PANEL_BUDGET_CONTROL ì°¨ëŸ‰ ì˜ˆì‚°
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP ì´ ë…¸ì„ ì˜ ì°¨ëŸ‰ ì˜ˆì‚° ê¸°ëŠ¥ì„ í‚¤ê±°ë‚˜ ëŒ ìˆ˜ ìžˆìŠµë‹ˆë‹¤
+LINE_PANEL_UNBUNCHING_TOOLTIP ì´ ë…¸ì„ ì˜ ì°¨ëŸ‰ ê°„ê²© ìœ ì§€ê¸°ëŠ¥ì„ í‚¤ê±°ë‚˜ ëŒ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.\nì´ ê¸°ëŠ¥ì„ ëŒ ê²½ìš° ì°¨ëŸ‰ ê°„ê²©ì´ 0ìœ¼ë¡œ ì¡°ì •ë©ë‹ˆë‹¤.
+LINE_PANEL_DEPOT ì°¨ê³ ì§€ :
+LINE_PANEL_NO_DEPOT_FOUND ì°¨ëŸ‰ê¸°ì§€ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP ì„ íƒëœ ì°¨ê³ ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.\nì‰¬í”„íŠ¸í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ ë©ë‹ˆë‹¤.
+LINE_PANEL_SELECT_TYPES ì¢…ë¥˜ ì„ íƒ
+LINE_PANEL_SELECT_TYPES_TOOLTIP ì¢…ë¥˜ ì„ íƒì°½ì„ ì—´ê±°ë‚˜ ë‹«ìŠµë‹ˆë‹¤.\nì´ ê¸°ëŠ¥ìœ¼ë¡œ ë¹„í™œì„±í™”í•œ ì°¨ëŸ‰ì€ ì´ ë…¸ì„ ì— ë“±ìž¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+LINE_PANEL_LINE_STOPS ì •ë¥˜ìž¥ ëª©ë¡
+LINE_PANEL_LINE_VEHICLES ë…¸ì„  ì°¨ëŸ‰ ëª©ë¡
+LINE_PANEL_ENQUEUED ëŒ€ê¸° ì°¨ëŸ‰
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} ëª…ì˜ ìŠ¹ê°ì´ ì´ ë…¸ì„ ì—ì„œ ê¸°ë‹¤ë¦¬ê³  ìžˆìŠµë‹ˆë‹¤.
+LINE_PANEL_ADD_VEHICLE ì°¨ëŸ‰ ì¶”ê°€
+LINE_PANEL_ADD_VEHICLE_TOOLTIP ë…¸ì„ ì— ì°¨ëŸ‰ì„ ì¶”ê°€í•©ë‹ˆë‹¤
+LINE_PANEL_REMOVE_VEHICLE ì°¨ëŸ‰ ì œê±°
+STOP_LIST_BOX_ROW_STOP ì •ê±°ìž¥ #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nëŒ€ê¸°ì¤‘ì¸ ìŠ¹ê° : {1}\n\nìš°í´ë¦­ìœ¼ë¡œ í•´ë‹¹ ì—­ìœ¼ë¡œ ì´ë™ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.\nì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ë©ë‹ˆë‹¤.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP ì œì•ˆëœ ì—­ ëª…ì¹­ ëª©ë¡ìž…ë‹ˆë‹¤.
+STOP_PANEL_REUSE_NAME_TOOLTIP ì´ ì´ë¦„ìœ¼ë¡œ ëª¨ë“  ì •ê±°ìž¥ì—­ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+STOP_PANEL_WAITING_PEOPLE ëŒ€ê¸°ì¤‘ì¸ ìŠ¹ê° : {0}
+COMMUTER_DESTINATION_PANEL_TITLE í†µê·¼ ëª©ì ì§€
+COMMUTER_DESTINATION_HEADER ì£¼ìš” ëª©ì ì§€:
+COMMUTER_DESTINATION_NONE í˜„ìž¬ ì´ê³³ì—ì„œ ëŒ€ê¸° ì¤‘ì¸ ìŠ¹ê°ì´ ì—†ìŠµë‹ˆë‹¤.
+COMMUTER_DESTINATION_LOADING ê³„ì‚° ì¤‘...
+COMMUTER_DESTINATION_BUTTON ëª©ì ì§€
+COMMUTER_DESTINATION_BUTTON_TOOLTIP ì´ ì •ë¥˜ìž¥ì—ì„œ ê¸°ë‹¤ë¦¬ëŠ” ìŠ¹ê°ì´ ì–´ë””ë¡œ í–¥í•˜ëŠ”ì§€ ë³´ì—¬ì¤ë‹ˆë‹¤.
+STOP_PANEL_BORED_TIMER ë¶ˆë§Œí‘œì¶œê¹Œì§€ ë‚¨ì€ ì‹œê°„ : <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP ìŠ¹ê°ë“¤ì€ ì¹´ìš´íŠ¸ê°€ 0ì´ë˜ë©´ ë– ë‚˜ê¸° ì‹œìž‘í•©ë‹ˆë‹¤.
+STOP_PANEL_PASSENGERS_IN íƒ‘ìŠ¹ìž ìˆ˜ :
+STOP_PANEL_PASSENGERS_IN_TOOLTIP ëŒ€ì¤‘êµí†µ ì°¨ëŸ‰ì— íƒ‘ìŠ¹í•œ ìŠ¹ê° ìˆ˜ ìž…ë‹ˆë‹¤.
+STOP_PANEL_PASSENGERS_OUT í•˜ì°¨ìž ìˆ˜ :
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP ëŒ€ì¤‘êµí†µ ì°¨ëŸ‰ì—ì„œ í•˜ì°¨í•œ ìŠ¹ê° ìˆ˜ ìž…ë‹ˆë‹¤.
+STOP_PANEL_PASSENGERS_TOTAL ì´ ì´ìš©ê° :
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP ì„œë¹„ìŠ¤ë¥¼ ì œê³µë°›ì€ ìŠ¹ê° ìˆ˜ìž…ë‹ˆë‹¤.
+STOP_PANEL_UNBUNCHING_TOOLTIP ì´ ì •ê±°ìž¥ì˜ ì°¨ëŸ‰ ê°„ê²©ìœ ì§€ ê¸°ëŠ¥ì„ í™œì„± ë° ë¹„í™œì„±í™” í•©ë‹ˆë‹¤.\në¹„ í™œì„±í™” í•  ê²½ìš° ì°¨ëŸ‰ ê°„ê²©ì´ 0ìœ¼ë¡œ ì„¤ì •ë©ë‹ˆë‹¤.
+STOP_PANEL_UPDATE_CLOSE_STOPS ì¸ê·¼ ì •ê±°ìž¥ ì—…ë°ì´íŠ¸
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP ì°¨ëŸ‰ ê°„ê²©ìœ ì§€ ìƒíƒœë¥¼ ëª¨ë“  ì •ê±°ìž¥ì— ì ìš©í•©ë‹ˆë‹¤.
+STOP_PANEL_PREVIOUS ì´ì „ ì •ê±°ìž¥
+STOP_PANEL_PREVIOUS_TOOLTIP ì´ì „ ì „ê±°ìž¥ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.\nì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ ë©ë‹ˆë‹¤.
+STOP_PANEL_DELETE_STOP ì—­ ì‚­ì œ
+STOP_PANEL_DELETE_STOP_TOOLTIP ì´ ë²„íŠ¼ì€ ì•ŒíŠ¸í‚¤ë¥¼ ëˆ„ë¥´ê³  ìžˆì–´ì•¼ì§€ë§Œ ìž‘ë™í•©ë‹ˆë‹¤\nì´ ê¸°ëŠ¥ ì‚¬ìš©ì€ ë‹¹ì‹ ì—ê²Œ ì±…ìž„ì´ ìžˆìŠµë‹ˆë‹¤!!!
+STOP_PANEL_NEXT ë‹¤ìŒ ì •ê±°ìž¥
+STOP_PANEL_NEXT_TOOLTIP ë‹¤ìŒ ì •ê±°ìž¥ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.\nì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ ë©ë‹ˆë‹¤.
 STOP_BUTTON_TOOLTIP {0}\n\nClick to jump to this stop.\nHolding down a shift key when clicking will also zoom in.\nHoling down an alt key when clicking will prevent opening the stop info panel.
-SETTINGS_DELETE 삭제
-SETTINGS_RESET 초기화
-SETTINGS_TAB_GENERAL 일반
-SETTINGS_ADVANCED_LINKS_GROUP 링크
-SETTINGS_GITHUB_REPO GitHub의 소스 코드
-SETTINGS_TAB_AUTOLINE 자동 노선
-SETTINGS_TAB_STOPS 정거장 및 역
-SETTINGS_TAB_UNBUNCHING 분산
-SETTINGS_TAB_DELETE 노선 삭제
-SETTINGS_TAB_FLEET 차량 및 배차
-SETTINGS_TAB_BUDGET 예산 및 요금
-SETTINGS_TAB_LINECOLORS 노선 색상
-SETTINGS 설정
-SETTINGS_SPEED 속도: 
-SETTINGS_SPEED_TOOLTIP UI에서 속도 표시에 사용할 단위를 선택합니다.
-SETTINGS_GAMEPLAY_PROFILE 게임플레이 프로필
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP 설정을 한 번에 적용합니다. 안전(기본)은 다른 모드와 최대 호환을 위해 모두 끔. Vanilla는 기본 게임. 권장은 IPT 코어만(예산 함대, unbunching, 시외, 하위 건물 탭, unstucker, 고급 정류장 선택, 고가 정류장). 실사는 대부분 통합 켜기. 사용자 지정은 연쇄 없음 - 각 스위치를 직접 관리.
-SETTINGS_GAMEPLAY_PROFILE_CUSTOM 커스텀
-SETTINGS_GAMEPLAY_PROFILE_SAFE 안전 (모두 끔)
-SETTINGS_GAMEPLAY_PROFILE_VANILLA 바닐라
-SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED 권장 (IPT 핵심)
-SETTINGS_GAMEPLAY_PROFILE_REALISTIC 리얼리스틱
+SETTINGS_DELETE ì‚­ì œ
+SETTINGS_RESET ì´ˆê¸°í™”
+SETTINGS_TAB_GENERAL ì¼ë°˜
+SETTINGS_ADVANCED_LINKS_GROUP ë§í¬
+SETTINGS_GITHUB_REPO GitHubì˜ ì†ŒìŠ¤ ì½”ë“œ
+SETTINGS_TAB_AUTOLINE ìžë™ ë…¸ì„ 
+SETTINGS_TAB_STOPS ì •ê±°ìž¥ ë° ì—­
+SETTINGS_TAB_UNBUNCHING ë¶„ì‚°
+SETTINGS_TAB_DELETE ë…¸ì„  ì‚­ì œ
+SETTINGS_TAB_FLEET ì°¨ëŸ‰ ë° ë°°ì°¨
+SETTINGS_TAB_BUDGET ì˜ˆì‚° ë° ìš”ê¸ˆ
+SETTINGS_TAB_LINECOLORS ë…¸ì„  ìƒ‰ìƒ
+SETTINGS ì„¤ì •
+SETTINGS_SPEED ì†ë„: 
+SETTINGS_SPEED_TOOLTIP UIì—ì„œ ì†ë„ í‘œì‹œì— ì‚¬ìš©í•  ë‹¨ìœ„ë¥¼ ì„ íƒí•©ë‹ˆë‹¤.
+SETTINGS_GAMEPLAY_PROFILE ê²Œìž„í”Œë ˆì´ í”„ë¡œí•„
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP ì„¤ì •ì„ í•œ ë²ˆì— ì ìš©í•©ë‹ˆë‹¤. ì•ˆì „(ê¸°ë³¸)ì€ ë‹¤ë¥¸ ëª¨ë“œì™€ ìµœëŒ€ í˜¸í™˜ì„ ìœ„í•´ ëª¨ë‘ ë”. VanillaëŠ” ê¸°ë³¸ ê²Œìž„. ê¶Œìž¥ì€ IPT ì½”ì–´ë§Œ(ì˜ˆì‚° í•¨ëŒ€, unbunching, ì‹œì™¸, í•˜ìœ„ ê±´ë¬¼ íƒ­, unstucker, ê³ ê¸‰ ì •ë¥˜ìž¥ ì„ íƒ, ê³ ê°€ ì •ë¥˜ìž¥). ì‹¤ì‚¬ëŠ” ëŒ€ë¶€ë¶„ í†µí•© ì¼œê¸°. ì‚¬ìš©ìž ì§€ì •ì€ ì—°ì‡„ ì—†ìŒ - ê° ìŠ¤ìœ„ì¹˜ë¥¼ ì§ì ‘ ê´€ë¦¬.
+SETTINGS_GAMEPLAY_PROFILE_CUSTOM ì»¤ìŠ¤í…€
+SETTINGS_GAMEPLAY_PROFILE_SAFE ì•ˆì „ (ëª¨ë‘ ë”)
+SETTINGS_GAMEPLAY_PROFILE_VANILLA ë°”ë‹ë¼
+SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED ê¶Œìž¥ (IPT í•µì‹¬)
+SETTINGS_GAMEPLAY_PROFILE_REALISTIC ë¦¬ì–¼ë¦¬ìŠ¤í‹±
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
-SETTINGS_WALKING_SPEED 보행/자전거 속도: 
-SETTINGS_WALKING_SPEED_TOOLTIP 표준: 기본 게임 속도.\n현실적: 보행 속도를 현실적인 나이 기반 값으로 감소시킵니다.\n현실적는 또한 After Dark DLC로 자전거 속도를 감소시킵니다.
-SETTINGS_WALKING_SPEED_MODE_VANILLA 표준
-SETTINGS_WALKING_SPEED_MODE_REALISTIC 현실적
-SETTINGS_BBSP 버스 정류장 위치 개선: 
-SETTINGS_BBSP_TOOLTIP 비활성화: 위치 조정이 없습니다.\n활성화: 버스가 정류장 중앙이 아닌 앞쪽에 정차합니다.
-SETTINGS_BBSP_MODE_DISABLED 비활성화
-SETTINGS_BBSP_MODE_ORIGINAL 활성화
-SETTINGS_BBSP_MODE_UPDATED 실험적 로직 사용
-SETTINGS_BUDGET 예산
-SETTINGS_ENABLE_BUDGET_CONTROL 차량 예산
-SETTINGS_BUDGET_CONTROL_DISABLED 비활성화
-SETTINGS_BUDGET_CONTROL_ENABLED 활성화
-SETTINGS_BUDGET_CONTROL_TOOLTIP 차량 예산기능이 키거나 꺼진 상태로 새 노선을 만들 수 있습니다.
-SETTINGS_BUDGET_TICKET_PRICES 운임 가격 사용자 지정기:
-SETTINGS_BUDGET_TICKET_PRICES_DISABLED 비활성화
-SETTINGS_BUDGET_TICKET_PRICES_ENABLED 활성화
-SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP 활성화하면 경제 패널에 각 교통수단의 요금(티켓 가격)을 조정하는 슬라이더가 있는 새 탭을 추가합니다.
-SETTINGS_AUTO_LINE_BUDGET 수요 기반 자동 차량 수:
-SETTINGS_AUTO_LINE_BUDGET_DISABLED 비활성화
-SETTINGS_AUTO_LINE_BUDGET_ENABLED 활성화
-SETTINGS_AUTO_LINE_BUDGET_TOOLTIP 활성화하면 예산 모드의 노선은 기본 게임 예산 슬라이더 대신 실제 승객 수요에 따라 차량 수를 자동으로 조정합니다. 수동 모드의 노선은 변경되지 않습니다.
-SETTINGS_AUTO_LINE 자동 노선
-SETTINGS_AUTOSHOW_LINE_INFO 노선 정보 창 자동 열기
-SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP 새 노선이 생성된 후 노선 정보 창을 자동으로 표시해 줍니다.
-AUTOLINECOLOR_STRATEGY_DISABLED 비활성화
-AUTOLINECOLOR_STRATEGY_RANDOM_HUE 랜덤 색조
-AUTOLINECOLOR_STRATEGY_RANDOM_COLOR 랜덤 색상
-AUTOLINECOLOR_STRATEGY_CATEGORISED 분류별
-AUTOLINECOLOR_STRATEGY_NAMED 이름 지정 색상
-AUTOLINECOLOR_NAMING_DISABLED 비활성화
-AUTOLINECOLOR_NAMING_DISTRICTS 구역
-AUTOLINECOLOR_NAMING_LONDON 런던
-AUTOLINECOLOR_NAMING_ROADS 도로
-AUTOLINECOLOR_NAMING_COLORS 이름 지정 색상
-AUTOLINECOLOR_COLOR_STRATEGY 색상 전략:
-AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP 새 노선에 색상이 할당되는 방법:\n'랜덤 색조' = 같은 채도/밝기, 다른 색조;\n '랜덤 색상' = 완전히 랜덤 RGB;\n '분류별' = 차량 유형별 색상;\n '이름 지정 색상' = 미리 정의된 색상 팔레트.
-AUTOLINECOLOR_NAMING_STRATEGY 이름 지정 전략:
-AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP 새 노선에 이름이 할당되는 방법:\n '없음' = 자동 이름 지정 없음;\n '구역' = 서비스 구역 기반;\n '런던' = 번호 매긴 노선 (런던 버스 스타일);\n '도로' = 도로명 기반;\n '이름 지정 색상' = 색상 이름 기반.
-AUTOLINECOLOR_MIN_COLOR_DIFF 최소 색상 차이 (%):
-AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP 랜덤 색상 선택 시 최소 색상 차이 비율.
-AUTOLINECOLOR_MAX_COLOR_PICK 최대 시도 횟수:
-AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP 구별 가능한 색상을 선택하기 위한 최대 시도 횟수.
-SETTINGS_UI UI 설정
-SETTINGS_VEHICLE_EDITOR_POSITION 차량 에디터: 
-SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP 차량 편집기 패널이 화면 하단이나 오른쪽에 표시되는지 선택합니다.
-SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM 아래
-SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT 오른쪽
-SETTINGS_VEHICLE_EDITOR_HIDE 차량 에디터 숨기기
-SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP 차량 패널에서 차량 편집기를 숨깁니다.
-SETTINGS_STOPS 대중 교통 정거장
-SETTINGS_STOPSANDSTATIONS_DESCRIPTION 각 교통수단의 승객이 만원으로 간주되기 전에 하나의 정류장에서 몇 명까지 대기할 수 있는지입니다. 값을 높이면 혼잡한 정류장의 과밀 불만이 줄어들지만, 대기열 크기의 현실성은 떨어집니다.
-SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP 위의 모든 정류장별 승객 제한을 기본값으로 재설정합니다.
-SETTINGS_ENABLE_STOPS_AND_STATIONS 정거장 및 역 활성화
-SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP 다양한 정거장과 역에서 대중교통을 기다릴 수 있는 최대 시민 수를 조정합니다. 정거장 탭에서 구성하세요.
-SETTINGS_STOPSANDSTATIONS_ENABLE 정거장 및 역 활성화
-SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP 정거장에서의 승객 제한 적용을 활성화 또는 비활성화합니다.
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER 교통 노선 정거장에서 대기하는 최대 승객 수:
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS 노선 버스
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP 노선 버스 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS 트롤리버스
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP 트롤리버스 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS 대피 버스
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP 대피 버스 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS 관광 버스
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP 관광 버스 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM 트램
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP 트램 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO 지하철
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP 지하철역 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN 기차
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP 기차역 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL 모노레일
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP 모노레일 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP 선박
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP 화물선 항만 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY 페리
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP 페리 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE 비행기
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP 공항 터미널 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR 케이블카
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP 케이블카 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON 열기구
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP 열기구 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER 헬리콥터
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP 헬리콥터 정거장 최대 대기 승객 수
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP 비행선
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP 비행선 정거장 최대 대기 승객 수
-SETTINGS_UNBUNCHING 차량 분산
-SETTINGS_UNBUNCHING_AGGRESSION 차랑 갼격 빈도 수 :
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP 어떻게 차량 간격 기능을 작동시키는지 궁금하신가요?\n 설정 범위 0-52, 0은 차량 간격 기능을 비 활성화합니다.\n높은 값 일 수록 더 향상된 교통 효과가 나타나지만 이로 인해 차량이 연착되어 사라질 수 있습니다.
-SETTINGS_VEHICLE_COUNT 새 노선의 차량 수 :
-SETTINGS_VEHICLE_COUNT_TOOLTIP 차량 예산기능이 꺼져 있을 경우 새 노선을 만들때 지정된 차량 수 만큼 차량을 소환합니다.
-SETTINGS_SPAWN_TIME_INTERVAL 소환 간격 : 
-SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP 설정된 초 만큼 차이를 두며 차량이 소환됩니다.
-SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP 모든 슬라이더를 기본값으로 초기화합니다.
-UNBUNCHING_ENABLED 차량간격 유지
-UNBUNCHING_DISABLED 차량간격 유지 해제
-UNBUNCHING_TARGET_GAP 차량 간격 : {0}
-SETTINGS_EBS_GROUP_BUS 급행 버스 서비스
-SETTINGS_EBS_GROUP_TRAM 급행 트램 서비스
-SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE 급행 버스 분산: 
-SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE '비활성화' = 버스가 위의 분산 설정을 사용합니다.\n'Prudential' = 잠시 정차, 승갑 확인 후 비어있으면 출발합니다.\n'Aggressive' = 대기 승갑이 없으면 정거장을 건너딳니다.
-SETTINGS_EBS_ENABLE_SELFBAL 서비스 자동 균형 활성화
-SETTINGS_EBS_DESC_SELFBAL 급행 버스 서비스가 노선 전체에서 차량을 재배분하여 혼잡 구간을 우선하고 대기 시간을 줄일 수 있게 합니다.
-SETTINGS_EBS_TOOLTIP_SELFBAL 선 구간을 분석하고 더 바쁜 구간이나 종점역으로 차량을 재배치하여 서비스를 균등하게 하고 대기 시간을 단축할 수 있습니다.\n결정은 확률적이며 승객 수 및 재배치 확률에 따라 다릅니다.
-SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID 자동 균형 중간 정거장 활성화
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID 차량을 재배치할 때 종점뿐만 아니라 노선 중간의 혼잡한 정류장도 선택할 수 있게 합니다.
-SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID 자동 균형이 차량을 중간 정거장(종점역 대신)으로 재배치하도록 허용합니다.\n가장 바쁜 정거장에 30명 이상의 대기 승객이 있을 때만 고려되며, 약 50% 확률로 선택되고 전체 재배치 확률의 영향을 받습니다.
-SETTINGS_EBS_ENABLE_MINIBUS 미니버스 모드 활성화
-SETTINGS_EBS_DESC_MINIBUS 승하차 승객이 적을 때 소형 버스가 더 일찍 출발하도록 합니다.
-SETTINGS_EBS_TOOLTIP_MINIBUS 용량 ≤20의 버스는 그 정거장에서 탑승 + 하차 승객이 ≤5일 때 정거장에서 더 일찍 출발할 수 있습니다.
-SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE 급행 트램 분산: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING '비활성화' = 트램이 위의 분산 설정을 사용합니다.\n'경전철' = 모든 정거장에 정차, 항상 전체 타이머를 기다립니다.\n'실제 트램' = 승하차가 있을 때만 정차합니다.
-SETTINGS_EBS_MODE_NONE 비활성화
-SETTINGS_EBS_MODE_AGGRESSIVE 공격적
-SETTINGS_EBS_MODE_PRUDENTIAL 신중
-SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL 경전철 모드
-SETTINGS_EBS_TRAM_MODE_NONE 비활성화
-SETTINGS_EBS_TRAM_MODE_TRAM 실제 트램 모드
-SETTINGS_PTU_GROUP 대중교통 복구 도구
-SETTINGS_PTU_ENABLE 갇힌 승객을 자동으로 제거
-SETTINGS_PTU_TOOLTIP 탑승 중에 갇힌 승객을 자동으로 내보내 차량이 정상적으로 출발하도록 하고 출발 정지 현상을 방지합니다.
-SETTINGS_LINE_DELETION_TOOL 노선 삭제 도구
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION 아래에서 교통 유형을 선택한 후 삭제를 누르면 현재 도시에서 해당 유형의 모든 노선이 제거됩니다. 이 선택은 임시이며, 항상 선택되지 않은 상태로 시작하고 삭제 후 초기화됩니다. 설정으로 저장되지 않습니다.
-SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP 선택된 종류의 노선을 일괄 삭제합니다.
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE 노선 삭제 경고
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG 모든 노선 삭제를 요청하셨습니다.\n정말로 실행합니까?
-SETTINGS_DELETE_BUS_TOOLTIP 모든 일반 버스 노선을 삭제합니다.
-SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL 관광 버스
-SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP 모든 관광 버스 노선을 삭제합니다.
-SETTINGS_DELETE_TRAM_TOOLTIP 모든 트램 노선을 삭제합니다.
-SETTINGS_DELETE_TROLLEYBUS_TOOLTIP 모든 트롤리버스 노선을 삭제합니다.
-SETTINGS_DELETE_TRAIN_TOOLTIP 모든 기차 노선을 삭제합니다.
-SETTINGS_DELETE_METRO_TOOLTIP 모든 지하철 노선을 삭제합니다.
-SETTINGS_DELETE_MONORAIL_TOOLTIP 모든 모노레일 노선을 삭제합니다.
-SETTINGS_DELETE_FERRY_LABEL 페리
-SETTINGS_DELETE_SHIP_TOOLTIP 모든 페리 노선을 삭제합니다.
-SETTINGS_DELETE_HELICOPTER_LABEL 헬리콥터
-SETTINGS_DELETE_HELICOPTER_TOOLTIP 모든 헬리콥터 노선을 삭제합니다.
-SETTINGS_DELETE_BLIMP_LABEL 비행선
-SETTINGS_DELETE_BLIMP_TOOLTIP 모든 비행선 노선을 삭제합니다.
-VEHICLE_EDITOR_TITLE 차량 에디터
-VEHICLE_EDITOR_SUB_TITLE {0} 차량 설정
-VEHICLE_EDITOR_CAPACITY 총 탑승객 수
-VEHICLE_EDITOR_CAPACITY_TAXI 총 여행자 수
-VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP 작업 교대마다 수송할 여행자 수입니다.
-VEHICLE_EDITOR_MAINTENANCE 차량 유지 비용
-VEHICLE_EDITOR_MAX_SPEED 최대 속도
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS 운전석을 맨 뒷차량에 추가로 생성
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP 이 기능을 통해 기차 맨 뒷 차량에 운전석을 생성 할 수 있습니다.
-VEHICLE_EDITOR_APPLY 적용
-VEHICLE_EDITOR_DEFAULT 기본값
-VEHICLE_LIST_BOX_ROW_TOOLTIP1 오른족 클릭으로 차량을 따라 갈 수 있습니다\n쉬프트 키를 누른 채 클릭하면 확대 됩니다.
-VEHICLE_LIST_BOX_ROW_TOOLTIP2 쉬프트 클릭으로 해당 차량을 추가합니다
-VEHICLE_PANEL_EDIT_TYPE 차량 에디터 실행
-VEHICLE_PANEL_EDIT_TYPE_TOOLTIP 차량 에디터를 통해 이 차종을 설정 할 수 있습니다.
-VEHICLE_PANEL_STATUS_NEXT_STOP 다음 정거장 :
-VEHICLE_PANEL_STATUS_UNBUNCHING 차량 간격 유지상태
-VEHICLE_PANEL_LAST_STOP_EXCHANGE 최근 정거장 승객 승하차량 : <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
-VEHICLE_PANEL_PASSENGERS 승객 수 :
-VEHICLE_PANEL_EARNINGS 수입 :
-VEHICLE_PANEL_EARNINGS_TOOLTIP 요금 수입과 차량 유지비를 뺀 합계입니다.
-VEHICLE_PANEL_PREVIOUS 이전 차량
-VEHICLE_PANEL_PREVIOUS_TOOLTIP 이전 차량으로 이동합니다.\n쉬프트 키를 누른 채 클릭하면 확대 됩니다.
-VEHICLE_PANEL_REMOVE_VEHICLE 차량 제거
-VEHICLE_PANEL_NEXT 다음 차량
-VEHICLE_PANEL_NEXT_TOOLTIP 다음 차량으로 이동합니다.\n쉬프트 키를 누른 채 클릭하면 확대 됩니다.
-VEHICLE_SELECTION_CAPACITY 탑승 인원
-VEHICLE_SELECTION_ADD_VEHICLE 이 차량을 허용된 차량 목록에 추가하기
-VEHICLE_SELECTION_ADD_ALL 모든 적합 차량을 허용된 차량 목록에 추가하기
-VEHICLE_SELECTION_REMOVE_VEHICLE 이 차량을 허용된 차량 목록에서 삭제하기
-VEHICLE_SELECTION_REMOVE_ALL 모든 차량을 허용된 차량 목록에서 삭제하기
-VEHICLE_SELECTION_AVAILABLE_VEHICLES 이용가능한 차량
-VEHICLE_SELECTION_SELECTED_VEHICLES 선택된 차량
-VEHICLE_SELECTION_ANY_VEHICLE 아무 차량이나
+SETTINGS_WALKING_SPEED ë³´í–‰/ìžì „ê±° ì†ë„: 
+SETTINGS_WALKING_SPEED_TOOLTIP í‘œì¤€: ê¸°ë³¸ ê²Œìž„ ì†ë„.\ní˜„ì‹¤ì : ë³´í–‰ ì†ë„ë¥¼ í˜„ì‹¤ì ì¸ ë‚˜ì´ ê¸°ë°˜ ê°’ìœ¼ë¡œ ê°ì†Œì‹œí‚µë‹ˆë‹¤.\ní˜„ì‹¤ì ëŠ” ë˜í•œ After Dark DLCë¡œ ìžì „ê±° ì†ë„ë¥¼ ê°ì†Œì‹œí‚µë‹ˆë‹¤.
+SETTINGS_WALKING_SPEED_MODE_VANILLA í‘œì¤€
+SETTINGS_WALKING_SPEED_MODE_REALISTIC í˜„ì‹¤ì 
+SETTINGS_BBSP ë²„ìŠ¤ ì •ë¥˜ìž¥ ìœ„ì¹˜ ê°œì„ : 
+SETTINGS_BBSP_TOOLTIP ë¹„í™œì„±í™”: ìœ„ì¹˜ ì¡°ì •ì´ ì—†ìŠµë‹ˆë‹¤.\ní™œì„±í™”: ë²„ìŠ¤ê°€ ì •ë¥˜ìž¥ ì¤‘ì•™ì´ ì•„ë‹Œ ì•žìª½ì— ì •ì°¨í•©ë‹ˆë‹¤.
+SETTINGS_BBSP_MODE_DISABLED ë¹„í™œì„±í™”
+SETTINGS_BBSP_MODE_ORIGINAL í™œì„±í™”
+SETTINGS_BBSP_MODE_UPDATED ì‹¤í—˜ì  ë¡œì§ ì‚¬ìš©
+SETTINGS_BUDGET ì˜ˆì‚°
+SETTINGS_ENABLE_BUDGET_CONTROL ì°¨ëŸ‰ ì˜ˆì‚°
+SETTINGS_BUDGET_CONTROL_DISABLED ë¹„í™œì„±í™”
+SETTINGS_BUDGET_CONTROL_ENABLED í™œì„±í™”
+SETTINGS_BUDGET_CONTROL_TOOLTIP ì°¨ëŸ‰ ì˜ˆì‚°ê¸°ëŠ¥ì´ í‚¤ê±°ë‚˜ êº¼ì§„ ìƒíƒœë¡œ ìƒˆ ë…¸ì„ ì„ ë§Œë“¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+SETTINGS_BUDGET_TICKET_PRICES ìš´ìž„ ê°€ê²© ì‚¬ìš©ìž ì§€ì •ê¸°:
+SETTINGS_BUDGET_TICKET_PRICES_DISABLED ë¹„í™œì„±í™”
+SETTINGS_BUDGET_TICKET_PRICES_ENABLED í™œì„±í™”
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP í™œì„±í™”í•˜ë©´ ê²½ì œ íŒ¨ë„ì— ê° êµí†µìˆ˜ë‹¨ì˜ ìš”ê¸ˆ(í‹°ì¼“ ê°€ê²©)ì„ ì¡°ì •í•˜ëŠ” ìŠ¬ë¼ì´ë”ê°€ ìžˆëŠ” ìƒˆ íƒ­ì„ ì¶”ê°€í•©ë‹ˆë‹¤.
+SETTINGS_AUTO_LINE_BUDGET ìˆ˜ìš” ê¸°ë°˜ ìžë™ ì°¨ëŸ‰ ìˆ˜:
+SETTINGS_AUTO_LINE_BUDGET_DISABLED ë¹„í™œì„±í™”
+SETTINGS_AUTO_LINE_BUDGET_ENABLED í™œì„±í™”
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP í™œì„±í™”í•˜ë©´ ì˜ˆì‚° ëª¨ë“œì˜ ë…¸ì„ ì€ ê¸°ë³¸ ê²Œìž„ ì˜ˆì‚° ìŠ¬ë¼ì´ë” ëŒ€ì‹  ì‹¤ì œ ìŠ¹ê° ìˆ˜ìš”ì— ë”°ë¼ ì°¨ëŸ‰ ìˆ˜ë¥¼ ìžë™ìœ¼ë¡œ ì¡°ì •í•©ë‹ˆë‹¤. ìˆ˜ë™ ëª¨ë“œì˜ ë…¸ì„ ì€ ë³€ê²½ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+SETTINGS_AUTO_LINE ìžë™ ë…¸ì„ 
+SETTINGS_AUTOSHOW_LINE_INFO ë…¸ì„  ì •ë³´ ì°½ ìžë™ ì—´ê¸°
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP ìƒˆ ë…¸ì„ ì´ ìƒì„±ëœ í›„ ë…¸ì„  ì •ë³´ ì°½ì„ ìžë™ìœ¼ë¡œ í‘œì‹œí•´ ì¤ë‹ˆë‹¤.
+AUTOLINECOLOR_STRATEGY_DISABLED ë¹„í™œì„±í™”
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE ëžœë¤ ìƒ‰ì¡°
+AUTOLINECOLOR_STRATEGY_RANDOM_COLOR ëžœë¤ ìƒ‰ìƒ
+AUTOLINECOLOR_STRATEGY_CATEGORISED ë¶„ë¥˜ë³„
+AUTOLINECOLOR_STRATEGY_NAMED ì´ë¦„ ì§€ì • ìƒ‰ìƒ
+AUTOLINECOLOR_NAMING_DISABLED ë¹„í™œì„±í™”
+AUTOLINECOLOR_NAMING_DISTRICTS êµ¬ì—­
+AUTOLINECOLOR_NAMING_LONDON ëŸ°ë˜
+AUTOLINECOLOR_NAMING_ROADS ë„ë¡œ
+AUTOLINECOLOR_NAMING_COLORS ì´ë¦„ ì§€ì • ìƒ‰ìƒ
+AUTOLINECOLOR_COLOR_STRATEGY ìƒ‰ìƒ ì „ëžµ:
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP ìƒˆ ë…¸ì„ ì— ìƒ‰ìƒì´ í• ë‹¹ë˜ëŠ” ë°©ë²•:\n'ëžœë¤ ìƒ‰ì¡°' = ê°™ì€ ì±„ë„/ë°ê¸°, ë‹¤ë¥¸ ìƒ‰ì¡°;\n 'ëžœë¤ ìƒ‰ìƒ' = ì™„ì „ížˆ ëžœë¤ RGB;\n 'ë¶„ë¥˜ë³„' = ì°¨ëŸ‰ ìœ í˜•ë³„ ìƒ‰ìƒ;\n 'ì´ë¦„ ì§€ì • ìƒ‰ìƒ' = ë¯¸ë¦¬ ì •ì˜ëœ ìƒ‰ìƒ íŒ”ë ˆíŠ¸.
+AUTOLINECOLOR_NAMING_STRATEGY ì´ë¦„ ì§€ì • ì „ëžµ:
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP ìƒˆ ë…¸ì„ ì— ì´ë¦„ì´ í• ë‹¹ë˜ëŠ” ë°©ë²•:\n 'ì—†ìŒ' = ìžë™ ì´ë¦„ ì§€ì • ì—†ìŒ;\n 'êµ¬ì—­' = ì„œë¹„ìŠ¤ êµ¬ì—­ ê¸°ë°˜;\n 'ëŸ°ë˜' = ë²ˆí˜¸ ë§¤ê¸´ ë…¸ì„  (ëŸ°ë˜ ë²„ìŠ¤ ìŠ¤íƒ€ì¼);\n 'ë„ë¡œ' = ë„ë¡œëª… ê¸°ë°˜;\n 'ì´ë¦„ ì§€ì • ìƒ‰ìƒ' = ìƒ‰ìƒ ì´ë¦„ ê¸°ë°˜.
+AUTOLINECOLOR_MIN_COLOR_DIFF ìµœì†Œ ìƒ‰ìƒ ì°¨ì´ (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP ëžœë¤ ìƒ‰ìƒ ì„ íƒ ì‹œ ìµœì†Œ ìƒ‰ìƒ ì°¨ì´ ë¹„ìœ¨.
+AUTOLINECOLOR_MAX_COLOR_PICK ìµœëŒ€ ì‹œë„ íšŸìˆ˜:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP êµ¬ë³„ ê°€ëŠ¥í•œ ìƒ‰ìƒì„ ì„ íƒí•˜ê¸° ìœ„í•œ ìµœëŒ€ ì‹œë„ íšŸìˆ˜.
+SETTINGS_UI UI ì„¤ì •
+SETTINGS_VEHICLE_EDITOR_POSITION ì°¨ëŸ‰ ì—ë””í„°: 
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP ì°¨ëŸ‰ íŽ¸ì§‘ê¸° íŒ¨ë„ì´ í™”ë©´ í•˜ë‹¨ì´ë‚˜ ì˜¤ë¥¸ìª½ì— í‘œì‹œë˜ëŠ”ì§€ ì„ íƒí•©ë‹ˆë‹¤.
+SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM ì•„ëž˜
+SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT ì˜¤ë¥¸ìª½
+SETTINGS_VEHICLE_EDITOR_HIDE ì°¨ëŸ‰ ì—ë””í„° ìˆ¨ê¸°ê¸°
+SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP ì°¨ëŸ‰ íŒ¨ë„ì—ì„œ ì°¨ëŸ‰ íŽ¸ì§‘ê¸°ë¥¼ ìˆ¨ê¹ë‹ˆë‹¤.
+SETTINGS_STOPS ëŒ€ì¤‘ êµí†µ ì •ê±°ìž¥
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION ê° êµí†µìˆ˜ë‹¨ì˜ ìŠ¹ê°ì´ ë§Œì›ìœ¼ë¡œ ê°„ì£¼ë˜ê¸° ì „ì— í•˜ë‚˜ì˜ ì •ë¥˜ìž¥ì—ì„œ ëª‡ ëª…ê¹Œì§€ ëŒ€ê¸°í•  ìˆ˜ ìžˆëŠ”ì§€ìž…ë‹ˆë‹¤. ê°’ì„ ë†’ì´ë©´ í˜¼ìž¡í•œ ì •ë¥˜ìž¥ì˜ ê³¼ë°€ ë¶ˆë§Œì´ ì¤„ì–´ë“¤ì§€ë§Œ, ëŒ€ê¸°ì—´ í¬ê¸°ì˜ í˜„ì‹¤ì„±ì€ ë–¨ì–´ì§‘ë‹ˆë‹¤.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP ìœ„ì˜ ëª¨ë“  ì •ë¥˜ìž¥ë³„ ìŠ¹ê° ì œí•œì„ ê¸°ë³¸ê°’ìœ¼ë¡œ ìž¬ì„¤ì •í•©ë‹ˆë‹¤.
+SETTINGS_ENABLE_STOPS_AND_STATIONS ì •ê±°ìž¥ ë° ì—­ í™œì„±í™”
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP ë‹¤ì–‘í•œ ì •ê±°ìž¥ê³¼ ì—­ì—ì„œ ëŒ€ì¤‘êµí†µì„ ê¸°ë‹¤ë¦´ ìˆ˜ ìžˆëŠ” ìµœëŒ€ ì‹œë¯¼ ìˆ˜ë¥¼ ì¡°ì •í•©ë‹ˆë‹¤. ì •ê±°ìž¥ íƒ­ì—ì„œ êµ¬ì„±í•˜ì„¸ìš”.
+SETTINGS_STOPSANDSTATIONS_ENABLE ì •ê±°ìž¥ ë° ì—­ í™œì„±í™”
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP ì •ê±°ìž¥ì—ì„œì˜ ìŠ¹ê° ì œí•œ ì ìš©ì„ í™œì„±í™” ë˜ëŠ” ë¹„í™œì„±í™”í•©ë‹ˆë‹¤.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER êµí†µ ë…¸ì„  ì •ê±°ìž¥ì—ì„œ ëŒ€ê¸°í•˜ëŠ” ìµœëŒ€ ìŠ¹ê° ìˆ˜:
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS ë…¸ì„  ë²„ìŠ¤
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP ë…¸ì„  ë²„ìŠ¤ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS íŠ¸ë¡¤ë¦¬ë²„ìŠ¤
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS ëŒ€í”¼ ë²„ìŠ¤
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP ëŒ€í”¼ ë²„ìŠ¤ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS ê´€ê´‘ ë²„ìŠ¤
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP ê´€ê´‘ ë²„ìŠ¤ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM íŠ¸ëž¨
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP íŠ¸ëž¨ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO ì§€í•˜ì² 
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP ì§€í•˜ì² ì—­ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN ê¸°ì°¨
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP ê¸°ì°¨ì—­ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL ëª¨ë…¸ë ˆì¼
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP ëª¨ë…¸ë ˆì¼ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP ì„ ë°•
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP í™”ë¬¼ì„  í•­ë§Œ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY íŽ˜ë¦¬
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP íŽ˜ë¦¬ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE ë¹„í–‰ê¸°
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP ê³µí•­ í„°ë¯¸ë„ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR ì¼€ì´ë¸”ì¹´
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP ì¼€ì´ë¸”ì¹´ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON ì—´ê¸°êµ¬
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP ì—´ê¸°êµ¬ ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER í—¬ë¦¬ì½¥í„°
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP í—¬ë¦¬ì½¥í„° ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP ë¹„í–‰ì„ 
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP ë¹„í–‰ì„  ì •ê±°ìž¥ ìµœëŒ€ ëŒ€ê¸° ìŠ¹ê° ìˆ˜
+SETTINGS_UNBUNCHING ì°¨ëŸ‰ ë¶„ì‚°
+SETTINGS_UNBUNCHING_AGGRESSION ì°¨ëž‘ ê°¼ê²© ë¹ˆë„ ìˆ˜ :
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP ì–´ë–»ê²Œ ì°¨ëŸ‰ ê°„ê²© ê¸°ëŠ¥ì„ ìž‘ë™ì‹œí‚¤ëŠ”ì§€ ê¶ê¸ˆí•˜ì‹ ê°€ìš”?\n ì„¤ì • ë²”ìœ„ 0-52, 0ì€ ì°¨ëŸ‰ ê°„ê²© ê¸°ëŠ¥ì„ ë¹„ í™œì„±í™”í•©ë‹ˆë‹¤.\në†’ì€ ê°’ ì¼ ìˆ˜ë¡ ë” í–¥ìƒëœ êµí†µ íš¨ê³¼ê°€ ë‚˜íƒ€ë‚˜ì§€ë§Œ ì´ë¡œ ì¸í•´ ì°¨ëŸ‰ì´ ì—°ì°©ë˜ì–´ ì‚¬ë¼ì§ˆ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+SETTINGS_VEHICLE_COUNT ìƒˆ ë…¸ì„ ì˜ ì°¨ëŸ‰ ìˆ˜ :
+SETTINGS_VEHICLE_COUNT_TOOLTIP ì°¨ëŸ‰ ì˜ˆì‚°ê¸°ëŠ¥ì´ êº¼ì ¸ ìžˆì„ ê²½ìš° ìƒˆ ë…¸ì„ ì„ ë§Œë“¤ë•Œ ì§€ì •ëœ ì°¨ëŸ‰ ìˆ˜ ë§Œí¼ ì°¨ëŸ‰ì„ ì†Œí™˜í•©ë‹ˆë‹¤.
+SETTINGS_SPAWN_TIME_INTERVAL ì†Œí™˜ ê°„ê²© : 
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP ì„¤ì •ëœ ì´ˆ ë§Œí¼ ì°¨ì´ë¥¼ ë‘ë©° ì°¨ëŸ‰ì´ ì†Œí™˜ë©ë‹ˆë‹¤.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP ëª¨ë“  ìŠ¬ë¼ì´ë”ë¥¼ ê¸°ë³¸ê°’ìœ¼ë¡œ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+UNBUNCHING_ENABLED ì°¨ëŸ‰ê°„ê²© ìœ ì§€
+UNBUNCHING_DISABLED ì°¨ëŸ‰ê°„ê²© ìœ ì§€ í•´ì œ
+UNBUNCHING_TARGET_GAP ì°¨ëŸ‰ ê°„ê²© : {0}
+SETTINGS_EBS_GROUP_BUS ê¸‰í–‰ ë²„ìŠ¤ ì„œë¹„ìŠ¤
+SETTINGS_EBS_GROUP_TRAM ê¸‰í–‰ íŠ¸ëž¨ ì„œë¹„ìŠ¤
+SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE ê¸‰í–‰ ë²„ìŠ¤ ë¶„ì‚°: 
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'ë¹„í™œì„±í™”' = ë²„ìŠ¤ê°€ ìœ„ì˜ ë¶„ì‚° ì„¤ì •ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.\n'Prudential' = ìž ì‹œ ì •ì°¨, ìŠ¹ê°‘ í™•ì¸ í›„ ë¹„ì–´ìžˆìœ¼ë©´ ì¶œë°œí•©ë‹ˆë‹¤.\n'Aggressive' = ëŒ€ê¸° ìŠ¹ê°‘ì´ ì—†ìœ¼ë©´ ì •ê±°ìž¥ì„ ê±´ë„ˆë”³ë‹ˆë‹¤.
+SETTINGS_EBS_ENABLE_SELFBAL ì„œë¹„ìŠ¤ ìžë™ ê· í˜• í™œì„±í™”
+SETTINGS_EBS_DESC_SELFBAL ê¸‰í–‰ ë²„ìŠ¤ ì„œë¹„ìŠ¤ê°€ ë…¸ì„  ì „ì²´ì—ì„œ ì°¨ëŸ‰ì„ ìž¬ë°°ë¶„í•˜ì—¬ í˜¼ìž¡ êµ¬ê°„ì„ ìš°ì„ í•˜ê³  ëŒ€ê¸° ì‹œê°„ì„ ì¤„ì¼ ìˆ˜ ìžˆê²Œ í•©ë‹ˆë‹¤.
+SETTINGS_EBS_TOOLTIP_SELFBAL ì„  êµ¬ê°„ì„ ë¶„ì„í•˜ê³  ë” ë°”ìœ êµ¬ê°„ì´ë‚˜ ì¢…ì ì—­ìœ¼ë¡œ ì°¨ëŸ‰ì„ ìž¬ë°°ì¹˜í•˜ì—¬ ì„œë¹„ìŠ¤ë¥¼ ê· ë“±í•˜ê²Œ í•˜ê³  ëŒ€ê¸° ì‹œê°„ì„ ë‹¨ì¶•í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.\nê²°ì •ì€ í™•ë¥ ì ì´ë©° ìŠ¹ê° ìˆ˜ ë° ìž¬ë°°ì¹˜ í™•ë¥ ì— ë”°ë¼ ë‹¤ë¦…ë‹ˆë‹¤.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID ìžë™ ê· í˜• ì¤‘ê°„ ì •ê±°ìž¥ í™œì„±í™”
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID ì°¨ëŸ‰ì„ ìž¬ë°°ì¹˜í•  ë•Œ ì¢…ì ë¿ë§Œ ì•„ë‹ˆë¼ ë…¸ì„  ì¤‘ê°„ì˜ í˜¼ìž¡í•œ ì •ë¥˜ìž¥ë„ ì„ íƒí•  ìˆ˜ ìžˆê²Œ í•©ë‹ˆë‹¤.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID ìžë™ ê· í˜•ì´ ì°¨ëŸ‰ì„ ì¤‘ê°„ ì •ê±°ìž¥(ì¢…ì ì—­ ëŒ€ì‹ )ìœ¼ë¡œ ìž¬ë°°ì¹˜í•˜ë„ë¡ í—ˆìš©í•©ë‹ˆë‹¤.\nê°€ìž¥ ë°”ìœ ì •ê±°ìž¥ì— 30ëª… ì´ìƒì˜ ëŒ€ê¸° ìŠ¹ê°ì´ ìžˆì„ ë•Œë§Œ ê³ ë ¤ë˜ë©°, ì•½ 50% í™•ë¥ ë¡œ ì„ íƒë˜ê³  ì „ì²´ ìž¬ë°°ì¹˜ í™•ë¥ ì˜ ì˜í–¥ì„ ë°›ìŠµë‹ˆë‹¤.
+SETTINGS_EBS_ENABLE_MINIBUS ë¯¸ë‹ˆë²„ìŠ¤ ëª¨ë“œ í™œì„±í™”
+SETTINGS_EBS_DESC_MINIBUS ìŠ¹í•˜ì°¨ ìŠ¹ê°ì´ ì ì„ ë•Œ ì†Œí˜• ë²„ìŠ¤ê°€ ë” ì¼ì° ì¶œë°œí•˜ë„ë¡ í•©ë‹ˆë‹¤.
+SETTINGS_EBS_TOOLTIP_MINIBUS ìš©ëŸ‰ â‰¤20ì˜ ë²„ìŠ¤ëŠ” ê·¸ ì •ê±°ìž¥ì—ì„œ íƒ‘ìŠ¹ + í•˜ì°¨ ìŠ¹ê°ì´ â‰¤5ì¼ ë•Œ ì •ê±°ìž¥ì—ì„œ ë” ì¼ì° ì¶œë°œí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE ê¸‰í–‰ íŠ¸ëž¨ ë¶„ì‚°: 
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'ë¹„í™œì„±í™”' = íŠ¸ëž¨ì´ ìœ„ì˜ ë¶„ì‚° ì„¤ì •ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.\n'ê²½ì „ì² ' = ëª¨ë“  ì •ê±°ìž¥ì— ì •ì°¨, í•­ìƒ ì „ì²´ íƒ€ì´ë¨¸ë¥¼ ê¸°ë‹¤ë¦½ë‹ˆë‹¤.\n'ì‹¤ì œ íŠ¸ëž¨' = ìŠ¹í•˜ì°¨ê°€ ìžˆì„ ë•Œë§Œ ì •ì°¨í•©ë‹ˆë‹¤.
+SETTINGS_EBS_MODE_NONE ë¹„í™œì„±í™”
+SETTINGS_EBS_MODE_AGGRESSIVE ê³µê²©ì 
+SETTINGS_EBS_MODE_PRUDENTIAL ì‹ ì¤‘
+SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL ê²½ì „ì²  ëª¨ë“œ
+SETTINGS_EBS_TRAM_MODE_NONE ë¹„í™œì„±í™”
+SETTINGS_EBS_TRAM_MODE_TRAM ì‹¤ì œ íŠ¸ëž¨ ëª¨ë“œ
+SETTINGS_PTU_GROUP ëŒ€ì¤‘êµí†µ ë³µêµ¬ ë„êµ¬
+SETTINGS_PTU_ENABLE ê°‡ížŒ ìŠ¹ê°ì„ ìžë™ìœ¼ë¡œ ì œê±°
+SETTINGS_PTU_TOOLTIP íƒ‘ìŠ¹ ì¤‘ì— ê°‡ížŒ ìŠ¹ê°ì„ ìžë™ìœ¼ë¡œ ë‚´ë³´ë‚´ ì°¨ëŸ‰ì´ ì •ìƒì ìœ¼ë¡œ ì¶œë°œí•˜ë„ë¡ í•˜ê³  ì¶œë°œ ì •ì§€ í˜„ìƒì„ ë°©ì§€í•©ë‹ˆë‹¤.
+SETTINGS_LINE_DELETION_TOOL ë…¸ì„  ì‚­ì œ ë„êµ¬
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION ì•„ëž˜ì—ì„œ êµí†µ ìœ í˜•ì„ ì„ íƒí•œ í›„ ì‚­ì œë¥¼ ëˆ„ë¥´ë©´ í˜„ìž¬ ë„ì‹œì—ì„œ í•´ë‹¹ ìœ í˜•ì˜ ëª¨ë“  ë…¸ì„ ì´ ì œê±°ë©ë‹ˆë‹¤. ì´ ì„ íƒì€ ìž„ì‹œì´ë©°, í•­ìƒ ì„ íƒë˜ì§€ ì•Šì€ ìƒíƒœë¡œ ì‹œìž‘í•˜ê³  ì‚­ì œ í›„ ì´ˆê¸°í™”ë©ë‹ˆë‹¤. ì„¤ì •ìœ¼ë¡œ ì €ìž¥ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP ì„ íƒëœ ì¢…ë¥˜ì˜ ë…¸ì„ ì„ ì¼ê´„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE ë…¸ì„  ì‚­ì œ ê²½ê³ 
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG ëª¨ë“  ë…¸ì„  ì‚­ì œë¥¼ ìš”ì²­í•˜ì…¨ìŠµë‹ˆë‹¤.\nì •ë§ë¡œ ì‹¤í–‰í•©ë‹ˆê¹Œ?
+SETTINGS_DELETE_BUS_TOOLTIP ëª¨ë“  ì¼ë°˜ ë²„ìŠ¤ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL ê´€ê´‘ ë²„ìŠ¤
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP ëª¨ë“  ê´€ê´‘ ë²„ìŠ¤ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_TRAM_TOOLTIP ëª¨ë“  íŠ¸ëž¨ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP ëª¨ë“  íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_TRAIN_TOOLTIP ëª¨ë“  ê¸°ì°¨ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_METRO_TOOLTIP ëª¨ë“  ì§€í•˜ì²  ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_MONORAIL_TOOLTIP ëª¨ë“  ëª¨ë…¸ë ˆì¼ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_FERRY_LABEL íŽ˜ë¦¬
+SETTINGS_DELETE_SHIP_TOOLTIP ëª¨ë“  íŽ˜ë¦¬ ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_HELICOPTER_LABEL í—¬ë¦¬ì½¥í„°
+SETTINGS_DELETE_HELICOPTER_TOOLTIP ëª¨ë“  í—¬ë¦¬ì½¥í„° ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+SETTINGS_DELETE_BLIMP_LABEL ë¹„í–‰ì„ 
+SETTINGS_DELETE_BLIMP_TOOLTIP ëª¨ë“  ë¹„í–‰ì„  ë…¸ì„ ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+VEHICLE_EDITOR_TITLE ì°¨ëŸ‰ ì—ë””í„°
+VEHICLE_EDITOR_SUB_TITLE {0} ì°¨ëŸ‰ ì„¤ì •
+VEHICLE_EDITOR_CAPACITY ì´ íƒ‘ìŠ¹ê° ìˆ˜
+VEHICLE_EDITOR_CAPACITY_TAXI ì´ ì—¬í–‰ìž ìˆ˜
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP ìž‘ì—… êµëŒ€ë§ˆë‹¤ ìˆ˜ì†¡í•  ì—¬í–‰ìž ìˆ˜ìž…ë‹ˆë‹¤.
+VEHICLE_EDITOR_MAINTENANCE ì°¨ëŸ‰ ìœ ì§€ ë¹„ìš©
+VEHICLE_EDITOR_MAX_SPEED ìµœëŒ€ ì†ë„
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS ìš´ì „ì„ì„ ë§¨ ë’·ì°¨ëŸ‰ì— ì¶”ê°€ë¡œ ìƒì„±
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP ì´ ê¸°ëŠ¥ì„ í†µí•´ ê¸°ì°¨ ë§¨ ë’· ì°¨ëŸ‰ì— ìš´ì „ì„ì„ ìƒì„± í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+VEHICLE_EDITOR_APPLY ì ìš©
+VEHICLE_EDITOR_DEFAULT ê¸°ë³¸ê°’
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 ì˜¤ë¥¸ì¡± í´ë¦­ìœ¼ë¡œ ì°¨ëŸ‰ì„ ë”°ë¼ ê°ˆ ìˆ˜ ìžˆìŠµë‹ˆë‹¤\nì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ ë©ë‹ˆë‹¤.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 ì‰¬í”„íŠ¸ í´ë¦­ìœ¼ë¡œ í•´ë‹¹ ì°¨ëŸ‰ì„ ì¶”ê°€í•©ë‹ˆë‹¤
+VEHICLE_PANEL_EDIT_TYPE ì°¨ëŸ‰ ì—ë””í„° ì‹¤í–‰
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP ì°¨ëŸ‰ ì—ë””í„°ë¥¼ í†µí•´ ì´ ì°¨ì¢…ì„ ì„¤ì • í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+VEHICLE_PANEL_STATUS_NEXT_STOP ë‹¤ìŒ ì •ê±°ìž¥ :
+VEHICLE_PANEL_STATUS_UNBUNCHING ì°¨ëŸ‰ ê°„ê²© ìœ ì§€ìƒíƒœ
+VEHICLE_PANEL_LAST_STOP_EXCHANGE ìµœê·¼ ì •ê±°ìž¥ ìŠ¹ê° ìŠ¹í•˜ì°¨ëŸ‰ : <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_PANEL_PASSENGERS ìŠ¹ê° ìˆ˜ :
+VEHICLE_PANEL_EARNINGS ìˆ˜ìž… :
+VEHICLE_PANEL_EARNINGS_TOOLTIP ìš”ê¸ˆ ìˆ˜ìž…ê³¼ ì°¨ëŸ‰ ìœ ì§€ë¹„ë¥¼ ëº€ í•©ê³„ìž…ë‹ˆë‹¤.
+VEHICLE_PANEL_PREVIOUS ì´ì „ ì°¨ëŸ‰
+VEHICLE_PANEL_PREVIOUS_TOOLTIP ì´ì „ ì°¨ëŸ‰ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.\nì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ ë©ë‹ˆë‹¤.
+VEHICLE_PANEL_REMOVE_VEHICLE ì°¨ëŸ‰ ì œê±°
+VEHICLE_PANEL_NEXT ë‹¤ìŒ ì°¨ëŸ‰
+VEHICLE_PANEL_NEXT_TOOLTIP ë‹¤ìŒ ì°¨ëŸ‰ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.\nì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„ í´ë¦­í•˜ë©´ í™•ëŒ€ ë©ë‹ˆë‹¤.
+VEHICLE_SELECTION_CAPACITY íƒ‘ìŠ¹ ì¸ì›
+VEHICLE_SELECTION_ADD_VEHICLE ì´ ì°¨ëŸ‰ì„ í—ˆìš©ëœ ì°¨ëŸ‰ ëª©ë¡ì— ì¶”ê°€í•˜ê¸°
+VEHICLE_SELECTION_ADD_ALL ëª¨ë“  ì í•© ì°¨ëŸ‰ì„ í—ˆìš©ëœ ì°¨ëŸ‰ ëª©ë¡ì— ì¶”ê°€í•˜ê¸°
+VEHICLE_SELECTION_REMOVE_VEHICLE ì´ ì°¨ëŸ‰ì„ í—ˆìš©ëœ ì°¨ëŸ‰ ëª©ë¡ì—ì„œ ì‚­ì œí•˜ê¸°
+VEHICLE_SELECTION_REMOVE_ALL ëª¨ë“  ì°¨ëŸ‰ì„ í—ˆìš©ëœ ì°¨ëŸ‰ ëª©ë¡ì—ì„œ ì‚­ì œí•˜ê¸°
+VEHICLE_SELECTION_AVAILABLE_VEHICLES ì´ìš©ê°€ëŠ¥í•œ ì°¨ëŸ‰
+VEHICLE_SELECTION_SELECTED_VEHICLES ì„ íƒëœ ì°¨ëŸ‰
+VEHICLE_SELECTION_ANY_VEHICLE ì•„ë¬´ ì°¨ëŸ‰ì´ë‚˜
 VEHICLE_BUTTON_TOOLTIP {0}
-TRANSPORT_LINE_VEHICLECOUNT 차량 수: {0}
-FLIGHT_TRACKER_NAME 비행 추적기
-FLIGHT_STATUS_NONE 없음
-FLIGHT_STATUS_INCOMING 도착 중
-FLIGHT_STATUS_LANDED 착륙
-FLIGHT_STATUS_AT_GATE 게이트에서
-FLIGHT_STATUS_DEPARTED 출발
-TICKET_PRICE_TAXI_KILOMETER 택시 km당 가격: 
-TICKET_PRICE_TAXI_MILE 택시 마일당 가격: 
-TICKET_PRICE_BUS 버스 요금: 
-TICKET_PRICE_INTERCITY_BUS 광역버스 요금: 
-TICKET_PRICE_METRO 지하철 요금: 
-TICKET_PRICE_TRAIN 기차 요금: 
-TICKET_PRICE_TRAM 트램 요금: 
-TICKET_PRICE_MONORAIL 모노레일 요금: 
-TICKET_PRICE_SHIP 선박 요금: 
-TICKET_PRICE_FERRY 페리 요금: 
-TICKET_PRICE_PLANE 비행기 요금: 
-TICKET_PRICE_CABLECAR 케이블카 요금: 
-TICKET_PRICE_SIGHTSEEING_BUS 관광 버스 요금: 
-TICKET_PRICE_TROLLEYBUS 트롤리버스 요금: 
-TICKET_PRICE_BLIMP 비행선 요금: 
-TICKET_PRICE_HELICOPTER 헬리콥터 요금: 
-ECONOMY_TAB_TICKET_PRICES 요금
-ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT 이 교통 유형의 현재 승객의 총 수입니다.
-WHATSNEW_3_0_0_1 Race Day 업데이트; More Vehicles Renewed와 호환됩니다.
-WHATSNEW_3_0_0_2 다음 모드가 IPT3에 통합되었습니다:\n • Advanced Stop Selection Revisited\n • Auto Line Color Redux\n • Better Bus Stop Position\n • Better Train Boarding\n • Elevated Stops Enabler Revisited  \n • Express Bus Services\n • Flight Tracker\n • Intercity Bus Control\n • Mileage Taxi Services\n • Realistic Walking Speed\n • Stops and Stations\n • Ticket Price Customizer
-WHATSNEW_3_0_1 Public Transport Unstucker가 이제 IPT3에 통합되었습니다.\n다른 통합된 모드는 버전 3.0을 참조하세요. 충돌을 피하려면 원본 모드의 구독을 취소하세요.
-SETTINGS_TAB_TRAINDISPLAY 열차 디스플레이
-SETTINGS_TAB_INTEGRATIONS 통합 기능
-SETTINGS_TRAINDISPLAY_GROUP 열차 디스플레이 오버레이
-SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION 지원되는 교통 차량을 따라갈 때 표시되는 통합 오버레이를 설정합니다.
-SETTINGS_TRAINDISPLAY_ENABLE 열차 디스플레이 활성화
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP 통합 열차 디스플레이 오버레이를 켜거나 끕니다.
-SETTINGS_TRAINDISPLAY_MODE_DISABLED 비활성화
-SETTINGS_TRAINDISPLAY_MODE_ENABLED 활성화
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION 오버레이 위치:
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP 오버레이가 화면에 표시될 위치를 선택합니다.
-SETTINGS_TRAINDISPLAY_POS_TOPLEFT 왼쪽 위
-SETTINGS_TRAINDISPLAY_POS_TOPRIGHT 오른쪽 위
-SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT 왼쪽 아래
-SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT 오른쪽 아래
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE 오버레이 크기:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP 오버레이의 크기를 조절합니다.
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY 오버레이 불투명도:
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP 오버레이의 투명도를 조절합니다.
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL 업데이트 간격:
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP 차량을 따라가는 동안 오버레이가 새로 고쳐지는 빈도입니다.
-SETTINGS_TRAINDISPLAY_SHOW_LINE 노선명 표시
-SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP 오버레이에 노선 이름을 포함합니다.
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION 목적지 표시
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP 오버레이에 목적지를 포함합니다.
-SETTINGS_TRAINDISPLAY_SHOW_STATE 상태 표시
-SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP 오버레이에 차량 상태를 포함합니다.
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING 따라갈 때만
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP 카메라가 실제로 지원 차량을 따라가지 않으면 오버레이를 숨깁니다.
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 1인칭 카메라에서만
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP 1인칭 카메라 모드(예: First Person Camera - Continued) 사용 중에만 오버레이를 표시합니다. 끄면 카메라 모드와 관계없이 지원 차량을 따라갈 때 항상 표시됩니다.
-SETTINGS_TRAINDISPLAY_THEME 색상 테마:
-SETTINGS_TRAINDISPLAY_THEME_TOOLTIP 오버레이의 배경/텍스트 색상을 선택합니다.
-SETTINGS_TRAINDISPLAY_THEME_SIMPLE 단순
-SETTINGS_TRAINDISPLAY_THEME_DARK 어둡게
-SETTINGS_TRAINDISPLAY_THEME_LIGHT 밝게
-SETTINGS_TRAINDISPLAY_THEME_ORIGINAL 오리지널
-SETTINGS_TRAINDISPLAY_THEME_BLUE 파랑
-SETTINGS_TRAINDISPLAY_THEME_GREEN 초록
-SETTINGS_TRAINDISPLAY_THEME_AMBER 호박색
-COPY_TIP 이 노선의 설정을 복사합니다.
-PASTE_TIP 복사한 노선 설정을 붙여넣습니다.
-COPY_BUILDING_TIP 이 설정을 이 건물을 경유하는 모든 노선에 복사합니다.
-COPY_DISTRICT_TIP 이 설정을 이 구역의 모든 노선에 복사합니다.
-SETTINGS_INTEGRATIONS_GROUP 통합 애드온
-SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control 활성화
-SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP 통합된 Intercity Bus Control 호환 계층과 역 패치를 활성화합니다.
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE 고급 정류장 선택 사용
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP 다선 역의 대체 승강장/선로에 정류장을 배치할 수 있습니다(배치 시 대체 모드 키를 누른 채). 다음 레벨 로드 시 적용됩니다.
-SETTINGS_BETTERBOARDING_ENABLE 향상된 승차 사용
-SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP 승객이 실제로 목적지로 가는 차량을 선호하도록 승차 결정을 개선합니다. 다음 레벨 로드 시 적용됩니다.
-SETTINGS_MILEAGETAXI_ENABLE 주행 거리 기반 택시 요금 사용
-SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP 정액이 아닌 주행 거리로 택시 요금을 부과해 장거리일수록 수익이 늘어납니다. After Dark DLC 필요. 다음 레벨 로드 시 적용됩니다.
-SETTINGS_ELEVATEDSTOPS_ENABLE 고가 정류장 사용
-SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP 고가 도로/교량에 대중교통 정류장을 두고 해당 구간의 가로등을 유지합니다. 다음 레벨 로드 시 적용됩니다.
-SETTINGS_INTERCITY_BUS_CAPACITY 시외 터미널 수용 대수
-SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP 시외버스 터미널이 한 번에 수용할 수 있는 차량 수입니다.
-SETTINGS_TRAM_DEPOT_CAPACITY 트램 차고 수용 대수
-SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 트램 차고가 사실상 무제한인 100,000대로 설정됩니다. 현실적과 중간은 대신 적당한 고정 상한을 적용합니다. 비활성화는 기존 동작을 유지합니다.
-SETTINGS_TAXI_DEPOT_CAPACITY 택시 차고 수용 대수
-SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 택시 차고가 사실상 무제한인 100,000대로 설정됩니다. 현실적과 중간은 대신 적당한 고정 상한을 적용합니다. 비활성화는 기존 동작을 유지합니다.
-SETTINGS_BUS_DEPOT_CAPACITY 버스 차고지 수용 대수
-SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 버스 차고지(일반, 바이오연료, 관광버스)의 수용 대수가 사실상 무제한인 10만 대로 설정되어 있습니다. '현실적' 및 '중간'은 대신 적당한 고정 상한을 적용하며, '비활성화'는 기존 동작을 유지합니다.
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY 트롤리버스 차고지 수용 대수
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 트롤리버스 차고지의 수용 대수가 사실상 무제한인 10만 대로 설정되어 있습니다. '현실적' 및 '중간'은 대신 적당한 고정 상한을 적용하며, '비활성화'는 기존 동작을 유지합니다.
-SETTINGS_FERRY_DEPOT_CAPACITY 페리 차고지 수용 대수
-SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP 바닐라에서는 모든 페리 차고지의 수용 대수가 사실상 무제한인 10만 대로 설정되어 있습니다. '현실적' 및 '중간'은 대신 적당한 고정 상한을 적용하며, '비활성화'는 기존 동작을 유지합니다.
-SETTINGS_DEPOT_CAPACITY_DISABLED 사용 안 함(무제한)
-SETTINGS_DEPOT_CAPACITY_INTERMEDIATE 중간
-SETTINGS_DEPOT_CAPACITY_REALISTIC 현실적
-SETTINGS_FLIGHTTRACKER_ENABLE Flight Tracker 활성화
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP 통합된 Flight Tracker 패치와 UI 지원을 활성화합니다.
-SETTINGS_SUBBUILDINGSTABS_ENABLE 하위 건물 탭 사용
-SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP 건물에 하위 건물이 있을 때(예: 지하철역이 내장된 공항) 정보 패널에 탭 모음을 표시하여 전환할 수 있게 합니다.
-SETTINGS_TAXISTANDFIX_ENABLE 택시 승강장 수정 사용
-SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP 유휴 택시를 무작위로 배회하게 두지 않고 가장 가까운 택시 승강장으로 보냅니다. After Dark DLC가 필요합니다.
-SETTINGS_SHAREDSTOPENABLER_ENABLE 공유 정류장 사용
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP 버스, 트램, 트롤리버스 등 둘 이상의 대중교통 유형이 같은 도로 구간에서 정차할 수 있게 합니다. 기본적으로 꺼져 있음 - 이 축소판에서 제외된 내용은 모드의 GitHub를 참고하세요.
-SETTINGS_COMMUTERDESTINATION_ENABLE 통근 목적지 사용 (재설계 대기)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP 정류장에서 대기 중인 승객이 어디로 가는지 보여줍니다 — 작은 패널과 지도 오버레이입니다. 읽기 전용이며 Harmony 외에 다른 종속성은 없습니다.
-SETTINGS_OOC_ENABLE 외부 연결 최적화
-SETTINGS_OOC_ENABLE_TOOLTIP 화물 열차, 비행기, 선박이 외부 연결에서 출발하기 전에 더 가득 찰 때까지 더 오래 기다립니다.
-SETTINGS_OOC_WAIT_MULTIPLIER 대기 배율
-SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP 바닐라보다 더 가득 찰 때까지 얼마나 더 기다릴지 설정합니다. 값이 높을수록 운행 횟수는 줄지만 더 가득 찹니다.
-SETTINGS_OOC_PASSENGER_SCOPE 승객 대기 적용 범위
-SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP 위의 대기 배율이 대중교통을 기다리는 시민에게 어디에 적용되는지 설정합니다. 외부 연결만은 외부 연결에서 기다리는 시민에게만 영향을 줍니다. 도시 전체는 모든 시민의 일반적인 국내 대기도 느리게 만듭니다(원본 모드의 실제 동작과 일치).
-SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE 외부 연결만
-SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE 도시 전체
-SETTINGS_OOC_PASSENGER_SCOPE_DISABLED 비활성화(바닐라)
-SETTINGS_OOC_DISABLE_DUMMY 장식용 통과 교통 비활성화
-SETTINGS_OOC_DISABLE_DUMMY_ROAD 장식용 도로 교통 비활성화
-SETTINGS_OOC_DISABLE_DUMMY_TRAIN 장식용 철도 교통 비활성화
-SETTINGS_OOC_DISABLE_DUMMY_PLANE 장식용 항공 교통 비활성화
-SETTINGS_OOC_DISABLE_DUMMY_SHIP 장식용 선박 교통 비활성화
-SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP 외부 연결은 일반적으로 실제로 도시에 출입하지 않는 장식용 추가 교통을 생성하며, 이는 순전히 시각적 분위기를 위한 것입니다. 비활성화하면 실제 수출입/승객 흐름에는 영향을 주지 않고 해당 교통만 제거됩니다.
-SETTINGS_UOC_ENABLE 외부 연결 무제한
-SETTINGS_UOC_ENABLE_TOOLTIP 도로, 철도, 항로, 항공로의 기본 4개 연결 제한을 제거하고, 기존 정류장 근처에 새 연결이 건설되면 소급하여 교통 노선을 연결합니다. 다음 레벨 로드 시 적용됩니다.
-SETTINGS_STTAI_ENABLE 단선 구간 열차 충돌 방지
-SETTINGS_STTAI_ENABLE_TOOLTIP 단선 구간을 한 번에 한 열차에만 예약하고, 구간이 비워질 때까지 반대 방향 열차를 입구에서 대기시킵니다. IPT4의 독자적인 기능으로, 바닐라나 흡수한 다른 모드에는 없습니다.
-SETTINGS_STOPSTACKER_ENABLE 버스 정류장 다중 승하차 구역
-SETTINGS_STOPSTACKER_ENABLE_TOOLTIP 같은 정류장으로 오는 두 번째/세 번째 버스가 선두 버스 뒤에 한 줄로 대기하는 대신 정류장 차선 뒤쪽에 자신만의 승하차 구역을 사용하도록 하여, 여러 대의 버스가 동시에 승객을 태우고 내릴 수 있게 합니다. IPT4의 독자적인 기능(원본 코드 없이 단순화하여 재구현)으로, 바닐라나 흡수한 다른 모드에는 없습니다.
+TRANSPORT_LINE_VEHICLECOUNT ì°¨ëŸ‰ ìˆ˜: {0}
+FLIGHT_TRACKER_NAME ë¹„í–‰ ì¶”ì ê¸°
+FLIGHT_STATUS_NONE ì—†ìŒ
+FLIGHT_STATUS_INCOMING ë„ì°© ì¤‘
+FLIGHT_STATUS_LANDED ì°©ë¥™
+FLIGHT_STATUS_AT_GATE ê²Œì´íŠ¸ì—ì„œ
+FLIGHT_STATUS_DEPARTED ì¶œë°œ
+TICKET_PRICE_TAXI_KILOMETER íƒì‹œ kmë‹¹ ê°€ê²©: 
+TICKET_PRICE_TAXI_MILE íƒì‹œ ë§ˆì¼ë‹¹ ê°€ê²©: 
+TICKET_PRICE_BUS ë²„ìŠ¤ ìš”ê¸ˆ: 
+TICKET_PRICE_INTERCITY_BUS ê´‘ì—­ë²„ìŠ¤ ìš”ê¸ˆ: 
+TICKET_PRICE_METRO ì§€í•˜ì²  ìš”ê¸ˆ: 
+TICKET_PRICE_TRAIN ê¸°ì°¨ ìš”ê¸ˆ: 
+TICKET_PRICE_TRAM íŠ¸ëž¨ ìš”ê¸ˆ: 
+TICKET_PRICE_MONORAIL ëª¨ë…¸ë ˆì¼ ìš”ê¸ˆ: 
+TICKET_PRICE_SHIP ì„ ë°• ìš”ê¸ˆ: 
+TICKET_PRICE_FERRY íŽ˜ë¦¬ ìš”ê¸ˆ: 
+TICKET_PRICE_PLANE ë¹„í–‰ê¸° ìš”ê¸ˆ: 
+TICKET_PRICE_CABLECAR ì¼€ì´ë¸”ì¹´ ìš”ê¸ˆ: 
+TICKET_PRICE_SIGHTSEEING_BUS ê´€ê´‘ ë²„ìŠ¤ ìš”ê¸ˆ: 
+TICKET_PRICE_TROLLEYBUS íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ ìš”ê¸ˆ: 
+TICKET_PRICE_BLIMP ë¹„í–‰ì„  ìš”ê¸ˆ: 
+TICKET_PRICE_HELICOPTER í—¬ë¦¬ì½¥í„° ìš”ê¸ˆ: 
+ECONOMY_TAB_TICKET_PRICES ìš”ê¸ˆ
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT ì´ êµí†µ ìœ í˜•ì˜ í˜„ìž¬ ìŠ¹ê°ì˜ ì´ ìˆ˜ìž…ë‹ˆë‹¤.
+WHATSNEW_3_0_0_1 Race Day ì—…ë°ì´íŠ¸; More Vehicles Renewedì™€ í˜¸í™˜ë©ë‹ˆë‹¤.
+WHATSNEW_3_0_0_2 ë‹¤ìŒ ëª¨ë“œê°€ IPT3ì— í†µí•©ë˜ì—ˆìŠµë‹ˆë‹¤:\n â€¢ Advanced Stop Selection Revisited\n â€¢ Auto Line Color Redux\n â€¢ Better Bus Stop Position\n â€¢ Better Train Boarding\n â€¢ Elevated Stops Enabler Revisited  \n â€¢ Express Bus Services\n â€¢ Flight Tracker\n â€¢ Intercity Bus Control\n â€¢ Mileage Taxi Services\n â€¢ Realistic Walking Speed\n â€¢ Stops and Stations\n â€¢ Ticket Price Customizer
+WHATSNEW_3_0_1 Public Transport Unstuckerê°€ ì´ì œ IPT3ì— í†µí•©ë˜ì—ˆìŠµë‹ˆë‹¤.\në‹¤ë¥¸ í†µí•©ëœ ëª¨ë“œëŠ” ë²„ì „ 3.0ì„ ì°¸ì¡°í•˜ì„¸ìš”. ì¶©ëŒì„ í”¼í•˜ë ¤ë©´ ì›ë³¸ ëª¨ë“œì˜ êµ¬ë…ì„ ì·¨ì†Œí•˜ì„¸ìš”.
+SETTINGS_TAB_TRAINDISPLAY ì—´ì°¨ ë””ìŠ¤í”Œë ˆì´
+SETTINGS_TAB_INTEGRATIONS í†µí•© ê¸°ëŠ¥
+SETTINGS_TRAINDISPLAY_GROUP ì—´ì°¨ ë””ìŠ¤í”Œë ˆì´ ì˜¤ë²„ë ˆì´
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION ì§€ì›ë˜ëŠ” êµí†µ ì°¨ëŸ‰ì„ ë”°ë¼ê°ˆ ë•Œ í‘œì‹œë˜ëŠ” í†µí•© ì˜¤ë²„ë ˆì´ë¥¼ ì„¤ì •í•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_ENABLE ì—´ì°¨ ë””ìŠ¤í”Œë ˆì´ í™œì„±í™”
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP í†µí•© ì—´ì°¨ ë””ìŠ¤í”Œë ˆì´ ì˜¤ë²„ë ˆì´ë¥¼ ì¼œê±°ë‚˜ ë•ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_MODE_DISABLED ë¹„í™œì„±í™”
+SETTINGS_TRAINDISPLAY_MODE_ENABLED í™œì„±í™”
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION ì˜¤ë²„ë ˆì´ ìœ„ì¹˜:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP ì˜¤ë²„ë ˆì´ê°€ í™”ë©´ì— í‘œì‹œë  ìœ„ì¹˜ë¥¼ ì„ íƒí•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT ì™¼ìª½ ìœ„
+SETTINGS_TRAINDISPLAY_POS_TOPRIGHT ì˜¤ë¥¸ìª½ ìœ„
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT ì™¼ìª½ ì•„ëž˜
+SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT ì˜¤ë¥¸ìª½ ì•„ëž˜
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE ì˜¤ë²„ë ˆì´ í¬ê¸°:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP ì˜¤ë²„ë ˆì´ì˜ í¬ê¸°ë¥¼ ì¡°ì ˆí•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY ì˜¤ë²„ë ˆì´ ë¶ˆíˆ¬ëª…ë„:
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP ì˜¤ë²„ë ˆì´ì˜ íˆ¬ëª…ë„ë¥¼ ì¡°ì ˆí•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL ì—…ë°ì´íŠ¸ ê°„ê²©:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP ì°¨ëŸ‰ì„ ë”°ë¼ê°€ëŠ” ë™ì•ˆ ì˜¤ë²„ë ˆì´ê°€ ìƒˆë¡œ ê³ ì³ì§€ëŠ” ë¹ˆë„ìž…ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_SHOW_LINE ë…¸ì„ ëª… í‘œì‹œ
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP ì˜¤ë²„ë ˆì´ì— ë…¸ì„  ì´ë¦„ì„ í¬í•¨í•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION ëª©ì ì§€ í‘œì‹œ
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP ì˜¤ë²„ë ˆì´ì— ëª©ì ì§€ë¥¼ í¬í•¨í•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_SHOW_STATE ìƒíƒœ í‘œì‹œ
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP ì˜¤ë²„ë ˆì´ì— ì°¨ëŸ‰ ìƒíƒœë¥¼ í¬í•¨í•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING ë”°ë¼ê°ˆ ë•Œë§Œ
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP ì¹´ë©”ë¼ê°€ ì‹¤ì œë¡œ ì§€ì› ì°¨ëŸ‰ì„ ë”°ë¼ê°€ì§€ ì•Šìœ¼ë©´ ì˜¤ë²„ë ˆì´ë¥¼ ìˆ¨ê¹ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY 1ì¸ì¹­ ì¹´ë©”ë¼ì—ì„œë§Œ
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP 1ì¸ì¹­ ì¹´ë©”ë¼ ëª¨ë“œ(ì˜ˆ: First Person Camera - Continued) ì‚¬ìš© ì¤‘ì—ë§Œ ì˜¤ë²„ë ˆì´ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤. ë„ë©´ ì¹´ë©”ë¼ ëª¨ë“œì™€ ê´€ê³„ì—†ì´ ì§€ì› ì°¨ëŸ‰ì„ ë”°ë¼ê°ˆ ë•Œ í•­ìƒ í‘œì‹œë©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_THEME ìƒ‰ìƒ í…Œë§ˆ:
+SETTINGS_TRAINDISPLAY_THEME_TOOLTIP ì˜¤ë²„ë ˆì´ì˜ ë°°ê²½/í…ìŠ¤íŠ¸ ìƒ‰ìƒì„ ì„ íƒí•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_THEME_SIMPLE ë‹¨ìˆœ
+SETTINGS_TRAINDISPLAY_THEME_DARK ì–´ë‘¡ê²Œ
+SETTINGS_TRAINDISPLAY_THEME_LIGHT ë°ê²Œ
+SETTINGS_TRAINDISPLAY_THEME_ORIGINAL ì˜¤ë¦¬ì§€ë„
+SETTINGS_TRAINDISPLAY_THEME_BLUE íŒŒëž‘
+SETTINGS_TRAINDISPLAY_THEME_GREEN ì´ˆë¡
+SETTINGS_TRAINDISPLAY_THEME_AMBER í˜¸ë°•ìƒ‰
+COPY_TIP ì´ ë…¸ì„ ì˜ ì„¤ì •ì„ ë³µì‚¬í•©ë‹ˆë‹¤.
+PASTE_TIP ë³µì‚¬í•œ ë…¸ì„  ì„¤ì •ì„ ë¶™ì—¬ë„£ìŠµë‹ˆë‹¤.
+COPY_BUILDING_TIP ì´ ì„¤ì •ì„ ì´ ê±´ë¬¼ì„ ê²½ìœ í•˜ëŠ” ëª¨ë“  ë…¸ì„ ì— ë³µì‚¬í•©ë‹ˆë‹¤.
+COPY_DISTRICT_TIP ì´ ì„¤ì •ì„ ì´ êµ¬ì—­ì˜ ëª¨ë“  ë…¸ì„ ì— ë³µì‚¬í•©ë‹ˆë‹¤.
+SETTINGS_INTEGRATIONS_GROUP í†µí•© ì• ë“œì˜¨
+SETTINGS_INTERCITY_BUS_ENABLE Intercity Bus Control í™œì„±í™”
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP í†µí•©ëœ Intercity Bus Control í˜¸í™˜ ê³„ì¸µê³¼ ì—­ íŒ¨ì¹˜ë¥¼ í™œì„±í™”í•©ë‹ˆë‹¤.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE ê³ ê¸‰ ì •ë¥˜ìž¥ ì„ íƒ ì‚¬ìš©
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP ë‹¤ì„  ì—­ì˜ ëŒ€ì²´ ìŠ¹ê°•ìž¥/ì„ ë¡œì— ì •ë¥˜ìž¥ì„ ë°°ì¹˜í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤(ë°°ì¹˜ ì‹œ ëŒ€ì²´ ëª¨ë“œ í‚¤ë¥¼ ëˆ„ë¥¸ ì±„). ë‹¤ìŒ ë ˆë²¨ ë¡œë“œ ì‹œ ì ìš©ë©ë‹ˆë‹¤.
+SETTINGS_BETTERBOARDING_ENABLE í–¥ìƒëœ ìŠ¹ì°¨ ì‚¬ìš©
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP ìŠ¹ê°ì´ ì‹¤ì œë¡œ ëª©ì ì§€ë¡œ ê°€ëŠ” ì°¨ëŸ‰ì„ ì„ í˜¸í•˜ë„ë¡ ìŠ¹ì°¨ ê²°ì •ì„ ê°œì„ í•©ë‹ˆë‹¤. ë‹¤ìŒ ë ˆë²¨ ë¡œë“œ ì‹œ ì ìš©ë©ë‹ˆë‹¤.
+SETTINGS_MILEAGETAXI_ENABLE ì£¼í–‰ ê±°ë¦¬ ê¸°ë°˜ íƒì‹œ ìš”ê¸ˆ ì‚¬ìš©
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP ì •ì•¡ì´ ì•„ë‹Œ ì£¼í–‰ ê±°ë¦¬ë¡œ íƒì‹œ ìš”ê¸ˆì„ ë¶€ê³¼í•´ ìž¥ê±°ë¦¬ì¼ìˆ˜ë¡ ìˆ˜ìµì´ ëŠ˜ì–´ë‚©ë‹ˆë‹¤. After Dark DLC í•„ìš”. ë‹¤ìŒ ë ˆë²¨ ë¡œë“œ ì‹œ ì ìš©ë©ë‹ˆë‹¤.
+SETTINGS_ELEVATEDSTOPS_ENABLE ê³ ê°€ ì •ë¥˜ìž¥ ì‚¬ìš©
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP ê³ ê°€ ë„ë¡œ/êµëŸ‰ì— ëŒ€ì¤‘êµí†µ ì •ë¥˜ìž¥ì„ ë‘ê³  í•´ë‹¹ êµ¬ê°„ì˜ ê°€ë¡œë“±ì„ ìœ ì§€í•©ë‹ˆë‹¤. ë‹¤ìŒ ë ˆë²¨ ë¡œë“œ ì‹œ ì ìš©ë©ë‹ˆë‹¤.
+SETTINGS_INTERCITY_BUS_CAPACITY ì‹œì™¸ í„°ë¯¸ë„ ìˆ˜ìš© ëŒ€ìˆ˜
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP ì‹œì™¸ë²„ìŠ¤ í„°ë¯¸ë„ì´ í•œ ë²ˆì— ìˆ˜ìš©í•  ìˆ˜ ìžˆëŠ” ì°¨ëŸ‰ ìˆ˜ìž…ë‹ˆë‹¤.
+SETTINGS_TRAM_DEPOT_CAPACITY íŠ¸ëž¨ ì°¨ê³  ìˆ˜ìš© ëŒ€ìˆ˜
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP ë°”ë‹ë¼ì—ì„œëŠ” ëª¨ë“  íŠ¸ëž¨ ì°¨ê³ ê°€ ì‚¬ì‹¤ìƒ ë¬´ì œí•œì¸ 100,000ëŒ€ë¡œ ì„¤ì •ë©ë‹ˆë‹¤. í˜„ì‹¤ì ê³¼ ì¤‘ê°„ì€ ëŒ€ì‹  ì ë‹¹í•œ ê³ ì • ìƒí•œì„ ì ìš©í•©ë‹ˆë‹¤. ë¹„í™œì„±í™”ëŠ” ê¸°ì¡´ ë™ìž‘ì„ ìœ ì§€í•©ë‹ˆë‹¤.
+SETTINGS_TAXI_DEPOT_CAPACITY íƒì‹œ ì°¨ê³  ìˆ˜ìš© ëŒ€ìˆ˜
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP ë°”ë‹ë¼ì—ì„œëŠ” ëª¨ë“  íƒì‹œ ì°¨ê³ ê°€ ì‚¬ì‹¤ìƒ ë¬´ì œí•œì¸ 100,000ëŒ€ë¡œ ì„¤ì •ë©ë‹ˆë‹¤. í˜„ì‹¤ì ê³¼ ì¤‘ê°„ì€ ëŒ€ì‹  ì ë‹¹í•œ ê³ ì • ìƒí•œì„ ì ìš©í•©ë‹ˆë‹¤. ë¹„í™œì„±í™”ëŠ” ê¸°ì¡´ ë™ìž‘ì„ ìœ ì§€í•©ë‹ˆë‹¤.
+SETTINGS_BUS_DEPOT_CAPACITY ë²„ìŠ¤ ì°¨ê³ ì§€ ìˆ˜ìš© ëŒ€ìˆ˜
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP ë°”ë‹ë¼ì—ì„œëŠ” ëª¨ë“  ë²„ìŠ¤ ì°¨ê³ ì§€(ì¼ë°˜, ë°”ì´ì˜¤ì—°ë£Œ, ê´€ê´‘ë²„ìŠ¤)ì˜ ìˆ˜ìš© ëŒ€ìˆ˜ê°€ ì‚¬ì‹¤ìƒ ë¬´ì œí•œì¸ 10ë§Œ ëŒ€ë¡œ ì„¤ì •ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. 'í˜„ì‹¤ì ' ë° 'ì¤‘ê°„'ì€ ëŒ€ì‹  ì ë‹¹í•œ ê³ ì • ìƒí•œì„ ì ìš©í•˜ë©°, 'ë¹„í™œì„±í™”'ëŠ” ê¸°ì¡´ ë™ìž‘ì„ ìœ ì§€í•©ë‹ˆë‹¤.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ ì°¨ê³ ì§€ ìˆ˜ìš© ëŒ€ìˆ˜
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP ë°”ë‹ë¼ì—ì„œëŠ” ëª¨ë“  íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ ì°¨ê³ ì§€ì˜ ìˆ˜ìš© ëŒ€ìˆ˜ê°€ ì‚¬ì‹¤ìƒ ë¬´ì œí•œì¸ 10ë§Œ ëŒ€ë¡œ ì„¤ì •ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. 'í˜„ì‹¤ì ' ë° 'ì¤‘ê°„'ì€ ëŒ€ì‹  ì ë‹¹í•œ ê³ ì • ìƒí•œì„ ì ìš©í•˜ë©°, 'ë¹„í™œì„±í™”'ëŠ” ê¸°ì¡´ ë™ìž‘ì„ ìœ ì§€í•©ë‹ˆë‹¤.
+SETTINGS_FERRY_DEPOT_CAPACITY íŽ˜ë¦¬ ì°¨ê³ ì§€ ìˆ˜ìš© ëŒ€ìˆ˜
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP ë°”ë‹ë¼ì—ì„œëŠ” ëª¨ë“  íŽ˜ë¦¬ ì°¨ê³ ì§€ì˜ ìˆ˜ìš© ëŒ€ìˆ˜ê°€ ì‚¬ì‹¤ìƒ ë¬´ì œí•œì¸ 10ë§Œ ëŒ€ë¡œ ì„¤ì •ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. 'í˜„ì‹¤ì ' ë° 'ì¤‘ê°„'ì€ ëŒ€ì‹  ì ë‹¹í•œ ê³ ì • ìƒí•œì„ ì ìš©í•˜ë©°, 'ë¹„í™œì„±í™”'ëŠ” ê¸°ì¡´ ë™ìž‘ì„ ìœ ì§€í•©ë‹ˆë‹¤.
+SETTINGS_DEPOT_CAPACITY_DISABLED ì‚¬ìš© ì•ˆ í•¨(ë¬´ì œí•œ)
+SETTINGS_DEPOT_CAPACITY_INTERMEDIATE ì¤‘ê°„
+SETTINGS_DEPOT_CAPACITY_REALISTIC í˜„ì‹¤ì 
+SETTINGS_FLIGHTTRACKER_ENABLE Flight Tracker í™œì„±í™”
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP í†µí•©ëœ Flight Tracker íŒ¨ì¹˜ì™€ UI ì§€ì›ì„ í™œì„±í™”í•©ë‹ˆë‹¤.
+SETTINGS_SUBBUILDINGSTABS_ENABLE í•˜ìœ„ ê±´ë¬¼ íƒ­ ì‚¬ìš©
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP ê±´ë¬¼ì— í•˜ìœ„ ê±´ë¬¼ì´ ìžˆì„ ë•Œ(ì˜ˆ: ì§€í•˜ì² ì—­ì´ ë‚´ìž¥ëœ ê³µí•­) ì •ë³´ íŒ¨ë„ì— íƒ­ ëª¨ìŒì„ í‘œì‹œí•˜ì—¬ ì „í™˜í•  ìˆ˜ ìžˆê²Œ í•©ë‹ˆë‹¤.
+SETTINGS_TAXISTANDFIX_ENABLE íƒì‹œ ìŠ¹ê°•ìž¥ ìˆ˜ì • ì‚¬ìš©
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP ìœ íœ´ íƒì‹œë¥¼ ë¬´ìž‘ìœ„ë¡œ ë°°íšŒí•˜ê²Œ ë‘ì§€ ì•Šê³  ê°€ìž¥ ê°€ê¹Œìš´ íƒì‹œ ìŠ¹ê°•ìž¥ìœ¼ë¡œ ë³´ëƒ…ë‹ˆë‹¤. After Dark DLCê°€ í•„ìš”í•©ë‹ˆë‹¤.
+SETTINGS_SHAREDSTOPENABLER_ENABLE ê³µìœ  ì •ë¥˜ìž¥ ì‚¬ìš©
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP ë²„ìŠ¤, íŠ¸ëž¨, íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ ë“± ë‘˜ ì´ìƒì˜ ëŒ€ì¤‘êµí†µ ìœ í˜•ì´ ê°™ì€ ë„ë¡œ êµ¬ê°„ì—ì„œ ì •ì°¨í•  ìˆ˜ ìžˆê²Œ í•©ë‹ˆë‹¤. ê¸°ë³¸ì ìœ¼ë¡œ êº¼ì ¸ ìžˆìŒ - ì´ ì¶•ì†ŒíŒì—ì„œ ì œì™¸ëœ ë‚´ìš©ì€ ëª¨ë“œì˜ GitHubë¥¼ ì°¸ê³ í•˜ì„¸ìš”.
+SETTINGS_COMMUTERDESTINATION_ENABLE í†µê·¼ ëª©ì ì§€ ì‚¬ìš© (ìž¬ì„¤ê³„ ëŒ€ê¸°)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP ì •ë¥˜ìž¥ì—ì„œ ëŒ€ê¸° ì¤‘ì¸ ìŠ¹ê°ì´ ì–´ë””ë¡œ ê°€ëŠ”ì§€ ë³´ì—¬ì¤ë‹ˆë‹¤ â€” ìž‘ì€ íŒ¨ë„ê³¼ ì§€ë„ ì˜¤ë²„ë ˆì´ìž…ë‹ˆë‹¤. ì½ê¸° ì „ìš©ì´ë©° Harmony ì™¸ì— ë‹¤ë¥¸ ì¢…ì†ì„±ì€ ì—†ìŠµë‹ˆë‹¤.
+SETTINGS_OOC_ENABLE ì™¸ë¶€ ì—°ê²° ìµœì í™”
+SETTINGS_OOC_ENABLE_TOOLTIP í™”ë¬¼ ì—´ì°¨, ë¹„í–‰ê¸°, ì„ ë°•ì´ ì™¸ë¶€ ì—°ê²°ì—ì„œ ì¶œë°œí•˜ê¸° ì „ì— ë” ê°€ë“ ì°° ë•Œê¹Œì§€ ë” ì˜¤ëž˜ ê¸°ë‹¤ë¦½ë‹ˆë‹¤.
+SETTINGS_OOC_WAIT_MULTIPLIER ëŒ€ê¸° ë°°ìœ¨
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP ë°”ë‹ë¼ë³´ë‹¤ ë” ê°€ë“ ì°° ë•Œê¹Œì§€ ì–¼ë§ˆë‚˜ ë” ê¸°ë‹¤ë¦´ì§€ ì„¤ì •í•©ë‹ˆë‹¤. ê°’ì´ ë†’ì„ìˆ˜ë¡ ìš´í–‰ íšŸìˆ˜ëŠ” ì¤„ì§€ë§Œ ë” ê°€ë“ ì°¹ë‹ˆë‹¤.
+SETTINGS_OOC_PASSENGER_SCOPE ìŠ¹ê° ëŒ€ê¸° ì ìš© ë²”ìœ„
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP ìœ„ì˜ ëŒ€ê¸° ë°°ìœ¨ì´ ëŒ€ì¤‘êµí†µì„ ê¸°ë‹¤ë¦¬ëŠ” ì‹œë¯¼ì—ê²Œ ì–´ë””ì— ì ìš©ë˜ëŠ”ì§€ ì„¤ì •í•©ë‹ˆë‹¤. ì™¸ë¶€ ì—°ê²°ë§Œì€ ì™¸ë¶€ ì—°ê²°ì—ì„œ ê¸°ë‹¤ë¦¬ëŠ” ì‹œë¯¼ì—ê²Œë§Œ ì˜í–¥ì„ ì¤ë‹ˆë‹¤. ë„ì‹œ ì „ì²´ëŠ” ëª¨ë“  ì‹œë¯¼ì˜ ì¼ë°˜ì ì¸ êµ­ë‚´ ëŒ€ê¸°ë„ ëŠë¦¬ê²Œ ë§Œë“­ë‹ˆë‹¤(ì›ë³¸ ëª¨ë“œì˜ ì‹¤ì œ ë™ìž‘ê³¼ ì¼ì¹˜).
+SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE ì™¸ë¶€ ì—°ê²°ë§Œ
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE ë„ì‹œ ì „ì²´
+SETTINGS_OOC_PASSENGER_SCOPE_DISABLED ë¹„í™œì„±í™”(ë°”ë‹ë¼)
+SETTINGS_OOC_DISABLE_DUMMY ìž¥ì‹ìš© í†µê³¼ êµí†µ ë¹„í™œì„±í™”
+SETTINGS_OOC_DISABLE_DUMMY_ROAD ìž¥ì‹ìš© ë„ë¡œ êµí†µ ë¹„í™œì„±í™”
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN ìž¥ì‹ìš© ì² ë„ êµí†µ ë¹„í™œì„±í™”
+SETTINGS_OOC_DISABLE_DUMMY_PLANE ìž¥ì‹ìš© í•­ê³µ êµí†µ ë¹„í™œì„±í™”
+SETTINGS_OOC_DISABLE_DUMMY_SHIP ìž¥ì‹ìš© ì„ ë°• êµí†µ ë¹„í™œì„±í™”
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP ì™¸ë¶€ ì—°ê²°ì€ ì¼ë°˜ì ìœ¼ë¡œ ì‹¤ì œë¡œ ë„ì‹œì— ì¶œìž…í•˜ì§€ ì•ŠëŠ” ìž¥ì‹ìš© ì¶”ê°€ êµí†µì„ ìƒì„±í•˜ë©°, ì´ëŠ” ìˆœì „ížˆ ì‹œê°ì  ë¶„ìœ„ê¸°ë¥¼ ìœ„í•œ ê²ƒìž…ë‹ˆë‹¤. ë¹„í™œì„±í™”í•˜ë©´ ì‹¤ì œ ìˆ˜ì¶œìž…/ìŠ¹ê° íë¦„ì—ëŠ” ì˜í–¥ì„ ì£¼ì§€ ì•Šê³  í•´ë‹¹ êµí†µë§Œ ì œê±°ë©ë‹ˆë‹¤.
+SETTINGS_UOC_ENABLE ì™¸ë¶€ ì—°ê²° ë¬´ì œí•œ
+SETTINGS_UOC_ENABLE_TOOLTIP ë„ë¡œ, ì² ë„, í•­ë¡œ, í•­ê³µë¡œì˜ ê¸°ë³¸ 4ê°œ ì—°ê²° ì œí•œì„ ì œê±°í•˜ê³ , ê¸°ì¡´ ì •ë¥˜ìž¥ ê·¼ì²˜ì— ìƒˆ ì—°ê²°ì´ ê±´ì„¤ë˜ë©´ ì†Œê¸‰í•˜ì—¬ êµí†µ ë…¸ì„ ì„ ì—°ê²°í•©ë‹ˆë‹¤. ë‹¤ìŒ ë ˆë²¨ ë¡œë“œ ì‹œ ì ìš©ë©ë‹ˆë‹¤.
+SETTINGS_STTAI_ENABLE ë‹¨ì„  êµ¬ê°„ ì—´ì°¨ ì¶©ëŒ ë°©ì§€
+SETTINGS_STTAI_ENABLE_TOOLTIP ë‹¨ì„  êµ¬ê°„ì„ í•œ ë²ˆì— í•œ ì—´ì°¨ì—ë§Œ ì˜ˆì•½í•˜ê³ , êµ¬ê°„ì´ ë¹„ì›Œì§ˆ ë•Œê¹Œì§€ ë°˜ëŒ€ ë°©í–¥ ì—´ì°¨ë¥¼ ìž…êµ¬ì—ì„œ ëŒ€ê¸°ì‹œí‚µë‹ˆë‹¤. IPT4ì˜ ë…ìžì ì¸ ê¸°ëŠ¥ìœ¼ë¡œ, ë°”ë‹ë¼ë‚˜ í¡ìˆ˜í•œ ë‹¤ë¥¸ ëª¨ë“œì—ëŠ” ì—†ìŠµë‹ˆë‹¤.
+SETTINGS_STOPSTACKER_ENABLE ë²„ìŠ¤ ì •ë¥˜ìž¥ ë‹¤ì¤‘ ìŠ¹í•˜ì°¨ êµ¬ì—­
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP ê°™ì€ ì •ë¥˜ìž¥ìœ¼ë¡œ ì˜¤ëŠ” ë‘ ë²ˆì§¸/ì„¸ ë²ˆì§¸ ë²„ìŠ¤ê°€ ì„ ë‘ ë²„ìŠ¤ ë’¤ì— í•œ ì¤„ë¡œ ëŒ€ê¸°í•˜ëŠ” ëŒ€ì‹  ì •ë¥˜ìž¥ ì°¨ì„  ë’¤ìª½ì— ìžì‹ ë§Œì˜ ìŠ¹í•˜ì°¨ êµ¬ì—­ì„ ì‚¬ìš©í•˜ë„ë¡ í•˜ì—¬, ì—¬ëŸ¬ ëŒ€ì˜ ë²„ìŠ¤ê°€ ë™ì‹œì— ìŠ¹ê°ì„ íƒœìš°ê³  ë‚´ë¦´ ìˆ˜ ìžˆê²Œ í•©ë‹ˆë‹¤. IPT4ì˜ ë…ìžì ì¸ ê¸°ëŠ¥(ì›ë³¸ ì½”ë“œ ì—†ì´ ë‹¨ìˆœí™”í•˜ì—¬ ìž¬êµ¬í˜„)ìœ¼ë¡œ, ë°”ë‹ë¼ë‚˜ í¡ìˆ˜í•œ ë‹¤ë¥¸ ëª¨ë“œì—ëŠ” ì—†ìŠµë‹ˆë‹¤.
 
-SETTINGS_SUPPORT_LABEL IPT4가 세이브게임을 살리거나 성능을 개선했다면, 개발 지원을 고려해보세요!
-SETTINGS_SUPPORT_BUTTON Ko-fi에서 후원하기
-SETTINGS_FEATURE_UNBUNCHING_ENABLE 언번칭 / 급행버스
-SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP 차량 언번칭, 급행버스/트램, 스폰 간격, 공격적 함대 크기 조절 활성화. 모든 버스/트램 간격 및 예산 기능.
-SETTINGS_FEATURE_BUDGET_ENABLE 예산 기능
-SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP 노선 예산 통제, 자동 노선 예산, 티켓 가격 승수, 경로 비용으로서의 요금 활성화. 모든 자금/가격/함대 기능.
-SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE 자동 노선 색상
-SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP 새로운 운송 노선에 자동으로 색상과 이름 할당. 색상 전략, 명명 전략, 패널 설정 포함.
-SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE 차량 에디터
-SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP 차량 유형, 리버리, 속성 변경을 위한 차량 에디터 패널 활성화. 하단 또는 우측에 배치 가능.
-SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE 대기 승객 한도
-SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP 단일 정류장에서 대중교통을 기다릴 수 있는 시민 수 제한. 비활성화 시 모든 대기 한도 제거 및 게임이 정류장 용량 관리.
-SETTINGS_TRAINDISPLAY_SCOPE 오버레이 표시 조건
-SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP 선택된 차량, 1인칭 카메라, 또는 둘 다 선택.
-SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE 선택된 차량만
-SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON 1인칭 카메라만
-SETTINGS_TRAINDISPLAY_SCOPE_BOTH 선택된 차량 또는 1인칭 카메라
-SETTINGS_TRAINDISPLAY_LAYOUT 패널 레이아웃
-SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP 오버레이가 사용하는 레이아웃. 둘 다 같은 정보를 표시하고 같은 체크박스를 준수 - 모양만 다름.
-CHANGELOG_4_3_3_1 일부 모드 조합에서 Newtonsoft.Json.dll을 번들링한 이후에도 설정 저장/불러오기가 계속 깨지던 문제를 수정했습니다: 이전 임시 해결책은 하나의 진입점에서만 Assembly.LoadFrom을 시도했고 여전히 로드 순서에 의존했습니다. 이제 IPT4는 전역 AssemblyResolve 훅을 등록하고, CSLModsCommon이 JsonWriter를 건드리기 전에 모든 모드/UI 진입점에서 번들된 Newtonsoft.Json을 미리 로드합니다. 그 결과 새 옵션 UI가 다른 모드의 호환되지 않는 Json.NET 사본에 무작위로 바인딩되는 대신 안정적으로 저장됩니다.
-CHANGELOG_4_3_2_1 설치된 다른 모드가 우연히 Newtonsoft.Json을 제공하지 않는 경우 모드 전체가 로드되지 않던 문제("모드의 dll 또는 그 종속성 중 하나를 로드하지 못했습니다")를 수정했습니다: CSLModsCommon의 설정 직렬화(JsonHelper/SerializationContext)에는 이것이 필요하지만, 우리 빌드는 실제로 Newtonsoft.Json.dll을 모드와 함께 배포한 적이 없었습니다 - 다른 모드의 사본에 우연히 편승했을 뿐입니다. 깨끗한 테스트를 위해 다른 모든 모드를 비활성화하면서 발견했으며, 앞으로도 이렇게 테스트해야 합니다.
-CHANGELOG_4_3_1_1 옵션 패널의 언어 선택기가 이 모드의 모든 문자열은 게임 언어에 머문 채 프레임워크 자체 문자열(버전/변경 내역/...)만 다시 번역하던 문제를 수정했습니다 - 번역 로더가 게임 언어를 기준으로 삼아 모드 자체의 선택을 완전히 무시했습니다. 이제 모드의 언어 선택기를 따르며, 게임 언어로, 그다음 영어로 대체되고, 선택기가 바뀔 때마다 다시 해석됩니다.
-CHANGELOG_4_3_1_2 영어와 포르투갈어에만 존재하던 38개의 번역 키를 채웠습니다 - 다른 모든 언어(아랍어, 벵골어, 독일어, 스페인어, 프랑스어, 힌디어, 인도네시아어, 이탈리아어, 일본어, 한국어, 폴란드어, 러시아어, 우르두어, 그리고 모든 중국어 변형)는 Train Display 섹션 전체, 노선 삭제 설명, 세 가지 급행버스 설명에 대해 조용히 영어로 대체되고 있었습니다.
-CHANGELOG_4_3_1_3 모든 언어 파일(영어 포함)에서 누락되어 있던 복사/붙여넣기 툴팁 키 4개를 추가했습니다. 그렇지 않았다면 해당 버튼이 다시 활성화될 때 원시 키("COPY_TIP")로 표시되었을 것입니다.
-CHANGELOG_4_3_0_1 Train Display Updated 추가: 지원되는 차량을 따라갈 때 노선/목적지/상태를 보여주는 작은 화면 오버레이입니다. 옵션에서 화면 위치, 크기, 불투명도, 표시할 항목, 갱신 빈도, 1인칭 카메라 모드로만 제한할지 여부, 단순/어두움/밝음 색상 테마를 설정할 수 있습니다.
-CHANGELOG_4_3_0_2 새로운 Train Display 통합에서 발생한 여러 빌드 오류를 수정했습니다: 모호한 Utils 참조, 이 게임 버전에는 존재하지 않는 두 개의 API(NetInfo.nameLocalized, ItemClass.Service.IntercityBus), 그리고 이 모드의 대상 프레임워크인 .NET Framework 3.5에는 존재하지 않는 Enum.HasFlag 사용 - 이는 수동 비트 연산 확인으로 대체해야 했습니다.
-CHANGELOG_4_2_4_1 모드가 항상 "게임 버전과의 호환성: 0.0.0"을 표시하던 문제를 수정했습니다 - 지원되는 게임 버전 범위를 선언한 적이 없었습니다. 이제 1.21.1-f9 이상으로 설정되었습니다.
-CHANGELOG_4_2_4_2 AutoLineColor 색상 전략 드롭다운이 번역된 텍스트 대신 원시 열거형 이름(예: "AUTOLINECOLOR_STRATEGY_RANDOMHUE")을 표시하던 문제를 수정했습니다: 코드는 밑줄 없이 키를 생성했지만 번역 파일은 밑줄을 사용했습니다. 또한 두 개의 종속 슬라이더가 관련 없는 이름 지정 드롭다운 뒤가 아니라 색상 전략 드롭다운 바로 아래에 오도록 섹션 순서를 재정렬했습니다.
-CHANGELOG_4_2_4_3 트램 뭉침 방지 모드 이름을 "경전철"/"실제 트램" 대신 버스와 일치하도록 사용 안 함/신중/현실적으로 변경했으며, 포르투갈어 설명에 남아 있던 마지막 영어 부분을 번역했습니다.
-CHANGELOG_4_2_4_4 헤더 텍스트가 설정되지 않은 경우(이 모드의 모든 체크박스가 해당) 체크박스 설명이 패널 어디에도 표시되지 않던 문제를 수정했습니다 - 설명이 이미 생성되어 텍스트로 채워져 있었음에도, 레이아웃 코드는 헤더 레이블이 함께 존재할 때만 설명 레이블을 배치했습니다.
-CHANGELOG_4_2_4_5 옵션 탭 캡션이 잘리던 문제(특히 영어보다 길어지는 포르투갈어)를 수정했습니다 - 이제 탭이 잘리는 대신 둘째 줄로 줄바꿈됩니다.
-CHANGELOG_4_2_4_6 리셋 버튼(뭉침 방지, 요금)이 기본 설정은 즉시 변경하지만 화면에 이미 표시된 슬라이더는 갱신하지 않던 문제를 수정했습니다. 옵션을 다시 열기 전까지는 아무 일도 일어나지 않은 것처럼 보였습니다.
-CHANGELOG_4_2_4_7 노선 삭제 도구의 체크박스가 사용 후 초기화되지 않고 저장된 설정으로 유지되던 문제를 수정했습니다 - 이는 한 번 쓰고 마는 "유형 선택 후 삭제 클릭" 동작이어야 함에도, 실수로 실제 환경설정처럼 ModSetting에 연결되어 있었습니다.
-CHANGELOG_4_2_3_1 모든 모드 번역이 모든 언어에서 원시 키(예: "SETTINGS_SPEED:0")로 표시되던 문제를 수정했습니다: 자체 번역 로더가 여전히 예전 ImprovedPublicTransportMod 타입으로 플러그인을 찾고 있었고, CSLModsCommon 마이그레이션 이후 실제로 IUserMod인 Mod 클래스를 사용하지 않아, 모드 폴더를 찾지도 못하고 Translations/*.txt 파일을 로드하지도 못했습니다. 또한 바닐라 로케일 대체 처리를 강화하여 Colossal의 "key:0" 미발견 표시를 실제 번역으로 착각하지 않도록 했습니다.
-CHANGELOG_4_2_3_2 옵션에서 항상 비어 있던 "키 바인딩" 탭을 제거했습니다 - 이 모드에는 설정할 키 바인딩이 없습니다.
-CHANGELOG_4_2_3_3 옵션의 슬라이더가 다시 현재 값을 표시합니다(CSLModsCommon 마이그레이션에서 사라졌었습니다 - 새 슬라이더 컨트롤은 기본적으로 값을 표시하지 않습니다).
-CHANGELOG_4_2_3_4 색상 전략이 사용 안 함 또는 분류됨으로 설정되어 있어도(둘 다 해당 설정을 사용하지 않음) AutoLineColor의 "최소 색상 차이" 및 "최대 색상 선택 시도 횟수" 슬라이더가 계속 상호작용 가능하게 남아 있던 문제를 수정했습니다.
-CHANGELOG_4_2_0_1 전각 숫자 복구 추가: 일부 비라틴 키보드 입력으로 인한 표시/정렬 문제를 해결하기 위해 사용자 지정 노선 이름의 전각 숫자를 일반 ASCII 숫자로 되돌립니다.
-CHANGELOG_4_2_0_2 옵션 패널에 전용 요금 탭을 추가하여, 게임 내 경제 패널을 열지 않고도 주간/야간 요금 배율을 조정할 수 있습니다.
-CHANGELOG_4_2_0_3 전각 숫자 복구 패치가 모드 시작 시 한 번만 적용되고 레벨 언로드 시마다 취소되어, 세션에서 처음 불러온 이후의 모든 세이브에서 조용히 비활성화되던 문제를 수정했습니다.
-CHANGELOG_4_2_0_4 한 번에 대중교통 예산을 수십억 단위로 소진시킬 수 있었던 택시 요금 정수 오버플로 버그(MileageTaxiServices)를 수정했습니다: 프레임 데이터가 손상되었거나 초기화되지 않은 택시(예: 생성 직후)가 비정상적으로 큰 프레임당 거리를 계산할 수 있었고, 이것이 요금의 int 캐스팅을 오버플로시켜 거대한 쓰레기 값을 만들었습니다 - 이는 상위 프로젝트에 보고된 알려진 미해결 문제(폭주하는 음수 택시 수입)와 일치합니다. 이제 비정상적인 프레임 거리는 청구되지 않고 폐기됩니다.
-CHANGELOG_4_1_5_1 빈/검은 옵션 패널의 진짜 원인을 수정했습니다: CSLModsCommon 자체 UI 문자열(버전/변경 내역 등)은 DLL 옆의 물리적인 Localization/Common 폴더에 있는데, 우리 빌드는 이를 배포한 적이 없었습니다. 이것이 없으면 프레임워크의 LocalizationManager가 조용히 포기하여 CurrentLocaleSource가 null로 남고, 번역 진행률 레이블을 표시하려는 순간 OptionsPanelBase.Awake()가 NullReferenceException으로 충돌했습니다 - Unity가 이를 조용히 삼켜버려 패널 생성이 중간에 중단됩니다. 이제 .csproj가 해당 폴더를 배포하며, GetTranslationProgress()는 다시 누락되어도 더 이상 예외를 던지지 않습니다.
-CHANGELOG_4_1_4_1 옵션 패널이 비어/검게 표시되던 문제를 수정했습니다: 패널은 게임이 설정 컨테이너의 가시성을 껐다 켰을 때만 생성되었지만, 게임이 이 모드의 페이지를 열 때는 보통 이미 표시되어 있어 패널이 전혀 생성되지 않았습니다. 이제 컨테이너가 이미 보이는 경우에도 즉시 생성됩니다.
-CHANGELOG_4_1_4_2 모든 CSLModsCommon UI 텍스처(배경, 아이콘, 토글)가 로드에 실패하고 자리 표시자로 대체되던 문제를 수정했습니다: 프로젝트의 RootNamespace가 원본 IPT3 포크에서 물려받은 "ImprovedPublicTransport3"인 채로 남아 있어, 내장 리소스가 잘못된 이름으로 컴파일되어 실행 시 전혀 일치하지 않았습니다.
-CHANGELOG_4_1_3_1 CSLModsCommon 마이그레이션에서 남은 세 가지 설정 저장 버그(새 기능 안내 닫기, 옵션 리셋 버튼, 시간당 요금 편집기)를 수정했습니다: 각각 새 값을 ModSetting에 올바르게 기록했지만 이후 오래된, 이미 폐기된 설정 객체를 저장하여 변경 사항이 실제로 디스크에 저장된 적이 없었습니다.
-CHANGELOG_4_1_3_2 CSLModsCommon 이전 시대의 죽은 코드를 제거했습니다: 속성 기반 OptionsFramework, 거대한 단일 Settings.cs, 독립된 VehicleEditorPositions 열거형 - 모두 ModSetting과 CSLModsCommonOptionsPanel로 완전히 대체되었습니다.
-CHANGELOG_4_0_0_1 Improved Public Transport 3에서 포크되었습니다.
-CHANGELOG_4_0_0_2 AutoLineBudget의 수요 기반 차량 대수 산정을 노선 예산에 직접 기록하는 대신 IPT 자체의 차량 대수 API와 협조하도록 이식하여, 두 모드가 같은 상태를 두고 다투면서 발생하던 폭주하는 유지보수 비용 버그를 수정했습니다.
-CHANGELOG_4_0_0_3 옵션 UI(버전 배지, 변경 내역, 호환성 경고, 번역 진행률)를 위해 CSLModsCommon을 도입했습니다.
-TRAINDISPLAY_LABEL_NAME 이름
-TRAINDISPLAY_LABEL_STATUS 상태
-TRAINDISPLAY_NO_LINE 노선 없음
-TRAINDISPLAY_NO_DESTINATION 목적지 없음
-TRAINDISPLAY_HIDDEN 숨김
-TRAINDISPLAY_VEHICLE 차량
-TRAINDISPLAY_STATE_RETURNING 복귀 중
-TRAINDISPLAY_STATE_STOPPED 정차 중
-TRAINDISPLAY_STATE_EN_ROUTE 운행 중
-TRAINDISPLAY_STATE_ON_LINE 노선 운행
-TRAINDISPLAY_STATE_IDLE 대기 중
-AUTOLINECOLOR_REFRESH_BUTTON 이름/색상 새로 고침
-AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP 활성화된 AutoLineColor 설정에 따라 이 노선의 이름과 색상을 다시 지정합니다.
-AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP 이 노선을 새로 고치기 전에 옵션에서 색상 또는 이름 전략을 활성화하세요.
-CHANGELOG_4_3_3_2 번들된 Newtonsoft.Json 리졸버를 강화하여, 다른 모드가 우연히 먼저 로드한 사본을 반환하는 대신 항상 이 모드와 함께 제공되는 사본을 우선하도록 했습니다(Real Time은 강한 이름의 v13을, CSLModsCommon은 서명되지 않은 v9를 필요로 합니다). 잘못된 빌드가 전달되면 JsonHelper가 조용히 실패하고 빈 객체를 반환했는데, 이것이 프레임워크 자체의 로케일 소스를 비워 언어 선택기가 원시 로케일 ID를 표시하게 만든 원인이었습니다.
-CHANGELOG_4_3_3_3 벵골어, 힌디어, 인도네시아어, 우르두어가 이제 모드의 언어 선택기에 나타납니다. 이미 완전히 번역되어 있었지만 프레임워크에 해당 로케일 파일이 없어, 게임 자체가 그 언어로 실행 중이지 않으면 접근할 수 없었습니다.
-CHANGELOG_4_3_3_4 정류장 승객 제한기를 최적화했습니다: 프레임당 수천 번 실행되는 루프 안에서 시민 인스턴스마다 설정 객체(딕셔너리 조회 두 번)를 해석하고 있었습니다. 이제 프레임당 한 번만 해석됩니다.
-CHANGELOG_4_3_3_5 모드 폴더 조회가 어떤 클래스가 IUserMod를 구현하는지에 의존하지 않도록 했습니다. 이 결합은 이미 한 번은 번역 로딩을, 다른 한 번은 요금 아이콘 아틀라스를 각각 관련 없는 리팩터링 이후 조용히 망가뜨린 적이 있습니다.
-CHANGELOG_4_3_4_1 맵이 로드되기도 전에 AutoLineColor가 던지던 시작 시 ModException("ImprovedPublicTransportMod 어셈블리를 찾을 수 없습니다!")을 수정했습니다. 두 번째 헬퍼 클래스가 여전히 ImprovedPublicTransportMod 타입으로 모드를 조회하고 있었는데, 이는 CSLModsCommon 마이그레이션 중 더 이상 IUserMod가 아니게 되었습니다 - 다른 곳에서 이미 수정된 것과 같은 결합 문제입니다. 이제 두 헬퍼 모두 이 어셈블리 자체로부터 모드 폴더를 해석하므로, 이후 리팩터링이 조용히 다시 망가뜨릴 수 없습니다.
-CHANGELOG_4_3_5_1 차량을 따라가는 동안 Train Display 오버레이가 전혀 나타나지 않던 문제를 수정했습니다. 카메라가 따라가는 인스턴스를 일반적인 "target"/"GetTarget" 탐사로 조회했지만, 게임은 이를 그 탐사와 전혀 일치하지 않는 비공개 CameraController.m_targetInstance 필드에 저장합니다. 또한 "1인칭 카메라에서만"을 기본적으로 꺼지도록 변경했습니다: 일반 따라가기 모드는 1인칭이 아니므로, 이를 켜두면 원본 모드가 모든 따라가기 뷰에서 오버레이를 보여주었던 것과 달리 기본 상태에서 오버레이가 고장난 것처럼 보였습니다.
-CHANGELOG_4_3_5_2 요금 탭이 이제 실시간 승객 수 대신 각 교통 유형의 결과 요금을 표시합니다. 슬라이더는 백분율만 표시하므로 배율이 실제로 만들어내는 값을 확인할 방법이 없었고, 작거나 정지된 도시에서는 승객 수가 항상 "0"으로 표시되었습니다. 승객 수는 원래 요금과 함께 레이블의 툴팁으로 옮겨졌습니다.
-TICKET_PRICE_LABEL_TOOLTIP 현재 요금: {0}\n원래 요금: {1}\n현재 탑승 승객: {2}
-CHANGELOG_4_8_0_1 SingleTrainTrackAI 추가: 단선 철도 구간이 이제 한 번에 한 방향으로만 예약되어, 양방향 선로를 공유하는 두 열차가 더 이상 충돌할 위험이 없습니다. 클린룸 재구현 - 원본 모드(Workshop 949504539)에는 명시된 라이선스가 없어서, 공개적으로 문서화된 개념만을 원시 메모리 디투어 대신 이 프로젝트 자체의 Harmony 기반 패치 방식으로 재구현했습니다.
-CHANGELOG_4_8_0_2 Stop Stacker 추가: 같은 노선의 차량이 두 대 이상 한 정류장에 모이면, 선두 차량만 일반 정차 위치를 사용하고 뒤따르는 차량은 그 뒤에 한 줄로 줄서는 대신 차선을 따라 더 뒤쪽에 자체 정차 위치를 배정받습니다. 소스 코드를 구할 수 없어 원본 모드의 공개 설명만을 바탕으로 한 클린룸 재구현이며, 버스와 트롤리버스에만 적용되고 이 프로젝트에 이미 있는 BetterBusStopPosition 연결 지점과 일치합니다.
-CHANGELOG_4_8_0_3 수정: Sunset Harbor DLC를 보유한 플레이어에게 시외버스 터미널 통합 기능이 조용히 전혀 활성화되지 않던 문제를 수정했습니다. 이 프로젝트의 다른 곳에서 이미 사용 중인 Steam DLC 확인 대신 게임의 비공개 필드에 대한 리플렉션으로 DLC를 감지했으며, 이 리플렉션 기반 확인은 DLC가 실제로 설치되어 있어도 false를 반환할 수 있었습니다.
-CHANGELOG_4_8_0_4 수정: 일부 터미널에서 "시외버스 수락" 체크박스가 멈춰서 반응하지 않던 문제를 수정했습니다. 바닐라 게임은 이 모드가 이름을 바꿔 사용하는 방식이 전혀 고려하지 않았던 조건에서 체크박스를 상호작용 불가 상태로 둘 수 있습니다. 이제 이 모드가 제어할 때는 항상 강제로 상호작용 가능하게 만듭니다. 또한 이미 올바르게 설정된 터미널이 이후 검사에서 조용히 토글을 잃을 수 있던 관련 버그도 수정했습니다.
-CHANGELOG_4_8_0_5 수정: Sub-Buildings Tabs가 가끔 관련 없는 건물에 오래된 탭 목록을 표시하던 문제를 수정했습니다. 게임은 철거 후 건물 ID를 재사용하는데, 캐시는 재사용된 ID가 여전히 이전 건물 클러스터에 속한다고 신뢰했습니다. 이제 캐시에서 무언가를 재사용하기 전에 건물의 실제 상위 체인을 다시 검증합니다.
-CHANGELOG_4_8_0_6 여러 통합 기능에 걸친 전반적인 버그 정리: 최신 데이터를 버리고 오래된 데이터를 대신 제공하던 뒤집힌 캐시 만료 확인, 자동 색상 지정과 중복 이름 확인에서 마지막 교통 노선을 건너뛰던 off-by-one 루프 경계, "이 노선에는 차량이 한 대뿐"이라는 뭉침 방지 우회를 망가뜨리던 잘못된 ID 비교, 실패를 나중에 재시도하는 대신 영구적으로 캐시해버리던 가격 조회, 그리고 null UI/프리팹 참조에서 예외를 던질 수 있었던 여러 Harmony 패치를 수정했습니다.
-CHANGELOG_4_8_0_7 여러 통합 기능에서 반복되는 리플렉션과 프레임별 조회를 줄였습니다: 차량 툴팁 설명, 단선 구간 분류, 시외버스 아이템 클래스 조회가 이제 호출할 때마다 다시 계산하는 대신 캐시되며, UI 새로고침 버튼도 무언가 바뀌었는지 여부와 관계없이 매 프레임 텍스트를 다시 지정하지 않습니다.
-CHANGELOG_4_8_0_8 새로 설치할 때 이제 안전한 게임플레이 프로필을 사용합니다: 모든 선택적 통합 기능과 모드가 다른 모드와의 최대 호환성을 위해 꺼진 상태로 시작합니다. 추천(IPT 코어) 또는 현실적을 사용하거나 개별 항목을 직접 전환하세요. 시외버스 제어와 하위 건물 탭은 계속 사용할 수 있으며 위 수정 사항 이후 추천에 포함됩니다.
-CHANGELOG_4_8_0_9 옵션 > 통합 기능에 이제 고급 정류장 선택, 더 나은 탑승, 주행거리 택시 서비스, 고가 정류장이 표시됩니다 - 이들은 이미 설정과 프로필로 제어되고 있었지만 체크박스가 없어 JSON/프로필로만 켤 수 있었습니다.
-CHANGELOG_4_8_0_10 덴마크어, 핀란드어, 노르웨이어, 스웨덴어, 헝가리어, 루마니아어, 불가리아어, 그리스어, 우크라이나어, 베트남어, 말레이어를 포함한 설명 선택기 언어 전체와 pt-br, es-419에 대한 전체 스팀 워크숍 언어 팩을 추가했습니다.
-CHANGELOG_4_8_5_1 Train Display 끊김/멈춤 현상을 수정했습니다: 더 빠른 즉시 재폴링 경로를 되돌리고 폴링 최소값을 높여, 최대 성능 설정에서 오버레이가 시뮬레이션과 경쟁하지 않도록 했습니다.
-CHANGELOG_4_8_5_2 Train Display 경로 표시줄과 정류장 자동 이름 지정을 최적화했습니다: 폴링당 무거운 이름 스캔은 최대 한 번만 수행하고, 이름을 찾지 못한 정류장은 매 간격마다 다시 스캔하지 않으며, 경로 이름 목록은 추가적인 목록 할당을 피합니다.
-CHANGELOG_4_8_5_3 통근 목적지(아직 버그가 있음) 기능을 보류했습니다: 이후 재설계가 있을 때까지 모든 프로필/세이브에서 강제로 끄고 옵션 토글을 제거했습니다. 향후 사용을 위한 스포일러는 고급 아래에 남아 있습니다.
-CHANGELOG_4_8_5_4 옵션 언어 팩: 배포 시 전체 공통 JSON 세트(프레임워크 언어 35개 이상)가 포함되어 언어 드롭다운이 더 이상 목록의 절반을 놓치지 않으며, 섹션 설명 카드는 컨트롤과 배경을 공유합니다.
+SETTINGS_SUPPORT_LABEL IPT4ê°€ ì„¸ì´ë¸Œê²Œìž„ì„ ì‚´ë¦¬ê±°ë‚˜ ì„±ëŠ¥ì„ ê°œì„ í–ˆë‹¤ë©´, ê°œë°œ ì§€ì›ì„ ê³ ë ¤í•´ë³´ì„¸ìš”!
+SETTINGS_SUPPORT_BUTTON Ko-fiì—ì„œ í›„ì›í•˜ê¸°
+SETTINGS_FEATURE_UNBUNCHING_ENABLE ì–¸ë²ˆì¹­ / ê¸‰í–‰ë²„ìŠ¤
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP ì°¨ëŸ‰ ì–¸ë²ˆì¹­, ê¸‰í–‰ë²„ìŠ¤/íŠ¸ëž¨, ìŠ¤í° ê°„ê²©, ê³µê²©ì  í•¨ëŒ€ í¬ê¸° ì¡°ì ˆ í™œì„±í™”. ëª¨ë“  ë²„ìŠ¤/íŠ¸ëž¨ ê°„ê²© ë° ì˜ˆì‚° ê¸°ëŠ¥.
+SETTINGS_FEATURE_BUDGET_ENABLE ì˜ˆì‚° ê¸°ëŠ¥
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP ë…¸ì„  ì˜ˆì‚° í†µì œ, ìžë™ ë…¸ì„  ì˜ˆì‚°, í‹°ì¼“ ê°€ê²© ìŠ¹ìˆ˜, ê²½ë¡œ ë¹„ìš©ìœ¼ë¡œì„œì˜ ìš”ê¸ˆ í™œì„±í™”. ëª¨ë“  ìžê¸ˆ/ê°€ê²©/í•¨ëŒ€ ê¸°ëŠ¥.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE ìžë™ ë…¸ì„  ìƒ‰ìƒ
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP ìƒˆë¡œìš´ ìš´ì†¡ ë…¸ì„ ì— ìžë™ìœ¼ë¡œ ìƒ‰ìƒê³¼ ì´ë¦„ í• ë‹¹. ìƒ‰ìƒ ì „ëžµ, ëª…ëª… ì „ëžµ, íŒ¨ë„ ì„¤ì • í¬í•¨.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE ì°¨ëŸ‰ ì—ë””í„°
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP ì°¨ëŸ‰ ìœ í˜•, ë¦¬ë²„ë¦¬, ì†ì„± ë³€ê²½ì„ ìœ„í•œ ì°¨ëŸ‰ ì—ë””í„° íŒ¨ë„ í™œì„±í™”. í•˜ë‹¨ ë˜ëŠ” ìš°ì¸¡ì— ë°°ì¹˜ ê°€ëŠ¥.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE ëŒ€ê¸° ìŠ¹ê° í•œë„
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP ë‹¨ì¼ ì •ë¥˜ìž¥ì—ì„œ ëŒ€ì¤‘êµí†µì„ ê¸°ë‹¤ë¦´ ìˆ˜ ìžˆëŠ” ì‹œë¯¼ ìˆ˜ ì œí•œ. ë¹„í™œì„±í™” ì‹œ ëª¨ë“  ëŒ€ê¸° í•œë„ ì œê±° ë° ê²Œìž„ì´ ì •ë¥˜ìž¥ ìš©ëŸ‰ ê´€ë¦¬.
+SETTINGS_TRAINDISPLAY_SCOPE ì˜¤ë²„ë ˆì´ í‘œì‹œ ì¡°ê±´
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP ì„ íƒëœ ì°¨ëŸ‰, 1ì¸ì¹­ ì¹´ë©”ë¼, ë˜ëŠ” ë‘˜ ë‹¤ ì„ íƒ.
+SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE ì„ íƒëœ ì°¨ëŸ‰ë§Œ
+SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON 1ì¸ì¹­ ì¹´ë©”ë¼ë§Œ
+SETTINGS_TRAINDISPLAY_SCOPE_BOTH ì„ íƒëœ ì°¨ëŸ‰ ë˜ëŠ” 1ì¸ì¹­ ì¹´ë©”ë¼
+SETTINGS_TRAINDISPLAY_LAYOUT íŒ¨ë„ ë ˆì´ì•„ì›ƒ
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP ì˜¤ë²„ë ˆì´ê°€ ì‚¬ìš©í•˜ëŠ” ë ˆì´ì•„ì›ƒ. ë‘˜ ë‹¤ ê°™ì€ ì •ë³´ë¥¼ í‘œì‹œí•˜ê³  ê°™ì€ ì²´í¬ë°•ìŠ¤ë¥¼ ì¤€ìˆ˜ - ëª¨ì–‘ë§Œ ë‹¤ë¦„.
+CHANGELOG_4_3_3_1 ì¼ë¶€ ëª¨ë“œ ì¡°í•©ì—ì„œ Newtonsoft.Json.dllì„ ë²ˆë“¤ë§í•œ ì´í›„ì—ë„ ì„¤ì • ì €ìž¥/ë¶ˆëŸ¬ì˜¤ê¸°ê°€ ê³„ì† ê¹¨ì§€ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: ì´ì „ ìž„ì‹œ í•´ê²°ì±…ì€ í•˜ë‚˜ì˜ ì§„ìž…ì ì—ì„œë§Œ Assembly.LoadFromì„ ì‹œë„í–ˆê³  ì—¬ì „ížˆ ë¡œë“œ ìˆœì„œì— ì˜ì¡´í–ˆìŠµë‹ˆë‹¤. ì´ì œ IPT4ëŠ” ì „ì—­ AssemblyResolve í›…ì„ ë“±ë¡í•˜ê³ , CSLModsCommonì´ JsonWriterë¥¼ ê±´ë“œë¦¬ê¸° ì „ì— ëª¨ë“  ëª¨ë“œ/UI ì§„ìž…ì ì—ì„œ ë²ˆë“¤ëœ Newtonsoft.Jsonì„ ë¯¸ë¦¬ ë¡œë“œí•©ë‹ˆë‹¤. ê·¸ ê²°ê³¼ ìƒˆ ì˜µì…˜ UIê°€ ë‹¤ë¥¸ ëª¨ë“œì˜ í˜¸í™˜ë˜ì§€ ì•ŠëŠ” Json.NET ì‚¬ë³¸ì— ë¬´ìž‘ìœ„ë¡œ ë°”ì¸ë”©ë˜ëŠ” ëŒ€ì‹  ì•ˆì •ì ìœ¼ë¡œ ì €ìž¥ë©ë‹ˆë‹¤.
+CHANGELOG_4_3_2_1 ì„¤ì¹˜ëœ ë‹¤ë¥¸ ëª¨ë“œê°€ ìš°ì—°ížˆ Newtonsoft.Jsonì„ ì œê³µí•˜ì§€ ì•ŠëŠ” ê²½ìš° ëª¨ë“œ ì „ì²´ê°€ ë¡œë“œë˜ì§€ ì•Šë˜ ë¬¸ì œ("ëª¨ë“œì˜ dll ë˜ëŠ” ê·¸ ì¢…ì†ì„± ì¤‘ í•˜ë‚˜ë¥¼ ë¡œë“œí•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤")ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: CSLModsCommonì˜ ì„¤ì • ì§ë ¬í™”(JsonHelper/SerializationContext)ì—ëŠ” ì´ê²ƒì´ í•„ìš”í•˜ì§€ë§Œ, ìš°ë¦¬ ë¹Œë“œëŠ” ì‹¤ì œë¡œ Newtonsoft.Json.dllì„ ëª¨ë“œì™€ í•¨ê»˜ ë°°í¬í•œ ì ì´ ì—†ì—ˆìŠµë‹ˆë‹¤ - ë‹¤ë¥¸ ëª¨ë“œì˜ ì‚¬ë³¸ì— ìš°ì—°ížˆ íŽ¸ìŠ¹í–ˆì„ ë¿ìž…ë‹ˆë‹¤. ê¹¨ë—í•œ í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•´ ë‹¤ë¥¸ ëª¨ë“  ëª¨ë“œë¥¼ ë¹„í™œì„±í™”í•˜ë©´ì„œ ë°œê²¬í–ˆìœ¼ë©°, ì•žìœ¼ë¡œë„ ì´ë ‡ê²Œ í…ŒìŠ¤íŠ¸í•´ì•¼ í•©ë‹ˆë‹¤.
+CHANGELOG_4_3_1_1 ì˜µì…˜ íŒ¨ë„ì˜ ì–¸ì–´ ì„ íƒê¸°ê°€ ì´ ëª¨ë“œì˜ ëª¨ë“  ë¬¸ìžì—´ì€ ê²Œìž„ ì–¸ì–´ì— ë¨¸ë¬¸ ì±„ í”„ë ˆìž„ì›Œí¬ ìžì²´ ë¬¸ìžì—´(ë²„ì „/ë³€ê²½ ë‚´ì—­/...)ë§Œ ë‹¤ì‹œ ë²ˆì—­í•˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤ - ë²ˆì—­ ë¡œë”ê°€ ê²Œìž„ ì–¸ì–´ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì‚¼ì•„ ëª¨ë“œ ìžì²´ì˜ ì„ íƒì„ ì™„ì „ížˆ ë¬´ì‹œí–ˆìŠµë‹ˆë‹¤. ì´ì œ ëª¨ë“œì˜ ì–¸ì–´ ì„ íƒê¸°ë¥¼ ë”°ë¥´ë©°, ê²Œìž„ ì–¸ì–´ë¡œ, ê·¸ë‹¤ìŒ ì˜ì–´ë¡œ ëŒ€ì²´ë˜ê³ , ì„ íƒê¸°ê°€ ë°”ë€” ë•Œë§ˆë‹¤ ë‹¤ì‹œ í•´ì„ë©ë‹ˆë‹¤.
+CHANGELOG_4_3_1_2 ì˜ì–´ì™€ í¬ë¥´íˆ¬ê°ˆì–´ì—ë§Œ ì¡´ìž¬í•˜ë˜ 38ê°œì˜ ë²ˆì—­ í‚¤ë¥¼ ì±„ì› ìŠµë‹ˆë‹¤ - ë‹¤ë¥¸ ëª¨ë“  ì–¸ì–´(ì•„ëžì–´, ë²µê³¨ì–´, ë…ì¼ì–´, ìŠ¤íŽ˜ì¸ì–´, í”„ëž‘ìŠ¤ì–´, ížŒë””ì–´, ì¸ë„ë„¤ì‹œì•„ì–´, ì´íƒˆë¦¬ì•„ì–´, ì¼ë³¸ì–´, í•œêµ­ì–´, í´ëž€ë“œì–´, ëŸ¬ì‹œì•„ì–´, ìš°ë¥´ë‘ì–´, ê·¸ë¦¬ê³  ëª¨ë“  ì¤‘êµ­ì–´ ë³€í˜•)ëŠ” Train Display ì„¹ì…˜ ì „ì²´, ë…¸ì„  ì‚­ì œ ì„¤ëª…, ì„¸ ê°€ì§€ ê¸‰í–‰ë²„ìŠ¤ ì„¤ëª…ì— ëŒ€í•´ ì¡°ìš©ížˆ ì˜ì–´ë¡œ ëŒ€ì²´ë˜ê³  ìžˆì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_1_3 ëª¨ë“  ì–¸ì–´ íŒŒì¼(ì˜ì–´ í¬í•¨)ì—ì„œ ëˆ„ë½ë˜ì–´ ìžˆë˜ ë³µì‚¬/ë¶™ì—¬ë„£ê¸° íˆ´íŒ í‚¤ 4ê°œë¥¼ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤. ê·¸ë ‡ì§€ ì•Šì•˜ë‹¤ë©´ í•´ë‹¹ ë²„íŠ¼ì´ ë‹¤ì‹œ í™œì„±í™”ë  ë•Œ ì›ì‹œ í‚¤("COPY_TIP")ë¡œ í‘œì‹œë˜ì—ˆì„ ê²ƒìž…ë‹ˆë‹¤.
+CHANGELOG_4_3_0_1 Train Display Updated ì¶”ê°€: ì§€ì›ë˜ëŠ” ì°¨ëŸ‰ì„ ë”°ë¼ê°ˆ ë•Œ ë…¸ì„ /ëª©ì ì§€/ìƒíƒœë¥¼ ë³´ì—¬ì£¼ëŠ” ìž‘ì€ í™”ë©´ ì˜¤ë²„ë ˆì´ìž…ë‹ˆë‹¤. ì˜µì…˜ì—ì„œ í™”ë©´ ìœ„ì¹˜, í¬ê¸°, ë¶ˆíˆ¬ëª…ë„, í‘œì‹œí•  í•­ëª©, ê°±ì‹  ë¹ˆë„, 1ì¸ì¹­ ì¹´ë©”ë¼ ëª¨ë“œë¡œë§Œ ì œí•œí• ì§€ ì—¬ë¶€, ë‹¨ìˆœ/ì–´ë‘ì›€/ë°ìŒ ìƒ‰ìƒ í…Œë§ˆë¥¼ ì„¤ì •í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_0_2 ìƒˆë¡œìš´ Train Display í†µí•©ì—ì„œ ë°œìƒí•œ ì—¬ëŸ¬ ë¹Œë“œ ì˜¤ë¥˜ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: ëª¨í˜¸í•œ Utils ì°¸ì¡°, ì´ ê²Œìž„ ë²„ì „ì—ëŠ” ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ë‘ ê°œì˜ API(NetInfo.nameLocalized, ItemClass.Service.IntercityBus), ê·¸ë¦¬ê³  ì´ ëª¨ë“œì˜ ëŒ€ìƒ í”„ë ˆìž„ì›Œí¬ì¸ .NET Framework 3.5ì—ëŠ” ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” Enum.HasFlag ì‚¬ìš© - ì´ëŠ” ìˆ˜ë™ ë¹„íŠ¸ ì—°ì‚° í™•ì¸ìœ¼ë¡œ ëŒ€ì²´í•´ì•¼ í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_4_1 ëª¨ë“œê°€ í•­ìƒ "ê²Œìž„ ë²„ì „ê³¼ì˜ í˜¸í™˜ì„±: 0.0.0"ì„ í‘œì‹œí•˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤ - ì§€ì›ë˜ëŠ” ê²Œìž„ ë²„ì „ ë²”ìœ„ë¥¼ ì„ ì–¸í•œ ì ì´ ì—†ì—ˆìŠµë‹ˆë‹¤. ì´ì œ 1.21.1-f9 ì´ìƒìœ¼ë¡œ ì„¤ì •ë˜ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_4_2 AutoLineColor ìƒ‰ìƒ ì „ëžµ ë“œë¡­ë‹¤ìš´ì´ ë²ˆì—­ëœ í…ìŠ¤íŠ¸ ëŒ€ì‹  ì›ì‹œ ì—´ê±°í˜• ì´ë¦„(ì˜ˆ: "AUTOLINECOLOR_STRATEGY_RANDOMHUE")ì„ í‘œì‹œí•˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: ì½”ë“œëŠ” ë°‘ì¤„ ì—†ì´ í‚¤ë¥¼ ìƒì„±í–ˆì§€ë§Œ ë²ˆì—­ íŒŒì¼ì€ ë°‘ì¤„ì„ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤. ë˜í•œ ë‘ ê°œì˜ ì¢…ì† ìŠ¬ë¼ì´ë”ê°€ ê´€ë ¨ ì—†ëŠ” ì´ë¦„ ì§€ì • ë“œë¡­ë‹¤ìš´ ë’¤ê°€ ì•„ë‹ˆë¼ ìƒ‰ìƒ ì „ëžµ ë“œë¡­ë‹¤ìš´ ë°”ë¡œ ì•„ëž˜ì— ì˜¤ë„ë¡ ì„¹ì…˜ ìˆœì„œë¥¼ ìž¬ì •ë ¬í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_4_3 íŠ¸ëž¨ ë­‰ì¹¨ ë°©ì§€ ëª¨ë“œ ì´ë¦„ì„ "ê²½ì „ì² "/"ì‹¤ì œ íŠ¸ëž¨" ëŒ€ì‹  ë²„ìŠ¤ì™€ ì¼ì¹˜í•˜ë„ë¡ ì‚¬ìš© ì•ˆ í•¨/ì‹ ì¤‘/í˜„ì‹¤ì ìœ¼ë¡œ ë³€ê²½í–ˆìœ¼ë©°, í¬ë¥´íˆ¬ê°ˆì–´ ì„¤ëª…ì— ë‚¨ì•„ ìžˆë˜ ë§ˆì§€ë§‰ ì˜ì–´ ë¶€ë¶„ì„ ë²ˆì—­í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_4_4 í—¤ë” í…ìŠ¤íŠ¸ê°€ ì„¤ì •ë˜ì§€ ì•Šì€ ê²½ìš°(ì´ ëª¨ë“œì˜ ëª¨ë“  ì²´í¬ë°•ìŠ¤ê°€ í•´ë‹¹) ì²´í¬ë°•ìŠ¤ ì„¤ëª…ì´ íŒ¨ë„ ì–´ë””ì—ë„ í‘œì‹œë˜ì§€ ì•Šë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤ - ì„¤ëª…ì´ ì´ë¯¸ ìƒì„±ë˜ì–´ í…ìŠ¤íŠ¸ë¡œ ì±„ì›Œì ¸ ìžˆì—ˆìŒì—ë„, ë ˆì´ì•„ì›ƒ ì½”ë“œëŠ” í—¤ë” ë ˆì´ë¸”ì´ í•¨ê»˜ ì¡´ìž¬í•  ë•Œë§Œ ì„¤ëª… ë ˆì´ë¸”ì„ ë°°ì¹˜í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_4_5 ì˜µì…˜ íƒ­ ìº¡ì…˜ì´ ìž˜ë¦¬ë˜ ë¬¸ì œ(íŠ¹ížˆ ì˜ì–´ë³´ë‹¤ ê¸¸ì–´ì§€ëŠ” í¬ë¥´íˆ¬ê°ˆì–´)ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤ - ì´ì œ íƒ­ì´ ìž˜ë¦¬ëŠ” ëŒ€ì‹  ë‘˜ì§¸ ì¤„ë¡œ ì¤„ë°”ê¿ˆë©ë‹ˆë‹¤.
+CHANGELOG_4_2_4_6 ë¦¬ì…‹ ë²„íŠ¼(ë­‰ì¹¨ ë°©ì§€, ìš”ê¸ˆ)ì´ ê¸°ë³¸ ì„¤ì •ì€ ì¦‰ì‹œ ë³€ê²½í•˜ì§€ë§Œ í™”ë©´ì— ì´ë¯¸ í‘œì‹œëœ ìŠ¬ë¼ì´ë”ëŠ” ê°±ì‹ í•˜ì§€ ì•Šë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. ì˜µì…˜ì„ ë‹¤ì‹œ ì—´ê¸° ì „ê¹Œì§€ëŠ” ì•„ë¬´ ì¼ë„ ì¼ì–´ë‚˜ì§€ ì•Šì€ ê²ƒì²˜ëŸ¼ ë³´ì˜€ìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_4_7 ë…¸ì„  ì‚­ì œ ë„êµ¬ì˜ ì²´í¬ë°•ìŠ¤ê°€ ì‚¬ìš© í›„ ì´ˆê¸°í™”ë˜ì§€ ì•Šê³  ì €ìž¥ëœ ì„¤ì •ìœ¼ë¡œ ìœ ì§€ë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤ - ì´ëŠ” í•œ ë²ˆ ì“°ê³  ë§ˆëŠ” "ìœ í˜• ì„ íƒ í›„ ì‚­ì œ í´ë¦­" ë™ìž‘ì´ì–´ì•¼ í•¨ì—ë„, ì‹¤ìˆ˜ë¡œ ì‹¤ì œ í™˜ê²½ì„¤ì •ì²˜ëŸ¼ ModSettingì— ì—°ê²°ë˜ì–´ ìžˆì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_3_1 ëª¨ë“  ëª¨ë“œ ë²ˆì—­ì´ ëª¨ë“  ì–¸ì–´ì—ì„œ ì›ì‹œ í‚¤(ì˜ˆ: "SETTINGS_SPEED:0")ë¡œ í‘œì‹œë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: ìžì²´ ë²ˆì—­ ë¡œë”ê°€ ì—¬ì „ížˆ ì˜ˆì „ ImprovedPublicTransportMod íƒ€ìž…ìœ¼ë¡œ í”ŒëŸ¬ê·¸ì¸ì„ ì°¾ê³  ìžˆì—ˆê³ , CSLModsCommon ë§ˆì´ê·¸ë ˆì´ì…˜ ì´í›„ ì‹¤ì œë¡œ IUserModì¸ Mod í´ëž˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì•„, ëª¨ë“œ í´ë”ë¥¼ ì°¾ì§€ë„ ëª»í•˜ê³  Translations/*.txt íŒŒì¼ì„ ë¡œë“œí•˜ì§€ë„ ëª»í–ˆìŠµë‹ˆë‹¤. ë˜í•œ ë°”ë‹ë¼ ë¡œì¼€ì¼ ëŒ€ì²´ ì²˜ë¦¬ë¥¼ ê°•í™”í•˜ì—¬ Colossalì˜ "key:0" ë¯¸ë°œê²¬ í‘œì‹œë¥¼ ì‹¤ì œ ë²ˆì—­ìœ¼ë¡œ ì°©ê°í•˜ì§€ ì•Šë„ë¡ í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_3_2 ì˜µì…˜ì—ì„œ í•­ìƒ ë¹„ì–´ ìžˆë˜ "í‚¤ ë°”ì¸ë”©" íƒ­ì„ ì œê±°í–ˆìŠµë‹ˆë‹¤ - ì´ ëª¨ë“œì—ëŠ” ì„¤ì •í•  í‚¤ ë°”ì¸ë”©ì´ ì—†ìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_3_3 ì˜µì…˜ì˜ ìŠ¬ë¼ì´ë”ê°€ ë‹¤ì‹œ í˜„ìž¬ ê°’ì„ í‘œì‹œí•©ë‹ˆë‹¤(CSLModsCommon ë§ˆì´ê·¸ë ˆì´ì…˜ì—ì„œ ì‚¬ë¼ì¡Œì—ˆìŠµë‹ˆë‹¤ - ìƒˆ ìŠ¬ë¼ì´ë” ì»¨íŠ¸ë¡¤ì€ ê¸°ë³¸ì ìœ¼ë¡œ ê°’ì„ í‘œì‹œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤).
+CHANGELOG_4_2_3_4 ìƒ‰ìƒ ì „ëžµì´ ì‚¬ìš© ì•ˆ í•¨ ë˜ëŠ” ë¶„ë¥˜ë¨ìœ¼ë¡œ ì„¤ì •ë˜ì–´ ìžˆì–´ë„(ë‘˜ ë‹¤ í•´ë‹¹ ì„¤ì •ì„ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ) AutoLineColorì˜ "ìµœì†Œ ìƒ‰ìƒ ì°¨ì´" ë° "ìµœëŒ€ ìƒ‰ìƒ ì„ íƒ ì‹œë„ íšŸìˆ˜" ìŠ¬ë¼ì´ë”ê°€ ê³„ì† ìƒí˜¸ìž‘ìš© ê°€ëŠ¥í•˜ê²Œ ë‚¨ì•„ ìžˆë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_0_1 ì „ê° ìˆ«ìž ë³µêµ¬ ì¶”ê°€: ì¼ë¶€ ë¹„ë¼í‹´ í‚¤ë³´ë“œ ìž…ë ¥ìœ¼ë¡œ ì¸í•œ í‘œì‹œ/ì •ë ¬ ë¬¸ì œë¥¼ í•´ê²°í•˜ê¸° ìœ„í•´ ì‚¬ìš©ìž ì§€ì • ë…¸ì„  ì´ë¦„ì˜ ì „ê° ìˆ«ìžë¥¼ ì¼ë°˜ ASCII ìˆ«ìžë¡œ ë˜ëŒë¦½ë‹ˆë‹¤.
+CHANGELOG_4_2_0_2 ì˜µì…˜ íŒ¨ë„ì— ì „ìš© ìš”ê¸ˆ íƒ­ì„ ì¶”ê°€í•˜ì—¬, ê²Œìž„ ë‚´ ê²½ì œ íŒ¨ë„ì„ ì—´ì§€ ì•Šê³ ë„ ì£¼ê°„/ì•¼ê°„ ìš”ê¸ˆ ë°°ìœ¨ì„ ì¡°ì •í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_0_3 ì „ê° ìˆ«ìž ë³µêµ¬ íŒ¨ì¹˜ê°€ ëª¨ë“œ ì‹œìž‘ ì‹œ í•œ ë²ˆë§Œ ì ìš©ë˜ê³  ë ˆë²¨ ì–¸ë¡œë“œ ì‹œë§ˆë‹¤ ì·¨ì†Œë˜ì–´, ì„¸ì…˜ì—ì„œ ì²˜ìŒ ë¶ˆëŸ¬ì˜¨ ì´í›„ì˜ ëª¨ë“  ì„¸ì´ë¸Œì—ì„œ ì¡°ìš©ížˆ ë¹„í™œì„±í™”ë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_2_0_4 í•œ ë²ˆì— ëŒ€ì¤‘êµí†µ ì˜ˆì‚°ì„ ìˆ˜ì‹­ì–µ ë‹¨ìœ„ë¡œ ì†Œì§„ì‹œí‚¬ ìˆ˜ ìžˆì—ˆë˜ íƒì‹œ ìš”ê¸ˆ ì •ìˆ˜ ì˜¤ë²„í”Œë¡œ ë²„ê·¸(MileageTaxiServices)ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: í”„ë ˆìž„ ë°ì´í„°ê°€ ì†ìƒë˜ì—ˆê±°ë‚˜ ì´ˆê¸°í™”ë˜ì§€ ì•Šì€ íƒì‹œ(ì˜ˆ: ìƒì„± ì§í›„)ê°€ ë¹„ì •ìƒì ìœ¼ë¡œ í° í”„ë ˆìž„ë‹¹ ê±°ë¦¬ë¥¼ ê³„ì‚°í•  ìˆ˜ ìžˆì—ˆê³ , ì´ê²ƒì´ ìš”ê¸ˆì˜ int ìºìŠ¤íŒ…ì„ ì˜¤ë²„í”Œë¡œì‹œì¼œ ê±°ëŒ€í•œ ì“°ë ˆê¸° ê°’ì„ ë§Œë“¤ì—ˆìŠµë‹ˆë‹¤ - ì´ëŠ” ìƒìœ„ í”„ë¡œì íŠ¸ì— ë³´ê³ ëœ ì•Œë ¤ì§„ ë¯¸í•´ê²° ë¬¸ì œ(í­ì£¼í•˜ëŠ” ìŒìˆ˜ íƒì‹œ ìˆ˜ìž…)ì™€ ì¼ì¹˜í•©ë‹ˆë‹¤. ì´ì œ ë¹„ì •ìƒì ì¸ í”„ë ˆìž„ ê±°ë¦¬ëŠ” ì²­êµ¬ë˜ì§€ ì•Šê³  íê¸°ë©ë‹ˆë‹¤.
+CHANGELOG_4_1_5_1 ë¹ˆ/ê²€ì€ ì˜µì…˜ íŒ¨ë„ì˜ ì§„ì§œ ì›ì¸ì„ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: CSLModsCommon ìžì²´ UI ë¬¸ìžì—´(ë²„ì „/ë³€ê²½ ë‚´ì—­ ë“±)ì€ DLL ì˜†ì˜ ë¬¼ë¦¬ì ì¸ Localization/Common í´ë”ì— ìžˆëŠ”ë°, ìš°ë¦¬ ë¹Œë“œëŠ” ì´ë¥¼ ë°°í¬í•œ ì ì´ ì—†ì—ˆìŠµë‹ˆë‹¤. ì´ê²ƒì´ ì—†ìœ¼ë©´ í”„ë ˆìž„ì›Œí¬ì˜ LocalizationManagerê°€ ì¡°ìš©ížˆ í¬ê¸°í•˜ì—¬ CurrentLocaleSourceê°€ nullë¡œ ë‚¨ê³ , ë²ˆì—­ ì§„í–‰ë¥  ë ˆì´ë¸”ì„ í‘œì‹œí•˜ë ¤ëŠ” ìˆœê°„ OptionsPanelBase.Awake()ê°€ NullReferenceExceptionìœ¼ë¡œ ì¶©ëŒí–ˆìŠµë‹ˆë‹¤ - Unityê°€ ì´ë¥¼ ì¡°ìš©ížˆ ì‚¼ì¼œë²„ë ¤ íŒ¨ë„ ìƒì„±ì´ ì¤‘ê°„ì— ì¤‘ë‹¨ë©ë‹ˆë‹¤. ì´ì œ .csprojê°€ í•´ë‹¹ í´ë”ë¥¼ ë°°í¬í•˜ë©°, GetTranslationProgress()ëŠ” ë‹¤ì‹œ ëˆ„ë½ë˜ì–´ë„ ë” ì´ìƒ ì˜ˆì™¸ë¥¼ ë˜ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
+CHANGELOG_4_1_4_1 ì˜µì…˜ íŒ¨ë„ì´ ë¹„ì–´/ê²€ê²Œ í‘œì‹œë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: íŒ¨ë„ì€ ê²Œìž„ì´ ì„¤ì • ì»¨í…Œì´ë„ˆì˜ ê°€ì‹œì„±ì„ ê»ë‹¤ ì¼°ì„ ë•Œë§Œ ìƒì„±ë˜ì—ˆì§€ë§Œ, ê²Œìž„ì´ ì´ ëª¨ë“œì˜ íŽ˜ì´ì§€ë¥¼ ì—´ ë•ŒëŠ” ë³´í†µ ì´ë¯¸ í‘œì‹œë˜ì–´ ìžˆì–´ íŒ¨ë„ì´ ì „í˜€ ìƒì„±ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ì´ì œ ì»¨í…Œì´ë„ˆê°€ ì´ë¯¸ ë³´ì´ëŠ” ê²½ìš°ì—ë„ ì¦‰ì‹œ ìƒì„±ë©ë‹ˆë‹¤.
+CHANGELOG_4_1_4_2 ëª¨ë“  CSLModsCommon UI í…ìŠ¤ì²˜(ë°°ê²½, ì•„ì´ì½˜, í† ê¸€)ê°€ ë¡œë“œì— ì‹¤íŒ¨í•˜ê³  ìžë¦¬ í‘œì‹œìžë¡œ ëŒ€ì²´ë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: í”„ë¡œì íŠ¸ì˜ RootNamespaceê°€ ì›ë³¸ IPT3 í¬í¬ì—ì„œ ë¬¼ë ¤ë°›ì€ "ImprovedPublicTransport3"ì¸ ì±„ë¡œ ë‚¨ì•„ ìžˆì–´, ë‚´ìž¥ ë¦¬ì†ŒìŠ¤ê°€ ìž˜ëª»ëœ ì´ë¦„ìœ¼ë¡œ ì»´íŒŒì¼ë˜ì–´ ì‹¤í–‰ ì‹œ ì „í˜€ ì¼ì¹˜í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+CHANGELOG_4_1_3_1 CSLModsCommon ë§ˆì´ê·¸ë ˆì´ì…˜ì—ì„œ ë‚¨ì€ ì„¸ ê°€ì§€ ì„¤ì • ì €ìž¥ ë²„ê·¸(ìƒˆ ê¸°ëŠ¥ ì•ˆë‚´ ë‹«ê¸°, ì˜µì…˜ ë¦¬ì…‹ ë²„íŠ¼, ì‹œê°„ë‹¹ ìš”ê¸ˆ íŽ¸ì§‘ê¸°)ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: ê°ê° ìƒˆ ê°’ì„ ModSettingì— ì˜¬ë°”ë¥´ê²Œ ê¸°ë¡í–ˆì§€ë§Œ ì´í›„ ì˜¤ëž˜ëœ, ì´ë¯¸ íê¸°ëœ ì„¤ì • ê°ì²´ë¥¼ ì €ìž¥í•˜ì—¬ ë³€ê²½ ì‚¬í•­ì´ ì‹¤ì œë¡œ ë””ìŠ¤í¬ì— ì €ìž¥ëœ ì ì´ ì—†ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_1_3_2 CSLModsCommon ì´ì „ ì‹œëŒ€ì˜ ì£½ì€ ì½”ë“œë¥¼ ì œê±°í–ˆìŠµë‹ˆë‹¤: ì†ì„± ê¸°ë°˜ OptionsFramework, ê±°ëŒ€í•œ ë‹¨ì¼ Settings.cs, ë…ë¦½ëœ VehicleEditorPositions ì—´ê±°í˜• - ëª¨ë‘ ModSettingê³¼ CSLModsCommonOptionsPanelë¡œ ì™„ì „ížˆ ëŒ€ì²´ë˜ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_0_0_1 Improved Public Transport 3ì—ì„œ í¬í¬ë˜ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_0_0_2 AutoLineBudgetì˜ ìˆ˜ìš” ê¸°ë°˜ ì°¨ëŸ‰ ëŒ€ìˆ˜ ì‚°ì •ì„ ë…¸ì„  ì˜ˆì‚°ì— ì§ì ‘ ê¸°ë¡í•˜ëŠ” ëŒ€ì‹  IPT ìžì²´ì˜ ì°¨ëŸ‰ ëŒ€ìˆ˜ APIì™€ í˜‘ì¡°í•˜ë„ë¡ ì´ì‹í•˜ì—¬, ë‘ ëª¨ë“œê°€ ê°™ì€ ìƒíƒœë¥¼ ë‘ê³  ë‹¤íˆ¬ë©´ì„œ ë°œìƒí•˜ë˜ í­ì£¼í•˜ëŠ” ìœ ì§€ë³´ìˆ˜ ë¹„ìš© ë²„ê·¸ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_0_0_3 ì˜µì…˜ UI(ë²„ì „ ë°°ì§€, ë³€ê²½ ë‚´ì—­, í˜¸í™˜ì„± ê²½ê³ , ë²ˆì—­ ì§„í–‰ë¥ )ë¥¼ ìœ„í•´ CSLModsCommonì„ ë„ìž…í–ˆìŠµë‹ˆë‹¤.
+TRAINDISPLAY_LABEL_NAME ì´ë¦„
+TRAINDISPLAY_LABEL_STATUS ìƒíƒœ
+TRAINDISPLAY_NO_LINE ë…¸ì„  ì—†ìŒ
+TRAINDISPLAY_NO_DESTINATION ëª©ì ì§€ ì—†ìŒ
+TRAINDISPLAY_HIDDEN ìˆ¨ê¹€
+TRAINDISPLAY_VEHICLE ì°¨ëŸ‰
+TRAINDISPLAY_STATE_RETURNING ë³µê·€ ì¤‘
+TRAINDISPLAY_STATE_STOPPED ì •ì°¨ ì¤‘
+TRAINDISPLAY_STATE_EN_ROUTE ìš´í–‰ ì¤‘
+TRAINDISPLAY_STATE_ON_LINE ë…¸ì„  ìš´í–‰
+TRAINDISPLAY_STATE_IDLE ëŒ€ê¸° ì¤‘
+AUTOLINECOLOR_REFRESH_BUTTON ì´ë¦„/ìƒ‰ìƒ ìƒˆë¡œ ê³ ì¹¨
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP í™œì„±í™”ëœ AutoLineColor ì„¤ì •ì— ë”°ë¼ ì´ ë…¸ì„ ì˜ ì´ë¦„ê³¼ ìƒ‰ìƒì„ ë‹¤ì‹œ ì§€ì •í•©ë‹ˆë‹¤.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP ì´ ë…¸ì„ ì„ ìƒˆë¡œ ê³ ì¹˜ê¸° ì „ì— ì˜µì…˜ì—ì„œ ìƒ‰ìƒ ë˜ëŠ” ì´ë¦„ ì „ëžµì„ í™œì„±í™”í•˜ì„¸ìš”.
+CHANGELOG_4_3_3_2 ë²ˆë“¤ëœ Newtonsoft.Json ë¦¬ì¡¸ë²„ë¥¼ ê°•í™”í•˜ì—¬, ë‹¤ë¥¸ ëª¨ë“œê°€ ìš°ì—°ížˆ ë¨¼ì € ë¡œë“œí•œ ì‚¬ë³¸ì„ ë°˜í™˜í•˜ëŠ” ëŒ€ì‹  í•­ìƒ ì´ ëª¨ë“œì™€ í•¨ê»˜ ì œê³µë˜ëŠ” ì‚¬ë³¸ì„ ìš°ì„ í•˜ë„ë¡ í–ˆìŠµë‹ˆë‹¤(Real Timeì€ ê°•í•œ ì´ë¦„ì˜ v13ì„, CSLModsCommonì€ ì„œëª…ë˜ì§€ ì•Šì€ v9ë¥¼ í•„ìš”ë¡œ í•©ë‹ˆë‹¤). ìž˜ëª»ëœ ë¹Œë“œê°€ ì „ë‹¬ë˜ë©´ JsonHelperê°€ ì¡°ìš©ížˆ ì‹¤íŒ¨í•˜ê³  ë¹ˆ ê°ì²´ë¥¼ ë°˜í™˜í–ˆëŠ”ë°, ì´ê²ƒì´ í”„ë ˆìž„ì›Œí¬ ìžì²´ì˜ ë¡œì¼€ì¼ ì†ŒìŠ¤ë¥¼ ë¹„ì›Œ ì–¸ì–´ ì„ íƒê¸°ê°€ ì›ì‹œ ë¡œì¼€ì¼ IDë¥¼ í‘œì‹œí•˜ê²Œ ë§Œë“  ì›ì¸ì´ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_3_3 ë²µê³¨ì–´, ížŒë””ì–´, ì¸ë„ë„¤ì‹œì•„ì–´, ìš°ë¥´ë‘ì–´ê°€ ì´ì œ ëª¨ë“œì˜ ì–¸ì–´ ì„ íƒê¸°ì— ë‚˜íƒ€ë‚©ë‹ˆë‹¤. ì´ë¯¸ ì™„ì „ížˆ ë²ˆì—­ë˜ì–´ ìžˆì—ˆì§€ë§Œ í”„ë ˆìž„ì›Œí¬ì— í•´ë‹¹ ë¡œì¼€ì¼ íŒŒì¼ì´ ì—†ì–´, ê²Œìž„ ìžì²´ê°€ ê·¸ ì–¸ì–´ë¡œ ì‹¤í–‰ ì¤‘ì´ì§€ ì•Šìœ¼ë©´ ì ‘ê·¼í•  ìˆ˜ ì—†ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_3_4 ì •ë¥˜ìž¥ ìŠ¹ê° ì œí•œê¸°ë¥¼ ìµœì í™”í–ˆìŠµë‹ˆë‹¤: í”„ë ˆìž„ë‹¹ ìˆ˜ì²œ ë²ˆ ì‹¤í–‰ë˜ëŠ” ë£¨í”„ ì•ˆì—ì„œ ì‹œë¯¼ ì¸ìŠ¤í„´ìŠ¤ë§ˆë‹¤ ì„¤ì • ê°ì²´(ë”•ì…”ë„ˆë¦¬ ì¡°íšŒ ë‘ ë²ˆ)ë¥¼ í•´ì„í•˜ê³  ìžˆì—ˆìŠµë‹ˆë‹¤. ì´ì œ í”„ë ˆìž„ë‹¹ í•œ ë²ˆë§Œ í•´ì„ë©ë‹ˆë‹¤.
+CHANGELOG_4_3_3_5 ëª¨ë“œ í´ë” ì¡°íšŒê°€ ì–´ë–¤ í´ëž˜ìŠ¤ê°€ IUserModë¥¼ êµ¬í˜„í•˜ëŠ”ì§€ì— ì˜ì¡´í•˜ì§€ ì•Šë„ë¡ í–ˆìŠµë‹ˆë‹¤. ì´ ê²°í•©ì€ ì´ë¯¸ í•œ ë²ˆì€ ë²ˆì—­ ë¡œë”©ì„, ë‹¤ë¥¸ í•œ ë²ˆì€ ìš”ê¸ˆ ì•„ì´ì½˜ ì•„í‹€ë¼ìŠ¤ë¥¼ ê°ê° ê´€ë ¨ ì—†ëŠ” ë¦¬íŒ©í„°ë§ ì´í›„ ì¡°ìš©ížˆ ë§ê°€ëœ¨ë¦° ì ì´ ìžˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_4_1 ë§µì´ ë¡œë“œë˜ê¸°ë„ ì „ì— AutoLineColorê°€ ë˜ì§€ë˜ ì‹œìž‘ ì‹œ ModException("ImprovedPublicTransportMod ì–´ì…ˆë¸”ë¦¬ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!")ì„ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. ë‘ ë²ˆì§¸ í—¬í¼ í´ëž˜ìŠ¤ê°€ ì—¬ì „ížˆ ImprovedPublicTransportMod íƒ€ìž…ìœ¼ë¡œ ëª¨ë“œë¥¼ ì¡°íšŒí•˜ê³  ìžˆì—ˆëŠ”ë°, ì´ëŠ” CSLModsCommon ë§ˆì´ê·¸ë ˆì´ì…˜ ì¤‘ ë” ì´ìƒ IUserModê°€ ì•„ë‹ˆê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤ - ë‹¤ë¥¸ ê³³ì—ì„œ ì´ë¯¸ ìˆ˜ì •ëœ ê²ƒê³¼ ê°™ì€ ê²°í•© ë¬¸ì œìž…ë‹ˆë‹¤. ì´ì œ ë‘ í—¬í¼ ëª¨ë‘ ì´ ì–´ì…ˆë¸”ë¦¬ ìžì²´ë¡œë¶€í„° ëª¨ë“œ í´ë”ë¥¼ í•´ì„í•˜ë¯€ë¡œ, ì´í›„ ë¦¬íŒ©í„°ë§ì´ ì¡°ìš©ížˆ ë‹¤ì‹œ ë§ê°€ëœ¨ë¦´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_5_1 ì°¨ëŸ‰ì„ ë”°ë¼ê°€ëŠ” ë™ì•ˆ Train Display ì˜¤ë²„ë ˆì´ê°€ ì „í˜€ ë‚˜íƒ€ë‚˜ì§€ ì•Šë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. ì¹´ë©”ë¼ê°€ ë”°ë¼ê°€ëŠ” ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì¼ë°˜ì ì¸ "target"/"GetTarget" íƒì‚¬ë¡œ ì¡°íšŒí–ˆì§€ë§Œ, ê²Œìž„ì€ ì´ë¥¼ ê·¸ íƒì‚¬ì™€ ì „í˜€ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ” ë¹„ê³µê°œ CameraController.m_targetInstance í•„ë“œì— ì €ìž¥í•©ë‹ˆë‹¤. ë˜í•œ "1ì¸ì¹­ ì¹´ë©”ë¼ì—ì„œë§Œ"ì„ ê¸°ë³¸ì ìœ¼ë¡œ êº¼ì§€ë„ë¡ ë³€ê²½í–ˆìŠµë‹ˆë‹¤: ì¼ë°˜ ë”°ë¼ê°€ê¸° ëª¨ë“œëŠ” 1ì¸ì¹­ì´ ì•„ë‹ˆë¯€ë¡œ, ì´ë¥¼ ì¼œë‘ë©´ ì›ë³¸ ëª¨ë“œê°€ ëª¨ë“  ë”°ë¼ê°€ê¸° ë·°ì—ì„œ ì˜¤ë²„ë ˆì´ë¥¼ ë³´ì—¬ì£¼ì—ˆë˜ ê²ƒê³¼ ë‹¬ë¦¬ ê¸°ë³¸ ìƒíƒœì—ì„œ ì˜¤ë²„ë ˆì´ê°€ ê³ ìž¥ë‚œ ê²ƒì²˜ëŸ¼ ë³´ì˜€ìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_5_2 ìš”ê¸ˆ íƒ­ì´ ì´ì œ ì‹¤ì‹œê°„ ìŠ¹ê° ìˆ˜ ëŒ€ì‹  ê° êµí†µ ìœ í˜•ì˜ ê²°ê³¼ ìš”ê¸ˆì„ í‘œì‹œí•©ë‹ˆë‹¤. ìŠ¬ë¼ì´ë”ëŠ” ë°±ë¶„ìœ¨ë§Œ í‘œì‹œí•˜ë¯€ë¡œ ë°°ìœ¨ì´ ì‹¤ì œë¡œ ë§Œë“¤ì–´ë‚´ëŠ” ê°’ì„ í™•ì¸í•  ë°©ë²•ì´ ì—†ì—ˆê³ , ìž‘ê±°ë‚˜ ì •ì§€ëœ ë„ì‹œì—ì„œëŠ” ìŠ¹ê° ìˆ˜ê°€ í•­ìƒ "0"ìœ¼ë¡œ í‘œì‹œë˜ì—ˆìŠµë‹ˆë‹¤. ìŠ¹ê° ìˆ˜ëŠ” ì›ëž˜ ìš”ê¸ˆê³¼ í•¨ê»˜ ë ˆì´ë¸”ì˜ íˆ´íŒìœ¼ë¡œ ì˜®ê²¨ì¡ŒìŠµë‹ˆë‹¤.
+TICKET_PRICE_LABEL_TOOLTIP í˜„ìž¬ ìš”ê¸ˆ: {0}\nì›ëž˜ ìš”ê¸ˆ: {1}\ní˜„ìž¬ íƒ‘ìŠ¹ ìŠ¹ê°: {2}
+CHANGELOG_4_8_0_1 SingleTrainTrackAI ì¶”ê°€: ë‹¨ì„  ì² ë„ êµ¬ê°„ì´ ì´ì œ í•œ ë²ˆì— í•œ ë°©í–¥ìœ¼ë¡œë§Œ ì˜ˆì•½ë˜ì–´, ì–‘ë°©í–¥ ì„ ë¡œë¥¼ ê³µìœ í•˜ëŠ” ë‘ ì—´ì°¨ê°€ ë” ì´ìƒ ì¶©ëŒí•  ìœ„í—˜ì´ ì—†ìŠµë‹ˆë‹¤. í´ë¦°ë£¸ ìž¬êµ¬í˜„ - ì›ë³¸ ëª¨ë“œ(Workshop 949504539)ì—ëŠ” ëª…ì‹œëœ ë¼ì´ì„ ìŠ¤ê°€ ì—†ì–´ì„œ, ê³µê°œì ìœ¼ë¡œ ë¬¸ì„œí™”ëœ ê°œë…ë§Œì„ ì›ì‹œ ë©”ëª¨ë¦¬ ë””íˆ¬ì–´ ëŒ€ì‹  ì´ í”„ë¡œì íŠ¸ ìžì²´ì˜ Harmony ê¸°ë°˜ íŒ¨ì¹˜ ë°©ì‹ìœ¼ë¡œ ìž¬êµ¬í˜„í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_0_2 Stop Stacker ì¶”ê°€: ê°™ì€ ë…¸ì„ ì˜ ì°¨ëŸ‰ì´ ë‘ ëŒ€ ì´ìƒ í•œ ì •ë¥˜ìž¥ì— ëª¨ì´ë©´, ì„ ë‘ ì°¨ëŸ‰ë§Œ ì¼ë°˜ ì •ì°¨ ìœ„ì¹˜ë¥¼ ì‚¬ìš©í•˜ê³  ë’¤ë”°ë¥´ëŠ” ì°¨ëŸ‰ì€ ê·¸ ë’¤ì— í•œ ì¤„ë¡œ ì¤„ì„œëŠ” ëŒ€ì‹  ì°¨ì„ ì„ ë”°ë¼ ë” ë’¤ìª½ì— ìžì²´ ì •ì°¨ ìœ„ì¹˜ë¥¼ ë°°ì •ë°›ìŠµë‹ˆë‹¤. ì†ŒìŠ¤ ì½”ë“œë¥¼ êµ¬í•  ìˆ˜ ì—†ì–´ ì›ë³¸ ëª¨ë“œì˜ ê³µê°œ ì„¤ëª…ë§Œì„ ë°”íƒ•ìœ¼ë¡œ í•œ í´ë¦°ë£¸ ìž¬êµ¬í˜„ì´ë©°, ë²„ìŠ¤ì™€ íŠ¸ë¡¤ë¦¬ë²„ìŠ¤ì—ë§Œ ì ìš©ë˜ê³  ì´ í”„ë¡œì íŠ¸ì— ì´ë¯¸ ìžˆëŠ” BetterBusStopPosition ì—°ê²° ì§€ì ê³¼ ì¼ì¹˜í•©ë‹ˆë‹¤.
+CHANGELOG_4_8_0_3 ìˆ˜ì •: Sunset Harbor DLCë¥¼ ë³´ìœ í•œ í”Œë ˆì´ì–´ì—ê²Œ ì‹œì™¸ë²„ìŠ¤ í„°ë¯¸ë„ í†µí•© ê¸°ëŠ¥ì´ ì¡°ìš©ížˆ ì „í˜€ í™œì„±í™”ë˜ì§€ ì•Šë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. ì´ í”„ë¡œì íŠ¸ì˜ ë‹¤ë¥¸ ê³³ì—ì„œ ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ Steam DLC í™•ì¸ ëŒ€ì‹  ê²Œìž„ì˜ ë¹„ê³µê°œ í•„ë“œì— ëŒ€í•œ ë¦¬í”Œë ‰ì…˜ìœ¼ë¡œ DLCë¥¼ ê°ì§€í–ˆìœ¼ë©°, ì´ ë¦¬í”Œë ‰ì…˜ ê¸°ë°˜ í™•ì¸ì€ DLCê°€ ì‹¤ì œë¡œ ì„¤ì¹˜ë˜ì–´ ìžˆì–´ë„ falseë¥¼ ë°˜í™˜í•  ìˆ˜ ìžˆì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_0_4 ìˆ˜ì •: ì¼ë¶€ í„°ë¯¸ë„ì—ì„œ "ì‹œì™¸ë²„ìŠ¤ ìˆ˜ë½" ì²´í¬ë°•ìŠ¤ê°€ ë©ˆì¶°ì„œ ë°˜ì‘í•˜ì§€ ì•Šë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. ë°”ë‹ë¼ ê²Œìž„ì€ ì´ ëª¨ë“œê°€ ì´ë¦„ì„ ë°”ê¿” ì‚¬ìš©í•˜ëŠ” ë°©ì‹ì´ ì „í˜€ ê³ ë ¤í•˜ì§€ ì•Šì•˜ë˜ ì¡°ê±´ì—ì„œ ì²´í¬ë°•ìŠ¤ë¥¼ ìƒí˜¸ìž‘ìš© ë¶ˆê°€ ìƒíƒœë¡œ ë‘˜ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ì´ì œ ì´ ëª¨ë“œê°€ ì œì–´í•  ë•ŒëŠ” í•­ìƒ ê°•ì œë¡œ ìƒí˜¸ìž‘ìš© ê°€ëŠ¥í•˜ê²Œ ë§Œë“­ë‹ˆë‹¤. ë˜í•œ ì´ë¯¸ ì˜¬ë°”ë¥´ê²Œ ì„¤ì •ëœ í„°ë¯¸ë„ì´ ì´í›„ ê²€ì‚¬ì—ì„œ ì¡°ìš©ížˆ í† ê¸€ì„ ìžƒì„ ìˆ˜ ìžˆë˜ ê´€ë ¨ ë²„ê·¸ë„ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_0_5 ìˆ˜ì •: Sub-Buildings Tabsê°€ ê°€ë” ê´€ë ¨ ì—†ëŠ” ê±´ë¬¼ì— ì˜¤ëž˜ëœ íƒ­ ëª©ë¡ì„ í‘œì‹œí•˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. ê²Œìž„ì€ ì² ê±° í›„ ê±´ë¬¼ IDë¥¼ ìž¬ì‚¬ìš©í•˜ëŠ”ë°, ìºì‹œëŠ” ìž¬ì‚¬ìš©ëœ IDê°€ ì—¬ì „ížˆ ì´ì „ ê±´ë¬¼ í´ëŸ¬ìŠ¤í„°ì— ì†í•œë‹¤ê³  ì‹ ë¢°í–ˆìŠµë‹ˆë‹¤. ì´ì œ ìºì‹œì—ì„œ ë¬´ì–¸ê°€ë¥¼ ìž¬ì‚¬ìš©í•˜ê¸° ì „ì— ê±´ë¬¼ì˜ ì‹¤ì œ ìƒìœ„ ì²´ì¸ì„ ë‹¤ì‹œ ê²€ì¦í•©ë‹ˆë‹¤.
+CHANGELOG_4_8_0_6 ì—¬ëŸ¬ í†µí•© ê¸°ëŠ¥ì— ê±¸ì¹œ ì „ë°˜ì ì¸ ë²„ê·¸ ì •ë¦¬: ìµœì‹  ë°ì´í„°ë¥¼ ë²„ë¦¬ê³  ì˜¤ëž˜ëœ ë°ì´í„°ë¥¼ ëŒ€ì‹  ì œê³µí•˜ë˜ ë’¤ì§‘ížŒ ìºì‹œ ë§Œë£Œ í™•ì¸, ìžë™ ìƒ‰ìƒ ì§€ì •ê³¼ ì¤‘ë³µ ì´ë¦„ í™•ì¸ì—ì„œ ë§ˆì§€ë§‰ êµí†µ ë…¸ì„ ì„ ê±´ë„ˆë›°ë˜ off-by-one ë£¨í”„ ê²½ê³„, "ì´ ë…¸ì„ ì—ëŠ” ì°¨ëŸ‰ì´ í•œ ëŒ€ë¿"ì´ë¼ëŠ” ë­‰ì¹¨ ë°©ì§€ ìš°íšŒë¥¼ ë§ê°€ëœ¨ë¦¬ë˜ ìž˜ëª»ëœ ID ë¹„êµ, ì‹¤íŒ¨ë¥¼ ë‚˜ì¤‘ì— ìž¬ì‹œë„í•˜ëŠ” ëŒ€ì‹  ì˜êµ¬ì ìœ¼ë¡œ ìºì‹œí•´ë²„ë¦¬ë˜ ê°€ê²© ì¡°íšŒ, ê·¸ë¦¬ê³  null UI/í”„ë¦¬íŒ¹ ì°¸ì¡°ì—ì„œ ì˜ˆì™¸ë¥¼ ë˜ì§ˆ ìˆ˜ ìžˆì—ˆë˜ ì—¬ëŸ¬ Harmony íŒ¨ì¹˜ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_0_7 ì—¬ëŸ¬ í†µí•© ê¸°ëŠ¥ì—ì„œ ë°˜ë³µë˜ëŠ” ë¦¬í”Œë ‰ì…˜ê³¼ í”„ë ˆìž„ë³„ ì¡°íšŒë¥¼ ì¤„ì˜€ìŠµë‹ˆë‹¤: ì°¨ëŸ‰ íˆ´íŒ ì„¤ëª…, ë‹¨ì„  êµ¬ê°„ ë¶„ë¥˜, ì‹œì™¸ë²„ìŠ¤ ì•„ì´í…œ í´ëž˜ìŠ¤ ì¡°íšŒê°€ ì´ì œ í˜¸ì¶œí•  ë•Œë§ˆë‹¤ ë‹¤ì‹œ ê³„ì‚°í•˜ëŠ” ëŒ€ì‹  ìºì‹œë˜ë©°, UI ìƒˆë¡œê³ ì¹¨ ë²„íŠ¼ë„ ë¬´ì–¸ê°€ ë°”ë€Œì—ˆëŠ”ì§€ ì—¬ë¶€ì™€ ê´€ê³„ì—†ì´ ë§¤ í”„ë ˆìž„ í…ìŠ¤íŠ¸ë¥¼ ë‹¤ì‹œ ì§€ì •í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_0_8 ìƒˆë¡œ ì„¤ì¹˜í•  ë•Œ ì´ì œ ì•ˆì „í•œ ê²Œìž„í”Œë ˆì´ í”„ë¡œí•„ì„ ì‚¬ìš©í•©ë‹ˆë‹¤: ëª¨ë“  ì„ íƒì  í†µí•© ê¸°ëŠ¥ê³¼ ëª¨ë“œê°€ ë‹¤ë¥¸ ëª¨ë“œì™€ì˜ ìµœëŒ€ í˜¸í™˜ì„±ì„ ìœ„í•´ êº¼ì§„ ìƒíƒœë¡œ ì‹œìž‘í•©ë‹ˆë‹¤. ì¶”ì²œ(IPT ì½”ì–´) ë˜ëŠ” í˜„ì‹¤ì ì„ ì‚¬ìš©í•˜ê±°ë‚˜ ê°œë³„ í•­ëª©ì„ ì§ì ‘ ì „í™˜í•˜ì„¸ìš”. ì‹œì™¸ë²„ìŠ¤ ì œì–´ì™€ í•˜ìœ„ ê±´ë¬¼ íƒ­ì€ ê³„ì† ì‚¬ìš©í•  ìˆ˜ ìžˆìœ¼ë©° ìœ„ ìˆ˜ì • ì‚¬í•­ ì´í›„ ì¶”ì²œì— í¬í•¨ë©ë‹ˆë‹¤.
+CHANGELOG_4_8_0_9 ì˜µì…˜ > í†µí•© ê¸°ëŠ¥ì— ì´ì œ ê³ ê¸‰ ì •ë¥˜ìž¥ ì„ íƒ, ë” ë‚˜ì€ íƒ‘ìŠ¹, ì£¼í–‰ê±°ë¦¬ íƒì‹œ ì„œë¹„ìŠ¤, ê³ ê°€ ì •ë¥˜ìž¥ì´ í‘œì‹œë©ë‹ˆë‹¤ - ì´ë“¤ì€ ì´ë¯¸ ì„¤ì •ê³¼ í”„ë¡œí•„ë¡œ ì œì–´ë˜ê³  ìžˆì—ˆì§€ë§Œ ì²´í¬ë°•ìŠ¤ê°€ ì—†ì–´ JSON/í”„ë¡œí•„ë¡œë§Œ ì¼¤ ìˆ˜ ìžˆì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_0_10 ë´ë§ˆí¬ì–´, í•€ëž€ë“œì–´, ë…¸ë¥´ì›¨ì´ì–´, ìŠ¤ì›¨ë´ì–´, í—ê°€ë¦¬ì–´, ë£¨ë§ˆë‹ˆì•„ì–´, ë¶ˆê°€ë¦¬ì•„ì–´, ê·¸ë¦¬ìŠ¤ì–´, ìš°í¬ë¼ì´ë‚˜ì–´, ë² íŠ¸ë‚¨ì–´, ë§ë ˆì´ì–´ë¥¼ í¬í•¨í•œ ì„¤ëª… ì„ íƒê¸° ì–¸ì–´ ì „ì²´ì™€ pt-br, es-419ì— ëŒ€í•œ ì „ì²´ ìŠ¤íŒ€ ì›Œí¬ìˆ ì–¸ì–´ íŒ©ì„ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_5_1 Train Display ëŠê¹€/ë©ˆì¶¤ í˜„ìƒì„ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: ë” ë¹ ë¥¸ ì¦‰ì‹œ ìž¬í´ë§ ê²½ë¡œë¥¼ ë˜ëŒë¦¬ê³  í´ë§ ìµœì†Œê°’ì„ ë†’ì—¬, ìµœëŒ€ ì„±ëŠ¥ ì„¤ì •ì—ì„œ ì˜¤ë²„ë ˆì´ê°€ ì‹œë®¬ë ˆì´ì…˜ê³¼ ê²½ìŸí•˜ì§€ ì•Šë„ë¡ í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_5_2 Train Display ê²½ë¡œ í‘œì‹œì¤„ê³¼ ì •ë¥˜ìž¥ ìžë™ ì´ë¦„ ì§€ì •ì„ ìµœì í™”í–ˆìŠµë‹ˆë‹¤: í´ë§ë‹¹ ë¬´ê±°ìš´ ì´ë¦„ ìŠ¤ìº”ì€ ìµœëŒ€ í•œ ë²ˆë§Œ ìˆ˜í–‰í•˜ê³ , ì´ë¦„ì„ ì°¾ì§€ ëª»í•œ ì •ë¥˜ìž¥ì€ ë§¤ ê°„ê²©ë§ˆë‹¤ ë‹¤ì‹œ ìŠ¤ìº”í•˜ì§€ ì•Šìœ¼ë©°, ê²½ë¡œ ì´ë¦„ ëª©ë¡ì€ ì¶”ê°€ì ì¸ ëª©ë¡ í• ë‹¹ì„ í”¼í•©ë‹ˆë‹¤.
+CHANGELOG_4_8_5_3 í†µê·¼ ëª©ì ì§€(ì•„ì§ ë²„ê·¸ê°€ ìžˆìŒ) ê¸°ëŠ¥ì„ ë³´ë¥˜í–ˆìŠµë‹ˆë‹¤: ì´í›„ ìž¬ì„¤ê³„ê°€ ìžˆì„ ë•Œê¹Œì§€ ëª¨ë“  í”„ë¡œí•„/ì„¸ì´ë¸Œì—ì„œ ê°•ì œë¡œ ë„ê³  ì˜µì…˜ í† ê¸€ì„ ì œê±°í–ˆìŠµë‹ˆë‹¤. í–¥í›„ ì‚¬ìš©ì„ ìœ„í•œ ìŠ¤í¬ì¼ëŸ¬ëŠ” ê³ ê¸‰ ì•„ëž˜ì— ë‚¨ì•„ ìžˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_8_5_4 ì˜µì…˜ ì–¸ì–´ íŒ©: ë°°í¬ ì‹œ ì „ì²´ ê³µí†µ JSON ì„¸íŠ¸(í”„ë ˆìž„ì›Œí¬ ì–¸ì–´ 35ê°œ ì´ìƒ)ê°€ í¬í•¨ë˜ì–´ ì–¸ì–´ ë“œë¡­ë‹¤ìš´ì´ ë” ì´ìƒ ëª©ë¡ì˜ ì ˆë°˜ì„ ë†“ì¹˜ì§€ ì•Šìœ¼ë©°, ì„¹ì…˜ ì„¤ëª… ì¹´ë“œëŠ” ì»¨íŠ¸ë¡¤ê³¼ ë°°ê²½ì„ ê³µìœ í•©ë‹ˆë‹¤.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
-CHANGELOG_4_7_0_1 네 가지 새로운 통합 기능: 하위 건물 탭(공항뿐 아니라 여러 건물로 이루어진 모든 복합 시설에 사용할 수 있는 탭 바), 공유 정류장(둘 이상의 정류장 유형이 같은 도로 구간을 공유할 수 있게 함, 기본값은 비활성화), 통근 목적지 표시(정류장에서 기다리는 시민들이 실제로 향하는 곳을 표시), 택시 승강장 수정(빈 택시가 배회하는 대신 가장 가까운 택시 승강장으로 이동). 각 기능의 켜고 끄기는 옵션 > 통합 기능에서 확인할 수 있습니다.
-CHANGELOG_4_7_0_2 시외버스 터미널을 위한 차량 수용 대수 모드가 추가되었습니다(옵션 > 통합 기능 > 시외버스 터미널 수용 대수): 사용 안 함은 지금까지의 사실상 무제한이었던 이 모드의 터미널을 그대로 유지하고, 중간은 적당한 고정 상한을 적용하며, 현실적은 터미널 자체의 기본 게임 프리팹 수용 대수를 복원합니다. 기존 세이브는 기본값으로 사용 안 함을 사용하므로, 업데이트로 인해 터미널 수용 대수가 모르는 사이에 줄어드는 일은 없습니다.
-CHANGELOG_4_7_0_3 시외버스 터미널의 "시외버스 수용" 체크박스를 수정했습니다: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged는 acceptsInterCityTrains를 설정하는데, 이는 isEmptying의 단순한 별칭이었습니다. 그래서 이름이 바뀐 이 체크박스는 실제로 버스 수용 여부를 전환하는 대신, 버스 터미널을 게임의 건물 폐쇄 상태로 모르는 사이에 전환시킬 수 있었습니다. 이제 Harmony prefix가 이를 가로채어, 버스로 패치된 터미널에서는 건물별 상태로 리디렉션하고, 실제 기차역은 그대로 둡니다.
-CHANGELOG_4_7_0_4 Train Display에 "오리지널" 색상 테마가 추가되었습니다(옵션 > Train Display > 색상 테마). 이는 원본 모드인 Train Display - Updated의 레이아웃을 재현한 것으로, 속도와 상태를 보여주는 헤더 띠와 차량의 실제 노선 색상에 맞춰 색이 지정된 경로 띠로 구성됩니다.
-CHANGELOG_4_7_0_5 Train Display의 단순, 어둡게, 밝게 테마가 잘못된 색상으로 표시되던 문제를 수정했습니다: GUI.backgroundColor로 색을 입힌 GUI.Box는 Unity의 기본 스킨 박스 텍스처가 순백색이 아니기 때문에 단일 색상을 만들어내지 못합니다. 이제 오버레이는 캐시된 순백색 텍스처 위에 GUI.DrawTexture와 GUI.color를 사용해 그려집니다.
-CHANGELOG_4_7_0_6 요금 탭이 기본 게임의 BudgetItem 시각 요소 대신 항상 단순한 사용자 지정 슬라이더 행으로 대체되던 문제를 수정했습니다: BudgetItem의 야간 요금 슬라이더 필드에 대한 리플렉션 조회에 오타가 있어 항상 예외가 발생했고, 이 예외가 조용히 무시되고 있었습니다.
-CHANGELOG_4_7_0_7 표시되는 모든 교통 패널에서 매 프레임 실행되는 두 개의 Harmony 패치(도시 서비스 패널의 시외버스 체크박스, 노선 패널의 각 정류장 승객 수 레이블)에서 반복되던 UI 트리 조회를 줄였습니다: 이제 확인된 UI 참조를 매 프레임 다시 검색하는 대신 캐시합니다.
-CHANGELOG_4_7_0_8 옵션 메뉴 전체를 실제 내용에 맞는 탭으로 재구성했습니다(차량 및 배차, 예산 및 요금, 노선 색상, 통합 기능 등). 이전에는 서로 관련 없는 일곱 개의 설정 그룹이 자동 노선 탭 하나에 몰려 있었습니다. 이전 버전에서 제거되었던 단축키 탭을 복원하여 앞으로 이를 필요로 하는 통합 기능을 위해 준비해 두었고, 옵션 > 고급 아래에 GitHub 프로젝트 링크를 추가했습니다.
-CHANGELOG_4_3_8_1 더 이상 BETA로 표시되지 않습니다. 이 포킬의 원인이었던 유지보수 오버필로우를 근본적으로 해결하고 이미 손상된 세이뷔도 복구합니다. 23개 언어 모든 번역이 완료되었습니다.
-CHANGELOG_4_3_7_1 선택 목록의 23개 언어 모든 번역이 완료되었습니다. 체쿠어, 네덜란드어, 슬로바키아어, 태국어, 터키어는 선택할 수는 있었지만 번역 파일이 없어 조용히 영어로 대진되었습니다.
-CHANGELOG_4_3_7_2 언어 선택 아래에 표시되는 번역 진행률은 다시 생성된 적이 없는 정적 상태 파일을 읽어, 사실상 완료된 16개 언어에 대해 76%로 표시되었습니다.
-CHANGELOG_4_3_6_1 대중교여에서 어림집어 재산되는 지상 -2,140만 지원을 발생시힌 진짜 원인을 수정했습니다. IPT의 주간 유지보수 계산이 0 또는 지원되지 않는 차량 정원으로 나누어 NaN을 int.MinValue로 바블곰, 다시 모든 차량을 또 다른 int에 합산했습니다. 이제 유효하지 않은 값은 안전한 기반 게임 값을 사용하고, 노선 합계는 64버트 연산을 사용하며, 유효한 대금은 상한이 있는 양의 거래로만 부과됩니다.
-CHANGELOG_4_3_6_2 이미 영향을 받은 세이뷔는 불러올 때 복구됩니다. 이 오버필로우가 남긴 대중교통 수입 또는 지출의 음수 항목만 0으로 만들고 해당 합계를 바로잖습니다. 정상적인 경제 기록과 다른 모든 서버스는 그대로 유지됩니다.
-DEPOT_STATS_FERRIES_IN_USE 운용 중인 페리
-DEPOT_STATS_BLIMPS_IN_USE 운용 중인 비행선
-DEPOT_STATS_HELICOPTERS 운용 중인 헬리콥터
-DEPOT_STATS_TROLLEYBUSES_IN_USE 운용 중인 트롤리버스
-DEPOT_STATS_VEHICLES_IN_USE 운용 중인 차량
-SETTINGS_EMPTY_BEFORE_DEPOT 차고지 복귀 전 탑승객 하차
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP 활성화하면 탑승객이 있는 대중교통 차량은 모두 하차할 때까지 노선을 떠나지 않습니다. 그 다음 차고지로 돌아갑니다. 기본값은 비활성화; 현실적 프로필에서 활성화됩니다.
-SETTINGS_TRAINDISPLAY_TYPES_GROUP 오버레이에 표시할 차량 유형
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION 선택했을 때 Train Display 패널을 표시할 수 있는 대중교통 차량 유형을 선택합니다.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP 이 차량 유형을 선택했을 때 오버레이를 표시합니다.
-SETTINGS_TRAINDISPLAY_TYPE_BUS 버스
-SETTINGS_TRAINDISPLAY_TYPE_TROLLEY 트롤리버스
-SETTINGS_TRAINDISPLAY_TYPE_TRAM 트램
-SETTINGS_TRAINDISPLAY_TYPE_METRO 지하철
-SETTINGS_TRAINDISPLAY_TYPE_TRAIN 기차
-SETTINGS_TRAINDISPLAY_TYPE_MONORAIL 모노레일
-SETTINGS_TRAINDISPLAY_TYPE_SHIP 선박 / 페리
-SETTINGS_TRAINDISPLAY_TYPE_PLANE 비행기 / 비행선 / 헬리콥터
-SETTINGS_TRAINDISPLAY_TYPE_TAXI 택시
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR 케이블카
-SETTINGS_TRAINDISPLAY_TYPE_TOURS 투어 버스
-SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI 검정색 (반투명)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED 속도 표시 (추가 행)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS 승객 수 표시 (추가 행)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED 경과 시간 표시 (추가 행)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP 메인 패널 위에 이 정보를 표시하는 노선 색상 띠를 추가합니다. 기본값은 비활성화입니다.
-TRAINDISPLAY_LABEL_SPEED 속도
-TRAINDISPLAY_LABEL_TIME 시간
-SETTINGS_PERFORMANCE_PROFILE 성능 프로필
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP 무거운 UI 및 검사에 대한 전역 예산 (Train Display 새로고침, 통근 목적지 지도/목록 등).
-SETTINGS_PERFORMANCE_PROFILE_LIGHT 낮음 (더 부드러움)
-SETTINGS_PERFORMANCE_PROFILE_NORMAL 보통 (균형잡힘)
-SETTINGS_PERFORMANCE_PROFILE_MAXIMUM 최대 (완전한 세부)
-SETTINGS_TAB_PERFORMANCE 성능
-SETTINGS_PERFORMANCE_TIPS_GROUP 팁
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION UI 또는 오버레이가 끊기면 낮음 사용; PC가 강력할 경우에만 최대 사용. 변경사항은 Train Display 및 통근 목적지에 즉시 적용됩니다. 일부 통합은 맵 새로고침이 필요합니다.
+CHANGELOG_4_7_0_1 ë„¤ ê°€ì§€ ìƒˆë¡œìš´ í†µí•© ê¸°ëŠ¥: í•˜ìœ„ ê±´ë¬¼ íƒ­(ê³µí•­ë¿ ì•„ë‹ˆë¼ ì—¬ëŸ¬ ê±´ë¬¼ë¡œ ì´ë£¨ì–´ì§„ ëª¨ë“  ë³µí•© ì‹œì„¤ì— ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” íƒ­ ë°”), ê³µìœ  ì •ë¥˜ìž¥(ë‘˜ ì´ìƒì˜ ì •ë¥˜ìž¥ ìœ í˜•ì´ ê°™ì€ ë„ë¡œ êµ¬ê°„ì„ ê³µìœ í•  ìˆ˜ ìžˆê²Œ í•¨, ê¸°ë³¸ê°’ì€ ë¹„í™œì„±í™”), í†µê·¼ ëª©ì ì§€ í‘œì‹œ(ì •ë¥˜ìž¥ì—ì„œ ê¸°ë‹¤ë¦¬ëŠ” ì‹œë¯¼ë“¤ì´ ì‹¤ì œë¡œ í–¥í•˜ëŠ” ê³³ì„ í‘œì‹œ), íƒì‹œ ìŠ¹ê°•ìž¥ ìˆ˜ì •(ë¹ˆ íƒì‹œê°€ ë°°íšŒí•˜ëŠ” ëŒ€ì‹  ê°€ìž¥ ê°€ê¹Œìš´ íƒì‹œ ìŠ¹ê°•ìž¥ìœ¼ë¡œ ì´ë™). ê° ê¸°ëŠ¥ì˜ ì¼œê³  ë„ê¸°ëŠ” ì˜µì…˜ > í†µí•© ê¸°ëŠ¥ì—ì„œ í™•ì¸í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_7_0_2 ì‹œì™¸ë²„ìŠ¤ í„°ë¯¸ë„ì„ ìœ„í•œ ì°¨ëŸ‰ ìˆ˜ìš© ëŒ€ìˆ˜ ëª¨ë“œê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤(ì˜µì…˜ > í†µí•© ê¸°ëŠ¥ > ì‹œì™¸ë²„ìŠ¤ í„°ë¯¸ë„ ìˆ˜ìš© ëŒ€ìˆ˜): ì‚¬ìš© ì•ˆ í•¨ì€ ì§€ê¸ˆê¹Œì§€ì˜ ì‚¬ì‹¤ìƒ ë¬´ì œí•œì´ì—ˆë˜ ì´ ëª¨ë“œì˜ í„°ë¯¸ë„ì„ ê·¸ëŒ€ë¡œ ìœ ì§€í•˜ê³ , ì¤‘ê°„ì€ ì ë‹¹í•œ ê³ ì • ìƒí•œì„ ì ìš©í•˜ë©°, í˜„ì‹¤ì ì€ í„°ë¯¸ë„ ìžì²´ì˜ ê¸°ë³¸ ê²Œìž„ í”„ë¦¬íŒ¹ ìˆ˜ìš© ëŒ€ìˆ˜ë¥¼ ë³µì›í•©ë‹ˆë‹¤. ê¸°ì¡´ ì„¸ì´ë¸ŒëŠ” ê¸°ë³¸ê°’ìœ¼ë¡œ ì‚¬ìš© ì•ˆ í•¨ì„ ì‚¬ìš©í•˜ë¯€ë¡œ, ì—…ë°ì´íŠ¸ë¡œ ì¸í•´ í„°ë¯¸ë„ ìˆ˜ìš© ëŒ€ìˆ˜ê°€ ëª¨ë¥´ëŠ” ì‚¬ì´ì— ì¤„ì–´ë“œëŠ” ì¼ì€ ì—†ìŠµë‹ˆë‹¤.
+CHANGELOG_4_7_0_3 ì‹œì™¸ë²„ìŠ¤ í„°ë¯¸ë„ì˜ "ì‹œì™¸ë²„ìŠ¤ ìˆ˜ìš©" ì²´í¬ë°•ìŠ¤ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: CityServiceWorldInfoPanel.OnAcceptsIntercityChangedëŠ” acceptsInterCityTrainsë¥¼ ì„¤ì •í•˜ëŠ”ë°, ì´ëŠ” isEmptyingì˜ ë‹¨ìˆœí•œ ë³„ì¹­ì´ì—ˆìŠµë‹ˆë‹¤. ê·¸ëž˜ì„œ ì´ë¦„ì´ ë°”ë€ ì´ ì²´í¬ë°•ìŠ¤ëŠ” ì‹¤ì œë¡œ ë²„ìŠ¤ ìˆ˜ìš© ì—¬ë¶€ë¥¼ ì „í™˜í•˜ëŠ” ëŒ€ì‹ , ë²„ìŠ¤ í„°ë¯¸ë„ì„ ê²Œìž„ì˜ ê±´ë¬¼ íì‡„ ìƒíƒœë¡œ ëª¨ë¥´ëŠ” ì‚¬ì´ì— ì „í™˜ì‹œí‚¬ ìˆ˜ ìžˆì—ˆìŠµë‹ˆë‹¤. ì´ì œ Harmony prefixê°€ ì´ë¥¼ ê°€ë¡œì±„ì–´, ë²„ìŠ¤ë¡œ íŒ¨ì¹˜ëœ í„°ë¯¸ë„ì—ì„œëŠ” ê±´ë¬¼ë³„ ìƒíƒœë¡œ ë¦¬ë””ë ‰ì…˜í•˜ê³ , ì‹¤ì œ ê¸°ì°¨ì—­ì€ ê·¸ëŒ€ë¡œ ë‘¡ë‹ˆë‹¤.
+CHANGELOG_4_7_0_4 Train Displayì— "ì˜¤ë¦¬ì§€ë„" ìƒ‰ìƒ í…Œë§ˆê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤(ì˜µì…˜ > Train Display > ìƒ‰ìƒ í…Œë§ˆ). ì´ëŠ” ì›ë³¸ ëª¨ë“œì¸ Train Display - Updatedì˜ ë ˆì´ì•„ì›ƒì„ ìž¬í˜„í•œ ê²ƒìœ¼ë¡œ, ì†ë„ì™€ ìƒíƒœë¥¼ ë³´ì—¬ì£¼ëŠ” í—¤ë” ë ì™€ ì°¨ëŸ‰ì˜ ì‹¤ì œ ë…¸ì„  ìƒ‰ìƒì— ë§žì¶° ìƒ‰ì´ ì§€ì •ëœ ê²½ë¡œ ë ë¡œ êµ¬ì„±ë©ë‹ˆë‹¤.
+CHANGELOG_4_7_0_5 Train Displayì˜ ë‹¨ìˆœ, ì–´ë‘¡ê²Œ, ë°ê²Œ í…Œë§ˆê°€ ìž˜ëª»ëœ ìƒ‰ìƒìœ¼ë¡œ í‘œì‹œë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: GUI.backgroundColorë¡œ ìƒ‰ì„ ìž…ížŒ GUI.BoxëŠ” Unityì˜ ê¸°ë³¸ ìŠ¤í‚¨ ë°•ìŠ¤ í…ìŠ¤ì²˜ê°€ ìˆœë°±ìƒ‰ì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ë‹¨ì¼ ìƒ‰ìƒì„ ë§Œë“¤ì–´ë‚´ì§€ ëª»í•©ë‹ˆë‹¤. ì´ì œ ì˜¤ë²„ë ˆì´ëŠ” ìºì‹œëœ ìˆœë°±ìƒ‰ í…ìŠ¤ì²˜ ìœ„ì— GUI.DrawTextureì™€ GUI.colorë¥¼ ì‚¬ìš©í•´ ê·¸ë ¤ì§‘ë‹ˆë‹¤.
+CHANGELOG_4_7_0_6 ìš”ê¸ˆ íƒ­ì´ ê¸°ë³¸ ê²Œìž„ì˜ BudgetItem ì‹œê° ìš”ì†Œ ëŒ€ì‹  í•­ìƒ ë‹¨ìˆœí•œ ì‚¬ìš©ìž ì§€ì • ìŠ¬ë¼ì´ë” í–‰ìœ¼ë¡œ ëŒ€ì²´ë˜ë˜ ë¬¸ì œë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤: BudgetItemì˜ ì•¼ê°„ ìš”ê¸ˆ ìŠ¬ë¼ì´ë” í•„ë“œì— ëŒ€í•œ ë¦¬í”Œë ‰ì…˜ ì¡°íšŒì— ì˜¤íƒ€ê°€ ìžˆì–´ í•­ìƒ ì˜ˆì™¸ê°€ ë°œìƒí–ˆê³ , ì´ ì˜ˆì™¸ê°€ ì¡°ìš©ížˆ ë¬´ì‹œë˜ê³  ìžˆì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_7_0_7 í‘œì‹œë˜ëŠ” ëª¨ë“  êµí†µ íŒ¨ë„ì—ì„œ ë§¤ í”„ë ˆìž„ ì‹¤í–‰ë˜ëŠ” ë‘ ê°œì˜ Harmony íŒ¨ì¹˜(ë„ì‹œ ì„œë¹„ìŠ¤ íŒ¨ë„ì˜ ì‹œì™¸ë²„ìŠ¤ ì²´í¬ë°•ìŠ¤, ë…¸ì„  íŒ¨ë„ì˜ ê° ì •ë¥˜ìž¥ ìŠ¹ê° ìˆ˜ ë ˆì´ë¸”)ì—ì„œ ë°˜ë³µë˜ë˜ UI íŠ¸ë¦¬ ì¡°íšŒë¥¼ ì¤„ì˜€ìŠµë‹ˆë‹¤: ì´ì œ í™•ì¸ëœ UI ì°¸ì¡°ë¥¼ ë§¤ í”„ë ˆìž„ ë‹¤ì‹œ ê²€ìƒ‰í•˜ëŠ” ëŒ€ì‹  ìºì‹œí•©ë‹ˆë‹¤.
+CHANGELOG_4_7_0_8 ì˜µì…˜ ë©”ë‰´ ì „ì²´ë¥¼ ì‹¤ì œ ë‚´ìš©ì— ë§žëŠ” íƒ­ìœ¼ë¡œ ìž¬êµ¬ì„±í–ˆìŠµë‹ˆë‹¤(ì°¨ëŸ‰ ë° ë°°ì°¨, ì˜ˆì‚° ë° ìš”ê¸ˆ, ë…¸ì„  ìƒ‰ìƒ, í†µí•© ê¸°ëŠ¥ ë“±). ì´ì „ì—ëŠ” ì„œë¡œ ê´€ë ¨ ì—†ëŠ” ì¼ê³± ê°œì˜ ì„¤ì • ê·¸ë£¹ì´ ìžë™ ë…¸ì„  íƒ­ í•˜ë‚˜ì— ëª°ë ¤ ìžˆì—ˆìŠµë‹ˆë‹¤. ì´ì „ ë²„ì „ì—ì„œ ì œê±°ë˜ì—ˆë˜ ë‹¨ì¶•í‚¤ íƒ­ì„ ë³µì›í•˜ì—¬ ì•žìœ¼ë¡œ ì´ë¥¼ í•„ìš”ë¡œ í•˜ëŠ” í†µí•© ê¸°ëŠ¥ì„ ìœ„í•´ ì¤€ë¹„í•´ ë‘ì—ˆê³ , ì˜µì…˜ > ê³ ê¸‰ ì•„ëž˜ì— GitHub í”„ë¡œì íŠ¸ ë§í¬ë¥¼ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_8_1 ë” ì´ìƒ BETAë¡œ í‘œì‹œë˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ì´ í¬í‚¬ì˜ ì›ì¸ì´ì—ˆë˜ ìœ ì§€ë³´ìˆ˜ ì˜¤ë²„í•„ë¡œìš°ë¥¼ ê·¼ë³¸ì ìœ¼ë¡œ í•´ê²°í•˜ê³  ì´ë¯¸ ì†ìƒëœ ì„¸ì´ë·”ë„ ë³µêµ¬í•©ë‹ˆë‹¤. 23ê°œ ì–¸ì–´ ëª¨ë“  ë²ˆì—­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_7_1 ì„ íƒ ëª©ë¡ì˜ 23ê°œ ì–¸ì–´ ëª¨ë“  ë²ˆì—­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. ì²´ì¿ ì–´, ë„¤ëœëž€ë“œì–´, ìŠ¬ë¡œë°”í‚¤ì•„ì–´, íƒœêµ­ì–´, í„°í‚¤ì–´ëŠ” ì„ íƒí•  ìˆ˜ëŠ” ìžˆì—ˆì§€ë§Œ ë²ˆì—­ íŒŒì¼ì´ ì—†ì–´ ì¡°ìš©ížˆ ì˜ì–´ë¡œ ëŒ€ì§„ë˜ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_7_2 ì–¸ì–´ ì„ íƒ ì•„ëž˜ì— í‘œì‹œë˜ëŠ” ë²ˆì—­ ì§„í–‰ë¥ ì€ ë‹¤ì‹œ ìƒì„±ëœ ì ì´ ì—†ëŠ” ì •ì  ìƒíƒœ íŒŒì¼ì„ ì½ì–´, ì‚¬ì‹¤ìƒ ì™„ë£Œëœ 16ê°œ ì–¸ì–´ì— ëŒ€í•´ 76%ë¡œ í‘œì‹œë˜ì—ˆìŠµë‹ˆë‹¤.
+CHANGELOG_4_3_6_1 ëŒ€ì¤‘êµì—¬ì—ì„œ ì–´ë¦¼ì§‘ì–´ ìž¬ì‚°ë˜ëŠ” ì§€ìƒ -2,140ë§Œ ì§€ì›ì„ ë°œìƒì‹œížŒ ì§„ì§œ ì›ì¸ì„ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤. IPTì˜ ì£¼ê°„ ìœ ì§€ë³´ìˆ˜ ê³„ì‚°ì´ 0 ë˜ëŠ” ì§€ì›ë˜ì§€ ì•ŠëŠ” ì°¨ëŸ‰ ì •ì›ìœ¼ë¡œ ë‚˜ëˆ„ì–´ NaNì„ int.MinValueë¡œ ë°”ë¸”ê³°, ë‹¤ì‹œ ëª¨ë“  ì°¨ëŸ‰ì„ ë˜ ë‹¤ë¥¸ intì— í•©ì‚°í–ˆìŠµë‹ˆë‹¤. ì´ì œ ìœ íš¨í•˜ì§€ ì•Šì€ ê°’ì€ ì•ˆì „í•œ ê¸°ë°˜ ê²Œìž„ ê°’ì„ ì‚¬ìš©í•˜ê³ , ë…¸ì„  í•©ê³„ëŠ” 64ë²„íŠ¸ ì—°ì‚°ì„ ì‚¬ìš©í•˜ë©°, ìœ íš¨í•œ ëŒ€ê¸ˆì€ ìƒí•œì´ ìžˆëŠ” ì–‘ì˜ ê±°ëž˜ë¡œë§Œ ë¶€ê³¼ë©ë‹ˆë‹¤.
+CHANGELOG_4_3_6_2 ì´ë¯¸ ì˜í–¥ì„ ë°›ì€ ì„¸ì´ë·”ëŠ” ë¶ˆëŸ¬ì˜¬ ë•Œ ë³µêµ¬ë©ë‹ˆë‹¤. ì´ ì˜¤ë²„í•„ë¡œìš°ê°€ ë‚¨ê¸´ ëŒ€ì¤‘êµí†µ ìˆ˜ìž… ë˜ëŠ” ì§€ì¶œì˜ ìŒìˆ˜ í•­ëª©ë§Œ 0ìœ¼ë¡œ ë§Œë“¤ê³  í•´ë‹¹ í•©ê³„ë¥¼ ë°”ë¡œìž–ìŠµë‹ˆë‹¤. ì •ìƒì ì¸ ê²½ì œ ê¸°ë¡ê³¼ ë‹¤ë¥¸ ëª¨ë“  ì„œë²„ìŠ¤ëŠ” ê·¸ëŒ€ë¡œ ìœ ì§€ë©ë‹ˆë‹¤.
+DEPOT_STATS_FERRIES_IN_USE ìš´ìš© ì¤‘ì¸ íŽ˜ë¦¬
+DEPOT_STATS_BLIMPS_IN_USE ìš´ìš© ì¤‘ì¸ ë¹„í–‰ì„ 
+DEPOT_STATS_HELICOPTERS ìš´ìš© ì¤‘ì¸ í—¬ë¦¬ì½¥í„°
+DEPOT_STATS_TROLLEYBUSES_IN_USE ìš´ìš© ì¤‘ì¸ íŠ¸ë¡¤ë¦¬ë²„ìŠ¤
+DEPOT_STATS_VEHICLES_IN_USE ìš´ìš© ì¤‘ì¸ ì°¨ëŸ‰
+SETTINGS_EMPTY_BEFORE_DEPOT ì°¨ê³ ì§€ ë³µê·€ ì „ íƒ‘ìŠ¹ê° í•˜ì°¨
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP í™œì„±í™”í•˜ë©´ íƒ‘ìŠ¹ê°ì´ ìžˆëŠ” ëŒ€ì¤‘êµí†µ ì°¨ëŸ‰ì€ ëª¨ë‘ í•˜ì°¨í•  ë•Œê¹Œì§€ ë…¸ì„ ì„ ë– ë‚˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ê·¸ ë‹¤ìŒ ì°¨ê³ ì§€ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤. ê¸°ë³¸ê°’ì€ ë¹„í™œì„±í™”; í˜„ì‹¤ì  í”„ë¡œí•„ì—ì„œ í™œì„±í™”ë©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP ì˜¤ë²„ë ˆì´ì— í‘œì‹œí•  ì°¨ëŸ‰ ìœ í˜•
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION ì„ íƒí–ˆì„ ë•Œ Train Display íŒ¨ë„ì„ í‘œì‹œí•  ìˆ˜ ìžˆëŠ” ëŒ€ì¤‘êµí†µ ì°¨ëŸ‰ ìœ í˜•ì„ ì„ íƒí•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP ì´ ì°¨ëŸ‰ ìœ í˜•ì„ ì„ íƒí–ˆì„ ë•Œ ì˜¤ë²„ë ˆì´ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤.
+SETTINGS_TRAINDISPLAY_TYPE_BUS ë²„ìŠ¤
+SETTINGS_TRAINDISPLAY_TYPE_TROLLEY íŠ¸ë¡¤ë¦¬ë²„ìŠ¤
+SETTINGS_TRAINDISPLAY_TYPE_TRAM íŠ¸ëž¨
+SETTINGS_TRAINDISPLAY_TYPE_METRO ì§€í•˜ì² 
+SETTINGS_TRAINDISPLAY_TYPE_TRAIN ê¸°ì°¨
+SETTINGS_TRAINDISPLAY_TYPE_MONORAIL ëª¨ë…¸ë ˆì¼
+SETTINGS_TRAINDISPLAY_TYPE_SHIP ì„ ë°• / íŽ˜ë¦¬
+SETTINGS_TRAINDISPLAY_TYPE_PLANE ë¹„í–‰ê¸° / ë¹„í–‰ì„  / í—¬ë¦¬ì½¥í„°
+SETTINGS_TRAINDISPLAY_TYPE_TAXI íƒì‹œ
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR ì¼€ì´ë¸”ì¹´
+SETTINGS_TRAINDISPLAY_TYPE_TOURS íˆ¬ì–´ ë²„ìŠ¤
+SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI ê²€ì •ìƒ‰ (ë°˜íˆ¬ëª…)
+SETTINGS_TRAINDISPLAY_SHOW_SPEED ì†ë„ í‘œì‹œ (ì¶”ê°€ í–‰)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS ìŠ¹ê° ìˆ˜ í‘œì‹œ (ì¶”ê°€ í–‰)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED ê²½ê³¼ ì‹œê°„ í‘œì‹œ (ì¶”ê°€ í–‰)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP ë©”ì¸ íŒ¨ë„ ìœ„ì— ì´ ì •ë³´ë¥¼ í‘œì‹œí•˜ëŠ” ë…¸ì„  ìƒ‰ìƒ ë ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤. ê¸°ë³¸ê°’ì€ ë¹„í™œì„±í™”ìž…ë‹ˆë‹¤.
+TRAINDISPLAY_LABEL_SPEED ì†ë„
+TRAINDISPLAY_LABEL_TIME ì‹œê°„
+SETTINGS_PERFORMANCE_PROFILE ì„±ëŠ¥ í”„ë¡œí•„
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP ë¬´ê±°ìš´ UI ë° ê²€ì‚¬ì— ëŒ€í•œ ì „ì—­ ì˜ˆì‚° (Train Display ìƒˆë¡œê³ ì¹¨, í†µê·¼ ëª©ì ì§€ ì§€ë„/ëª©ë¡ ë“±).
+SETTINGS_PERFORMANCE_PROFILE_LIGHT ë‚®ìŒ (ë” ë¶€ë“œëŸ¬ì›€)
+SETTINGS_PERFORMANCE_PROFILE_NORMAL ë³´í†µ (ê· í˜•ìž¡íž˜)
+SETTINGS_PERFORMANCE_PROFILE_MAXIMUM ìµœëŒ€ (ì™„ì „í•œ ì„¸ë¶€)
+SETTINGS_TAB_PERFORMANCE ì„±ëŠ¥
+SETTINGS_PERFORMANCE_TIPS_GROUP íŒ
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION UI ë˜ëŠ” ì˜¤ë²„ë ˆì´ê°€ ëŠê¸°ë©´ ë‚®ìŒ ì‚¬ìš©; PCê°€ ê°•ë ¥í•  ê²½ìš°ì—ë§Œ ìµœëŒ€ ì‚¬ìš©. ë³€ê²½ì‚¬í•­ì€ Train Display ë° í†µê·¼ ëª©ì ì§€ì— ì¦‰ì‹œ ì ìš©ë©ë‹ˆë‹¤. ì¼ë¶€ í†µí•©ì€ ë§µ ìƒˆë¡œê³ ì¹¨ì´ í•„ìš”í•©ë‹ˆë‹¤.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
-SETTINGS_TAB_COMPATIBILITY 호환성
-SETTINGS_COMPAT_INTRO_GROUP 로드 순서 확인
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4가 활성화된 Workshop/로컬 모드에서 알려진 충돌(IPT1-3, TLM, ITM, 흡수된 스탠드얼론)과 필수 의존성(Harmony)을 검사합니다. 구독 변경 후 검사를 실행하세요.
-SETTINGS_COMPAT_RUN_CHECK 충돌 검사
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP 활성화된 플러그인을 IPT4의 알려진 호환 불가 목록(어셈블리 이름 + Workshop ID)과 Harmony 의존성과 비교합니다.
-SETTINGS_COMPAT_RUN_CHECK_BUTTON 지금 확인
-SETTINGS_COMPAT_STATUS_GROUP 현재 결과
-SETTINGS_COMPAT_STATUS_OK 마지막 검사에서 충돌이나 누락된 의존성이 감지되지 않았습니다.
-SETTINGS_COMPAT_STATUS_WARN 문제를 찾았습니다 — 나열된 모드를 비활성화하고 (또는 Harmony 구독) 게임을 다시 시작하세요.
-SETTINGS_COMPAT_MATCHED_GENERIC 이 모드는 IPT4와 충돌합니다. 비활성화하거나 구독 취소하세요.
-SETTINGS_COMPAT_MISSING_DEP 필수 의존성이 없습니다. 구독하여 활성화한 후 다시 시작하세요.
-SETTINGS_COMPAT_NO_ISSUES 현재 충돌 문제가 없습니다.
-SETTINGS_COMPAT_BADGE_CONFLICT 충돌
-SETTINGS_COMPAT_BADGE_MISSING 누락됨
+SETTINGS_TAB_COMPATIBILITY í˜¸í™˜ì„±
+SETTINGS_COMPAT_INTRO_GROUP ë¡œë“œ ìˆœì„œ í™•ì¸
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4ê°€ í™œì„±í™”ëœ Workshop/ë¡œì»¬ ëª¨ë“œì—ì„œ ì•Œë ¤ì§„ ì¶©ëŒ(IPT1-3, TLM, ITM, í¡ìˆ˜ëœ ìŠ¤íƒ ë“œì–¼ë¡ )ê³¼ í•„ìˆ˜ ì˜ì¡´ì„±(Harmony)ì„ ê²€ì‚¬í•©ë‹ˆë‹¤. êµ¬ë… ë³€ê²½ í›„ ê²€ì‚¬ë¥¼ ì‹¤í–‰í•˜ì„¸ìš”.
+SETTINGS_COMPAT_RUN_CHECK ì¶©ëŒ ê²€ì‚¬
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP í™œì„±í™”ëœ í”ŒëŸ¬ê·¸ì¸ì„ IPT4ì˜ ì•Œë ¤ì§„ í˜¸í™˜ ë¶ˆê°€ ëª©ë¡(ì–´ì…ˆë¸”ë¦¬ ì´ë¦„ + Workshop ID)ê³¼ Harmony ì˜ì¡´ì„±ê³¼ ë¹„êµí•©ë‹ˆë‹¤.
+SETTINGS_COMPAT_RUN_CHECK_BUTTON ì§€ê¸ˆ í™•ì¸
+SETTINGS_COMPAT_STATUS_GROUP í˜„ìž¬ ê²°ê³¼
+SETTINGS_COMPAT_STATUS_OK ë§ˆì§€ë§‰ ê²€ì‚¬ì—ì„œ ì¶©ëŒì´ë‚˜ ëˆ„ë½ëœ ì˜ì¡´ì„±ì´ ê°ì§€ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+SETTINGS_COMPAT_STATUS_WARN ë¬¸ì œë¥¼ ì°¾ì•˜ìŠµë‹ˆë‹¤ â€” ë‚˜ì—´ëœ ëª¨ë“œë¥¼ ë¹„í™œì„±í™”í•˜ê³  (ë˜ëŠ” Harmony êµ¬ë…) ê²Œìž„ì„ ë‹¤ì‹œ ì‹œìž‘í•˜ì„¸ìš”.
+SETTINGS_COMPAT_MATCHED_GENERIC ì´ ëª¨ë“œëŠ” IPT4ì™€ ì¶©ëŒí•©ë‹ˆë‹¤. ë¹„í™œì„±í™”í•˜ê±°ë‚˜ êµ¬ë… ì·¨ì†Œí•˜ì„¸ìš”.
+SETTINGS_COMPAT_MISSING_DEP í•„ìˆ˜ ì˜ì¡´ì„±ì´ ì—†ìŠµë‹ˆë‹¤. êµ¬ë…í•˜ì—¬ í™œì„±í™”í•œ í›„ ë‹¤ì‹œ ì‹œìž‘í•˜ì„¸ìš”.
+SETTINGS_COMPAT_NO_ISSUES í˜„ìž¬ ì¶©ëŒ ë¬¸ì œê°€ ì—†ìŠµë‹ˆë‹¤.
+SETTINGS_COMPAT_BADGE_CONFLICT ì¶©ëŒ
+SETTINGS_COMPAT_BADGE_MISSING ëˆ„ë½ë¨
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP IPT4와 함께 사용하면 안 되는 것
-SETTINGS_COMPAT_GUIDE_DESCRIPTION 활성화하지 마세요: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP 선택한 차량을 차고지/차량기지로 복귀시킵니다. 노선 목표 차량 수가 감소합니다.
-COMMUTER_STOP_WITH_WAITING {0} ({1}명 대기 중)
-SETTINGS_TAB_FLEET_SHORT 함대
-SETTINGS_TAB_STOPS_SHORT 정류장
-SETTINGS_TAB_OVERLAY_SHORT 오버레이
-SETTINGS_TAB_SYSTEM_SHORT 시스템
-SETTINGS_SUB_SPACING 간격유지
-SETTINGS_SUB_SPACING_DESC 차량을 균등 간격으로 유지. 차량 간격유지는 고전 IPT 도구; 급행 버스/트램은 대체 방식.
-SETTINGS_SUB_BUDGET 예산
-SETTINGS_SUB_COLOR 색상
-SETTINGS_SUB_CAPS 한계
-SETTINGS_SUB_NET 네트워크
-SETTINGS_SUB_NET_DESC 도로의 정류장 배치: 고가, 공유 유형, 중첩, 고급 플랫폼.
-SETTINGS_SUB_VEHICLES 차량
-SETTINGS_SUB_VEHICLES_DESC 탑승, 차고지 복귀, 단선 열차, 택시, unstucker.
-SETTINGS_SUB_DEPOTS 차고지
-SETTINGS_SUB_DEPOTS_DESC 차고지가 수용할 수 있는 차량 수에 대한 소프트 한계 (바닐라는 종종 무제한).
-SETTINGS_SUB_OUTSIDE 외부
-SETTINGS_SUB_OUTSIDE_DESC 시외 터미널 및 외부 연결 화물/승객 대기.
-SETTINGS_SUB_DISPLAY 표시
-SETTINGS_SUB_INFO 정보
-SETTINGS_SUB_INFO_DESC 패널 및 도시 정보 도구 (함대 시뮬레이션 아님).
-SETTINGS_SUB_PERF 성능
-SETTINGS_SUB_COMPAT 호환성
-SETTINGS_SUB_KEYS 키
-SETTINGS_FUTURE_GROUP 나중에 추가 예정
-SETTINGS_FUTURE_GROUP_DESCRIPTION 계획된 기능 미리보기. 준비될 때까지 회색 표시 — 승객 목적지는 테스트용으로 이용 가능.
-SETTINGS_FUTURE_REVERSIBLE_TRAM 가역 트램 AI (곧 예정)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP 계획됨: 트램이 루프 없이 종점에서 역방향으로 진행. 아직 사용 불가.
-SETTINGS_FUTURE_BREAKDOWN 고장 도구 (곧 예정)
-SETTINGS_FUTURE_BREAKDOWN_TIP 계획됨: 막힌 교통에 대한 경로/교통 진단. 아직 사용 불가.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL 지도 세부 수준:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP 성능은 더 적은 지도 아이콘을 표시하고 더 빠르게 새로고칩니다. 전체 지도는 지도에 훨씬 많은 목적지 아이콘을 표시하고; 패널은 더 느리게 업데이트되므로 약한 PC도 사용할 수 있습니다.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF 성능 (더 빠름)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL 전체 지도 (더 많은 아이콘, 느린 새로고침)
-SETTINGS_KEYBINDINGS_GROUP 게임 내 핫키
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION 도시가 로드되어 있을 때의 단축키. 바인딩을 클릭한 다음 키를 눌러 다시 바인딩합니다.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Train Display 토글
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP 모서리 차량 오버레이를 켜거나 끕니다.
-SETTINGS_HOTKEY_LINE_COLOR 노선 색상 재지정
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP 교통 노선을 선택한 상태에서 해당 노선에 대해 Auto Line Color를 다시 실행합니다 (색상 전략 활성화 필요).
-LINE_PANEL_COPY 복사
-LINE_PANEL_PASTE 붙여넣기
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
-SETTINGS_QUICK_TIPS_GROUP 빠른 팁
-SETTINGS_QUICK_TIPS_DESC 작은 알림 — 추가 코드 없음, 이미 가지고 있는 것을 사용하는 방법일 뿐.
-SETTINGS_QUICK_TIP_1_TITLE 간단하게 시작
-SETTINGS_QUICK_TIP_1_BODY 권장을 선택한 다음 필요한 것만 활성화합니다. 다른 모드가 많으면 안전 사용을 권장합니다.
-SETTINGS_QUICK_TIP_2_TITLE 느린 PC?
-SETTINGS_QUICK_TIP_2_BODY 시스템 → 성능 → 낮음. 또한 FPS가 떨어지면 통근 "전체 지도" 피하세요.
-SETTINGS_QUICK_TIP_3_TITLE 토글 이후
-SETTINGS_QUICK_TIP_3_BODY 일부 옵션은 도시 재로드 필요 (툴팁에 표시됨). 시스템 → 호환성에서 충돌 모드를 확인합니다.
-SETTINGS_OOC_RESET_TOOLTIP 외부 연결 대기, 장식용 교통 및 관련 토글을 안전 기본값으로 재설정합니다.
-SETTINGS_EBS_GROUP_BUS_DESC 급행 버스는 승객이 적을 때 일찍 떠날 수 있습니다 — 선택적 고급 간격유지.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP 추가 행
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop은 정류장에서 버스가 정차하는 위치만 변경합니다. 아래 옵션은 별도의 기능(고가, 공유 정류장 등)입니다 — 의도적으로 클릭 가능하게 유지됩니다.
-SETTINGS_HIDDENBEHAVIOUR_GROUP 항상 켜짐 동작
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC 지금까지 끌 방법 없이 항상 실행되던 두 가지 작은 동작입니다. 기본적으로 켜져 있어 기존 설치에서는 변화가 없습니다 - 동일한 작업을 하는 독립 모드를 사용 중이거나 수동 제어를 선호한다면 끄세요.
-SETTINGS_AUTONAMESTOPS_ENABLE 이름 없는 정류장 자동 이름 지정
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP 이름이 없는 정류장을 처음 선택하면, 정류장 패널 자체의 드롭다운을 열지 않아도 그 드롭다운이 제안했을 인근 건물 이름을 동일하게 지정합니다. 이미 (사용자 또는 이 기능이) 설정한 이름은 절대 건드리지 않습니다.
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE 전각 숫자 복구 (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP 독립형 Rescue Fullwidth Digits 모드에서 이식되었습니다. 일부 IME/입력 설정으로 인해 전각 숫자(123 대신 １２３)로 저장된 교통 노선 이름을 수정하며, 그렇지 않으면 영구히 잘못 표시됩니다.
-CHANGELOG_4_8_6_1 통근 목적지가 다시 활성화되었습니다: 옵션 토글이 돌아왔으며 재로드 없이 실시간으로 작동합니다.
-CHANGELOG_4_8_6_2 모든 선택적 통합 기능을 "끄면 진짜로 꺼짐"이 되는지 점검했습니다: 고가 정류장 활성화 기능은 되돌릴 방법 없이 도로 프리팹 데이터를 영구적으로 다시 쓰고 있었고, 자동 노선 예산은 세션 도중 비활성화된 후에도 백그라운드에서 계속 노선을 관리하고 있었습니다. 이제 둘 다 꺼지면 바닐라 동작으로 완전히 되돌아갑니다.
-CHANGELOG_4_8_6_3 끌 방법 없이 항상 실행되던 두 가지 동작 - 이름 없는 정류장 자동 이름 지정과 전각 숫자 복구(Gansaku) - 을 발견하여 옵션 → 고급 아래에 두 가지 모두에 대한 토글을 추가했습니다. 기본적으로 켜져 있으므로 끄지 않는 한 아무것도 바뀌지 않습니다.
+SETTINGS_COMPAT_GUIDE_GROUP IPT4ì™€ í•¨ê»˜ ì‚¬ìš©í•˜ë©´ ì•ˆ ë˜ëŠ” ê²ƒ
+SETTINGS_COMPAT_GUIDE_DESCRIPTION í™œì„±í™”í•˜ì§€ ë§ˆì„¸ìš”: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP ì„ íƒí•œ ì°¨ëŸ‰ì„ ì°¨ê³ ì§€/ì°¨ëŸ‰ê¸°ì§€ë¡œ ë³µê·€ì‹œí‚µë‹ˆë‹¤. ë…¸ì„  ëª©í‘œ ì°¨ëŸ‰ ìˆ˜ê°€ ê°ì†Œí•©ë‹ˆë‹¤.
+COMMUTER_STOP_WITH_WAITING {0} ({1}ëª… ëŒ€ê¸° ì¤‘)
+SETTINGS_TAB_FLEET_SHORT í•¨ëŒ€
+SETTINGS_TAB_STOPS_SHORT ì •ë¥˜ìž¥
+SETTINGS_TAB_OVERLAY_SHORT ì˜¤ë²„ë ˆì´
+SETTINGS_TAB_SYSTEM_SHORT ì‹œìŠ¤í…œ
+SETTINGS_SUB_SPACING ê°„ê²©ìœ ì§€
+SETTINGS_SUB_SPACING_DESC ì°¨ëŸ‰ì„ ê· ë“± ê°„ê²©ìœ¼ë¡œ ìœ ì§€. ì°¨ëŸ‰ ê°„ê²©ìœ ì§€ëŠ” ê³ ì „ IPT ë„êµ¬; ê¸‰í–‰ ë²„ìŠ¤/íŠ¸ëž¨ì€ ëŒ€ì²´ ë°©ì‹.
+SETTINGS_SUB_BUDGET ì˜ˆì‚°
+SETTINGS_SUB_COLOR ìƒ‰ìƒ
+SETTINGS_SUB_CAPS í•œê³„
+SETTINGS_SUB_NET ë„¤íŠ¸ì›Œí¬
+SETTINGS_SUB_NET_DESC ë„ë¡œì˜ ì •ë¥˜ìž¥ ë°°ì¹˜: ê³ ê°€, ê³µìœ  ìœ í˜•, ì¤‘ì²©, ê³ ê¸‰ í”Œëž«í¼.
+SETTINGS_SUB_VEHICLES ì°¨ëŸ‰
+SETTINGS_SUB_VEHICLES_DESC íƒ‘ìŠ¹, ì°¨ê³ ì§€ ë³µê·€, ë‹¨ì„  ì—´ì°¨, íƒì‹œ, unstucker.
+SETTINGS_SUB_DEPOTS ì°¨ê³ ì§€
+SETTINGS_SUB_DEPOTS_DESC ì°¨ê³ ì§€ê°€ ìˆ˜ìš©í•  ìˆ˜ ìžˆëŠ” ì°¨ëŸ‰ ìˆ˜ì— ëŒ€í•œ ì†Œí”„íŠ¸ í•œê³„ (ë°”ë‹ë¼ëŠ” ì¢…ì¢… ë¬´ì œí•œ).
+SETTINGS_SUB_OUTSIDE ì™¸ë¶€
+SETTINGS_SUB_OUTSIDE_DESC ì‹œì™¸ í„°ë¯¸ë„ ë° ì™¸ë¶€ ì—°ê²° í™”ë¬¼/ìŠ¹ê° ëŒ€ê¸°.
+SETTINGS_SUB_DISPLAY í‘œì‹œ
+SETTINGS_SUB_INFO ì •ë³´
+SETTINGS_SUB_INFO_DESC íŒ¨ë„ ë° ë„ì‹œ ì •ë³´ ë„êµ¬ (í•¨ëŒ€ ì‹œë®¬ë ˆì´ì…˜ ì•„ë‹˜).
+SETTINGS_SUB_PERF ì„±ëŠ¥
+SETTINGS_SUB_COMPAT í˜¸í™˜ì„±
+SETTINGS_SUB_KEYS í‚¤
+SETTINGS_FUTURE_GROUP ë‚˜ì¤‘ì— ì¶”ê°€ ì˜ˆì •
+SETTINGS_FUTURE_GROUP_DESCRIPTION ê³„íšëœ ê¸°ëŠ¥ ë¯¸ë¦¬ë³´ê¸°. ì¤€ë¹„ë  ë•Œê¹Œì§€ íšŒìƒ‰ í‘œì‹œ â€” ìŠ¹ê° ëª©ì ì§€ëŠ” í…ŒìŠ¤íŠ¸ìš©ìœ¼ë¡œ ì´ìš© ê°€ëŠ¥.
+SETTINGS_FUTURE_REVERSIBLE_TRAM ê°€ì—­ íŠ¸ëž¨ AI (ê³§ ì˜ˆì •)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP ê³„íšë¨: íŠ¸ëž¨ì´ ë£¨í”„ ì—†ì´ ì¢…ì ì—ì„œ ì—­ë°©í–¥ìœ¼ë¡œ ì§„í–‰. ì•„ì§ ì‚¬ìš© ë¶ˆê°€.
+SETTINGS_FUTURE_BREAKDOWN ê³ ìž¥ ë„êµ¬ (ê³§ ì˜ˆì •)
+SETTINGS_FUTURE_BREAKDOWN_TIP ê³„íšë¨: ë§‰ížŒ êµí†µì— ëŒ€í•œ ê²½ë¡œ/êµí†µ ì§„ë‹¨. ì•„ì§ ì‚¬ìš© ë¶ˆê°€.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL ì§€ë„ ì„¸ë¶€ ìˆ˜ì¤€:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP ì„±ëŠ¥ì€ ë” ì ì€ ì§€ë„ ì•„ì´ì½˜ì„ í‘œì‹œí•˜ê³  ë” ë¹ ë¥´ê²Œ ìƒˆë¡œê³ ì¹©ë‹ˆë‹¤. ì „ì²´ ì§€ë„ëŠ” ì§€ë„ì— í›¨ì”¬ ë§Žì€ ëª©ì ì§€ ì•„ì´ì½˜ì„ í‘œì‹œí•˜ê³ ; íŒ¨ë„ì€ ë” ëŠë¦¬ê²Œ ì—…ë°ì´íŠ¸ë˜ë¯€ë¡œ ì•½í•œ PCë„ ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF ì„±ëŠ¥ (ë” ë¹ ë¦„)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL ì „ì²´ ì§€ë„ (ë” ë§Žì€ ì•„ì´ì½˜, ëŠë¦° ìƒˆë¡œê³ ì¹¨)
+SETTINGS_KEYBINDINGS_GROUP ê²Œìž„ ë‚´ í•«í‚¤
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION ë„ì‹œê°€ ë¡œë“œë˜ì–´ ìžˆì„ ë•Œì˜ ë‹¨ì¶•í‚¤. ë°”ì¸ë”©ì„ í´ë¦­í•œ ë‹¤ìŒ í‚¤ë¥¼ ëˆŒëŸ¬ ë‹¤ì‹œ ë°”ì¸ë”©í•©ë‹ˆë‹¤.
+SETTINGS_HOTKEY_TRAIN_DISPLAY Train Display í† ê¸€
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP ëª¨ì„œë¦¬ ì°¨ëŸ‰ ì˜¤ë²„ë ˆì´ë¥¼ ì¼œê±°ë‚˜ ë•ë‹ˆë‹¤.
+SETTINGS_HOTKEY_LINE_COLOR ë…¸ì„  ìƒ‰ìƒ ìž¬ì§€ì •
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP êµí†µ ë…¸ì„ ì„ ì„ íƒí•œ ìƒíƒœì—ì„œ í•´ë‹¹ ë…¸ì„ ì— ëŒ€í•´ Auto Line Colorë¥¼ ë‹¤ì‹œ ì‹¤í–‰í•©ë‹ˆë‹¤ (ìƒ‰ìƒ ì „ëžµ í™œì„±í™” í•„ìš”).
+LINE_PANEL_COPY ë³µì‚¬
+LINE_PANEL_PASTE ë¶™ì—¬ë„£ê¸°
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe â€” everything optional stays OFF (best with many mods).\nâ˜… Vanilla â€” closest to the base game (no IPT extras).\nâ˜… Recommended â€” IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic â€” most features on (stronger sim, more cost).\nâ˜… Custom â€” you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_QUICK_TIPS_GROUP ë¹ ë¥¸ íŒ
+SETTINGS_QUICK_TIPS_DESC ìž‘ì€ ì•Œë¦¼ â€” ì¶”ê°€ ì½”ë“œ ì—†ìŒ, ì´ë¯¸ ê°€ì§€ê³  ìžˆëŠ” ê²ƒì„ ì‚¬ìš©í•˜ëŠ” ë°©ë²•ì¼ ë¿.
+SETTINGS_QUICK_TIP_1_TITLE ê°„ë‹¨í•˜ê²Œ ì‹œìž‘
+SETTINGS_QUICK_TIP_1_BODY ê¶Œìž¥ì„ ì„ íƒí•œ ë‹¤ìŒ í•„ìš”í•œ ê²ƒë§Œ í™œì„±í™”í•©ë‹ˆë‹¤. ë‹¤ë¥¸ ëª¨ë“œê°€ ë§Žìœ¼ë©´ ì•ˆì „ ì‚¬ìš©ì„ ê¶Œìž¥í•©ë‹ˆë‹¤.
+SETTINGS_QUICK_TIP_2_TITLE ëŠë¦° PC?
+SETTINGS_QUICK_TIP_2_BODY ì‹œìŠ¤í…œ â†’ ì„±ëŠ¥ â†’ ë‚®ìŒ. ë˜í•œ FPSê°€ ë–¨ì–´ì§€ë©´ í†µê·¼ "ì „ì²´ ì§€ë„" í”¼í•˜ì„¸ìš”.
+SETTINGS_QUICK_TIP_3_TITLE í† ê¸€ ì´í›„
+SETTINGS_QUICK_TIP_3_BODY ì¼ë¶€ ì˜µì…˜ì€ ë„ì‹œ ìž¬ë¡œë“œ í•„ìš” (íˆ´íŒì— í‘œì‹œë¨). ì‹œìŠ¤í…œ â†’ í˜¸í™˜ì„±ì—ì„œ ì¶©ëŒ ëª¨ë“œë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+SETTINGS_OOC_RESET_TOOLTIP ì™¸ë¶€ ì—°ê²° ëŒ€ê¸°, ìž¥ì‹ìš© êµí†µ ë° ê´€ë ¨ í† ê¸€ì„ ì•ˆì „ ê¸°ë³¸ê°’ìœ¼ë¡œ ìž¬ì„¤ì •í•©ë‹ˆë‹¤.
+SETTINGS_EBS_GROUP_BUS_DESC ê¸‰í–‰ ë²„ìŠ¤ëŠ” ìŠ¹ê°ì´ ì ì„ ë•Œ ì¼ì° ë– ë‚  ìˆ˜ ìžˆìŠµë‹ˆë‹¤ â€” ì„ íƒì  ê³ ê¸‰ ê°„ê²©ìœ ì§€.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP ì¶”ê°€ í–‰
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stopì€ ì •ë¥˜ìž¥ì—ì„œ ë²„ìŠ¤ê°€ ì •ì°¨í•˜ëŠ” ìœ„ì¹˜ë§Œ ë³€ê²½í•©ë‹ˆë‹¤. ì•„ëž˜ ì˜µì…˜ì€ ë³„ë„ì˜ ê¸°ëŠ¥(ê³ ê°€, ê³µìœ  ì •ë¥˜ìž¥ ë“±)ìž…ë‹ˆë‹¤ â€” ì˜ë„ì ìœ¼ë¡œ í´ë¦­ ê°€ëŠ¥í•˜ê²Œ ìœ ì§€ë©ë‹ˆë‹¤.
+SETTINGS_HIDDENBEHAVIOUR_GROUP í•­ìƒ ì¼œì§ ë™ìž‘
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC ì§€ê¸ˆê¹Œì§€ ëŒ ë°©ë²• ì—†ì´ í•­ìƒ ì‹¤í–‰ë˜ë˜ ë‘ ê°€ì§€ ìž‘ì€ ë™ìž‘ìž…ë‹ˆë‹¤. ê¸°ë³¸ì ìœ¼ë¡œ ì¼œì ¸ ìžˆì–´ ê¸°ì¡´ ì„¤ì¹˜ì—ì„œëŠ” ë³€í™”ê°€ ì—†ìŠµë‹ˆë‹¤ - ë™ì¼í•œ ìž‘ì—…ì„ í•˜ëŠ” ë…ë¦½ ëª¨ë“œë¥¼ ì‚¬ìš© ì¤‘ì´ê±°ë‚˜ ìˆ˜ë™ ì œì–´ë¥¼ ì„ í˜¸í•œë‹¤ë©´ ë„ì„¸ìš”.
+SETTINGS_AUTONAMESTOPS_ENABLE ì´ë¦„ ì—†ëŠ” ì •ë¥˜ìž¥ ìžë™ ì´ë¦„ ì§€ì •
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP ì´ë¦„ì´ ì—†ëŠ” ì •ë¥˜ìž¥ì„ ì²˜ìŒ ì„ íƒí•˜ë©´, ì •ë¥˜ìž¥ íŒ¨ë„ ìžì²´ì˜ ë“œë¡­ë‹¤ìš´ì„ ì—´ì§€ ì•Šì•„ë„ ê·¸ ë“œë¡­ë‹¤ìš´ì´ ì œì•ˆí–ˆì„ ì¸ê·¼ ê±´ë¬¼ ì´ë¦„ì„ ë™ì¼í•˜ê²Œ ì§€ì •í•©ë‹ˆë‹¤. ì´ë¯¸ (ì‚¬ìš©ìž ë˜ëŠ” ì´ ê¸°ëŠ¥ì´) ì„¤ì •í•œ ì´ë¦„ì€ ì ˆëŒ€ ê±´ë“œë¦¬ì§€ ì•ŠìŠµë‹ˆë‹¤.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE ì „ê° ìˆ«ìž ë³µêµ¬ (Gansaku)
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP ë…ë¦½í˜• Rescue Fullwidth Digits ëª¨ë“œì—ì„œ ì´ì‹ë˜ì—ˆìŠµë‹ˆë‹¤. ì¼ë¶€ IME/ìž…ë ¥ ì„¤ì •ìœ¼ë¡œ ì¸í•´ ì „ê° ìˆ«ìž(123 ëŒ€ì‹  ï¼‘ï¼’ï¼“)ë¡œ ì €ìž¥ëœ êµí†µ ë…¸ì„  ì´ë¦„ì„ ìˆ˜ì •í•˜ë©°, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ì˜êµ¬ížˆ ìž˜ëª» í‘œì‹œë©ë‹ˆë‹¤.
+CHANGELOG_4_8_6_1 í†µê·¼ ëª©ì ì§€ê°€ ë‹¤ì‹œ í™œì„±í™”ë˜ì—ˆìŠµë‹ˆë‹¤: ì˜µì…˜ í† ê¸€ì´ ëŒì•„ì™”ìœ¼ë©° ìž¬ë¡œë“œ ì—†ì´ ì‹¤ì‹œê°„ìœ¼ë¡œ ìž‘ë™í•©ë‹ˆë‹¤.
+CHANGELOG_4_8_6_2 ëª¨ë“  ì„ íƒì  í†µí•© ê¸°ëŠ¥ì„ "ë„ë©´ ì§„ì§œë¡œ êº¼ì§"ì´ ë˜ëŠ”ì§€ ì ê²€í–ˆìŠµë‹ˆë‹¤: ê³ ê°€ ì •ë¥˜ìž¥ í™œì„±í™” ê¸°ëŠ¥ì€ ë˜ëŒë¦´ ë°©ë²• ì—†ì´ ë„ë¡œ í”„ë¦¬íŒ¹ ë°ì´í„°ë¥¼ ì˜êµ¬ì ìœ¼ë¡œ ë‹¤ì‹œ ì“°ê³  ìžˆì—ˆê³ , ìžë™ ë…¸ì„  ì˜ˆì‚°ì€ ì„¸ì…˜ ë„ì¤‘ ë¹„í™œì„±í™”ëœ í›„ì—ë„ ë°±ê·¸ë¼ìš´ë“œì—ì„œ ê³„ì† ë…¸ì„ ì„ ê´€ë¦¬í•˜ê³  ìžˆì—ˆìŠµë‹ˆë‹¤. ì´ì œ ë‘˜ ë‹¤ êº¼ì§€ë©´ ë°”ë‹ë¼ ë™ìž‘ìœ¼ë¡œ ì™„ì „ížˆ ë˜ëŒì•„ê°‘ë‹ˆë‹¤.
+CHANGELOG_4_8_6_3 ëŒ ë°©ë²• ì—†ì´ í•­ìƒ ì‹¤í–‰ë˜ë˜ ë‘ ê°€ì§€ ë™ìž‘ - ì´ë¦„ ì—†ëŠ” ì •ë¥˜ìž¥ ìžë™ ì´ë¦„ ì§€ì •ê³¼ ì „ê° ìˆ«ìž ë³µêµ¬(Gansaku) - ì„ ë°œê²¬í•˜ì—¬ ì˜µì…˜ â†’ ê³ ê¸‰ ì•„ëž˜ì— ë‘ ê°€ì§€ ëª¨ë‘ì— ëŒ€í•œ í† ê¸€ì„ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤. ê¸°ë³¸ì ìœ¼ë¡œ ì¼œì ¸ ìžˆìœ¼ë¯€ë¡œ ë„ì§€ ì•ŠëŠ” í•œ ì•„ë¬´ê²ƒë„ ë°”ë€Œì§€ ì•ŠìŠµë‹ˆë‹¤.
 SETTINGS_FUTURE_BUSWAYPOINT Bus waypoint stops (soon)
 SETTINGS_FUTURE_BUSWAYPOINT_TIP Planned: mark a stop as a routing waypoint only - the line's path goes through it but vehicles never stop or load/unload passengers there. Helps steer vanilla pathfinding onto the road you actually intended. Not available yet.
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Advanced Stop Selection: pick exact track
 SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Hold while placing a train/tram stop connection to target the exact track instead of the nearest valid one. Was hardcoded to Left/Right Shift; rebinding here only covers the one side you pick.
 SETTINGS_LEGACY_GROUP Legacy
 SETTINGS_LEGACY_GROUP_DESC Old toggles kept only so installs that already had them on keep working exactly as before. Locked - they can no longer be turned on or off from here, and every gameplay profile leaves them off going forward.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options â†’ Advanced â†’ Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+
+# === Added fallback translations (auto-generated) ===
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): found and fixed a real bug where two of the mod's own patches were silently colliding on the same click - but real-play testing still shows the icons/panel not reliably appearing. Stays off by default and Experimental until this is fully sorted out.
+CHANGELOG_4_8_8_2 Budget control checkbox no longer unchecks itself the moment you tick it.
+CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximum) now actually changes its update rate - previously had no visible effect for most players.
+CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.
+CHANGELOG_4_8_8_5 Guarded against a real crash some players could hit on certain saves - not caused by this mod, but guarded anyway since it patches the same game method.
+CHANGELOG_4_8_8_6 This panel now shows a real, auto-computed percentage of how much of the mod's own text is translated into your language, instead of a number that could go stale.
+
+CHANGELOG_4_8_9_1 설정에 6개의 기능 마스터 스위치 추가(언번칭, 예산, 자동 노선 색상, 열차 표시, 차량 편집기, 정거장 및 역). 기본값은 꺼져 있으며, 하나를 끄면 해당 하위 설정이 잠기고 관련 패치가 중지됩니다.
+CHANGELOG_4_8_9_2 13개의 새로운 커스텀 가능한 단축키 추가(노선 패널 열기, 차량 간격 유지 전환, 노선 설정 복사/붙여넣기, 차량 편집기, Flight Tracker, 이전/다음 차량 등). 모두 설정 > 키 바인딩에서 재설정 가능합니다.
+CHANGELOG_4_8_9_3 승객 목적지 표시를 클린룸 맵 오버레이(원 + 카운트)로 재구축했습니다. 이전 패널 포트는 제거되었습니다. 아직 실험적 기능이며 실제 플레이에서 안정성이 확인될 때까지 기본값은 꺼져 있습니다.
+CHANGELOG_4_8_9_4 Intercity Bus Control을 비활성화할 때 원래 역 프리팹을 복원하고 외부 연결을 다시 연결하여, 변환된 역이 토글을 끈 후 제대로 작동하지 않던 문제를 수정했습니다.
+CHANGELOG_4_8_9_5 Train Display: 업데이트 간격이 성능 프로필별로 고정되었습니다(슬라이더 없음). 새로운 범위 드롭다운(선택한 차량 / 1인칭 / 둘 다). First Person Camera - Continued가 감지되어 오버레이가 1인칭 시점을 따라갑니다.
+CHANGELOG_4_8_9_6 공유 코어와 저장 데이터 전반에 걸쳐 스레드 안전성 및 경계 검사를 강화했습니다(큐 락, 더 안전한 버퍼 읽기, 손상된 저장 파일 명확한 오류 표시). Express Bus 경로 찾기가 버스를 얼리는 대신 오픈 실패로 처리됩니다.
+CHANGELOG_4_8_9_7 설정 > 시스템 > 호환성: 권장 동반 모드 목록(CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination)과 Workshop 열기 버튼이 추가되었습니다.
+CHANGELOG_4_8_9_8 Placement.Procedural로 제공되는 Workshop 차량이 더 이상 선택 가능한 차량 목록에서 숨겨지지 않습니다.
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Companion mods are NOT absorbed by IPT4 - they integrate with it, so install both: IPT4 and the mod from the list.\nSome IPT4 features only activate when the companion is installed (e.g. the Train Display overlay in first-person view needs First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_GROUP Recommended companion mods
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Shows where all passengers waiting at a public transport stop want to go. Recommended while IPT4's own destination display is not ready yet - it will be absorbed by IPT4 later and then removed from this list.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Follow citizens and vehicles in first-person view. Required for the IPT4 Train Display overlay in first-person mode.
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exports a full image of your city map (png/jpeg/bmp/svg) plus heightmaps via its own external viewer.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adds single and double one-way train tracks, single station tracks and two-way single tracks.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Turns crowded bus stops into readable shared stops: visible B1/B2/B3 berth markers, waiting areas and live info; several buses can load and unload at the same time.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Improves lane and parking usage, customizes junctions, roads and rails, and adds advanced pathfinding.
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Open on Workshop
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control checkbox stays checked when smart-managed (soon)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: right now, once Automatic fleet sizing takes over a line, its Budget control checkbox unchecks itself to signal that - by design, but confusing to look at. This will separate "the game's own budget math" from "IPT is managing this line" internally, so the checkbox can stay checked the whole time. Not available yet.
+SETTINGS_FUTURE_LINEHISTORY Line history log (soon)
+SETTINGS_FUTURE_LINEHISTORY_TIP Planned: keep a log of each line's changes over time so you can look back at how a route evolved. Not available yet.
+SETTINGS_FUTURE_LINEMAP Generate a line network map (soon)
+SETTINGS_FUTURE_LINEMAP_TIP Planned: generate a map of all the city's transport lines and save it to a folder on your computer, like a simple schematic overview. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (soon)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: warn on the vehicle route panel when a line loops back on itself or splits into more than two branches, instead of assuming a simple end-to-end route. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
+SETTINGS_FUTURE_STOPPLACER Suggest the best place for a stop (soon)
+SETTINGS_FUTURE_STOPPLACER_TIP Planned: analyze the area around a road/network and suggest the best spot to place a bus stop or other stop, including the distance between stops. Not available yet.
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.
+SETTINGS_HOTKEY_COPY_LINE_CONFIG Copy line settings
+SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP Copy vehicle, budget, depot, ticket price and color settings from the currently selected line.
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS Copy to lines serving same buildings
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP Copy the current line's settings to all other lines that serve the same nearby buildings or stations.
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS Copy to lines serving same districts
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP Copy the current line's settings to all other lines that serve the same districts or park areas.
+SETTINGS_HOTKEY_NEXT_VEHICLE Next vehicle
+SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP Switch to the next vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER Open flight tracker
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP Open the airport flight tracker panel for the currently selected building. Needs the Flight Tracker feature enabled.
+SETTINGS_HOTKEY_OPEN_LINE_PANEL Open/close line panel
+SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP Open the panel of the currently selected transport line. Press again to close it.
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG Paste line settings
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP Paste previously copied line settings onto the currently selected line.
+SETTINGS_HOTKEY_PREV_VEHICLE Previous vehicle
+SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP Switch to the previous vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES Select vehicle types
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP Open the vehicle type selector panel for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING Toggle line unbunching
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP Enable or disable vehicle unbunching for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR Toggle vehicle editor
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP Show or hide the vehicle editor panel.
+SETTINGS_KOFI_BUTTON Support me on Ko-fi
+SETTINGS_KOFI_DESCRIPTION Help fund continued IPT4 development.
+SETTINGS_KOFI_GROUP Support IPT4
+SETTINGS_KOFI_LINK Support on Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Mod text translated
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text - menus, tooltips, in-game panels - is translated into your language. This is different from "Translation Progress" above, which only covers a handful of generic buttons like OK and Cancel, not this mod's actual content. If you still see some English here, a full translation for your language is on its way.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
+TRAINDISPLAY_LABEL_NEXTSTOP Next stop

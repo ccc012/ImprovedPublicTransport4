@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
 [b]One mod instead of fifteen.[/b] Full control of transit lines: fleet size, vehicle types, stops, fares. Small mods unified.
-[b]Version 4.8.8[/b] · Built for game version 1.21.1-f9
+[b]Version 4.8.9[/b] · Built for game version 1.21.1-f9
 
 [h1]Why this exists[/h1]
 Transit maintenance spiralled to [b]-42,000,000,000[/b] — two mods each resizing fleets independently, overwriting each other. This mod fixes the conflict by centralizing control.
@@ -17,8 +17,8 @@ Price each transport type in [b]Economy[/b] panel, with [b]day/night pricing[/b]
 [b]Stop info[/b] (passengers, vehicle, crowding), [b]vehicle route panel[/b] (live configurable overlay), [b]auto line colours/names[/b] for clarity, [b]airport flight board[/b] (arrivals/departures).
 [h2]Clean up your network[/h2]
 [b]Bulk line deletion[/b] (by type, confirmed), [b]elevated stop placement[/b], and [b]unstucker[/b] for stuck vehicles.
-[h2]4.8.8: real-play bug sweep[/h2]
-Not a feature update — every fix below came from actually playing 4.8.7 and reporting what broke. [b]Vehicle pathing[/b] fixed (buses were hugging kerbs off-stop and clipping through bridge decks; a stacked-boarding patch could send a bus into a premature U-turn). [b]Passenger destination overlay[/b]: found and fixed a real Harmony patch conflict, but testing still shows the icons/panel not reliably appearing — stays [b]off by default, Experimental[/b]. [b]Budget control checkbox[/b] no longer unchecks itself the instant you tick it. [b]Depot routing[/b] fixed for buildings offering two services at once. Guard added against a real vanilla-game crash on certain corrupted saves (not our bug — the guard just stops it from taking the whole simulation down). Several option labels renamed to describe what they do instead of naming the mod they came from (credits stay on this page and in the source). Full technical changelog on GitHub, linked below.
+[h2]4.8.9: master switches, hotkeys, destination overlay rewrite[/h2]
+Not a new absorbed mod — control and hardening. [b]Six feature master switches[/b] (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations): off by default; turning one off locks its children and stops related patches. [b]Thirteen rebindable hotkeys[/b] (line panel, unbunching, copy/paste, vehicle editor, Flight Tracker, prev/next vehicle, and more). [b]Passenger destination display[/b] rebuilt as a clean-room map overlay (circles + counts); old panel port removed — still [b]Experimental, off by default[/b]. [b]Intercity Bus Control[/b] restores original station prefabs when disabled. [b]Train Display[/b]: fixed interval per performance profile, scope dropdown (Selected / First person / Both), detects First Person Camera - Continued. Thread-safety and save-data hardening; Express Bus pathfinding fails open. [b]Compat tab[/b] lists recommended companion mods with Workshop links. Workshop vehicles marked Placement.Procedural are no longer hidden from vehicle lists. Full technical changelog on GitHub.
 [hr][/hr]
 [h1]Mods absorbed into IPT4 — and who made them[/h1]
 [b]Unsubscribe standalones[/b] to avoid patching twice. Each mod below is someone's work — credit them on their page if helpful.
@@ -42,3 +42,6 @@ Stable. Runaway-maintenance bug fixed; damaged saves auto-repair. [b]Backup save
 [h1]Source and credits[/h1]
 Source and technical changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
 IPT4 is [b]GPL-3.0[/b] and stands on other people's work: [b]DontCryJustDie[/b] wrote the original IPT (2015), [b]BloodyPenguin[/b] wrote [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url], [b]Madisonian[/b] wrote [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url], which this forks. Absorbed mods are credited above; UI frameworks by [b]algernon[/b] and [b]Mbyron26[/b]. Thank you, all of you.
+[hr][/hr]
+[h1]Support[/h1]
+If you like IPT4 and want to support future tools, consider a tip on [url=https://ko-fi.com/ccc02][img]https://storage.ko-fi.com/cdn/brandasset/v2/support_me_on_kofi_red.png[/img][/url]

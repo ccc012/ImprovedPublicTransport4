@@ -1,43 +1,47 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
-[b]Version 4.8.5[/b] · Built for game version 1.21.1-f9
+[b]一个模组替代十五个。[/b]全面掌控交通线路：车队规模、车辆类型、站点、票价。多个小型模组合而为一。
+[b]版本 4.8.9[/b] · 适用于游戏版本 1.21.1-f9
 
-[h1]为什么需要这个模组[/h1]
-交通维护费失控飙升至约 [b]-42,000,000,000[/b]——两个正常工作的模组各自独立决定车队规模并相互覆盖。解决之道是集中于一处，使用一个系统。这就是 IPT4。
+[h1]为什么会有这个模组[/h1]
+交通维护费用一度飙升至[b]-42,000,000,000[/b]——两个模组各自独立调整车队规模，互相覆盖冲突。此模组通过集中控制修复了这一问题。
 [hr][/hr]
 [h1]你能用它做什么[/h1]
-[h2]全面掌控任意线路[/h2]
-每条线路都有完整控制面板：[b]自行设置车队规模[/b]或按预算调整，[b]选择运行车辆[/b]，[b]单独编辑车辆[/b]并[b]选择车库[/b]。
-[h2]修复车辆扎堆问题[/h2]
-三个级别：[b]已禁用[/b]（原版）、[b]谨慎[/b]（温和间距）、[b]真实[/b]（真实间隔）。或用[b]特快[/b]模式跳过没有乘客的站点。
-[h2]自定义票价[/h2]
-在[b]票价[/b]选项卡独立设置每种交通工具价格，可选[b]日间/夜间定价[/b]。价格影响需求。
-[h2]掌控全局[/h2]
-[b]站点信息面板[/b]、[b]列车显示屏[/b]（实时路线覆盖图）、[b]自动线路颜色和名称[/b]、[b]航班追踪器[/b]。
-[h2]清理你的网络[/h2]
-[b]批量删除线路[/b]、[b]更好的站点放置[/b]（含高架轨道）、释放卡住车辆的[b]防卡死工具[/b]。
-[h2]4.8 版本新功能[/h2]
-[b]单轨列车 AI[/b]——共享单线段一次只保留一个方向。[b]站点堆叠器[/b]——第二辆车获得独立停靠位。[b]城际公交控制[/b] DLC 检查修复。[b]子建筑选项卡[/b]旧选项卡错误修复。此外还有错误修复和性能优化——完整列表见技术更新日志。
+[h2]掌控任意线路[/h2]
+每种线路类型都支持：[b]车队控制[/b]（手动或基于预算）、[b]车辆选择[/b]、[b]单独编辑[/b]和[b]车厂选择[/b]。
+[h2]解决车辆扎堆[/h2]
+三级防扎堆模式：[b]禁用[/b]（原版）、[b]稳妥[/b]（保持间距）、[b]真实[/b]（真实间隔）。[b]快车[/b]模式可跳过空站点。
+[h2]自行设定票价[/h2]
+在[b]经济[/b]面板中为每种交通类型定价，支持[b]日间/夜间票价[/b]选项。票价自然影响需求。
+[h2]掌握实时动态[/h2]
+[b]站点信息[/b]（乘客、车辆、拥挤度）、[b]车辆路线面板[/b]（实时可配置覆盖层）、[b]自动线路颜色/名称[/b]便于识别、[b]机场航班看板[/b]（到达/出发）。
+[h2]清理你的交通网络[/h2]
+[b]批量删除线路[/b]（按类型，需确认）、[b]高架站点放置[/b]以及[b]车辆解困[/b]功能。
+[h2]4.8.9：主控开关、快捷键、目的地覆盖层重写[/h2]
+并非新吸收的模组——而是控制与加固。[b]六个功能主控开关[/b]（解扎堆、预算、自动线路颜色、列车显示、车辆编辑器、站点与车站）：默认关闭；关闭某一开关将锁定其子功能并停止相关补丁。[b]十三个可重绑快捷键[/b]（线路面板、解扎堆、复制/粘贴、车辆编辑器、航班追踪器、上一辆/下一辆车辆等）。[b]乘客目的地显示[/b]已重建为干净的地图覆盖层（圆圈+计数）；旧面板移植已移除——仍为[b]实验性功能，默认关闭[/b]。[b]Intercity Bus Control[/b]在禁用时恢复原始车站预制件。[b]列车显示[/b]：按性能配置文件固定间隔，范围下拉菜单（选中/第一人称/两者），检测 First Person Camera - Continued。线程安全与存档数据加固；快车寻路故障开放。[b]兼容性标签页[/b]列出推荐的配套模组及工坊链接。工坊车辆标记为 Placement.Procedural 的不再从车辆列表中隐藏。完整技术更新日志见 GitHub。
 [hr][/hr]
-[h1]被吸收进 IPT4 的模组[/h1]
-[b]请取消订阅独立版本[/b]——同时运行会对相同代码重复修补。每个都是他人作品，若对你有用请在作者页面表达感谢。
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
-大多数在选项中有独立开关；出租车里程收入需要 [b]After Dark[/b]。[b]Taxi Stand Fix[/b]、[b]Single Train Track AI[/b]、[b]Stop Stacker[/b] 是原创代码（源模组无可用许可证）。
+[h1]已吸收进 IPT4 的模组——及其作者[/h1]
+[b]请取消订阅独立版本[/b]以避免双重补丁。以下每个模组都是他人的作品——如果对您有帮助，请在他们的页面上致谢。
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068]Advanced Stop Selection Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2349240408]Auto Line Budget 21[/url] ([b]snowie[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282]AutoLineColor Redux[/url] ([b]TaradinoC[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2773460744]Better Train Boarding[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3491515535]Better Bus Stop Position[/url] ([b]llunak[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2475986859]Commuter Destination[/url] ([b]jkm[/b], James Monger) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862992091]Elevated Stops Enabler Revisited[/url] ([b]macsergey[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3033809468]Flight Tracker[/url] ([b]Nyoko[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2499771767]Intercity Bus Control[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3492156582]Mileage Taxi Services[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2774427140]Public Transport Unstucker[/url] ([b]Vectorial1024[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1412844620]Realistic Walking Speed[/url] ([b]egi[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2096382380]Shared Stop Enabler[/url] ([b]CodeBardian[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1776052533]Stops & Stations[/url] ([b]dymanoid[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=608517757]Sub-Buildings Tabs[/url] ([b]BloodyPenguin, AJ3D[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1393820309]Ticket Price Customizer[/url] ([b]BloodyPenguin[/b]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3233229958]Train Display - Updated[/url] ([b]Will[/b], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2380878816]Asmape[/url]) · [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1174585364]Rescue Fullwidth Digits[/url] ([b]Gansaku[/b])
+大部分模组都有选项开关。选项描述的是功能而非源模组名称。[b]After Dark[/b] 为出租车收入所需。[b]Taxi Stand Fix[/b]、[b]Single Train Track AI[/b] 和 [b]bus stop berth stacking[/b] 为原创代码（无源模组）。
 [hr][/hr]
-[h1]要求与兼容性[/h1]
-需要 [b]Harmony[/b] (ID 2040656402)。[b]不兼容：[/b]IPT2、IPT3、Transport Lines Manager 或上述模组的独立副本——游戏内会警告你。
+[h1]需求与兼容性[/h1]
+需要 [b]Harmony[/b]（ID 2040656402）。[b]不兼容：[/b]IPT2、IPT3、Transport Lines Manager、独立版 AutoLineBias 或上述任何模组的独立版本——如发现冲突将在游戏中警告。
 [hr][/hr]
 [h1]语言[/h1]
-[b]全部 23 种语言完全翻译[/b]——每个字符串，不仅限菜单。跟随游戏语言，或在选项中选择。
+跟随游戏语言，或在选项中自行选择。英语和葡萄牙语每个版本都会及时更新；其他语言分批跟进，全新文本可能滞后一两个版本——期间将优雅回退为英语。
 [hr][/hr]
-[h1]快速入门[/h1]
-订阅 [b]Harmony[/b]，取消订阅独立模组，启用 IPT4，点击任何线路。选项在 [b]选项 → 模组设置 → IPT4[/b]；票价在 [b]经济[/b] 面板。[b]现有存档有效[/b]。
+[h1]入门指南[/h1]
+订阅 [b]Harmony[/b]，取消订阅独立版本，启用 IPT4。选项位置：[b]设置 → 模组设置 → Improved Public Transport 4[/b]。票价：[b]经济[/b]面板。[b]兼容已有存档[/b]。
 [hr][/hr]
 [h1]稳定性[/h1]
-稳定频道。维护费失控错误已修复，损坏存档自动修复。请[b]保留备份存档[/b]。出现问题请说明[i]你当时在做什么[/i]并附上：
+稳定。失控性维护费用错误已修复；损坏的存档将自动修复。[b]但仍建议备份存档[/b]。遇到问题时，请报告[i]您当时在做什么[/i]并附上：
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-没有日志无法诊断。
+仅说"不工作"无法诊断问题。
 [hr][/hr]
-[h1]源码与鸣谢[/h1]
-[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]。IPT4 采用 [b]GPL-3.0[/b]：[b]DontCryJustDie[/b] 编写了 IPT (2015)，[b]BloodyPenguin[/b] 编写了 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]，[b]Madisonian[/b] 编写了 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]。UI 框架：[b]algernon[/b]、[b]Mbyron26[/b]。谢谢你们所有人。
+[h1]源代码与致谢[/h1]
+源代码与技术更新日志：[url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]
+IPT4 采用 [b]GPL-3.0[/b] 协议，建立在他人的工作之上：[b]DontCryJustDie[/b] 编写了最初的 IPT（2015），[b]BloodyPenguin[/b] 编写了 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=928128676]IPT2[/url]，[b]Madisonian[/b] 编写了 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3690061052]IPT3[/url]，本模组正是基于这些分叉。已吸收的模组已在上面致谢；UI 框架由 [b]algernon[/b] 和 [b]Mbyron26[/b] 提供。感谢所有人。
+[hr][/hr]
+[h1]支持[/h1]
+如果您喜欢 IPT4 并希望支持未来的工具开发，欢迎在 [url=https://ko-fi.com/ccc02]Ko-fi[/url] 上请我喝杯咖啡。

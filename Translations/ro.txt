@@ -1,78 +1,78 @@
-MOD_DESCRIPTION Transport public îmbunătățit: control linii, flotă, integrări și altele.
-CURRENT_WEEK Săptămâna curentă
-LAST_WEEK Săptămâna trecută
+﻿MOD_DESCRIPTION Transport public Ã®mbunÄƒtÄƒÈ›it: control linii, flotÄƒ, integrÄƒri È™i altele.
+CURRENT_WEEK SÄƒptÄƒmÃ¢na curentÄƒ
+LAST_WEEK SÄƒptÄƒmÃ¢na trecutÄƒ
 AVERAGE Medie
-AVERAGE_TOOLTIP Media ultimelor {0} săptămâni.
-CITY_SERVICE_PANEL_TITLE_STATION_STOPS Opriri stație
+AVERAGE_TOOLTIP Media ultimelor {0} sÄƒptÄƒmÃ¢ni.
+CITY_SERVICE_PANEL_TITLE_STATION_STOPS Opriri staÈ›ie
 CITY_SERVICE_PANEL_TITLE_DEPOT_VEHICLES Vehicule depou
 CITYSERVICE_ACCEPTINTERCITYBUSES Permite autobuze interurbane
-CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Permite autobuzelor interurbane să folosească această stație. Dezactivați pentru doar autobuze locale.
-EXPLANATION_BUDGET_CONTROL Control buget: Numărul de vehicule este controlat de buget.
-EXPLANATION_UNBUNCHING Anti-grupare: Jocul încearcă să creeze un spațiu între vehicule.
-LINE_PANEL_STOPS Stații: {0}
-LINE_PANEL_SPAWNTIMER Următorul vehicul în {0} secunde.
+CITYSERVICE_ACCEPTINTERCITYBUSES_TOOLTIP Permite autobuzelor interurbane sÄƒ foloseascÄƒ aceastÄƒ staÈ›ie. DezactivaÈ›i pentru doar autobuze locale.
+EXPLANATION_BUDGET_CONTROL Control buget: NumÄƒrul de vehicule este controlat de buget.
+EXPLANATION_UNBUNCHING Anti-grupare: Jocul Ã®ncearcÄƒ sÄƒ creeze un spaÈ›iu Ã®ntre vehicule.
+LINE_PANEL_STOPS StaÈ›ii: {0}
+LINE_PANEL_SPAWNTIMER UrmÄƒtorul vehicul Ã®n {0} secunde.
 LINE_PANEL_DEPOT_WARNING <color #FF0000>Depoul selectat nu mai are vehicule.</color>
 LINE_PANEL_BUDGET_CONTROL Control buget
-LINE_PANEL_BUDGET_CONTROL_TOOLTIP Activează sau dezactivează controlul bugetului pentru această linie.
-LINE_PANEL_UNBUNCHING_TOOLTIP Activează sau dezactivează anti-gruparea pentru această linie.\nAnti-gruparea este dezactivată dacă agresivitatea este setată la 0.
+LINE_PANEL_BUDGET_CONTROL_TOOLTIP ActiveazÄƒ sau dezactiveazÄƒ controlul bugetului pentru aceastÄƒ linie.
+LINE_PANEL_UNBUNCHING_TOOLTIP ActiveazÄƒ sau dezactiveazÄƒ anti-gruparea pentru aceastÄƒ linie.\nAnti-gruparea este dezactivatÄƒ dacÄƒ agresivitatea este setatÄƒ la 0.
 LINE_PANEL_DEPOT Depou:
-LINE_PANEL_NO_DEPOT_FOUND Niciun depou găsit.
-LINE_PANEL_DEPOT_MARKER_TOOLTIP Sari la depoul selectat.\nȚine Shift la clic pentru a mări și imaginea.
-LINE_PANEL_SELECT_TYPES Selectează tipuri
-LINE_PANEL_SELECT_TYPES_TOOLTIP Comută panoul „Selectează tipuri”.\nDacă butonul este dezactivat, trebuie să selectezi mai întâi un depou.
-LINE_PANEL_LINE_STOPS Stațiile liniei
-LINE_PANEL_LINE_VEHICLES Vehicule pe această linie
-LINE_PANEL_ENQUEUED Vehicule în coadă
-LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} pasageri așteaptă pe această linie.
-LINE_PANEL_ADD_VEHICLE Adaugă vehicul
-LINE_PANEL_ADD_VEHICLE_TOOLTIP Adaugă un vehicul nou pe linie.\nDacă butonul este dezactivat, depoul selectat nu mai are vehicule.
-LINE_PANEL_REMOVE_VEHICLE Elimină vehicul
-STOP_LIST_BOX_ROW_STOP Stație #{0}
-STOP_LIST_BOX_ROW_TOOLTIP {0}\nPasageri care așteaptă: {1}\nClic dreapta pentru a sări la această stație.\nȚine Shift la clic pentru a mări și imaginea.
-STOP_PANEL_SUGGESTED_NAMES_TOOLTIP Listă de nume de stații sugerate.
-STOP_PANEL_REUSE_NAME_TOOLTIP Aplică acest nume tuturor celorlalte stații de la această stație/poziție.
-STOP_PANEL_WAITING_PEOPLE Pasageri care așteaptă: {0}
-COMMUTER_DESTINATION_PANEL_TITLE Destinație navetiști
-COMMUTER_DESTINATION_HEADER Destinații de top:
-COMMUTER_DESTINATION_NONE Niciun pasager nu așteaptă aici acum.
-COMMUTER_DESTINATION_LOADING Se calculează...
-COMMUTER_DESTINATION_BUTTON Destinații
-COMMUTER_DESTINATION_BUTTON_TOOLTIP Arată unde merg pasagerii care așteaptă la această stație.
-STOP_PANEL_BORED_TIMER Timp până la nerăbdare: <color #{0}>{1}</color>
-STOP_PANEL_BORED_TIMER_TOOLTIP Pasagerii părăsesc stația când numărătoarea ajunge la zero.
-STOP_PANEL_PASSENGERS_IN Pasageri urcați:
-STOP_PANEL_PASSENGERS_IN_TOOLTIP Pasageri care urcă aici.
-STOP_PANEL_PASSENGERS_OUT Pasageri coborâți:
-STOP_PANEL_PASSENGERS_OUT_TOOLTIP Pasageri care coboară aici.
+LINE_PANEL_NO_DEPOT_FOUND Niciun depou gÄƒsit.
+LINE_PANEL_DEPOT_MARKER_TOOLTIP Sari la depoul selectat.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
+LINE_PANEL_SELECT_TYPES SelecteazÄƒ tipuri
+LINE_PANEL_SELECT_TYPES_TOOLTIP ComutÄƒ panoul â€žSelecteazÄƒ tipuriâ€.\nDacÄƒ butonul este dezactivat, trebuie sÄƒ selectezi mai Ã®ntÃ¢i un depou.
+LINE_PANEL_LINE_STOPS StaÈ›iile liniei
+LINE_PANEL_LINE_VEHICLES Vehicule pe aceastÄƒ linie
+LINE_PANEL_ENQUEUED Vehicule Ã®n coadÄƒ
+LINE_PANEL_TOTAL_WAITING_PEOPLE_TOOLTIP {0} pasageri aÈ™teaptÄƒ pe aceastÄƒ linie.
+LINE_PANEL_ADD_VEHICLE AdaugÄƒ vehicul
+LINE_PANEL_ADD_VEHICLE_TOOLTIP AdaugÄƒ un vehicul nou pe linie.\nDacÄƒ butonul este dezactivat, depoul selectat nu mai are vehicule.
+LINE_PANEL_REMOVE_VEHICLE EliminÄƒ vehicul
+STOP_LIST_BOX_ROW_STOP StaÈ›ie #{0}
+STOP_LIST_BOX_ROW_TOOLTIP {0}\nPasageri care aÈ™teaptÄƒ: {1}\nClic dreapta pentru a sÄƒri la aceastÄƒ staÈ›ie.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
+STOP_PANEL_SUGGESTED_NAMES_TOOLTIP ListÄƒ de nume de staÈ›ii sugerate.
+STOP_PANEL_REUSE_NAME_TOOLTIP AplicÄƒ acest nume tuturor celorlalte staÈ›ii de la aceastÄƒ staÈ›ie/poziÈ›ie.
+STOP_PANEL_WAITING_PEOPLE Pasageri care aÈ™teaptÄƒ: {0}
+COMMUTER_DESTINATION_PANEL_TITLE DestinaÈ›ie navetiÈ™ti
+COMMUTER_DESTINATION_HEADER DestinaÈ›ii de top:
+COMMUTER_DESTINATION_NONE Niciun pasager nu aÈ™teaptÄƒ aici acum.
+COMMUTER_DESTINATION_LOADING Se calculeazÄƒ...
+COMMUTER_DESTINATION_BUTTON DestinaÈ›ii
+COMMUTER_DESTINATION_BUTTON_TOOLTIP AratÄƒ unde merg pasagerii care aÈ™teaptÄƒ la aceastÄƒ staÈ›ie.
+STOP_PANEL_BORED_TIMER Timp pÃ¢nÄƒ la nerÄƒbdare: <color #{0}>{1}</color>
+STOP_PANEL_BORED_TIMER_TOOLTIP Pasagerii pÄƒrÄƒsesc staÈ›ia cÃ¢nd numÄƒrÄƒtoarea ajunge la zero.
+STOP_PANEL_PASSENGERS_IN Pasageri urcaÈ›i:
+STOP_PANEL_PASSENGERS_IN_TOOLTIP Pasageri care urcÄƒ aici.
+STOP_PANEL_PASSENGERS_OUT Pasageri coborÃ¢È›i:
+STOP_PANEL_PASSENGERS_OUT_TOOLTIP Pasageri care coboarÄƒ aici.
 STOP_PANEL_PASSENGERS_TOTAL Total:
-STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Total pasageri deserviți aici.
-STOP_PANEL_UNBUNCHING_TOOLTIP Activează sau dezactivează anti-gruparea la această stație.\nAnti-gruparea este dezactivată dacă agresivitatea este setată la 0.
-STOP_PANEL_UPDATE_CLOSE_STOPS Actualizează stațiile apropiate
-STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP Setează starea anti-grupare pentru toate celelalte stații de la această stație/poziție.
-STOP_PANEL_PREVIOUS Stația anterioară
-STOP_PANEL_PREVIOUS_TOOLTIP Sari la stația anterioară.\nȚine Shift la clic pentru a mări și imaginea.
-STOP_PANEL_DELETE_STOP Șterge stația
-STOP_PANEL_DELETE_STOP_TOOLTIP Acest buton este activ în timp ce ții apăsat Alt.\nFolosește pe propria răspundere!!!
-STOP_PANEL_NEXT Stația următoare
-STOP_PANEL_NEXT_TOOLTIP Sari la stația următoare.\nȚine Shift la clic pentru a mări și imaginea.
-STOP_BUTTON_TOOLTIP {0}\nClic pentru a sări la această stație.\nȚine Shift la clic pentru a mări și imaginea.\nȚine Alt la clic pentru a preveni deschiderea panoului de info stație.
-SETTINGS_DELETE Șterge
-SETTINGS_RESET Resetează
+STOP_PANEL_PASSENGERS_TOTAL_TOOLTIP Total pasageri deserviÈ›i aici.
+STOP_PANEL_UNBUNCHING_TOOLTIP ActiveazÄƒ sau dezactiveazÄƒ anti-gruparea la aceastÄƒ staÈ›ie.\nAnti-gruparea este dezactivatÄƒ dacÄƒ agresivitatea este setatÄƒ la 0.
+STOP_PANEL_UPDATE_CLOSE_STOPS ActualizeazÄƒ staÈ›iile apropiate
+STOP_PANEL_UPDATE_CLOSE_STOPS_TOOLTIP SeteazÄƒ starea anti-grupare pentru toate celelalte staÈ›ii de la aceastÄƒ staÈ›ie/poziÈ›ie.
+STOP_PANEL_PREVIOUS StaÈ›ia anterioarÄƒ
+STOP_PANEL_PREVIOUS_TOOLTIP Sari la staÈ›ia anterioarÄƒ.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
+STOP_PANEL_DELETE_STOP È˜terge staÈ›ia
+STOP_PANEL_DELETE_STOP_TOOLTIP Acest buton este activ Ã®n timp ce È›ii apÄƒsat Alt.\nFoloseÈ™te pe propria rÄƒspundere!!!
+STOP_PANEL_NEXT StaÈ›ia urmÄƒtoare
+STOP_PANEL_NEXT_TOOLTIP Sari la staÈ›ia urmÄƒtoare.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
+STOP_BUTTON_TOOLTIP {0}\nClic pentru a sÄƒri la aceastÄƒ staÈ›ie.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.\nÈšine Alt la clic pentru a preveni deschiderea panoului de info staÈ›ie.
+SETTINGS_DELETE È˜terge
+SETTINGS_RESET ReseteazÄƒ
 SETTINGS_TAB_GENERAL General
 SETTINGS_ADVANCED_LINKS_GROUP Linkuri
-SETTINGS_GITHUB_REPO Cod sursă pe GitHub
+SETTINGS_GITHUB_REPO Cod sursÄƒ pe GitHub
 SETTINGS_TAB_AUTOLINE Linie auto
-SETTINGS_TAB_STOPS Stații și gări
+SETTINGS_TAB_STOPS StaÈ›ii È™i gÄƒri
 SETTINGS_TAB_UNBUNCHING Anti-grupare
-SETTINGS_TAB_DELETE Șterge linii
-SETTINGS_TAB_FLEET Flotă și programare
-SETTINGS_TAB_BUDGET Buget și prețuri
+SETTINGS_TAB_DELETE È˜terge linii
+SETTINGS_TAB_FLEET FlotÄƒ È™i programare
+SETTINGS_TAB_BUDGET Buget È™i preÈ›uri
 SETTINGS_TAB_LINECOLORS Culori linii
-SETTINGS Setări
-SETTINGS_SPEED Afișează viteza în: 
-SETTINGS_SPEED_TOOLTIP Alege unitatea pentru afișarea vitezei în interfață.
+SETTINGS SetÄƒri
+SETTINGS_SPEED AfiÈ™eazÄƒ viteza Ã®n: 
+SETTINGS_SPEED_TOOLTIP Alege unitatea pentru afiÈ™area vitezei Ã®n interfaÈ›Äƒ.
 SETTINGS_GAMEPLAY_PROFILE Profil de joc
-SETTINGS_GAMEPLAY_PROFILE_TOOLTIP Aplică un lot de setări dintr-o dată. Sigur (implicit) lasă totul oprit pentru compatibilitate maximă cu alte moduri. Vanilla potrivește jocul de bază. Recomandat activează doar nucleul IPT (control flotă buget, anti-grupare, intercity, file sub-clădiri, unstucker, selecție avansată stații, stații ridicate). Realist activează majoritatea integrărilor. Personalizat nu cascadă niciodată - tu gestionezi fiecare comutator.
+SETTINGS_GAMEPLAY_PROFILE_TOOLTIP AplicÄƒ un lot de setÄƒri dintr-o datÄƒ. Sigur (implicit) lasÄƒ totul oprit pentru compatibilitate maximÄƒ cu alte moduri. Vanilla potriveÈ™te jocul de bazÄƒ. Recomandat activeazÄƒ doar nucleul IPT (control flotÄƒ buget, anti-grupare, intercity, file sub-clÄƒdiri, unstucker, selecÈ›ie avansatÄƒ staÈ›ii, staÈ›ii ridicate). Realist activeazÄƒ majoritatea integrÄƒrilor. Personalizat nu cascadÄƒ niciodatÄƒ - tu gestionezi fiecare comutator.
 SETTINGS_GAMEPLAY_PROFILE_CUSTOM Personalizat
 SETTINGS_GAMEPLAY_PROFILE_SAFE Sigur (totul oprit)
 SETTINGS_GAMEPLAY_PROFILE_VANILLA Vanilla
@@ -80,536 +80,615 @@ SETTINGS_GAMEPLAY_PROFILE_RECOMMENDED Recomandat (nucleu IPT)
 SETTINGS_GAMEPLAY_PROFILE_REALISTIC Realist
 SETTINGS_SPEED_KPH km/h
 SETTINGS_SPEED_MPH mph
-SETTINGS_WALKING_SPEED Viteză mers/ciclism: 
-SETTINGS_WALKING_SPEED_TOOLTIP Standard: vitezele jocului de bază.\nRealist: reduce viteza de mers la valori realiste pe vârstă.\nRealist reduce și viteza de ciclism cu DLC After Dark.
+SETTINGS_WALKING_SPEED VitezÄƒ mers/ciclism: 
+SETTINGS_WALKING_SPEED_TOOLTIP Standard: vitezele jocului de bazÄƒ.\nRealist: reduce viteza de mers la valori realiste pe vÃ¢rstÄƒ.\nRealist reduce È™i viteza de ciclism cu DLC After Dark.
 SETTINGS_WALKING_SPEED_MODE_VANILLA Standard
 SETTINGS_WALKING_SPEED_MODE_REALISTIC Realist
-SETTINGS_BBSP Poziție mai bună stație de autobuz: 
-SETTINGS_BBSP_TOOLTIP Dezactivat: fără ajustare de poziție.\nActivat: autobuzele opresc în fața stației, nu pe mijloc.
+SETTINGS_BBSP PoziÈ›ie mai bunÄƒ staÈ›ie de autobuz: 
+SETTINGS_BBSP_TOOLTIP Dezactivat: fÄƒrÄƒ ajustare de poziÈ›ie.\nActivat: autobuzele opresc Ã®n faÈ›a staÈ›iei, nu pe mijloc.
 SETTINGS_BBSP_MODE_DISABLED Dezactivat
 SETTINGS_BBSP_MODE_ORIGINAL Activat
-SETTINGS_BBSP_MODE_UPDATED Folosește logică experimentală
+SETTINGS_BBSP_MODE_UPDATED FoloseÈ™te logicÄƒ experimentalÄƒ
 SETTINGS_BUDGET Buget
 SETTINGS_ENABLE_BUDGET_CONTROL Control buget linie:
 SETTINGS_BUDGET_CONTROL_DISABLED Dezactivat
 SETTINGS_BUDGET_CONTROL_ENABLED Activat
-SETTINGS_BUDGET_CONTROL_TOOLTIP Când este activat, numărul de vehicule pe liniile de transport este controlat de buget; actualizează toate liniile existente și golește vehiculele din coadă.
-SETTINGS_BUDGET_TICKET_PRICES Personalizare preț bilete:
+SETTINGS_BUDGET_CONTROL_TOOLTIP CÃ¢nd este activat, numÄƒrul de vehicule pe liniile de transport este controlat de buget; actualizeazÄƒ toate liniile existente È™i goleÈ™te vehiculele din coadÄƒ.
+SETTINGS_BUDGET_TICKET_PRICES Personalizare preÈ› bilete:
 SETTINGS_BUDGET_TICKET_PRICES_DISABLED Dezactivat
 SETTINGS_BUDGET_TICKET_PRICES_ENABLED Activat
-SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP Când este activat, adaugă o filă nouă în panoul Economie cu glisoare pentru prețurile biletelor pe tip de transport.
-SETTINGS_AUTO_LINE_BUDGET Dimensionare automată flotă:
+SETTINGS_BUDGET_TICKET_PRICES_TOOLTIP CÃ¢nd este activat, adaugÄƒ o filÄƒ nouÄƒ Ã®n panoul Economie cu glisoare pentru preÈ›urile biletelor pe tip de transport.
+SETTINGS_AUTO_LINE_BUDGET Dimensionare automatÄƒ flotÄƒ:
 SETTINGS_AUTO_LINE_BUDGET_DISABLED Dezactivat
 SETTINGS_AUTO_LINE_BUDGET_ENABLED Activat
-SETTINGS_AUTO_LINE_BUDGET_TOOLTIP Când este activat, liniile în modul Buget își ajustează automat numărul de vehicule după cererea reală de pasageri, nu după glisorul vanilla. Liniile setate pe Manual nu sunt niciodată atinse.
+SETTINGS_AUTO_LINE_BUDGET_TOOLTIP CÃ¢nd este activat, liniile Ã®n modul Buget Ã®È™i ajusteazÄƒ automat numÄƒrul de vehicule dupÄƒ cererea realÄƒ de pasageri, nu dupÄƒ glisorul vanilla. Liniile setate pe Manual nu sunt niciodatÄƒ atinse.
 SETTINGS_AUTO_LINE Linie auto
 SETTINGS_AUTOSHOW_LINE_INFO Deschide automat panoul info linie
-SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP Afișează automat panoul info linie după ce se creează o linie nouă.
+SETTINGS_AUTOSHOW_LINE_INFO_TOOLTIP AfiÈ™eazÄƒ automat panoul info linie dupÄƒ ce se creeazÄƒ o linie nouÄƒ.
 AUTOLINECOLOR_STRATEGY_DISABLED Dezactivat
-AUTOLINECOLOR_STRATEGY_RANDOM_HUE Nuanță aleatoare
+AUTOLINECOLOR_STRATEGY_RANDOM_HUE NuanÈ›Äƒ aleatoare
 AUTOLINECOLOR_STRATEGY_RANDOM_COLOR Culoare aleatoare
-AUTOLINECOLOR_STRATEGY_CATEGORISED Categorisită
+AUTOLINECOLOR_STRATEGY_CATEGORISED CategorisitÄƒ
 AUTOLINECOLOR_STRATEGY_NAMED Culori denumite
 AUTOLINECOLOR_NAMING_DISABLED Dezactivat
 AUTOLINECOLOR_NAMING_DISTRICTS Districte
 AUTOLINECOLOR_NAMING_LONDON Londra
-AUTOLINECOLOR_NAMING_ROADS Străzi
+AUTOLINECOLOR_NAMING_ROADS StrÄƒzi
 AUTOLINECOLOR_NAMING_COLORS Culori denumite
 AUTOLINECOLOR_COLOR_STRATEGY Strategie culoare:
-AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Cum se alocă culorile liniilor noi:\n'Nuanță aleatoare' = aceeași saturație/luminozitate, nuanțe diferite;\n'Culoare aleatoare' = RGB complet aleator;\n'Categorisită' = culori după tip de vehicul;\n'Culori denumite' = paletă predefinită.
+AUTOLINECOLOR_COLOR_STRATEGY_TOOLTIP Cum se alocÄƒ culorile liniilor noi:\n'NuanÈ›Äƒ aleatoare' = aceeaÈ™i saturaÈ›ie/luminozitate, nuanÈ›e diferite;\n'Culoare aleatoare' = RGB complet aleator;\n'CategorisitÄƒ' = culori dupÄƒ tip de vehicul;\n'Culori denumite' = paletÄƒ predefinitÄƒ.
 AUTOLINECOLOR_NAMING_STRATEGY Strategie denumire:
-AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Cum se alocă numele liniilor noi:\n'Niciuna' = fără auto-denumire;\n'Districte' = pe baza districtelor deservite;\n'Londra' = rute numerotate (stil London Buses);\n'Străzi' = pe baza numelor de străzi;\n'Culori denumite' = pe baza numelor de culori.
-AUTOLINECOLOR_MIN_COLOR_DIFF Diferență minimă de culoare (%):
-AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Procentul minim de diferență de culoare la alegerea culorilor aleatoare.
-AUTOLINECOLOR_MAX_COLOR_PICK Încercări maxime:
-AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP Numărul maxim de încercări pentru a alege o culoare distinctă.
-SETTINGS_UI Setări UI
-SETTINGS_VEHICLE_EDITOR_POSITION Poziție editor vehicule: 
-SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Alege dacă panoul editorului de vehicule apare jos sau în dreapta ecranului.
+AUTOLINECOLOR_NAMING_STRATEGY_TOOLTIP Cum se alocÄƒ numele liniilor noi:\n'Niciuna' = fÄƒrÄƒ auto-denumire;\n'Districte' = pe baza districtelor deservite;\n'Londra' = rute numerotate (stil London Buses);\n'StrÄƒzi' = pe baza numelor de strÄƒzi;\n'Culori denumite' = pe baza numelor de culori.
+AUTOLINECOLOR_MIN_COLOR_DIFF DiferenÈ›Äƒ minimÄƒ de culoare (%):
+AUTOLINECOLOR_MIN_COLOR_DIFF_TOOLTIP Procentul minim de diferenÈ›Äƒ de culoare la alegerea culorilor aleatoare.
+AUTOLINECOLOR_MAX_COLOR_PICK ÃŽncercÄƒri maxime:
+AUTOLINECOLOR_MAX_COLOR_PICK_TOOLTIP NumÄƒrul maxim de Ã®ncercÄƒri pentru a alege o culoare distinctÄƒ.
+SETTINGS_UI SetÄƒri UI
+SETTINGS_VEHICLE_EDITOR_POSITION PoziÈ›ie editor vehicule: 
+SETTINGS_VEHICLE_EDITOR_POSITION_TOOLTIP Alege dacÄƒ panoul editorului de vehicule apare jos sau Ã®n dreapta ecranului.
 SETTINGS_VEHICLE_EDITOR_POSITION_BOTTOM Jos
 SETTINGS_VEHICLE_EDITOR_POSITION_RIGHT Dreapta
 SETTINGS_VEHICLE_EDITOR_HIDE Ascunde editorul de vehicule
 SETTINGS_VEHICLE_EDITOR_HIDE_TOOLTIP Ascunde editorul de vehicule din panourile de vehicule.
-SETTINGS_STOPS Stații transport public
-SETTINGS_STOPSANDSTATIONS_DESCRIPTION Câți pasageri din fiecare tip de transport pot aștepta la o stație înainte de a fi considerată plină. Valori mai mari reduc plângerile de aglomerație la stațiile aglomerate, cu costul unei cozi mai puțin realiste.
-SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP Resetează toate plafoanele de pasageri de mai sus la valorile implicite.
-SETTINGS_ENABLE_STOPS_AND_STATIONS Activează stații și gări
-SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP Ajustează numărul maxim de cetățeni care pot aștepta transportul public la stații și gări. Configurează în fila Stații.
-SETTINGS_STOPSANDSTATIONS_ENABLE Activează stații și gări
-SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP Activează sau dezactivează aplicarea limitelor de pasageri la stații.
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Pasageri maximi care așteaptă la o stație de linie:
+SETTINGS_STOPS StaÈ›ii transport public
+SETTINGS_STOPSANDSTATIONS_DESCRIPTION CÃ¢È›i pasageri din fiecare tip de transport pot aÈ™tepta la o staÈ›ie Ã®nainte de a fi consideratÄƒ plinÄƒ. Valori mai mari reduc plÃ¢ngerile de aglomeraÈ›ie la staÈ›iile aglomerate, cu costul unei cozi mai puÈ›in realiste.
+SETTINGS_STOPSANDSTATIONS_RESET_TOOLTIP ReseteazÄƒ toate plafoanele de pasageri de mai sus la valorile implicite.
+SETTINGS_ENABLE_STOPS_AND_STATIONS ActiveazÄƒ staÈ›ii È™i gÄƒri
+SETTINGS_ENABLE_STOPS_AND_STATIONS_TOOLTIP AjusteazÄƒ numÄƒrul maxim de cetÄƒÈ›eni care pot aÈ™tepta transportul public la staÈ›ii È™i gÄƒri. ConfigureazÄƒ Ã®n fila StaÈ›ii.
+SETTINGS_STOPSANDSTATIONS_ENABLE ActiveazÄƒ staÈ›ii È™i gÄƒri
+SETTINGS_STOPSANDSTATIONS_ENABLE_TOOLTIP ActiveazÄƒ sau dezactiveazÄƒ aplicarea limitelor de pasageri la staÈ›ii.
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HEADER Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de linie:
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS Autobuz de linie
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Pasageri maximi care așteaptă la o stație de autobuz de linie
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BUS_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de autobuz de linie
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS Troleibuz
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Pasageri maximi care așteaptă la o stație de troleibuz
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TROLLEYBUS_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de troleibuz
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS Autobuz de evacuare
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Pasageri maximi care așteaptă la o stație de autobuz de evacuare
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_EVACUATION_BUS_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de autobuz de evacuare
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS Autobuz turistic
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Pasageri maximi care așteaptă la o stație de autobuz turistic
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TOURIST_BUS_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de autobuz turistic
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM Tramvai
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Pasageri maximi care așteaptă la o stație de tramvai
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAM_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de tramvai
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO Metrou
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Pasageri maximi care așteaptă la o stație de metrou
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_METRO_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de metrou
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN Tren
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Pasageri maximi care așteaptă la o gară
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_TRAIN_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o garÄƒ
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL Monorail
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Pasageri maximi care așteaptă la o stație monorail
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP Navă
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Pasageri maximi care așteaptă la un port de marfă
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_MONORAIL_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie monorail
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP NavÄƒ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_SHIP_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la un port de marfÄƒ
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY Feribot
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Pasageri maximi care așteaptă la o stație de feribot
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_FERRY_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de feribot
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE Avion
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Pasageri maximi care așteaptă la un terminal de avion
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR Telecabină
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Pasageri maximi care așteaptă la o stație de telecabină
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_AIRPLANE_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la un terminal de avion
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR TelecabinÄƒ
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_CABLECAR_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de telecabinÄƒ
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON Balon cu aer cald
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Pasageri maximi care așteaptă la o stație de balon
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HOTAIRBALLOON_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de balon
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER Elicopter
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Pasageri maximi care așteaptă la o stație de elicopter
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_HELICOPTER_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de elicopter
 SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP Dirijabil
-SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Pasageri maximi care așteaptă la o stație de dirijabil
+SETTINGS_STOPSANDSTATIONS_MAX_PASSENGERS_BLIMP_TOOLTIP Pasageri maximi care aÈ™teaptÄƒ la o staÈ›ie de dirijabil
 SETTINGS_UNBUNCHING Anti-grupare
 SETTINGS_UNBUNCHING_AGGRESSION Agresivitate anti-grupare:
-SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP Cât de puternic trebuie să acționeze anti-gruparea?\nValori posibile: 0–52. Valoarea 0 dezactivează anti-gruparea.\nValorile mai mari afectează puternic traficul și pot face vehiculele să dispară.
+SETTINGS_UNBUNCHING_AGGRESSION_TOOLTIP CÃ¢t de puternic trebuie sÄƒ acÈ›ioneze anti-gruparea?\nValori posibile: 0â€“52. Valoarea 0 dezactiveazÄƒ anti-gruparea.\nValorile mai mari afecteazÄƒ puternic traficul È™i pot face vehiculele sÄƒ disparÄƒ.
 SETTINGS_VEHICLE_COUNT Vehicule pe linii noi:
-SETTINGS_VEHICLE_COUNT_TOOLTIP Numărul de vehicule adăugate automat pe liniile noi când controlul bugetului pe linie este oprit.
-SETTINGS_SPAWN_TIME_INTERVAL Interval de apariție:
-SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Timp în secunde între aparițiile de vehicule.
-SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP Resetează toate glisoarele la valorile implicite.
+SETTINGS_VEHICLE_COUNT_TOOLTIP NumÄƒrul de vehicule adÄƒugate automat pe liniile noi cÃ¢nd controlul bugetului pe linie este oprit.
+SETTINGS_SPAWN_TIME_INTERVAL Interval de apariÈ›ie:
+SETTINGS_SPAWN_TIME_INTERVAL_TOOLTIP Timp Ã®n secunde Ã®ntre apariÈ›iile de vehicule.
+SETTINGS_UNBUNCHING_RESET_BUTTON_TOOLTIP ReseteazÄƒ toate glisoarele la valorile implicite.
 UNBUNCHING_ENABLED Anti-grupare vehicule
-UNBUNCHING_DISABLED Anti-gruparea este dezactivată.
-UNBUNCHING_TARGET_GAP Spațiu țintă: {0}
+UNBUNCHING_DISABLED Anti-gruparea este dezactivatÄƒ.
+UNBUNCHING_TARGET_GAP SpaÈ›iu È›intÄƒ: {0}
 SETTINGS_EBS_GROUP_BUS Servicii autobuz expres
 SETTINGS_EBS_GROUP_TRAM Servicii tramvai expres
 SETTINGS_EBS_DROPDOWN_UNBUNCHING_MODE Autobuz expres: 
-SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Dezactivat' = Autobuzele folosesc setările anti-grupare de mai sus.\n'Prudent' = Oprește scurt, verifică pasagerii, poate pleca gol.\n'Agresiv' = Sare peste stații dacă nu așteaptă nimeni.
-SETTINGS_EBS_ENABLE_SELFBAL Activează auto-echilibrarea serviciului
-SETTINGS_EBS_DESC_SELFBAL Permite serviciului de autobuz expres să redistribuie vehiculele pe linie pentru a favoriza segmentele mai aglomerate și a reduce timpul de așteptare.
-SETTINGS_EBS_TOOLTIP_SELFBAL Analizează segmentele liniei și poate redistribui vehicule pe segmente mai aglomerate sau capete de linie pentru un serviciu mai echilibrat.\nDeciziile sunt probabilistice și depind de numărul de pasageri și șansele de redistribuire.
-SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID Activează auto-echilibrarea la stații de mijloc de linie
-SETTINGS_EBS_DESC_SELFBAL_TARGETMID Permite auto-echilibrării să aleagă o stație aglomerată de pe mijlocul liniei, nu doar un cap de linie, la redistribuire.
-SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Permite auto-echilibratorului să redistribuie vehicule la o stație aglomerată de pe mijlocul liniei (în loc de cap de linie).\nConsiderat doar când cea mai aglomerată stație are peste 30 de pasageri, apoi ales cu ~50% probabilitate și supus șanselor generale de redistribuire.
-SETTINGS_EBS_ENABLE_MINIBUS Activează modul microbuz
-SETTINGS_EBS_DESC_MINIBUS Face ca autobuzele mai mici să plece mai devreme când urcă sau coboară doar câțiva pasageri.
-SETTINGS_EBS_TOOLTIP_MINIBUS Autobuzele cu capacitate ≤20 pot pleca mai devreme când pasagerii care urcă + coboară ≤5.
+SETTINGS_EBS_TOOLTIP_UNBUNCHING_MODE 'Dezactivat' = Autobuzele folosesc setÄƒrile anti-grupare de mai sus.\n'Prudent' = OpreÈ™te scurt, verificÄƒ pasagerii, poate pleca gol.\n'Agresiv' = Sare peste staÈ›ii dacÄƒ nu aÈ™teaptÄƒ nimeni.
+SETTINGS_EBS_ENABLE_SELFBAL ActiveazÄƒ auto-echilibrarea serviciului
+SETTINGS_EBS_DESC_SELFBAL Permite serviciului de autobuz expres sÄƒ redistribuie vehiculele pe linie pentru a favoriza segmentele mai aglomerate È™i a reduce timpul de aÈ™teptare.
+SETTINGS_EBS_TOOLTIP_SELFBAL AnalizeazÄƒ segmentele liniei È™i poate redistribui vehicule pe segmente mai aglomerate sau capete de linie pentru un serviciu mai echilibrat.\nDeciziile sunt probabilistice È™i depind de numÄƒrul de pasageri È™i È™ansele de redistribuire.
+SETTINGS_EBS_ENABLE_SELFBAL_TARGETMID ActiveazÄƒ auto-echilibrarea la staÈ›ii de mijloc de linie
+SETTINGS_EBS_DESC_SELFBAL_TARGETMID Permite auto-echilibrÄƒrii sÄƒ aleagÄƒ o staÈ›ie aglomeratÄƒ de pe mijlocul liniei, nu doar un cap de linie, la redistribuire.
+SETTINGS_EBS_TOOLTIP_SELFBAL_TARGETMID Permite auto-echilibratorului sÄƒ redistribuie vehicule la o staÈ›ie aglomeratÄƒ de pe mijlocul liniei (Ã®n loc de cap de linie).\nConsiderat doar cÃ¢nd cea mai aglomeratÄƒ staÈ›ie are peste 30 de pasageri, apoi ales cu ~50% probabilitate È™i supus È™anselor generale de redistribuire.
+SETTINGS_EBS_ENABLE_MINIBUS ActiveazÄƒ modul microbuz
+SETTINGS_EBS_DESC_MINIBUS Face ca autobuzele mai mici sÄƒ plece mai devreme cÃ¢nd urcÄƒ sau coboarÄƒ doar cÃ¢È›iva pasageri.
+SETTINGS_EBS_TOOLTIP_MINIBUS Autobuzele cu capacitate â‰¤20 pot pleca mai devreme cÃ¢nd pasagerii care urcÄƒ + coboarÄƒ â‰¤5.
 SETTINGS_EBS_DROPDOWN_TRAM_UNBUNCHING_MODE Tramvai expres: 
-SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Dezactivat' = Tramvaiele folosesc setările anti-grupare de mai sus.\n'Light rail' = Oprește la fiecare stație, așteaptă mereu timerul complet (disciplină strictă).\n'Tramvai adevărat' = Oprește doar când pasageri urcă/coboară.
+SETTINGS_EBS_TOOLTIP_TRAM_UNBUNCHING 'Dezactivat' = Tramvaiele folosesc setÄƒrile anti-grupare de mai sus.\n'Light rail' = OpreÈ™te la fiecare staÈ›ie, aÈ™teaptÄƒ mereu timerul complet (disciplinÄƒ strictÄƒ).\n'Tramvai adevÄƒrat' = OpreÈ™te doar cÃ¢nd pasageri urcÄƒ/coboarÄƒ.
 SETTINGS_EBS_MODE_NONE Dezactivat
 SETTINGS_EBS_MODE_AGGRESSIVE Agresiv
 SETTINGS_EBS_MODE_PRUDENTIAL Prudent
 SETTINGS_EBS_TRAM_MODE_LIGHT_RAIL Mod light rail
 SETTINGS_EBS_TRAM_MODE_NONE Dezactivat
-SETTINGS_EBS_TRAM_MODE_TRAM Mod tramvai adevărat
+SETTINGS_EBS_TRAM_MODE_TRAM Mod tramvai adevÄƒrat
 SETTINGS_PTU_GROUP Deblocare transport public
-SETTINGS_PTU_ENABLE Elimină pasagerii blocați
-SETTINGS_PTU_TOOLTIP Elimină automat pasagerii blocați la urcare, permițând vehiculului să plece normal și prevenind plecările înghețate.
-SETTINGS_LINE_DELETION_TOOL Instrument ștergere linii
-SETTINGS_LINE_DELETION_TOOL_DESCRIPTION Bifează tipurile de transport de mai jos, apoi apasă Șterge pentru a elimina toate liniile de acele tipuri din orașul curent. Selecția este temporară - începe mereu nebifată și se golește după ștergere; nu se salvează ca setare.
-SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP Șterge toate liniile tipurilor selectate. Funcționează doar cu orașul încărcat.
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE CONFIRMĂ ȘTERGEREA LINIILOR
-SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG Ești pe cale să ștergi toate liniile.\nDorești să continui?
-SETTINGS_DELETE_BUS_TOOLTIP Șterge toate liniile de autobuz obișnuite.
+SETTINGS_PTU_ENABLE EliminÄƒ pasagerii blocaÈ›i
+SETTINGS_PTU_TOOLTIP EliminÄƒ automat pasagerii blocaÈ›i la urcare, permiÈ›Ã¢nd vehiculului sÄƒ plece normal È™i prevenind plecÄƒrile Ã®ngheÈ›ate.
+SETTINGS_LINE_DELETION_TOOL Instrument È™tergere linii
+SETTINGS_LINE_DELETION_TOOL_DESCRIPTION BifeazÄƒ tipurile de transport de mai jos, apoi apasÄƒ È˜terge pentru a elimina toate liniile de acele tipuri din oraÈ™ul curent. SelecÈ›ia este temporarÄƒ - Ã®ncepe mereu nebifatÄƒ È™i se goleÈ™te dupÄƒ È™tergere; nu se salveazÄƒ ca setare.
+SETTINGS_LINE_DELETION_TOOL_BUTTON_TOOLTIP È˜terge toate liniile tipurilor selectate. FuncÈ›ioneazÄƒ doar cu oraÈ™ul Ã®ncÄƒrcat.
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_TITLE CONFIRMÄ‚ È˜TERGEREA LINIILOR
+SETTINGS_LINE_DELETION_TOOL_CONFIRM_MSG EÈ™ti pe cale sÄƒ È™tergi toate liniile.\nDoreÈ™ti sÄƒ continui?
+SETTINGS_DELETE_BUS_TOOLTIP È˜terge toate liniile de autobuz obiÈ™nuite.
 SETTINGS_DELETE_SIGHTSEEING_BUS_LABEL Autobuze turistice
-SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP Șterge toate liniile de autobuz turistic.
-SETTINGS_DELETE_TRAM_TOOLTIP Șterge toate liniile de tramvai.
-SETTINGS_DELETE_TROLLEYBUS_TOOLTIP Șterge toate liniile de troleibuz.
-SETTINGS_DELETE_TRAIN_TOOLTIP Șterge toate liniile de tren.
-SETTINGS_DELETE_METRO_TOOLTIP Șterge toate liniile de metrou subteran.
-SETTINGS_DELETE_MONORAIL_TOOLTIP Șterge toate liniile monorail.
+SETTINGS_DELETE_SIGHTSEEING_BUS_TOOLTIP È˜terge toate liniile de autobuz turistic.
+SETTINGS_DELETE_TRAM_TOOLTIP È˜terge toate liniile de tramvai.
+SETTINGS_DELETE_TROLLEYBUS_TOOLTIP È˜terge toate liniile de troleibuz.
+SETTINGS_DELETE_TRAIN_TOOLTIP È˜terge toate liniile de tren.
+SETTINGS_DELETE_METRO_TOOLTIP È˜terge toate liniile de metrou subteran.
+SETTINGS_DELETE_MONORAIL_TOOLTIP È˜terge toate liniile monorail.
 SETTINGS_DELETE_FERRY_LABEL Feriboturi
-SETTINGS_DELETE_SHIP_TOOLTIP Șterge toate liniile de feribot.
+SETTINGS_DELETE_SHIP_TOOLTIP È˜terge toate liniile de feribot.
 SETTINGS_DELETE_HELICOPTER_LABEL Elicoptere
-SETTINGS_DELETE_HELICOPTER_TOOLTIP Șterge toate liniile de elicopter.
+SETTINGS_DELETE_HELICOPTER_TOOLTIP È˜terge toate liniile de elicopter.
 SETTINGS_DELETE_BLIMP_LABEL Dirijabile
-SETTINGS_DELETE_BLIMP_TOOLTIP Șterge toate liniile de dirijabil.
+SETTINGS_DELETE_BLIMP_TOOLTIP È˜terge toate liniile de dirijabil.
 VEHICLE_EDITOR_TITLE Editor vehicule
 VEHICLE_EDITOR_SUB_TITLE {0} vehicule
 VEHICLE_EDITOR_CAPACITY Capacitate pasageri
 VEHICLE_EDITOR_CAPACITY_TAXI Capacitate deplasare
-VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP Număr de pasageri pe tură de lucru.
-VEHICLE_EDITOR_MAINTENANCE Cost întreținere
-VEHICLE_EDITOR_MAX_SPEED Viteză maximă
+VEHICLE_EDITOR_CAPACITY_TAXI_TOOLTIP NumÄƒr de pasageri pe turÄƒ de lucru.
+VEHICLE_EDITOR_MAINTENANCE Cost Ã®ntreÈ›inere
+VEHICLE_EDITOR_MAX_SPEED VitezÄƒ maximÄƒ
 VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS Motor de tren la ambele capete
-VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP Activează sau dezactivează motoarele de tren la ambele capete.
-VEHICLE_EDITOR_APPLY Aplică
+VEHICLE_EDITOR_ENGINE_ON_BOTH_ENDS_TOOLTIP ActiveazÄƒ sau dezactiveazÄƒ motoarele de tren la ambele capete.
+VEHICLE_EDITOR_APPLY AplicÄƒ
 VEHICLE_EDITOR_DEFAULT Implicit
-VEHICLE_LIST_BOX_ROW_TOOLTIP1 Clic dreapta pentru a urmări acest vehicul.\nȚine Shift la clic pentru a mări și imaginea.
-VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + clic pentru a pune acest vehicul în coadă.
-VEHICLE_PANEL_EDIT_TYPE Editează tipul de vehicul
-VEHICLE_PANEL_EDIT_TYPE_TOOLTIP Editează acest tip de vehicul cu editorul de vehicule.
-VEHICLE_PANEL_STATUS_NEXT_STOP Următoarea stație:
-VEHICLE_PANEL_STATUS_UNBUNCHING Anti-grupare în curs
-VEHICLE_PANEL_LAST_STOP_EXCHANGE Schimb de pasageri la ultima stație: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
+VEHICLE_LIST_BOX_ROW_TOOLTIP1 Clic dreapta pentru a urmÄƒri acest vehicul.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
+VEHICLE_LIST_BOX_ROW_TOOLTIP2 Shift + clic pentru a pune acest vehicul Ã®n coadÄƒ.
+VEHICLE_PANEL_EDIT_TYPE EditeazÄƒ tipul de vehicul
+VEHICLE_PANEL_EDIT_TYPE_TOOLTIP EditeazÄƒ acest tip de vehicul cu editorul de vehicule.
+VEHICLE_PANEL_STATUS_NEXT_STOP UrmÄƒtoarea staÈ›ie:
+VEHICLE_PANEL_STATUS_UNBUNCHING Anti-grupare Ã®n curs
+VEHICLE_PANEL_LAST_STOP_EXCHANGE Schimb de pasageri la ultima staÈ›ie: <color #FF0000>-{0}</color> | <color #00FF00>+{1}</color>
 VEHICLE_PANEL_PASSENGERS Pasageri:
 VEHICLE_PANEL_EARNINGS Venituri:
-VEHICLE_PANEL_EARNINGS_TOOLTIP Rezultatul vânzărilor de bilete minus costul de întreținere al vehiculului.
+VEHICLE_PANEL_EARNINGS_TOOLTIP Rezultatul vÃ¢nzÄƒrilor de bilete minus costul de Ã®ntreÈ›inere al vehiculului.
 VEHICLE_PANEL_PREVIOUS Vehiculul anterior
-VEHICLE_PANEL_PREVIOUS_TOOLTIP Sari la vehiculul anterior.\nȚine Shift la clic pentru a mări și imaginea.
-VEHICLE_PANEL_REMOVE_VEHICLE Elimină vehicul
-VEHICLE_PANEL_NEXT Vehiculul următor
-VEHICLE_PANEL_NEXT_TOOLTIP Sari la vehiculul următor.\nȚine Shift la clic pentru a mări și imaginea.
+VEHICLE_PANEL_PREVIOUS_TOOLTIP Sari la vehiculul anterior.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
+VEHICLE_PANEL_REMOVE_VEHICLE EliminÄƒ vehicul
+VEHICLE_PANEL_NEXT Vehiculul urmÄƒtor
+VEHICLE_PANEL_NEXT_TOOLTIP Sari la vehiculul urmÄƒtor.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.
 VEHICLE_SELECTION_CAPACITY Capacitate
-VEHICLE_SELECTION_ADD_VEHICLE Adaugă acest vehicul pe lista de vehicule permise
-VEHICLE_SELECTION_ADD_ALL Adaugă toate vehiculele eligibile pe lista de vehicule permise
-VEHICLE_SELECTION_REMOVE_VEHICLE Elimină acest vehicul din lista de vehicule permise
-VEHICLE_SELECTION_REMOVE_ALL Elimină toate vehiculele din lista de vehicule permise
+VEHICLE_SELECTION_ADD_VEHICLE AdaugÄƒ acest vehicul pe lista de vehicule permise
+VEHICLE_SELECTION_ADD_ALL AdaugÄƒ toate vehiculele eligibile pe lista de vehicule permise
+VEHICLE_SELECTION_REMOVE_VEHICLE EliminÄƒ acest vehicul din lista de vehicule permise
+VEHICLE_SELECTION_REMOVE_ALL EliminÄƒ toate vehiculele din lista de vehicule permise
 VEHICLE_SELECTION_AVAILABLE_VEHICLES Vehicule disponibile
 VEHICLE_SELECTION_SELECTED_VEHICLES Vehicule selectate
 VEHICLE_SELECTION_ANY_VEHICLE Orice vehicul
-VEHICLE_BUTTON_TOOLTIP {0}\nClic pentru a sări la acest vehicul.\nȚine Shift la clic pentru a mări și imaginea.\nȚine Alt la clic pentru a preveni deschiderea panoului de info vehicul.
-TRANSPORT_LINE_VEHICLECOUNT Număr vehicule: {0}
-FLIGHT_TRACKER_NAME Urmărire zboruri
+VEHICLE_BUTTON_TOOLTIP {0}\nClic pentru a sÄƒri la acest vehicul.\nÈšine Shift la clic pentru a mÄƒri È™i imaginea.\nÈšine Alt la clic pentru a preveni deschiderea panoului de info vehicul.
+TRANSPORT_LINE_VEHICLECOUNT NumÄƒr vehicule: {0}
+FLIGHT_TRACKER_NAME UrmÄƒrire zboruri
 FLIGHT_STATUS_NONE Niciunul
 FLIGHT_STATUS_INCOMING Sosire
 FLIGHT_STATUS_LANDED Aterizat
-FLIGHT_STATUS_AT_GATE La poartă
+FLIGHT_STATUS_AT_GATE La poartÄƒ
 FLIGHT_STATUS_DEPARTED Plecat
-TICKET_PRICE_TAXI_KILOMETER Preț taxi pe kilometru: 
-TICKET_PRICE_TAXI_MILE Preț taxi pe milă: 
-TICKET_PRICE_BUS Preț bilet autobuz: 
-TICKET_PRICE_INTERCITY_BUS Preț bilet autobuz interurban: 
-TICKET_PRICE_METRO Preț bilet metrou: 
-TICKET_PRICE_TRAIN Preț bilet tren: 
-TICKET_PRICE_TRAM Preț bilet tramvai: 
-TICKET_PRICE_MONORAIL Preț bilet monorail: 
-TICKET_PRICE_SHIP Preț bilet navă: 
-TICKET_PRICE_FERRY Preț bilet feribot: 
-TICKET_PRICE_PLANE Preț bilet avion: 
-TICKET_PRICE_CABLECAR Preț bilet telecabină: 
-TICKET_PRICE_SIGHTSEEING_BUS Preț bilet autobuz turistic: 
-TICKET_PRICE_TROLLEYBUS Preț bilet troleibuz: 
-TICKET_PRICE_BLIMP Preț bilet dirijabil: 
-TICKET_PRICE_HELICOPTER Preț bilet elicopter: 
-ECONOMY_TAB_TICKET_PRICES Prețuri bilete
-ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT Numărul total actual de pasageri pentru acest tip de transport.
+TICKET_PRICE_TAXI_KILOMETER PreÈ› taxi pe kilometru: 
+TICKET_PRICE_TAXI_MILE PreÈ› taxi pe milÄƒ: 
+TICKET_PRICE_BUS PreÈ› bilet autobuz: 
+TICKET_PRICE_INTERCITY_BUS PreÈ› bilet autobuz interurban: 
+TICKET_PRICE_METRO PreÈ› bilet metrou: 
+TICKET_PRICE_TRAIN PreÈ› bilet tren: 
+TICKET_PRICE_TRAM PreÈ› bilet tramvai: 
+TICKET_PRICE_MONORAIL PreÈ› bilet monorail: 
+TICKET_PRICE_SHIP PreÈ› bilet navÄƒ: 
+TICKET_PRICE_FERRY PreÈ› bilet feribot: 
+TICKET_PRICE_PLANE PreÈ› bilet avion: 
+TICKET_PRICE_CABLECAR PreÈ› bilet telecabinÄƒ: 
+TICKET_PRICE_SIGHTSEEING_BUS PreÈ› bilet autobuz turistic: 
+TICKET_PRICE_TROLLEYBUS PreÈ› bilet troleibuz: 
+TICKET_PRICE_BLIMP PreÈ› bilet dirijabil: 
+TICKET_PRICE_HELICOPTER PreÈ› bilet elicopter: 
+ECONOMY_TAB_TICKET_PRICES PreÈ›uri bilete
+ECONOMY_TAB_TICKET_PRICES_TOOLTIP_PASSENGER_COUNT NumÄƒrul total actual de pasageri pentru acest tip de transport.
 WHATSNEW_3_0_0_1 Actualizat pentru Race Day; acum compatibil cu More Vehicles Renewed.
-WHATSNEW_3_0_0_2 Următoarele moduri au fost integrate în IPT3:\n• Advanced Stop Selection Revisited\n• Auto Line Color Redux\n• Better Bus Stop Position\n• Better Train Boarding\n• Elevated Stops Enabler Revisited\n• Express Bus Services\n• Flight Tracker\n• Intercity Bus Control\n• Mileage Taxi Services\n• Public Transport Unstucker\n• Realistic Walking Speed\n• Stops and Stations\n• Ticket Price Customizer
-WHATSNEW_3_0_1 Public Transport Unstucker este acum integrat în IPT3.\nVezi versiunea 3.0 pentru toate celelalte moduri integrate. Dezabonează-te de la originale pentru a evita conflictele.
-SETTINGS_TAB_TRAINDISPLAY Afișaj tren
-SETTINGS_TAB_INTEGRATIONS Integrări
-SETTINGS_TRAINDISPLAY_GROUP Suprapunere afișaj tren
-SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION Configurează suprapunerea integrată afișată când urmărești vehicule de transport suportate.
-SETTINGS_TRAINDISPLAY_ENABLE Activează afișajul trenului
-SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP Pornește sau oprește suprapunerea integrată de afișaj tren.
+WHATSNEW_3_0_0_2 UrmÄƒtoarele moduri au fost integrate Ã®n IPT3:\nâ€¢ Advanced Stop Selection Revisited\nâ€¢ Auto Line Color Redux\nâ€¢ Better Bus Stop Position\nâ€¢ Better Train Boarding\nâ€¢ Elevated Stops Enabler Revisited\nâ€¢ Express Bus Services\nâ€¢ Flight Tracker\nâ€¢ Intercity Bus Control\nâ€¢ Mileage Taxi Services\nâ€¢ Public Transport Unstucker\nâ€¢ Realistic Walking Speed\nâ€¢ Stops and Stations\nâ€¢ Ticket Price Customizer
+WHATSNEW_3_0_1 Public Transport Unstucker este acum integrat Ã®n IPT3.\nVezi versiunea 3.0 pentru toate celelalte moduri integrate. DezaboneazÄƒ-te de la originale pentru a evita conflictele.
+SETTINGS_TAB_TRAINDISPLAY AfiÈ™aj tren
+SETTINGS_TAB_INTEGRATIONS IntegrÄƒri
+SETTINGS_TRAINDISPLAY_GROUP Suprapunere afiÈ™aj tren
+SETTINGS_TRAINDISPLAY_GROUP_DESCRIPTION ConfigureazÄƒ suprapunerea integratÄƒ afiÈ™atÄƒ cÃ¢nd urmÄƒreÈ™ti vehicule de transport suportate.
+SETTINGS_TRAINDISPLAY_ENABLE ActiveazÄƒ afiÈ™ajul trenului
+SETTINGS_TRAINDISPLAY_ENABLE_TOOLTIP PorneÈ™te sau opreÈ™te suprapunerea integratÄƒ de afiÈ™aj tren.
 SETTINGS_TRAINDISPLAY_MODE_DISABLED Dezactivat
 SETTINGS_TRAINDISPLAY_MODE_ENABLED Activat
-SETTINGS_TRAINDISPLAY_OVERLAY_POSITION Poziție suprapunere:
+SETTINGS_TRAINDISPLAY_OVERLAY_POSITION PoziÈ›ie suprapunere:
 SETTINGS_TRAINDISPLAY_OVERLAY_POSITION_TOOLTIP Alege unde apare suprapunerea pe ecran.
-SETTINGS_TRAINDISPLAY_POS_TOPLEFT Stânga sus
+SETTINGS_TRAINDISPLAY_POS_TOPLEFT StÃ¢nga sus
 SETTINGS_TRAINDISPLAY_POS_TOPRIGHT Dreapta sus
-SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT Stânga jos
+SETTINGS_TRAINDISPLAY_POS_BOTTOMLEFT StÃ¢nga jos
 SETTINGS_TRAINDISPLAY_POS_BOTTOMRIGHT Dreapta jos
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE Scală suprapunere:
-SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP Scalează dimensiunea suprapunerii.
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE ScalÄƒ suprapunere:
+SETTINGS_TRAINDISPLAY_OVERLAY_SCALE_TOOLTIP ScaleazÄƒ dimensiunea suprapunerii.
 SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY Opacitate suprapunere:
-SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP Ajustează cât de transparentă este suprapunerea.
+SETTINGS_TRAINDISPLAY_OVERLAY_OPACITY_TOOLTIP AjusteazÄƒ cÃ¢t de transparentÄƒ este suprapunerea.
 SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL Interval de actualizare:
-SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP Cât de des se reîmprospătează suprapunerea când urmărești un vehicul.
-SETTINGS_TRAINDISPLAY_SHOW_LINE Arată numele liniei
-SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Include numele liniei în suprapunere.
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION Arată destinația
-SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Include destinația în suprapunere.
-SETTINGS_TRAINDISPLAY_SHOW_STATE Arată starea
-SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Include starea vehiculului în suprapunere.
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Doar la urmărire
-SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Ascunde suprapunerea dacă camera nu urmărește efectiv un vehicul suportat.
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Doar în camera first-person
-SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP Arată suprapunerea doar cu un mod de cameră first-person (ex. First Person Camera - Continued). Dacă e oprit, apare când urmărești un vehicul suportat în orice mod de cameră.
-SETTINGS_TRAINDISPLAY_THEME Temă de culoare:
+SETTINGS_TRAINDISPLAY_UPDATE_INTERVAL_TOOLTIP CÃ¢t de des se reÃ®mprospÄƒteazÄƒ suprapunerea cÃ¢nd urmÄƒreÈ™ti un vehicul.
+SETTINGS_TRAINDISPLAY_SHOW_LINE AratÄƒ numele liniei
+SETTINGS_TRAINDISPLAY_SHOW_LINE_TOOLTIP Include numele liniei Ã®n suprapunere.
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION AratÄƒ destinaÈ›ia
+SETTINGS_TRAINDISPLAY_SHOW_DESTINATION_TOOLTIP Include destinaÈ›ia Ã®n suprapunere.
+SETTINGS_TRAINDISPLAY_SHOW_STATE AratÄƒ starea
+SETTINGS_TRAINDISPLAY_SHOW_STATE_TOOLTIP Include starea vehiculului Ã®n suprapunere.
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING Doar la urmÄƒrire
+SETTINGS_TRAINDISPLAY_ONLY_WHILE_FOLLOWING_TOOLTIP Ascunde suprapunerea dacÄƒ camera nu urmÄƒreÈ™te efectiv un vehicul suportat.
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY Doar Ã®n camera first-person
+SETTINGS_TRAINDISPLAY_FIRST_PERSON_ONLY_TOOLTIP AratÄƒ suprapunerea doar cu un mod de camerÄƒ first-person (ex. First Person Camera - Continued). DacÄƒ e oprit, apare cÃ¢nd urmÄƒreÈ™ti un vehicul suportat Ã®n orice mod de camerÄƒ.
+SETTINGS_TRAINDISPLAY_THEME TemÄƒ de culoare:
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Alege culorile de fundal/text ale suprapunerii.
 SETTINGS_TRAINDISPLAY_THEME_SIMPLE Simplu
-SETTINGS_TRAINDISPLAY_THEME_DARK Întunecat
+SETTINGS_TRAINDISPLAY_THEME_DARK ÃŽntunecat
 SETTINGS_TRAINDISPLAY_THEME_LIGHT Luminos
 SETTINGS_TRAINDISPLAY_THEME_ORIGINAL Original
 SETTINGS_TRAINDISPLAY_THEME_BLUE Albastru
 SETTINGS_TRAINDISPLAY_THEME_GREEN Verde
 SETTINGS_TRAINDISPLAY_THEME_AMBER Chihlimbar
-COPY_TIP Copiază setările acestei linii.
-PASTE_TIP Lipește setările de linie copiate.
-COPY_BUILDING_TIP Copiază aceste setări pe toate liniile care deservesc această clădire.
-COPY_DISTRICT_TIP Copiază aceste setări pe toate liniile din acest district.
+COPY_TIP CopiazÄƒ setÄƒrile acestei linii.
+PASTE_TIP LipeÈ™te setÄƒrile de linie copiate.
+COPY_BUILDING_TIP CopiazÄƒ aceste setÄƒri pe toate liniile care deservesc aceastÄƒ clÄƒdire.
+COPY_DISTRICT_TIP CopiazÄƒ aceste setÄƒri pe toate liniile din acest district.
 SETTINGS_INTEGRATIONS_GROUP Suplimente integrate
-SETTINGS_INTERCITY_BUS_ENABLE Activează controlul autobuzelor interurbane
-SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP Activează stratul de compatibilitate integrat pentru controlul autobuzelor interurbane și patch-urile de stații.
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE Activează selecția avansată a stațiilor
-SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Permite plasarea stațiilor pe peroane/linii alternative ale gărilor multi-linie (ține tasta de mod alternativ la plasare). Intră în vigoare la următoarea încărcare a nivelului.
-SETTINGS_BETTERBOARDING_ENABLE Activează urcare mai bună
-SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP Îmbunătățește deciziile de urcare astfel încât pasagerii preferă vehiculul care le servește destinația. Intră în vigoare la următoarea încărcare a nivelului.
-SETTINGS_MILEAGETAXI_ENABLE Activează taxi pe kilometraj
-SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP Taxează taxiul după distanța parcursă în loc de tarif fix, astfel că drumurile mai lungi aduc mai mult. Necesită DLC After Dark. Intră în vigoare la următoarea încărcare a nivelului.
-SETTINGS_ELEVATEDSTOPS_ENABLE Activează stații ridicate
-SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Permite stații de transport public pe drumuri/poduri ridicate și păstrează iluminatul stradal pe acele segmente. Intră în vigoare la următoarea încărcare a nivelului.
+SETTINGS_INTERCITY_BUS_ENABLE ActiveazÄƒ controlul autobuzelor interurbane
+SETTINGS_INTERCITY_BUS_ENABLE_TOOLTIP ActiveazÄƒ stratul de compatibilitate integrat pentru controlul autobuzelor interurbane È™i patch-urile de staÈ›ii.
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE ActiveazÄƒ selecÈ›ia avansatÄƒ a staÈ›iilor
+SETTINGS_ADVANCEDSTOPSELECTION_ENABLE_TOOLTIP Permite plasarea staÈ›iilor pe peroane/linii alternative ale gÄƒrilor multi-linie (È›ine tasta de mod alternativ la plasare). IntrÄƒ Ã®n vigoare la urmÄƒtoarea Ã®ncÄƒrcare a nivelului.
+SETTINGS_BETTERBOARDING_ENABLE ActiveazÄƒ urcare mai bunÄƒ
+SETTINGS_BETTERBOARDING_ENABLE_TOOLTIP ÃŽmbunÄƒtÄƒÈ›eÈ™te deciziile de urcare astfel Ã®ncÃ¢t pasagerii preferÄƒ vehiculul care le serveÈ™te destinaÈ›ia. IntrÄƒ Ã®n vigoare la urmÄƒtoarea Ã®ncÄƒrcare a nivelului.
+SETTINGS_MILEAGETAXI_ENABLE ActiveazÄƒ taxi pe kilometraj
+SETTINGS_MILEAGETAXI_ENABLE_TOOLTIP TaxeazÄƒ taxiul dupÄƒ distanÈ›a parcursÄƒ Ã®n loc de tarif fix, astfel cÄƒ drumurile mai lungi aduc mai mult. NecesitÄƒ DLC After Dark. IntrÄƒ Ã®n vigoare la urmÄƒtoarea Ã®ncÄƒrcare a nivelului.
+SETTINGS_ELEVATEDSTOPS_ENABLE ActiveazÄƒ staÈ›ii ridicate
+SETTINGS_ELEVATEDSTOPS_ENABLE_TOOLTIP Permite staÈ›ii de transport public pe drumuri/poduri ridicate È™i pÄƒstreazÄƒ iluminatul stradal pe acele segmente. IntrÄƒ Ã®n vigoare la urmÄƒtoarea Ã®ncÄƒrcare a nivelului.
 SETTINGS_INTERCITY_BUS_CAPACITY Capacitate terminal interurban
-SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP Câte vehicule poate ține odată un terminal de autobuz interurban.
+SETTINGS_INTERCITY_BUS_CAPACITY_TOOLTIP CÃ¢te vehicule poate È›ine odatÄƒ un terminal de autobuz interurban.
 SETTINGS_TRAM_DEPOT_CAPACITY Capacitate depou tramvai
-SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Vanilla setează fiecare depou de tramvai la un plafon practic nelimitat de 100.000 de vehicule. Realist și Intermediar aplică un plafon fix moderat; Dezactivat păstrează comportamentul existent.
+SETTINGS_TRAM_DEPOT_CAPACITY_TOOLTIP Vanilla seteazÄƒ fiecare depou de tramvai la un plafon practic nelimitat de 100.000 de vehicule. Realist È™i Intermediar aplicÄƒ un plafon fix moderat; Dezactivat pÄƒstreazÄƒ comportamentul existent.
 SETTINGS_TAXI_DEPOT_CAPACITY Capacitate depou taxi
-SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Vanilla setează fiecare depou de taxi la un plafon practic nelimitat de 100.000 de vehicule. Realist și Intermediar aplică un plafon fix moderat; Dezactivat păstrează comportamentul existent.
+SETTINGS_TAXI_DEPOT_CAPACITY_TOOLTIP Vanilla seteazÄƒ fiecare depou de taxi la un plafon practic nelimitat de 100.000 de vehicule. Realist È™i Intermediar aplicÄƒ un plafon fix moderat; Dezactivat pÄƒstreazÄƒ comportamentul existent.
 SETTINGS_BUS_DEPOT_CAPACITY Capacitate depou autobuz
-SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Vanilla setează fiecare depou de autobuz (obișnuit, biocombustibil și garaje turistice) la un plafon practic nelimitat de 100.000 de vehicule. Realist și Intermediar aplică un plafon fix moderat; Dezactivat păstrează comportamentul existent.
+SETTINGS_BUS_DEPOT_CAPACITY_TOOLTIP Vanilla seteazÄƒ fiecare depou de autobuz (obiÈ™nuit, biocombustibil È™i garaje turistice) la un plafon practic nelimitat de 100.000 de vehicule. Realist È™i Intermediar aplicÄƒ un plafon fix moderat; Dezactivat pÄƒstreazÄƒ comportamentul existent.
 SETTINGS_TROLLEYBUS_DEPOT_CAPACITY Capacitate depou troleibuz
-SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Vanilla setează fiecare depou de troleibuz la un plafon practic nelimitat de 100.000 de vehicule. Realist și Intermediar aplică un plafon fix moderat; Dezactivat păstrează comportamentul existent.
+SETTINGS_TROLLEYBUS_DEPOT_CAPACITY_TOOLTIP Vanilla seteazÄƒ fiecare depou de troleibuz la un plafon practic nelimitat de 100.000 de vehicule. Realist È™i Intermediar aplicÄƒ un plafon fix moderat; Dezactivat pÄƒstreazÄƒ comportamentul existent.
 SETTINGS_FERRY_DEPOT_CAPACITY Capacitate depou feribot
-SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vanilla setează fiecare depou de feribot la un plafon practic nelimitat de 100.000 de vehicule. Realist și Intermediar aplică un plafon fix moderat; Dezactivat păstrează comportamentul existent.
-SETTINGS_DEPOT_CAPACITY_DISABLED Dezactivat (fără plafon)
+SETTINGS_FERRY_DEPOT_CAPACITY_TOOLTIP Vanilla seteazÄƒ fiecare depou de feribot la un plafon practic nelimitat de 100.000 de vehicule. Realist È™i Intermediar aplicÄƒ un plafon fix moderat; Dezactivat pÄƒstreazÄƒ comportamentul existent.
+SETTINGS_DEPOT_CAPACITY_DISABLED Dezactivat (fÄƒrÄƒ plafon)
 SETTINGS_DEPOT_CAPACITY_INTERMEDIATE Intermediar
 SETTINGS_DEPOT_CAPACITY_REALISTIC Realist
-SETTINGS_FLIGHTTRACKER_ENABLE Activează urmărirea zborurilor
-SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP Activează patch-urile integrate de urmărire a zborurilor și suportul UI.
-SETTINGS_SUBBUILDINGSTABS_ENABLE Activează filele sub-clădiri
-SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP Afișează o bandă de file pe panoul info al unei clădiri când are sub-clădiri (ex. un aeroport cu stație de metrou încorporată), permițând comutarea între ele.
-SETTINGS_TAXISTANDFIX_ENABLE Activează corecția stațiilor de taxi
-SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Trimite taxiurile inactive spre cea mai apropiată stație de taxi în loc să le lase să umble la întâmplare. Necesită DLC After Dark.
-SETTINGS_SHAREDSTOPENABLER_ENABLE Activează stațiile partajate
-SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite mai mult de un tip de transport (autobuz, tramvai, troleibuz) să oprească pe același segment de drum. Oprit implicit - vezi GitHub-ul modului pentru ce lasă afară această versiune redusă.
-SETTINGS_COMMUTERDESTINATION_ENABLE Activează destinația navetiștilor (redesign în așteptare)
-SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP Arată încotro se îndreaptă pasagerii care așteaptă într-o stație — un panou mic plus o suprapunere pe hartă. Doar pentru citire, fără altă dependență în afară de Harmony.
+SETTINGS_FLIGHTTRACKER_ENABLE ActiveazÄƒ urmÄƒrirea zborurilor
+SETTINGS_FLIGHTTRACKER_ENABLE_TOOLTIP ActiveazÄƒ patch-urile integrate de urmÄƒrire a zborurilor È™i suportul UI.
+SETTINGS_SUBBUILDINGSTABS_ENABLE ActiveazÄƒ filele sub-clÄƒdiri
+SETTINGS_SUBBUILDINGSTABS_ENABLE_TOOLTIP AfiÈ™eazÄƒ o bandÄƒ de file pe panoul info al unei clÄƒdiri cÃ¢nd are sub-clÄƒdiri (ex. un aeroport cu staÈ›ie de metrou Ã®ncorporatÄƒ), permiÈ›Ã¢nd comutarea Ã®ntre ele.
+SETTINGS_TAXISTANDFIX_ENABLE ActiveazÄƒ corecÈ›ia staÈ›iilor de taxi
+SETTINGS_TAXISTANDFIX_ENABLE_TOOLTIP Trimite taxiurile inactive spre cea mai apropiatÄƒ staÈ›ie de taxi Ã®n loc sÄƒ le lase sÄƒ umble la Ã®ntÃ¢mplare. NecesitÄƒ DLC After Dark.
+SETTINGS_SHAREDSTOPENABLER_ENABLE ActiveazÄƒ staÈ›iile partajate
+SETTINGS_SHAREDSTOPENABLER_ENABLE_TOOLTIP Permite mai mult de un tip de transport (autobuz, tramvai, troleibuz) sÄƒ opreascÄƒ pe acelaÈ™i segment de drum. Oprit implicit - vezi GitHub-ul modului pentru ce lasÄƒ afarÄƒ aceastÄƒ versiune redusÄƒ.
+SETTINGS_COMMUTERDESTINATION_ENABLE ActiveazÄƒ destinaÈ›ia navetiÈ™tilor (redesign Ã®n aÈ™teptare)
+SETTINGS_COMMUTERDESTINATION_ENABLE_TOOLTIP AratÄƒ Ã®ncotro se Ã®ndreaptÄƒ pasagerii care aÈ™teaptÄƒ Ã®ntr-o staÈ›ie â€” un panou mic plus o suprapunere pe hartÄƒ. Doar pentru citire, fÄƒrÄƒ altÄƒ dependenÈ›Äƒ Ã®n afarÄƒ de Harmony.
 SETTINGS_OOC_ENABLE Conexiuni exterioare optimizate
-SETTINGS_OOC_ENABLE_TOOLTIP Trenurile, avioanele și navele de marfă așteaptă mai mult o încărcătură mai plină înainte de a pleca la conexiunile exterioare.
-SETTINGS_OOC_WAIT_MULTIPLIER Multiplicator de așteptare
-SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP Cât de mult mai mult decât vanilla se așteaptă o încărcătură mai plină. Valori mai mari înseamnă mai puține, dar mai pline curse.
-SETTINGS_OOC_PASSENGER_SCOPE Domeniul așteptării pasagerilor
-SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Unde se aplică multiplicatorul de mai sus cetățenilor care așteaptă transportul public. Doar conexiuni exterioare afectează doar pe cei de la o conexiune exterioară; la nivel de oraș încetinește și așteptarea internă obișnuită pentru fiecare cetățean (potrivește comportamentul real al modului sursă).
+SETTINGS_OOC_ENABLE_TOOLTIP Trenurile, avioanele È™i navele de marfÄƒ aÈ™teaptÄƒ mai mult o Ã®ncÄƒrcÄƒturÄƒ mai plinÄƒ Ã®nainte de a pleca la conexiunile exterioare.
+SETTINGS_OOC_WAIT_MULTIPLIER Multiplicator de aÈ™teptare
+SETTINGS_OOC_WAIT_MULTIPLIER_TOOLTIP CÃ¢t de mult mai mult decÃ¢t vanilla se aÈ™teaptÄƒ o Ã®ncÄƒrcÄƒturÄƒ mai plinÄƒ. Valori mai mari Ã®nseamnÄƒ mai puÈ›ine, dar mai pline curse.
+SETTINGS_OOC_PASSENGER_SCOPE Domeniul aÈ™teptÄƒrii pasagerilor
+SETTINGS_OOC_PASSENGER_SCOPE_TOOLTIP Unde se aplicÄƒ multiplicatorul de mai sus cetÄƒÈ›enilor care aÈ™teaptÄƒ transportul public. Doar conexiuni exterioare afecteazÄƒ doar pe cei de la o conexiune exterioarÄƒ; la nivel de oraÈ™ Ã®ncetineÈ™te È™i aÈ™teptarea internÄƒ obiÈ™nuitÄƒ pentru fiecare cetÄƒÈ›ean (potriveÈ™te comportamentul real al modului sursÄƒ).
 SETTINGS_OOC_PASSENGER_SCOPE_OUTSIDE Doar conexiuni exterioare
-SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE La nivel de oraș
+SETTINGS_OOC_PASSENGER_SCOPE_CITYWIDE La nivel de oraÈ™
 SETTINGS_OOC_PASSENGER_SCOPE_DISABLED Dezactivat (vanilla)
-SETTINGS_OOC_DISABLE_DUMMY Dezactivează traficul decorativ de tranzit
-SETTINGS_OOC_DISABLE_DUMMY_ROAD Dezactivează traficul rutier decorativ
-SETTINGS_OOC_DISABLE_DUMMY_TRAIN Dezactivează traficul feroviar decorativ
-SETTINGS_OOC_DISABLE_DUMMY_PLANE Dezactivează traficul aerian decorativ
-SETTINGS_OOC_DISABLE_DUMMY_SHIP Dezactivează traficul naval decorativ
-SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Conexiunile exterioare genereză în mod normal trafic decorativ extra care nu intră sau iese cu adevărat din oraș, doar pentru atmosferă. Dezactivarea îl elimină fără a afecta fluxul real de import/export/pasageri.
+SETTINGS_OOC_DISABLE_DUMMY DezactiveazÄƒ traficul decorativ de tranzit
+SETTINGS_OOC_DISABLE_DUMMY_ROAD DezactiveazÄƒ traficul rutier decorativ
+SETTINGS_OOC_DISABLE_DUMMY_TRAIN DezactiveazÄƒ traficul feroviar decorativ
+SETTINGS_OOC_DISABLE_DUMMY_PLANE DezactiveazÄƒ traficul aerian decorativ
+SETTINGS_OOC_DISABLE_DUMMY_SHIP DezactiveazÄƒ traficul naval decorativ
+SETTINGS_OOC_DISABLE_DUMMY_TOOLTIP Conexiunile exterioare generezÄƒ Ã®n mod normal trafic decorativ extra care nu intrÄƒ sau iese cu adevÄƒrat din oraÈ™, doar pentru atmosferÄƒ. Dezactivarea Ã®l eliminÄƒ fÄƒrÄƒ a afecta fluxul real de import/export/pasageri.
 SETTINGS_UOC_ENABLE Conexiuni exterioare nelimitate
-SETTINGS_UOC_ENABLE_TOOLTIP Elimină limita vanilla de 4 conexiuni pentru drumuri, căi ferate, rute navale și aeriene, și leagă retrospectiv liniile de transport când se construiește o conexiune nouă lângă o stație existentă. Intră în vigoare la următoarea încărcare a nivelului.
-SETTINGS_STTAI_ENABLE Evitarea coliziunilor pe cale ferată simplă
-SETTINGS_STTAI_ENABLE_TOOLTIP Rezervă un segment pe o singură cale pentru un tren pe rând, ținând trenul opus la intrare până ce segmentul e liber. Funcție originală IPT4, nu există în vanilla sau vreun mod absorbit.
-SETTINGS_STOPSTACKER_ENABLE Stivuire locuri la stația de autobuz
-SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Permite unui al doilea/treilea autobuz care se apropie de aceeași stație să folosească propriul loc mai în spate pe banda stației în loc să stea la coadă în spatele primului, astfel că mai multe autobuze pot încărca/descărca odată. Funcție originală IPT4 (reimplementare clean-room simplificată), nu există în vanilla sau vreun mod absorbit.
+SETTINGS_UOC_ENABLE_TOOLTIP EliminÄƒ limita vanilla de 4 conexiuni pentru drumuri, cÄƒi ferate, rute navale È™i aeriene, È™i leagÄƒ retrospectiv liniile de transport cÃ¢nd se construieÈ™te o conexiune nouÄƒ lÃ¢ngÄƒ o staÈ›ie existentÄƒ. IntrÄƒ Ã®n vigoare la urmÄƒtoarea Ã®ncÄƒrcare a nivelului.
+SETTINGS_STTAI_ENABLE Evitarea coliziunilor pe cale feratÄƒ simplÄƒ
+SETTINGS_STTAI_ENABLE_TOOLTIP RezervÄƒ un segment pe o singurÄƒ cale pentru un tren pe rÃ¢nd, È›inÃ¢nd trenul opus la intrare pÃ¢nÄƒ ce segmentul e liber. FuncÈ›ie originalÄƒ IPT4, nu existÄƒ Ã®n vanilla sau vreun mod absorbit.
+SETTINGS_STOPSTACKER_ENABLE Stivuire locuri la staÈ›ia de autobuz
+SETTINGS_STOPSTACKER_ENABLE_TOOLTIP Permite unui al doilea/treilea autobuz care se apropie de aceeaÈ™i staÈ›ie sÄƒ foloseascÄƒ propriul loc mai Ã®n spate pe banda staÈ›iei Ã®n loc sÄƒ stea la coadÄƒ Ã®n spatele primului, astfel cÄƒ mai multe autobuze pot Ã®ncÄƒrca/descÄƒrca odatÄƒ. FuncÈ›ie originalÄƒ IPT4 (reimplementare clean-room simplificatÄƒ), nu existÄƒ Ã®n vanilla sau vreun mod absorbit.
 
-SETTINGS_SUPPORT_LABEL Dacă IPT4 v-a salvat savegame-ul sau a îmbunătățit performanța, luați în considerare să susțineți dezvoltarea sa!
-SETTINGS_SUPPORT_BUTTON Susțineți-mă pe Ko-fi
+SETTINGS_SUPPORT_LABEL DacÄƒ IPT4 v-a salvat savegame-ul sau a Ã®mbunÄƒtÄƒÈ›it performanÈ›a, luaÈ›i Ã®n considerare sÄƒ susÈ›ineÈ›i dezvoltarea sa!
+SETTINGS_SUPPORT_BUTTON SusÈ›ineÈ›i-mÄƒ pe Ko-fi
 SETTINGS_FEATURE_UNBUNCHING_ENABLE Debunching / Autobuz Express
-SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP Activează debunching-ul vehiculelor, autobuzul/tramvaiul express, intervalul de spawn și dimensionarea agresivă a flotei. Toate funcțiile de spațiere și buget pentru autobuze și tramvaie.
-SETTINGS_FEATURE_BUDGET_ENABLE Funcții de buget
-SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP Activează controlul bugetului liniei, bugetul automat al liniei, multiplicatorul prețului biletului și prețul ca cost de cale. Toate funcțiile de bani/preț/flotă.
-SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Culoare automată linie
-SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Atribuie automat culori și nume noilor linii de transport. Include strategia de culoare, strategia de numire și setările panoului.
+SETTINGS_FEATURE_UNBUNCHING_ENABLE_TOOLTIP ActiveazÄƒ debunching-ul vehiculelor, autobuzul/tramvaiul express, intervalul de spawn È™i dimensionarea agresivÄƒ a flotei. Toate funcÈ›iile de spaÈ›iere È™i buget pentru autobuze È™i tramvaie.
+SETTINGS_FEATURE_BUDGET_ENABLE FuncÈ›ii de buget
+SETTINGS_FEATURE_BUDGET_ENABLE_TOOLTIP ActiveazÄƒ controlul bugetului liniei, bugetul automat al liniei, multiplicatorul preÈ›ului biletului È™i preÈ›ul ca cost de cale. Toate funcÈ›iile de bani/preÈ›/flotÄƒ.
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE Culoare automatÄƒ linie
+SETTINGS_FEATURE_AUTOLINECOLOR_ENABLE_TOOLTIP Atribuie automat culori È™i nume noilor linii de transport. Include strategia de culoare, strategia de numire È™i setÄƒrile panoului.
 SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Editor vehicule
-SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Activează panoul editorului de vehicule pentru a schimba tipurile de vehicule, livreele și proprietățile. Poate fi poziționat în jos sau dreapta.
-SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Limite pasageri așteptători
-SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Limitează câți cetățeni pot aștepta transportul public la o singură stație. Dezactivați pentru a elimina toate limitele de așteptare și a lăsa jocul să gestioneze capacitatea stațiilor.
-SETTINGS_TRAINDISPLAY_SCOPE Afișează overlay-ul când
-SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Selectați vehiculul selectat, camera first-person sau ambele.
+SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP ActiveazÄƒ panoul editorului de vehicule pentru a schimba tipurile de vehicule, livreele È™i proprietÄƒÈ›ile. Poate fi poziÈ›ionat Ã®n jos sau dreapta.
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Limite pasageri aÈ™teptÄƒtori
+SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP LimiteazÄƒ cÃ¢È›i cetÄƒÈ›eni pot aÈ™tepta transportul public la o singurÄƒ staÈ›ie. DezactivaÈ›i pentru a elimina toate limitele de aÈ™teptare È™i a lÄƒsa jocul sÄƒ gestioneze capacitatea staÈ›iilor.
+SETTINGS_TRAINDISPLAY_SCOPE AfiÈ™eazÄƒ overlay-ul cÃ¢nd
+SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP SelectaÈ›i vehiculul selectat, camera first-person sau ambele.
 SETTINGS_TRAINDISPLAY_SCOPE_SELECTEDVEHICLE Doar vehiculul selectat
 SETTINGS_TRAINDISPLAY_SCOPE_FIRSTPERSON Doar camera first-person
 SETTINGS_TRAINDISPLAY_SCOPE_BOTH Vehiculul selectat sau camera first-person
 SETTINGS_TRAINDISPLAY_LAYOUT Aranjament panou
-SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ce aranjament folosește overlay-ul. Ambele afișează aceleași informații și respectă aceleași casete bifate - doar forma difere.
-CHANGELOG_4_3_3_1 A fost corectată persistența problemelor la salvarea/încărcarea setărilor pe unele combinații de moduri, chiar și după includerea Newtonsoft.Json.dll: soluția anterioară încerca Assembly.LoadFrom doar dintr-un singur punct de intrare și tot depindea de ordinea de încărcare. IPT4 înregistrează acum un hook global AssemblyResolve și încarcă din timp propria copie de Newtonsoft.Json din fiecare punct de intrare mod/UI înainte ca CSLModsCommon să atingă JsonWriter, astfel încât noua interfață Opțiuni persistă fiabil în loc să se lege aleatoriu de o copie incompatibilă Json.NET a altui mod.
-CHANGELOG_4_3_2_1 A fost corectată eroarea prin care modul nu se încărca deloc ("failed to load the mod's dll or one of its dependencies") ori de câte ori niciun alt mod instalat nu furniza deja Newtonsoft.Json: serializarea setărilor din CSLModsCommon (JsonHelper/SerializationContext) are nevoie de aceasta, dar build-ul nostru nu a livrat niciodată efectiv Newtonsoft.Json.dll alături de mod - funcționa doar din întâmplare, pe seama copiei altui mod. Descoperit prin dezactivarea tuturor celorlalte moduri pentru un test curat, exact modul în care ar trebui testat de acum înainte.
-CHANGELOG_4_3_1_1 A fost corectat selectorul de limbă din panoul Opțiuni, care retraducea doar șirurile proprii ale framework-ului (Versiune/Jurnal de modificări/...) în timp ce toate șirurile modului rămâneau în limba jocului - încărcătorul de traduceri se baza pe limba jocului și ignora complet selecția proprie a modului. Acum urmează selectorul de limbă al modului, revenind la limba jocului și apoi la engleză, și se rezolvă din nou de fiecare dată când selectorul se schimbă.
-CHANGELOG_4_3_1_2 Au fost completate 38 de chei de traducere care existau doar în engleză și portugheză - toate celelalte limbi (arabă, bengaleză, germană, spaniolă, franceză, hindi, indoneziană, italiană, japoneză, coreeană, poloneză, rusă, urdu și toate variantele de chineză) reveneau silențios la engleză pentru întreaga secțiune Train Display, descrierea Ștergere linii și cele trei descrieri de autobuz expres.
-CHANGELOG_4_3_1_3 Au fost adăugate 4 chei de tooltip pentru copiere/lipire care lipseau din fiecare fișier de limbă, inclusiv engleză, astfel încât s-ar fi afișat ca chei brute ("COPY_TIP") odată ce acele butoane sunt reactivate.
-CHANGELOG_4_3_0_1 A fost adăugat Train Display Updated: o mică suprapunere pe ecran care arată linia/destinația/starea în timp ce urmărești un vehicul acceptat. Configurabil în Opțiuni: poziția pe ecran, dimensiunea, opacitatea, ce câmpuri se afișează, frecvența de actualizare, dacă este restricționat la moduri de cameră la persoana întâi, și o temă de culoare Simplu/Întunecat/Deschis.
-CHANGELOG_4_3_0_2 Au fost corectate mai multe erori de build în noua integrare Train Display: o referință ambiguă Utils, două API-uri care nu există în această versiune de joc (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) și folosirea Enum.HasFlag - care nu există pe .NET Framework 3.5, framework-ul țintă al acestui mod, și a trebuit înlocuită cu verificări manuale pe biți.
-CHANGELOG_4_2_4_1 A fost corectată afișarea permanentă de către mod a mesajului "Compatibility with Game Version: 0.0.0" - nu declaram niciodată un interval de versiuni de joc acceptate. Acum setat la 1.21.1-f9 și versiuni ulterioare.
-CHANGELOG_4_2_4_2 A fost corectat meniul derulant al strategiei de culoare AutoLineColor, care afișa nume brute de enum (de ex. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") în loc de text tradus: codul genera o cheie fără underscore, în timp ce fișierul de traducere folosea unul. De asemenea, secțiunea a fost reordonată astfel încât cele două cursoare dependente să fie chiar sub meniul derulant al strategiei de culoare căruia îi aparțin, în loc de după meniul derulant de denumire, fără legătură.
-CHANGELOG_4_2_4_3 Modurile de evitare a aglomerării pentru tramvai au fost redenumite pentru a se potrivi cu cele de autobuz (Dezactivat/Prudent/Realist) în loc de "Light Rail"/"Real Tram", și au fost traduse ultimele porțiuni de text în engleză rămase în descrierea în portugheză.
-CHANGELOG_4_2_4_4 A fost corectată problema prin care descrierile bifelor nu se afișau niciodată nicăieri în panou atunci când nu era setat un text de antet (adică fiecare bifă din acest mod) - codul de aspect poziționa eticheta de descriere doar dacă exista și o etichetă de antet, deși descrierea era deja creată și populată cu text.
-CHANGELOG_4_2_4_5 A fost corectată tăierea titlurilor filelor din Opțiuni (în special în portugheză, care este mai lungă decât engleza) - filele trec acum pe a doua linie în loc să fie tăiate.
-CHANGELOG_4_2_4_6 A fost corectată problema prin care butoanele Resetare (Evitare aglomerare, Prețuri bilete) modificau setările imediat, dar nu actualizau cursoarele deja afișate pe ecran, astfel încât părea că nu se întâmplă nimic până la redeschiderea Opțiunilor.
-CHANGELOG_4_2_4_7 A fost corectată problema prin care bifele instrumentului Ștergere linii persistau ca setări salvate în loc să se reseteze după utilizare - erau conectate din greșeală la ModSetting ca o preferință reală, deși acesta este menit să fie o acțiune unică de tip "alege tipurile, apasă Șterge".
-CHANGELOG_4_2_3_1 A fost corectată problema prin care fiecare traducere a modului apărea ca cheie brută (de ex. "SETTINGS_SPEED:0") în fiecare limbă: propriul încărcător de traduceri identifica încă pluginul după vechiul tip ImprovedPublicTransportMod în loc de Mod (clasa care este de fapt IUserMod de la migrarea la CSLModsCommon), deci nu găsea niciodată folderul modului și nu încărca niciun fișier Translations/*.txt. A fost de asemenea consolidată revenirea la localizarea vanilla, pentru a nu mai confunda marcajul "key:0" al Colossal (indicând negăsit) cu o traducere reală.
-CHANGELOG_4_2_3_2 A fost eliminată fila mereu goală "Key Bindings" din Opțiuni - acest mod nu are combinații de taste de configurat.
-CHANGELOG_4_2_3_3 Cursoarele din Opțiuni afișează din nou valoarea curentă (pierdută la migrarea la CSLModsCommon - noul control de tip cursor nu o afișează implicit).
-CHANGELOG_4_2_3_4 A fost corectată problema prin care cursoarele "diferență minimă de culoare" și "încercări maxime de alegere a culorii" ale AutoLineColor rămâneau interactive chiar și când strategia de culoare este setată pe Dezactivat sau Categorizat (niciuna dintre acestea nu folosește acele setări).
-CHANGELOG_4_2_0_1 A fost adăugat Rescue Fullwidth Digits: normalizează cifrele fullwidth din numele personalizate ale liniilor de transport înapoi la cifre ASCII obișnuite, corectând o ciudățenie de afișare/sortare provenită din unele intrări de la tastaturi non-latine.
-CHANGELOG_4_2_0_2 A fost adăugată o filă dedicată Prețuri bilete în panoul Opțiuni, astfel încât multiplicatorii de tarif de zi/noapte pot fi ajustați fără a deschide panoul de Economie din joc.
-CHANGELOG_4_2_0_3 A fost corectată problema prin care patch-ul Rescue Fullwidth Digits era aplicat o singură dată la pornirea modului, dar era anulat la fiecare descărcare a nivelului, dezactivându-l silențios pentru fiecare salvare ulterioară primei încărcate într-o sesiune.
-CHANGELOG_4_2_0_4 A fost corectată o eroare de depășire de întreg la tariful taxiurilor (MileageTaxiServices) care putea drena bugetul de transport public cu miliarde într-un singur pas: un taxi cu date de cadru corupte sau neinițializate (de exemplu imediat după apariție) putea calcula o distanță pe cadru implauzibil de mare, depășind conversia tarifului la int într-o valoare de gunoi uriașă - aceasta corespunde unei probleme cunoscute, nerezolvate, raportate în amonte (venit negativ scăpat de sub control la taxiuri). Acum distanțele de cadru implauzibile sunt eliminate în loc să fie taxate.
-CHANGELOG_4_1_5_1 A fost corectată cauza reală a panoului Opțiuni gol/negru: șirurile proprii de UI ale CSLModsCommon (Versiune/Jurnal de modificări etc.) se află într-un folder fizic Localization/Common lângă DLL, pe care build-ul nostru nu îl livra niciodată. Fără acesta, LocalizationManager al framework-ului renunța silențios, lăsând CurrentLocaleSource null și blocând OptionsPanelBase.Awake() cu o NullReferenceException în clipa în care încerca să afișeze eticheta de progres a traducerii - pe care Unity o înghite silențios, întrerupând construcția panoului la mijloc. Acum .csproj livrează acel folder, iar GetTranslationProgress() nu mai aruncă excepție dacă ar lipsi din nou.
-CHANGELOG_4_1_4_1 A fost corectată problema prin care panoul Opțiuni apărea gol/negru: panoul era construit doar când jocul comuta vizibilitatea containerului de setări oprit-pornit, dar de obicei acesta este deja vizibil când jocul deschide pagina acestui mod, astfel încât panoul nu era niciodată creat. Acum se construiește imediat și dacă containerul este deja vizibil.
-CHANGELOG_4_1_4_2 A fost corectată problema prin care fiecare textură de UI a CSLModsCommon (fundal, iconițe, comutatoare) nu reușea să se încarce și revenea la un substituent: RootNamespace al proiectului era încă "ImprovedPublicTransport3" din fork-ul original IPT3, astfel încât resursele încorporate erau compilate sub numele greșit și nu se potriveau niciodată la rulare.
-CHANGELOG_4_1_3_1 Au fost corectate trei erori de salvare a setărilor rămase de la migrarea CSLModsCommon (închiderea "Ce e nou", butonul Resetare din Opțiuni, editorul de preț bilet pe oră): fiecare scria corect noua valoare în ModSetting, dar apoi salva vechiul obiect de setări, deja neutilizat, astfel încât modificarea nu era niciodată salvată efectiv pe disc.
-CHANGELOG_4_1_3_2 A fost eliminat cod mort din era anterioară CSLModsCommon: OptionsFramework bazat pe atribute, monolithicul Settings.cs și enum-ul independent VehicleEditorPositions - toate înlocuite complet de ModSetting și CSLModsCommonOptionsPanel.
+SETTINGS_TRAINDISPLAY_LAYOUT_TOOLTIP Ce aranjament foloseÈ™te overlay-ul. Ambele afiÈ™eazÄƒ aceleaÈ™i informaÈ›ii È™i respectÄƒ aceleaÈ™i casete bifate - doar forma difere.
+CHANGELOG_4_3_3_1 A fost corectatÄƒ persistenÈ›a problemelor la salvarea/Ã®ncÄƒrcarea setÄƒrilor pe unele combinaÈ›ii de moduri, chiar È™i dupÄƒ includerea Newtonsoft.Json.dll: soluÈ›ia anterioarÄƒ Ã®ncerca Assembly.LoadFrom doar dintr-un singur punct de intrare È™i tot depindea de ordinea de Ã®ncÄƒrcare. IPT4 Ã®nregistreazÄƒ acum un hook global AssemblyResolve È™i Ã®ncarcÄƒ din timp propria copie de Newtonsoft.Json din fiecare punct de intrare mod/UI Ã®nainte ca CSLModsCommon sÄƒ atingÄƒ JsonWriter, astfel Ã®ncÃ¢t noua interfaÈ›Äƒ OpÈ›iuni persistÄƒ fiabil Ã®n loc sÄƒ se lege aleatoriu de o copie incompatibilÄƒ Json.NET a altui mod.
+CHANGELOG_4_3_2_1 A fost corectatÄƒ eroarea prin care modul nu se Ã®ncÄƒrca deloc ("failed to load the mod's dll or one of its dependencies") ori de cÃ¢te ori niciun alt mod instalat nu furniza deja Newtonsoft.Json: serializarea setÄƒrilor din CSLModsCommon (JsonHelper/SerializationContext) are nevoie de aceasta, dar build-ul nostru nu a livrat niciodatÄƒ efectiv Newtonsoft.Json.dll alÄƒturi de mod - funcÈ›iona doar din Ã®ntÃ¢mplare, pe seama copiei altui mod. Descoperit prin dezactivarea tuturor celorlalte moduri pentru un test curat, exact modul Ã®n care ar trebui testat de acum Ã®nainte.
+CHANGELOG_4_3_1_1 A fost corectat selectorul de limbÄƒ din panoul OpÈ›iuni, care retraducea doar È™irurile proprii ale framework-ului (Versiune/Jurnal de modificÄƒri/...) Ã®n timp ce toate È™irurile modului rÄƒmÃ¢neau Ã®n limba jocului - Ã®ncÄƒrcÄƒtorul de traduceri se baza pe limba jocului È™i ignora complet selecÈ›ia proprie a modului. Acum urmeazÄƒ selectorul de limbÄƒ al modului, revenind la limba jocului È™i apoi la englezÄƒ, È™i se rezolvÄƒ din nou de fiecare datÄƒ cÃ¢nd selectorul se schimbÄƒ.
+CHANGELOG_4_3_1_2 Au fost completate 38 de chei de traducere care existau doar Ã®n englezÄƒ È™i portughezÄƒ - toate celelalte limbi (arabÄƒ, bengalezÄƒ, germanÄƒ, spaniolÄƒ, francezÄƒ, hindi, indonezianÄƒ, italianÄƒ, japonezÄƒ, coreeanÄƒ, polonezÄƒ, rusÄƒ, urdu È™i toate variantele de chinezÄƒ) reveneau silenÈ›ios la englezÄƒ pentru Ã®ntreaga secÈ›iune Train Display, descrierea È˜tergere linii È™i cele trei descrieri de autobuz expres.
+CHANGELOG_4_3_1_3 Au fost adÄƒugate 4 chei de tooltip pentru copiere/lipire care lipseau din fiecare fiÈ™ier de limbÄƒ, inclusiv englezÄƒ, astfel Ã®ncÃ¢t s-ar fi afiÈ™at ca chei brute ("COPY_TIP") odatÄƒ ce acele butoane sunt reactivate.
+CHANGELOG_4_3_0_1 A fost adÄƒugat Train Display Updated: o micÄƒ suprapunere pe ecran care aratÄƒ linia/destinaÈ›ia/starea Ã®n timp ce urmÄƒreÈ™ti un vehicul acceptat. Configurabil Ã®n OpÈ›iuni: poziÈ›ia pe ecran, dimensiunea, opacitatea, ce cÃ¢mpuri se afiÈ™eazÄƒ, frecvenÈ›a de actualizare, dacÄƒ este restricÈ›ionat la moduri de camerÄƒ la persoana Ã®ntÃ¢i, È™i o temÄƒ de culoare Simplu/ÃŽntunecat/Deschis.
+CHANGELOG_4_3_0_2 Au fost corectate mai multe erori de build Ã®n noua integrare Train Display: o referinÈ›Äƒ ambiguÄƒ Utils, douÄƒ API-uri care nu existÄƒ Ã®n aceastÄƒ versiune de joc (NetInfo.nameLocalized, ItemClass.Service.IntercityBus) È™i folosirea Enum.HasFlag - care nu existÄƒ pe .NET Framework 3.5, framework-ul È›intÄƒ al acestui mod, È™i a trebuit Ã®nlocuitÄƒ cu verificÄƒri manuale pe biÈ›i.
+CHANGELOG_4_2_4_1 A fost corectatÄƒ afiÈ™area permanentÄƒ de cÄƒtre mod a mesajului "Compatibility with Game Version: 0.0.0" - nu declaram niciodatÄƒ un interval de versiuni de joc acceptate. Acum setat la 1.21.1-f9 È™i versiuni ulterioare.
+CHANGELOG_4_2_4_2 A fost corectat meniul derulant al strategiei de culoare AutoLineColor, care afiÈ™a nume brute de enum (de ex. "AUTOLINECOLOR_STRATEGY_RANDOMHUE") Ã®n loc de text tradus: codul genera o cheie fÄƒrÄƒ underscore, Ã®n timp ce fiÈ™ierul de traducere folosea unul. De asemenea, secÈ›iunea a fost reordonatÄƒ astfel Ã®ncÃ¢t cele douÄƒ cursoare dependente sÄƒ fie chiar sub meniul derulant al strategiei de culoare cÄƒruia Ã®i aparÈ›in, Ã®n loc de dupÄƒ meniul derulant de denumire, fÄƒrÄƒ legÄƒturÄƒ.
+CHANGELOG_4_2_4_3 Modurile de evitare a aglomerÄƒrii pentru tramvai au fost redenumite pentru a se potrivi cu cele de autobuz (Dezactivat/Prudent/Realist) Ã®n loc de "Light Rail"/"Real Tram", È™i au fost traduse ultimele porÈ›iuni de text Ã®n englezÄƒ rÄƒmase Ã®n descrierea Ã®n portughezÄƒ.
+CHANGELOG_4_2_4_4 A fost corectatÄƒ problema prin care descrierile bifelor nu se afiÈ™au niciodatÄƒ nicÄƒieri Ã®n panou atunci cÃ¢nd nu era setat un text de antet (adicÄƒ fiecare bifÄƒ din acest mod) - codul de aspect poziÈ›iona eticheta de descriere doar dacÄƒ exista È™i o etichetÄƒ de antet, deÈ™i descrierea era deja creatÄƒ È™i populatÄƒ cu text.
+CHANGELOG_4_2_4_5 A fost corectatÄƒ tÄƒierea titlurilor filelor din OpÈ›iuni (Ã®n special Ã®n portughezÄƒ, care este mai lungÄƒ decÃ¢t engleza) - filele trec acum pe a doua linie Ã®n loc sÄƒ fie tÄƒiate.
+CHANGELOG_4_2_4_6 A fost corectatÄƒ problema prin care butoanele Resetare (Evitare aglomerare, PreÈ›uri bilete) modificau setÄƒrile imediat, dar nu actualizau cursoarele deja afiÈ™ate pe ecran, astfel Ã®ncÃ¢t pÄƒrea cÄƒ nu se Ã®ntÃ¢mplÄƒ nimic pÃ¢nÄƒ la redeschiderea OpÈ›iunilor.
+CHANGELOG_4_2_4_7 A fost corectatÄƒ problema prin care bifele instrumentului È˜tergere linii persistau ca setÄƒri salvate Ã®n loc sÄƒ se reseteze dupÄƒ utilizare - erau conectate din greÈ™ealÄƒ la ModSetting ca o preferinÈ›Äƒ realÄƒ, deÈ™i acesta este menit sÄƒ fie o acÈ›iune unicÄƒ de tip "alege tipurile, apasÄƒ È˜terge".
+CHANGELOG_4_2_3_1 A fost corectatÄƒ problema prin care fiecare traducere a modului apÄƒrea ca cheie brutÄƒ (de ex. "SETTINGS_SPEED:0") Ã®n fiecare limbÄƒ: propriul Ã®ncÄƒrcÄƒtor de traduceri identifica Ã®ncÄƒ pluginul dupÄƒ vechiul tip ImprovedPublicTransportMod Ã®n loc de Mod (clasa care este de fapt IUserMod de la migrarea la CSLModsCommon), deci nu gÄƒsea niciodatÄƒ folderul modului È™i nu Ã®ncÄƒrca niciun fiÈ™ier Translations/*.txt. A fost de asemenea consolidatÄƒ revenirea la localizarea vanilla, pentru a nu mai confunda marcajul "key:0" al Colossal (indicÃ¢nd negÄƒsit) cu o traducere realÄƒ.
+CHANGELOG_4_2_3_2 A fost eliminatÄƒ fila mereu goalÄƒ "Key Bindings" din OpÈ›iuni - acest mod nu are combinaÈ›ii de taste de configurat.
+CHANGELOG_4_2_3_3 Cursoarele din OpÈ›iuni afiÈ™eazÄƒ din nou valoarea curentÄƒ (pierdutÄƒ la migrarea la CSLModsCommon - noul control de tip cursor nu o afiÈ™eazÄƒ implicit).
+CHANGELOG_4_2_3_4 A fost corectatÄƒ problema prin care cursoarele "diferenÈ›Äƒ minimÄƒ de culoare" È™i "Ã®ncercÄƒri maxime de alegere a culorii" ale AutoLineColor rÄƒmÃ¢neau interactive chiar È™i cÃ¢nd strategia de culoare este setatÄƒ pe Dezactivat sau Categorizat (niciuna dintre acestea nu foloseÈ™te acele setÄƒri).
+CHANGELOG_4_2_0_1 A fost adÄƒugat Rescue Fullwidth Digits: normalizeazÄƒ cifrele fullwidth din numele personalizate ale liniilor de transport Ã®napoi la cifre ASCII obiÈ™nuite, corectÃ¢nd o ciudÄƒÈ›enie de afiÈ™are/sortare provenitÄƒ din unele intrÄƒri de la tastaturi non-latine.
+CHANGELOG_4_2_0_2 A fost adÄƒugatÄƒ o filÄƒ dedicatÄƒ PreÈ›uri bilete Ã®n panoul OpÈ›iuni, astfel Ã®ncÃ¢t multiplicatorii de tarif de zi/noapte pot fi ajustaÈ›i fÄƒrÄƒ a deschide panoul de Economie din joc.
+CHANGELOG_4_2_0_3 A fost corectatÄƒ problema prin care patch-ul Rescue Fullwidth Digits era aplicat o singurÄƒ datÄƒ la pornirea modului, dar era anulat la fiecare descÄƒrcare a nivelului, dezactivÃ¢ndu-l silenÈ›ios pentru fiecare salvare ulterioarÄƒ primei Ã®ncÄƒrcate Ã®ntr-o sesiune.
+CHANGELOG_4_2_0_4 A fost corectatÄƒ o eroare de depÄƒÈ™ire de Ã®ntreg la tariful taxiurilor (MileageTaxiServices) care putea drena bugetul de transport public cu miliarde Ã®ntr-un singur pas: un taxi cu date de cadru corupte sau neiniÈ›ializate (de exemplu imediat dupÄƒ apariÈ›ie) putea calcula o distanÈ›Äƒ pe cadru implauzibil de mare, depÄƒÈ™ind conversia tarifului la int Ã®ntr-o valoare de gunoi uriaÈ™Äƒ - aceasta corespunde unei probleme cunoscute, nerezolvate, raportate Ã®n amonte (venit negativ scÄƒpat de sub control la taxiuri). Acum distanÈ›ele de cadru implauzibile sunt eliminate Ã®n loc sÄƒ fie taxate.
+CHANGELOG_4_1_5_1 A fost corectatÄƒ cauza realÄƒ a panoului OpÈ›iuni gol/negru: È™irurile proprii de UI ale CSLModsCommon (Versiune/Jurnal de modificÄƒri etc.) se aflÄƒ Ã®ntr-un folder fizic Localization/Common lÃ¢ngÄƒ DLL, pe care build-ul nostru nu Ã®l livra niciodatÄƒ. FÄƒrÄƒ acesta, LocalizationManager al framework-ului renunÈ›a silenÈ›ios, lÄƒsÃ¢nd CurrentLocaleSource null È™i blocÃ¢nd OptionsPanelBase.Awake() cu o NullReferenceException Ã®n clipa Ã®n care Ã®ncerca sÄƒ afiÈ™eze eticheta de progres a traducerii - pe care Unity o Ã®nghite silenÈ›ios, Ã®ntrerupÃ¢nd construcÈ›ia panoului la mijloc. Acum .csproj livreazÄƒ acel folder, iar GetTranslationProgress() nu mai aruncÄƒ excepÈ›ie dacÄƒ ar lipsi din nou.
+CHANGELOG_4_1_4_1 A fost corectatÄƒ problema prin care panoul OpÈ›iuni apÄƒrea gol/negru: panoul era construit doar cÃ¢nd jocul comuta vizibilitatea containerului de setÄƒri oprit-pornit, dar de obicei acesta este deja vizibil cÃ¢nd jocul deschide pagina acestui mod, astfel Ã®ncÃ¢t panoul nu era niciodatÄƒ creat. Acum se construieÈ™te imediat È™i dacÄƒ containerul este deja vizibil.
+CHANGELOG_4_1_4_2 A fost corectatÄƒ problema prin care fiecare texturÄƒ de UI a CSLModsCommon (fundal, iconiÈ›e, comutatoare) nu reuÈ™ea sÄƒ se Ã®ncarce È™i revenea la un substituent: RootNamespace al proiectului era Ã®ncÄƒ "ImprovedPublicTransport3" din fork-ul original IPT3, astfel Ã®ncÃ¢t resursele Ã®ncorporate erau compilate sub numele greÈ™it È™i nu se potriveau niciodatÄƒ la rulare.
+CHANGELOG_4_1_3_1 Au fost corectate trei erori de salvare a setÄƒrilor rÄƒmase de la migrarea CSLModsCommon (Ã®nchiderea "Ce e nou", butonul Resetare din OpÈ›iuni, editorul de preÈ› bilet pe orÄƒ): fiecare scria corect noua valoare Ã®n ModSetting, dar apoi salva vechiul obiect de setÄƒri, deja neutilizat, astfel Ã®ncÃ¢t modificarea nu era niciodatÄƒ salvatÄƒ efectiv pe disc.
+CHANGELOG_4_1_3_2 A fost eliminat cod mort din era anterioarÄƒ CSLModsCommon: OptionsFramework bazat pe atribute, monolithicul Settings.cs È™i enum-ul independent VehicleEditorPositions - toate Ã®nlocuite complet de ModSetting È™i CSLModsCommonOptionsPanel.
 CHANGELOG_4_0_0_1 Bifurcat din Improved Public Transport 3.
-CHANGELOG_4_0_0_2 A fost portată dimensionarea flotei bazată pe cerere din AutoLineBudget pentru a se coordona cu propriul API de număr de vehicule al IPT, în loc să scrie direct bugetul liniei, corectând o eroare de cost de întreținere scăpat de sub control cauzată de cele două moduri care se luptau pentru aceeași stare.
-CHANGELOG_4_0_0_3 A fost adoptat CSLModsCommon pentru interfața Opțiuni (insignă de versiune, jurnal de modificări, avertismente de compatibilitate, progres traducere).
+CHANGELOG_4_0_0_2 A fost portatÄƒ dimensionarea flotei bazatÄƒ pe cerere din AutoLineBudget pentru a se coordona cu propriul API de numÄƒr de vehicule al IPT, Ã®n loc sÄƒ scrie direct bugetul liniei, corectÃ¢nd o eroare de cost de Ã®ntreÈ›inere scÄƒpat de sub control cauzatÄƒ de cele douÄƒ moduri care se luptau pentru aceeaÈ™i stare.
+CHANGELOG_4_0_0_3 A fost adoptat CSLModsCommon pentru interfaÈ›a OpÈ›iuni (insignÄƒ de versiune, jurnal de modificÄƒri, avertismente de compatibilitate, progres traducere).
 TRAINDISPLAY_LABEL_NAME Nume
 TRAINDISPLAY_LABEL_STATUS Stare
 TRAINDISPLAY_NO_LINE Nicio linie
-TRAINDISPLAY_NO_DESTINATION Nicio destinație
+TRAINDISPLAY_NO_DESTINATION Nicio destinaÈ›ie
 TRAINDISPLAY_HIDDEN Ascuns
 TRAINDISPLAY_VEHICLE Vehicul
 TRAINDISPLAY_STATE_RETURNING Revine
-TRAINDISPLAY_STATE_STOPPED La stație
-TRAINDISPLAY_STATE_EN_ROUTE În traseu
+TRAINDISPLAY_STATE_STOPPED La staÈ›ie
+TRAINDISPLAY_STATE_EN_ROUTE ÃŽn traseu
 TRAINDISPLAY_STATE_ON_LINE Pe linie
 TRAINDISPLAY_STATE_IDLE Inactiv
-AUTOLINECOLOR_REFRESH_BUTTON Reîmprospătează nume/culoare
-AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP Realocă numele și culoarea curente ale liniei conform setărilor AutoLineColor active.
-AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP Activează o strategie de culoare sau denumire în Setări înainte de a reîmprospăta această linie.
-CHANGELOG_4_3_3_2 A fost consolidat rezolvatorul propriu de Newtonsoft.Json astfel încât preferă mereu copia livrată alături de acest mod, în loc să returneze copia pe care întâmplător a încărcat-o mai întâi alt mod (Real Time livrează o versiune v13 cu nume puternic; CSLModsCommon are nevoie de v9 nesemnat). Furnizarea build-ului greșit făcea ca JsonHelper să eșueze silențios și să returneze obiecte goale, ceea ce lăsa sursele de localizare proprii ale framework-ului goale, iar selectorul de limbă afișa id-uri brute de localizare.
-CHANGELOG_4_3_3_3 Bengaleza, hindi, indoneziana și urdu apar acum în selectorul de limbă al modului. Erau deja complet traduse, dar framework-ul nu avea un fișier de localizare pentru ele, deci erau inaccesibile decât dacă jocul însuși rula în acea limbă.
-CHANGELOG_4_3_3_4 A fost optimizat limitatorul de pasageri la stație: rezolva obiectul de setări (două căutări în dicționar) o dată per instanță de cetățean, într-o buclă care rulează de mii de ori pe cadru. Acum se rezolvă o singură dată pe cadru.
-CHANGELOG_4_3_3_5 Căutarea folderului modului a fost făcută independentă de clasa care implementează IUserMod. Această cuplare rupsese deja silențios încărcarea traducerilor o dată și atlasele iconițelor de preț bilet a doua oară, de fiecare dată după o refactorizare fără legătură.
-CHANGELOG_4_3_4_1 A fost corectată o ModException la pornire ("Failed to find ImprovedPublicTransportMod assembly!") aruncată de AutoLineColor înainte ca harta să se încarce măcar. O a doua clasă ajutătoare încă căuta modul după tipul ImprovedPublicTransportMod, care a încetat să mai fie IUserMod la migrarea la CSLModsCommon - aceeași cuplare deja corectată în altă parte. Ambele clase ajutătoare rezolvă acum folderul modului din acest assembly, astfel încât o refactorizare viitoare nu îl mai poate strica silențios din nou.
-CHANGELOG_4_3_5_1 A fost corectată problema prin care suprapunerea Train Display nu apărea niciodată în timp ce urmărești un vehicul. Aceasta căuta instanța urmărită a camerei prin sonde generice "target"/"GetTarget", dar jocul o stochează într-un câmp privat CameraController.m_targetInstance pe care acele sonde nu îl potriveau niciodată. A fost de asemenea dezactivată implicit opțiunea "Doar la persoana întâi": modul simplu de urmărire nu este la persoana întâi, așa că activarea ei implicit făcea ca suprapunerea să pară stricată din start, spre deosebire de modul original, care o afișa în orice vizualizare de urmărire.
-CHANGELOG_4_3_5_2 Fila Prețuri bilete afișează acum tariful rezultat pentru fiecare tip de transport în loc de numărul de pasageri în timp real. Cursoarele arată doar un procentaj, deci anterior nu exista nicio modalitate de a vedea ce produce efectiv un multiplicator - iar într-un oraș mic sau pe pauză, numărul de pasageri afișa permanent "0". Numărul de pasageri a fost mutat în tooltip-ul etichetei, alături de tariful original.
+AUTOLINECOLOR_REFRESH_BUTTON ReÃ®mprospÄƒteazÄƒ nume/culoare
+AUTOLINECOLOR_REFRESH_BUTTON_TOOLTIP RealocÄƒ numele È™i culoarea curente ale liniei conform setÄƒrilor AutoLineColor active.
+AUTOLINECOLOR_REFRESH_DISABLED_TOOLTIP ActiveazÄƒ o strategie de culoare sau denumire Ã®n SetÄƒri Ã®nainte de a reÃ®mprospÄƒta aceastÄƒ linie.
+CHANGELOG_4_3_3_2 A fost consolidat rezolvatorul propriu de Newtonsoft.Json astfel Ã®ncÃ¢t preferÄƒ mereu copia livratÄƒ alÄƒturi de acest mod, Ã®n loc sÄƒ returneze copia pe care Ã®ntÃ¢mplÄƒtor a Ã®ncÄƒrcat-o mai Ã®ntÃ¢i alt mod (Real Time livreazÄƒ o versiune v13 cu nume puternic; CSLModsCommon are nevoie de v9 nesemnat). Furnizarea build-ului greÈ™it fÄƒcea ca JsonHelper sÄƒ eÈ™ueze silenÈ›ios È™i sÄƒ returneze obiecte goale, ceea ce lÄƒsa sursele de localizare proprii ale framework-ului goale, iar selectorul de limbÄƒ afiÈ™a id-uri brute de localizare.
+CHANGELOG_4_3_3_3 Bengaleza, hindi, indoneziana È™i urdu apar acum Ã®n selectorul de limbÄƒ al modului. Erau deja complet traduse, dar framework-ul nu avea un fiÈ™ier de localizare pentru ele, deci erau inaccesibile decÃ¢t dacÄƒ jocul Ã®nsuÈ™i rula Ã®n acea limbÄƒ.
+CHANGELOG_4_3_3_4 A fost optimizat limitatorul de pasageri la staÈ›ie: rezolva obiectul de setÄƒri (douÄƒ cÄƒutÄƒri Ã®n dicÈ›ionar) o datÄƒ per instanÈ›Äƒ de cetÄƒÈ›ean, Ã®ntr-o buclÄƒ care ruleazÄƒ de mii de ori pe cadru. Acum se rezolvÄƒ o singurÄƒ datÄƒ pe cadru.
+CHANGELOG_4_3_3_5 CÄƒutarea folderului modului a fost fÄƒcutÄƒ independentÄƒ de clasa care implementeazÄƒ IUserMod. AceastÄƒ cuplare rupsese deja silenÈ›ios Ã®ncÄƒrcarea traducerilor o datÄƒ È™i atlasele iconiÈ›elor de preÈ› bilet a doua oarÄƒ, de fiecare datÄƒ dupÄƒ o refactorizare fÄƒrÄƒ legÄƒturÄƒ.
+CHANGELOG_4_3_4_1 A fost corectatÄƒ o ModException la pornire ("Failed to find ImprovedPublicTransportMod assembly!") aruncatÄƒ de AutoLineColor Ã®nainte ca harta sÄƒ se Ã®ncarce mÄƒcar. O a doua clasÄƒ ajutÄƒtoare Ã®ncÄƒ cÄƒuta modul dupÄƒ tipul ImprovedPublicTransportMod, care a Ã®ncetat sÄƒ mai fie IUserMod la migrarea la CSLModsCommon - aceeaÈ™i cuplare deja corectatÄƒ Ã®n altÄƒ parte. Ambele clase ajutÄƒtoare rezolvÄƒ acum folderul modului din acest assembly, astfel Ã®ncÃ¢t o refactorizare viitoare nu Ã®l mai poate strica silenÈ›ios din nou.
+CHANGELOG_4_3_5_1 A fost corectatÄƒ problema prin care suprapunerea Train Display nu apÄƒrea niciodatÄƒ Ã®n timp ce urmÄƒreÈ™ti un vehicul. Aceasta cÄƒuta instanÈ›a urmÄƒritÄƒ a camerei prin sonde generice "target"/"GetTarget", dar jocul o stocheazÄƒ Ã®ntr-un cÃ¢mp privat CameraController.m_targetInstance pe care acele sonde nu Ã®l potriveau niciodatÄƒ. A fost de asemenea dezactivatÄƒ implicit opÈ›iunea "Doar la persoana Ã®ntÃ¢i": modul simplu de urmÄƒrire nu este la persoana Ã®ntÃ¢i, aÈ™a cÄƒ activarea ei implicit fÄƒcea ca suprapunerea sÄƒ parÄƒ stricatÄƒ din start, spre deosebire de modul original, care o afiÈ™a Ã®n orice vizualizare de urmÄƒrire.
+CHANGELOG_4_3_5_2 Fila PreÈ›uri bilete afiÈ™eazÄƒ acum tariful rezultat pentru fiecare tip de transport Ã®n loc de numÄƒrul de pasageri Ã®n timp real. Cursoarele aratÄƒ doar un procentaj, deci anterior nu exista nicio modalitate de a vedea ce produce efectiv un multiplicator - iar Ã®ntr-un oraÈ™ mic sau pe pauzÄƒ, numÄƒrul de pasageri afiÈ™a permanent "0". NumÄƒrul de pasageri a fost mutat Ã®n tooltip-ul etichetei, alÄƒturi de tariful original.
 TICKET_PRICE_LABEL_TOOLTIP Tarif curent: {0}\nTarif original: {1}\nPasageri acum: {2}
-CHANGELOG_4_8_0_1 A fost adăugat SingleTrainTrackAI: segmentele de cale ferată cu o singură cale sunt acum rezervate pentru o singură direcție la un moment dat, astfel încât două trenuri care împart o cale bidirecțională nu mai riscă să se ciocnească. Reimplementare clean-room - modul sursă (Workshop 949504539) nu are o licență declarată, deci a fost reimplementat doar conceptul documentat public, folosind patch-urile proprii bazate pe Harmony ale acestui proiect, în loc de deturnări brute de memorie.
-CHANGELOG_4_8_0_2 A fost adăugat Stop Stacker: când mai mult de un vehicul de pe aceeași linie converge la o stație, doar vehiculul din față folosește poziția normală de oprire - vehiculele care urmează primesc propriul loc mai în spate pe bandă, în loc să aștepte la coadă în spatele lui. Reimplementare clean-room bazată doar pe descrierea publică a modului sursă (nu era disponibil cod sursă); doar autobuz și troleibuz, corespunzând punctului de conectare BetterBusStopPosition existent deja în acest proiect.
-CHANGELOG_4_8_0_3 A fost corectată problema prin care integrarea terminalului de autobuz interurban nu se activa niciodată, silențios, pentru jucătorii care dețin DLC-ul Sunset Harbor: detecta DLC-ul prin reflecție într-un câmp privat al jocului, în loc de verificarea DLC-ului prin Steam deja folosită în altă parte a acestui proiect, iar acea verificare bazată pe reflecție putea returna fals chiar și când DLC-ul era instalat cu adevărat.
-CHANGELOG_4_8_0_4 A fost corectată problema prin care bifa "acceptă autobuze interurbane" rămânea blocată, nereactivă, la unele terminale: jocul de bază poate lăsa bifa neinteractivă în condiții pe care reetichetarea acestui mod nu le lua niciodată în calcul. Acum este forțată interactivă ori de câte ori acest mod o controlează. A fost corectată de asemenea o eroare conexă prin care un terminal deja configurat corect putea pierde silențios comutatorul la o verificare ulterioară.
-CHANGELOG_4_8_0_5 A fost corectată problema prin care Sub-Buildings Tabs afișa ocazional o bară de file învechită pe o clădire fără legătură: jocul reciclează ID-urile de clădiri după o demolare, iar memoria cache avea încredere că un ID reciclat aparține încă clusterului de clădiri anterior. Acum revalidează lanțul părinte real al clădirii înainte de a reutiliza ceva din cache.
-CHANGELOG_4_8_0_6 Corectare generală de erori în mai multe integrări: o verificare inversată de expirare a cache-ului care elimina datele proaspete și servea date învechite în schimb, o limită de buclă off-by-one care sărea ultima linie de transport la colorarea automată și verificările de nume duplicate, o comparație greșită de ID care strica evitarea aglomerării pentru "un singur vehicul pe această linie", o căutare de preț care memora permanent un eșec în loc să reîncerce mai târziu, și mai multe patch-uri Harmony care puteau arunca o excepție la o referință UI/prefab null.
-CHANGELOG_4_8_0_7 Au fost reduse reflecția repetată și căutările pe fiecare cadru în mai multe integrări: descrierile tooltip ale vehiculelor, clasificarea segmentelor cu o singură cale și căutarea clasei de element pentru autobuzul interurban sunt acum memorate în cache în loc să fie recalculate la fiecare apel, iar un buton de reîmprospătare UI nu-și mai reatribuie textul la fiecare cadru, indiferent dacă ceva s-a schimbat.
-CHANGELOG_4_8_0_8 Instalările noi folosesc acum profilul de joc Sigur: fiecare integrare și mod opțional pornește dezactivat, pentru compatibilitate maximă cu alte moduri. Folosește Recomandat (nucleu IPT) sau Realist, sau comută individual fiecare opțiune. Controlul autobuzelor interurbane și Sub-Buildings Tabs rămân disponibile și sunt incluse în Recomandat după corecțiile de mai sus.
-CHANGELOG_4_8_0_9 Opțiuni > Integrări expune acum Selecție avansată a stațiilor, Îmbarcare îmbunătățită, Servicii taxi pe kilometraj și Stații supraînălțate - acestea erau deja controlate de setări și profiluri, dar nu aveau bifă, astfel încât puteau fi activate doar din JSON/profil.
-CHANGELOG_4_8_0_10 Au fost adăugate pachete complete de limbă Steam Workshop pentru fiecare limbă din selectorul de descrieri, inclusiv daneză, finlandeză, norvegiană, suedeză, maghiară, română, bulgară, greacă, ucraineană, vietnameză și malaeză, plus pt-br și es-419.
-CHANGELOG_4_8_5_1 A fost corectată sacadarea/înghețarea Train Display: a fost revenit la calea de re-interogare imediată mai rapidă și au fost ridicate pragurile de interogare, astfel încât suprapunerea nu mai concurează cu simularea la performanță Maximă.
-CHANGELOG_4_8_5_2 A fost optimizată banda de rută și denumirea automată a stațiilor din Train Display: cel mult o scanare grea de nume per interogare, stațiile nedenumite eșuate nu mai sunt rescanate la fiecare interval, iar listele de nume de rută evită alocările suplimentare de listă.
-CHANGELOG_4_8_5_3 Destinația navetiștilor a fost pusă pe pauză (încă are erori): dezactivată forțat pentru toate profilurile/salvările, iar comutatorul din Opțiuni a fost eliminat până la o redesenare ulterioară. Spoilerul doar-pentru-viitor rămâne sub Avansat.
-CHANGELOG_4_8_5_4 Pachete de limbă în Opțiuni: setul complet Common JSON este livrat la implementare (peste 35 de limbi ale framework-ului), astfel încât meniul derulant de limbă nu mai omite jumătate din listă; cardurile de descriere a secțiunilor păstrează un fundal comun cu controalele lor.
+CHANGELOG_4_8_0_1 A fost adÄƒugat SingleTrainTrackAI: segmentele de cale feratÄƒ cu o singurÄƒ cale sunt acum rezervate pentru o singurÄƒ direcÈ›ie la un moment dat, astfel Ã®ncÃ¢t douÄƒ trenuri care Ã®mpart o cale bidirecÈ›ionalÄƒ nu mai riscÄƒ sÄƒ se ciocneascÄƒ. Reimplementare clean-room - modul sursÄƒ (Workshop 949504539) nu are o licenÈ›Äƒ declaratÄƒ, deci a fost reimplementat doar conceptul documentat public, folosind patch-urile proprii bazate pe Harmony ale acestui proiect, Ã®n loc de deturnÄƒri brute de memorie.
+CHANGELOG_4_8_0_2 A fost adÄƒugat Stop Stacker: cÃ¢nd mai mult de un vehicul de pe aceeaÈ™i linie converge la o staÈ›ie, doar vehiculul din faÈ›Äƒ foloseÈ™te poziÈ›ia normalÄƒ de oprire - vehiculele care urmeazÄƒ primesc propriul loc mai Ã®n spate pe bandÄƒ, Ã®n loc sÄƒ aÈ™tepte la coadÄƒ Ã®n spatele lui. Reimplementare clean-room bazatÄƒ doar pe descrierea publicÄƒ a modului sursÄƒ (nu era disponibil cod sursÄƒ); doar autobuz È™i troleibuz, corespunzÃ¢nd punctului de conectare BetterBusStopPosition existent deja Ã®n acest proiect.
+CHANGELOG_4_8_0_3 A fost corectatÄƒ problema prin care integrarea terminalului de autobuz interurban nu se activa niciodatÄƒ, silenÈ›ios, pentru jucÄƒtorii care deÈ›in DLC-ul Sunset Harbor: detecta DLC-ul prin reflecÈ›ie Ã®ntr-un cÃ¢mp privat al jocului, Ã®n loc de verificarea DLC-ului prin Steam deja folositÄƒ Ã®n altÄƒ parte a acestui proiect, iar acea verificare bazatÄƒ pe reflecÈ›ie putea returna fals chiar È™i cÃ¢nd DLC-ul era instalat cu adevÄƒrat.
+CHANGELOG_4_8_0_4 A fost corectatÄƒ problema prin care bifa "acceptÄƒ autobuze interurbane" rÄƒmÃ¢nea blocatÄƒ, nereactivÄƒ, la unele terminale: jocul de bazÄƒ poate lÄƒsa bifa neinteractivÄƒ Ã®n condiÈ›ii pe care reetichetarea acestui mod nu le lua niciodatÄƒ Ã®n calcul. Acum este forÈ›atÄƒ interactivÄƒ ori de cÃ¢te ori acest mod o controleazÄƒ. A fost corectatÄƒ de asemenea o eroare conexÄƒ prin care un terminal deja configurat corect putea pierde silenÈ›ios comutatorul la o verificare ulterioarÄƒ.
+CHANGELOG_4_8_0_5 A fost corectatÄƒ problema prin care Sub-Buildings Tabs afiÈ™a ocazional o barÄƒ de file Ã®nvechitÄƒ pe o clÄƒdire fÄƒrÄƒ legÄƒturÄƒ: jocul recicleazÄƒ ID-urile de clÄƒdiri dupÄƒ o demolare, iar memoria cache avea Ã®ncredere cÄƒ un ID reciclat aparÈ›ine Ã®ncÄƒ clusterului de clÄƒdiri anterior. Acum revalideazÄƒ lanÈ›ul pÄƒrinte real al clÄƒdirii Ã®nainte de a reutiliza ceva din cache.
+CHANGELOG_4_8_0_6 Corectare generalÄƒ de erori Ã®n mai multe integrÄƒri: o verificare inversatÄƒ de expirare a cache-ului care elimina datele proaspete È™i servea date Ã®nvechite Ã®n schimb, o limitÄƒ de buclÄƒ off-by-one care sÄƒrea ultima linie de transport la colorarea automatÄƒ È™i verificÄƒrile de nume duplicate, o comparaÈ›ie greÈ™itÄƒ de ID care strica evitarea aglomerÄƒrii pentru "un singur vehicul pe aceastÄƒ linie", o cÄƒutare de preÈ› care memora permanent un eÈ™ec Ã®n loc sÄƒ reÃ®ncerce mai tÃ¢rziu, È™i mai multe patch-uri Harmony care puteau arunca o excepÈ›ie la o referinÈ›Äƒ UI/prefab null.
+CHANGELOG_4_8_0_7 Au fost reduse reflecÈ›ia repetatÄƒ È™i cÄƒutÄƒrile pe fiecare cadru Ã®n mai multe integrÄƒri: descrierile tooltip ale vehiculelor, clasificarea segmentelor cu o singurÄƒ cale È™i cÄƒutarea clasei de element pentru autobuzul interurban sunt acum memorate Ã®n cache Ã®n loc sÄƒ fie recalculate la fiecare apel, iar un buton de reÃ®mprospÄƒtare UI nu-È™i mai reatribuie textul la fiecare cadru, indiferent dacÄƒ ceva s-a schimbat.
+CHANGELOG_4_8_0_8 InstalÄƒrile noi folosesc acum profilul de joc Sigur: fiecare integrare È™i mod opÈ›ional porneÈ™te dezactivat, pentru compatibilitate maximÄƒ cu alte moduri. FoloseÈ™te Recomandat (nucleu IPT) sau Realist, sau comutÄƒ individual fiecare opÈ›iune. Controlul autobuzelor interurbane È™i Sub-Buildings Tabs rÄƒmÃ¢n disponibile È™i sunt incluse Ã®n Recomandat dupÄƒ corecÈ›iile de mai sus.
+CHANGELOG_4_8_0_9 OpÈ›iuni > IntegrÄƒri expune acum SelecÈ›ie avansatÄƒ a staÈ›iilor, ÃŽmbarcare Ã®mbunÄƒtÄƒÈ›itÄƒ, Servicii taxi pe kilometraj È™i StaÈ›ii supraÃ®nÄƒlÈ›ate - acestea erau deja controlate de setÄƒri È™i profiluri, dar nu aveau bifÄƒ, astfel Ã®ncÃ¢t puteau fi activate doar din JSON/profil.
+CHANGELOG_4_8_0_10 Au fost adÄƒugate pachete complete de limbÄƒ Steam Workshop pentru fiecare limbÄƒ din selectorul de descrieri, inclusiv danezÄƒ, finlandezÄƒ, norvegianÄƒ, suedezÄƒ, maghiarÄƒ, romÃ¢nÄƒ, bulgarÄƒ, greacÄƒ, ucraineanÄƒ, vietnamezÄƒ È™i malaezÄƒ, plus pt-br È™i es-419.
+CHANGELOG_4_8_5_1 A fost corectatÄƒ sacadarea/Ã®ngheÈ›area Train Display: a fost revenit la calea de re-interogare imediatÄƒ mai rapidÄƒ È™i au fost ridicate pragurile de interogare, astfel Ã®ncÃ¢t suprapunerea nu mai concureazÄƒ cu simularea la performanÈ›Äƒ MaximÄƒ.
+CHANGELOG_4_8_5_2 A fost optimizatÄƒ banda de rutÄƒ È™i denumirea automatÄƒ a staÈ›iilor din Train Display: cel mult o scanare grea de nume per interogare, staÈ›iile nedenumite eÈ™uate nu mai sunt rescanate la fiecare interval, iar listele de nume de rutÄƒ evitÄƒ alocÄƒrile suplimentare de listÄƒ.
+CHANGELOG_4_8_5_3 DestinaÈ›ia navetiÈ™tilor a fost pusÄƒ pe pauzÄƒ (Ã®ncÄƒ are erori): dezactivatÄƒ forÈ›at pentru toate profilurile/salvÄƒrile, iar comutatorul din OpÈ›iuni a fost eliminat pÃ¢nÄƒ la o redesenare ulterioarÄƒ. Spoilerul doar-pentru-viitor rÄƒmÃ¢ne sub Avansat.
+CHANGELOG_4_8_5_4 Pachete de limbÄƒ Ã®n OpÈ›iuni: setul complet Common JSON este livrat la implementare (peste 35 de limbi ale framework-ului), astfel Ã®ncÃ¢t meniul derulant de limbÄƒ nu mai omite jumÄƒtate din listÄƒ; cardurile de descriere a secÈ›iunilor pÄƒstreazÄƒ un fundal comun cu controalele lor.
 CHANGELOG_4_8_5_5 Reduced log spam from depot spawn redirects (Verbose-only) and clamped Train Display update interval to a safe 100ms-1000ms range in Options.
-CHANGELOG_4_7_0_1 Patru integrări noi: Sub-Buildings Tabs (bară de file pentru orice hub cu mai multe clădiri, nu doar aeroporturi), Shared Stop Enabler (permite mai mult de un tip de stație să împartă același segment de drum, dezactivat implicit), Commuter Destination (afișaj destinație - în prezent dezactivat forțat până la o redesenare) și Taxi Stand Fix (taxiurile libere se îndreaptă spre cea mai apropiată stație de taxi în loc să rătăcească). Vezi Opțiuni > Integrări pentru fiecare comutator.
-CHANGELOG_4_7_0_2 A fost adăugat un mod de capacitate a vehiculelor pentru terminalele de autobuz interurban (Opțiuni > Integrări > Capacitate terminal autobuz interurban): Dezactivat păstrează terminalul practic nelimitat existent al acestui mod, Intermediar aplică o limită fixă moderată, Realist restaurează capacitatea proprie a prefab-ului vanilla al terminalului. Salvările existente folosesc implicit Dezactivat, astfel încât actualizarea nu reduce niciodată silențios capacitatea unui terminal.
-CHANGELOG_4_7_0_3 A fost corectată bifa "acceptă autobuze interurbane" a terminalului de autobuz interurban: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged setează acceptsInterCityTrains, care este un simplu alias pentru isEmptying, astfel încât bifa reetichetată putea trece silențios un terminal de autobuz în starea de închidere a clădirii din joc, în loc să comute efectiv acceptarea autobuzelor. Un prefix Harmony interceptează acum acest lucru și îl redirecționează către o stare per clădire pentru terminalele modificate pentru autobuze, lăsând stațiile de tren reale neatinse.
-CHANGELOG_4_7_0_4 A fost adăugată o temă de culoare "Original" pentru Train Display (Opțiuni > Train Display > Temă culoare) care reproduce aspectul modului sursă Train Display - Updated: o bandă de antet cu viteză și stare, plus o bandă de rută colorată în culoarea reală a liniei vehiculului.
-CHANGELOG_4_7_0_5 A fost corectată afișarea culorilor greșite de către temele Simplu, Întunecat și Deschis din Train Display: GUI.Box colorat prin GUI.backgroundColor nu produce o culoare plată, deoarece textura implicită a skin-ului Unity nu este alb pur. Suprapunerea desenează acum pe o textură albă solidă memorată în cache, folosind GUI.DrawTexture și GUI.color.
-CHANGELOG_4_7_0_6 A fost corectată problema prin care fila Prețuri bilete revenea mereu la rândul de cursor personalizat simplu, în loc de elementul vizual vanilla BudgetItem: o căutare prin reflecție a câmpului cursorului de preț de noapte al BudgetItem avea o greșeală de scriere, deci arunca mereu o excepție, prinsă silențios.
-CHANGELOG_4_7_0_7 Au fost reduse căutările repetate în arborele UI pe fiecare cadru din două patch-uri Harmony care rulează pentru fiecare panou de transport vizibil (bifa autobuzului interurban de pe panourile serviciilor orașului și eticheta numărului de pasageri a fiecărei stații din panoul liniei), prin memorarea în cache a referințelor UI rezolvate, în loc să fie căutate din nou la fiecare cadru.
-CHANGELOG_4_7_0_8 Întregul meniu Opțiuni a fost reorganizat în file care corespund efectiv conținutului lor (Flotă și Planificare, Buget și Prețuri, Culori linii, Integrări și altele) în loc de vechea filă Linie automată care conținea șapte grupuri de setări fără legătură. A fost restaurată fila Comenzi rapide eliminată într-o versiune anterioară, pregătită pentru integrări viitoare care au nevoie de ea, și a fost adăugat un link către proiectul GitHub sub Opțiuni > Avansat.
-CHANGELOG_4_3_8_1 Nu mai este marcat BETA. Depășirea costurilor de întreținere pentru care există acest fork este rezolvată la origine și repară salvările deja afectate, iar toate cele 23 de limbi sunt complete.
-CHANGELOG_4_3_7_1 Toate cele 23 de limbi din selector sunt acum complet traduse. Cehă, olandeză, slovacă, thailandeză și turcă erau selectabile, dar nu aveau fișier de traducere, deci reveneau silențios la engleză.
-CHANGELOG_4_3_7_2 Progresul de traducere afișat sub selectorul de limbă citea un fișier de stare static care nu fusese regenerat, astfel încât raporta 76% pentru șaisprezece limbi care erau de fapt complete.
-CHANGELOG_4_3_6_1 A fost corectată cauza reală a cheltuielii de transport public de aproximativ -21,4 milioane: înlocuirea săptămânală de întreținere a IPT era împărțită la o capacitate de vehicul zero sau neacceptată, transformând NaN în int.MinValue, apoi însuma fiecare vehicul într-un alt int. Datele de întreținere folosesc acum o valoare de rezervă vanilla sigură, totalurile liniilor folosesc aritmetică pe 64 de biți, iar totalurile mari valide sunt taxate doar prin tranzacții pozitive limitate.
-CHANGELOG_4_3_6_2 Salvările existente sunt reparate la încărcare, curățând doar cupoanele negative de venit sau cheltuială de transport public lăsate de această depășire și corectând totalurile corespunzătoare. Istoricul economic valid și fiecare serviciu fără legătură cu transportul rămân neatinse.
-DEPOT_STATS_FERRIES_IN_USE Feriboturi în uz
-DEPOT_STATS_BLIMPS_IN_USE Dirijabile în uz
-DEPOT_STATS_HELICOPTERS Elicoptere în uz
-DEPOT_STATS_TROLLEYBUSES_IN_USE Troleibuzele în uz
-DEPOT_STATS_VEHICLES_IN_USE Vehicule în uz
-SETTINGS_EMPTY_BEFORE_DEPOT Goleşte pasagerii înainte de a reveni la depou
-SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP Când este activat, vehiculele de transport public care au pasageri nu vor pleca de la linie pentru depou până ce sunt goale. Apoi se întorc acasă. Inactiv implicit; profilul Realist o activează.
+CHANGELOG_4_7_0_1 Patru integrÄƒri noi: Sub-Buildings Tabs (barÄƒ de file pentru orice hub cu mai multe clÄƒdiri, nu doar aeroporturi), Shared Stop Enabler (permite mai mult de un tip de staÈ›ie sÄƒ Ã®mpartÄƒ acelaÈ™i segment de drum, dezactivat implicit), Commuter Destination (afiÈ™aj destinaÈ›ie - Ã®n prezent dezactivat forÈ›at pÃ¢nÄƒ la o redesenare) È™i Taxi Stand Fix (taxiurile libere se Ã®ndreaptÄƒ spre cea mai apropiatÄƒ staÈ›ie de taxi Ã®n loc sÄƒ rÄƒtÄƒceascÄƒ). Vezi OpÈ›iuni > IntegrÄƒri pentru fiecare comutator.
+CHANGELOG_4_7_0_2 A fost adÄƒugat un mod de capacitate a vehiculelor pentru terminalele de autobuz interurban (OpÈ›iuni > IntegrÄƒri > Capacitate terminal autobuz interurban): Dezactivat pÄƒstreazÄƒ terminalul practic nelimitat existent al acestui mod, Intermediar aplicÄƒ o limitÄƒ fixÄƒ moderatÄƒ, Realist restaureazÄƒ capacitatea proprie a prefab-ului vanilla al terminalului. SalvÄƒrile existente folosesc implicit Dezactivat, astfel Ã®ncÃ¢t actualizarea nu reduce niciodatÄƒ silenÈ›ios capacitatea unui terminal.
+CHANGELOG_4_7_0_3 A fost corectatÄƒ bifa "acceptÄƒ autobuze interurbane" a terminalului de autobuz interurban: CityServiceWorldInfoPanel.OnAcceptsIntercityChanged seteazÄƒ acceptsInterCityTrains, care este un simplu alias pentru isEmptying, astfel Ã®ncÃ¢t bifa reetichetatÄƒ putea trece silenÈ›ios un terminal de autobuz Ã®n starea de Ã®nchidere a clÄƒdirii din joc, Ã®n loc sÄƒ comute efectiv acceptarea autobuzelor. Un prefix Harmony intercepteazÄƒ acum acest lucru È™i Ã®l redirecÈ›ioneazÄƒ cÄƒtre o stare per clÄƒdire pentru terminalele modificate pentru autobuze, lÄƒsÃ¢nd staÈ›iile de tren reale neatinse.
+CHANGELOG_4_7_0_4 A fost adÄƒugatÄƒ o temÄƒ de culoare "Original" pentru Train Display (OpÈ›iuni > Train Display > TemÄƒ culoare) care reproduce aspectul modului sursÄƒ Train Display - Updated: o bandÄƒ de antet cu vitezÄƒ È™i stare, plus o bandÄƒ de rutÄƒ coloratÄƒ Ã®n culoarea realÄƒ a liniei vehiculului.
+CHANGELOG_4_7_0_5 A fost corectatÄƒ afiÈ™area culorilor greÈ™ite de cÄƒtre temele Simplu, ÃŽntunecat È™i Deschis din Train Display: GUI.Box colorat prin GUI.backgroundColor nu produce o culoare platÄƒ, deoarece textura implicitÄƒ a skin-ului Unity nu este alb pur. Suprapunerea deseneazÄƒ acum pe o texturÄƒ albÄƒ solidÄƒ memoratÄƒ Ã®n cache, folosind GUI.DrawTexture È™i GUI.color.
+CHANGELOG_4_7_0_6 A fost corectatÄƒ problema prin care fila PreÈ›uri bilete revenea mereu la rÃ¢ndul de cursor personalizat simplu, Ã®n loc de elementul vizual vanilla BudgetItem: o cÄƒutare prin reflecÈ›ie a cÃ¢mpului cursorului de preÈ› de noapte al BudgetItem avea o greÈ™ealÄƒ de scriere, deci arunca mereu o excepÈ›ie, prinsÄƒ silenÈ›ios.
+CHANGELOG_4_7_0_7 Au fost reduse cÄƒutÄƒrile repetate Ã®n arborele UI pe fiecare cadru din douÄƒ patch-uri Harmony care ruleazÄƒ pentru fiecare panou de transport vizibil (bifa autobuzului interurban de pe panourile serviciilor oraÈ™ului È™i eticheta numÄƒrului de pasageri a fiecÄƒrei staÈ›ii din panoul liniei), prin memorarea Ã®n cache a referinÈ›elor UI rezolvate, Ã®n loc sÄƒ fie cÄƒutate din nou la fiecare cadru.
+CHANGELOG_4_7_0_8 ÃŽntregul meniu OpÈ›iuni a fost reorganizat Ã®n file care corespund efectiv conÈ›inutului lor (FlotÄƒ È™i Planificare, Buget È™i PreÈ›uri, Culori linii, IntegrÄƒri È™i altele) Ã®n loc de vechea filÄƒ Linie automatÄƒ care conÈ›inea È™apte grupuri de setÄƒri fÄƒrÄƒ legÄƒturÄƒ. A fost restauratÄƒ fila Comenzi rapide eliminatÄƒ Ã®ntr-o versiune anterioarÄƒ, pregÄƒtitÄƒ pentru integrÄƒri viitoare care au nevoie de ea, È™i a fost adÄƒugat un link cÄƒtre proiectul GitHub sub OpÈ›iuni > Avansat.
+CHANGELOG_4_3_8_1 Nu mai este marcat BETA. DepÄƒÈ™irea costurilor de Ã®ntreÈ›inere pentru care existÄƒ acest fork este rezolvatÄƒ la origine È™i reparÄƒ salvÄƒrile deja afectate, iar toate cele 23 de limbi sunt complete.
+CHANGELOG_4_3_7_1 Toate cele 23 de limbi din selector sunt acum complet traduse. CehÄƒ, olandezÄƒ, slovacÄƒ, thailandezÄƒ È™i turcÄƒ erau selectabile, dar nu aveau fiÈ™ier de traducere, deci reveneau silenÈ›ios la englezÄƒ.
+CHANGELOG_4_3_7_2 Progresul de traducere afiÈ™at sub selectorul de limbÄƒ citea un fiÈ™ier de stare static care nu fusese regenerat, astfel Ã®ncÃ¢t raporta 76% pentru È™aisprezece limbi care erau de fapt complete.
+CHANGELOG_4_3_6_1 A fost corectatÄƒ cauza realÄƒ a cheltuielii de transport public de aproximativ -21,4 milioane: Ã®nlocuirea sÄƒptÄƒmÃ¢nalÄƒ de Ã®ntreÈ›inere a IPT era Ã®mpÄƒrÈ›itÄƒ la o capacitate de vehicul zero sau neacceptatÄƒ, transformÃ¢nd NaN Ã®n int.MinValue, apoi Ã®nsuma fiecare vehicul Ã®ntr-un alt int. Datele de Ã®ntreÈ›inere folosesc acum o valoare de rezervÄƒ vanilla sigurÄƒ, totalurile liniilor folosesc aritmeticÄƒ pe 64 de biÈ›i, iar totalurile mari valide sunt taxate doar prin tranzacÈ›ii pozitive limitate.
+CHANGELOG_4_3_6_2 SalvÄƒrile existente sunt reparate la Ã®ncÄƒrcare, curÄƒÈ›Ã¢nd doar cupoanele negative de venit sau cheltuialÄƒ de transport public lÄƒsate de aceastÄƒ depÄƒÈ™ire È™i corectÃ¢nd totalurile corespunzÄƒtoare. Istoricul economic valid È™i fiecare serviciu fÄƒrÄƒ legÄƒturÄƒ cu transportul rÄƒmÃ¢n neatinse.
+DEPOT_STATS_FERRIES_IN_USE Feriboturi Ã®n uz
+DEPOT_STATS_BLIMPS_IN_USE Dirijabile Ã®n uz
+DEPOT_STATS_HELICOPTERS Elicoptere Ã®n uz
+DEPOT_STATS_TROLLEYBUSES_IN_USE Troleibuzele Ã®n uz
+DEPOT_STATS_VEHICLES_IN_USE Vehicule Ã®n uz
+SETTINGS_EMPTY_BEFORE_DEPOT GoleÅŸte pasagerii Ã®nainte de a reveni la depou
+SETTINGS_EMPTY_BEFORE_DEPOT_TOOLTIP CÃ¢nd este activat, vehiculele de transport public care au pasageri nu vor pleca de la linie pentru depou pÃ¢nÄƒ ce sunt goale. Apoi se Ã®ntorc acasÄƒ. Inactiv implicit; profilul Realist o activeazÄƒ.
 SETTINGS_TRAINDISPLAY_TYPES_GROUP Tipuri de vehicule pe suprapunere
-SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Care vehicule de transport public pot afişa panoul Train Display când sunt selectate.
-SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP Arată suprapunerea când este selectat acest tip de vehicul.
+SETTINGS_TRAINDISPLAY_TYPES_GROUP_DESCRIPTION Care vehicule de transport public pot afiÅŸa panoul Train Display cÃ¢nd sunt selectate.
+SETTINGS_TRAINDISPLAY_TYPE_TOOLTIP AratÄƒ suprapunerea cÃ¢nd este selectat acest tip de vehicul.
 SETTINGS_TRAINDISPLAY_TYPE_BUS Autobuz
 SETTINGS_TRAINDISPLAY_TYPE_TROLLEY Troleibuz
 SETTINGS_TRAINDISPLAY_TYPE_TRAM Tramvai
 SETTINGS_TRAINDISPLAY_TYPE_METRO Metrou
 SETTINGS_TRAINDISPLAY_TYPE_TRAIN Tren
 SETTINGS_TRAINDISPLAY_TYPE_MONORAIL Monorail
-SETTINGS_TRAINDISPLAY_TYPE_SHIP Navă / feribot
+SETTINGS_TRAINDISPLAY_TYPE_SHIP NavÄƒ / feribot
 SETTINGS_TRAINDISPLAY_TYPE_PLANE Avion / dirijabil / elicopter
 SETTINGS_TRAINDISPLAY_TYPE_TAXI Taxi
-SETTINGS_TRAINDISPLAY_TYPE_CABLECAR Telecabină
+SETTINGS_TRAINDISPLAY_TYPE_CABLECAR TelecabinÄƒ
 SETTINGS_TRAINDISPLAY_TYPE_TOURS Autobuz turistic
 SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Negru (semi-transparent)
-SETTINGS_TRAINDISPLAY_SHOW_SPEED Arată viteza (bandă suplimentară)
-SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS Arată pasageri (bandă suplimentară)
-SETTINGS_TRAINDISPLAY_SHOW_ELAPSED Arată timp scurs (bandă suplimentară)
-SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP Adaugă o bandă colorată pe linie deasupra panoului principal cu aceste suplimente. Inactiv implicit.
-TRAINDISPLAY_LABEL_SPEED Viteză
+SETTINGS_TRAINDISPLAY_SHOW_SPEED AratÄƒ viteza (bandÄƒ suplimentarÄƒ)
+SETTINGS_TRAINDISPLAY_SHOW_PASSENGERS AratÄƒ pasageri (bandÄƒ suplimentarÄƒ)
+SETTINGS_TRAINDISPLAY_SHOW_ELAPSED AratÄƒ timp scurs (bandÄƒ suplimentarÄƒ)
+SETTINGS_TRAINDISPLAY_SHOW_EXTRAS_TOOLTIP AdaugÄƒ o bandÄƒ coloratÄƒ pe linie deasupra panoului principal cu aceste suplimente. Inactiv implicit.
+TRAINDISPLAY_LABEL_SPEED VitezÄƒ
 TRAINDISPLAY_LABEL_TIME Timp
-SETTINGS_PERFORMANCE_PROFILE Profil de performanță
-SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Buget global pentru interfață grea și scanări (reîmprospătare Train Display, hartă/listă Destinație navetiști, lucrări similare).\nUşor: minimizează riscul de întârziere — mai puține pictograme, reîmprospătare mai lentă.\nNormal: echilibrat (implicit).\nMaxim: detaliu complet și suprapuneri mai rapid; poate costa FPS pe PC-uri mai slabe.
-SETTINGS_PERFORMANCE_PROFILE_LIGHT Uşor (mai lin)
+SETTINGS_PERFORMANCE_PROFILE Profil de performanÈ›Äƒ
+SETTINGS_PERFORMANCE_PROFILE_TOOLTIP Buget global pentru interfaÈ›Äƒ grea È™i scanÄƒri (reÃ®mprospÄƒtare Train Display, hartÄƒ/listÄƒ DestinaÈ›ie navetiÈ™ti, lucrÄƒri similare).\nUÅŸor: minimizeazÄƒ riscul de Ã®ntÃ¢rziere â€” mai puÈ›ine pictograme, reÃ®mprospÄƒtare mai lentÄƒ.\nNormal: echilibrat (implicit).\nMaxim: detaliu complet È™i suprapuneri mai rapid; poate costa FPS pe PC-uri mai slabe.
+SETTINGS_PERFORMANCE_PROFILE_LIGHT UÅŸor (mai lin)
 SETTINGS_PERFORMANCE_PROFILE_NORMAL Normal (echilibrat)
 SETTINGS_PERFORMANCE_PROFILE_MAXIMUM Maxim (detaliu complet)
-SETTINGS_TAB_PERFORMANCE Performanță
+SETTINGS_TAB_PERFORMANCE PerformanÈ›Äƒ
 SETTINGS_PERFORMANCE_TIPS_GROUP Sfaturi
-SETTINGS_PERFORMANCE_TIPS_DESCRIPTION Foloseşte Uşor dacă interfața sau suprapunerile se întârzie; Maxim doar dacă PC-ul tău este puternic. Schimbările se aplică imediat la Train Display și Destinație navetiști. Unele alte integrări au nevoie de o reîncărcare a hărţii.
+SETTINGS_PERFORMANCE_TIPS_DESCRIPTION FoloseÅŸte UÅŸor dacÄƒ interfaÈ›a sau suprapunerile se Ã®ntÃ¢rzie; Maxim doar dacÄƒ PC-ul tÄƒu este puternic. SchimbÄƒrile se aplicÄƒ imediat la Train Display È™i DestinaÈ›ie navetiÈ™ti. Unele alte integrÄƒri au nevoie de o reÃ®ncÄƒrcare a hÄƒrÅ£ii.
 SETTINGS_TICKET_PATHFINDING_COST Pathfinding fares (stop lanes)
 SETTINGS_TICKET_PATHFINDING_COST_TOOLTIP Experimental. Writes a small pathfinding cost on public-transport stop lanes from average ticket prices (same field road tolls use). Citizens may slightly prefer cheaper lines. Requires Ticket Prices enabled. Off by default.
 SETTINGS_TAB_COMPATIBILITY Compatibilitate
-SETTINGS_COMPAT_INTRO_GROUP Verifică ordinea de încărcare
-SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scanează modurile Workshop/locale activate pentru conflicte cunoscute (IPT1–3, TLM, ITM, standaloně incluse) și dependențe necesare (Harmony). Efectuează o verificare după schimbarea abonamentelor.
+SETTINGS_COMPAT_INTRO_GROUP VerificÄƒ ordinea de Ã®ncÄƒrcare
+SETTINGS_COMPAT_INTRO_DESCRIPTION IPT4 scaneazÄƒ modurile Workshop/locale activate pentru conflicte cunoscute (IPT1â€“3, TLM, ITM, standalonÄ› incluse) È™i dependenÈ›e necesare (Harmony). EfectueazÄƒ o verificare dupÄƒ schimbarea abonamentelor.
 SETTINGS_COMPAT_RUN_CHECK Scanare pentru conflicte
-SETTINGS_COMPAT_RUN_CHECK_TOOLTIP Compară modulele plugin activate cu lista incompatibilității cunoscute a IPT4 (nume asamblare + ID Workshop) și dependența Harmony.
+SETTINGS_COMPAT_RUN_CHECK_TOOLTIP ComparÄƒ modulele plugin activate cu lista incompatibilitÄƒÈ›ii cunoscute a IPT4 (nume asamblare + ID Workshop) È™i dependenÈ›a Harmony.
 SETTINGS_COMPAT_RUN_CHECK_BUTTON Verificare acum
 SETTINGS_COMPAT_STATUS_GROUP Rezultat curent
-SETTINGS_COMPAT_STATUS_OK Niciun conflict sau dependență lipsă detectați la ultima scanare.
-SETTINGS_COMPAT_STATUS_WARN Una sau mai multe probleme au fost găsite — dezactivează modurile listate (sau abonează-te la Harmony) și repornește jocul.
-SETTINGS_COMPAT_MATCHED_GENERIC Acest mod este în conflict cu IPT4. Dezactivează-l sau dezabonează-te.
-SETTINGS_COMPAT_MISSING_DEP Dependența necesară nu este prezentă. Abonează-te și activează-o, apoi repornește.
-SETTINGS_COMPAT_NO_ISSUES Nu este activat nimic în conflict în acest moment.
+SETTINGS_COMPAT_STATUS_OK Niciun conflict sau dependenÈ›Äƒ lipsÄƒ detectaÈ›i la ultima scanare.
+SETTINGS_COMPAT_STATUS_WARN Una sau mai multe probleme au fost gÄƒsite â€” dezactiveazÄƒ modurile listate (sau aboneazÄƒ-te la Harmony) È™i reporneÈ™te jocul.
+SETTINGS_COMPAT_MATCHED_GENERIC Acest mod este Ã®n conflict cu IPT4. DezactiveazÄƒ-l sau dezaboneazÄƒ-te.
+SETTINGS_COMPAT_MISSING_DEP DependenÈ›a necesarÄƒ nu este prezentÄƒ. AboneazÄƒ-te È™i activeazÄƒ-o, apoi reporneÈ™te.
+SETTINGS_COMPAT_NO_ISSUES Nu este activat nimic Ã®n conflict Ã®n acest moment.
 SETTINGS_COMPAT_BADGE_CONFLICT Conflict
-SETTINGS_COMPAT_BADGE_MISSING Lipsă
+SETTINGS_COMPAT_BADGE_MISSING LipsÄƒ
 SETTINGS_COMPAT_BADGE_OK OK
-SETTINGS_COMPAT_GUIDE_GROUP Ce să nu rulezi cu IPT4
-SETTINGS_COMPAT_GUIDE_DESCRIPTION Niciodată nu activa: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nDezabonează-te de la versiunile standalone deja incluse în IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. — lista completă este în discuția Workshop).\nNecesar: Harmony (CitiesHarmony, Workshop 2040656402).\nDupă dezactivarea unui conflict, repornește jocul pentru a descărca corect patch-urile Harmony.
-LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Trimite vehiculul selectat înapoi la depou/garaj. Scade numărul țintă al liniei.
-COMMUTER_STOP_WITH_WAITING {0} ({1} aşteaptă)
-SETTINGS_TAB_FLEET_SHORT Flotă
-SETTINGS_TAB_STOPS_SHORT Stații
+SETTINGS_COMPAT_GUIDE_GROUP Ce sÄƒ nu rulezi cu IPT4
+SETTINGS_COMPAT_GUIDE_DESCRIPTION NiciodatÄƒ nu activa: IPT1 / IPT2 / IPT3, Transport Lines Manager, Improved Transport Manager.\nDezaboneazÄƒ-te de la versiunile standalone deja incluse Ã®n IPT4 (Auto Line Budget, Express Bus, Train Display, Shared Stop Enabler, Commuter Destination, etc. â€” lista completÄƒ este Ã®n discuÈ›ia Workshop).\nNecesar: Harmony (CitiesHarmony, Workshop 2040656402).\nDupÄƒ dezactivarea unui conflict, reporneÈ™te jocul pentru a descÄƒrca corect patch-urile Harmony.
+LINE_PANEL_REMOVE_VEHICLE_TOOLTIP Trimite vehiculul selectat Ã®napoi la depou/garaj. Scade numÄƒrul È›intÄƒ al liniei.
+COMMUTER_STOP_WITH_WAITING {0} ({1} aÅŸteaptÄƒ)
+SETTINGS_TAB_FLEET_SHORT FlotÄƒ
+SETTINGS_TAB_STOPS_SHORT StaÈ›ii
 SETTINGS_TAB_OVERLAY_SHORT Suprapunere
 SETTINGS_TAB_SYSTEM_SHORT Sistem
-SETTINGS_SUB_SPACING Spațiere
-SETTINGS_SUB_SPACING_DESC Păstrează vehiculele spațiate uniform. Anti-gruparea este instrumentul clasic IPT; Autobuz expres/Tramvai sunt stil alternativ.
+SETTINGS_SUB_SPACING SpaÈ›iere
+SETTINGS_SUB_SPACING_DESC PÄƒstreazÄƒ vehiculele spaÈ›iate uniform. Anti-gruparea este instrumentul clasic IPT; Autobuz expres/Tramvai sunt stil alternativ.
 SETTINGS_SUB_BUDGET Buget
 SETTINGS_SUB_COLOR Culoare
 SETTINGS_SUB_CAPS Limite
-SETTINGS_SUB_NET Rețea
-SETTINGS_SUB_NET_DESC Plasarea stațiilor pe drumuri: ridicate, tipuri partajate, stivuire, platforme avansate.
+SETTINGS_SUB_NET ReÈ›ea
+SETTINGS_SUB_NET_DESC Plasarea staÈ›iilor pe drumuri: ridicate, tipuri partajate, stivuire, platforme avansate.
 SETTINGS_SUB_VEHICLES Vehicule
-SETTINGS_SUB_VEHICLES_DESC Urcare, întoarcere-la-depou, trenuri pe o singură cale, taxiuri, deblocare.
+SETTINGS_SUB_VEHICLES_DESC Urcare, Ã®ntoarcere-la-depou, trenuri pe o singurÄƒ cale, taxiuri, deblocare.
 SETTINGS_SUB_DEPOTS Depoturi
-SETTINGS_SUB_DEPOTS_DESC Limite moi pentru câte vehicule poate ține un depou (vanilla este adesea nelimitat).
+SETTINGS_SUB_DEPOTS_DESC Limite moi pentru cÃ¢te vehicule poate È›ine un depou (vanilla este adesea nelimitat).
 SETTINGS_SUB_OUTSIDE Exterior
-SETTINGS_SUB_OUTSIDE_DESC Terminale interurbane și aşteptare marfă/pasageri la conexiuni exterioare.
-SETTINGS_SUB_DISPLAY Afişaj
+SETTINGS_SUB_OUTSIDE_DESC Terminale interurbane È™i aÅŸteptare marfÄƒ/pasageri la conexiuni exterioare.
+SETTINGS_SUB_DISPLAY AfiÅŸaj
 SETTINGS_SUB_INFO Info
-SETTINGS_SUB_INFO_DESC Panouri și instrumente info oraş (nu simulare flotă).
+SETTINGS_SUB_INFO_DESC Panouri È™i instrumente info oraÅŸ (nu simulare flotÄƒ).
 SETTINGS_SUB_PERF Perf
 SETTINGS_SUB_COMPAT Compat
 SETTINGS_SUB_KEYS Taste
 SETTINGS_FUTURE_GROUP Viitor
-SETTINGS_FUTURE_GROUP_DESCRIPTION Previzualizare a funcțiilor planificate. Afișat gri până sunt gata; destinația pasagerilor rămâne disponibilă pentru testare.
-SETTINGS_FUTURE_REVERSIBLE_TRAM IA tramvai reversibil (în curând)
-SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planificat: tramvaiele se inversează la capete fără buclă. Nu este disponibil încă.
-SETTINGS_FUTURE_BREAKDOWN Instrumente de diagnosticare (în curând)
-SETTINGS_FUTURE_BREAKDOWN_TIP Planificat: diagnosticare rută/trafic pentru transport blocat. Nu este disponibil încă.
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detaliu hartă:
-SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP Performanță afişează mai puține pictograme hartă și se reîmprospătează mai rapid. Hartă completă afişează mult mai multe pictograme destinație pe hartă; panoul se actualizează mai lent aşa ca PC-uri mai slabe pot totuşi să o folosească.
-SETTINGS_COMMUTERDESTINATION_MAP_PERF Performanță (mai rapid)
-SETTINGS_COMMUTERDESTINATION_MAP_FULL Hartă completă (mai mult pictograme, reîmprospătare mai lentă)
-SETTINGS_KEYBINDINGS_GROUP Scurtături în joc
-SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION Scurtături în timp ce un oraş este încărcat. Clic pe o legare și apasă o tastă pentru a realega.
-SETTINGS_HOTKEY_TRAIN_DISPLAY Comută Train Display
-SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP Activează sau dezactivează suprapunerea vehiculului colț.
-SETTINGS_HOTKEY_LINE_COLOR Realocă culoare linie
-SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP În timp ce este selectată o linie de transport, relansează Auto Line Color pentru acea linie (necesită o strategie de culoare activată).
-LINE_PANEL_COPY Copiază
-LINE_PANEL_PASTE Lipește
-SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK ★ Safe — everything optional stays OFF (best with many mods).\n★ Vanilla — closest to the base game (no IPT extras).\n★ Recommended — IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\n★ Realistic — most features on (stronger sim, more cost).\n★ Custom — you choose every toggle; profiles never override Custom again until you pick another package.
+SETTINGS_FUTURE_GROUP_DESCRIPTION Previzualizare a funcÈ›iilor planificate. AfiÈ™at gri pÃ¢nÄƒ sunt gata; destinaÈ›ia pasagerilor rÄƒmÃ¢ne disponibilÄƒ pentru testare.
+SETTINGS_FUTURE_REVERSIBLE_TRAM IA tramvai reversibil (Ã®n curÃ¢nd)
+SETTINGS_FUTURE_REVERSIBLE_TRAM_TIP Planificat: tramvaiele se inverseazÄƒ la capete fÄƒrÄƒ buclÄƒ. Nu este disponibil Ã®ncÄƒ.
+SETTINGS_FUTURE_BREAKDOWN Instrumente de diagnosticare (Ã®n curÃ¢nd)
+SETTINGS_FUTURE_BREAKDOWN_TIP Planificat: diagnosticare rutÄƒ/trafic pentru transport blocat. Nu este disponibil Ã®ncÄƒ.
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL Detaliu hartÄƒ:
+SETTINGS_COMMUTERDESTINATION_MAP_DETAIL_TOOLTIP PerformanÈ›Äƒ afiÅŸeazÄƒ mai puÈ›ine pictograme hartÄƒ È™i se reÃ®mprospÄƒteazÄƒ mai rapid. HartÄƒ completÄƒ afiÅŸeazÄƒ mult mai multe pictograme destinaÈ›ie pe hartÄƒ; panoul se actualizeazÄƒ mai lent aÅŸa ca PC-uri mai slabe pot totuÅŸi sÄƒ o foloseascÄƒ.
+SETTINGS_COMMUTERDESTINATION_MAP_PERF PerformanÈ›Äƒ (mai rapid)
+SETTINGS_COMMUTERDESTINATION_MAP_FULL HartÄƒ completÄƒ (mai mult pictograme, reÃ®mprospÄƒtare mai lentÄƒ)
+SETTINGS_KEYBINDINGS_GROUP ScurtÄƒturi Ã®n joc
+SETTINGS_KEYBINDINGS_GROUP_DESCRIPTION ScurtÄƒturi Ã®n timp ce un oraÅŸ este Ã®ncÄƒrcat. Clic pe o legare È™i apasÄƒ o tastÄƒ pentru a realega.
+SETTINGS_HOTKEY_TRAIN_DISPLAY ComutÄƒ Train Display
+SETTINGS_HOTKEY_TRAIN_DISPLAY_TOOLTIP ActiveazÄƒ sau dezactiveazÄƒ suprapunerea vehiculului colÈ›.
+SETTINGS_HOTKEY_LINE_COLOR RealocÄƒ culoare linie
+SETTINGS_HOTKEY_LINE_COLOR_TOOLTIP ÃŽn timp ce este selectatÄƒ o linie de transport, relanseazÄƒ Auto Line Color pentru acea linie (necesitÄƒ o strategie de culoare activatÄƒ).
+LINE_PANEL_COPY CopiazÄƒ
+LINE_PANEL_PASTE LipeÈ™te
+SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK â˜… Safe â€” everything optional stays OFF (best with many mods).\nâ˜… Vanilla â€” closest to the base game (no IPT extras).\nâ˜… Recommended â€” IPT core only: budget fleet, unbunching, intercity, sub-tabs, unstucker, advanced stops, elevated stops.\nâ˜… Realistic â€” most features on (stronger sim, more cost).\nâ˜… Custom â€” you choose every toggle; profiles never override Custom again until you pick another package.
 SETTINGS_QUICK_TIPS_GROUP Sfaturi rapide
-SETTINGS_QUICK_TIPS_DESC Mici reamintiri — fără cod suplimentar, doar cum să foloseşti ce ai deja.
-SETTINGS_QUICK_TIP_1_TITLE Începe simplu
-SETTINGS_QUICK_TIP_1_BODY Alege Recomandat, apoi activează doar ce ai nevoie. Sigur este cel mai bun dacă foloseşti multe alte moduri.
+SETTINGS_QUICK_TIPS_DESC Mici reamintiri â€” fÄƒrÄƒ cod suplimentar, doar cum sÄƒ foloseÅŸti ce ai deja.
+SETTINGS_QUICK_TIP_1_TITLE ÃŽncepe simplu
+SETTINGS_QUICK_TIP_1_BODY Alege Recomandat, apoi activeazÄƒ doar ce ai nevoie. Sigur este cel mai bun dacÄƒ foloseÅŸti multe alte moduri.
 SETTINGS_QUICK_TIP_2_TITLE PC lent?
-SETTINGS_QUICK_TIP_2_BODY Sistem → Perf → Uşor. De asemenea, evită Navetiştul “Hartă completă” dacă FPS scade.
-SETTINGS_QUICK_TIP_3_TITLE După comutatoare
-SETTINGS_QUICK_TIP_3_BODY Unele opțiuni necesită reîncărcare oraş (tooltip spune aşa). Sistem → Compat verifică modurile în conflict.
-SETTINGS_OOC_RESET_TOOLTIP Resetează aşteptare conexiune exterioară, trafic decorativ și comutatoare conexe la impliciti Sigur.
-SETTINGS_EBS_GROUP_BUS_DESC Autobuzele expres pot pleca mai devreme când urcă puțini pasageri — spațiere avansată opțională.
-SETTINGS_TRAINDISPLAY_EXTRAS_GROUP Rânduri suplimentare
-SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop schimbă doar locul unde opresc autobuzele la stație. Opțiunile de mai jos sunt caracteristici separate (ridicate, stații partajate, etc.) — rămân clickabile în scop.
+SETTINGS_QUICK_TIP_2_BODY Sistem â†’ Perf â†’ UÅŸor. De asemenea, evitÄƒ NavetiÅŸtul â€œHartÄƒ completÄƒâ€ dacÄƒ FPS scade.
+SETTINGS_QUICK_TIP_3_TITLE DupÄƒ comutatoare
+SETTINGS_QUICK_TIP_3_BODY Unele opÈ›iuni necesitÄƒ reÃ®ncÄƒrcare oraÅŸ (tooltip spune aÅŸa). Sistem â†’ Compat verificÄƒ modurile Ã®n conflict.
+SETTINGS_OOC_RESET_TOOLTIP ReseteazÄƒ aÅŸteptare conexiune exterioarÄƒ, trafic decorativ È™i comutatoare conexe la impliciti Sigur.
+SETTINGS_EBS_GROUP_BUS_DESC Autobuzele expres pot pleca mai devreme cÃ¢nd urcÄƒ puÈ›ini pasageri â€” spaÈ›iere avansatÄƒ opÈ›ionalÄƒ.
+SETTINGS_TRAINDISPLAY_EXTRAS_GROUP RÃ¢nduri suplimentare
+SETTINGS_SUB_NET_BBSP_NOTE Better Bus Stop schimbÄƒ doar locul unde opresc autobuzele la staÈ›ie. OpÈ›iunile de mai jos sunt caracteristici separate (ridicate, staÈ›ii partajate, etc.) â€” rÄƒmÃ¢n clickabile Ã®n scop.
 SETTINGS_HIDDENBEHAVIOUR_GROUP Comportamente mereu active
-SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC Două comportamente mici care rulau mereu, fără nicio modalitate de a le opri, până acum. Activate implicit, astfel încât instalările existente nu observă nicio schimbare - dezactivează-le dacă folosești un mod separat care face același lucru, sau pur și simplu preferi controlul manual.
-SETTINGS_AUTONAMESTOPS_ENABLE Denumire automată a stațiilor fără nume
-SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Prima dată când selectezi o stație fără nume, i se atribuie același nume de clădire din apropiere pe care l-ar sugera meniul derulant propriu al panoului stației - fără a fi nevoie să deschizi acel meniu. Nu atinge niciodată un nume deja setat de tine (sau de această funcție).
+SETTINGS_HIDDENBEHAVIOUR_GROUP_DESC DouÄƒ comportamente mici care rulau mereu, fÄƒrÄƒ nicio modalitate de a le opri, pÃ¢nÄƒ acum. Activate implicit, astfel Ã®ncÃ¢t instalÄƒrile existente nu observÄƒ nicio schimbare - dezactiveazÄƒ-le dacÄƒ foloseÈ™ti un mod separat care face acelaÈ™i lucru, sau pur È™i simplu preferi controlul manual.
+SETTINGS_AUTONAMESTOPS_ENABLE Denumire automatÄƒ a staÈ›iilor fÄƒrÄƒ nume
+SETTINGS_AUTONAMESTOPS_ENABLE_TOOLTIP Prima datÄƒ cÃ¢nd selectezi o staÈ›ie fÄƒrÄƒ nume, i se atribuie acelaÈ™i nume de clÄƒdire din apropiere pe care l-ar sugera meniul derulant propriu al panoului staÈ›iei - fÄƒrÄƒ a fi nevoie sÄƒ deschizi acel meniu. Nu atinge niciodatÄƒ un nume deja setat de tine (sau de aceastÄƒ funcÈ›ie).
 SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE Rescue Fullwidth Digits (Gansaku)
-SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portat din modul independent Rescue Fullwidth Digits. Corectează numele liniilor de transport salvate cu cifre fullwidth (１２３ în loc de 123) de unele configurații IME/de intrare, care altfel s-ar afișa greșit permanent.
-CHANGELOG_4_8_6_1 A fost reactivată Destinația navetiștilor: comutatorul din Opțiuni este din nou disponibil și funcționează live, fără a fi nevoie de reîncărcare.
-CHANGELOG_4_8_6_2 A fost verificată fiecare integrare opțională pentru un "dezactivat înseamnă cu adevărat dezactivat": Elevated Stops Enabler rescria permanent datele prefab ale drumurilor fără nicio modalitate de a anula, iar Auto Line Budget continua să gestioneze liniile în fundal după ce era dezactivat la mijlocul sesiunii. Ambele revin acum complet la comportamentul vanilla când sunt dezactivate.
-CHANGELOG_4_8_6_3 Au fost găsite două comportamente care rulau mereu fără nicio modalitate de a le opri - denumirea automată a stațiilor fără nume și Rescue Fullwidth Digits (Gansaku) - și au fost adăugate comutatoare pentru ambele sub Opțiuni → Avansat. Activate implicit, deci nimic nu se schimbă decât dacă le dezactivezi.
-SETTINGS_FUTURE_BUSWAYPOINT Stații waypoint autobuz (în curând)
-SETTINGS_FUTURE_BUSWAYPOINT_TIP Planificat: marchează o stație ca punct de trecere al rutării doar – traseul liniei trece prin ea, dar vehiculele nu opresc niciodată și nu încarcă/descarcă pasageri acolo. Ajută la ghidarea pathfinding-ului vanilla pe strada pe care ai vrut-o. Inca indisponibil.
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Selectare avansată stație: alege linia exactă
-SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Ține apăsat în timp ce plasezi o conexiune stație tren/tram pentru a ținti linia exactă în locul celei mai apropiate valide. Era hardcodat pe Shift stânga/dreapta; reasignarea aici acoperă doar pagina aleasă.
-SETTINGS_LEGACY_GROUP Moștenire
-SETTINGS_LEGACY_GROUP_DESC Comutatoare vechi păstrate doar pentru ca instalările care le aveau deja activate să continue să funcționeze exact ca înainte. Blocate – nu mai pot fi activate/dezactivate de aici, și fiecare profil de joc le lasă dezactivate în viitor.
-CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options → Advanced → Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
+SETTINGS_RESCUEFULLWIDTHDIGITS_ENABLE_TOOLTIP Portat din modul independent Rescue Fullwidth Digits. CorecteazÄƒ numele liniilor de transport salvate cu cifre fullwidth (ï¼‘ï¼’ï¼“ Ã®n loc de 123) de unele configuraÈ›ii IME/de intrare, care altfel s-ar afiÈ™a greÈ™it permanent.
+CHANGELOG_4_8_6_1 A fost reactivatÄƒ DestinaÈ›ia navetiÈ™tilor: comutatorul din OpÈ›iuni este din nou disponibil È™i funcÈ›ioneazÄƒ live, fÄƒrÄƒ a fi nevoie de reÃ®ncÄƒrcare.
+CHANGELOG_4_8_6_2 A fost verificatÄƒ fiecare integrare opÈ›ionalÄƒ pentru un "dezactivat Ã®nseamnÄƒ cu adevÄƒrat dezactivat": Elevated Stops Enabler rescria permanent datele prefab ale drumurilor fÄƒrÄƒ nicio modalitate de a anula, iar Auto Line Budget continua sÄƒ gestioneze liniile Ã®n fundal dupÄƒ ce era dezactivat la mijlocul sesiunii. Ambele revin acum complet la comportamentul vanilla cÃ¢nd sunt dezactivate.
+CHANGELOG_4_8_6_3 Au fost gÄƒsite douÄƒ comportamente care rulau mereu fÄƒrÄƒ nicio modalitate de a le opri - denumirea automatÄƒ a staÈ›iilor fÄƒrÄƒ nume È™i Rescue Fullwidth Digits (Gansaku) - È™i au fost adÄƒugate comutatoare pentru ambele sub OpÈ›iuni â†’ Avansat. Activate implicit, deci nimic nu se schimbÄƒ decÃ¢t dacÄƒ le dezactivezi.
+SETTINGS_FUTURE_BUSWAYPOINT StaÈ›ii waypoint autobuz (Ã®n curÃ¢nd)
+SETTINGS_FUTURE_BUSWAYPOINT_TIP Planificat: marcheazÄƒ o staÈ›ie ca punct de trecere al rutÄƒrii doar â€“ traseul liniei trece prin ea, dar vehiculele nu opresc niciodatÄƒ È™i nu Ã®ncarcÄƒ/descarcÄƒ pasageri acolo. AjutÄƒ la ghidarea pathfinding-ului vanilla pe strada pe care ai vrut-o. Inca indisponibil.
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT Selectare avansatÄƒ staÈ›ie: alege linia exactÄƒ
+SETTINGS_HOTKEY_ADVSTOPSELECT_ALT_TOOLTIP Èšine apÄƒsat Ã®n timp ce plasezi o conexiune staÈ›ie tren/tram pentru a È›inti linia exactÄƒ Ã®n locul celei mai apropiate valide. Era hardcodat pe Shift stÃ¢nga/dreapta; reasignarea aici acoperÄƒ doar pagina aleasÄƒ.
+SETTINGS_LEGACY_GROUP MoÈ™tenire
+SETTINGS_LEGACY_GROUP_DESC Comutatoare vechi pÄƒstrate doar pentru ca instalÄƒrile care le aveau deja activate sÄƒ continue sÄƒ funcÈ›ioneze exact ca Ã®nainte. Blocate â€“ nu mai pot fi activate/dezactivate de aici, È™i fiecare profil de joc le lasÄƒ dezactivate Ã®n viitor.
+CHANGELOG_4_8_7_1 Bus stop berth stacking is now a locked legacy toggle under Options â†’ Advanced â†’ Legacy: installs that already had it on keep working exactly as before, but it can no longer be turned on for new installs and no gameplay profile enables it anymore.
 CHANGELOG_4_8_7_2 Removed wording from the Workshop page and in-game tooltip that referenced another author's mod by name, at their request.
+
+# === Added fallback translations (auto-generated) ===
+CHANGELOG_4_8_8_1 Passenger destination overlay (Experimental): found and fixed a real bug where two of the mod's own patches were silently colliding on the same click - but real-play testing still shows the icons/panel not reliably appearing. Stays off by default and Experimental until this is fully sorted out.
+CHANGELOG_4_8_8_2 Budget control checkbox no longer unchecks itself the moment you tick it.
+CHANGELOG_4_8_8_3 Vehicle route panel's performance profile (Light/Normal/Maximum) now actually changes its update rate - previously had no visible effect for most players.
+CHANGELOG_4_8_8_4 Fixed several vehicle pathing glitches near depots and stops, including buses clipping into terrain/bridges and an occasional premature U-turn.
+CHANGELOG_4_8_8_5 Guarded against a real crash some players could hit on certain saves - not caused by this mod, but guarded anyway since it patches the same game method.
+CHANGELOG_4_8_8_6 This panel now shows a real, auto-computed percentage of how much of the mod's own text is translated into your language, instead of a number that could go stale.
+
+CHANGELOG_4_8_9_1 Șase comutatoare principale de funcții în Opțiuni (Debunching, Buget, Culoare automată linie, Afișaj tren, Editor vehicule, Stații & Gări). Dezactivate implicit; dezactivarea unuia blochează și setările sale copil și oprește patch-urile aferente.
+CHANGELOG_4_8_9_2 Treisprezece noi taste rapide configurabile (deschide panoul liniei, comută debunching, copiază/lipește configurația liniei, editor vehicule, Flight Tracker, vehiculul anterior/următor și altele), toate reconfigurabile în Opțiuni → Atribuiri taste.
+CHANGELOG_4_8_9_3 Afișarea destinației pasagerilor reconstruită ca o suprapunere de hartă clean-room (cercuri + numărători). Portul panoului vechi a fost eliminat. Încă experimentală și dezactivată implicit până când este confirmată ca solidă în joc real.
+CHANGELOG_4_8_9_4 Controlul autobuzelor interurbane restaurează acum prefab-urile originale ale stației când este dezactivat și reconectează conexiunile externe, astfel încât stațiile convertite să nu se mai comporte ciudat după dezactivarea comutatorului.
+CHANGELOG_4_8_9_5 Afișaj tren: intervalul este acum fix per profil de performanță (fără glisor), nouă listă drop-down pentru domeniu (Vehicul selectat / Cameră first-person / Ambele), iar First Person Camera - Continued este detectat, astfel încât suprapunerea poate urmări vizualizarea first-person.
+CHANGELOG_4_8_9_6 Întărirea siguranței thread-urilor și a limitelor în nucleul partajat și datele de salvare (lăzi de coadă, citiri mai sigure ale buffer-ului, erori mai clare la salvele corpute). Găsirea traseului pentru autobuzul expres eșuează deschis în loc de a îngheța un autobuz.
+CHANGELOG_4_8_9_7 Opțiuni → Sistem → Compat: Lista modurilor însoțitoare recomandate (CSL Map View, Stop Stacker, TM:PE, First Person Camera - Continued, One-Way Train Tracks, Commuter Destination) cu butoane de deschidere Workshop.
+CHANGELOG_4_8_9_8 Vehiculele Workshop care vin ca Placement.Procedural nu mai sunt ascunse din listele de vehicule selectabile.
+SETTINGS_COMPAT_RECOMMENDED_DESCRIPTION Companion mods are NOT absorbed by IPT4 - they integrate with it, so install both: IPT4 and the mod from the list.\nSome IPT4 features only activate when the companion is installed (e.g. the Train Display overlay in first-person view needs First Person Camera).
+SETTINGS_COMPAT_RECOMMENDED_GROUP Recommended companion mods
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST Commuter Destination
+SETTINGS_COMPAT_RECOMMENDED_MOD_COMMUTERDEST_DESC Shows where all passengers waiting at a public transport stop want to go. Recommended while IPT4's own destination display is not ready yet - it will be absorbed by IPT4 later and then removed from this list.
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA First Person Camera - Continued
+SETTINGS_COMPAT_RECOMMENDED_MOD_FPSCAMERA_DESC Follow citizens and vehicles in first-person view. Required for the IPT4 Train Display overlay in first-person mode.
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW CSL Map View
+SETTINGS_COMPAT_RECOMMENDED_MOD_MAPVIEW_DESC Exports a full image of your city map (png/jpeg/bmp/svg) plus heightmaps via its own external viewer.
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS One-Way Train Tracks
+SETTINGS_COMPAT_RECOMMENDED_MOD_OWTRAINTRACKS_DESC Adds single and double one-way train tracks, single station tracks and two-way single tracks.
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER Stop Stacker
+SETTINGS_COMPAT_RECOMMENDED_MOD_STOPSTACKER_DESC Turns crowded bus stops into readable shared stops: visible B1/B2/B3 berth markers, waiting areas and live info; several buses can load and unload at the same time.
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE TM:PE (Traffic Manager: President Edition)
+SETTINGS_COMPAT_RECOMMENDED_MOD_TMPE_DESC Improves lane and parking usage, customizes junctions, roads and rails, and adds advanced pathfinding.
+SETTINGS_COMPAT_RECOMMENDED_OPEN_BUTTON Open on Workshop
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED Budget control checkbox stays checked when smart-managed (soon)
+SETTINGS_FUTURE_BUDGETCONTROL_STAYCHECKED_TIP Planned: right now, once Automatic fleet sizing takes over a line, its Budget control checkbox unchecks itself to signal that - by design, but confusing to look at. This will separate "the game's own budget math" from "IPT is managing this line" internally, so the checkbox can stay checked the whole time. Not available yet.
+SETTINGS_FUTURE_LINEHISTORY Line history log (soon)
+SETTINGS_FUTURE_LINEHISTORY_TIP Planned: keep a log of each line's changes over time so you can look back at how a route evolved. Not available yet.
+SETTINGS_FUTURE_LINEMAP Generate a line network map (soon)
+SETTINGS_FUTURE_LINEMAP_TIP Planned: generate a map of all the city's transport lines and save it to a folder on your computer, like a simple schematic overview. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH Route branch/loop detection (soon)
+SETTINGS_FUTURE_ROUTEPANEL_BRANCH_TIP Planned: warn on the vehicle route panel when a line loops back on itself or splits into more than two branches, instead of assuming a simple end-to-end route. Not available yet.
+SETTINGS_FUTURE_ROUTEPANEL_TTS Spoken next-stop announcements (soon)
+SETTINGS_FUTURE_ROUTEPANEL_TTS_TIP Planned: optional text-to-speech announcement of the next stop, matching the original mod this panel is based on. Not available yet.
+SETTINGS_FUTURE_STOPPLACER Suggest the best place for a stop (soon)
+SETTINGS_FUTURE_STOPPLACER_TIP Planned: analyze the area around a road/network and suggest the best spot to place a bus stop or other stop, including the distance between stops. Not available yet.
+SETTINGS_FUTURE_STTAI_QUEUE Fair train ordering on single track (soon)
+SETTINGS_FUTURE_STTAI_QUEUE_TIP Planned: track how long each train has been waiting for a single-track section, so the train that arrived first gets it first instead of whichever happens to be processed first that tick. Not available yet.
+SETTINGS_HOTKEY_COPY_LINE_CONFIG Copy line settings
+SETTINGS_HOTKEY_COPY_LINE_CONFIG_TOOLTIP Copy vehicle, budget, depot, ticket price and color settings from the currently selected line.
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS Copy to lines serving same buildings
+SETTINGS_HOTKEY_COPY_TO_BUILDINGS_TOOLTIP Copy the current line's settings to all other lines that serve the same nearby buildings or stations.
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS Copy to lines serving same districts
+SETTINGS_HOTKEY_COPY_TO_DISTRICTS_TOOLTIP Copy the current line's settings to all other lines that serve the same districts or park areas.
+SETTINGS_HOTKEY_NEXT_VEHICLE Next vehicle
+SETTINGS_HOTKEY_NEXT_VEHICLE_TOOLTIP Switch to the next vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER Open flight tracker
+SETTINGS_HOTKEY_OPEN_FLIGHT_TRACKER_TOOLTIP Open the airport flight tracker panel for the currently selected building. Needs the Flight Tracker feature enabled.
+SETTINGS_HOTKEY_OPEN_LINE_PANEL Open/close line panel
+SETTINGS_HOTKEY_OPEN_LINE_PANEL_TOOLTIP Open the panel of the currently selected transport line. Press again to close it.
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG Paste line settings
+SETTINGS_HOTKEY_PASTE_LINE_CONFIG_TOOLTIP Paste previously copied line settings onto the currently selected line.
+SETTINGS_HOTKEY_PREV_VEHICLE Previous vehicle
+SETTINGS_HOTKEY_PREV_VEHICLE_TOOLTIP Switch to the previous vehicle of the current line in the vehicle panel.
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES Select vehicle types
+SETTINGS_HOTKEY_SELECT_VEHICLE_TYPES_TOOLTIP Open the vehicle type selector panel for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING Toggle line unbunching
+SETTINGS_HOTKEY_TOGGLE_LINE_UNBUNCHING_TOOLTIP Enable or disable vehicle unbunching for the currently selected line.
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR Toggle vehicle editor
+SETTINGS_HOTKEY_TOGGLE_VEHICLE_EDITOR_TOOLTIP Show or hide the vehicle editor panel.
+SETTINGS_KOFI_BUTTON Support me on Ko-fi
+SETTINGS_KOFI_DESCRIPTION Help fund continued IPT4 development.
+SETTINGS_KOFI_GROUP Support IPT4
+SETTINGS_KOFI_LINK Support on Ko-fi
+SETTINGS_MODTRANSLATION_GROUP Mod text translated
+SETTINGS_MODTRANSLATION_GROUP_TOOLTIP How much of this mod's own text - menus, tooltips, in-game panels - is translated into your language. This is different from "Translation Progress" above, which only covers a handful of generic buttons like OK and Cancel, not this mod's actual content. If you still see some English here, a full translation for your language is on its way.
+SETTINGS_TRAINDISPLAY_LAYOUT_CLASSIC Classic
+SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
+SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
+TRAINDISPLAY_LABEL_NEXTSTOP Next stop
