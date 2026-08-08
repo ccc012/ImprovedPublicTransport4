@@ -687,3 +687,5 @@ SETTINGS_FUTURE_STOPPLACER Sugerir o melhor lugar para uma parada (em breve)
 SETTINGS_FUTURE_STOPPLACER_TIP Planejado: analisar a área ao redor de uma estrada/rede e sugerir o melhor lugar para colocar uma parada de ônibus ou outra, incluindo a distância entre paradas. Ainda não disponível.
 SETTINGS_FUTURE_LINEHISTORY Histórico de linhas (em breve)
 SETTINGS_FUTURE_LINEHISTORY_TIP Planejado: manter um registro das mudanças de cada linha ao longo do tempo para você ver como uma rota evoluiu. Ainda não disponível.
+
+ZOOM_BUILDING Zoom the camera to this line.

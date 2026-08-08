@@ -14,6 +14,13 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.9.2] Add Vehicle click debounce only (issue #2)
+
+Fixes spam-click Add/Remove Vehicle without touching the font engine.
+
+- `PanelExtenderLine`: 120 ms debounce on Add/Remove Vehicle; resolve `lineId` on the UI thread before queueing sim work; capture prefab name from the clicked row on the UI thread.
+- **Not** included: native `Font.RequestCharactersInTexture` re-entrancy guard from 4.8.9.1 (broke street-name glyphs and Play It — issue #3). Colossal `UIDynamicFont.RequestCharacters` guard from 4.8.9 stays as-is.
+
 ## [4.8.9] Feature master switches, hotkey system, clean-room CommuterDestination overlay, thread-safety hardening
 
 Not a module bump - no new integrations were absorbed. This release is a

@@ -67,6 +67,11 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
         private UITextField _colorTextField;
         private UIButton _autoColorRefreshBtn;
 
+        // UI-thread debounce for Add/Remove Vehicle (issue #2 spam-click).
+        private const float VehicleClickMinInterval = 0.2f; // max 5 clicks/s; ponytail: option later
+        private float _nextAddVehicleClickTime;
+        private float _nextRemoveVehicleClickTime;
+
         public PanelExtenderLine()
         {
             Dictionary<ItemClassTriplet, bool> dictionary = new Dictionary<ItemClassTriplet, bool>();
@@ -1050,11 +1055,25 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
         private void OnAddVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
         {
+            // Resolve line on UI thread + debounce before queueing sim work (issue #2).
+            float now = Time.realtimeSinceStartup;
+            if (now < _nextAddVehicleClickTime)
+                return;
+            _nextAddVehicleClickTime = now + VehicleClickMinInterval;
+
+            ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
+            if (lineId == 0)
+                return;
+
+            var row = component as VehicleListBoxRow;
+            string prefabFromRow = row?.Prefab?.Name;
+
             SimulationManager.instance.AddAction(() =>
             {
-                ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
                 var transportManager = Singleton<TransportManager>.instance;
-                if (lineId == 0 || transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
+                if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
+                    return;
+                if ((transportManager.m_lines.m_buffer[lineId].m_flags & TransportLine.Flags.Created) == 0)
                     return;
 
                 ushort depot = CachedTransportLineData.GetDepot(lineId);
@@ -1075,8 +1094,9 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                     !DepotUtil.CanAddVehicle(depot, ref buildingManager.m_buildings.m_buffer[depot], info))
                     return;
 
-                var row = component as VehicleListBoxRow;
-                string prefabName = row?.Prefab?.Name ?? CachedTransportLineData.GetRandomPrefab(lineId);
+                string prefabName = !string.IsNullOrEmpty(prefabFromRow)
+                    ? prefabFromRow
+                    : CachedTransportLineData.GetRandomPrefab(lineId);
                 VehicleInfo prefab = string.IsNullOrEmpty(prefabName)
                     ? null
                     : PrefabCollection<VehicleInfo>.FindLoaded(prefabName);
@@ -1094,13 +1114,24 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
         private void OnRemoveVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
         {
+            float now = Time.realtimeSinceStartup;
+            if (now < _nextRemoveVehicleClickTime)
+                return;
+            _nextRemoveVehicleClickTime = now + VehicleClickMinInterval;
+
+            ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
+            if (lineId == 0)
+                return;
+
             SimulationManager.instance.AddAction(() =>
             {
-                ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-                if (lineId == 0)
+                var transportManager = Singleton<TransportManager>.instance;
+                if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
+                    return;
+                if ((transportManager.m_lines.m_buffer[lineId].m_flags & TransportLine.Flags.Created) == 0)
                     return;
 
-                TransportInfo info = Singleton<TransportManager>.instance.m_lines.m_buffer[lineId].Info;
+                TransportInfo info = transportManager.m_lines.m_buffer[lineId].Info;
                 if (info == null)
                     return;
 

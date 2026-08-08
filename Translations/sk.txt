@@ -691,3 +691,5 @@ SETTINGS_TRAINDISPLAY_LAYOUT_DETAILED Detailed
 SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP Show next stop
 SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout that updates as the vehicle advances along the line.
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
+
+ZOOM_BUILDING Zoom the camera to this line.

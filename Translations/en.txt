@@ -1,4 +1,4 @@
-CURRENT_WEEK Current week
+﻿CURRENT_WEEK Current week
 LAST_WEEK Last week
 AVERAGE Average
 AVERAGE_TOOLTIP Average of the last {0} weeks.
@@ -373,6 +373,7 @@ SETTINGS_TRAINDISPLAY_THEME_BLACKSEMI Black (semi-transparent)
 SETTINGS_TRAINDISPLAY_THEME_TOOLTIP Choose the overlay's background/text colors.
 COPY_TIP Copy this line's settings.
 PASTE_TIP Paste the copied line settings.
+ZOOM_BUILDING Zoom the camera to this line.
 COPY_BUILDING_TIP Copy these settings to all lines serving this building.
 COPY_DISTRICT_TIP Copy these settings to all lines in this district.
 SETTINGS_INTERCITY_BUS_ENABLE Enable Intercity Bus Control

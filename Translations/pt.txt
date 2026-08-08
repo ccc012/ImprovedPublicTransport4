@@ -687,3 +687,5 @@ SETTINGS_TRAINDISPLAY_SCOPE_TOOLTIP Escolha veículo selecionado, câmera em pri
 SETTINGS_KOFI_GROUP Apoiar IPT4
 SETTINGS_KOFI_DESCRIPTION Ajude a financiar o desenvolvimento contínuo do IPT4.
 SETTINGS_KOFI_BUTTON Apoie-me no Ko-fi
+
+ZOOM_BUILDING Zoom the camera to this line.
