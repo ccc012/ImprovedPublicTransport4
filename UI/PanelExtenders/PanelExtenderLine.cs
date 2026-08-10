@@ -1062,7 +1062,7 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             _nextAddVehicleClickTime = now + VehicleClickMinInterval;
 
             ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-            if (lineId == 0)
+            if (lineId == 0 || !Singleton<SimulationManager>.exists)
                 return;
 
             var row = component as VehicleListBoxRow;
@@ -1071,9 +1071,10 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             SimulationManager.instance.AddAction(() =>
             {
                 var transportManager = Singleton<TransportManager>.instance;
-                if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
+                if (transportManager == null || lineId >= transportManager.m_lines.m_size)
                     return;
-                if ((transportManager.m_lines.m_buffer[lineId].m_flags & TransportLine.Flags.Created) == 0)
+                if ((transportManager.m_lines.m_buffer[lineId].m_flags &
+                     (TransportLine.Flags.Created | TransportLine.Flags.Deleted)) != TransportLine.Flags.Created)
                     return;
 
                 ushort depot = CachedTransportLineData.GetDepot(lineId);
@@ -1120,15 +1121,21 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
             _nextRemoveVehicleClickTime = now + VehicleClickMinInterval;
 
             ushort lineId = WorldInfoCurrentLineIDQuery.Query(out _);
-            if (lineId == 0)
+            if (lineId == 0 || !Singleton<SimulationManager>.exists)
                 return;
+
+            int[] selectedIndexes = _vehiclesInQueueListBox?.SelectedIndexes ?? new int[0];
+            HashSet<ushort> selectedVehicles = _lineVehicleListBox == null
+                ? new HashSet<ushort>()
+                : new HashSet<ushort>(_lineVehicleListBox.SelectedVehicles);
 
             SimulationManager.instance.AddAction(() =>
             {
                 var transportManager = Singleton<TransportManager>.instance;
-                if (transportManager == null || lineId >= transportManager.m_lines.m_buffer.Length)
+                if (transportManager == null || lineId >= transportManager.m_lines.m_size)
                     return;
-                if ((transportManager.m_lines.m_buffer[lineId].m_flags & TransportLine.Flags.Created) == 0)
+                if ((transportManager.m_lines.m_buffer[lineId].m_flags &
+                     (TransportLine.Flags.Created | TransportLine.Flags.Deleted)) != TransportLine.Flags.Created)
                     return;
 
                 TransportInfo info = transportManager.m_lines.m_buffer[lineId].Info;
@@ -1136,20 +1143,6 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
                     return;
 
                 CachedTransportLineData.SetBudgetControlState(lineId, false);
-                
-                int[] selectedIndexes = new int[0];
-                HashSet<ushort> selectedVehicles = new HashSet<ushort>();
-                
-                lock (_vehiclesInQueueListBox)
-                {
-                    if (_vehiclesInQueueListBox != null)
-                        selectedIndexes = _vehiclesInQueueListBox.SelectedIndexes;
-                }
-                lock (_lineVehicleListBox)
-                {
-                    if (_lineVehicleListBox != null)
-                        selectedVehicles = new HashSet<ushort>(_lineVehicleListBox.SelectedVehicles);
-                }
                 int targetVehicleCount = CachedTransportLineData.GetTargetVehicleCount(lineId);
 
                 if (selectedIndexes.Length > 0)
@@ -1160,14 +1153,19 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
                 if (selectedVehicles.Count > 0)
                 {
+                    var vehicleManager = Singleton<VehicleManager>.instance;
+                    if (vehicleManager == null)
+                        return;
+
                     int removedVehicles = 0;
                     foreach (ushort vehicleID in selectedVehicles)
                     {
-                        if (vehicleID == 0)
+                        if (vehicleID == 0 || vehicleID >= vehicleManager.m_vehicles.m_size)
                             continue;
 
-                        Vehicle vehicle = Singleton<VehicleManager>.instance.m_vehicles.m_buffer[vehicleID];
-                        if (vehicle.Info == null || (vehicle.m_flags & Vehicle.Flags.Deleted) != 0)
+                        Vehicle vehicle = vehicleManager.m_vehicles.m_buffer[vehicleID];
+                        if (vehicle.Info == null || vehicle.m_transportLine != lineId ||
+                            (vehicle.m_flags & (Vehicle.Flags.Created | Vehicle.Flags.Deleted)) != Vehicle.Flags.Created)
                             continue;
 
                         TransportLineUtil.RemoveVehicle(lineId, vehicleID, true);

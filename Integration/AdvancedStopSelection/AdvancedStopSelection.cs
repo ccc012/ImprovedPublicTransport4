@@ -94,8 +94,15 @@ namespace ImprovedPublicTransport.Integration.AdvancedStopSelection
 
         private static bool GetAlternateMode()
         {
-            return ModSetting.Instance.EnableAdvancedStopSelection
-                && Settings.IptHotkeys.AdvancedStopSelectionAlternateKey.Combination.IsPressed();
+            if (!ModSetting.Instance.EnableAdvancedStopSelection)
+            {
+                return false;
+            }
+
+            var combination = Settings.IptHotkeys.AdvancedStopSelectionAlternateKey.Combination;
+            return combination.Key == UnityEngine.KeyCode.LeftShift && combination.Modifiers == CSLModsCommon.KeyBindings.ModifierFlags.None
+                ? CSLModsCommon.KeyBindings.ModifierFlagsExtensions.IsShiftDown()
+                : combination.IsPressed();
         }
 
         private static List<int> FindTransportInfoLocals(IEnumerable<CodeInstruction> instructions)

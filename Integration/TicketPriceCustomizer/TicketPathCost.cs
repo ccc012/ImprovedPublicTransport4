@@ -1,5 +1,7 @@
 // Optional pathfinding cost on public-transport stop lanes (like road tolls use m_ticketCost).
 using System;
+using System.Collections.Generic;
+using System.Threading;
 using ColossalFramework;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
@@ -15,9 +17,21 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
     internal static class TicketPathCost
     {
         private const byte MaxCost = 40;
+        private static readonly Dictionary<uint, byte> PreviousCosts = new Dictionary<uint, byte>();
+        private static readonly Dictionary<uint, byte> AppliedCosts = new Dictionary<uint, byte>();
+        private static int _applyQueued;
 
         public static void ApplyFromSettings()
         {
+            if (Interlocked.CompareExchange(ref _applyQueued, 1, 0) == 0)
+            {
+                Singleton<SimulationManager>.instance.AddAction(Apply);
+            }
+        }
+
+        private static void Apply()
+        {
+            Interlocked.Exchange(ref _applyQueued, 0);
             if (!ModSetting.Instance.EnableTicketPathfindingCost
                 || ModSetting.Instance.TicketPriceCustomizerMode != ModSetting.TicketPriceCustomizerModes.Enabled)
             {
@@ -27,55 +41,106 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
             try
             {
-                var tm = Singleton<TransportManager>.instance;
+                ClearAllStopLaneCosts();
                 var nm = Singleton<NetManager>.instance;
-                if (tm == null || nm == null)
+                if (nm == null)
                 {
                     return;
                 }
 
-                // Sample average ticket price across active lines (ushort, vanilla default ~100).
-                long sum = 0;
-                var count = 0;
-                for (ushort i = 1; i < tm.m_lines.m_buffer.Length; i++)
+                var settings = ModSetting.Instance.TicketPriceCustomizer;
+                if (settings == null)
                 {
-                    ref var line = ref tm.m_lines.m_buffer[i];
-                    if ((line.m_flags & TransportLine.Flags.Complete) == 0)
-                    {
-                        continue;
-                    }
-
-                    sum += line.m_ticketPrice;
-                    count++;
+                    return;
                 }
 
-                var avg = count > 0 ? (int)(sum / count) : 100;
-                // Map ~50–200 ticket price into 0–MaxCost path cost.
-                var cost = (byte)Mathf.Clamp(avg / 5, 0, MaxCost);
-
+                var isNight = Singleton<SimulationManager>.instance.m_isNightTime;
                 var applied = 0;
-                for (uint lane = 1; lane < nm.m_lanes.m_buffer.Length; lane++)
+                for (ushort segmentId = 1; segmentId < nm.m_segments.m_buffer.Length; segmentId++)
                 {
-                    ref var l = ref nm.m_lanes.m_buffer[lane];
-                    var flags = (NetLane.Flags)l.m_flags;
-                    if ((flags & (NetLane.Flags.Stop | NetLane.Flags.Stop2)) == 0)
+                    ref var segment = ref nm.m_segments.m_buffer[segmentId];
+                    var info = segment.Info;
+                    if (info == null || info.m_lanes == null)
                     {
                         continue;
                     }
 
-                    l.m_ticketCost = cost;
-                    applied++;
+                    var laneId = segment.m_lanes;
+                    for (var laneIndex = 0; laneIndex < info.m_lanes.Length && laneId != 0; laneIndex++)
+                    {
+                        ref var lane = ref nm.m_lanes.m_buffer[laneId];
+                        var nextLane = lane.m_nextLane;
+                        var flags = (NetLane.Flags)lane.m_flags;
+                        var cost = GetCost(info.m_lanes[laneIndex], settings, isNight);
+                        if ((flags & (NetLane.Flags.Stop | NetLane.Flags.Stop2)) != 0 && cost != 0)
+                        {
+                            if (!PreviousCosts.ContainsKey(laneId))
+                            {
+                                PreviousCosts.Add(laneId, lane.m_ticketCost);
+                            }
+
+                            lane.m_ticketCost = cost;
+                            AppliedCosts[laneId] = cost;
+                            applied++;
+                        }
+
+                        laneId = nextLane;
+                    }
                 }
 
                 if (Diagnostics.VerboseRuntimeLogs)
                 {
-                    Utils.Log($"TicketPathCost: applied cost={cost} on {applied} stop lanes (avg ticket={avg}).");
+                    Utils.Log($"TicketPathCost: applied modality costs on {applied} stop lanes.");
                 }
             }
             catch (Exception ex)
             {
                 Utils.LogError($"TicketPathCost.Apply failed: {ex.Message}");
             }
+        }
+
+        private static byte GetCost(NetInfo.Lane laneInfo, ModSetting.TicketPriceCustomizerSettings settings, bool isNight)
+        {
+            var vehicleType = laneInfo.m_vehicleType;
+            float multiplier;
+            if ((vehicleType & VehicleInfo.VehicleType.Car) != 0)
+            {
+                multiplier = isNight ? settings.BusNightMultiplier : settings.BusMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.Metro) != 0)
+            {
+                multiplier = isNight ? settings.MetroNightMultiplier : settings.MetroMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.Train) != 0)
+            {
+                multiplier = isNight ? settings.TrainNightMultiplier : settings.TrainMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.Tram) != 0)
+            {
+                multiplier = isNight ? settings.TramNightMultiplier : settings.TramMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.Monorail) != 0)
+            {
+                multiplier = isNight ? settings.MonorailNightMultiplier : settings.MonorailMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.Ferry) != 0)
+            {
+                multiplier = isNight ? settings.FerryNightMultiplier : settings.FerryMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.CableCar) != 0)
+            {
+                multiplier = isNight ? settings.CableCarNightMultiplier : settings.CableCarMultiplier;
+            }
+            else if ((vehicleType & VehicleInfo.VehicleType.Trolleybus) != 0)
+            {
+                multiplier = isNight ? settings.TrolleybusNightMultiplier : settings.TrolleybusMultiplier;
+            }
+            else
+            {
+                return 0;
+            }
+
+            return (byte)Mathf.Clamp(Mathf.RoundToInt(20f * multiplier), 1, MaxCost);
         }
 
         public static void ClearAllStopLaneCosts()
@@ -88,22 +153,22 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                     return;
                 }
 
-                for (uint lane = 1; lane < nm.m_lanes.m_buffer.Length; lane++)
+                foreach (var appliedCost in AppliedCosts)
                 {
-                    ref var l = ref nm.m_lanes.m_buffer[lane];
-                    var flags = (NetLane.Flags)l.m_flags;
-                    if ((flags & (NetLane.Flags.Stop | NetLane.Flags.Stop2)) == 0)
+                    if (appliedCost.Key >= nm.m_lanes.m_buffer.Length)
                     {
                         continue;
                     }
 
-                    // Do not clear lanes that might be road-toll related without stop flags — we only
-                    // touch lanes that already have PT stop flags.
-                    if (l.m_ticketCost != 0)
+                    ref var lane = ref nm.m_lanes.m_buffer[appliedCost.Key];
+                    if (lane.m_ticketCost == appliedCost.Value && PreviousCosts.TryGetValue(appliedCost.Key, out var previousCost))
                     {
-                        l.m_ticketCost = 0;
+                        lane.m_ticketCost = previousCost;
                     }
                 }
+
+                AppliedCosts.Clear();
+                PreviousCosts.Clear();
             }
             catch (Exception ex)
             {

@@ -627,6 +627,7 @@ namespace ImprovedPublicTransport.UI
       UITextField uiTextField4 = this._rightSidePanel.Find<UITextField>("MaxSpeed");
       UICheckBox uiCheckBox = this._rightSidePanel.Find<UICheckBox>("EngineOnBothEnds");
       PrefabData prefab = GetPrefabs()[this._selectedIndex];
+      this.OnCapacitySubmitted(uiTextField1, uiTextField1.text);
       int capacity = Utils.ToInt32(uiTextField1.text) / prefab.CarCount;
       int int32_1 = Utils.ToInt32(uiTextField2.text);
       int int32_3 = Utils.ToInt32(uiTextField4.text);

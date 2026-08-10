@@ -142,8 +142,26 @@ namespace ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches
                 return true;
             }
 
-            // no unbunching for evac buses or if only 1 bus on line!
             var vehicleData = VehicleManager.instance.m_vehicles.m_buffer[currentVehicleID];
+            var authorityVehicleData = vehicleData;
+            if (authorityVehicleData.m_leadingVehicle != 0)
+            {
+                ExpressBusServices.Util.TransportVehicleUtil.FindFirstVehicleOfVehicleSet(
+                    currentVehicleID, ref authorityVehicleData, out _, out authorityVehicleData);
+            }
+            var authoritySubService = authorityVehicleData.Info?.m_class?.m_subService;
+            if (ExpressBusServices.PatchController.IsActive
+                && (authoritySubService == ItemClass.SubService.PublicTransportBus
+                    && ExpressBusServices.EBSModConfig.CurrentExpressBusMode != ExpressBusServices.EBSModConfig.ExpressMode.NONE
+                    || authoritySubService == ItemClass.SubService.PublicTransportTrolleybus
+                    && ExpressBusServices.EBSModConfig.CurrentExpressBusMode != ExpressBusServices.EBSModConfig.ExpressMode.NONE
+                    || authoritySubService == ItemClass.SubService.PublicTransportTram
+                    && ExpressBusServices.EBSModConfig.CurrentExpressTramMode != ExpressBusServices.EBSModConfig.ExpressTramMode.NONE))
+            {
+                return true;
+            }
+
+            // no unbunching for evac buses or if only 1 bus on line!
             if (vehicleData.Info?.m_class?.m_service == ItemClass.Service.Disaster ||
                 vehicleData.m_nextLineVehicle == 0 && Singleton<TransportManager>.instance.m_lines
                     .m_buffer[vehicleData.m_transportLine].m_vehicles == currentVehicleID)

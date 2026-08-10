@@ -38,7 +38,10 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
             _lastIsNight = isNight;
             var settings = ModSetting.Instance.TicketPriceCustomizer;
             if (settings != null)
+            {
                 PriceCustomization.ApplyForCurrentTime(settings);
+                TicketPathCost.ApplyFromSettings();
+            }
         }
     }
 }

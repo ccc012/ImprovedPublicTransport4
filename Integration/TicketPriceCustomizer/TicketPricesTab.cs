@@ -1165,6 +1165,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
                 // Apply whichever multiplier is active right now
                 bool isNight = Singleton<SimulationManager>.instance.m_isNightTime;
                 ApplyPriceForType(row.TransportType.Name, isNight ? nightMultiplier : dayMultiplier);
+                TicketPathCost.ApplyFromSettings();
 
                 // Save settings
                 CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
@@ -1420,6 +1421,7 @@ namespace ImprovedPublicTransport.Integration.TicketPriceCustomizer
 
                 CSLModsCommon.Manager.Domain.DefaultDomain.GetOrCreateManager<CSLModsCommon.Manager.SettingManager>().SaveSettings();
                 PriceCustomization.SetPrices(current);
+                TicketPathCost.ApplyFromSettings();
 
                 // Update all slider positions
                 foreach (var row in s_sliderRows)

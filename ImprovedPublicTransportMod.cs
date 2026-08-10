@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using CitiesHarmony.API;
 using ColossalFramework;
 using ColossalFramework.UI;
@@ -82,6 +83,7 @@ namespace ImprovedPublicTransport
             }
 
             InGame = true;
+            Query.WaitingPassengerCountQuery.ClearCache();
             try
             {
                 Utils.Log($"{ShortModName}: Begin init version: {Version}");
@@ -624,6 +626,22 @@ namespace ImprovedPublicTransport
             if (!InGame)
                 return;
             InGame = false;
+            using (var cleared = new ManualResetEvent(false))
+            {
+                Singleton<SimulationManager>.instance.AddAction(() =>
+                {
+                    try
+                    {
+                        Integration.TicketPriceCustomizer.TicketPathCost.ClearAllStopLaneCosts();
+                    }
+                    finally
+                    {
+                        cleared.Set();
+                    }
+                });
+                cleared.WaitOne();
+            }
+            Query.WaitingPassengerCountQuery.ClearCache();
             try
             {
                 Settings.IptHotkeys.Unregister();

@@ -67,6 +67,17 @@ Assert-SourceMatch "CSLModsCommonShared\UI\ValueFields\TextDocument.cs" "var las
 Assert-SourceNotMatch "UI\PanelExtenders\PanelExtenderVehicle.cs" "Vehicle\.Flags\.WaitingPath\)\s*!=\s*~" "WaitingPath is compared with an inverted all-flags mask"
 Assert-SourceMatch "UI\PanelExtenders\PanelExtenderVehicle.cs" "\(data\.m_flags & Vehicle\.Flags\.WaitingPath\) != 0" "WaitingPath is not tested as a bit flag"
 Assert-SourceMatch "UI\PreviewRenderer\PreviewRenderer.cs" "try[\s\S]*?RenderWithShader[\s\S]*?finally[\s\S]*?renderLight\.transform\.rotation = renderLightRotation[\s\S]*?SetCurrentMode\(currentMode, currentSubMode\)" "preview rendering does not transactionally restore global state"
+Assert-SourceMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "PreviousCosts\.Add\(laneId, lane\.m_ticketCost\)" "ticket path cost does not preserve lane ownership"
+Assert-SourceMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "lane\.m_ticketCost == appliedCost\.Value[\s\S]*?lane\.m_ticketCost = previousCost" "ticket path cost cleanup overwrites another owner's changes"
+Assert-SourceNotMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "for \(uint lane = 1; lane < nm\.m_lanes\.m_buffer\.Length; lane\)[\s\S]*?l\.m_ticketCost = 0" "ticket path cost cleanup still clears every stop lane"
+Assert-SourceMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "GetCost\(NetInfo\.Lane laneInfo, ModSetting\.TicketPriceCustomizerSettings settings, bool isNight\)" "ticket path cost is not classified by lane modality"
+Assert-SourceMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "VehicleInfo\.VehicleType\.Car[\s\S]*?BusNightMultiplier[\s\S]*?VehicleInfo\.VehicleType\.Metro[\s\S]*?MetroNightMultiplier" "ticket path cost cannot produce distinct bus and metro costs"
+Assert-SourceNotMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "sum \+= line\.m_ticketPrice|avg / 5" "ticket path cost still applies one citywide average"
+Assert-SourceMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "Interlocked\.CompareExchange\(ref _applyQueued, 1, 0\)[\s\S]*?AddAction\(Apply\)" "ticket path cost apply is not coalesced onto the simulation thread"
+Assert-SourceMatch "Integration\TicketPriceCustomizer\TicketPathCost.cs" "private static void Apply\(\)[\s\S]*?PreviousCosts[\s\S]*?AppliedCosts" "ticket path cost state is mutated outside its simulation action"
+Assert-SourceMatch "ImprovedPublicTransportMod.cs" "OnLevelUnloading\(\)[\s\S]*?AddAction\([\s\S]*?TicketPathCost\.ClearAllStopLaneCosts\(\)[\s\S]*?cleared\.Set\(\)[\s\S]*?cleared\.WaitOne\(\)[\s\S]*?Deinit\(\)" "ticket path costs are not cleaned on the simulation thread before teardown"
+Assert-SourceMatch "Query\WaitingPassengerCountQuery.cs" "public static void ClearCache\(\)[\s\S]*?Cache\.Clear\(\)" "waiting passenger cache has no lifecycle reset"
+Assert-SourceMatch "ImprovedPublicTransportMod.cs" "OnLevelLoaded\(LoadMode mode\)[\s\S]*?WaitingPassengerCountQuery\.ClearCache\(\)" "waiting passenger cache is retained between maps"
 
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { [Console]::Error.WriteLine("FAIL: $_") }
