@@ -29,16 +29,22 @@ namespace ExpressBusServices
             tourists = touristsIn;
         }
 
-        public static void DoWithEachPassengerWaiting(ushort currentStop, Action<ushort> actionToDo)
+        public static void DoWithEachPassengerWaiting(ushort currentStop, Action<uint> actionToDo)
         {
-            ushort nextStop = TransportLine.GetNextStop(currentStop);
-            CitizenManager cm = Singleton<CitizenManager>.instance;
-            NetManager nm = Singleton<NetManager>.instance;
-            Vector3 position = nm.m_nodes.m_buffer[currentStop].m_position;
-            if (nextStop == 0 || nextStop >= nm.m_nodes.m_buffer.Length)
+            if (!TransportStopSafety.IsInNodeBuffer(currentStop))
             {
                 return;
             }
+
+            ushort nextStop = TransportLine.GetNextStop(currentStop);
+            CitizenManager cm = Singleton<CitizenManager>.instance;
+            NetManager nm = Singleton<NetManager>.instance;
+            if (!TransportStopSafety.IsInNodeBuffer(nextStop))
+            {
+                return;
+            }
+
+            Vector3 position = nm.m_nodes.m_buffer[currentStop].m_position;
             Vector3 position2 = nm.m_nodes.m_buffer[nextStop].m_position;
             // Do NOT zero m_maxWaitTime here — this path is also used as a dry-run counter
             // (EBS popularity analysis). Clearing wait timers city-wide made passengers at
@@ -53,26 +59,36 @@ namespace ExpressBusServices
                 int xIterator = minX;
                 while (xIterator <= maxX)
                 {
-                    ushort citizenIterator = cm.m_citizenGrid[(zIterator * 2160) + xIterator];
+                    ushort instanceID = cm.m_citizenGrid[(zIterator * 2160) + xIterator];
                     int loopCounter = 0;
-                    while (citizenIterator != 0)
+                    while (instanceID != 0)
                     {
-                        ushort nextGridInstance = cm.m_instances.m_buffer[citizenIterator].m_nextGridInstance;
-                        if ((cm.m_instances.m_buffer[citizenIterator].m_flags & CitizenInstance.Flags.WaitingTransport) != CitizenInstance.Flags.None)
+                        if (instanceID >= cm.m_instances.m_buffer.Length)
                         {
-                            Vector3 a = cm.m_instances.m_buffer[citizenIterator].m_targetPos;
+                            IPTUtils.LogError("ExpressBusServices: Invalid citizen instance detected!\n" + Environment.StackTrace);
+                            break;
+                        }
+
+                        ref CitizenInstance citizenInstance = ref cm.m_instances.m_buffer[instanceID];
+                        ushort nextGridInstance = citizenInstance.m_nextGridInstance;
+                        if ((citizenInstance.m_flags & CitizenInstance.Flags.WaitingTransport) != CitizenInstance.Flags.None)
+                        {
+                            Vector3 a = citizenInstance.m_targetPos;
                             float distance = Vector3.SqrMagnitude(a - position);
                             if (distance < 8196f)
                             {
-                                CitizenInfo info = cm.m_instances.m_buffer[citizenIterator].Info;
-                                if (info.m_citizenAI.TransportArriveAtSource(citizenIterator, ref cm.m_instances.m_buffer[citizenIterator], position, position2))
+                                CitizenInfo info = citizenInstance.Info;
+                                uint citizenID = citizenInstance.m_citizen;
+                                if (citizenID != 0 && citizenID < cm.m_citizens.m_buffer.Length
+                                    && info?.m_citizenAI != null
+                                    && info.m_citizenAI.TransportArriveAtSource(instanceID, ref citizenInstance, position, position2))
                                 {
-                                    actionToDo(citizenIterator);
+                                    actionToDo(citizenID);
                                 }
                             }
                         }
-                        citizenIterator = nextGridInstance;
-                        if (++loopCounter > 65536)
+                        instanceID = nextGridInstance;
+                        if (++loopCounter > cm.m_instances.m_buffer.Length)
                         {
                             IPTUtils.LogError("ExpressBusServices: Invalid citizen list detected!\n" + Environment.StackTrace);
                             break;

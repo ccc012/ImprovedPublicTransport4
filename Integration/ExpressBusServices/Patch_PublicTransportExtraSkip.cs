@@ -168,7 +168,7 @@ namespace ExpressBusServices
             }
 
             currentApproachingStop = vehicleData.m_targetBuilding;
-            if (currentApproachingStop == 0 || vehicleData.m_transportLine == 0)
+            if (!TransportStopSafety.IsLiveStopNode(currentApproachingStop) || vehicleData.m_transportLine == 0)
             {
                 // this can happen when e.g. the depot is forced to deactivate and the vehicles are therefore forced to return to base
                 // in this case, don't do it

@@ -69,6 +69,11 @@ namespace ImprovedPublicTransport.HarmonyPatches.VehicleAIPatches
             PendingReturn.Remove(vehicleID);
         }
 
+        public static bool IsReturnPending(ushort vehicleID)
+        {
+            return ModSetting.Instance.EnableEmptyBeforeReturnToDepot && PendingReturn.Contains(vehicleID);
+        }
+
         /// <summary>
         /// Call after unload: if this vehicle was waiting to return and is now empty, send it home.
         /// </summary>
@@ -186,10 +191,20 @@ namespace ImprovedPublicTransport.HarmonyPatches.VehicleAIPatches
 
                 // Multi-car trains: check trailers.
                 var vm = Singleton<VehicleManager>.instance;
+                if (vm == null || vm.m_vehicles.m_buffer == null)
+                {
+                    return false;
+                }
+
                 var trailing = data.m_trailingVehicle;
                 var guard = 0;
                 while (trailing != 0 && guard++ < 32)
                 {
+                    if (trailing >= vm.m_vehicles.m_size || trailing >= vm.m_vehicles.m_buffer.Length)
+                    {
+                        break;
+                    }
+
                     ref var trail = ref vm.m_vehicles.m_buffer[trailing];
                     if (trail.Info?.m_vehicleAI != null)
                     {

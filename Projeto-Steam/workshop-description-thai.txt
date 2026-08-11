@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Full control of transit lines: fleet, vehicles, stops, fares. Small mods unified.
-[b]เวอร์ชัน 4.8.9[/b] · สร้างสำหรับเกมเวอร์ชัน 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]ทำไมถึงมีโมดนี้[/h1]
 Transit maintenance hit [b]-42,000,000,000[/b] - two mods resizing fleets over each other. This mod centralizes control.
@@ -17,6 +17,8 @@ Price each type in [b]Economy[/b], with [b]day/night pricing[/b].
 [b]Stop info[/b], [b]vehicle route panel[/b], [b]auto colours/names[/b], [b]airport flight board[/b].
 [h2]ทำความสะอาดเครือข่าย[/h2]
 [b]Bulk line deletion[/b], [b]elevated stops[/b], [b]unstucker[/b] for stuck vehicles.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: สวิตช์หลัก ฮอตคีย์ โอเวอร์เลย์ปลายทาง[/h2]
 ควบคุมและ hardening [b]สวิตช์หลักหกตัว[/b] (ปิดเป็นค่าเริ่มต้น) [b]ฮอตคีย์ 13 ตัวผูกใหม่ได้[/b] ปลายทางผู้โดยสารสร้างใหม่เป็นโอเวอร์เลย์แผนที่ (Experimental) Intercity คืน prefab เมื่อปิด Train Display: ช่วงตามโปรไฟล์ แท็บ Compat รายละเอียดบน GitHub
 [hr][/hr]
@@ -37,7 +39,7 @@ Subscribe [b]Harmony[/b], unsubscribe standalones, enable IPT4. Options: [b]Sett
 [h1]เสถียรภาพ[/h1]
 Stable. Runaway-maintenance fixed; damaged saves auto-repair. [b]Backup saves[/b]. On issues, report [i]what you were doing[/i] and attach:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"ใช้งานไม่ได้" อย่างเดียวไม่สามารถวินิจฉัยได้
+”ใช้งานไม่ได้” อย่างเดียวไม่สามารถวินิจฉัยได้
 [hr][/hr]
 [h1]ซอร์สโค้ดและเครดิต[/h1]
 ซอร์สโค้ดและบันทึกการเปลี่ยนแปลงทางเทคนิค: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

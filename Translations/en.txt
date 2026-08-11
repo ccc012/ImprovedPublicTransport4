@@ -1,4 +1,4 @@
-﻿CURRENT_WEEK Current week
+CURRENT_WEEK Current week
 LAST_WEEK Last week
 AVERAGE Average
 AVERAGE_TOOLTIP Average of the last {0} weeks.
@@ -620,3 +620,11 @@ SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE Vehicle Editor
 SETTINGS_FEATURE_VEHICLEEDITOR_ENABLE_TOOLTIP Enables the vehicle editor panel for changing vehicle types, liveries, and properties. Can be positioned at bottom or right.
 SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE Waiting Passenger Caps
 SETTINGS_FEATURE_STOPSANDSTATIONS_ENABLE_TOOLTIP Limits how many citizens can wait for public transport at a single stop. Disable to remove every waiting-passenger cap and let the game handle stop capacity.
+CHANGELOG_4_8_10_1 Vehicle Editor controls are visible and reliable again, including the Apply and Default actions (issue #9).
+CHANGELOG_4_8_10_2 Fixed regressions in passenger counts, vehicle add/remove actions, depot selection, settings profiles, and related UI flows (issues #11, #12, #14, #16, and #21).
+CHANGELOG_4_8_10_3 Vehicle catalog, depot filtering, and line-copy compatibility were corrected; destructive bulk actions retain their confirmation modal.
+CHANGELOG_4_8_10_4 Experimental fare path cost now follows each line's public-transport lanes; taxi demand and toll behavior use configured fares (issue #22).
+CHANGELOG_4_8_10_5 Empty Before Depot now handles taxi stands and Custom vehicle AIs; ferry and other Update-prefixed asset names are normalized safely.
+CHANGELOG_4_8_10_6 Added Korean and Simplified Chinese updates from PR #15, with Korean locale aliases kept synchronized.
+CHANGELOG_4_8_10_7 Font handling remains on the safe 4.8.9 approach; Train Display layout, scope, and refresh behavior were corrected.
+CHANGELOG_4_8_10_8 Added lifecycle, thread-safety, bounds, ownership, and regression hardening with expanded automated checks.

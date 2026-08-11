@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GamePath>C:/Program Files (x86)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</GamePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="VehiclePrefabCatalogHarness.cs" />
+    <Compile Include="../Data/VehiclePrefabCatalog.cs" Link="VehiclePrefabCatalog.cs" />
+    <Reference Include="Assembly-CSharp"><HintPath>$(GamePath)/Assembly-CSharp.dll</HintPath><Private>true</Private></Reference>
+    <Reference Include="ColossalManaged"><HintPath>$(GamePath)/ColossalManaged.dll</HintPath><Private>true</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(GamePath)/UnityEngine.dll</HintPath><Private>true</Private></Reference>
+  </ItemGroup>
+</Project>

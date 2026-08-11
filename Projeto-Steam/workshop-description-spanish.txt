@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Un mod en lugar de quince.[/b] Control total de líneas: tamaño de flota, vehículos, paradas, tarifas. Pequeños mods unificados.
-[b]Versión 4.8.9[/b] · Para juego 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Por qué existe[/h1]
 Mantenimiento en [b]-42.000.000.000[/b] — dos mods redimensionando flotas independientemente, sobrescribiéndose. Este mod centraliza el control.
@@ -17,6 +17,8 @@ Precio por tipo en panel [b]Economía[/b], con [b]tarifas día/noche[/b].
 [b]Info paradas[/b] (pasajeros, vehículo, aglomeración), [b]panel ruta vehículo[/b] (superposición), [b]colores/nombres auto[/b], [b]tablero vuelos[/b] (llegadas/salidas).
 [h2]Limpia tu red[/h2]
 [b]Borrado masivo líneas[/b] (por tipo), [b]paradas elevadas[/b], [b]desatascador[/b] para vehículos atascados.
+[h2]4.8.10: editor de vehículos, depósitos, tarifas y estabilidad[/h2]
+Controles del Editor de vehículos corregidos (#9). Corregidas regresiones de pasajeros, vehículos, depósitos, perfiles e interfaz (#11/#12/#14/#16/#21). Corregidos catálogo, filtros de depósitos, copia compatible y confirmaciones. El coste de ruta experimental sigue carriles de transporte; mejoradas tarifas de taxi y peaje (#22). Vaciar antes del depósito admite paradas de taxi e IA Custom; corregidos ferris/assets Update. Coreano y chino simplificado actualizados (PR #15). Se mantiene la fuente segura de 4.8.9; reforzados Train Display, ciclo de vida, hilos, límites, propiedad y pruebas.
 [h2]4.8.9: interruptores maestros, atajos, overlay de destinos reescrito[/h2]
 No es un mod absorbido nuevo: control y endurecimiento. [b]Seis interruptores maestros[/b] (Desagrupacion, Presupuesto, Color automatico, Train Display, Editor de vehiculos, Paradas y estaciones). [b]Trece atajos reasignables[/b]. [b]Destinos de pasajeros[/b] reconstruido como overlay limpio en el mapa; panel antiguo eliminado - sigue [b]Experimental, off por defecto[/b]. [b]Intercity Bus Control[/b] restaura prefabs al desactivar. [b]Train Display[/b]: intervalo fijo por perfil, alcance (Seleccionado / Primera persona / Ambos). Thread-safety y saves mas seguros. [b]Pestana Compat[/b] lista mods companeros. Vehiculos Workshop Placement.Procedural ya no se ocultan. Changelog tecnico en GitHub.
 [hr][/hr]

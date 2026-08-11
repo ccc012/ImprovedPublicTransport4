@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Satu mod menggantikan lima belas.[/b] Kawalan penuh talian pengangkutan: saiz armada, jenis kenderaan, perhentian, tambang. Mod kecil yang disatukan.
-[b]Version 4.8.9[/b] · Dibina untuk versi permainan 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Mengapa ini wujud[/h1]
 Penyelenggaraan pengangkutan awam melonjak kepada [b]-42,000,000,000[/b] — dua mod masing-masing mengubah saiz armada secara bebas, tulis ganti antara satu sama lain. Mod ini membetulkan konflik dengan memusatkan kawalan.
@@ -17,6 +17,8 @@ Harga setiap jenis pengangkutan dalam panel [b]Ekonomi[/b], dengan pilihan [b]ha
 [b]Maklumat perhentian[/b] (penumpang, kenderaan, kesesakan), [b]panel laluan kenderaan[/b] (overlay boleh konfigurasi langsung), [b]warna/nama talian automatik[/b] untuk kejelasan, [b]papan penerbangan lapangan terbang[/b] (ketibaan/berlepas).
 [h2]Bersihkan rangkaian anda[/h2]
 [b]Padam talian secara pukal[/b] (mengikut jenis, disahkan), [b]penempatan perhentian tiang tinggi[/b], dan [b]nyahsekat[/b] untuk kenderaan tersekat.
+[h2]4.8.10: fixes and stability[/h2]
+Vehicle Editor, passengers, vehicles, depots, line copy, experimental fares, taxi/tolls, Empty Before Depot, localization, Train Display, lifecycle, thread-safety, and tests updated.
 [h2]4.8.9: suis induk, kekunci panas, tulisan semula overlay destinasi[/h2]
 Bukan mod baru yang diserap — kengawalan dan pengukuhan. [b]Enam suis induk ciri[/b] (Nyahpenumpukan, Belanjawan, Warna Talian Auto, Paparan Kereta Api, Editor Kenderaan, Perhentian & Stesen): mati secara lalai; mematikan salah seorang mengunci anak-anak dan menghentikan tampalan berkaitan. [b]Tiga belas kekunci panas boleh ikat semula[/b] (panel talian, nyahpenumpukan, salin/tampal, editor kenderaan, Flight Tracker, kenderaan sebelumnya/seterusnya, dan banyak lagi). [b]Paparan destinasi penumpang[/b] dibina semula sebagai overlay peta yang bersih (bilangan + kiraan); panel lama dialih keluar — masih [b]Eksperimen, dimatikan secara lalai[/b]. [b]Intercity Bus Control[/b] memulihkan prefab stesen asal apabila dimatikan. [b]Train Display[/b]: sel tetap setiap profil prestasi, dropdown skop (Dipilih / Orang Pertama / Kedua-dua), mengesan First Person Camera - Continued. Ketelitian keselamatan benang dan data simpanan; pencarian laluan Bas Ekspres gagal terbuka. [b]Tab Keserasian[/b] menyenaraikan mod teman yang disyorkan dengan pautan Bengkel. Kenderaan Bengkel yang ditanda Placement.Procedural tidak lagi tersembunyi dari senarai kenderaan. Log perubahan teknikal penuh di GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Langgan [b]Harmony[/b], batal langganan versi kendiri, aktifkan IPT4. Pilihan: [
 [h1]Kestabilan[/h1]
 Stabil. Bug penyelenggaraan yang melarikan diri telah dibetulkan; simpanan rosak dibaiki automatik. [b]Sandar simpanan bagaimanapun[/b]. Jika ada masalah, laporkan [i]apa yang anda sedang lakukan[/i] dan lampirkan:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Tidak berfungsi" sahaja tidak boleh didiagnosis.
+”Tidak berfungsi” sahaja tidak boleh didiagnosis.
 [hr][/hr]
 [h1]Sumber dan kredit[/h1]
 Sumber dan log perubahan teknikal: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

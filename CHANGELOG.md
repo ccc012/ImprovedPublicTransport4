@@ -14,6 +14,48 @@ integration is absorbed, `build` = build/test iteration within that module.
 
 ---
 
+## [4.8.10] Vehicle editor, depots, fare experiments, localization, and hardening
+
+This release consolidates the fixes completed after 4.8.9.2. It keeps existing save data compatible and does not add broad runtime validation to hot paths; checks are focused at lifecycle, ownership, UI-to-simulation, and array-boundary seams where stale game objects can otherwise cause incorrect writes.
+
+### Fixed — editor and UI regressions (#9, #11, #12, #14, #16, #21)
+
+- `VehicleEditor` keeps Apply and Default controls visible and interactive in both supported placements, then refreshes their positions when the parent panel moves or changes visibility (#9).
+- Passenger counts no longer reuse stale panel-local snapshots. `WaitingPassengerCountQuery` owns the bounded shared cache and validates stop, line, node, and citizen-instance identities before reuse (#16).
+- Add/remove vehicle, budget control, unbunching, and depot changes capture the selected line on the UI thread, then validate that the line or vehicle still exists before mutating simulation state (#11, #12, #14, #21).
+- Gameplay-profile sections and the one-shot bulk line-deletion picker no longer mark settings as Custom. Destructive bulk deletion still requires its confirmation modal.
+- Vehicle Editor event subscriptions are paired safely with panel teardown, preventing stale handlers after UI recreation.
+
+### Fixed — vehicle catalog, depots, and line copy
+
+- `VehiclePrefabCatalog` and depot filtering use transport compatibility rather than accepting unrelated prefabs or stale depot IDs. Equal-distance depot selection is deterministic.
+- Copy/paste records the source transport mode, skips incompatible target lines, and copies only prefabs valid for each target mode.
+- Depot lists and district-name hashes use the same snapshot; dirty-state access is synchronized without adding full-frame global validation.
+- Prefab display names safely remove genuine `Update`, `Update_`, `Update-`, or `Update:` packaging prefixes while retaining legitimate names.
+
+### Updated — experimental fares and path cost (#22)
+
+- **Experimental:** fare-as-pathfinding-cost now follows the physical public-transport lanes referenced by each transport line path instead of applying a citywide average or scanning every stop lane.
+- Traversal has path-unit cycle and position bounds. Applied lane costs retain ownership and are restored only when IPT still owns the value; level begin/end commands are serialized without blocking unload indefinitely.
+- Taxi demand uses configured day/night taxi multipliers through the vanilla resident and tourist probability seams. Toll behavior uses the configured fare integration.
+- Path cost remains experimental and should be enabled only for testing; this release does not claim complete validation across every custom network or pathfinding mod.
+
+### Fixed — return-to-depot and custom assets
+
+- Empty Before Depot now preserves return-pending vehicles until passengers leave, including taxi-stand flows and Custom vehicle AIs.
+- Ferry and other workshop asset names carrying packaging `Update` prefixes are normalized before catalog matching.
+
+### Localization and display
+
+- Added Korean and Simplified Chinese updates from PR #15. `ko` and `kr` remain byte-identical aliases, with placeholder and key parity checks.
+- Font handling deliberately stays on the safer 4.8.9 approach; the removed native re-entrancy guard is not restored.
+- Train Display layout, vehicle-type scope, first-person scope, optional strips, and refresh behavior were corrected.
+
+### Hardening and tests
+
+- Added lifecycle generation guards, simulation-thread command ownership, synchronized cache access, array bounds, deterministic fallbacks, and safe Harmony finalizer support where failures cross game callbacks.
+- Expanded source regression checks for editor controls, passenger counts, fare path ownership and traversal, taxi probability, unload behavior, depot actions, and Korean locale integrity.
+
 ## [4.8.9.2] Add Vehicle click debounce only (issue #2)
 
 Fixes spam-click Add/Remove Vehicle without touching the font engine.

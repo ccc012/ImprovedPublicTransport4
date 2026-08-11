@@ -1,4 +1,4 @@
-﻿MOD_DESCRIPTION Gestion avancée des transports en commun.
+MOD_DESCRIPTION Gestion avancée des transports en commun.
 CURRENT_WEEK Semaine en cours
 LAST_WEEK Semaine dernière
 AVERAGE Moyenne
@@ -690,3 +690,11 @@ SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 Les commandes de l’Éditeur de véhicules sont de nouveau visibles et fiables, notamment Appliquer et Par défaut (issue #9).
+CHANGELOG_4_8_10_2 Correction de régressions touchant le comptage des passagers, l’ajout et le retrait de véhicules, le choix du dépôt, les profils de réglages et les interfaces associées (issues #11, #12, #14, #16 et #21).
+CHANGELOG_4_8_10_3 Correction du catalogue de véhicules, du filtrage des dépôts et de la compatibilité lors de la copie de lignes ; les actions groupées destructrices conservent leur fenêtre de confirmation.
+CHANGELOG_4_8_10_4 Le coût tarifaire du calcul d’itinéraire, toujours expérimental, suit désormais les voies de transport public de chaque ligne ; la demande de taxis et les péages utilisent les tarifs configurés (issue #22).
+CHANGELOG_4_8_10_5 Vider avant le dépôt prend désormais en charge les stations de taxis et les IA de véhicules Custom ; les noms des ferries et autres assets préfixés par Update sont normalisés sans risque.
+CHANGELOG_4_8_10_6 Ajout des mises à jour coréennes et chinoises simplifiées de la PR #15, avec synchronisation des alias coréens.
+CHANGELOG_4_8_10_7 La gestion des polices conserve l’approche sûre de la 4.8.9 ; correction de la disposition, de la portée et du rafraîchissement de Train Display.
+CHANGELOG_4_8_10_8 Renforcement du cycle de vie, des threads, des limites, de la propriété et des régressions, avec davantage de contrôles automatisés.

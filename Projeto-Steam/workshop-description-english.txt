@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]One mod instead of fifteen.[/b] Full control of transit lines: fleet size, vehicle types, stops, fares. Small mods unified.
-[b]Version 4.8.9[/b] · Built for game version 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Why this exists[/h1]
 Transit maintenance spiralled to [b]-42,000,000,000[/b] — two mods each resizing fleets independently, overwriting each other. This mod fixes the conflict by centralizing control.
@@ -17,6 +17,8 @@ Price each transport type in [b]Economy[/b] panel, with [b]day/night pricing[/b]
 [b]Stop info[/b] (passengers, vehicle, crowding), [b]vehicle route panel[/b] (live configurable overlay), [b]auto line colours/names[/b] for clarity, [b]airport flight board[/b] (arrivals/departures).
 [h2]Clean up your network[/h2]
 [b]Bulk line deletion[/b] (by type, confirmed), [b]elevated stop placement[/b], and [b]unstucker[/b] for stuck vehicles.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: master switches, hotkeys, destination overlay rewrite[/h2]
 Not a new absorbed mod — control and hardening. [b]Six feature master switches[/b] (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations): off by default; turning one off locks its children and stops related patches. [b]Thirteen rebindable hotkeys[/b] (line panel, unbunching, copy/paste, vehicle editor, Flight Tracker, prev/next vehicle, and more). [b]Passenger destination display[/b] rebuilt as a clean-room map overlay (circles + counts); old panel port removed — still [b]Experimental, off by default[/b]. [b]Intercity Bus Control[/b] restores original station prefabs when disabled. [b]Train Display[/b]: fixed interval per performance profile, scope dropdown (Selected / First person / Both), detects First Person Camera - Continued. Thread-safety and save-data hardening; Express Bus pathfinding fails open. [b]Compat tab[/b] lists recommended companion mods with Workshop links. Workshop vehicles marked Placement.Procedural are no longer hidden from vehicle lists. Full technical changelog on GitHub.
 [hr][/hr]

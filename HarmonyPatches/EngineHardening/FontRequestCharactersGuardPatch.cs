@@ -51,8 +51,8 @@ namespace ImprovedPublicTransport.HarmonyPatches.EngineHardening
             PatchUtil.Patch(
                 new PatchUtil.MethodDefinition(typeof(UIDynamicFont), nameof(UIDynamicFont.RequestCharacters),
                     argumentTypes: new[] { typeof(string), typeof(int), typeof(FontStyle) }),
-                new PatchUtil.MethodDefinition(typeof(FontRequestCharactersGuardPatch), nameof(Prefix)),
-                new PatchUtil.MethodDefinition(typeof(FontRequestCharactersGuardPatch), nameof(Postfix))
+                prefix: new PatchUtil.MethodDefinition(typeof(FontRequestCharactersGuardPatch), nameof(Prefix)),
+                finalizer: new PatchUtil.MethodDefinition(typeof(FontRequestCharactersGuardPatch), nameof(Finalizer))
             );
         }
 
@@ -80,7 +80,7 @@ namespace ImprovedPublicTransport.HarmonyPatches.EngineHardening
             return true;
         }
 
-        public static void Postfix(bool __state)
+        public static void Finalizer(bool __state)
         {
             if (__state)
             {

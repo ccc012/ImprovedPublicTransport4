@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Un mod invece di quindici.[/b] Controllo completo delle linee di transito: dimensioni della flotta, tipi di veicoli, fermate, tariffe. Piccoli mod unificati.
-[b]Versione 4.8.9[/b] · Realizzata per la versione di gioco 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Perché esiste[/h1]
 La manutenzione del transito è sprofondata a [b]-42.000.000.000[/b] — due mod che ridimensionavano le flotte indipendentemente, sovrascrivendosi a vicenda. Questo mod risolve il conflitto centralizzando il controllo.
@@ -17,6 +17,8 @@ Prezza ogni tipo di trasporto nel pannello [b]Economia[/b], con opzioni [b]prezz
 [b]Info fermata[/b] (passeggeri, veicolo, affollamento), [b]pannello percorso veicolo[/b] (overlay configurabile), [b]colori/nomi linea automatici[/b], [b]tabellone voli aeroporto[/b] (arrivi/partenze).
 [h2]Pulisci la tua rete[/h2]
 [b]Eliminazione linee in blocco[/b] (per tipo), [b]posizionamento fermate elevate[/b] e [b]sbloccatore[/b] per veicoli bloccati.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: interruttori master, tasti rapidi, overlay destinazioni riscritto[/h2]
 Non e un nuovo mod assorbito: controllo e hardening. [b]Sei interruttori master[/b] (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations). [b]Tredici tasti riassegnabili[/b]. [b]Destinazioni passeggeri[/b] ricostruito come overlay mappa pulito; vecchio pannello rimosso - resta [b]Experimental, off di default[/b]. [b]Intercity Bus Control[/b] ripristina i prefab all'off. [b]Train Display[/b]: intervallo fisso per profilo, scope (Selezionato / Prima persona / Entrambi). Thread-safety e save piu sicuri. [b]Scheda Compat[/b] elenca mod companion. Veicoli Workshop Placement.Procedural non piu nascosti. Changelog tecnico su GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Iscriviti a [b]Harmony[/b], annulla l'iscrizione agli stand-alone, abilita IPT4.
 [h1]Stabilità[/h1]
 Stabile; manutenzione incontrollata corretta, salvataggi danneggiati auto-riparati. [b]Fai backup comunque[/b]. Per problemi, segnala [i]cosa stavi facendo[/i] e allega:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Non funziona" da solo non può essere diagnosticato.
+”Non funziona” da solo non può essere diagnosticato.
 [hr][/hr]
 [h1]Sorgente e crediti[/h1]
 Sorgente e changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

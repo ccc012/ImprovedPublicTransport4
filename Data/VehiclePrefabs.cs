@@ -212,10 +212,20 @@ namespace ImprovedPublicTransport.Data
             var helicopterList = new List<PrefabData>();
 
             var proceduralCount = 0;
+            var prefabs = new List<VehicleInfo>();
             for (var index = 0; index < PrefabCollection<VehicleInfo>.PrefabCount(); ++index)
             {
                 var prefab = PrefabCollection<VehicleInfo>.GetPrefab((uint)index);
-                if (prefab == null)
+                if (prefab != null)
+                {
+                    prefabs.Add(prefab);
+                }
+            }
+            var components = VehiclePrefabCatalog.FindComponents(prefabs);
+            for (var index = 0; index < prefabs.Count; ++index)
+            {
+                var prefab = prefabs[index];
+                if (!VehiclePrefabCatalog.IsEligibleRoot(prefab, components))
                 {
                     continue;
                 }
@@ -238,7 +248,7 @@ namespace ImprovedPublicTransport.Data
                     case ItemClass.Service.Disaster
                         when subService == ItemClass.SubService.None && level == ItemClass.Level.Level4:
                     {
-                        evacuationBusList.Add(RegisterPrefab(prefab));
+                        RegisterPrefab(evacuationBusList, prefab);
                         continue;
                     }
 
@@ -248,55 +258,55 @@ namespace ImprovedPublicTransport.Data
                         {
                             case ItemClass.SubService.PublicTransportBus:
                             {
-                                busList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(busList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportMetro:
                             {
-                                metroList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(metroList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportTrain:
                             {
-                                trainList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(trainList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportShip:
                             {
-                                shipList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(shipList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportPlane:
                             {
                                 if (prefab.m_vehicleType == VehicleInfo.VehicleType.Plane)
                                 {
-                                    planeList.Add(RegisterPrefab(prefab));
+                                    RegisterPrefab(planeList, prefab);
                                 }
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportTaxi:
                             {
-                                taxiList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(taxiList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportTram:
                             {
-                                tramList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(tramList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportMonorail:
                             {
-                                monorailList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(monorailList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportCableCar:
                             {
-                                cableCarList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(cableCarList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportTrolleybus:
                             {
-                                trolleybusList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(trolleybusList, prefab);
                                 continue;
                             }
                             default:
@@ -312,31 +322,31 @@ namespace ImprovedPublicTransport.Data
                         {
                             case ItemClass.SubService.PublicTransportBus:
                             {
-                                biofuelBusList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(biofuelBusList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportShip:
                             {
-                                ferryList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(ferryList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportPlane:
                             {
                                 if (prefab.m_vehicleType == VehicleInfo.VehicleType.Blimp)
                                 {
-                                    blimpList.Add(RegisterPrefab(prefab));
+                                    RegisterPrefab(blimpList, prefab);
                                 }
 
                                 if (prefab.m_vehicleType == VehicleInfo.VehicleType.Plane)
                                 {
-                                    planeList.Add(RegisterPrefab(prefab));
+                                    RegisterPrefab(planeList, prefab);
                                 }
 
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportTrain:
                             {
-                                airportTrainList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(airportTrainList, prefab);
                                 continue;
                             }
                             default:
@@ -351,25 +361,25 @@ namespace ImprovedPublicTransport.Data
                         {
                             case ItemClass.SubService.PublicTransportBus:
                             {
-                                intercityBusList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(intercityBusList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportTours:
                             {
-                                sightseeingBusList.Add(RegisterPrefab(prefab));
+                                RegisterPrefab(sightseeingBusList, prefab);
                                 continue;
                             }
                             case ItemClass.SubService.PublicTransportPlane:
                             {
                                 if (prefab.m_vehicleType == VehicleInfo.VehicleType.Helicopter)
                                 {
-                                    helicopterList.Add(RegisterPrefab(prefab));
+                                    RegisterPrefab(helicopterList, prefab);
                                 }
                                 
                                 
                                 if (prefab.m_vehicleType == VehicleInfo.VehicleType.Plane)
                                 {
-                                    planeList.Add(RegisterPrefab(prefab));
+                                    RegisterPrefab(planeList, prefab);
                                 }
 
                                 continue;
@@ -413,13 +423,28 @@ namespace ImprovedPublicTransport.Data
             }
         }
 
-        [NotNull]
-        private PrefabData RegisterPrefab([NotNull] VehicleInfo prefab)
+        private void RegisterPrefab([NotNull] List<PrefabData> list, [NotNull] VehicleInfo prefab)
         {
-            var prefabData = new PrefabData(prefab);
-            _allPrefabData.Add(prefab.name, prefabData);
+            PrefabData byName;
+            PrefabData byIndex;
+            var name = prefab.name ?? string.Empty;
+            var hasName = _allPrefabData.TryGetValue(name, out byName);
+            var hasIndex = _prefabDataByIndex.TryGetValue(prefab.m_prefabDataIndex, out byIndex);
+            if ((hasName && !ReferenceEquals(byName.Info, prefab)) ||
+                (hasIndex && !ReferenceEquals(byIndex.Info, prefab)))
+            {
+                Debug.LogWarning("IPT: Rejected conflicting vehicle prefab '" + name +
+                                 "' at index " + prefab.m_prefabDataIndex + ".");
+                return;
+            }
+
+            var prefabData = hasName ? byName : hasIndex ? byIndex : new PrefabData(prefab);
+            _allPrefabData[name] = prefabData;
             _prefabDataByIndex[prefab.m_prefabDataIndex] = prefabData;
-            return prefabData;
+            if (!list.Contains(prefabData))
+            {
+                list.Add(prefabData);
+            }
         }
     }
 }

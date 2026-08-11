@@ -59,6 +59,13 @@ namespace ImprovedPublicTransport.UI
         private readonly List<UIComponent> _trainDisplayChildControls = new List<UIComponent>();
         private readonly List<UIComponent> _oocChildControls = new List<UIComponent>();
 
+        private new SettingsSection AddSection(ScrollContainer container, string header = null, string description = null)
+        {
+            var section = base.AddSection(container, header, description);
+            section.SettingChanged = SettingsActions.MarkCustomAndSave;
+            return section;
+        }
+
         private void UpdateColorDiffSlidersEnabled(ModSetting.AutoLineColorStrategy strategy)
         {
             var enabled = strategy != ModSetting.AutoLineColorStrategy.Disabled
@@ -413,6 +420,7 @@ namespace ImprovedPublicTransport.UI
             var profileSection = AddSection(page, Localization.Get("SETTINGS_GAMEPLAY_PROFILE"),
                 Localization.Get("SETTINGS_GAMEPLAY_PROFILE_TOOLTIP") + "\n\n" +
                 Localization.Get("SETTINGS_GAMEPLAY_PROFILE_DESC_BLOCK"));
+            profileSection.NotifySettingChanged = false;
             profileSection.AddDropDown<ModSetting.GameplayProfiles>(
                 Localization.Get("SETTINGS_GAMEPLAY_PROFILE"),
                 null,
@@ -1121,6 +1129,7 @@ namespace ImprovedPublicTransport.UI
             // Deliberately not bound to ModSetting - see DeleteLinesSelection: this is a one-shot
             // "pick types, click Delete" tool, so selections always start unchecked and reset after use.
             var section = AddSection(page, Localization.Get("SETTINGS_LINE_DELETION_TOOL"), Localization.Get("SETTINGS_LINE_DELETION_TOOL_DESCRIPTION"));
+            section.NotifySettingChanged = false;
 
             section.AddCheckBox(DeleteLinesSelection.BusLines, Localization.Get("INFO_PUBLICTRANSPORT_BUS"), null, Localization.Get("SETTINGS_DELETE_BUS_TOOLTIP"),
                 (_, isChecked) => DeleteLinesSelection.BusLines = isChecked);

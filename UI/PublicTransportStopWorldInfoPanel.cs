@@ -46,10 +46,6 @@ namespace ImprovedPublicTransport.UI
         private UIButton m_closeStopsUnbunching;
         private UILabel m_Line;
         private UIButton m_DeleteStop;
-        private int _cachedPassengerCount;
-        private byte _cachedMaxWait;
-        private float _passengerQueryTimer;
-        private const float PassengerQueryInterval = 0.5f;
 
         public override void Start()
         {
@@ -718,21 +714,7 @@ namespace ImprovedPublicTransport.UI
         private void UpdateBindings()
         {
             ushort netNode = this.m_InstanceID.NetNode;
-            _passengerQueryTimer += Time.deltaTime;
-            int num1;
-            byte max;
-            if (_passengerQueryTimer >= PassengerQueryInterval)
-            {
-                _passengerQueryTimer = 0f;
-                num1 = WaitingPassengerCountQuery.Query(netNode, out _, out max);
-                _cachedPassengerCount = num1;
-                _cachedMaxWait = max;
-            }
-            else
-            {
-                num1 = _cachedPassengerCount;
-                max = _cachedMaxWait;
-            }
+            int num1 = WaitingPassengerCountQuery.Query(netNode, out _, out byte max);
             byte num2 = (byte) ((uint) byte.MaxValue - (uint) max);
             this.m_PassengerCount.text = string.Format(Localization.Get("STOP_PANEL_WAITING_PEOPLE"), (object) num1);
             this.m_BoredCountdown.text = string.Format(Localization.Get("STOP_PANEL_BORED_TIMER"),

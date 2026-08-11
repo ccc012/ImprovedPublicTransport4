@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]En mod istället för femton.[/b] Full kontroll över transitlinjer: storlek på fordonsflotta, fordonstyper, hållplatser, biljettpriser. Små moddar samlade.
-[b]Version 4.8.9[/b] · Byggd för spelversion 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Varför denna mod finns[/h1]
 Transitunderhållet skenade till [b]-42,000,000,000[/b] — två moddar som båda oberoende anpassade fordonsflottorna och skrev över varandra. Denna mod åtgärdar konflikten genom att centralisera kontrollen.
@@ -17,6 +17,8 @@ Pris för varje transporttyp i [b]Ekonomi[/b]-panelen, med alternativ för [b]da
 [b]Hållplatsinformation[/b] (passagerare, fordon, trängsel), [b]fordonspanel[/b] (live-konfigurerbart överlägg), [b]automatiska linjefärger/namn[/b] för tydlighet, [b]flygplansinformationsboard[/b] (ankomster/avgångar).
 [h2]Städa upp ditt nätverk[/h2]
 [b]Massborttagning av linjer[/b] (per typ, bekräftat), [b]upphöjda hållplatser[/b] och [b]upplösare[/b] för fastkörda fordon.
+[h2]4.8.10: fixes and stability[/h2]
+Vehicle Editor, passengers, vehicles, depots, line copy, experimental fares, taxi/tolls, Empty Before Depot, localization, Train Display, lifecycle, thread-safety, and tests updated.
 [h2]4.8.9: huvudbrytare, snabbknappar, omformning av destinationsöverlägg[/h2]
 Inte en ny absorberad mod — kontroll och härdning. [b]Sex funktionshuvudbrytare[/b] (Igångsamling, Budget, Automatisk linjefärg, Tågdisplay, Fordonsredigering, Hållplatser & Stationer): av som standard; stänger av en brytare låser dess underfunktioner och stoppar relaterade patchar. [b]Tretton återbindningsbara snabbknappar[/b] (linjepanel, igångsamling, kopiera/klistra in, fordonsredigering, Flight Tracker, föregående/nästa fordon, och mer). [b]Passagerardestination[/b] omgjord som ett rent kartöverlägg (cirklar + räkningar); gammal panelport borttagen — fortfarande [b]Experimentellt, av som standard[/b]. [b]Intercity Bus Control[/b] återställer ursprungliga stationsprefabs vid inaktivering. [b]Tågdisplay[/b]: fast intervall per prestandaprofil, rullgardinsmeny (Markerad / Förstaperson / Båda), identifierar First Person Camera - Continued. Trådsäkerhet och speldatahärdning; Expressbuss pathfinding faller öppet tillbaka. [b]Kompatibilitetsflik[/b] listar rekommenderade companion-moddar med Workshop-länkar. Workshop-fordon markerade som Placement.Procedural döljs inte längre från fordonslistor. Fullständig teknisk ändringslogg på GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Prenumerera på [b]Harmony[/b], avprenumerera fristående versioner, aktivera IP
 [h1]Stabilitet[/h1]
 Stabil. Den skenande underhållsbuggen fixad; skadad speldata repareras automatiskt. [b]Säkerhetskopiera speldata ändå[/b]. Vid problem, rapportera [i]vad du höll på med[/i] och bifoga:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Fungerar inte" ensamt kan inte diagnostiseras.
+”Fungerar inte” ensamt kan inte diagnostiseras.
 [hr][/hr]
 [h1]Källkod & erkännanden[/h1]
 Källkod och teknisk ändringslogg: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

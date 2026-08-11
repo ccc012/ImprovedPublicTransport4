@@ -693,3 +693,11 @@ SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 車輛編輯器控制項恢復正常顯示與可靠操作，包括套用與預設按鈕（issue #9）。
+CHANGELOG_4_8_10_2 修正乘客計數、新增/移除車輛、車庫選擇、設定配置及相關介面流程的回歸問題（issues #11、#12、#14、#16、#21）。
+CHANGELOG_4_8_10_3 修正車輛目錄、車庫篩選及路線複製相容性；破壞性批次操作仍會顯示確認對話框。
+CHANGELOG_4_8_10_4 實驗性的票價尋路成本現在會沿每條路線的大眾運輸車道計算；計程車需求與收費站行為會採用設定票價（issue #22）。
+CHANGELOG_4_8_10_5 回庫前清空乘客現已支援計程車站與Custom車輛AI；安全正規化渡輪及其他帶Update前綴的資產名稱。
+CHANGELOG_4_8_10_6 加入PR #15的韓語與簡體中文更新，並保持韓語區域別名同步。
+CHANGELOG_4_8_10_7 字型處理繼續採用4.8.9的安全方案；修正Train Display的版面、顯示範圍與更新行為。
+CHANGELOG_4_8_10_8 加強生命週期、執行緒安全、邊界、所有權與回歸防護，並擴充自動檢查。

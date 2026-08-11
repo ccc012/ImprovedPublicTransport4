@@ -340,7 +340,7 @@ namespace ImprovedPublicTransport.Util
                 }
 
                 float distance = Vector3.Distance(stopPosition, depot.m_position);
-                if (distance < bestFallbackDistance)
+                if (distance < bestFallbackDistance || distance == bestFallbackDistance && depotId < bestFallbackDepot)
                 {
                     bestFallbackDepot = depotId;
                     bestFallbackDistance = distance;
@@ -351,7 +351,7 @@ namespace ImprovedPublicTransport.Util
                     continue;
                 }
 
-                if (distance < bestAvailableDistance)
+                if (distance < bestAvailableDistance || distance == bestAvailableDistance && depotId < bestAvailableDepot)
                 {
                     bestAvailableDepot = depotId;
                     bestAvailableDistance = distance;

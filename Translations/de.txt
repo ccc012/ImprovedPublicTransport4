@@ -690,3 +690,11 @@ SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 Die Bedienelemente des Fahrzeugeditors sind wieder sichtbar und zuverlässig, einschließlich Anwenden und Standard (Issue #9).
+CHANGELOG_4_8_10_2 Regressionen bei Fahrgastzahlen, Fahrzeug hinzufügen/entfernen, Depotauswahl, Einstellungsprofilen und zugehörigen UI-Abläufen wurden behoben (Issues #11, #12, #14, #16 und #21).
+CHANGELOG_4_8_10_3 Fahrzeugkatalog, Depotfilterung und Kompatibilität beim Kopieren von Linien wurden korrigiert; destruktive Massenaktionen behalten ihren Bestätigungsdialog.
+CHANGELOG_4_8_10_4 Die weiterhin experimentellen Fahrpreiskosten der Wegfindung folgen nun den ÖPNV-Spuren jeder Linie; Taxinachfrage und Mautverhalten verwenden konfigurierte Tarife (Issue #22).
+CHANGELOG_4_8_10_5 Vor Depot leeren unterstützt nun Taxistände und Custom-Fahrzeug-KIs; Namen von Fähren und anderen Assets mit Update-Präfix werden sicher normalisiert.
+CHANGELOG_4_8_10_6 Koreanische und vereinfachte chinesische Aktualisierungen aus PR #15 wurden ergänzt; koreanische Sprach-Aliase bleiben synchron.
+CHANGELOG_4_8_10_7 Die Schriftbehandlung bleibt beim sicheren Ansatz aus 4.8.9; Layout, Geltungsbereich und Aktualisierung von Train Display wurden korrigiert.
+CHANGELOG_4_8_10_8 Lebenszyklus, Threadsicherheit, Grenzen, Besitzverfolgung und Regressionen wurden gehärtet und automatisierte Prüfungen erweitert.

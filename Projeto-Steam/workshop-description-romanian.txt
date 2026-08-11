@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Un mod în loc de cincisprezece.[/b] Control complet al liniilor de transport: dimensiunea flotei, tipuri de vehicule, stații, tarife. Mici moduri unificate.
-[b]Versiunea 4.8.9[/b] · Construit pentru versiunea de joc 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]De ce există[/h1]
 Întreținerea transportului a ajuns la [b]-42.000.000.000[/b] — două moduri care redimensionau flotele independent, suprapunându-se una pe cealaltă. Acest mod rezolvă conflictul centralizând controlul.
@@ -17,6 +17,8 @@ Prețul fiecărui tip de transport în panoul [b]Economie[/b], cu opțiuni de [b
 [b]Informații stație[/b] (pasageri, vehicul, aglomerare), [b]panou rută vehicul[/b] (overlay configurabil în timp real), [b]culori/nume automate pentru linii[/b] pentru claritate, [b]tabel aeroportuar[/b] (sosiri/plecări).
 [h2]Curăță rețeaua[/h2]
 [b]Ștergere în masă a liniilor[/b] (după tip, confirmată), [b]plasarea stațiilor elevate[/b] și [b]deblocator[/b] pentru vehicule blocate.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: întrerupătoare principale, taste rapide, rescriere overlay destinație[/h2]
 Nu e un mod nou absorbit — control și întărire. [b]Șase întrerupătoare principale de funcții[/b] (Anti-Acumulare, Buget, Culoare Automată Linie, Afișaj Tren, Editor Vehicule, Stații & Gări): dezactivate implicit; dezactivarea unei blochează copiii săi și oprește patch-urile aferente. [b]Treisprezece taste rapide reconfigurabile[/b] (panou linii, anti-acumulare, copiază/lipire, editor vehicule, Flight Tracker, vehiculul anterior/următor și altele). [b]Afișarea destinației pasagerilor[/b] reconstruită ca un overlay curat pe hartă (cercuri + numărători); port vechi al panoului eliminat — încă [b]Experimental, dezactivat implicit[/b]. [b]Intercity Bus Control[/b] restaurează prefab-urile originale ale gării când este dezactivat. [b]Train Display[/b]: interval fix pe profil de performanță, dropdown domeniu (Selectat / Prima Persoană / Ambele), detectează First Person Camera - Continued. Siguranță thread-uri și întărire date de salvare; găsirea traseului Express Bus eșuează deschis. [b]Tab Compatibilitate[/b] listează moduri companion recomandate cu linkuri Workshop. Vehiculele Workshop marcate Placement.Procedural nu mai sunt ascunse din listele de vehicule. Changelog tehnic complet pe GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Abonează-te la [b]Harmony[/b], dezabonează-te de versiunile autonome, activeaz
 [h1]Stabilitate[/h1]
 Stabil. Bug de întreținere rezolvat; salvări deteriorate se repară automat. [b]Fă totuși backup salvărilor[/b]. La probleme, raportează [i]ce făceai[/i] și atașează:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Nu funcționează" singur nu poate fi diagnosticat.
+”Nu funcționează” singur nu poate fi diagnosticat.
 [hr][/hr]
 [h1]Sursă și credite[/h1]
 Cod sursă și changelog tehnic: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

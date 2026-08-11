@@ -10,7 +10,6 @@ namespace ImprovedPublicTransport
         public static event BuildingExtension.DepotRemoved OnDepotRemoved;
 
         private static Dictionary<ItemClassTriplet, HashSet<ushort>> _depotMap;
-        private static readonly ushort[] _depotBuffer = new ushort[128];
 
         public static void Init()
         {
@@ -99,40 +98,20 @@ namespace ImprovedPublicTransport
                 return new ushort[0];
             }
 
-            if (!_depotMap.TryGetValue(
-                    new ItemClassTriplet(transportInfo.GetService(), transportInfo.GetSubService(),
-                        transportInfo.GetClassLevel()),
-                    out HashSet<ushort> source)
-                || source == null
-                || source.Count == 0)
+            var result = new List<ushort>();
+            foreach (var source in _depotMap.Values)
             {
-                return new ushort[0];
-            }
-
-            // Manual filter — LINQ Where/ToArray allocated every GetClosestDepot / StartTransfer path.
-            var scratch = new ushort[source.Count];
-            var n = 0;
-            foreach (var d in source)
-            {
-                if (DepotUtil.IsValidDepot(d, transportInfo))
+                foreach (var depotId in source)
                 {
-                    scratch[n++] = d;
+                    if (DepotUtil.IsValidDepot(depotId, transportInfo) && !result.Contains(depotId))
+                    {
+                        result.Add(depotId);
+                    }
                 }
             }
 
-            if (n == 0)
-            {
-                return new ushort[0];
-            }
-
-            if (n == scratch.Length)
-            {
-                return scratch;
-            }
-
-            var result = new ushort[n];
-            System.Array.Copy(scratch, result, n);
-            return result;
+            result.Sort();
+            return result.ToArray();
             //we validate here to be compatible with MOM (if MOM sets max vehicle count later than this mod loads)
         }
 

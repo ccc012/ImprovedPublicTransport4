@@ -24,6 +24,7 @@ namespace ImprovedPublicTransport.UI
         private ushort _depot;
         private ushort _ticketPrice;
         private Color _color;
+        private TransportInfo _sourceInfo;
 
         /// <summary>
         /// Gets the active instance.
@@ -63,6 +64,7 @@ namespace ImprovedPublicTransport.UI
             _depot = CachedTransportLineData.GetDepot(transportLineID);
             _ticketPrice = Singleton<TransportManager>.instance.m_lines.m_buffer[transportLineID].m_ticketPrice;
             _color = Singleton<TransportManager>.instance.GetLineColor(transportLineID);
+            _sourceInfo = Singleton<TransportManager>.instance.m_lines.m_buffer[transportLineID].Info;
 
             HashSet<string> sourcePrefabs = CachedTransportLineData.GetPrefabs(transportLineID);
             _copiedPrefabs = sourcePrefabs != null ? new HashSet<string>(sourcePrefabs) : null;
@@ -197,25 +199,40 @@ namespace ImprovedPublicTransport.UI
 
         private void ApplyCopiedSettingsToLines(IEnumerable<ushort> lineIDs)
         {
+            ushort[] copiedLineIDs = lineIDs != null ? new List<ushort>(lineIDs).ToArray() : new ushort[0];
             int copiedVehicleCount = _targetVehicleCount;
             bool copiedBudgetControl = _budgetControl;
             ushort copiedDepot = _depot;
             ushort copiedTicketPrice = _ticketPrice;
             HashSet<string> copiedPrefabs = _copiedPrefabs != null ? new HashSet<string>(_copiedPrefabs) : null;
+            TransportInfo sourceInfo = _sourceInfo;
 
             Singleton<SimulationManager>.instance.AddAction(() =>
             {
-                foreach (ushort lineID in lineIDs)
+                var transportManager = Singleton<TransportManager>.instance;
+                if (transportManager == null || transportManager.m_lines.m_buffer == null)
                 {
-                    if (lineID == 0)
+                    return;
+                }
+
+                foreach (ushort lineID in copiedLineIDs)
+                {
+                    if (lineID == 0 || lineID >= transportManager.m_lines.m_size)
+                    {
+                        continue;
+                    }
+
+                    ref var line = ref transportManager.m_lines.m_buffer[lineID];
+                    if ((line.m_flags & TransportLine.Flags.Created) == 0 ||
+                        (line.m_flags & TransportLine.Flags.Deleted) != 0)
                     {
                         continue;
                     }
 
                     LineWatcher.instance?.MarkKnown(lineID);
 
-                    TransportInfo info = Singleton<TransportManager>.instance.m_lines.m_buffer[lineID].Info;
-                    if (info == null)
+                    TransportInfo info = line.Info;
+                    if (!SameTransportMode(sourceInfo, info))
                     {
                         continue;
                     }
@@ -227,11 +244,33 @@ namespace ImprovedPublicTransport.UI
                     CachedTransportLineData.SetBudgetControlState(lineID, copiedBudgetControl);
                     CachedTransportLineData.SetTargetVehicleCount(lineID, copiedVehicleCount);
                     CachedTransportLineData.SetDepot(lineID, targetDepot);
-                    CachedTransportLineData.SetPrefabs(lineID, copiedPrefabs != null ? new HashSet<string>(copiedPrefabs) : null);
-                    Singleton<TransportManager>.instance.m_lines.m_buffer[lineID].m_ticketPrice = copiedTicketPrice;
-                    Singleton<TransportManager>.instance.SetLineColor(lineID, _color);
+                    HashSet<string> validPrefabs = null;
+                    if (copiedPrefabs != null)
+                    {
+                        validPrefabs = new HashSet<string>();
+                        foreach (string name in copiedPrefabs)
+                        {
+                            VehicleInfo prefab = PrefabCollection<VehicleInfo>.FindLoaded(name);
+                            if (VehiclePrefabCatalog.IsCompatible(prefab, info))
+                            {
+                                validPrefabs.Add(name);
+                            }
+                        }
+                    }
+                    CachedTransportLineData.SetPrefabs(lineID, validPrefabs);
+                    line.m_ticketPrice = copiedTicketPrice;
+                    transportManager.SetLineColor(lineID, _color);
                 }
             });
+        }
+
+        private static bool SameTransportMode(TransportInfo source, TransportInfo target)
+        {
+            return source?.m_class != null && target?.m_class != null &&
+                   source.m_class.m_service == target.m_class.m_service &&
+                   source.m_class.m_subService == target.m_class.m_subService &&
+                   source.m_class.m_level == target.m_class.m_level &&
+                   source.m_transportType == target.m_transportType;
         }
 
         private static bool LineServesAnyBuilding(ushort lineID, HashSet<ushort> sourceBuildings)

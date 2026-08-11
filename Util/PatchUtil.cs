@@ -29,9 +29,10 @@ namespace ImprovedPublicTransport.Util
             MethodDefinition original,
             MethodDefinition prefix = null,
             MethodDefinition postfix = null,
-            MethodDefinition transpiler = null)
+            MethodDefinition transpiler = null,
+            MethodDefinition finalizer = null)
         {
-            if (prefix == null && postfix == null && transpiler == null)
+            if (prefix == null && postfix == null && transpiler == null && finalizer == null)
             {
                 throw new Exception(
                     $"{ShortModName}: prefix, postfix and transpiler are null for method {original.Type.FullName}.{original.MethodName}");
@@ -48,7 +49,8 @@ namespace ImprovedPublicTransport.Util
                 HarmonyInstance.Patch(methodInfo,
                     prefix == null ? null : new HarmonyMethod(GetPatch(prefix), before: prefix.Before, after: prefix.After, priority: prefix.Priority),
                     postfix == null ? null : new HarmonyMethod(GetPatch(postfix), before: postfix.Before, after: postfix.After, priority: postfix.Priority),
-                    transpiler == null ? null : new HarmonyMethod(GetPatch(transpiler), before: transpiler.Before, after: transpiler.After, priority: transpiler.Priority)
+                    transpiler == null ? null : new HarmonyMethod(GetPatch(transpiler), before: transpiler.Before, after: transpiler.After, priority: transpiler.Priority),
+                    finalizer == null ? null : new HarmonyMethod(GetPatch(finalizer), before: finalizer.Before, after: finalizer.After, priority: finalizer.Priority)
                 );
             }
             catch (Exception e)

@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Jeden mod místo patnácti.[/b] Plná kontrola nad linkami dopravy: velikost vozového parku, typy vozidel, zastávky, jízdné. Malé mody sjednoceny.
-[b]Verze 4.8.9[/b] · Sestaveno pro verzi hry 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Proč to existuje[/h1]
 Údržba dopravy vyrostla na [b]-42,000,000,000[/b] — dva mody každý samostatně měnící velikost vozového parku, přepisující se navzájem. Tento mod opravuje konflikt centralizací kontroly.
@@ -17,6 +17,8 @@ Nastavte cenu každého typu dopravy v panelu [b]Ekonomika[/b], s možnostmi [b]
 [b]Info o zastávce[/b] (cestující, vozidlo, zaplněnost), [b]panel trasy vozidla[/b] (živě konfigurovatelné překrytí), [b]automatické barvy/názvy linek[/b] pro přehlednost, [b]letištní odletová tabule[/b] (přílety/odlety).
 [h2]Vyčistěte svou síť[/h2]
 [b]Hromadné mazání linek[/b] (podle typu, s potvrzením), [b]umístění zvýšených zastávek[/b] a [b]uvolňovač[/b] pro uvízlá vozidla.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: hlavní spínače, klávesové zkrátky, přepsání překrytí cíle[/h2]
 Není to nový absorbovaný mod — kontrola a zpevnění. [b]Šest hlavních spínačů funkcí[/b] (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations): výchozí vypnuté; vypnutí jednoho zamkne jeho podřízené a zastaví související záplaty. [b]Tři přenastavitelné klávesové zkratky[/b] (panel linky, unbunching, kopírovat/vložit, editor vozidel, Flight Tracker, předchozí/další vozidlo a další). [b]Zobrazení cíle cestujících[/b] přestavěno jako čisté překrytí mapy (kruhy + počty); starý panel odstraněn — stále [b]Experimentální, výchozí vypnuté[/b]. [b]Intercity Bus Control[/b] obnoví původní prefaby stanic při zakázání. [b]Train Display[/b]: pevný interval podle profilu výkonu, rozbalovací seznam rozsahu (Vybrané / První osoba / Oba), detekuje First Person Camera - Continued. Zabezpečení vláken a zpevnění dat uložení; hledání cesty Express Bus selhává otevřeně. [b]Karta kompatibility[/b] uvádí doporučeně doprovodné mody s odkazy na Workshop. Vozidla z Workshop označená Placement.Procedural již nejsou skryta v seznamech vozidel. Úplný technický seznam změn na GitHubu.
 [hr][/hr]
@@ -37,7 +39,7 @@ Přihlaste se k [b]Harmony[/b], odpojte samostatné mody, povolte IPT4. Možnost
 [h1]Stabilita[/h1]
 Stabilní. Chybějící údržba opravena; poškozená uložení se automaticky opravují. [b]Přesto si zálohujte uložení[/b]. Při problémech nahlaste [i]co jste dělali[/i] a přiložte:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Nefunguje" samo o sobě nelze diagnostikovat.
+”Nefunguje” samo o sobě nelze diagnostikovat.
 [hr][/hr]
 [h1]Zdroj a zásluhy[/h1]
 Zdroj a technický seznam změn: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

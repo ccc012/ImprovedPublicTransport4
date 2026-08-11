@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Un mod au lieu de quinze.[/b] Contrôle total des lignes de transport : taille de la flotte, types de véhicules, arrêts, tarifs. Petits mods unifiés.
-[b]Version 4.8.9[/b] · Construit pour la version du jeu 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Pourquoi ça existe[/h1]
 La maintenance des transports a dérivé jusqu'à [b]-42 000 000 000[/b] — deux mods redimensionnant chacun les flottes indépendamment, s'écrasant mutuellement. Ce mod corrige le conflit en centralisant le contrôle.
@@ -17,6 +17,8 @@ Fixez le prix de chaque type de transport dans le panneau [b]Économie[/b], avec
 [b]Infos arrêt[/b] (passagers, véhicule, affluence), [b]panneau de route du véhicule[/b] (overlay configurable en direct), [b]couleurs/noms automatiques des lignes[/b] pour la clarté, [b]tableau des vols de l'aéroport[/b] (arrivées/départs).
 [h2]Nettoyez votre réseau[/h2]
 [b]Suppression en masse des lignes[/b] (par type, avec confirmation), [b]placement d'arrêts surélevés[/b] et [b]débloqueur[/b] pour les véhicules coincés.
+[h2]4.8.10: éditeur de véhicules, dépôts, tarifs et stabilité[/h2]
+Commandes de l’Éditeur de véhicules corrigées (#9). Régressions des passagers, véhicules, dépôts, profils et interfaces corrigées (#11/#12/#14/#16/#21). Catalogue, filtrage des dépôts, copie compatible et confirmations corrigés. Le coût d’itinéraire expérimental suit les voies de transport ; tarifs taxi et péage améliorés (#22). Vider avant le dépôt gère stations de taxis et IA Custom ; ferries/assets Update corrigés. Coréen et chinois simplifié mis à jour (PR #15). Polices sûres de la 4.8.9 conservées ; Train Display, cycle de vie, threads, limites, propriété et tests renforcés.
 [h2]4.8.9 : interrupteurs maîtres, raccourcis, overlay destinations[/h2]
 Contrôle et durcissement. [b]Six interrupteurs maîtres[/b] (off par défaut). [b]Treize raccourcis réassignables[/b]. Destinations passagers reconstruites en overlay carte (Experimental). Intercity restaure les prefabs à l'arrêt. Train Display : intervalle par profil. Onglet Compat. Changelog sur GitHub.
 [hr][/hr]

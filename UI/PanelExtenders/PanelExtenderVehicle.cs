@@ -794,14 +794,24 @@ namespace ImprovedPublicTransport.UI.PanelExtenders
 
     private void OnRemoveVehicleClick(UIComponent component, UIMouseEventParameter eventParam)
     {
-        SimulationManager.instance.AddAction(() =>
-        {
-          var lineId = WorldInfoCurrentLineIDQuery.Query(out var firstVehicle);
-            if (lineId == 0 || firstVehicle == 0)
-                return;
-            CachedTransportLineData.SetBudgetControlState(lineId, false);
-            TransportLineUtil.RemoveVehicle(lineId, firstVehicle, true);
-        });
+      var lineId = WorldInfoCurrentLineIDQuery.Query(out var firstVehicle);
+      if (lineId == 0 || firstVehicle == 0)
+        return;
+      SimulationManager.instance.AddAction(() =>
+      {
+        var transportManager = Singleton<TransportManager>.instance;
+        var vehicleManager = Singleton<VehicleManager>.instance;
+        if (transportManager == null || lineId >= transportManager.m_lines.m_size ||
+            (transportManager.m_lines.m_buffer[lineId].m_flags &
+             (TransportLine.Flags.Created | TransportLine.Flags.Deleted)) != TransportLine.Flags.Created ||
+            vehicleManager == null || firstVehicle >= vehicleManager.m_vehicles.m_size ||
+            vehicleManager.m_vehicles.m_buffer[firstVehicle].m_transportLine != lineId ||
+            (vehicleManager.m_vehicles.m_buffer[firstVehicle].m_flags &
+             (Vehicle.Flags.Created | Vehicle.Flags.Deleted)) != Vehicle.Flags.Created)
+          return;
+        CachedTransportLineData.SetBudgetControlState(lineId, false);
+        TransportLineUtil.RemoveVehicle(lineId, firstVehicle, true);
+      });
     }
 
     private void UpdateProgress()

@@ -68,6 +68,11 @@ public abstract partial class OptionsPanelBase : LiteContainer {
         FillKeyBindingPage(_keyBindingPage);
     }
 
+    public override void Update() {
+        base.Update();
+        OptionsPanelManager.Update();
+    }
+
     public sealed override void Awake() {
         base.Awake();
         size = OptionsPanelLayout.Size;

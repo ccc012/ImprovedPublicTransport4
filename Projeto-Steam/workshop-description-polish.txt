@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Jeden mod zamiast piętnastu.[/b] Pełna kontrola nad liniami transportu: wielkość floty, typy pojazdów, przystanki, opłaty. Małe mody połączone.
-[b]Wersja 4.8.9[/b] · Zbudowane dla wersji gry 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Dlaczego to istnieje[/h1]
 Konserwacja transportu wzrosła do [b]-42.000.000.000[/b] — dwa mody, każdy niezależnie zmieniający rozmiar floty, nadpisując się nawzajem. Ten mod naprawia konflikt poprzez scentralizowanie kontroli.
@@ -17,6 +17,8 @@ Cena każdego typu transportu w panelu [b]Gospodarka[/b], z opcjami [b]cen dzie�
 [b]Info przystanku[/b] (pasażerowie, pojazd, tłok), [b]panel trasy pojazdu[/b] (na żywo konfigurowalny overlay), [b]automatyczne kolory/nazwy linii[/b] dla przejrzystości, [b]tablica lotniskowa[/b] (przyloty/odloty).
 [h2]Posprzątaj sieć[/h2]
 [b]Masowe usuwanie linii[/b] (według typu, potwierdzone), [b]umieszczanie podwyższonych przystanków[/b] i [b]odblokowujący[/b] dla utkniętych pojazdów.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: główne przełącznice, skróty, przepisanie overlayu celu[/h2]
 Nie nowy wchłonięty mod — kontrola i utwardzanie. [b]Sześć głównych przełączników funkcji[/b] (Rozdzielanie, Budżet, Auto Kolor Linii, Wyświetlacz Pociągu, Edytor Pojazdów, Przystanki & Stacje): domyślnie wyłączone; wyłączenie jednego blokuje jego podfunkcje i zatrzymuje powiązane patche. [b]Trzynaście przypisywanych skrótów[/b] (panel linii, rozdzielanie, kopiuj/wklej, edytor pojazdów, Flight Tracker, poprzedni/następny pojazd i więcej). [b]Wyświetlanie celu pasażerów[/b] przepisane jako czysty overlay mapy (okręgi + liczby); stary port panelu usunięty — nadal [b]Eksperymentalne, domyślnie wyłączone[/b]. [b]Intercity Bus Control[/b] przywraca oryginalne prefabry stacji po wyłączeniu. [b]Train Display[/b]: stały interwał na profil wydajności, rozwijane menu zakresu (Wybrane / Pierwsza Osoba / Oba), wykrywa First Person Camera - Continued. Bezpieczeństwo wątków i utwardzanie danych zapisu; wyszukiwanie ścieżki Express Bus otwarcie otwarte. [b]Zakładka Kompatybilność[/b] wymienia rekomendowane mody towarzyszące z linkami Workshop. Pojazdy Workshop oznaczone Placement.Procedural nie są już ukrywane na listach pojazdów. Pełny techniczny changelog na GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Subskrybuj [b]Harmony[/b], wypisz się z wersji samodzielnych, włącz IPT4. Opc
 [h1]Stabilność[/h1]
 Stabilny. Bug konserwacji naprawiony; uszkodzone zapisy naprawiają się automatycznie. [b]Mimo to zrób kopię zapasową zapisów[/b]. Przy problemach zgłoś [i]co robiłeś[/i] i załącz:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Nie działa" samo w sobie nie może być zdiagnozowane.
+”Nie działa” samo w sobie nie może być zdiagnozowane.
 [hr][/hr]
 [h1]Źródło i podziękowania[/h1]
 Kod źródłowy i techniczny changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

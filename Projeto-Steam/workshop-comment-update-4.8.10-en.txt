@@ -1,0 +1,12 @@
+IPT4 4.8.10 is ready.
+
+Highlights:
+- Vehicle Editor controls and several passenger, vehicle, depot, profile, and UI regressions fixed.
+- Vehicle catalog, depot filtering, and line-copy compatibility corrected.
+- Experimental fare path cost follows public-transport lanes; taxi and toll behavior use configured fares.
+- Empty Before Depot supports taxi stands and Custom vehicle AIs; ferry and Update-prefixed asset names normalize safely.
+- Korean and Simplified Chinese updates from PR #15.
+- Safe 4.8.9 font approach retained; Train Display behavior corrected.
+- Expanded lifecycle, thread-safety, bounds, ownership, and regression checks.
+
+Path cost remains experimental and off unless enabled. Existing saves remain compatible.

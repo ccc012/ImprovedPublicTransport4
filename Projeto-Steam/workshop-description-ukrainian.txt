@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Один мод замість п'ятнадцяти.[/b] Повний контроль над транспортними лініями: розмір автопарку, типи транспорту, зупинки, тарифи. Малі моди об'єднані в один.
-[b]Версія 4.8.9[/b] · Зібрано для версії гри 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Чому це існує[/h1]
 Витрати на утримання транспорту злетіли до [b]-42 000 000 000[/b] — два моди незалежно змінювали розмір автопарку, перезаписуючи один одного. Цей мод усуває конфлікт, централізуючи керування.
@@ -17,6 +17,8 @@
 [b]Інформація про зупинку[/b] (пасажири, транспорт, заповненість), [b]панель маршруту транспорту[/b] (жива налаштовувана накладка), [b]автоматичні кольори/назви ліній[/b] для наочності, [b]табло рейсів аеропорту[/b] (прильоти/вильоти).
 [h2]Наведіть лад у мережі[/h2]
 [b]Масове видалення ліній[/b] (за типом, з підтвердженням), [b]розміщення піднятих зупинок[/b] та [b]інструмент вивільнення[/b] для застряглого транспорту.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: майстер-перемикачі, гарячі клавіші, overlay призначень[/h2]
 Керування та зміцнення. [b]Шість майстер-перемикачів[/b] (вимк. за замовчуванням). [b]Тринадцять перепризначуваних клавіш[/b]. Призначення пасажирів як overlay на мапі (Experimental). Intercity відновлює префаби. Train Display: інтервал за профілем. Вкладка Compat. Changelog на GitHub.
 [hr][/hr]

@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Един мод вместо петнадесет.[/b] Пълен контрол върху транзитните линии: размер на флот, типове превозни средства, спирки, такси. Малки модове обединени.
-[b]Версия 4.8.9[/b] · Създаден за версия на играта 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Защо съществува[/h1]
 Поддръжката на транзита достигна [b]-42,000,000,000[/b] — два модове, всеки от които преоразмерява флотовете независимо, презаписвайки един друг. Този мод поправя конфликта, като централизира контрола.
@@ -17,6 +17,8 @@
 [b]Информация за спирката[/b] (пътници, превозно средство, претовареност), [b]панел за маршрута на превозното средство[/b] (конфигурируем на живо), [b]автоматични цветове/имена на линии[/b] за яснота, [b]табло за полети на летището[/b] (пристиганния/тръгвания).
 [h2]Почистете мрежата си[/h2]
 [b]Масово изтриване на линии[/b] (по тип, с потвърждение), [b]поставяне на вдигнати спирки[/b] и [b]размразяч[/b] за заклещени превозни средства.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: главни превключватели, горещи клавиши, overlay на дестинации[/h2]
 Контрол и укрепване. [b]Шест главни превключвателя[/b] (изкл. по подразбиране). [b]Тринадесет преназначаеми клавиша[/b]. Дестинации на пътници като overlay на картата (Experimental). Intercity възстановява prefab-ите. Train Display: интервал по профил. Раздел Compat. Changelog в GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Advanced Stop Selection · Auto Line Budget · AutoLineColor · Better Train Boa
 [h1]Стабилност[/h1]
 Стабилен. Поправен е бъгът с изтичащата поддръжка; повредените запазени игри се възстановяват автоматично. [b]Направете резервно копие на запазените игри въпреки това[/b]. При проблеми, докладвайте [i]какво правехте[/i] и прикачете:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Не работи" само по себе си не може да бъде диагностициран.
+”Не работи” само по себе си не може да бъде диагностициран.
 [hr][/hr]
 [h1]Източник и признания[/h1]
 Източник и технически списък с промени: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

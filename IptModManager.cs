@@ -20,7 +20,7 @@ namespace ImprovedPublicTransport
 
         public override string ModName => "Improved Public Transport 4 (local fork)";
         public override string RowDescription => "Unified public transport management: fleet sizing, budgets, ticket prices, stops, unbunching and more.";
-        public override DateTime VersionDate { get; } = new(2026, 8, 2);
+        public override DateTime VersionDate { get; } = new(2026, 8, 11);
 
         // Declared here rather than via a compile constant so the channel is explicit in code and
         // does not depend on how the project happens to be built. The framework's default is Alpha,
@@ -106,6 +106,16 @@ namespace ImprovedPublicTransport
 
         protected override List<ChangelogCollection> GenerateChangelogs() => new()
         {
+            new ChangelogCollection(new Version(4, 8, 10), new DateTime(2026, 8, 11), autoGenerate: false)
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_10_1"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_10_2"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_10_3"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_10_4"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_10_5"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_10_6"))
+                .AddEntry(ChangelogFlag.Fixed, L("CHANGELOG_4_8_10_7"))
+                .AddEntry(ChangelogFlag.Updated, L("CHANGELOG_4_8_10_8"))
+            ,
             new ChangelogCollection(new Version(4, 8, 9), new DateTime(2026, 8, 7), autoGenerate: false)
                 .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_9_1"))
                 .AddEntry(ChangelogFlag.Added, L("CHANGELOG_4_8_9_2"))

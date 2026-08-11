@@ -34,15 +34,15 @@ PREVIEW = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "PreviewImage.jpg")
 
 CHANGENOTE = [
- u"Version 4.8.9.2 - Add Vehicle click debounce (issue #2)",
+ u"Version 4.8.10 - Vehicle editor, depots, fares, localization, stability",
  u"",
- u"- Limits Add/Remove Vehicle spam-clicks to 5 per second (0.2s gap).",
- u"- Resolves line ID on the UI thread before queueing sim work.",
- u"- Adds missing ZOOM_BUILDING tooltip translation.",
+ u"- Fixes Vehicle Editor controls and passenger, vehicle, depot, profile, and UI regressions.",
+ u"- Corrects vehicle catalog, depot filtering, and compatible line copying.",
+ u"- Improves Empty Before Depot, taxi stands, Custom vehicle AIs, ferries, and Update-prefixed assets.",
+ u"- Adds Korean and Simplified Chinese updates; corrects Train Display behavior.",
+ u"- Expands lifecycle, thread-safety, bounds, ownership, and regression checks.",
  u"",
- u"Note: the aggressive native font guard from 4.8.9.1 is NOT in this build",
- u"(it broke street-name glyphs and Play It - issue #3). Font handling is back",
- u"to the safer 4.8.9 behaviour.",
+ u"Fare path cost, taxi, and toll integration remains experimental and opt-in.",
 ]
 
 

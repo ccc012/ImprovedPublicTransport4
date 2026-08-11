@@ -44,7 +44,52 @@ namespace AlgernonCommons.Utils
 
             // Omit any package number, and trim off any trailing _Data.
             int index = prefabName.IndexOf('.');
-            return prefabName.Substring(index + 1).Replace("_Data", string.Empty);
+            string cleaned = prefabName.Substring(index + 1).Replace("_Data", string.Empty);
+            return StripUpdatePrefix(cleaned);
+        }
+
+        private static string StripUpdatePrefix(string name)
+        {
+            const string prefix = "Update";
+            if (name.Length <= prefix.Length || !name.StartsWith(prefix, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return name;
+            }
+
+            char separator = name[prefix.Length];
+            if (!IsUpdateSeparator(separator))
+            {
+                return name;
+            }
+
+            int start = prefix.Length;
+            while (start < name.Length && IsUpdateSeparator(name[start]))
+            {
+                ++start;
+            }
+
+            string rest = name.Substring(start);
+            if (rest.Length == 0 || !HasLetter(rest) || separator == ' ' && rest.IndexOf(' ') < 0)
+            {
+                return name;
+            }
+
+            return rest;
+        }
+
+        private static bool IsUpdateSeparator(char c) => c == ' ' || c == '_' || c == '-' || c == ':';
+
+        private static bool HasLetter(string value)
+        {
+            foreach (char c in value)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>

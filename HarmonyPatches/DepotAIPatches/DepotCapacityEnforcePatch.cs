@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using ColossalFramework;
+using ImprovedPublicTransport.HarmonyPatches.VehicleAIPatches;
 using ImprovedPublicTransport.Util;
 using UnityEngine;
 using Utils = ImprovedPublicTransport.Util.Utils;
@@ -405,7 +406,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.DepotAIPatches
                         try
                         {
                             ai.SetTransportLine(vehicleID, ref vehicle, 0);
-                            returned++;
+                            if (!EmptyBeforeDepotPatch.IsReturnPending(vehicleID))
+                            {
+                                returned++;
+                            }
                         }
                         catch (Exception ex)
                         {

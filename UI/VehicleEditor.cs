@@ -38,6 +38,8 @@ namespace ImprovedPublicTransport.UI
     private PublicTransportInfoViewPanel _publicTransportInfoViewPanel;
     private UIPanel _containerPanel;
     private UIPanel _rightSidePanel;
+    private UIButton _applyButton;
+    private UIButton _defaultButton;
     private UISprite _vehicleSprite;
     private UILabel _maintenanceCostLabel;
     private UILabel _maxSpeedLabel;
@@ -132,6 +134,7 @@ namespace ImprovedPublicTransport.UI
       else
         this.relativePosition = this._publicTransportInfoViewPanel.component.absolutePosition + new Vector3(this._publicTransportInfoViewPanel.component.size.x + 1f, 0.0f);
       this.SetTransportType(type, info);
+      this.UpdateButtonPositions();
     }
 
     private void CreatePanel()
@@ -233,9 +236,9 @@ namespace ImprovedPublicTransport.UI
       uiPanel1.autoLayoutDirection = LayoutDirection.Vertical;
       uiPanel1.autoLayoutPadding = new RectOffset(3, 3, 0, 0);
       uiPanel1.autoLayoutStart = LayoutStart.TopLeft;
-      uiPanel1.backgroundSprite = "InfoviewPanel";
-      uiPanel1.relativePosition = new Vector3(60f, 50f);
-      this._rightSidePanel = uiPanel1;
+       uiPanel1.backgroundSprite = "InfoviewPanel";
+       uiPanel1.relativePosition = new Vector3(60f, 50f);
+       this._rightSidePanel = uiPanel1;
       UIPanel uiPanel2 = uiPanel1.AddUIComponent<UIPanel>();
       uiPanel2.name = "CaptionPanel";
       uiPanel2.width = uiPanel2.parent.width - 6f;
@@ -254,7 +257,7 @@ namespace ImprovedPublicTransport.UI
       uiLabel1.position = new Vector3((float) ((double) uiPanel2.width / 2.0 - (double) uiPanel2.width / 2.0), (float) ((double) uiPanel2.height / 2.0 - 20.0));
       UIPanel uiPanel3 = uiPanel1.AddUIComponent<UIPanel>();
       string str1 = "RowContainer";
-      uiPanel3.name = str1;
+       uiPanel3.name = str1;
       double num1 = (double) uiPanel3.parent.width - 6.0;
       uiPanel3.width = (float) num1;
       double num2 = 271.0;
@@ -268,7 +271,7 @@ namespace ImprovedPublicTransport.UI
       int num5 = 1;
       uiPanel3.autoLayout = num5 != 0;
       string str2 = "GenericPanelWhite";
-      uiPanel3.backgroundSprite = str2;
+       uiPanel3.backgroundSprite = str2;
       Color32 color32 = new Color32((byte) 91, (byte) 97, (byte) 106, byte.MaxValue);
       uiPanel3.color = color32;
       UIPanel uiPanel4 = uiPanel3.AddUIComponent<UIPanel>();
@@ -549,7 +552,7 @@ namespace ImprovedPublicTransport.UI
       uiPanel11.autoLayoutPadding = rectOffset13;
       int num75 = 1;
       uiPanel11.autoLayout = num75 != 0;
-      UIButton button1 = UIUtils.CreateButton((UIComponent) uiPanel11);
+      UIButton button1 = UIUtils.CreateButton((UIComponent) this);
       string str29 = "Apply";
       button1.name = str29;
       string str30 = Localization.Get("VEHICLE_EDITOR_APPLY");
@@ -560,9 +563,12 @@ namespace ImprovedPublicTransport.UI
       button1.width = (float) num77;
       double num78 = 22.0;
       button1.height = (float) num78;
-      MouseEventHandler mouseEventHandler1 = new MouseEventHandler(this.OnApplyButtonClick);
+       button1.isInteractive = true;
+       button1.enabled = true;
+       this._applyButton = button1;
+       MouseEventHandler mouseEventHandler1 = new MouseEventHandler(this.OnApplyButtonClick);
       button1.eventClick += mouseEventHandler1;
-      UIButton button2 = UIUtils.CreateButton((UIComponent) uiPanel11);
+       UIButton button2 = UIUtils.CreateButton((UIComponent) this);
       string str31 = "Default";
       button2.name = str31;
       string str32 = Localization.Get("VEHICLE_EDITOR_DEFAULT");
@@ -573,8 +579,35 @@ namespace ImprovedPublicTransport.UI
       button2.width = (float) num80;
       double num81 = 22.0;
       button2.height = (float) num81;
-      MouseEventHandler mouseEventHandler2 = new MouseEventHandler(this.OnDefaultButtonClick);
-      button2.eventClick += mouseEventHandler2;
+       button2.isInteractive = true;
+       button2.enabled = true;
+       this._defaultButton = button2;
+       MouseEventHandler mouseEventHandler2 = new MouseEventHandler(this.OnDefaultButtonClick);
+       button2.eventClick += mouseEventHandler2;
+       this.UpdateButtonPositions();
+     }
+
+    private void UpdateButtonPositions()
+    {
+      if (this._applyButton == null || this._defaultButton == null)
+        return;
+      const float rightSideLeft = 60f;
+      const float rightSidePaddingLeft = 3f;
+      const float rowContainerPaddingLeft = 8f;
+      const float rightSideTop = 50f;
+      const float captionHeight = 30f;
+      const float spacerHeight = 4f;
+      const float assetRowHeight = 34f;
+      const float fieldRowsHeight = 5f * 30f;
+      const float buttonRowPaddingTop = 4f;
+      const float buttonWidth = 110f;
+      const float buttonSpacing = 6f;
+      float x = rightSideLeft + rightSidePaddingLeft + rowContainerPaddingLeft;
+      float y = rightSideTop + captionHeight + spacerHeight + assetRowHeight + fieldRowsHeight + buttonRowPaddingTop;
+      this._applyButton.relativePosition = new Vector3(x, y);
+      this._defaultButton.relativePosition = new Vector3(x + buttonWidth + buttonSpacing, y);
+      this._applyButton.BringToFront();
+      this._defaultButton.BringToFront();
     }
 
     private void ParentVisibilityChanged(UIComponent component, bool value)
@@ -585,6 +618,7 @@ namespace ImprovedPublicTransport.UI
       if (!this.isVisible)
         return;
       this.UpdatePosition();
+      this.UpdateButtonPositions();
     }
 
     private void ParentPositionChanged(UIComponent component, Vector2 value)
@@ -600,9 +634,16 @@ namespace ImprovedPublicTransport.UI
 
     private void OnCapacitySubmitted(UIComponent component, string text)
     {
-      if (this._selectedIndex <= -1 || this._selectedSubService == ItemClass.SubService.PublicTransportTaxi)
+      PrefabData[] prefabs = GetPrefabs();
+      if (this._selectedIndex < 0 || this._selectedIndex >= prefabs.Length)
         return;
-      PrefabData prefab = GetPrefabs()[this._selectedIndex];
+      this.OnCapacitySubmitted(component, text, prefabs[this._selectedIndex]);
+    }
+
+    private void OnCapacitySubmitted(UIComponent component, string text, PrefabData prefab)
+    {
+      if (this._selectedSubService == ItemClass.SubService.PublicTransportTaxi || prefab == null)
+        return;
       int carCount = prefab.CarCount;
       int int32 = Utils.ToInt32(text);
       int num1 = 0;
@@ -620,14 +661,17 @@ namespace ImprovedPublicTransport.UI
 
     private void OnApplyButtonClick(UIComponent component, UIMouseEventParameter eventParam)
     {
-      if (this._selectedIndex <= -1)
+      PrefabData[] prefabs = GetPrefabs();
+      if (this._selectedIndex < 0 || this._selectedIndex >= prefabs.Length)
+        return;
+      PrefabData prefab = prefabs[this._selectedIndex];
+      if (prefab == null)
         return;
       UITextField uiTextField1 = this._rightSidePanel.Find<UITextField>("Capacity");
       UITextField uiTextField2 = this._rightSidePanel.Find<UITextField>("MaintenanceCost");
       UITextField uiTextField4 = this._rightSidePanel.Find<UITextField>("MaxSpeed");
       UICheckBox uiCheckBox = this._rightSidePanel.Find<UICheckBox>("EngineOnBothEnds");
-      PrefabData prefab = GetPrefabs()[this._selectedIndex];
-      this.OnCapacitySubmitted(uiTextField1, uiTextField1.text);
+      this.OnCapacitySubmitted(uiTextField1, uiTextField1.text, prefab);
       int capacity = Utils.ToInt32(uiTextField1.text) / prefab.CarCount;
       int int32_1 = Utils.ToInt32(uiTextField2.text);
       int int32_3 = Utils.ToInt32(uiTextField4.text);
@@ -662,8 +706,19 @@ namespace ImprovedPublicTransport.UI
 
       private void OnDefaultButtonClick(UIComponent component, UIMouseEventParameter eventParam)
     {
-      if (this._selectedIndex > -1)
-        GetPrefabs()[this._selectedIndex].SetDefaults();
+      PrefabData[] prefabs = GetPrefabs();
+      if (this._selectedIndex < 0 || this._selectedIndex >= prefabs.Length)
+      {
+        this.UpdateBindings();
+        return;
+      }
+      PrefabData prefab = prefabs[this._selectedIndex];
+      if (prefab == null)
+      {
+        this.UpdateBindings();
+        return;
+      }
+      prefab.SetDefaults();
       this.UpdateBindings();
       try
       {
@@ -817,11 +872,14 @@ namespace ImprovedPublicTransport.UI
       UITextField uiTextField2 = this._rightSidePanel.Find<UITextField>("MaintenanceCost");
       UITextField uiTextField4 = this._rightSidePanel.Find<UITextField>("MaxSpeed");
       UICheckBox uiCheckBox = this._rightSidePanel.Find<UICheckBox>("EngineOnBothEnds");
-      if (this._selectedIndex > -1)
+      PrefabData[] prefabs = GetPrefabs();
+      PrefabData prefab = this._selectedIndex >= 0 && this._selectedIndex < prefabs.Length
+        ? prefabs[this._selectedIndex]
+        : null;
+      if (prefab != null)
       {
-        PrefabData prefab = GetPrefabs()[this._selectedIndex];
-        _vehicleSprite.atlas = prefab?.Info?.m_Atlas;
-        _vehicleSprite.spriteName = prefab?.Info?.m_Thumbnail;
+        _vehicleSprite.atlas = prefab.Info?.m_Atlas;
+        _vehicleSprite.spriteName = prefab.Info?.m_Thumbnail;
         
         uiTextField1.text = prefab.TotalCapacity.ToString();
         UITextField uiTextField5 = uiTextField2;
@@ -855,6 +913,7 @@ namespace ImprovedPublicTransport.UI
       catch
       {
       }
+      this.UpdateButtonPositions();
     }
 
     private void PopulateAssetDropDown(VehicleInfo selectedPrefab = null)

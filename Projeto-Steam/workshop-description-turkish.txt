@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]On beş mod yerine tek mod.[/b] Toplu taşıma hatları üzerinde tam kontrol: filo boyutu, araç türleri, duraklar, bilet fiyatları. Küçük modlar tek çatı altında birleşti.
-[b]Sürüm 4.8.9[/b] · Oyun sürümü 1.21.1-f9 için derlendi
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Bu mod neden var[/h1]
 Toplu taşıma bakım gideri [b]-42.000.000.000[/b] seviyesine fırladı — iki mod filoları birbirinden bağımsız boyutlandırıp birbirinin verisinin üzerine yazıyordu. Bu mod, kontrolü tek merkezde toplayarak çakışmayı çözer.
@@ -17,6 +17,8 @@ Her hat türü şunları kazanır: [b]filo kontrolü[/b] (elle veya bütçeye da
 [b]Durak bilgisi[/b] (yolcular, araç, doluluk), [b]araç güzergâh paneli[/b] (canlı, yapılandırılabilir katman), netlik için [b]otomatik hat renkleri/adları[/b], [b]havalimanı uçuş panosu[/b] (varış/kalkış).
 [h2]Ağınızı toparlayın[/h2]
 [b]Toplu hat silme[/b] (türe göre, onaylı), [b]yükseltilmiş durak yerleşimi[/b] ve sıkışan araçlar için [b]unstucker[/b].
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: ana anahtarlar, kısayollar, hedef overlay[/h2]
 Kontrol ve sertleştirme. [b]Altı ana anahtar[/b] (varsayılan kapalı). [b]On üç yeniden atanabilir kısayol[/b]. Yolcu hedefleri harita overlay (Experimental). Intercity kapanınca prefabları geri yükler. Train Display: profil aralığı. Compat sekmesi. Changelog GitHub'da.
 [hr][/hr]

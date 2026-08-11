@@ -46,9 +46,10 @@ namespace ImprovedPublicTransport.HarmonyPatches.TransportLinePatches
             }
 
             __result = PrefabCollection<VehicleInfo>.FindLoaded(name);
-            if (__result == null)
+            if (!VehiclePrefabCatalog.IsCompatible(__result, info))
             {
-                return true; // missing asset — vanilla may still pick a default
+                __result = null;
+                return true;
             }
 
             return false;

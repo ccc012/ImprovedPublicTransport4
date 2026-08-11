@@ -689,3 +689,11 @@ SETTINGS_FUTURE_LINEHISTORY Histórico de linhas (em breve)
 SETTINGS_FUTURE_LINEHISTORY_TIP Planejado: manter um registro das mudanças de cada linha ao longo do tempo para você ver como uma rota evoluiu. Ainda não disponível.
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 Os controles do Editor de Veículos voltaram a ficar visíveis e confiáveis, incluindo as ações Aplicar e Padrão (issue #9).
+CHANGELOG_4_8_10_2 Corrigidas regressões nas contagens de passageiros, ações de adicionar/remover veículos, seleção de garagem, perfis de configurações e fluxos relacionados da interface (issues #11, #12, #14, #16 e #21).
+CHANGELOG_4_8_10_3 Corrigidos o catálogo de veículos, a filtragem de garagens e a compatibilidade da cópia entre linhas; ações destrutivas em massa mantêm a janela de confirmação.
+CHANGELOG_4_8_10_4 O custo de tarifa no cálculo de rotas, ainda experimental, agora acompanha as faixas de transporte público de cada linha; demanda por táxi e pedágios usam as tarifas configuradas (issue #22).
+CHANGELOG_4_8_10_5 Esvaziar antes da garagem agora funciona com pontos de táxi e IAs de veículos Custom; balsas e outros assets com prefixo Update têm os nomes normalizados com segurança.
+CHANGELOG_4_8_10_6 Adicionadas atualizações em coreano e chinês simplificado do PR #15, mantendo sincronizados os aliases do idioma coreano.
+CHANGELOG_4_8_10_7 O tratamento de fontes permanece na abordagem segura da 4.8.9; corrigidos layout, escopo e atualização do Train Display.
+CHANGELOG_4_8_10_8 Adicionado hardening de ciclo de vida, threads, limites, propriedade e regressões, com verificações automatizadas ampliadas.

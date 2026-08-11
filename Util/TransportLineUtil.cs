@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using ColossalFramework;
 using ImprovedPublicTransport.Data;
+using ImprovedPublicTransport.HarmonyPatches.VehicleAIPatches;
 using ImprovedPublicTransport.ReverseDetours;
 
 namespace ImprovedPublicTransport.Util
@@ -157,6 +158,10 @@ namespace ImprovedPublicTransport.Util
 
             // Clear line assignment — vehicle AI then heads home to its depot/garage.
             info.m_vehicleAI.SetTransportLine(vehicleID, ref vehicle, (ushort)0);
+            if (EmptyBeforeDepotPatch.IsReturnPending(vehicleID))
+            {
+                return;
+            }
 
             // If the AI did not set GoingBack (some custom vehicle AIs), force a home return.
             if ((vehicle.m_flags & Vehicle.Flags.GoingBack) == 0

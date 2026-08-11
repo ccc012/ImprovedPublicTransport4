@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Ein Mod statt fünfzehn.[/b] Volle Kontrolle über Transit-Linien: Flottengröße, Fahrzeugtypen, Haltestellen, Fahrpreise. Kleine Mods vereint.
-[b]Version 4.8.9[/b] · Erstellt für Spielversion 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Warum es dieses Mod gibt[/h1]
 Die Transitarbeit祟te auf [b]-42.000.000.000[/b] — zwei Mods, die jeweils unabhängig die Flotten größenmäßig anpassen und sich gegenseitig überschreiben. Dieser Mod behebt den Konflikt durch zentrale Steuerung.
@@ -17,6 +17,8 @@ Preise für jeden Verkehrstyp im [b]Wirtschafts[/b]-Panel festlegen, mit [b]Tag/
 [b]Haltestellen-Info[/b] (Passagiere, Fahrzeug, Andrang), [b]Fahrzeugrouten-Panel[/b] (live konfigurierbares Overlay), [b]automatische Linienfarben/-namen[/b] für Klarheit, [b]Flughafen-Flugtafel[/b] (Ankünfte/Abflüge).
 [h2]Räume dein Netz auf[/h2]
 [b]Massenlöschung von Linien[/b] (nach Typ, bestätigt), [b]erhöhte Haltestellenplatzierung[/b] und [b]Entstörer[/b] für festgefahrene Fahrzeuge.
+[h2]4.8.10: fixes and stability[/h2]
+Vehicle Editor, passengers, vehicles, depots, line copy, experimental fares, taxi/tolls, Empty Before Depot, localization, Train Display, lifecycle, thread-safety, and tests updated.
 [h2]4.8.9: Hauptschalter, Tastenkürzel, Ziel-Neuschreibung[/h2]
 Kein neuer integrierter Mod — Steuerung und Stabilisierung. [b]Sechs Feature-Hauptschalter[/b] (Entflockung, Budget, Auto-Linienfarbe, Zuggesteuerung, Fahrzeug-Editor, Haltestellen & Stationen): standardmäßig aus; beim Ausschalten werden die Unterfunktionen gesperrt und zugehörige Patches gestoppt. [b]Drei neu belegbare Tastenkürzel[/b] (Linienpanel, Entflockung, Kopieren/Einfügen, Fahrzeug-Editor, Flug-Tracker, Vor/Zurück Fahrzeug und mehr). [b]Passagierziel-Anzeige[/b] als saubere Karten-Überlagerung neu geschrieben (Kreise + Anzahlen); altes Panel-Port entfernt — weiterhin [b]Experimentell, standardmäßig aus[/b]. [b]Intercity-Bus-Steuerung[/b] stellt Original-Station-Prefabs wieder her, wenn deaktiviert. [b]Zuganzeige[/b]: festes Intervall pro Leistungsprofil, Bereich-Auswahl (Ausgewählt / First Person / Beide), erkennt First Person Camera - Continued. Thread-Sicherheit und Speicherdaten-Stabilisierung; Express-Bus-Pfadfindung fährt offen. [b]Kompatibilitäts-Tab[/b] listet empfohlene Begleit-Mods mit Workshop-Links auf. Workshop-Fahrzeuge mit Placement.Procedural werden nicht mehr in Fahrzeuglisten ausgeblendet. Vollständiger technischer Changelog auf GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Abonnieren Sie [b]Harmony[/b], abmelden Sie Standalone-Versionen, aktivieren Sie
 [h1]Stabilität[/h1]
 Stabil. Wartungs-Laufwerks-Bug behoben; beschädigte Spielstände reparieren sich automatisch. [b]Sichere trotzdem deine Spielstände[/b]. Bei Problemen melde [i]was du getan hast[/i] und füge hinzu:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-„Funktioniert nicht" allein kann nicht diagnostiziert werden.
+„Funktioniert nicht” allein kann nicht diagnostiziert werden.
 [hr][/hr]
 [h1]Quelle und Danksagungen[/h1]
 Quellcode und technischer Changelog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

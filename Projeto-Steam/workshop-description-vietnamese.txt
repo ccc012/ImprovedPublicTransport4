@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Một mod thay cho mười lăm mod.[/b] Toàn quyền kiểm soát các tuyến giao thông: quy mô đội xe, loại phương tiện, trạm dừng, giá vé. Các mod nhỏ được hợp nhất.
-[b]Phiên bản 4.8.9[/b] · Xây dựng cho phiên bản game 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Tại sao mod này tồn tại[/h1]
 Chi phí bảo trì giao thông lao dốc xuống [b]-42.000.000.000[/b] — hai mod tự điều chỉnh quy mô đội xe một cách độc lập và ghi đè lẫn nhau. Mod này khắc phục xung đột bằng cách tập trung mọi quyền kiểm soát về một nơi.
@@ -17,6 +17,8 @@ Ba mức chống dồn ứ: [b]Tắt[/b] (vanilla), [b]Thận trọng[/b] (giãn
 [b]Thông tin trạm dừng[/b] (hành khách, phương tiện, mức đông đúc), [b]bảng lộ trình phương tiện[/b] (lớp phủ trực tiếp, tùy chỉnh được), [b]màu sắc/tên tuyến tự động[/b] cho dễ nhìn, [b]bảng chuyến bay sân bay[/b] (đến/đi).
 [h2]Dọn dẹp mạng lưới của bạn[/h2]
 [b]Xóa tuyến hàng loạt[/b] (theo loại, có xác nhận), [b]đặt trạm dừng trên cao[/b] và [b]unstucker[/b] cho phương tiện bị kẹt.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: công tắc chủ, phím tắt, overlay điểm đến[/h2]
 Điều khiển và cứng hóa. [b]Sáu công tắc chủ[/b] (mặc định tắt). [b]Mười ba phím tắt gán lại được[/b]. Điểm đến hành khách làm lại bằng overlay bản đồ (Experimental). Intercity khôi phục prefab khi tắt. Train Display: chu kỳ theo profile. Tab Compat. Changelog trên GitHub.
 [hr][/hr]

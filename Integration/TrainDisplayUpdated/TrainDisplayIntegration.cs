@@ -349,6 +349,24 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
             GUI.color = previous;
         }
 
+        private static void DrawDetailedStopMarker(Rect rect, int index, Color color, float opacity, float scale)
+        {
+            var ink = MultiplyAlpha(color, opacity);
+            var thickness = Mathf.Max(1f, 2f * scale);
+            if (index == 0)
+            {
+                var size = 7f * scale;
+                DrawSolidBox(new Rect(rect.x, rect.y + (rect.height - size) * 0.5f, size, size), ink);
+                return;
+            }
+
+            var x = rect.x + 3f * scale;
+            var top = rect.y + 2f * scale;
+            var height = Mathf.Max(thickness, rect.height - 5f * scale);
+            DrawSolidBox(new Rect(x, top, thickness, height), ink);
+            DrawSolidBox(new Rect(x, top + height - thickness, 5f * scale, thickness), ink);
+        }
+
         internal static void DrawOverlay(OverlayData data)
         {
             if (!data.HasContent)
@@ -577,9 +595,7 @@ namespace ImprovedPublicTransport.Integration.TrainDisplayUpdated
                     continue;
                 }
 
-                // Filled dot for where the vehicle is, then decreasing emphasis going forward.
-                var marker = i == 0 ? "●" : (i == 1 ? "→" : (i == 2 ? "↘" : "↓"));
-                GUI.Label(new Rect(contentLeft, bodyY, iconW, rowH), marker, _tinyStyle);
+                DrawDetailedStopMarker(new Rect(contentLeft, bodyY, iconW, rowH), i, lineColor, opacity, scale);
                 GUI.Label(new Rect(contentLeft + iconW, bodyY, contentW - iconW, rowH),
                     TruncateToLines(name, 1, 32), _stopLabelStyle);
                 bodyY += rowH;

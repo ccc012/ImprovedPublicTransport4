@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Egy mod tizenöt helyett.[/b] Teljes irányítás a tömegközlekedési vonalakon: flottaméret, járműtípusok, megállók, díjak. Kis modok egyesítve.
-[b]Verzió 4.8.9[/b] · Készült a 1.21.1-f9 játékverzióhoz
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Miért létezik[/h1]
 A közlekedés fenntartása [b]-42.000.000.000[/b]-ra robbant — két mod egymástól függetlenül állította azokat a flottákat, felül egymást. Ez a mod megoldja a konfliktust a vezérlés központosításával.
@@ -17,6 +17,8 @@ Díjazza az egyes közlekedési típusokat a [b]Gazdaság[/b] panelen, [b]nappal
 [b]Megálló információ[/b] (utasok, jármű, tömörülés), [b]jármű útvonal panel[/b] (élő konfigurálható overlay), [b]automatikus vonal-színek/nevek[/b] az átláthatóságért, [b]repülőtéri indulási tábla[/b] (érkezések/indulások).
 [h2]Tisztítsa meg a hálózatát[/h2]
 [b]Tömeges vonal törlés[/b] (típus szerint, megerősítve), [b]emelt megálló elhelyezés[/b] és [b]oldó[/b] beragadt járművekhez.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: főkapcsolók, billentyűk, cél overlay[/h2]
 Vezérlés és megkeményítés. [b]Hat főkapcsoló[/b] (alapból ki). [b]Tizenhárom újraállítható billentyű[/b]. Utas-célok tiszta map overlay (Experimental). Intercity visszaállítja a prefabokat. Train Display: profil intervallum. Compat fül. Changelog a GitHubon.
 [hr][/hr]
@@ -37,7 +39,7 @@ Iratkozzon fel a [b]Harmony[/b]-ra, iratkozzon le az önálló verziókról, eng
 [h1]Stabilitás[/h1]
 Stabil. Fenntartási robbanás bug javítva; sérült mentések automatikusan jódnak. [b]Készítsen biztonsági mentést mindenképpen[/b]. Problémáknál jelentse [i]mit csinált[/i] és csatolja:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-A „Nem működik" önmagában nem diagnosztható.
+A „Nem működik” önmagában nem diagnosztható.
 [hr][/hr]
 [h1]Forrás és elismerések[/h1]
 Forráskód és technikai változási napló: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

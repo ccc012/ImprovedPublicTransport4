@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Én mod i stedet for femten.[/b] Full kontroll over transportlinjer: flåtestørrelse, kjøretøytyper, stopp, priser. Små modder forent.
-[b]Version 4.8.9[/b] · Bygget for spillversjon 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Hvorfor dette finnes[/h1]
 Transportvedlikeholdet eskalerte til [b]-42,000,000,000[/b] — to modder som hver for seg endret flåtestørrelsen uavhengig, overskrev hverandre. Denne modden løser konflikten ved å sentralisere kontrollen.
@@ -17,6 +17,8 @@ Pris for hver transporttype i [b]Økonomi[/b]-panelet, med alternativer for [b]d
 [b]Stoppinfo[/b] (passasjerer, kjøretøy, trengsel), [b]kjøretøyrutepanel[/b] (direktekonfigurerbart overlegg), [b]automatiske linjefarger/navn[/b] for klarhet, [b]flyplassavistavle[/b] (ankomster/avreiser).
 [h2]Rydd opp i nettverket ditt[/h2]
 [b]Massesletting av linjer[/b] (etter type, bekreftet), [b]høye stoppplasseringer[/b], og [b]løsningsverktøy[/b] for fastlåste kjøretøy.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: hovedbrytere, hurtigtaster, omskriving av reisemåloverlegg[/h2]
 Ikke en ny absorbert mod — kontroll og herding. [b]Seks funksjonshovedbrytere[/b] (Ikke-klynking, Budsjett, Autolinjefarge, Togvisning, Kjøretøyredigerer, Stopp & Stasjoner): av som standard; slå av én låser barna og stopper relaterte patches. [b]Tretten tilordningsbare hurtigtaster[/b] (linjepanel, ikke-klynking, kopier/lim inn, kjøretøyredigerer, Flight Tracker, forrige/neste kjøretøy, og mer). [b]Passasjervisning av reisemål[/b] gjenoppbygget som et rent kartoverlegg (sirkler + antall); gammel panelport fjernet — fortsatt [b]Eksperimentelt, av som standard[/b]. [b]Intercity Bus Control[/b] gjenoppretter originale stasjonsprefabs når deaktivert. [b]Train Display[/b]: fast intervall per ytelsesprofil, område-rullegardin (Valgt / Førsteperson / Begge), oppdager First Person Camera - Continued. Trådsikkerhet og lagringsdataherding; Ekspressbuss-ruteberging feiler åpent. [b]Kompatibilitetskategorien[/b] viser anbefalte ledsagende medder med Workshop-lenker. Workshop-kjøretøy merket Placement.Procedural er ikke lenger skjult fra kjøretøylister. Full teknisk endringslogg på GitHub.
 [hr][/hr]

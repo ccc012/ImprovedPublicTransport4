@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Um mod em vez de quinze.[/b] Controlo total das linhas de transportes: tamanho da frota, tipos de veículos, paragens, tarifas. Pequenos mods unificados.
-[b]Versão 4.8.9[/b] · Criado para a versão do jogo 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Porque é que isto existe[/h1]
 A manutenção dos transportes disparou para [b]-42.000.000.000[/b] — dois mods a redimensionar frotas de forma independente, a sobrepor-se um ao outro. Este mod resolve o conflito centralizando o controlo.
@@ -17,6 +17,8 @@ Preço de cada tipo de transporte no painel [b]Economia[/b], com opções de [b]
 [b]Informação da paragem[/b] (passageiros, veículo, lotação), [b]painel de rota do veículo[/b] (sobreposição configurável em tempo real), [b]cores/nomes automáticos de linhas[/b] para clareza, [b]quadro de voos do aeroporto[/b] (chegadas/partidas).
 [h2]Limpe a sua rede[/h2]
 [b]Eliminação em massa de linhas[/b] (por tipo, confirmada), [b]colocação de paragens elevadas[/b] e [b]desbloqueador[/b] para veículos presos.
+[h2]4.8.10: editor de veículos, garagens, tarifas e estabilidade[/h2]
+Controles do Editor de Veículos corrigidos (#9). Corrigidas regressões de passageiros, veículos, garagens, perfis e interface (#11/#12/#14/#16/#21). Corrigidos catálogo, filtros de garagens, cópia compatível e confirmações. O custo de rota experimental segue vias de transporte; tarifas de táxi e pedágio melhoradas (#22). Esvaziar antes da garagem suporta pontos de táxi e IAs Custom; corrigidos ferries/assets Update. Coreano e chinês simplificado atualizados (PR #15). Mantida a fonte segura da 4.8.9; reforçados Train Display, ciclo de vida, threads, limites, propriedade e testes.
 [h2]4.8.9: interruptores mestre, atalhos, overlay de destinos[/h2]
 Controlo e endurecimento. [b]Seis interruptores mestre[/b] (off por omissão). [b]Treze atalhos reatribuíveis[/b]. Destinos de passageiros refeitos como overlay no mapa (Experimental). Intercity restaura prefabs ao desligar. Train Display: intervalo por perfil. Separador Compat. Changelog no GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Subscreva o [b]Harmony[/b], cancele a subscrição das versões autónomas, ativ
 [h1]Estabilidade[/h1]
 Estável. Bug de manutenção descontrolada corrigido; jogos guardados danificados reparam-se automaticamente. [b]Faça cópias de segurança dos jogos guardados à mesma[/b]. Em problemas, reporte [i]o que estava a fazer[/i] e anexe:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Não funciona" sozinho não pode ser diagnosticado.
+”Não funciona” sozinho não pode ser diagnosticado.
 [hr][/hr]
 [h1]Fonte e créditos[/h1]
 Código-fonte e changelog técnico: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

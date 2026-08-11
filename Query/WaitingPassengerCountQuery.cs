@@ -10,32 +10,54 @@ namespace ImprovedPublicTransport.Query
         private const float CacheSeconds = 0.5f;
         private const int CacheLimit = 1024;
         private static readonly Dictionary<ushort, CacheEntry> Cache = new Dictionary<ushort, CacheEntry>();
+        private static readonly object CacheLock = new object();
 
         public static void ClearCache()
         {
-            Cache.Clear();
+            lock (CacheLock)
+            {
+                Cache.Clear();
+            }
         }
 
         public static int Query(ushort currentStop, out ushort nextStop, out byte max)
         {
-            var now = Time.unscaledTime;
-            CacheEntry cached;
-            if (Cache.TryGetValue(currentStop, out cached) && now - cached.Time < CacheSeconds)
+            lock (CacheLock)
             {
-                nextStop = cached.NextStop;
-                max = cached.Max;
-                return cached.Count;
+                return QueryLocked(currentStop, out nextStop, out max);
             }
+        }
 
-            nextStop = TransportLine.GetNextStop(currentStop);
+        private static int QueryLocked(ushort currentStop, out ushort nextStop, out byte max)
+        {
+            nextStop = 0;
             max = 0;
-            if (currentStop == 0 || nextStop == 0)
+            var instance1 = Singleton<CitizenManager>.instance;
+            var instance2 = Singleton<NetManager>.instance;
+            if (instance1 == null || instance2 == null || instance1.m_instances.m_buffer == null
+                || instance1.m_citizenGrid == null || instance2.m_nodes.m_buffer == null
+                || currentStop == 0 || currentStop >= instance2.m_nodes.m_buffer.Length)
             {
                 return 0;
             }
 
-            var instance1 = Singleton<CitizenManager>.instance;
-            var instance2 = Singleton<NetManager>.instance;
+            var line = instance2.m_nodes.m_buffer[currentStop].m_transportLine;
+            nextStop = TransportLine.GetNextStop(currentStop);
+            if (line == 0 || nextStop == 0 || nextStop >= instance2.m_nodes.m_buffer.Length
+                || instance2.m_nodes.m_buffer[nextStop].m_transportLine != line)
+            {
+                return 0;
+            }
+
+            var now = Time.unscaledTime;
+            CacheEntry cached;
+            if (Cache.TryGetValue(currentStop, out cached) && cached.NextStop == nextStop
+                && cached.Line == line && now - cached.Time < CacheSeconds)
+            {
+                max = cached.Max;
+                return cached.Count;
+            }
+
             var position1 = instance2.m_nodes.m_buffer[currentStop].m_position;
             var position2 = instance2.m_nodes.m_buffer[nextStop].m_position;
             var num1 = Mathf.Max((int)((position1.x - 64.0) / 8.0 + 1080.0), 0);
@@ -51,6 +73,11 @@ namespace ImprovedPublicTransport.Query
                     var num7 = 0;
                     while (instanceID != 0)
                     {
+                        if (instanceID >= instance1.m_instances.m_buffer.Length)
+                        {
+                            break;
+                        }
+
                         int nextGridInstance = instance1.m_instances.m_buffer[instanceID].m_nextGridInstance;
                         ref var citizenInstance = ref instance1.m_instances.m_buffer[instanceID];
                         if ((citizenInstance.m_flags & CitizenInstance.Flags.WaitingTransport) != 0)
@@ -82,7 +109,7 @@ namespace ImprovedPublicTransport.Query
                 Cache.Clear();
             }
 
-            Cache[currentStop] = new CacheEntry(num6, nextStop, max, now);
+            Cache[currentStop] = new CacheEntry(num6, nextStop, line, max, now);
             return num6;
         }
 
@@ -90,13 +117,15 @@ namespace ImprovedPublicTransport.Query
         {
             internal readonly int Count;
             internal readonly ushort NextStop;
+            internal readonly ushort Line;
             internal readonly byte Max;
             internal readonly float Time;
 
-            internal CacheEntry(int count, ushort nextStop, byte max, float time)
+            internal CacheEntry(int count, ushort nextStop, ushort line, byte max, float time)
             {
                 Count = count;
                 NextStop = nextStop;
+                Line = line;
                 Max = max;
                 Time = time;
             }

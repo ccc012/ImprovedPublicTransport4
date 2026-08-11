@@ -690,3 +690,11 @@ SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 Los controles del Editor de vehículos vuelven a ser visibles y fiables, incluidas las acciones Aplicar y Predeterminado (issue #9).
+CHANGELOG_4_8_10_2 Corregidas regresiones en recuentos de pasajeros, acciones de añadir/quitar vehículos, selección de depósitos, perfiles de ajustes y flujos relacionados de la interfaz (issues #11, #12, #14, #16 y #21).
+CHANGELOG_4_8_10_3 Corregidos el catálogo de vehículos, el filtrado de depósitos y la compatibilidad al copiar líneas; las acciones masivas destructivas conservan su diálogo de confirmación.
+CHANGELOG_4_8_10_4 El coste de tarifa para las rutas, aún experimental, ahora sigue los carriles de transporte público de cada línea; la demanda de taxis y los peajes usan las tarifas configuradas (issue #22).
+CHANGELOG_4_8_10_5 Vaciar antes del depósito ahora admite paradas de taxi e IA de vehículos Custom; se normalizan de forma segura los nombres de ferris y otros assets con prefijo Update.
+CHANGELOG_4_8_10_6 Añadidas las actualizaciones de coreano y chino simplificado del PR #15, manteniendo sincronizados los alias del idioma coreano.
+CHANGELOG_4_8_10_7 Las fuentes mantienen el enfoque seguro de 4.8.9; corregidos el diseño, el alcance y la actualización de Train Display.
+CHANGELOG_4_8_10_8 Añadido endurecimiento de ciclo de vida, hilos, límites, propiedad y regresiones, con más comprobaciones automatizadas.

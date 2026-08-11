@@ -61,6 +61,8 @@ namespace ImprovedPublicTransport
           {
             CachedTransportLineData.SetLineDefaults(lineID);
             DepotUtil.AutoAssignLineDepot(lineID, out var position);
+            if (lines.m_buffer[(int) lineID].GetStop(0) == 0)
+              this._knownLines.Remove(lineID);
             if (ModSetting.Instance.ShowLineInfo &&
                 lines.m_buffer[(int) lineID].Info?.m_class?.m_service != ItemClass.Service.Disaster)
               WorldInfoPanel.Show<PublicTransportWorldInfoPanel>(position, new InstanceID()

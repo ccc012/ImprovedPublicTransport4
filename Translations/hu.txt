@@ -1,4 +1,4 @@
-﻿MOD_DESCRIPTION Továbbfejlesztett tömegközlekedés: vonalvezérlés, flotta, integrációk és egyebek.
+MOD_DESCRIPTION Továbbfejlesztett tömegközlekedés: vonalvezérlés, flotta, integrációk és egyebek.
 CURRENT_WEEK Aktuális hét
 LAST_WEEK ElÅ‘zÅ‘ hét
 AVERAGE Átlag
@@ -693,3 +693,11 @@ SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 Vehicle Editor controls are visible and reliable again, including the Apply and Default actions (issue #9).
+CHANGELOG_4_8_10_2 Fixed regressions in passenger counts, vehicle add/remove actions, depot selection, settings profiles, and related UI flows (issues #11, #12, #14, #16, and #21).
+CHANGELOG_4_8_10_3 Vehicle catalog, depot filtering, and line-copy compatibility were corrected; destructive bulk actions retain their confirmation modal.
+CHANGELOG_4_8_10_4 Experimental fare path cost now follows each line's public-transport lanes; taxi demand and toll behavior use configured fares (issue #22).
+CHANGELOG_4_8_10_5 Empty Before Depot now handles taxi stands and Custom vehicle AIs; ferry and other Update-prefixed asset names are normalized safely.
+CHANGELOG_4_8_10_6 Added Korean and Simplified Chinese updates from PR #15, with Korean locale aliases kept synchronized.
+CHANGELOG_4_8_10_7 Font handling remains on the safe 4.8.9 approach; Train Display layout, scope, and refresh behavior were corrected.
+CHANGELOG_4_8_10_8 Added lifecycle, thread-safety, bounds, ownership, and regression hardening with expanded automated checks.

@@ -19,6 +19,13 @@ public abstract partial class OptionsPanelBase {
         private ReusableList<ISettingsCard> _itemCards;
         
         public CSLModsCommon.Collections.IReadOnlyList<ISettingsCard> ItemCards => _itemCards;
+        public Action SettingChanged { get; set; }
+        public bool NotifySettingChanged { get; set; } = true;
+
+        private void InvokeSettingChanged(Action callback) {
+            callback?.Invoke();
+            if (NotifySettingChanged) SettingChanged?.Invoke();
+        }
 
         public override void Awake() {
             base.Awake();
@@ -102,7 +109,7 @@ public abstract partial class OptionsPanelBase {
             checkBox.CheckBoxIndicatorElement.SetStyle(StyleType.OptionPanelStyle);
             checkBox.IsChecked = isChecked;
             checkBox.Text = checkBoxText;
-            checkBox.CheckChanged += callback;
+            checkBox.CheckChanged += (c, v) => InvokeSettingChanged(() => callback?.Invoke(c, v));
             beforeLayoutAction?.Invoke(card);
             return card;
         }
@@ -240,7 +247,7 @@ public abstract partial class OptionsPanelBase {
             slider.MaxValue = maxValue;
             slider.StepSize = stepValue;
             slider.Value = defaultValue;
-            slider.ValueChanged += (_, v) => callback?.Invoke(v);
+            slider.ValueChanged += (_, v) => InvokeSettingChanged(() => callback?.Invoke(v));
             if (gradientStyle)
                 slider.SetGradientStyle();
             else
@@ -286,7 +293,7 @@ public abstract partial class OptionsPanelBase {
 
             card.Control.TextScale = 0.9f;
             card.Control.Value = defaultValue;
-            card.Control.EventValueChanged += (_, v) => callback?.Invoke(v);
+            card.Control.EventValueChanged += (_, v) => InvokeSettingChanged(() => callback?.Invoke(v));
             card.Control.SetStyle(StyleType.OptionPanelStyle);
             beforeLayoutAction?.Invoke(card);
             return card;
@@ -308,7 +315,7 @@ public abstract partial class OptionsPanelBase {
                 description,
                 () => {
                     logic = DropDownLogic<T>.Create().SetItems(items, isSelected);
-                    logic.LogicSelectionChanged += (_, v) => onChanged?.Invoke(v);
+                    logic.LogicSelectionChanged += (_, v) => InvokeSettingChanged(() => onChanged?.Invoke(v));
                     return logic;
                 },
                 popup => popup.BindItems<T, DropDownPopupButton>(logic.VisibleLabels, logic.Items),

@@ -16,6 +16,7 @@ public static class OptionsPanelManager {
     private static OptionsPanelBase Panel;
     private static UIPanel Container;
     private static SettingManager _settingManager;
+    private static bool _localeRefreshPending;
 
     private static SettingManager SettingManager => _settingManager ??= Domain.DefaultDomain.GetOrCreateManager<SettingManager>();
 
@@ -36,7 +37,13 @@ public static class OptionsPanelManager {
         }
     }
 
-    public static void OnLocaleChanged() => Refresh();
+    public static void OnLocaleChanged() => _localeRefreshPending = true;
+
+    public static void Update() {
+        if (!_localeRefreshPending) return;
+        _localeRefreshPending = false;
+        Refresh();
+    }
 
     // Rebuilds the panel from scratch so its controls pick up whatever changed in the underlying
     // settings object - e.g. after a "Reset to defaults" button mutates ModSetting directly, controls

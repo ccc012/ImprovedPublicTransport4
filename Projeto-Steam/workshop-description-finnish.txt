@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Yksi mod viiden sijasta.[/b] Täysi hallinta linjojen liikenteeseen: laivan kulkuneuvot, ajoneuvotyypit, pysäkit, hinnat. Pienet modit yhdistetty.
-[b]Versio 4.8.9[/b] · Rakennettu pelin versiolle 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Miksi tämä on olemassa[/h1]
 Liikenteen ylläpito nousi [b]-42 000 000 000[/b] — kaksi modia kukin kokoa laivastoja itsenäisesti, kirjoittamalla toistensa päälle. Tämä mod korjaa konfliktin keskittämällä hallinnan.
@@ -17,6 +17,8 @@ Anna hinta kullekin liikennetyypille [b]Talous[/b]-paneelissa, [b]päivä/yö hi
 [b]Pysäkitiedot[/b] (matkustajat, ajoneuvo, täyttöaste), [b]ajoneuvon reittipaneeli[/b] (reaaliaikainen konfiguroitava päällyste), [b]automaattiset linjan värit/nimet[/b] selkeyden vuoksi, [b]lentonäyttö[/b] (saapumiset/lähdöt).
 [h2]Siivoa verkostoasi[/h2]
 [b]Joukkopoisto linjoista[/b] (tyypin mukaan, vahvistettu), [b]korotetut pysäkit paikoittainen[/b] ja [b]irrottaja[/b] jumiutuneille ajoneuvoille.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: pääkytkimet, pikanäppäintä, määränpään päällysteen uudelleenkirjoitus[/h2]
 Ei uusi sulautettu mod — hallinta ja lujittaminen. [b]Kuusi ominaisuuden pääkytkintä[/b] (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations): oletuksena pois päältä; yhden sammuttaminen lukitsee sen lapset ja pysäyttää liittyvät korjaukset. [b]Kolmetoista uudelleen määriteltävää pikanäppäintä[/b] (linjapaneeli, unbunching, kopioi/liitä, ajoneuvon editori, Flight Tracker, edellinen/seuraava ajoneuvo ja lisää). [b]Matkustajan määränpään näyttö[/b] rakennettu uudeksi puhtaaksi karttapäällysteksi (ympyrät + lukumäärät); vanha paneeliliitin poistettu — edelleen [b]Kokeellinen, oletuksena pois päältä[/b]. [b]Intercity Bus Control[/b] palauttaa alkuperäiset asema-prefabit, kun se on poissa käytöstä. [b]Train Display[/b]: kiinteä väli suoritusprofiilin mukaan, näköala pudotusvalinta (Valittu / Ensimmäinen henkilö / Molemmat), havaitsee First Person Camera - Continued. Säikeiden turvallisuus ja tallennustietojen lujittaminen; Express Bus reitinetsintä epäonnistuu avoimesti. [b]Yhteensopivuus-välilehti[/b] luetteloi suositellut lisämodit Workshop-linkeillä. Workshop-ajoneuvot merkitty Placement.Procedural eivät ole enää piilotettu ajoneuvoluetteloista. Täydellinen tekninen muutosloki GitHubissa.
 [hr][/hr]
@@ -37,7 +39,7 @@ Tilaa [b]Harmony[/b], peru standalone-version tilaukset, ota IPT4 käyttöön. V
 [h1]Vakaus[/h1]
 Vakaa. Ylläpidon virhe korjattu; vahingoittuneet tallennukset korjaavat itsensä automaattisesti. [b]Varmuuskopioi tallennukset joka tapauksessa[/b]. Ongelmoita ilmoita [i]mitä olit tekemässä[/i] ja liitä:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Ei toimi" yksin ei voida diagnosoida.
+”Ei toimi” yksin ei voida diagnosoida.
 [hr][/hr]
 [h1]Lähde ja kunnianosoitukset[/h1]
 Lähde ja tekninen muutosloki: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

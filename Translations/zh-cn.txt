@@ -690,3 +690,11 @@ SETTINGS_OOC_DISABLE_DUMMY 关闭装饰性过境交通
 TRAINDISPLAY_LABEL_NAME 名称
 TRAINDISPLAY_NO_LINE 无线路
 TRAINDISPLAY_HIDDEN 已隐藏
+CHANGELOG_4_8_10_1 车辆编辑器控件恢复正常显示和可靠操作，包括应用与默认按钮（issue #9）。
+CHANGELOG_4_8_10_2 修复乘客计数、添加/移除车辆、车库选择、设置配置及相关界面流程的回归问题（issues #11、#12、#14、#16、#21）。
+CHANGELOG_4_8_10_3 修正车辆目录、车库筛选和线路复制兼容性；破坏性批量操作仍会显示确认对话框。
+CHANGELOG_4_8_10_4 实验性的票价寻路成本现在会沿每条线路的公共交通车道计算；出租车需求和收费站行为会采用配置票价（issue #22）。
+CHANGELOG_4_8_10_5 回库前清空乘客现已支持出租车站和Custom车辆AI；安全规范化渡轮及其他带Update前缀的资产名称。
+CHANGELOG_4_8_10_6 加入PR #15的韩语和简体中文更新，并保持韩语区域别名同步。
+CHANGELOG_4_8_10_7 字体处理继续采用4.8.9的安全方案；修正Train Display的布局、显示范围和刷新行为。
+CHANGELOG_4_8_10_8 加强生命周期、线程安全、边界、所有权与回归防护，并扩展自动检查。

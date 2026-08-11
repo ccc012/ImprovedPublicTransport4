@@ -693,3 +693,11 @@ SETTINGS_TRAINDISPLAY_SHOW_NEXTSTOP_TOOLTIP Show a prominent "next stop" readout
 TRAINDISPLAY_LABEL_NEXTSTOP Next stop
 
 ZOOM_BUILDING Zoom the camera to this line.
+CHANGELOG_4_8_10_1 車両エディターの操作部が再び正しく表示され、適用とデフォルトを含む各操作が確実に動作するようになりました（issue #9）。
+CHANGELOG_4_8_10_2 乗客数、車両の追加・削除、車庫選択、設定プロファイル、関連UIの不具合を修正しました（issues #11、#12、#14、#16、#21）。
+CHANGELOG_4_8_10_3 車両カタログ、車庫の絞り込み、路線コピーの互換性を修正し、破壊的な一括操作では確認ダイアログを維持します。
+CHANGELOG_4_8_10_4 実験的な運賃経路コストが各路線の公共交通レーンに沿うようになり、タクシー需要と通行料金にも設定運賃が反映されます（issue #22）。
+CHANGELOG_4_8_10_5 車庫前に空車化がタクシー乗り場とCustom車両AIに対応し、フェリーなどUpdate接頭辞付きアセット名を安全に正規化します。
+CHANGELOG_4_8_10_6 PR #15の韓国語・簡体字中国語更新を追加し、韓国語ロケールの別名を同期しました。
+CHANGELOG_4_8_10_7 フォント処理は4.8.9の安全な方式を維持し、Train Displayのレイアウト、表示範囲、更新動作を修正しました。
+CHANGELOG_4_8_10_8 ライフサイクル、スレッド安全性、境界、所有権、回帰対策を強化し、自動チェックを拡充しました。

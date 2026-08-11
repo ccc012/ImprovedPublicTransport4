@@ -18,6 +18,7 @@ namespace ImprovedPublicTransport.UI
         // Instance references.
         private static GameObject s_gameObject;
         private static PrefabPanel s_panel;
+        private static VehicleEditor s_vehicleEditor;
 
         // InfoPanel buttons.
         // This button is not used by IPT3 integration.
@@ -43,8 +44,11 @@ namespace ImprovedPublicTransport.UI
 
                     // Add panel and set parent transform.
                     s_panel = s_gameObject.AddComponent<PrefabPanel>();
-                    ImprovedPublicTransportMod.IptGameObject.GetComponent<VehicleEditor>().eventSettingsApplied +=
-                        OnEventSettingsApplied;
+                    s_vehicleEditor = ImprovedPublicTransportMod.IptGameObject?.GetComponent<VehicleEditor>();
+                    if (s_vehicleEditor != null)
+                    {
+                        s_vehicleEditor.eventSettingsApplied += OnEventSettingsApplied;
+                    }
 
                     // Show panel.
                     Panel.Show();
@@ -66,8 +70,11 @@ namespace ImprovedPublicTransport.UI
                 return;
             }
 
-            ImprovedPublicTransportMod.IptGameObject.GetComponent<VehicleEditor>().eventSettingsApplied -=
-                OnEventSettingsApplied;
+            if (s_vehicleEditor != null)
+            {
+                s_vehicleEditor.eventSettingsApplied -= OnEventSettingsApplied;
+                s_vehicleEditor = null;
+            }
             GameObject.Destroy(s_panel);
             GameObject.Destroy(s_gameObject);
 

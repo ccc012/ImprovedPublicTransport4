@@ -1,5 +1,4 @@
 using System;
-using System.Threading;
 using CitiesHarmony.API;
 using ColossalFramework;
 using ColossalFramework.UI;
@@ -10,6 +9,7 @@ using ImprovedPublicTransport.HarmonyPatches.NetManagerPatches;
 using ImprovedPublicTransport.HarmonyPatches.PublicTransportLineVehicleSelectorPatches;
 using ImprovedPublicTransport.HarmonyPatches.TransportLinePatches;
 using ImprovedPublicTransport.HarmonyPatches.TransportManagerPatches;
+using ImprovedPublicTransport.HarmonyPatches.TollBoothAIPatches;
 using ImprovedPublicTransport.HarmonyPatches.VehicleManagerPatches;
 using ImprovedPublicTransport.HarmonyPatches.XYZVehicleAIPatches;
 using ImprovedPublicTransport.HarmonyPatches.EconomyPanelPatches;
@@ -49,7 +49,7 @@ namespace ImprovedPublicTransport
         private GameObject _worldInfoPanel;
         // Keep in sync with AssemblyInfo / Workshop so log "Begin init version" matches the
         // assembly Version cities reports on load (was still "4.0.0-dev" long after 4.8.0).
-        private const string Version = "4.8.9.2"; // Add Vehicle click debounce only (issue #2); no native font guard
+        private const string Version = "4.8.10";
 
         public override void OnCreated(ICities.ILoading loading)
         {
@@ -83,6 +83,7 @@ namespace ImprovedPublicTransport
             }
 
             InGame = true;
+            Integration.TicketPriceCustomizer.TicketPathCost.BeginLevel();
             Query.WaitingPassengerCountQuery.ClearCache();
             try
             {
@@ -224,6 +225,8 @@ namespace ImprovedPublicTransport
                     TransportLineStopSafetyPatch.Apply();
 
                     EconomyPanelAwakePatch.Apply();
+                    IndividualTollPatch.Apply();
+                    Integration.TicketPriceCustomizer.TaxiProbabilityPatch.Apply();
 
                     VehiclePrefabs.Init();
                     HarmonyPatches.EconomyPanelPatches.EconomyCorruptionRepair
@@ -626,21 +629,7 @@ namespace ImprovedPublicTransport
             if (!InGame)
                 return;
             InGame = false;
-            using (var cleared = new ManualResetEvent(false))
-            {
-                Singleton<SimulationManager>.instance.AddAction(() =>
-                {
-                    try
-                    {
-                        Integration.TicketPriceCustomizer.TicketPathCost.ClearAllStopLaneCosts();
-                    }
-                    finally
-                    {
-                        cleared.Set();
-                    }
-                });
-                cleared.WaitOne();
-            }
+            Integration.TicketPriceCustomizer.TicketPathCost.EndLevel();
             Query.WaitingPassengerCountQuery.ClearCache();
             try
             {
@@ -795,6 +784,8 @@ namespace ImprovedPublicTransport
             GetDepotLevelsPatch.Undo();
             CanLeavePatch.Undo();
             EconomyPanelAwakePatch.Undo();
+            IndividualTollPatch.Undo();
+            Integration.TicketPriceCustomizer.TaxiProbabilityPatch.Undo();
             Integration.TicketPriceCustomizer.TicketPricesTab.Cleanup();
 
             Redirector<CommonBuildingAIReverseDetour>.Revert();

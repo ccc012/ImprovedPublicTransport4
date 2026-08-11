@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Ένας mod αντί για δεκαπέντε.[/b] Πλήρης έλεγχος γραμμών μεταφοράς: μέγεθος στόλου, τύποι οχημάτων, στάσεις, ναύλοι. Μικροί mod ενοποιημένοι.
-[b]Έκδοση 4.8.9[/b] · Κατασκευασμένο για έκδοση παιχνιδιού 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Γιατί υπάρχει αυτό[/h1]
 Η συντήρηση των μεταφορών ανέβηκε στο [b]-42.000.000.000[/b] — δύο mod που αλλάζουν το μέγεθος του στόλου ανεξάρτητα, αντικαθιστώντας ο ένας τον άλλο. Αυτό το mod διορθώνει τη σύγκρουση ενοποιώντας τον έλεγχο.
@@ -17,6 +17,8 @@
 [b]Πληροφορίες στάσης[/b] (επιβάτες, όχημα, συνωστισμός), [b]πίνακας διαδρομής οχήματος[/b] (ζωντανός παραμετροποιήσιμος overlay), [b]αυτόματα χρώματα/ονόματα γραμμών[/b] για σαφήνεια, [b]πίνακας πτήσεων αεροδρομίου[/b] (αφίξεις/αναχωρήσεις).
 [h2]Καθαρίστε το δίκτυό σας[/h2]
 [b]Μαζική διαγραφή γραμμών[/b] (ανά τύπο, με επιβεβαίωση), [b]τοποθέτηση ανυψωμένων στάσεων[/b] και [b]αποφυγή κόλληματος[/b] για κολλημένα οχήματα.
+[h2]4.8.10: vehicle editor, depots, fares, stability[/h2]
+Vehicle Editor controls fixed (#9). Passenger counts, add/remove vehicle, depot selection, profiles, and UI regressions fixed (#11/#12/#14/#16/#21). Vehicle catalog, depot filtering, compatible line copy, and confirmation modals corrected. Experimental path cost follows transit lanes; taxi and toll fares improved (#22). Empty Before Depot now supports taxi stands and Custom AIs; ferry/Update asset names fixed. Korean and Simplified Chinese updated (PR #15). Safe 4.8.9 font handling retained; Train Display fixed. Lifecycle, thread-safety, bounds, ownership, and tests hardened.
 [h2]4.8.9: κύριοι διακόπτες, πλήκτρα, overlay προορισμών[/h2]
 Έλεγχος και σκλήρυνση. [b]Έξι κύριοι διακόπτες[/b] (off από προεπιλογή). [b]Δεκατρία επαναδιαμορφώσιμα πλήκτρα[/b]. Προορισμοί επιβατών ως overlay χάρτη (Experimental). Intercity επαναφέρει prefabs. Train Display: διάστημα ανά προφίλ. Καρτέλα Compat. Changelog στο GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Advanced Stop Selection · Auto Line Budget · AutoLineColor · Better Train Boa
 [h1]Σταθερότητα[/h1]
 Σταθερό. Επιλύθηκε το bug διακυμάνσεων συντήρησης; κατεστραμμένες αποθηκεύσεις επιδιορθώνονται αυτόματα. [b]Κρατήστε αντίγραφο ασφαλείας ούτως ή άλλως[/b]. Σε προβλήματα, αναφέρετε [i]τι κάνατε[/i] και επισυνάψτε:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-Το „Δεν λειτουργεί" μόνο δεν μπορεί να διαγνωστεί.
+Το „Δεν λειτουργεί” μόνο δεν μπορεί να διαγνωστεί.
 [hr][/hr]
 [h1]Πηγή και ευχαριστίες[/h1]
 Πηγαίος κώδικας και τεχνικός κατάλογος αλλαγών: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

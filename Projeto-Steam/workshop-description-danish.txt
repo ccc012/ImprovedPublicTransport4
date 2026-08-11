@@ -1,7 +1,7 @@
 [img]https://i.imgur.com/8BfNPgj.png[/img]
 [h1]Improved Public Transport 4[/h1]
-[b]Ét mod i stedet for femten.[/b] Fuld kontrol over transit-linjer: flådestørrelse, køretøjstyper, stop, billetter. Små mods samlet.
-[b]Version 4.8.9[/b] · Bygget til spilversion 1.21.1-f9
+[b]One mod instead of fifteen.[/b] Real control over every transit line — fleet size, vehicle types, stops, fares — small transit mods folded in so they stop fighting.
+[b]Version 4.8.10[/b] · Built for game version 1.21.1-f9
 
 [h1]Hvorfor dette eksisterer[/h1]
 Transit-vedligehold eskalerede til [b]-42,000,000,000[/b] — to mods der hver især ændrede flådestørrelse uafhængigt og overskrev hinanden. Dette mod løser konflikten ved at centralisere kontrollen.
@@ -17,6 +17,8 @@ Angiv prisen for hver transporttype i [b]Økonomi[/b] panelet, med [b]dag/nat pr
 [b]Stopinfo[/b] (passagerer, køretøj, belægning), [b]køretøjsrutepanel[/b] (live konfigurerbart overlay), [b]automatiske linjefarver/navne[/b] for klarhed, [b]lufthavnsafgangstavle[/b] (ankomster/afgange).
 [h2]Ryd op i dit netværk[/h2]
 [b]Massesletning af linjer[/b] (efter type, bekræftet), [b]højdeplacerede stop[/b] og [b]ud-stucker[/b] for fastklemte køretøjer.
+[h2]4.8.10: fixes and stability[/h2]
+Vehicle Editor, passengers, vehicles, depots, line copy, experimental fares, taxi/tolls, Empty Before Depot, localization, Train Display, lifecycle, thread-safety, and tests updated.
 [h2]4.8.9: master switches, hotgenveje, destination overlay-omskrivning[/h2]
 Ikke et nyt absorberet mod — kontrol og hærdning. [b]Seks funktioners master switches[/b] (Unbunching, Budget, Auto Line Color, Train Display, Vehicle Editor, Stops & Stations): fra som standard; at slå én fra låser dens underliggende funktioner og stopper relaterede patches. [b]Tretten genvejstaster[/b] (linjepanel, unbunching, kopiér/indsæt, køretøjsredigering, Flight Tracker, forrige/næste køretøj, og mere). [b]Passagerdestinationsvisning[/b] genopbygget som et rent kortoverlay (cirkler + antal); gammel panelport fjernet — stadig [b]Eksperimentel, fra som standard[/b]. [b]Intercity Bus Control[/b] genopretter originale station prefabs når deaktiveret. [b]Train Display[/b]: fast interval pr. ydeevneprofil, omfangsrulleliste (Valgt / Første person / Begge), opdager First Person Camera - Continued. Trådsikkerhed og gem-data hærdning; Express Bus pathfinding fejler åbent. [b]Kompat-fane[/b] viser anbefalede ledsagende mods med Workshop-links. Workshop-køretøjer markeret Placement.Procedural er ikke længere skjult fra køretøjsliste. Fuld teknisk ændringslog på GitHub.
 [hr][/hr]
@@ -37,7 +39,7 @@ Abonner på [b]Harmony[/b], afmeld standalone-versioner, aktivér IPT4. Tilvalg:
 [h1]Stabilitet[/h1]
 Stabil. Kontrolleringsbug fikset; beskadigede gemte spil repareres automatisk. [b]Sikkerhedskopiér gemte spil alligevel[/b]. Ved problemer, rapportér [i]hvad du lavede[/i] og vedhæft:
 [code]%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Cities_Data\output_log.txt[/code]
-"Fungerer ikke" alene kan ikke diagnosticeres.
+”Fungerer ikke” alene kan ikke diagnosticeres.
 [hr][/hr]
 [h1]Kilder og anerkendelser[/h1]
 Kilde og teknisk ændringslog: [url=https://github.com/ccc012/ImprovedPublicTransport4]GitHub[/url]

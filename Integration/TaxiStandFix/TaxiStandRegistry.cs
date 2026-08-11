@@ -3,7 +3,6 @@
 // (Projeto/IPT4/03_LICENCIAMENTO_MODS_FONTE.md) only its high-level description may be used as
 // inspiration, never its code or implementation details. Everything below was written independently
 // against the vanilla TaxiStandAI/TaxiAI classes.
-using System;
 using System.Collections.Generic;
 using ColossalFramework;
 using UnityEngine;
@@ -32,13 +31,30 @@ namespace TaxiStandFix
             ushort best = 0;
             var bestSqrDistance = maxDistance * maxDistance;
 
-            for (var i = 0; i < StandBuildingIds.Count; i++)
+            for (var i = StandBuildingIds.Count - 1; i >= 0; i--)
             {
                 var buildingId = StandBuildingIds[i];
                 var building = buildingManager.m_buildings.m_buffer[buildingId];
-                // The building could have been bulldozed since the last refresh; a zeroed-out
-                // Info is the cheapest signal that the slot no longer holds a taxi stand.
-                if (building.Info == null)
+                var standAI = building.Info?.m_buildingAI as TaxiStandAI;
+                if (standAI == null || building.m_flags == Building.Flags.None)
+                {
+                    StandBuildingIds.RemoveAt(i);
+                    continue;
+                }
+
+                int count = 0;
+                int cargo = 0;
+                int capacity = 0;
+                int outside = 0;
+                standAI.CalculateGuestVehicles(
+                    buildingId,
+                    ref building,
+                    standAI.m_transportInfo.m_vehicleReason,
+                    ref count,
+                    ref cargo,
+                    ref capacity,
+                    ref outside);
+                if (count >= standAI.m_maxVehicleCount)
                 {
                     continue;
                 }

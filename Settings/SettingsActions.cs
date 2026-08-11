@@ -46,10 +46,16 @@ namespace ImprovedPublicTransport.Settings
         // Safe/Vanilla leave everything off (max compatibility). Recommended turns on IPT core only.
         // Realistic enables most absorbed integrations. SharedStop and Commuter Destination stay
         // opt-in even on Realistic (higher risk / not part of the core cascade).
+        public static void MarkCustomAndSave()
+        {
+            ModSetting.Instance.GameplayProfile = ModSetting.GameplayProfiles.Custom;
+            SaveSettings();
+        }
+
         public static void OnGameplayProfileChanged(ModSetting.GameplayProfiles profile)
         {
             var settings = ModSetting.Instance;
-            if (settings.GameplayProfile == profile)
+            if (settings.GameplayProfile == profile && profile != ModSetting.GameplayProfiles.Custom)
             {
                 return;
             }
@@ -306,7 +312,7 @@ namespace ImprovedPublicTransport.Settings
                     {
                         // Revert to vanilla prices when disabling
                         ImprovedPublicTransport.Integration.TicketPriceCustomizer.PriceCustomization.ResetToVanilla();
-                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.ClearAllStopLaneCosts();
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.RequestClear();
                         if (ImprovedPublicTransport.Util.Diagnostics.VerboseRuntimeLogs) Utils.Log("SettingsActions: TicketPriceCustomizer disabled and prices reset to vanilla.");
                     }
                 }
@@ -384,7 +390,7 @@ namespace ImprovedPublicTransport.Settings
                     }
                     else
                     {
-                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.ClearAllStopLaneCosts();
+                        ImprovedPublicTransport.Integration.TicketPriceCustomizer.TicketPathCost.RequestClear();
                     }
                 }
                 catch (Exception ex)
@@ -836,7 +842,7 @@ namespace ImprovedPublicTransport.Settings
             settings.MaxWaitingPassengersHotAirBalloon = 40;
             settings.MaxWaitingPassengersHelicopter = 40;
 
-            SaveSettings();
+            MarkCustomAndSave();
 
             // Rebuild the Options panel so the sliders show the reset values immediately, instead of
             // only picking them up the next time the panel is opened.
@@ -850,7 +856,7 @@ namespace ImprovedPublicTransport.Settings
             options.IntervalAggressionFactor = 52;
             options.DefaultVehicleCount = 0;
             options.SpawnTimeInterval = 10;
-            SaveSettings();
+            MarkCustomAndSave();
 
             if (ImprovedPublicTransportMod.InGame)
             {
@@ -881,7 +887,7 @@ namespace ImprovedPublicTransport.Settings
             s.DisablePlaneDummyTraffic = false;
             s.DisableShipDummyTraffic = false;
             s.EnableUnlimitedOutsideConnections = false;
-            SaveSettings();
+            MarkCustomAndSave();
             CSLModsCommon.Manager.OptionsPanelManager.Refresh();
         }
 
